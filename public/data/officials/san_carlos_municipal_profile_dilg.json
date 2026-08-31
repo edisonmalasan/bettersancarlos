@@ -1,0 +1,112 @@
+{
+  "source": "https://sancarlospangasinan.gov.ph/",
+  "profile": {
+    "lgu_name": "SAN CARLOS CITY",
+    "province": "PANGASINAN",
+    "region": "I",
+    "income_class": "2nd class",
+    "population_dilg": 48434,
+    "population_growth_rate": "1.29%",
+    "number_of_barangays": 44,
+    "number_of_households": 9263,
+    "land_area_sq_km": 180.95,
+    "major_lgu_products": "COCONUT",
+    "major_land_use": "AGRICULTURAL",
+    "date_created": "October 12, 1942",
+    "legal_basis": "Legislative Enactment by Congress"
+  },
+  "elected_officials": [
+    {
+      "name": "HON. JULIER C. RESUELLO",
+      "position": "City Mayor",
+      "term": "Current",
+      "party": "",
+      "contact": "(075) 600-1432"
+    },
+    {
+      "name": "HON. JOSERES S. RESUELLO",
+      "position": "City Vice Mayor",
+      "term": "Current",
+      "party": "",
+      "contact": "(075) 600-1432"
+    },
+    {
+      "name": "HON. ALBERTO S. CASTRO",
+      "position": "City Councilor",
+      "term": "Current",
+      "party": "",
+      "contact": ""
+    },
+    {
+      "name": "HON. CARMINA PANINGBATAN-RESUELLO",
+      "position": "City Councilor",
+      "term": "Current",
+      "party": "",
+      "contact": ""
+    },
+    {
+      "name": "HON. ORLANDO E. BANAAG JR.",
+      "position": "City Councilor",
+      "term": "Current",
+      "party": "",
+      "contact": ""
+    },
+    {
+      "name": "HON. CAREN JOYCE G. FRIAS",
+      "position": "City Councilor",
+      "term": "Current",
+      "party": "",
+      "contact": ""
+    },
+    {
+      "name": "HON. JOSHUA G. RESUELLO",
+      "position": "City Councilor",
+      "term": "Current",
+      "party": "",
+      "contact": ""
+    },
+    {
+      "name": "HON. CHRISTIAN CARLO A. CANCINO",
+      "position": "City Councilor",
+      "term": "Current",
+      "party": "",
+      "contact": ""
+    },
+    {
+      "name": "HON. WINSTON T. MILLORA",
+      "position": "City Councilor",
+      "term": "Current",
+      "party": "",
+      "contact": ""
+    },
+    {
+      "name": "HON. SAMUEL S. BANIQUED",
+      "position": "City Councilor",
+      "term": "Current",
+      "party": "",
+      "contact": ""
+    },
+    {
+      "name": "HON. JACK LESTER P. SORIANO",
+      "position": "City Councilor",
+      "term": "Current",
+      "party": "",
+      "contact": ""
+    },
+    {
+      "name": "HON. EDUARDO R. GARCIA",
+      "position": "City Councilor",
+      "term": "Current",
+      "party": "",
+      "contact": ""
+    }
+  ],
+  "contact": {
+    "office_address": "SAN CARLOS, PANGASINAN",
+    "fax_number": "062-331-2067",
+    "office_phone": "331-2067",
+    "mobile_phone": "(075) 600-1432",
+    "official_email": "CIO@sancarlospangasinan.com",
+    "official_website": "NONE"
+  }
+}

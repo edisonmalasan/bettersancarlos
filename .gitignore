@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+dist/
+.next/
+out/
+*.backup
+# Serwist generated service worker artifacts
+public/sw.js
+public/sw.js.map
+public/swe-worker-*
+.playwright-mcp

@@ -1,0 +1,360 @@
+{
+  "province": "PANGASINAN",
+  "municipality": "SAN CARLOS",
+  "region": "REGION I",
+  "term": "2023-2026",
+  "barangays": [
+    {
+      "barangay": "Acad",
+      "total_officials": 19,
+      "punong_barangay": "TEODORO VILLA HESIM nan",
+      "sk_chairperson": "WARREN VILLA HESIM nan",
+      "barangay_secretary": "MADELYN BATLAG ESTALLO nan",
+      "barangay_treasurer": "BIENVENIDO AMARO ESTALLO nan"
+    },
+    {
+      "barangay": "Alang-alang",
+      "total_officials": 10,
+      "punong_barangay": "NELSON SALAZAR LUCERO nan",
+      "sk_chairperson": "ELGIE MARK DIANO ACOSTA nan",
+      "barangay_secretary": "MYLA LUCERO DENOSTA nan",
+      "barangay_treasurer": "CRISELDA BARAQUIA MOLDE nan"
+    },
+    {
+      "barangay": "Alegria",
+      "total_officials": 10,
+      "punong_barangay": "Almer Sumalpong Cabatingan nan",
+      "sk_chairperson": null,
+      "barangay_secretary": "JAMYCA PRADIA MOÑASQUE nan",
+      "barangay_treasurer": "Joeven Cabatingan Godinez nan"
+    },
+    {
+      "barangay": "Anonang",
+      "total_officials": 20,
+      "punong_barangay": "RODRIGO ALIPIN DOLERO nan",
+      "sk_chairperson": "MARY JOY SALICANAN SABUELO nan",
+      "barangay_secretary": "rosalie munoz genobisa nan",
+      "barangay_treasurer": "BEN JAMES QUIAPO RUIZ nan"
+    },
+    {
+      "barangay": "Bagong Mandaue",
+      "total_officials": 18,
+      "punong_barangay": "rodrigo atetio pino nan",
+      "sk_chairperson": "MARK JOHN PAUL DELOESTE PENOTE nan",
+      "barangay_secretary": "girlie puno cenas nan",
+      "barangay_treasurer": "emelyn bagayo dragon nan"
+    },
+    {
+      "barangay": "Bagong Maslog",
+      "total_officials": 20,
+      "punong_barangay": "MARIANO CAPOY WAGAS JR",
+      "sk_chairperson": "SIMPLICIO CODENIERA ROSAL JR.",
+      "barangay_secretary": "ANGEL MAE ENGLISA LASCONIA nan",
+      "barangay_treasurer": "RUBINA ENGLISA DELOS SANTOS nan"
+    },
+    {
+      "barangay": "Bagong Oslob",
+      "total_officials": 20,
+      "punong_barangay": "ANASTACIO ONDIANO RONDRIQUE nan",
+      "sk_chairperson": "LL JAYME GOMO nan",
+      "barangay_secretary": "NORELYN MARQUEZ GOMO nan",
+      "barangay_treasurer": "DONALYN ALVIA LISACA nan"
+    },
+    {
+      "barangay": "Bagong Pitogo",
+      "total_officials": 20,
+      "punong_barangay": "ANNABEL BATION LAHOYLAHOY nan",
+      "sk_chairperson": "JELOU TURNO GOMEZ nan",
+      "barangay_secretary": "JOSEPHINE CASAS MAGLANGIT nan",
+      "barangay_treasurer": "MARIETES MAYOL SANDIMAN nan"
+    },
+    {
+      "barangay": "Baki",
+      "total_officials": 20,
+      "punong_barangay": "ALLAN YAMELO BORRES nan",
+      "sk_chairperson": "DESIREE SHANE CADUTDUT MIÑOZA nan",
+      "barangay_secretary": "JENNY LEMOSNERO CADUTDUT nan",
+      "barangay_treasurer": "VERGIE ARENA CANTILA nan"
+    },
+    {
+      "barangay": "Balas",
+      "total_officials": 20,
+      "punong_barangay": "RICHARD BENURO BRAVO SR",
+      "sk_chairperson": "CHRIS BRAVO BASINANG nan",
+      "barangay_secretary": "JUDITH UMBAO FLAVIANO nan",
+      "barangay_treasurer": "LIZELDA JAYME BASINANG nan"
+    },
+    {
+      "barangay": "Balide",
+      "total_officials": 20,
+      "punong_barangay": "Jesun SOsusco Chavez nan",
+      "sk_chairperson": "Jong Kie Flores Sanchez nan",
+      "barangay_secretary": "IMAE LOU LUNOR DUGADUGA nan",
+      "barangay_treasurer": "SHENA DELOSTRICO ESTINOPO nan"
+    },
+    {
+      "barangay": "Balintawak",
+      "total_officials": 20,
+      "punong_barangay": "NIXON BAGAYO ARIAS nan",
+      "sk_chairperson": "ARIEL ALDABA PELONGO nan",
+      "barangay_secretary": "rosita vega repulle nan",
+      "barangay_treasurer": "JESTER BAJAO VEGA nan"
+    },
+    {
+      "barangay": "Bayabas",
+      "total_officials": 20,
+      "punong_barangay": "DONATO PLAÑA PUAVIN nan",
+      "sk_chairperson": "joma christ perez alimanza nan",
+      "barangay_secretary": "nesanor samodal MENDOZA nan",
+      "barangay_treasurer": "ranil cole legarde nan"
+    },
+    {
+      "barangay": "Bemposa",
+      "total_officials": 20,
+      "punong_barangay": "Markel Armero Reformado nan",
+      "sk_chairperson": "KENT RYAN ARNILLA RULE nan",
+      "barangay_secretary": "Georjean Aporado Serios nan",
+      "barangay_treasurer": "Julieta Baclado Molejon nan"
+    },
+    {
+      "barangay": "Cabilinan",
+      "total_officials": 20,
+      "punong_barangay": "ADEMAR L QUIÑO nan",
+      "sk_chairperson": "JAY BOY EBO BANTASAN nan",
+      "barangay_secretary": "PEARLY BETACURA LAMBAYAN nan",
+      "barangay_treasurer": "JANICE MIRASOL BARBAJO nan"
+    },
+    {
+      "barangay": "Campo Uno",
+      "total_officials": 20,
+      "punong_barangay": "NARCISA RIVERA TALISIC nan",
+      "sk_chairperson": "JOVAN JAMES MANISAN AREGLO nan",
+      "barangay_secretary": "REZALINE MONTECALVO BACUS nan",
+      "barangay_treasurer": "ANALIZA BACUS MACASAOL nan"
+    },
+    {
+      "barangay": "Ceboneg",
+      "total_officials": 10,
+      "punong_barangay": null,
+      "sk_chairperson": "CHRISTY DERAMA BONGGO nan",
+      "barangay_secretary": null,
+      "barangay_treasurer": null
+    },
+    {
+      "barangay": "Commonwealth",
+      "total_officials": 20,
+      "punong_barangay": "Dante Sr. Caminade nan",
+      "sk_chairperson": "Janna Mae Teves Arante nan",
+      "barangay_secretary": "Angel Bahio Villamor nan",
+      "barangay_treasurer": "Myzel Curbo Luna nan"
+    },
+    {
+      "barangay": "Gubaan",
+      "total_officials": 20,
+      "punong_barangay": "EDGAR CLAROS PILAPIL nan",
+      "sk_chairperson": "BACUS nan CLAROS JOHN PAUL",
+      "barangay_secretary": "JANEVI PALMOSA PEPITO nan",
+      "barangay_treasurer": "PLACIDO TANTAN DELA PEÑA nan"
+    },
+    {
+      "barangay": "Inasagan",
+      "total_officials": 10,
+      "punong_barangay": "REYNALDO ARCHIVAL PIKIT nan",
+      "sk_chairperson": null,
+      "barangay_secretary": "ANNAMARIE DURENS SUYCANO nan",
+      "barangay_treasurer": "MARY ANN PAROJINOG CORTES nan"
+    },
+    {
+      "barangay": "Inroad",
+      "total_officials": 20,
+      "punong_barangay": "ROMULO ROMANILLES DE RODA nan",
+      "sk_chairperson": "JHUNA MAE BONTUYAN REGINO nan",
+      "barangay_secretary": "CRISTITA LOPEZ BONTUYAN nan",
+      "barangay_treasurer": "CHICEL TIPAC-TIPAC VILLARUBIA nan"
+    },
+    {
+      "barangay": "Kahayagan East",
+      "total_officials": 20,
+      "punong_barangay": "ZENERESA DOÑO CENIZA nan",
+      "sk_chairperson": "SHIENNA PEPITO MONDAS nan",
+      "barangay_secretary": "MARISSA PEPITO GORRE nan",
+      "barangay_treasurer": "GENE PEPITO JABAGAT nan"
+    },
+    {
+      "barangay": "Kahayagan West",
+      "total_officials": 20,
+      "punong_barangay": "VICTORIA MARTEL LABANGON nan",
+      "sk_chairperson": "OBRE MAYOL NUÑEZA nan",
+      "barangay_secretary": "LENIE VALLEJO BORRES nan",
+      "barangay_treasurer": "KIMBERLY CABALLERO COCA nan"
+    },
+    {
+      "barangay": "Kauswagan",
+      "total_officials": 20,
+      "punong_barangay": "OWEN AMARILLO GUIGAYOMA JR.",
+      "sk_chairperson": "RIVE-ANN HARABAY AÑOS nan",
+      "barangay_secretary": "LUCIA RABACCA BONAC nan",
+      "barangay_treasurer": "MARTINA CARWANA MISSION nan"
+    },
+    {
+      "barangay": "La Paz",
+      "total_officials": 20,
+      "punong_barangay": "Teofredo Gerundio Cabalhug Sr",
+      "sk_chairperson": "Jeson Saladaga Jaliga nan",
+      "barangay_secretary": "Liezel Opada Pescador nan",
+      "barangay_treasurer": "Merry Joy Guevarra Manco nan"
+    },
+    {
+      "barangay": "La Victoria",
+      "total_officials": 20,
+      "punong_barangay": "ROSITA RIVERA MACASLING nan",
+      "sk_chairperson": "FLOREN CARL MONTEBON FLORES nan",
+      "barangay_secretary": "MARY ANN YABOT PATIGAYON nan",
+      "barangay_treasurer": "MARITES BRUCE BOER nan"
+    },
+    {
+      "barangay": "Lantungan",
+      "total_officials": 11,
+      "punong_barangay": "ANTONIO HISOLER MENDEZ JR.",
+      "sk_chairperson": "arlfred jhun lugo gerundio nan",
+      "barangay_secretary": "EDNA MAURECIA LIM OYANIB nan",
+      "barangay_treasurer": "rene ventic tanudra nan"
+    },
+    {
+      "barangay": "Libertad",
+      "total_officials": 20,
+      "punong_barangay": "ROMEL MARTEL MASCUAL nan",
+      "sk_chairperson": "LADY ANGEL SOLON SONGCAL nan",
+      "barangay_secretary": "BIENVENIDA BUENAVISTA AGUILAR nan",
+      "barangay_treasurer": "EMELDA CALING DELA PEÑA nan"
+    },
+    {
+      "barangay": "Lintugop",
+      "total_officials": 20,
+      "punong_barangay": "WILMER GONZALES DELES nan",
+      "sk_chairperson": "DIANNE BARREDO SOCAYRE nan",
+      "barangay_secretary": "EMMA BELEN CABUSAS MAKIG-ANGAY nan",
+      "barangay_treasurer": "HELEN PANERIO SANTAMINA nan"
+    },
+    {
+      "barangay": "Lubid",
+      "total_officials": 20,
+      "punong_barangay": "VICTORIO LIGUTOM BETACURA nan",
+      "sk_chairperson": "BEN PENONSAN DUTOSME nan",
+      "barangay_secretary": "ANNIE VIE SOTIS DAG-UMAN nan",
+      "barangay_treasurer": "BEBIE APONDA LUMACTOD nan"
+    },
+    {
+      "barangay": "Maguikay",
+      "total_officials": 20,
+      "punong_barangay": "ENRIQUE MONERA CABUGUAS nan",
+      "sk_chairperson": "CHRISTINE LOUIE nan BUGTAY nan",
+      "barangay_secretary": "LOIDA DIGANG ORLANES nan",
+      "barangay_treasurer": "AIZA BAJAO FLORES nan"
+    },
+    {
+      "barangay": "Mahayahay",
+      "total_officials": 20,
+      "punong_barangay": "RAMIL ROMARATE DURANGPARANG nan",
+      "sk_chairperson": "RAYMART JUMARITO PITOGO nan",
+      "barangay_secretary": "AIZA CODENIERA SABANAL nan",
+      "barangay_treasurer": "GRACE PILAPIL PARANTAR nan"
+    },
+    {
+      "barangay": "Monte Alegre",
+      "total_officials": 20,
+      "punong_barangay": "JOSE MAGSAYO MANALIM nan",
+      "sk_chairperson": "GENECAR BUGTAI CANTALEJO nan",
+      "barangay_secretary": "HONEY MAE VALDEZ ROQUE nan",
+      "barangay_treasurer": "GENALYN APUYA MACARIOLA nan"
+    },
+    {
+      "barangay": "Montela",
+      "total_officials": 11,
+      "punong_barangay": "MERCEDITA GALEOS OPORTO nan",
+      "sk_chairperson": "RASHID TUBIO CANLOM nan",
+      "barangay_secretary": "BENITA TEJAMO DELA PEÑA nan",
+      "barangay_treasurer": "ALOJA MAE CAHANAP SUMALPONG nan"
+    },
+    {
+      "barangay": "Napo",
+      "total_officials": 20,
+      "punong_barangay": "CONCEPCION DURANGPARANG ABONG nan",
+      "sk_chairperson": "FEDEMAR BARANGGAN ABABA nan",
+      "barangay_secretary": "EMMA BARANGGAN ABABA nan",
+      "barangay_treasurer": "NIECTZCHIE MACRA BUTOHAN nan"
+    },
+    {
+      "barangay": "Panaghiusa",
+      "total_officials": 20,
+      "punong_barangay": "Oliver Lahoylahoy Velasco nan",
+      "sk_chairperson": "RIEL TANO MABANO nan",
+      "barangay_secretary": "Catherine Trazona Serapin nan",
+      "barangay_treasurer": "Agnes Cabatingan Ruiles nan"
+    },
+    {
+      "barangay": "Poblacion",
+      "total_officials": 15,
+      "punong_barangay": "MARK ANTONY MAYOL CENIZA nan",
+      "sk_chairperson": null,
+      "barangay_secretary": "VIRGINIA SANIAO BANAAG nan",
+      "barangay_treasurer": "EIMAH ALGAROME CABUSAS nan"
+    },
+    {
+      "barangay": "Resthouse",
+      "total_officials": 20,
+      "punong_barangay": "ROLAN OROT OPLE SR",
+      "sk_chairperson": "FEBBIE BONTILAO BOBO nan",
+      "barangay_secretary": "NERISSA COMAR ALBONIAN nan",
+      "barangay_treasurer": "JOCELYN BONBON JUEZAN nan"
+    },
+    {
+      "barangay": "Romarate",
+      "total_officials": 19,
+      "punong_barangay": "RUDY DONO MACABABAYAO nan",
+      "sk_chairperson": "CEDRIC MACABABAYAO CENIZA nan",
+      "barangay_secretary": "Almera Comision Tubio nan",
+      "barangay_treasurer": "Lanie Pareja Mascual nan"
+    },
+    {
+      "barangay": "San Jose",
+      "total_officials": 20,
+      "punong_barangay": "JIMMY CABUSAS FLORES nan",
+      "sk_chairperson": "BRIX CHRISTIAN NARVASA SEMENSE nan",
+      "barangay_secretary": "MARIE LOU MANATAD BATERSAL nan",
+      "barangay_treasurer": "NELGRACE BALIOS ASIGNAR nan"
+    },
+    {
+      "barangay": "San Juan",
+      "total_officials": 20,
+      "punong_barangay": "ALBERTO PROJO VILLAVERDE JR.",
+      "sk_chairperson": "MAFAITH DIANNE GIMANG CURBO nan",
+      "barangay_secretary": "MARIBETH GIMANG CURBO nan",
+      "barangay_treasurer": "Ana Anez Quinco nan"
+    },
+    {
+      "barangay": "Sapa Loboc",
+      "total_officials": 18,
+      "punong_barangay": "JESUS ARENA ESTENZO nan",
+      "sk_chairperson": "april mae dumaog bato nan",
+      "barangay_secretary": null,
+      "barangay_treasurer": null
+    },
+    {
+      "barangay": "Tagulalo",
+      "total_officials": 19,
+      "punong_barangay": "EDWARD GERRA ZAMBO nan",
+      "sk_chairperson": "BRENARD JAIRUS nan APOSTOL nan",
+      "barangay_secretary": "GLENN JANE DAAS GALLERUS nan",
+      "barangay_treasurer": "MERLYN SIMBAJON ANTIGA nan"
+    },
+    {
+      "barangay": "Waterfall",
+      "total_officials": 20,
+      "punong_barangay": "BELINDA BONTIA CENIZA nan",
+      "sk_chairperson": "Ian Ric Butaya Labangon nan",
+      "barangay_secretary": "REBECCA TOMENES ALCAIN nan",
+      "barangay_treasurer": "JUVIE LAGOS RODRIGO nan"
+    }
+  ]
+}

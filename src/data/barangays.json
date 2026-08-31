@@ -1,0 +1,180 @@
+{
+  "barangays": [
+    {
+      "name": "Acad",
+      "captain": "Kap. Teodoro Villa Hesim"
+    },
+    {
+      "name": "Alang-alang",
+      "captain": "Kap. Nelson Salazar Lucero"
+    },
+    {
+      "name": "Alegria",
+      "captain": "Kap. Almer Sumalpong Cabatingan"
+    },
+    {
+      "name": "Anonang",
+      "captain": "Kap. Rodrigo Alipin Dolero"
+    },
+    {
+      "name": "Bagong Mandaue",
+      "captain": "Kap. Rodrigo Atetio Pino"
+    },
+    {
+      "name": "Bagong Maslog",
+      "captain": "Kap. Mariano Capoy Wagas Jr"
+    },
+    {
+      "name": "Bagong Oslob",
+      "captain": "Kap. Anastacio Ondiano Rondrique"
+    },
+    {
+      "name": "Bagong Pitogo",
+      "captain": "Kap. Annabel Bation Lahoylahoy"
+    },
+    {
+      "name": "Baki",
+      "captain": "Kap. Allan Yamelo Borres"
+    },
+    {
+      "name": "Balas",
+      "captain": "Kap. Richard Benuro Bravo Sr"
+    },
+    {
+      "name": "Balide",
+      "captain": "Kap. Jesun Sosusco Chavez"
+    },
+    {
+      "name": "Balintawak",
+      "captain": "Kap. Nixon Bagayo Arias"
+    },
+    {
+      "name": "Bayabas",
+      "captain": "Kap. Donato Plaña Puavin"
+    },
+    {
+      "name": "Bemposa",
+      "captain": "Kap. Markel Armero Reformado"
+    },
+    {
+      "name": "Cabilinan",
+      "captain": "Kap. Ademar L Quiño"
+    },
+    {
+      "name": "Campo Uno",
+      "captain": "Kap. Narcisa Rivera Talisic"
+    },
+    {
+      "name": "Ceboneg",
+      "captain": "Kap. TBD"
+    },
+    {
+      "name": "Commonwealth",
+      "captain": "Kap. Dante Sr. Caminade"
+    },
+    {
+      "name": "Gubaan",
+      "captain": "Kap. Edgar Claros Pilapil"
+    },
+    {
+      "name": "Inasagan",
+      "captain": "Kap. Reynaldo Archival Pikit"
+    },
+    {
+      "name": "Inroad",
+      "captain": "Kap. Romulo Romanilles De Roda"
+    },
+    {
+      "name": "Kahayagan East",
+      "captain": "Kap. Zeneresa Doño Ceniza"
+    },
+    {
+      "name": "Kahayagan West",
+      "captain": "Kap. Victoria Martel Labangon"
+    },
+    {
+      "name": "Kauswagan",
+      "captain": "Kap. Owen Amarillo Guigayoma Jr."
+    },
+    {
+      "name": "La Paz",
+      "captain": "Kap. Teofredo Gerundio Cabalhug Sr"
+    },
+    {
+      "name": "La Victoria",
+      "captain": "Kap. Rosita Rivera Macasling"
+    },
+    {
+      "name": "Lantungan",
+      "captain": "Kap. Antonio Hisoler Mendez Jr."
+    },
+    {
+      "name": "Libertad",
+      "captain": "Kap. Romel Martel Mascual"
+    },
+    {
+      "name": "Lintugop",
+      "captain": "Kap. Wilmer Gonzales Deles"
+    },
+    {
+      "name": "Lubid",
+      "captain": "Kap. Victorio Ligutom Betacura"
+    },
+    {
+      "name": "Maguikay",
+      "captain": "Kap. Enrique Monera Cabuguas"
+    },
+    {
+      "name": "Mahayahay",
+      "captain": "Kap. Ramil Romarate Durangparang"
+    },
+    {
+      "name": "Monte Alegre",
+      "captain": "Kap. Jose Magsayo Manalim"
+    },
+    {
+      "name": "Montela",
+      "captain": "Kap. Mercedita Galeos Oporto"
+    },
+    {
+      "name": "Napo",
+      "captain": "Kap. Concepcion Durangparang Abong"
+    },
+    {
+      "name": "Panaghiusa",
+      "captain": "Kap. Oliver Lahoylahoy Velasco"
+    },
+    {
+      "name": "Poblacion",
+      "captain": "Kap. Mark Antony Mayol Ceniza"
+    },
+    {
+      "name": "Resthouse",
+      "captain": "Kap. Rolan Orot Ople Sr"
+    },
+    {
+      "name": "Romarate",
+      "captain": "Kap. Rudy Dono Macababayao N/a"
+    },
+    {
+      "name": "San Jose",
+      "captain": "Kap. Jimmy Cabusas Flores"
+    },
+    {
+      "name": "San Juan",
+      "captain": "Kap. Alberto Projo Villaverde Jr."
+    },
+    {
+      "name": "Sapa Loboc",
+      "captain": "Kap. Jesus Arena Estenzo"
+    },
+    {
+      "name": "Tagulalo",
+      "captain": "Kap. Edward Gerra Zambo"
+    },
+    {
+      "name": "Waterfall",
+      "captain": "Kap. Belinda Bontia Ceniza"
+    }
+  ]
+}

@@ -123,9 +123,13 @@ export default function Header() {
         <div className="logo-container">
           <Link href="/">
             <img
-              src="/assets/images/logo/better-san-carlos-logo.svg"
+              src="/assets/images/logo/better-san-carlos-logo.png"
               alt="Better San Carlos Logo"
               className="logo-img"
+              width="213"
+              height="92"
+              fetchPriority="high"
+              decoding="async"
             />
           </Link>
         </div>

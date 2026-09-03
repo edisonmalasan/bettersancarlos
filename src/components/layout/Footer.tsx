@@ -14,7 +14,7 @@ export default function Footer() {
       .then((data) => {
         if (data?.version) setVersion(data.version);
       })
-      .catch(() => { });
+      .catch(() => {});
   }, []);
 
   return (
@@ -23,9 +23,13 @@ export default function Footer() {
         <div className="footer-main-new">
           <div className="footer-brand">
             <img
-              src="/assets/images/logo/better-san-carlos-logo-white.svg"
+              src="/assets/images/logo/better-san-carlos-logo-white.png"
               alt="Better San Carlos logo"
               className="footer-logo"
+              width="241"
+              height="104"
+              loading="lazy"
+              decoding="async"
             />
             <p className="footer-tagline">{t('footer-tagline')}</p>
             <div className="footer-social-new hidden">
@@ -101,7 +105,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://sancarlospangasinan.gov.ph/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://sancarlospangasinan.gov.ph/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {t('footer-lgu-portal')}
                 </a>
               </li>

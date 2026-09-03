@@ -228,26 +228,33 @@ p {
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 12px 0;
+  padding: 8px 0;
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 48px;
+  height: 64px;
+  overflow: visible;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  padding: 4px 0;
+  padding: 2px 0 0;
+  align-self: flex-start;
+  overflow: visible;
+  flex-shrink: 0;
 }
 
 .logo-img {
-  height: 48px;
+  height: 92px;
   width: auto;
+  max-width: 260px;
+  display: block;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.18));
 }
 
 .wip-banner {
@@ -2561,8 +2568,10 @@ h6 {
 }
 
 .footer-logo {
-  height: 80px;
+  height: 104px;
   width: auto;
+  max-width: 260px;
+  display: block;
 }
 
 .footer-tagline {
@@ -3950,10 +3959,6 @@ cklist with Icons - Proper Indentation */
   background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-info) 100%);
   border-radius: 4px;
   transition: width 0.8s ease;
-}
-
-.barangay-item-row[data-width] .barangay-bar {
-  width: attr(data-width %);
 }
 
 /* Set bar widths via CSS */

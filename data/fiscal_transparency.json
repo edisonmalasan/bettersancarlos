@@ -1,9 +1,49 @@
 {
-  "_schema_version": "1.0",
-  "_status": "draft",
-  "_source": "Bureau of Local Government Finance (BLGF) / LGU San Carlos Budget Office",
-  "_note": "Awaiting official fiscal data",
-  "municipality": "San Carlos",
-  "province": "Pangasinan",
-  "fiscal_years": []
+    "_schema_version":  "1.1",
+    "_status":  "verified",
+    "_source":  "Bureau of Local Government Finance (BLGF) via PhilAtlas - Annual Regular Income (locally sourced revenue + IRA + other national tax shares)",
+    "_note":  "Most recent verified series ends FY2016. Newer fiscal years (2017-2025) require BLGF/COA extraction - see research/transparency/26-09-budget.md.",
+    "municipality":  "San Carlos City",
+    "province":  "Pangasinan",
+    "fiscal_years":  [
+                         {
+                             "year":  2009,
+                             "annual_regular_income":  381525864.87
+                         },
+                         {
+                             "year":  2010,
+                             "annual_regular_income":  416990053.15,
+                             "change_pct":  9.3
+                         },
+                         {
+                             "year":  2011,
+                             "annual_regular_income":  450082316.84,
+                             "change_pct":  7.94
+                         },
+                         {
+                             "year":  2012,
+                             "annual_regular_income":  405855329.44,
+                             "change_pct":  -9.83
+                         },
+                         {
+                             "year":  2013,
+                             "annual_regular_income":  437343132.12,
+                             "change_pct":  7.76
+                         },
+                         {
+                             "year":  2014,
+                             "annual_regular_income":  488728759.18,
+                             "change_pct":  11.75
+                         },
+                         {
+                             "year":  2015,
+                             "annual_regular_income":  556986655.39,
+                             "change_pct":  13.97
+                         },
+                         {
+                             "year":  2016,
+                             "annual_regular_income":  606804968.75,
+                             "change_pct":  8.94
+                         }
+                     ]
 }

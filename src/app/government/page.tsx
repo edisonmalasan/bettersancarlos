@@ -151,7 +151,7 @@ export default function GovernmentPage() {
                             Barangays of San Carlos
                         </h3>
                         <p className="mb-4" style={{ color: 'var(--color-text-light)' }}>
-                            44 Barangays serving our community
+                            {barangays.length} Barangays serving our community
                         </p>
                     </div>
 

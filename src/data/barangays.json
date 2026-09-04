@@ -1,180 +1,348 @@
-{
-  "barangays": [
-    {
-      "name": "Acad",
-      "captain": "Kap. Teodoro Villa Hesim"
-    },
-    {
-      "name": "Alang-alang",
-      "captain": "Kap. Nelson Salazar Lucero"
-    },
-    {
-      "name": "Alegria",
-      "captain": "Kap. Almer Sumalpong Cabatingan"
-    },
-    {
-      "name": "Anonang",
-      "captain": "Kap. Rodrigo Alipin Dolero"
-    },
-    {
-      "name": "Bagong Mandaue",
-      "captain": "Kap. Rodrigo Atetio Pino"
-    },
-    {
-      "name": "Bagong Maslog",
-      "captain": "Kap. Mariano Capoy Wagas Jr"
-    },
-    {
-      "name": "Bagong Oslob",
-      "captain": "Kap. Anastacio Ondiano Rondrique"
-    },
-    {
-      "name": "Bagong Pitogo",
-      "captain": "Kap. Annabel Bation Lahoylahoy"
-    },
-    {
-      "name": "Baki",
-      "captain": "Kap. Allan Yamelo Borres"
-    },
-    {
-      "name": "Balas",
-      "captain": "Kap. Richard Benuro Bravo Sr"
-    },
-    {
-      "name": "Balide",
-      "captain": "Kap. Jesun Sosusco Chavez"
-    },
-    {
-      "name": "Balintawak",
-      "captain": "Kap. Nixon Bagayo Arias"
-    },
-    {
-      "name": "Bayabas",
-      "captain": "Kap. Donato Plaña Puavin"
-    },
-    {
-      "name": "Bemposa",
-      "captain": "Kap. Markel Armero Reformado"
-    },
-    {
-      "name": "Cabilinan",
-      "captain": "Kap. Ademar L Quiño"
-    },
-    {
-      "name": "Campo Uno",
-      "captain": "Kap. Narcisa Rivera Talisic"
-    },
-    {
-      "name": "Ceboneg",
-      "captain": "Kap. TBD"
-    },
-    {
-      "name": "Commonwealth",
-      "captain": "Kap. Dante Sr. Caminade"
-    },
-    {
-      "name": "Gubaan",
-      "captain": "Kap. Edgar Claros Pilapil"
-    },
-    {
-      "name": "Inasagan",
-      "captain": "Kap. Reynaldo Archival Pikit"
-    },
-    {
-      "name": "Inroad",
-      "captain": "Kap. Romulo Romanilles De Roda"
-    },
-    {
-      "name": "Kahayagan East",
-      "captain": "Kap. Zeneresa Doño Ceniza"
-    },
-    {
-      "name": "Kahayagan West",
-      "captain": "Kap. Victoria Martel Labangon"
-    },
-    {
-      "name": "Kauswagan",
-      "captain": "Kap. Owen Amarillo Guigayoma Jr."
-    },
-    {
-      "name": "La Paz",
-      "captain": "Kap. Teofredo Gerundio Cabalhug Sr"
-    },
-    {
-      "name": "La Victoria",
-      "captain": "Kap. Rosita Rivera Macasling"
-    },
-    {
-      "name": "Lantungan",
-      "captain": "Kap. Antonio Hisoler Mendez Jr."
-    },
-    {
-      "name": "Libertad",
-      "captain": "Kap. Romel Martel Mascual"
-    },
-    {
-      "name": "Lintugop",
-      "captain": "Kap. Wilmer Gonzales Deles"
-    },
-    {
-      "name": "Lubid",
-      "captain": "Kap. Victorio Ligutom Betacura"
-    },
-    {
-      "name": "Maguikay",
-      "captain": "Kap. Enrique Monera Cabuguas"
-    },
-    {
-      "name": "Mahayahay",
-      "captain": "Kap. Ramil Romarate Durangparang"
-    },
-    {
-      "name": "Monte Alegre",
-      "captain": "Kap. Jose Magsayo Manalim"
-    },
-    {
-      "name": "Montela",
-      "captain": "Kap. Mercedita Galeos Oporto"
-    },
-    {
-      "name": "Napo",
-      "captain": "Kap. Concepcion Durangparang Abong"
-    },
-    {
-      "name": "Panaghiusa",
-      "captain": "Kap. Oliver Lahoylahoy Velasco"
-    },
-    {
-      "name": "Poblacion",
-      "captain": "Kap. Mark Antony Mayol Ceniza"
-    },
-    {
-      "name": "Resthouse",
-      "captain": "Kap. Rolan Orot Ople Sr"
-    },
-    {
-      "name": "Romarate",
-      "captain": "Kap. Rudy Dono Macababayao N/a"
-    },
-    {
-      "name": "San Jose",
-      "captain": "Kap. Jimmy Cabusas Flores"
-    },
-    {
-      "name": "San Juan",
-      "captain": "Kap. Alberto Projo Villaverde Jr."
-    },
-    {
-      "name": "Sapa Loboc",
-      "captain": "Kap. Jesus Arena Estenzo"
-    },
-    {
-      "name": "Tagulalo",
-      "captain": "Kap. Edward Gerra Zambo"
-    },
-    {
-      "name": "Waterfall",
-      "captain": "Kap. Belinda Bontia Ceniza"
-    }
-  ]
+﻿{
+    "barangays":  [
+                      {
+                          "name":  "Abanon",
+                          "captain":  "Juan C. Paningbatan"
+                      },
+                      {
+                          "name":  "Agdao",
+                          "captain":  "Ana Marie Arguell"
+                      },
+                      {
+                          "name":  "Anando",
+                          "captain":  "Ranny Francisco"
+                      },
+                      {
+                          "name":  "Ano",
+                          "captain":  "Marciano Sales"
+                      },
+                      {
+                          "name":  "Antipangol",
+                          "captain":  "Lito C. De Guzman"
+                      },
+                      {
+                          "name":  "Aponit",
+                          "captain":  "Renan D. Dela Cruz"
+                      },
+                      {
+                          "name":  "Bacnar",
+                          "captain":  "Antonio R. Mislang"
+                      },
+                      {
+                          "name":  "Balaya",
+                          "captain":  "Paterno Resuello"
+                      },
+                      {
+                          "name":  "Balayong",
+                          "captain":  "Andres G. Reyes"
+                      },
+                      {
+                          "name":  "Baldog",
+                          "captain":  "Francisco C. Franza Jr."
+                      },
+                      {
+                          "name":  "Balite Sur",
+                          "captain":  "Leonardo B. De Vera"
+                      },
+                      {
+                          "name":  "Balococ",
+                          "captain":  "Gabriel P. Rosario"
+                      },
+                      {
+                          "name":  "Bani",
+                          "captain":  "Roberto C. Dela Cruz"
+                      },
+                      {
+                          "name":  "Bega",
+                          "captain":  "Oscar C. Arellano"
+                      },
+                      {
+                          "name":  "Bocboc",
+                          "captain":  "Fernando Erguiza"
+                      },
+                      {
+                          "name":  "Bogaoan",
+                          "captain":  "Boyet P. Perez"
+                      },
+                      {
+                          "name":  "Bolingit",
+                          "captain":  "Jherwin R. Lumanlan"
+                      },
+                      {
+                          "name":  "Bolosan",
+                          "captain":  "Dionel B. Perez"
+                      },
+                      {
+                          "name":  "Bonifacio",
+                          "captain":  "Alex Martinez"
+                      },
+                      {
+                          "name":  "Buenglat",
+                          "captain":  "Jerry M. Rosario"
+                      },
+                      {
+                          "name":  "Bugallon-Posadas St.",
+                          "captain":  "Jonas S. Pamintuan"
+                      },
+                      {
+                          "name":  "Burgos-Padlan",
+                          "captain":  "Loreto DV. Baguio"
+                      },
+                      {
+                          "name":  "Cacaritan",
+                          "captain":  "Jose R. Soriano"
+                      },
+                      {
+                          "name":  "Caingal",
+                          "captain":  "Jaime A. Apostol"
+                      },
+                      {
+                          "name":  "Calobaoan",
+                          "captain":  "Bienvenido Q. Arce Jr."
+                      },
+                      {
+                          "name":  "Calomboyan",
+                          "captain":  "Ronaldo R. Zacarias"
+                      },
+                      {
+                          "name":  "Caoayan-Kiling",
+                          "captain":  "Arnold Berma"
+                      },
+                      {
+                          "name":  "Capataan",
+                          "captain":  "Edilberto F. Pamintuan"
+                      },
+                      {
+                          "name":  "Cobol",
+                          "captain":  "Dionisio D. Caldona"
+                      },
+                      {
+                          "name":  "Coliling",
+                          "captain":  "Jose Christopher Gallego"
+                      },
+                      {
+                          "name":  "Cruz",
+                          "captain":  "Leonardo Bandong"
+                      },
+                      {
+                          "name":  "Doyong",
+                          "captain":  "Danilo Palagana"
+                      },
+                      {
+                          "name":  "Gamata",
+                          "captain":  "Rodolfo De Guzman"
+                      },
+                      {
+                          "name":  "Guelew",
+                          "captain":  "Joe NG. Lazaga"
+                      },
+                      {
+                          "name":  "Ilang",
+                          "captain":  "Reynaldo DV. Caranto"
+                      },
+                      {
+                          "name":  "Inerangan",
+                          "captain":  "Roger A. Carlos"
+                      },
+                      {
+                          "name":  "Isla",
+                          "captain":  "Noel Cruz"
+                      },
+                      {
+                          "name":  "Libas",
+                          "captain":  "Joel M. Paronable"
+                      },
+                      {
+                          "name":  "Lilimasan",
+                          "captain":  "Jonand Rey Estabillo"
+                      },
+                      {
+                          "name":  "Longos",
+                          "captain":  "Anthony Magallanes"
+                      },
+                      {
+                          "name":  "Lucban",
+                          "captain":  "Romeo Gille"
+                      },
+                      {
+                          "name":  "Mabalbalino",
+                          "captain":  "Nestor B. Alcantara"
+                      },
+                      {
+                          "name":  "Mabini",
+                          "captain":  "Marieto B. Meneses"
+                      },
+                      {
+                          "name":  "Magtaking",
+                          "captain":  "Rolando Versosa"
+                      },
+                      {
+                          "name":  "Malaca\\u00f1ang",
+                          "captain":  "Ryan Pagsolingan"
+                      },
+                      {
+                          "name":  "Maliwara",
+                          "captain":  "Mar C. Posadas"
+                      },
+                      {
+                          "name":  "Mamarlao",
+                          "captain":  "Ronnie Dauz"
+                      },
+                      {
+                          "name":  "Manzon",
+                          "captain":  "Ernesto S. Garcia"
+                      },
+                      {
+                          "name":  "Matagdem",
+                          "captain":  "Thelma B. Taroma"
+                      },
+                      {
+                          "name":  "Mestizo Norte",
+                          "captain":  "Cesario M. Prada"
+                      },
+                      {
+                          "name":  "M. Soriano St.",
+                          "captain":  "Marianito Quintas"
+                      },
+                      {
+                          "name":  "Naguilayan",
+                          "captain":  "Vergil Reyes"
+                      },
+                      {
+                          "name":  "Nelintap",
+                          "captain":  "Jovito Rosario"
+                      },
+                      {
+                          "name":  "Padilla-Gomez",
+                          "captain":  "Eduardo M. Magalong"
+                      },
+                      {
+                          "name":  "Pagal",
+                          "captain":  "Marissa S. De Guzman"
+                      },
+                      {
+                          "name":  "Paitan-Panoypoy",
+                          "captain":  "Genaro Diadid Jr."
+                      },
+                      {
+                          "name":  "Palaming",
+                          "captain":  "Kevin George Calugay"
+                      },
+                      {
+                          "name":  "Palaris",
+                          "captain":  "Martinez G. Vincent"
+                      },
+                      {
+                          "name":  "Palospos",
+                          "captain":  "Orlando DC. Bacani"
+                      },
+                      {
+                          "name":  "Pangalangan",
+                          "captain":  "Jose D. Dela Cruz"
+                      },
+                      {
+                          "name":  "Pangoloan",
+                          "captain":  "Ricardo Cayabyab"
+                      },
+                      {
+                          "name":  "Pangpang",
+                          "captain":  "Eduardo R. Aquino Sr."
+                      },
+                      {
+                          "name":  "Parayao",
+                          "captain":  "Alexander Magat"
+                      },
+                      {
+                          "name":  "Payapa",
+                          "captain":  "Zaldy T. Ferrer"
+                      },
+                      {
+                          "name":  "Payar",
+                          "captain":  "Reynaldo Paragas"
+                      },
+                      {
+                          "name":  "Perez Boulevard",
+                          "captain":  "Lance Soriano"
+                      },
+                      {
+                          "name":  "PNR Station Site",
+                          "captain":  "Loreto Leocandio"
+                      },
+                      {
+                          "name":  "Polo",
+                          "captain":  "Roberto D. Aquino"
+                      },
+                      {
+                          "name":  "Quezon Boulevard",
+                          "captain":  "Myrna S. Estabillo"
+                      },
+                      {
+                          "name":  "Quintong",
+                          "captain":  "Luis M. Jutie Jr."
+                      },
+                      {
+                          "name":  "Rizal Avenue",
+                          "captain":  "Hilario C. Cruz Jr."
+                      },
+                      {
+                          "name":  "Roxas Boulevard",
+                          "captain":  "Edberto C. Millora"
+                      },
+                      {
+                          "name":  "Salinap",
+                          "captain":  "Rodrigo C. Tandoc"
+                      },
+                      {
+                          "name":  "San Juan",
+                          "captain":  "Joseph Vedana"
+                      },
+                      {
+                          "name":  "San Pedro-Taloy",
+                          "captain":  "Juanito Aquino"
+                      },
+                      {
+                          "name":  "Sapinit",
+                          "captain":  "Eduardo C. Tamondong"
+                      },
+                      {
+                          "name":  "Supo",
+                          "captain":  "Arsenio C. Camacho"
+                      },
+                      {
+                          "name":  "Talang",
+                          "captain":  "Jaime P. Posadas Jr."
+                      },
+                      {
+                          "name":  "Tamayo",
+                          "captain":  "Angel DC. De Leon"
+                      },
+                      {
+                          "name":  "Tandang Sora",
+                          "captain":  "Josephine C. Co"
+                      },
+                      {
+                          "name":  "Tandoc",
+                          "captain":  "Ramil Macalanda"
+                      },
+                      {
+                          "name":  "Tarece",
+                          "captain":  "Gerardo C. Mercado"
+                      },
+                      {
+                          "name":  "Tarectec",
+                          "captain":  "Roberto C. Valdez"
+                      },
+                      {
+                          "name":  "Tayambani",
+                          "captain":  "Rogelio C. Daroy"
+                      },
+                      {
+                          "name":  "Tebag",
+                          "captain":  "Raymundo P. Dulay"
+                      },
+                      {
+                          "name":  "Turac",
+                          "captain":  "Samuel C. Cayabyab"
+                      }
+                  ]
 }

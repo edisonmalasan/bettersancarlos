@@ -1,18 +1,520 @@
 {
-  "_schema_version": "1.0",
-  "_status": "draft",
-  "_source": "Philippine Statistics Authority (PSA) and San Carlos ZDS official profile",
-  "_note": "San Carlos, Pangasinan demographic data from PSA 2024 Census and municipal planning office",
-  "municipality": "San Carlos",
-  "province": "Pangasinan",
-  "region": "Region I - Ilocos Region",
-  "population": {
-    "total": 52746,
-    "year": 2024,
-    "source": "PSA Census"
-  },
-  "land_area_km2": 180.95,
-  "barangay_count": 44,
-  "income_class": "1st",
-  "barangays": []
+    "_schema_version":  "1.1",
+    "_status":  "verified",
+    "_source":  "Philippine Statistics Authority - 2020 Census of Population and Housing (via PhilAtlas); City Government of San Carlos official pages (archived 2024-06-03)",
+    "_note":  "San Carlos City, Pangasinan. PSA 2020 CPH figures are the most recent published census.",
+    "municipality":  "San Carlos City",
+    "province":  "Pangasinan",
+    "region":  "Region I - Ilocos Region",
+    "population":  {
+                       "total":  205424,
+                       "year":  2020,
+                       "source":  "PSA 2020 Census of Population and Housing"
+                   },
+    "land_area_km2":  169.03,
+    "barangay_count":  86,
+    "income_class":  "3rd",
+    "coordinates":  {
+                        "lat":  15.928056,
+                        "lng":  120.348889
+                    },
+    "census_history":  [
+                           {
+                               "year":  1903,
+                               "population":  27166
+                           },
+                           {
+                               "year":  1918,
+                               "population":  35780
+                           },
+                           {
+                               "year":  1939,
+                               "population":  47334
+                           },
+                           {
+                               "year":  1948,
+                               "population":  61671
+                           },
+                           {
+                               "year":  1960,
+                               "population":  73900
+                           },
+                           {
+                               "year":  1970,
+                               "population":  84333
+                           },
+                           {
+                               "year":  1975,
+                               "population":  90882
+                           },
+                           {
+                               "year":  1980,
+                               "population":  101243
+                           },
+                           {
+                               "year":  1990,
+                               "population":  124529
+                           },
+                           {
+                               "year":  1995,
+                               "population":  134039
+                           },
+                           {
+                               "year":  2000,
+                               "population":  154264
+                           },
+                           {
+                               "year":  2007,
+                               "population":  161884
+                           },
+                           {
+                               "year":  2010,
+                               "population":  175103
+                           },
+                           {
+                               "year":  2015,
+                               "population":  188571
+                           },
+                           {
+                               "year":  2020,
+                               "population":  205424
+                           }
+                       ],
+    "households":  {
+                       "count":  42049,
+                       "year":  2015,
+                       "average_size":  4.48
+                   },
+    "barangays":  [
+                      {
+                          "name":  "Abanon",
+                          "population_2020":  1974,
+                          "population_2015":  1877
+                      },
+                      {
+                          "name":  "Agdao",
+                          "population_2020":  3983,
+                          "population_2015":  3776
+                      },
+                      {
+                          "name":  "Anando",
+                          "population_2020":  1106,
+                          "population_2015":  1048
+                      },
+                      {
+                          "name":  "Ano",
+                          "population_2020":  2799,
+                          "population_2015":  2758
+                      },
+                      {
+                          "name":  "Antipangol",
+                          "population_2020":  1802,
+                          "population_2015":  1889
+                      },
+                      {
+                          "name":  "Aponit",
+                          "population_2020":  2580,
+                          "population_2015":  2128
+                      },
+                      {
+                          "name":  "Bacnar",
+                          "population_2020":  5717,
+                          "population_2015":  5145
+                      },
+                      {
+                          "name":  "Balaya",
+                          "population_2020":  1938,
+                          "population_2015":  1906
+                      },
+                      {
+                          "name":  "Balayong",
+                          "population_2020":  2166,
+                          "population_2015":  1883
+                      },
+                      {
+                          "name":  "Baldog",
+                          "population_2020":  2152,
+                          "population_2015":  2001
+                      },
+                      {
+                          "name":  "Balite Sur",
+                          "population_2020":  4110,
+                          "population_2015":  3346
+                      },
+                      {
+                          "name":  "Balococ",
+                          "population_2020":  2170,
+                          "population_2015":  1736
+                      },
+                      {
+                          "name":  "Bani",
+                          "population_2020":  690,
+                          "population_2015":  723
+                      },
+                      {
+                          "name":  "Bega",
+                          "population_2020":  2446,
+                          "population_2015":  2013
+                      },
+                      {
+                          "name":  "Bocboc",
+                          "population_2020":  991,
+                          "population_2015":  1122
+                      },
+                      {
+                          "name":  "Bogaoan",
+                          "population_2020":  2613,
+                          "population_2015":  2692
+                      },
+                      {
+                          "name":  "Bolingit",
+                          "population_2020":  3679,
+                          "population_2015":  3285
+                      },
+                      {
+                          "name":  "Bolosan",
+                          "population_2020":  1979,
+                          "population_2015":  1109
+                      },
+                      {
+                          "name":  "Bonifacio",
+                          "population_2020":  521,
+                          "population_2015":  618
+                      },
+                      {
+                          "name":  "Buenglat",
+                          "population_2020":  1993,
+                          "population_2015":  1552
+                      },
+                      {
+                          "name":  "Bugallon-Posadas St.",
+                          "population_2020":  801,
+                          "population_2015":  513
+                      },
+                      {
+                          "name":  "Burgos-Padlan",
+                          "population_2020":  1194,
+                          "population_2015":  1240
+                      },
+                      {
+                          "name":  "Cacaritan",
+                          "population_2020":  2869,
+                          "population_2015":  2220
+                      },
+                      {
+                          "name":  "Caingal",
+                          "population_2020":  1553,
+                          "population_2015":  1435
+                      },
+                      {
+                          "name":  "Calobaoan",
+                          "population_2020":  3992,
+                          "population_2015":  3608
+                      },
+                      {
+                          "name":  "Calomboyan",
+                          "population_2020":  3887,
+                          "population_2015":  3514
+                      },
+                      {
+                          "name":  "Caoayan-Kiling",
+                          "population_2020":  4478,
+                          "population_2015":  4261
+                      },
+                      {
+                          "name":  "Capataan",
+                          "population_2020":  2626,
+                          "population_2015":  2221
+                      },
+                      {
+                          "name":  "Cobol",
+                          "population_2020":  3959,
+                          "population_2015":  3640
+                      },
+                      {
+                          "name":  "Coliling",
+                          "population_2020":  5173,
+                          "population_2015":  4541
+                      },
+                      {
+                          "name":  "Cruz",
+                          "population_2020":  2104,
+                          "population_2015":  2027
+                      },
+                      {
+                          "name":  "Doyong",
+                          "population_2020":  2312,
+                          "population_2015":  2175
+                      },
+                      {
+                          "name":  "Gamata",
+                          "population_2020":  1799,
+                          "population_2015":  2161
+                      },
+                      {
+                          "name":  "Guelew",
+                          "population_2020":  4093,
+                          "population_2015":  4116
+                      },
+                      {
+                          "name":  "Ilang",
+                          "population_2020":  1381,
+                          "population_2015":  1226
+                      },
+                      {
+                          "name":  "Inerangan",
+                          "population_2020":  1678,
+                          "population_2015":  1504
+                      },
+                      {
+                          "name":  "Isla",
+                          "population_2020":  2901,
+                          "population_2015":  2520
+                      },
+                      {
+                          "name":  "Libas",
+                          "population_2020":  3981,
+                          "population_2015":  4030
+                      },
+                      {
+                          "name":  "Lilimasan",
+                          "population_2020":  2738,
+                          "population_2015":  2488
+                      },
+                      {
+                          "name":  "Longos",
+                          "population_2020":  1203,
+                          "population_2015":  1205
+                      },
+                      {
+                          "name":  "Lucban",
+                          "population_2020":  985,
+                          "population_2015":  1070
+                      },
+                      {
+                          "name":  "Mabalbalino",
+                          "population_2020":  1936,
+                          "population_2015":  1173
+                      },
+                      {
+                          "name":  "Mabini",
+                          "population_2020":  425,
+                          "population_2015":  678
+                      },
+                      {
+                          "name":  "Magtaking",
+                          "population_2020":  3016,
+                          "population_2015":  2926
+                      },
+                      {
+                          "name":  "Malaca\\u00f1ang",
+                          "population_2020":  3837,
+                          "population_2015":  3882
+                      },
+                      {
+                          "name":  "Maliwara",
+                          "population_2020":  817,
+                          "population_2015":  822
+                      },
+                      {
+                          "name":  "Mamarlao",
+                          "population_2020":  3122,
+                          "population_2015":  2679
+                      },
+                      {
+                          "name":  "Manzon",
+                          "population_2020":  2191,
+                          "population_2015":  1779
+                      },
+                      {
+                          "name":  "Matagdem",
+                          "population_2020":  3406,
+                          "population_2015":  3216
+                      },
+                      {
+                          "name":  "Mestizo Norte",
+                          "population_2020":  1783,
+                          "population_2015":  1592
+                      },
+                      {
+                          "name":  "M. Soriano St.",
+                          "population_2020":  745,
+                          "population_2015":  932
+                      },
+                      {
+                          "name":  "Naguilayan",
+                          "population_2020":  1784,
+                          "population_2015":  1626
+                      },
+                      {
+                          "name":  "Nelintap",
+                          "population_2020":  1632,
+                          "population_2015":  1417
+                      },
+                      {
+                          "name":  "Padilla-Gomez",
+                          "population_2020":  2029,
+                          "population_2015":  2096
+                      },
+                      {
+                          "name":  "Pagal",
+                          "population_2020":  4714,
+                          "population_2015":  4121
+                      },
+                      {
+                          "name":  "Paitan-Panoypoy",
+                          "population_2020":  1791,
+                          "population_2015":  1656
+                      },
+                      {
+                          "name":  "Palaming",
+                          "population_2020":  3141,
+                          "population_2015":  2823
+                      },
+                      {
+                          "name":  "Palaris",
+                          "population_2020":  514,
+                          "population_2015":  616
+                      },
+                      {
+                          "name":  "Palospos",
+                          "population_2020":  1621,
+                          "population_2015":  1480
+                      },
+                      {
+                          "name":  "Pangalangan",
+                          "population_2020":  3474,
+                          "population_2015":  3112
+                      },
+                      {
+                          "name":  "Pangoloan",
+                          "population_2020":  1539,
+                          "population_2015":  1523
+                      },
+                      {
+                          "name":  "Pangpang",
+                          "population_2020":  3579,
+                          "population_2015":  3140
+                      },
+                      {
+                          "name":  "Parayao",
+                          "population_2020":  1189,
+                          "population_2015":  934
+                      },
+                      {
+                          "name":  "Payapa",
+                          "population_2020":  1428,
+                          "population_2015":  1295
+                      },
+                      {
+                          "name":  "Payar",
+                          "population_2020":  1814,
+                          "population_2015":  1667
+                      },
+                      {
+                          "name":  "Perez Boulevard",
+                          "population_2020":  677,
+                          "population_2015":  694
+                      },
+                      {
+                          "name":  "PNR Station Site",
+                          "population_2020":  1063,
+                          "population_2015":  890
+                      },
+                      {
+                          "name":  "Polo",
+                          "population_2020":  1783,
+                          "population_2015":  1654
+                      },
+                      {
+                          "name":  "Quezon Boulevard",
+                          "population_2020":  1891,
+                          "population_2015":  1599
+                      },
+                      {
+                          "name":  "Quintong",
+                          "population_2020":  3964,
+                          "population_2015":  3709
+                      },
+                      {
+                          "name":  "Rizal Avenue",
+                          "population_2020":  2713,
+                          "population_2015":  2579
+                      },
+                      {
+                          "name":  "Roxas Boulevard",
+                          "population_2020":  1385,
+                          "population_2015":  1503
+                      },
+                      {
+                          "name":  "Salinap",
+                          "population_2020":  2670,
+                          "population_2015":  2471
+                      },
+                      {
+                          "name":  "San Juan",
+                          "population_2020":  3468,
+                          "population_2015":  2900
+                      },
+                      {
+                          "name":  "San Pedro-Taloy",
+                          "population_2020":  2408,
+                          "population_2015":  2551
+                      },
+                      {
+                          "name":  "Sapinit",
+                          "population_2020":  1661,
+                          "population_2015":  1360
+                      },
+                      {
+                          "name":  "Supo",
+                          "population_2020":  1607,
+                          "population_2015":  1480
+                      },
+                      {
+                          "name":  "Talang",
+                          "population_2020":  1637,
+                          "population_2015":  1611
+                      },
+                      {
+                          "name":  "Tamayo",
+                          "population_2020":  3547,
+                          "population_2015":  3059
+                      },
+                      {
+                          "name":  "Tandang Sora",
+                          "population_2020":  582,
+                          "population_2015":  585
+                      },
+                      {
+                          "name":  "Tandoc",
+                          "population_2020":  3801,
+                          "population_2015":  3758
+                      },
+                      {
+                          "name":  "Tarece",
+                          "population_2020":  4474,
+                          "population_2015":  4666
+                      },
+                      {
+                          "name":  "Tarectec",
+                          "population_2020":  1674,
+                          "population_2015":  1525
+                      },
+                      {
+                          "name":  "Tayambani",
+                          "population_2020":  1491,
+                          "population_2015":  1540
+                      },
+                      {
+                          "name":  "Tebag",
+                          "population_2020":  1366,
+                          "population_2015":  1228
+                      },
+                      {
+                          "name":  "Turac",
+                          "population_2020":  6919,
+                          "population_2015":  5702
+                      }
+                  ]
 }

@@ -18,24 +18,23 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="site-footer">
-      <div className="container">
-        <div className="footer-main-new">
-          <div className="footer-brand">
+    <footer className="site-footer bg-[linear-gradient(180deg,#1a1a1a_0%,#111111_100%)] text-white">
+      <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+        <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 border-b border-white/[0.08] py-[60px] pb-10 max-[991px]:grid-cols-2 max-[991px]:gap-10 max-[575px]:grid-cols-1 max-[575px]:gap-8 max-[575px]:py-10 max-[575px]:pb-8">
+          <div className="max-w-[320px] max-[991px]:col-[1/-1] max-[991px]:max-w-full max-[991px]:text-left max-[575px]:flex max-[575px]:flex-col max-[575px]:items-center max-[575px]:text-center">
             <img
               src="/assets/images/logo/better-san-carlos-logo-white.png"
               alt="Better San Carlos logo"
-              className="footer-logo"
+              className="mb-4 block h-[104px] w-auto max-w-[260px] max-[991px]:ml-0 max-[991px]:mr-auto max-[575px]:mx-auto"
               width="241"
               height="104"
               loading="lazy"
               decoding="async"
             />
-            <p className="footer-tagline">{t('footer-tagline')}</p>
-            <div className="footer-social-new hidden">
+            <p className="m-0 mb-6 text-sm leading-[1.6] text-white/70 max-[575px]:text-center">{t('footer-tagline')}</p>
+            <div className="hidden">
               <a
                 href="https://www.facebook.com/bettersancarlos"
-                className="footer-social-btn"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -44,7 +43,6 @@ export default function Footer() {
               </a>
               <a
                 href="https://www.linkedin.com/company/bettersancarlos/"
-                className="footer-social-btn"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -53,7 +51,6 @@ export default function Footer() {
               </a>
               <a
                 href="https://discord.com/invite/qeSu7RJkjQ"
-                className="footer-social-btn"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Discord"
@@ -62,107 +59,111 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className="footer-column">
-            <h4>{t('footer-quick-links')}</h4>
-            <ul className="footer-links-new">
-              <li>
-                <a href="/sitemap-page">{t('footer-sitemap')}</a>
+          <div className="max-[575px]:flex max-[575px]:flex-col max-[575px]:items-center max-[575px]:text-center">
+            <h4 className="m-0 mb-5 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-white/50">{t('footer-quick-links')}</h4>
+            <ul className="m-0 list-none p-0">
+              <li className="mb-2">
+                <a href="/sitemap-page" className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline">{t('footer-sitemap')}</a>
               </li>
-              <li>
+              <li className="mb-2">
                 <a
                   href="https://sancarlospangasinan.gov.ph/wp-content/uploads/2025/10/As-of-October-21-2025-2.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline"
                 >
                   {t('footer-citizens-charter')}
                 </a>
               </li>
-              <li>
-                <a href="/terms">{t('footer-terms')}</a>
+              <li className="mb-2">
+                <a href="/terms" className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline">{t('footer-terms')}</a>
               </li>
-              <li>
-                <a href="/privacy">{t('footer-privacy')}</a>
+              <li className="mb-2">
+                <a href="/privacy" className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline">{t('footer-privacy')}</a>
               </li>
-              <li>
-                <a href="/accessibility">{t('footer-accessibility')}</a>
+              <li className="mb-2">
+                <a href="/accessibility" className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline">{t('footer-accessibility')}</a>
               </li>
-              <li>
-                <a href="/faq">{t('footer-faq')}</a>
+              <li className="mb-2">
+                <a href="/faq" className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline">{t('footer-faq')}</a>
               </li>
             </ul>
           </div>
-          <div className="footer-column">
-            <h4>{t('footer-resources')}</h4>
-            <ul className="footer-links-new">
-              <li>
-                <a href="https://data.gov.ph" target="_blank" rel="noopener noreferrer">
+          <div className="max-[575px]:flex max-[575px]:flex-col max-[575px]:items-center max-[575px]:text-center">
+            <h4 className="m-0 mb-5 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-white/50">{t('footer-resources')}</h4>
+            <ul className="m-0 list-none p-0">
+              <li className="mb-2">
+                <a href="https://data.gov.ph" target="_blank" rel="noopener noreferrer" className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline">
                   {t('footer-open-data')}
                 </a>
               </li>
-              <li>
-                <a href="https://www.foi.gov.ph/" target="_blank" rel="noopener noreferrer">
+              <li className="mb-2">
+                <a href="https://www.foi.gov.ph/" target="_blank" rel="noopener noreferrer" className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline">
                   {t('footer-foi')}
                 </a>
               </li>
-              <li>
+              <li className="mb-2">
                 <a
                   href="https://sancarlospangasinan.gov.ph/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline"
                 >
                   {t('footer-lgu-portal')}
                 </a>
               </li>
-              <li>
+              <li className="mb-2">
                 <a
                   href="https://sangguniangbayan.sancarlospangasinan.gov.ph/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline"
                 >
                   {t('footer-sb')}
                 </a>
               </li>
-              <li>
+              <li className="mb-2">
                 <a
                   href="https://www.facebook.com/sccp.cio/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline"
                 >
                   {t('footer-lgu-facebook')}
                 </a>
               </li>
-              <li>
-                <a href="https://blgf.gov.ph/" target="_blank" rel="noopener noreferrer">
+              <li className="mb-2">
+                <a href="https://blgf.gov.ph/" target="_blank" rel="noopener noreferrer" className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline">
                   {t('footer-blgf')}
                 </a>
               </li>
-              <li>
-                <a href="https://cmci.dti.gov.ph/" target="_blank" rel="noopener noreferrer">
+              <li className="mb-2">
+                <a href="https://cmci.dti.gov.ph/" target="_blank" rel="noopener noreferrer" className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline">
                   {t('footer-cmci')}
                 </a>
               </li>
             </ul>
           </div>
-          <div className="footer-column">
+          <div className="max-[575px]:flex max-[575px]:flex-col max-[575px]:items-center max-[575px]:text-center">
             <div
-              className="footer-cost"
+              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-md bg-[rgba(6,167,125,0.08)] px-3 py-1.5 text-xs text-white/80 max-[575px]:mx-auto"
               role="status"
               aria-label="Cost to the People of San Carlos: Zero Pesos"
             >
-              {t('footer-cost')} <span className="footer-cost-value">₱0</span>
+              {t('footer-cost')} <span className="font-bold text-success">₱0</span>
             </div>
-            <a href="mailto:volunteer@bettersancarlos" className="footer-contribute">
+            <a href="mailto:volunteer@bettersancarlos" className="mt-3 inline-flex items-center gap-2 rounded-full bg-white/[0.05] px-4 py-2 text-[0.8125rem] text-white/70 no-underline transition-all hover:bg-white/10 hover:text-white hover:no-underline [&_i]:text-white">
               <i className="bi bi-envelope-heart"></i> {t('footer-volunteer')}
             </a>
             <a
               href="https://github.com/BetterSanCarlos/bettersancarlos"
-              className="footer-contribute"
+              className="mt-3 inline-flex items-center gap-2 rounded-full bg-white/[0.05] px-4 py-2 text-[0.8125rem] text-white/70 no-underline transition-all hover:bg-white/10 hover:text-white hover:no-underline [&_i]:text-white"
               target="_blank"
               rel="noopener noreferrer"
             >
               <i className="bi bi-github"></i> {t('footer-contribute')}
             </a>
-            <div className="footer-partners">
+            <div className="mt-4 flex flex-row items-center gap-5 [&_a]:inline-flex [&_a]:items-center [&_a]:opacity-60 [&_a]:transition-opacity [&_a]:hover:opacity-100">
               <a
                 href="https://bettergov.ph"
                 target="_blank"
@@ -172,7 +173,7 @@ export default function Footer() {
                 <img
                   src="/assets/images/logo/bettergov-footer.svg"
                   alt="BetterGov.ph"
-                  className="footer-partner-logo"
+                  className="block h-[54px] w-auto"
                   width="120"
                   height="28"
                   loading="lazy"
@@ -181,14 +182,14 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="footer-bottom-new">
-          <div className="footer-copyright">
-            <span className="footer-copyright-text">
+        <div className="flex flex-wrap items-center justify-between gap-4 py-6 max-[575px]:justify-center max-[575px]:text-center">
+          <div className="flex w-full flex-wrap items-center gap-1.5 text-[0.8125rem] text-white/50 max-[575px]:flex-col max-[575px]:gap-1 max-[575px]:items-center max-[575px]:text-center">
+            <span className="text-white/60">
               &copy; {currentYear} {t('footer-copyright-text')}
             </span>
-            <span className="footer-copyright-license">MIT | CC BY 4.0</span>
-            <span className="footer-copyright-disclaimer">{t('footer-copyright-disclaimer')}</span>
-            <span className="footer-version">
+            <span className="text-white/45">MIT | CC BY 4.0</span>
+            <span className="text-white/40">{t('footer-copyright-disclaimer')}</span>
+            <span className="ml-auto inline-flex items-center gap-1.5 whitespace-nowrap text-[0.8125rem] text-white/50 max-[575px]:ml-0 [&_i]:text-sm [&_i]:text-white/50">
               <i className="bi bi-boxes"></i> {version ? `Ver. ${version}` : ''}
             </span>
           </div>

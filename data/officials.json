@@ -1,54 +1,32 @@
 {
   "mayor": {
-    "name": "Hon. Julier C. Resuello",
+    "name": "Hon. Julier 'Ayoy' C. Resuello",
     "title": "City Mayor",
-    "image": "assets/images/officials/mayor.jpg"
+    "image": ""
   },
   "vice_mayor": {
-    "name": "Hon. Joseres S. Resuello",
+    "name": "Hon. Joseres 'Bogs' S. Resuello",
     "title": "City Vice Mayor",
-    "image": "assets/images/officials/vice-mayor.jpg"
+    "image": ""
+  },
+  "representative": {
+    "name": "Hon. Maria Rachel 'Baby' J. Arenas",
+    "title": "Congresswoman, Pangasinan 3rd District",
+    "image": ""
   },
   "councilors": [
-    {
-      "name": "Hon. Alberto S. Castro",
-      "title": "City Councilor",
-      "image": "assets/images/officials/sb1.jpg"
-    },
-    {
-      "name": "Hon. Carmina Paningbatan-Resuello",
-      "title": "City Councilor",
-      "image": "assets/images/officials/sb2.jpg"
-    },
-    {
-      "name": "Hon. Orlando E. Banaag Jr.",
-      "title": "City Councilor",
-      "image": "assets/images/officials/sb3.jpg"
-    },
-    {
-      "name": "Hon. Caren Joyce G. Frias",
-      "title": "City Councilor",
-      "image": "assets/images/officials/sb4.jpg"
-    },
-    {
-      "name": "Hon. Joshua G. Resuello",
-      "title": "City Councilor",
-      "image": "assets/images/officials/sb5.jpg"
-    },
-    {
-      "name": "Hon. Christian Carlo A. Cancino",
-      "title": "City Councilor",
-      "image": "assets/images/officials/sb6.jpg"
-    },
-    {
-      "name": "Hon. Winston T. Millora",
-      "title": "City Councilor",
-      "image": "assets/images/officials/sb7.jpg"
-    },
-    {
-      "name": "Hon. Samuel S. Baniqued",
-      "title": "City Councilor",
-      "image": "assets/images/officials/sb8.jpg"
-    }
-  ]
+    { "name": "Hon. Sam S. Baniqued", "title": "City Councilor", "image": "" },
+    { "name": "Hon. Elpidio 'Bido' R. Fermin Jr.", "title": "City Councilor", "image": "" },
+    { "name": "Hon. Rolando 'Nick' D. Cano", "title": "City Councilor", "image": "" },
+    { "name": "Hon. Christian Carlo A. Cancino", "title": "City Councilor", "image": "" },
+    { "name": "Hon. Eduardo 'Manoy' R. Garcia", "title": "City Councilor", "image": "" },
+    { "name": "Hon. Carmina D. Resuello", "title": "City Councilor", "image": "" },
+    { "name": "Hon. Orlando 'Jun' E. Banaag Jr.", "title": "City Councilor", "image": "" },
+    { "name": "Hon. Winston Manuel T. Millora", "title": "City Councilor", "image": "" },
+    { "name": "Hon. Caren Joyce G. Frias", "title": "City Councilor", "image": "" },
+    { "name": "Hon. George P. Calugay", "title": "City Councilor", "image": "" }
+  ],
+  "_term": "2025-2028",
+  "_source": "Comelec 2025 NLE via Rappler (100% precincts, unofficial until final canvass); City Information Office proclamation",
+  "_status": "partially-verified"
 }

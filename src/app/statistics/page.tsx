@@ -662,97 +662,97 @@ export default function StatisticsPage() {
                 ]}
             />
 
-            <section className="stats-metrics">
-                <div className="container">
-                    <div className="metrics-grid">
-                        <div className="metric-card animate-on-scroll" data-delay="0">
-                            <div className="metric-icon"><i className="bi bi-people-fill"></i></div>
-                            <div className="metric-value" data-count="52746">0</div>
-                            <div className="metric-label">Population</div>
-                            <div className="metric-source">2024 Census</div>
+            <section className="relative z-[2] mt-10 pb-[60px]">
+                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                    <div className="grid grid-cols-4 gap-5 max-[991px]:grid-cols-2 max-[575px]:grid-cols-1 max-[575px]:gap-3">
+                        <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,50,160,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="0">
+                            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] text-[1.5rem] text-white"><i className="bi bi-people-fill"></i></div>
+                            <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]" data-count="52746">0</div>
+                            <div className="mb-1 text-[0.9375rem] font-semibold text-[#1a1a1a]">Population</div>
+                            <div className="text-[0.8125rem] text-[#666666]">2024 Census</div>
                         </div>
-                        <div className="metric-card animate-on-scroll" data-delay="100">
-                            <div className="metric-icon"><i className="bi bi-geo-alt-fill"></i></div>
-                            <div className="metric-value">44</div>
-                            <div className="metric-label">Barangays</div>
-                            <div className="metric-source">Administrative Units</div>
+                        <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,50,160,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="100">
+                            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] text-[1.5rem] text-white"><i className="bi bi-geo-alt-fill"></i></div>
+                            <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">44</div>
+                            <div className="mb-1 text-[0.9375rem] font-semibold text-[#1a1a1a]">Barangays</div>
+                            <div className="text-[0.8125rem] text-[#666666]">Administrative Units</div>
                         </div>
-                        <div className="metric-card animate-on-scroll" data-delay="200">
-                            <div className="metric-icon"><i className="bi bi-rulers"></i></div>
-                            <div className="metric-value">180.95</div>
-                            <div className="metric-label">Land Area (km²)</div>
-                            <div className="metric-source">Total Municipal Area</div>
+                        <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,50,160,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="200">
+                            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] text-[1.5rem] text-white"><i className="bi bi-rulers"></i></div>
+                            <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">180.95</div>
+                            <div className="mb-1 text-[0.9375rem] font-semibold text-[#1a1a1a]">Land Area (km²)</div>
+                            <div className="text-[0.8125rem] text-[#666666]">Total Municipal Area</div>
                         </div>
-                        <div className="metric-card animate-on-scroll" data-delay="300">
-                            <div className="metric-icon"><i className="bi bi-award-fill"></i></div>
-                            <div className="metric-value">2nd</div>
-                            <div className="metric-label">Income Class</div>
-                            <div className="metric-source">Municipality Classification</div>
+                        <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,50,160,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="300">
+                            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] text-[1.5rem] text-white"><i className="bi bi-award-fill"></i></div>
+                            <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">2nd</div>
+                            <div className="mb-1 text-[0.9375rem] font-semibold text-[#1a1a1a]">Income Class</div>
+                            <div className="text-[0.8125rem] text-[#666666]">Municipality Classification</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="stats-section stats-finance animate-on-scroll">
-                <div className="container">
-                    <div className="section-header-minimal">
-                        <span className="section-tag">
+            <section className="animate-on-scroll bg-white py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
+                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                    <div className="mb-12 text-center">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(0,50,160,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-cash-stack"></i> <span>Finance</span>
                         </span>
-                        <h2>Municipal Income</h2>
-                        <p>Financial standing based on latest available LGU data</p>
+                        <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">Municipal Income</h2>
+                        <p className="m-0 text-[1rem] text-[#666666]">Financial standing based on latest available LGU data</p>
                     </div>
 
-                    <div className="finance-grid">
-                        <div className="finance-card finance-card-primary">
-                            <div className="finance-card-header">
-                                <i className="bi bi-graph-up-arrow"></i>
+                    <div className="mb-10 grid grid-cols-3 gap-5 max-[991px]:grid-cols-1">
+                        <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] p-6 text-white transition-all duration-300">
+                            <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-white">
+                                <i className="bi bi-graph-up-arrow text-[1rem]"></i>
                                 <span>Annual Income</span>
                             </div>
-                            <div className="finance-card-value">₱220.77M</div>
-                            <div className="finance-card-detail">Projected baseline from national LGU data</div>
+                            <div className="mb-1 text-[1.75rem] font-bold text-white">₱220.77M</div>
+                            <div className="text-[0.8125rem] text-white">Projected baseline from national LGU data</div>
                         </div>
-                        <div className="finance-card">
-                            <div className="finance-card-header">
-                                <i className="bi bi-bank"></i>
+                        <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(0,50,160,0.1)]">
+                            <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-[#666666]">
+                                <i className="bi bi-bank text-[1rem]"></i>
                                 <span>IRA Share</span>
                             </div>
-                            <div className="finance-card-value">₱131.26M</div>
-                            <div className="finance-card-detail">Internal Revenue Allotment</div>
+                            <div className="mb-1 text-[1.75rem] font-bold text-[#1a1a1a]">₱131.26M</div>
+                            <div className="text-[0.8125rem] text-[#666666]">Internal Revenue Allotment</div>
                         </div>
-                        <div className="finance-card">
-                            <div className="finance-card-header">
-                                <i className="bi bi-pie-chart-fill"></i>
+                        <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(0,50,160,0.1)]">
+                            <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-[#666666]">
+                                <i className="bi bi-pie-chart-fill text-[1rem]"></i>
                                 <span>IRA Dependency</span>
                             </div>
-                            <div className="finance-card-value">59.45%</div>
-                            <div className="finance-card-detail">National Tax Share</div>
+                            <div className="mb-1 text-[1.75rem] font-bold text-[#1a1a1a]">59.45%</div>
+                            <div className="text-[0.8125rem] text-[#666666]">National Tax Share</div>
                         </div>
                     </div>
 
-                    <div className="income-breakdown animate-on-scroll">
-                        <h4>Income Composition</h4>
-                        <div className="breakdown-bar">
-                            <div className="breakdown-segment breakdown-ira breakdown-initial" data-width="59.45">
-                                <span className="breakdown-label">IRA 59.45%</span>
+                    <div className="animate-on-scroll rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
+                        <h4 className="mb-4 text-[1rem] font-bold text-[#1a1a1a]">Income Composition</h4>
+                        <div className="flex h-12 overflow-hidden rounded-lg bg-[#f8f9fa]">
+                            <div className="breakdown-segment flex w-0 items-center justify-center bg-[linear-gradient(90deg,#0077BE_0%,#0099cc_100%)] transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="59.45">
+                                <span className="text-[0.8125rem] font-semibold whitespace-nowrap text-white">IRA 59.45%</span>
                             </div>
-                            <div className="breakdown-segment breakdown-local breakdown-initial" data-width="40.55">
-                                <span className="breakdown-label">Local 40.55%</span>
+                            <div className="breakdown-segment flex w-0 items-center justify-center bg-[linear-gradient(90deg,#06A77D_0%,#05c793_100%)] transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="40.55">
+                                <span className="text-[0.8125rem] font-semibold whitespace-nowrap text-white">Local 40.55%</span>
                             </div>
                         </div>
-                        <div className="breakdown-legend">
-                            <div className="legend-item">
-                                <span className="legend-dot legend-ira"></span>Internal Revenue Allotment
+                        <div className="mt-4 flex justify-center gap-8">
+                            <div className="flex items-center gap-2 text-[0.875rem] text-[#1a1a1a]">
+                                <span className="h-3 w-3 rounded-[3px] bg-[#0077BE]"></span>Internal Revenue Allotment
                             </div>
-                            <div className="legend-item">
-                                <span className="legend-dot legend-local"></span>Local Sources
+                            <div className="flex items-center gap-2 text-[0.875rem] text-[#1a1a1a]">
+                                <span className="h-3 w-3 rounded-[3px] bg-[#06A77D]"></span>Local Sources
                             </div>
                         </div>
                     </div>
 
-                    <p className="data-source">
-                        <i className="bi bi-info-circle"></i> Source:{" "}
-                        <a href="https://blgf.gov.ph/" target="_blank" rel="noopener noreferrer">
+                    <p className="mt-6 text-center text-[0.8125rem] text-[#666666]">
+                        <i className="bi bi-info-circle mr-1"></i> Source:{" "}
+                        <a className="text-primary" href="https://blgf.gov.ph/" target="_blank" rel="noopener noreferrer">
                             Bureau of Local Government Finance (BLGF)
                         </a>
                         {" "}– LGU fiscal estimates
@@ -760,99 +760,99 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="stats-section stats-trends animate-on-scroll">
-                <div className="container">
-                    <div className="section-header-minimal">
-                        <span className="section-tag">
+            <section className="animate-on-scroll bg-[#f8f9fa] py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
+                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                    <div className="mb-12 text-center">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(0,50,160,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-graph-up"></i> <span>Growth</span>
                         </span>
-                        <h2>Population Trends</h2>
-                        <p>Historical growth from 1990 to 2024</p>
+                        <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">Population Trends</h2>
+                        <p className="m-0 text-[1rem] text-[#666666]">Historical growth from 1990 to 2024</p>
                     </div>
 
-                    <div className="trends-summary">
-                        <div className="trend-stat">
-                            <span className="trend-stat-label">1990</span>
-                            <span className="trend-stat-value">{formatNumber(historicalData.populations[0])}</span>
+                    <div className="mb-10 flex flex-wrap items-center justify-center gap-6 max-[991px]:gap-4">
+                        <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white px-8 py-5 text-center max-[991px]:px-6 max-[991px]:py-4 max-[575px]:px-5 max-[575px]:py-3">
+                            <span className="mb-1 block text-[0.8125rem] text-[#666666]">1990</span>
+                            <span className="block text-[1.5rem] font-bold text-[#1a1a1a] max-[575px]:text-[1.25rem]">{formatNumber(historicalData.populations[0])}</span>
                         </div>
-                        <div className="trend-arrow"><i className="bi bi-arrow-right"></i></div>
-                        <div className="trend-stat trend-stat-current">
-                            <span className="trend-stat-label">2024</span>
-                            <span className="trend-stat-value">{formatNumber(totalPopulation)}</span>
+                        <div className="text-[1.25rem] text-[#666666]"><i className="bi bi-arrow-right"></i></div>
+                        <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] px-8 py-5 text-center max-[991px]:px-6 max-[991px]:py-4 max-[575px]:px-5 max-[575px]:py-3">
+                            <span className="mb-1 block text-[0.8125rem] text-white">2024</span>
+                            <span className="block text-[1.5rem] font-bold text-white max-[575px]:text-[1.25rem]">{formatNumber(totalPopulation)}</span>
                         </div>
-                        <div className="trend-stat trend-stat-growth">
-                            <span className="trend-stat-label">Growth</span>
-                            <span className="trend-stat-value">+{historicalGrowth.toFixed(1)}%</span>
+                        <div className="rounded-xl border border-[#06A77D] bg-[rgba(6,167,125,0.1)] px-8 py-5 text-center max-[991px]:px-6 max-[991px]:py-4 max-[575px]:px-5 max-[575px]:py-3">
+                            <span className="mb-1 block text-[0.8125rem] text-[#666666]">Growth</span>
+                            <span className="block text-[1.5rem] font-bold text-[#06A77D] max-[575px]:text-[1.25rem]">+{historicalGrowth.toFixed(1)}%</span>
                         </div>
                     </div>
 
-                    <div className="chart-wrapper">
-                        <canvas id="historicalLineChart"></canvas>
+                    <div className="relative h-[400px] rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 max-[575px]:h-[300px] max-[575px]:p-4">
+                        <canvas id="historicalLineChart" className="max-h-full w-full"></canvas>
                     </div>
 
-                    <p className="data-source">
-                        <i className="bi bi-info-circle"></i> Source:{" "}
-                        <a href="https://psa.gov.ph/" target="_blank" rel="noopener noreferrer">
+                    <p className="mt-6 text-center text-[0.8125rem] text-[#666666]">
+                        <i className="bi bi-info-circle mr-1"></i> Source:{" "}
+                        <a className="text-primary" href="https://psa.gov.ph/" target="_blank" rel="noopener noreferrer">
                             Philippine Statistics Authority (PSA)
                         </a>
                     </p>
                 </div>
             </section>
 
-            <section className="stats-section stats-distribution animate-on-scroll">
-                <div className="container">
-                    <div className="section-header-minimal">
-                        <span className="section-tag">
+            <section className="animate-on-scroll bg-white py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
+                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                    <div className="mb-12 text-center">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(0,50,160,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-pie-chart-fill"></i>
                             <span>Distribution</span>
                         </span>
-                        <h2>Population by Barangay</h2>
-                        <p>2024 Census of Population</p>
+                        <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">Population by Barangay</h2>
+                        <p className="m-0 text-[1rem] text-[#666666]">2024 Census of Population</p>
                     </div>
 
-                    <div className="distribution-layout">
-                        <div className="distribution-chart">
-                            <canvas id="distributionPieChart"></canvas>
+                    <div className="grid grid-cols-2 items-start gap-10 max-[991px]:grid-cols-1">
+                        <div className="h-[400px] rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 max-[991px]:h-[350px]">
+                            <canvas id="distributionPieChart" className="max-h-full w-full"></canvas>
                         </div>
-                        <div className="distribution-list">
+                        <div className="flex flex-col gap-2">
                             {top10.map((b) => (
-                                <div className="barangay-row" data-rank={b.pop === maxPop ? 1 : undefined} key={b.name}>
-                                    <span className="rank">#{rankedBarangays.findIndex((r) => r.name === b.name) + 1}</span>
-                                    <span className="name">{b.name}</span>
-                                    <div className="bar-wrap">
+                                <div className={`grid items-center gap-3 rounded-lg border bg-white px-4 py-[10px] transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(0,50,160,0.08)] max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2 ${b.pop === maxPop ? 'grid-cols-[40px_120px_1fr_70px] border-l-[3px] border-[rgba(0,0,0,0.04)] border-l-[#ffd700] max-[575px]:grid-cols-[32px_90px_1fr_60px]' : 'grid-cols-[40px_120px_1fr_70px] border-[rgba(0,0,0,0.04)] max-[575px]:grid-cols-[32px_90px_1fr_60px]'}`} data-rank={b.pop === maxPop ? 1 : undefined} key={b.name}>
+                                    <span className="text-[0.75rem] font-semibold text-[#666666]">#{rankedBarangays.findIndex((r) => r.name === b.name) + 1}</span>
+                                    <span className="text-[0.875rem] font-medium text-[#1a1a1a] max-[575px]:text-[0.8125rem]">{b.name}</span>
+                                    <div className="bar-wrap h-2 overflow-hidden rounded bg-[#f8f9fa]">
                                         <div
-                                            className="bar"
+                                            className="bar h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#0077BE_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
                                             data-width={Math.max(2, Math.round((b.pop / maxPop) * 100))}
                                         ></div>
                                     </div>
-                                    <span className="pop">{formatNumber(b.pop)}</span>
+                                    <span className="text-right text-[0.875rem] font-semibold text-[#1a1a1a]">{formatNumber(b.pop)}</span>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    <details className="more-barangays">
-                        <summary>View all {rankedBarangays.length} barangays</summary>
-                        <div className="distribution-list distribution-list-full">
+                    <details className="mt-6">
+                        <summary className="cursor-pointer p-3 text-center font-medium text-primary">View all {rankedBarangays.length} barangays</summary>
+                        <div className="mt-4 flex flex-col gap-2">
                             {remaining.map((b) => (
-                                <div className="barangay-row" key={b.name}>
-                                    <span className="rank">#{rankedBarangays.findIndex((r) => r.name === b.name) + 1}</span>
-                                    <span className="name">{b.name}</span>
-                                    <div className="bar-wrap">
+                                <div className="grid grid-cols-[40px_120px_1fr_70px] items-center gap-3 rounded-lg border border-[rgba(0,0,0,0.04)] bg-white px-4 py-[10px] transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(0,50,160,0.08)] max-[575px]:grid-cols-[32px_90px_1fr_60px] max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2" key={b.name}>
+                                    <span className="text-[0.75rem] font-semibold text-[#666666]">#{rankedBarangays.findIndex((r) => r.name === b.name) + 1}</span>
+                                    <span className="text-[0.875rem] font-medium text-[#1a1a1a] max-[575px]:text-[0.8125rem]">{b.name}</span>
+                                    <div className="bar-wrap h-2 overflow-hidden rounded bg-[#f8f9fa]">
                                         <div
-                                            className="bar"
+                                            className="bar h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#0077BE_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
                                             data-width={Math.max(2, Math.round((b.pop / maxPop) * 100))}
                                         ></div>
                                     </div>
-                                    <span className="pop">{formatNumber(b.pop)}</span>
+                                    <span className="text-right text-[0.875rem] font-semibold text-[#1a1a1a]">{formatNumber(b.pop)}</span>
                                 </div>
                             ))}
                         </div>
                     </details>
 
-                    <p className="data-source">
-                        <i className="bi bi-info-circle"></i> Source:{" "}
-                        <a href="https://psa.gov.ph/" target="_blank" rel="noopener noreferrer">
+                    <p className="mt-6 text-center text-[0.8125rem] text-[#666666]">
+                        <i className="bi bi-info-circle mr-1"></i> Source:{" "}
+                        <a className="text-primary" href="https://psa.gov.ph/" target="_blank" rel="noopener noreferrer">
                             Philippine Statistics Authority (PSA)
                         </a>
                         {" "}- 2024 Census
@@ -860,93 +860,93 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="stats-section stats-economy animate-on-scroll">
-                <div className="container">
-                    <div className="section-header-minimal">
-                        <span className="section-tag">
+            <section className="animate-on-scroll bg-[#f8f9fa] py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
+                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                    <div className="mb-12 text-center">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(0,50,160,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-briefcase-fill"></i>
                             <span>Economy</span>
                         </span>
-                        <h2>Economic Indicators</h2>
-                        <p>Key economic data based on DILG and agricultural profile</p>
+                        <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">Economic Indicators</h2>
+                        <p className="m-0 text-[1rem] text-[#666666]">Key economic data based on DILG and agricultural profile</p>
                     </div>
 
-                    <div className="economy-grid">
-                        <div className="economy-card">
-                            <div className="economy-icon"><i className="bi bi-tree-fill"></i></div>
-                            <div className="economy-content">
-                                <div className="economy-value">COCONUT</div>
-                                <div className="economy-label">Major Product</div>
-                                <div className="economy-trend">Principal crop & trade</div>
+                    <div className="mb-10 grid grid-cols-3 gap-5 max-[991px]:grid-cols-1">
+                        <div className="economy-card flex items-start gap-4 rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(0,50,160,0.1)]">
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] text-[1.25rem] text-white"><i className="bi bi-tree-fill"></i></div>
+                            <div className="min-w-0 flex-1">
+                                <div className="mb-1 text-[1.5rem] font-bold text-[#1a1a1a]">COCONUT</div>
+                                <div className="mb-2 text-[0.875rem] text-[#666666]">Major Product</div>
+                                <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(6,167,125,0.1)] px-[10px] py-1 text-[0.75rem] text-[#06A77D]">Principal crop & trade</div>
                             </div>
                         </div>
-                        <div className="economy-card">
-                            <div className="economy-icon"><i className="bi bi-geo-fill"></i></div>
-                            <div className="economy-content">
-                                <div className="economy-value">AGRICULTURAL</div>
-                                <div className="economy-label">Major Land Use</div>
-                                <div className="economy-trend">Farms & coconut plantations</div>
+                        <div className="economy-card flex items-start gap-4 rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(0,50,160,0.1)]">
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] text-[1.25rem] text-white"><i className="bi bi-geo-fill"></i></div>
+                            <div className="min-w-0 flex-1">
+                                <div className="mb-1 text-[1.5rem] font-bold text-[#1a1a1a]">AGRICULTURAL</div>
+                                <div className="mb-2 text-[0.875rem] text-[#666666]">Major Land Use</div>
+                                <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(6,167,125,0.1)] px-[10px] py-1 text-[0.75rem] text-[#06A77D]">Farms & coconut plantations</div>
                             </div>
                         </div>
-                        <div className="economy-card">
-                            <div className="economy-icon"><i className="bi bi-house-door-fill"></i></div>
-                            <div className="economy-content">
-                                <div className="economy-value" data-count="9263">0</div>
-                                <div className="economy-label">Households</div>
-                                <div className="economy-trend">DILG municipal profile</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="sectors-chart animate-on-scroll">
-                        <h4>Economic Sectors</h4>
-                        <div className="sc-bars">
-                            <div className="sc-row">
-                                <div className="sc-meta">
-                                    <span className="sc-dot sc-color-agri"></span>
-                                    <span className="sc-name">Agriculture</span>
-                                </div>
-                                <span className="sc-pct">70%</span>
-                                <div className="sc-track">
-                                    <div className="sc-fill sc-color-agri" data-width="70"></div>
-                                </div>
-                            </div>
-                            <div className="sc-row">
-                                <div className="sc-meta">
-                                    <span className="sc-dot sc-color-trade"></span>
-                                    <span className="sc-name">Trade &amp; Commerce</span>
-                                </div>
-                                <span className="sc-pct">15%</span>
-                                <div className="sc-track">
-                                    <div className="sc-fill sc-color-trade" data-width="15"></div>
-                                </div>
-                            </div>
-                            <div className="sc-row">
-                                <div className="sc-meta">
-                                    <span className="sc-dot sc-color-services"></span>
-                                    <span className="sc-name">Services</span>
-                                </div>
-                                <span className="sc-pct">10%</span>
-                                <div className="sc-track">
-                                    <div className="sc-fill sc-color-services" data-width="10"></div>
-                                </div>
-                            </div>
-                            <div className="sc-row">
-                                <div className="sc-meta">
-                                    <span className="sc-dot sc-color-industry"></span>
-                                    <span className="sc-name">Industry</span>
-                                </div>
-                                <span className="sc-pct">5%</span>
-                                <div className="sc-track">
-                                    <div className="sc-fill sc-color-industry" data-width="5"></div>
-                                </div>
+                        <div className="economy-card flex items-start gap-4 rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(0,50,160,0.1)]">
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] text-[1.25rem] text-white"><i className="bi bi-house-door-fill"></i></div>
+                            <div className="min-w-0 flex-1">
+                                <div className="mb-1 text-[1.5rem] font-bold text-[#1a1a1a]" data-count="9263">0</div>
+                                <div className="mb-2 text-[0.875rem] text-[#666666]">Households</div>
+                                <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(6,167,125,0.1)] px-[10px] py-1 text-[0.75rem] text-[#06A77D]">DILG municipal profile</div>
                             </div>
                         </div>
                     </div>
 
-                    <p className="data-source">
-                        <i className="bi bi-info-circle"></i> Source:{" "}
-                        <a href="https://sancarlospangasinan.gov.ph/" target="_blank" rel="noopener noreferrer">
+                    <div className="animate-on-scroll rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
+                        <h4 className="mb-4 text-[1rem] font-bold text-[#1a1a1a]">Economic Sectors</h4>
+                        <div className="flex flex-col gap-[14px]">
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(0,50,160,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                                <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
+                                    <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#10b981] transition-transform duration-200 group-hover:scale-[1.3]"></span>
+                                    <span className="text-[0.875rem] font-semibold text-[#1a1a1a]">Agriculture</span>
+                                </div>
+                                <span className="col-start-2 row-start-1 text-right text-[0.875rem] font-bold text-primary transition-transform duration-200 group-hover:scale-[1.08]">70%</span>
+                                <div className="col-span-full row-start-2 h-2 overflow-hidden rounded bg-[rgba(0,0,0,0.06)]">
+                                    <div className="sc-fill h-full w-0 rounded bg-[#10b981] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="70"></div>
+                                </div>
+                            </div>
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(0,50,160,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                                <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
+                                    <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#3b82f6] transition-transform duration-200 group-hover:scale-[1.3]"></span>
+                                    <span className="text-[0.875rem] font-semibold text-[#1a1a1a]">Trade &amp; Commerce</span>
+                                </div>
+                                <span className="col-start-2 row-start-1 text-right text-[0.875rem] font-bold text-primary transition-transform duration-200 group-hover:scale-[1.08]">15%</span>
+                                <div className="col-span-full row-start-2 h-2 overflow-hidden rounded bg-[rgba(0,0,0,0.06)]">
+                                    <div className="sc-fill h-full w-0 rounded bg-[#3b82f6] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="15"></div>
+                                </div>
+                            </div>
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(0,50,160,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                                <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
+                                    <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#8b5cf6] transition-transform duration-200 group-hover:scale-[1.3]"></span>
+                                    <span className="text-[0.875rem] font-semibold text-[#1a1a1a]">Services</span>
+                                </div>
+                                <span className="col-start-2 row-start-1 text-right text-[0.875rem] font-bold text-primary transition-transform duration-200 group-hover:scale-[1.08]">10%</span>
+                                <div className="col-span-full row-start-2 h-2 overflow-hidden rounded bg-[rgba(0,0,0,0.06)]">
+                                    <div className="sc-fill h-full w-0 rounded bg-[#8b5cf6] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="10"></div>
+                                </div>
+                            </div>
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(0,50,160,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                                <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
+                                    <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#f59e0b] transition-transform duration-200 group-hover:scale-[1.3]"></span>
+                                    <span className="text-[0.875rem] font-semibold text-[#1a1a1a]">Industry</span>
+                                </div>
+                                <span className="col-start-2 row-start-1 text-right text-[0.875rem] font-bold text-primary transition-transform duration-200 group-hover:scale-[1.08]">5%</span>
+                                <div className="col-span-full row-start-2 h-2 overflow-hidden rounded bg-[rgba(0,0,0,0.06)]">
+                                    <div className="sc-fill h-full w-0 rounded bg-[#f59e0b] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p className="mt-6 text-center text-[0.8125rem] text-[#666666]">
+                        <i className="bi bi-info-circle mr-1"></i> Source:{" "}
+                        <a className="text-primary" href="https://sancarlospangasinan.gov.ph/" target="_blank" rel="noopener noreferrer">
                             Department of the Interior and Local Government (DILG) Region I
                         </a>
                         {" "}- San Carlos Municipal Profile
@@ -954,49 +954,49 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="stats-section stats-poverty animate-on-scroll">
-                <div className="container">
-                    <div className="section-header-minimal">
-                        <span className="section-tag">
+            <section className="animate-on-scroll bg-white py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
+                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                    <div className="mb-12 text-center">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(0,50,160,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-graph-down-arrow"></i>
                             <span>Poverty</span>
                         </span>
-                        <h2>Poverty Statistics</h2>
-                        <p>2021 City and Municipal Level Poverty Estimates</p>
+                        <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">Poverty Statistics</h2>
+                        <p className="m-0 text-[1rem] text-[#666666]">2021 City and Municipal Level Poverty Estimates</p>
                     </div>
 
-                    <div className="poverty-comparison">
-                        <div className="poverty-card poverty-card-2018">
-                            <span className="poverty-year">2018</span>
-                            <div className="poverty-rate">
-                                <span className="rate-value">7.0</span>
-                                <span className="rate-symbol">%</span>
+                    <div className="flex flex-wrap items-center justify-center gap-8 max-[991px]:gap-5">
+                        <div className="relative min-w-[200px] rounded-2xl border border-[rgba(0,0,0,0.06)] bg-white p-8 text-center max-[575px]:min-w-[160px] max-[575px]:p-6">
+                            <span className="mb-4 inline-block rounded-full bg-[#f8f9fa] px-3 py-1 text-[0.8125rem] font-semibold text-[#666666]">2018</span>
+                            <div className="mb-4 flex items-baseline justify-center gap-[2px]">
+                                <span className="text-[3rem] leading-[1] font-bold text-[#1a1a1a] max-[575px]:text-[2.5rem]">7.0</span>
+                                <span className="text-[1.5rem] font-semibold text-[#666666]">%</span>
                             </div>
-                            <div className="poverty-bar"><div className="poverty-fill" data-width="7"></div></div>
-                            <span className="poverty-ci">90% CI: 4.7% - 9.2%</span>
+                            <div className="mb-3 h-2 overflow-hidden rounded bg-[#f8f9fa]"><div className="poverty-fill h-full w-0 rounded bg-primary transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="7"></div></div>
+                            <span className="text-[0.75rem] text-[#666666]">90% CI: 4.7% - 9.2%</span>
                         </div>
-                        <div className="poverty-arrow">
+                        <div className="flex flex-col items-center gap-1 text-[#666666]">
                             <i className="bi bi-arrow-right"></i>
-                            <span className="poverty-change">-0.6%</span>
+                            <span className="text-[0.875rem] font-semibold text-[#06A77D]">-0.6%</span>
                         </div>
-                        <div className="poverty-card poverty-card-2021">
-                            <span className="poverty-year">2021</span>
-                            <div className="poverty-rate">
-                                <span className="rate-value">6.4</span>
-                                <span className="rate-symbol">%</span>
+                        <div className="relative min-w-[200px] rounded-2xl border border-[#06A77D] bg-white p-8 text-center shadow-[0_4px_20px_rgba(6,167,125,0.15)] max-[575px]:min-w-[160px] max-[575px]:p-6">
+                            <span className="mb-4 inline-block rounded-full bg-[rgba(6,167,125,0.1)] px-3 py-1 text-[0.8125rem] font-semibold text-[#06A77D]">2021</span>
+                            <div className="mb-4 flex items-baseline justify-center gap-[2px]">
+                                <span className="text-[3rem] leading-[1] font-bold text-[#1a1a1a] max-[575px]:text-[2.5rem]">6.4</span>
+                                <span className="text-[1.5rem] font-semibold text-[#666666]">%</span>
                             </div>
-                            <div className="poverty-bar"><div className="poverty-fill" data-width="6.4"></div></div>
-                            <span className="poverty-ci">90% CI: 4.7% - 8.1%</span>
-                            <span className="poverty-badge">
+                            <div className="mb-3 h-2 overflow-hidden rounded bg-[#f8f9fa]"><div className="poverty-fill h-full w-0 rounded bg-[#06A77D] transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="6.4"></div></div>
+                            <span className="text-[0.75rem] text-[#666666]">90% CI: 4.7% - 8.1%</span>
+                            <span className="absolute -top-[10px] -right-[10px] flex items-center gap-1 rounded-full bg-[#06A77D] px-3 py-[6px] text-[0.75rem] font-semibold text-white">
                                 <i className="bi bi-check-circle-fill"></i>
                                 <span>Improved</span>
                             </span>
                         </div>
                     </div>
 
-                    <p className="data-source">
-                        <i className="bi bi-info-circle"></i> Source:{" "}
-                        <a href="https://psa.gov.ph/" target="_blank" rel="noopener noreferrer">
+                    <p className="mt-6 text-center text-[0.8125rem] text-[#666666]">
+                        <i className="bi bi-info-circle mr-1"></i> Source:{" "}
+                        <a className="text-primary" href="https://psa.gov.ph/" target="_blank" rel="noopener noreferrer">
                             Philippine Statistics Authority (PSA)
                         </a>
                         {" "}- 2021 Poverty Estimates
@@ -1004,381 +1004,381 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="stats-section stats-competitive animate-on-scroll" id="competitive-index">
-                <div className="container">
-                    <div className="section-header-minimal">
-                        <span className="section-tag">
+            <section className="animate-on-scroll bg-[#f8f9fa] py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100" id="competitive-index">
+                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                    <div className="mb-12 text-center">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(0,50,160,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-trophy-fill"></i>
                             <span>Competitiveness</span>
                         </span>
-                        <h2>San Carlos Competitive Index</h2>
-                        <p>
+                        <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">San Carlos Competitive Index</h2>
+                        <p className="m-0 text-[1rem] text-[#666666]">
                             Cities and Municipalities Competitiveness Index (CMCI) Performance 2016-2024
                         </p>
                     </div>
 
-                    <div className="cmci-tabs">
-                        <button type="button" className="cmci-tab active" data-pillar="overview">
-                            <i className="bi bi-grid-3x3-gap"></i> <span>Overview</span>
+                    <div className="mb-8 flex flex-wrap justify-center gap-2 max-[768px]:flex-col">
+                        <button type="button" className="cmci-tab active inline-flex items-center gap-1.5 rounded-lg border border-[rgba(0,0,0,0.08)] bg-white px-[18px] py-[10px] text-[0.8125rem] font-semibold text-[#1a1a1a] transition-all duration-200 hover:border-primary hover:text-primary max-[768px]:justify-center [&.active]:border-primary [&.active]:bg-primary [&.active]:text-white" data-pillar="overview">
+                            <i className="bi bi-grid-3x3-gap text-[1rem]"></i> <span>Overview</span>
                         </button>
-                        <button type="button" className="cmci-tab" data-pillar="economic-dynamism">
-                            <i className="bi bi-graph-up-arrow"></i>
+                        <button type="button" className="cmci-tab inline-flex items-center gap-1.5 rounded-lg border border-[rgba(0,0,0,0.08)] bg-white px-[18px] py-[10px] text-[0.8125rem] font-semibold text-[#1a1a1a] transition-all duration-200 hover:border-primary hover:text-primary max-[768px]:justify-center [&.active]:border-primary [&.active]:bg-primary [&.active]:text-white" data-pillar="economic-dynamism">
+                            <i className="bi bi-graph-up-arrow text-[1rem]"></i>
                             <span>Economic Dynamism</span>
                         </button>
-                        <button type="button" className="cmci-tab" data-pillar="government-efficiency">
-                            <i className="bi bi-building-check"></i>
+                        <button type="button" className="cmci-tab inline-flex items-center gap-1.5 rounded-lg border border-[rgba(0,0,0,0.08)] bg-white px-[18px] py-[10px] text-[0.8125rem] font-semibold text-[#1a1a1a] transition-all duration-200 hover:border-primary hover:text-primary max-[768px]:justify-center [&.active]:border-primary [&.active]:bg-primary [&.active]:text-white" data-pillar="government-efficiency">
+                            <i className="bi bi-building-check text-[1rem]"></i>
                             <span>Government Efficiency</span>
                         </button>
-                        <button type="button" className="cmci-tab" data-pillar="infrastructure">
-                            <i className="bi bi-building-gear"></i>
+                        <button type="button" className="cmci-tab inline-flex items-center gap-1.5 rounded-lg border border-[rgba(0,0,0,0.08)] bg-white px-[18px] py-[10px] text-[0.8125rem] font-semibold text-[#1a1a1a] transition-all duration-200 hover:border-primary hover:text-primary max-[768px]:justify-center [&.active]:border-primary [&.active]:bg-primary [&.active]:text-white" data-pillar="infrastructure">
+                            <i className="bi bi-building-gear text-[1rem]"></i>
                             <span>Infrastructure</span>
                         </button>
-                        <button type="button" className="cmci-tab" data-pillar="resiliency">
-                            <i className="bi bi-shield-check"></i>
+                        <button type="button" className="cmci-tab inline-flex items-center gap-1.5 rounded-lg border border-[rgba(0,0,0,0.08)] bg-white px-[18px] py-[10px] text-[0.8125rem] font-semibold text-[#1a1a1a] transition-all duration-200 hover:border-primary hover:text-primary max-[768px]:justify-center [&.active]:border-primary [&.active]:bg-primary [&.active]:text-white" data-pillar="resiliency">
+                            <i className="bi bi-shield-check text-[1rem]"></i>
                             <span>Resiliency</span>
                         </button>
-                        <button type="button" className="cmci-tab" data-pillar="innovation">
-                            <i className="bi bi-lightbulb"></i> <span>Innovation</span>
+                        <button type="button" className="cmci-tab inline-flex items-center gap-1.5 rounded-lg border border-[rgba(0,0,0,0.08)] bg-white px-[18px] py-[10px] text-[0.8125rem] font-semibold text-[#1a1a1a] transition-all duration-200 hover:border-primary hover:text-primary max-[768px]:justify-center [&.active]:border-primary [&.active]:bg-primary [&.active]:text-white" data-pillar="innovation">
+                            <i className="bi bi-lightbulb text-[1rem]"></i> <span>Innovation</span>
                         </button>
                     </div>
 
-                    <div className="cmci-panel active" id="panel-overview">
-                        <div className="cmci-overview-grid">
-                            <div className="cmci-pillar-card" data-pillar="economic-dynamism">
-                                <div className="pillar-icon"><i className="bi bi-graph-up-arrow"></i></div>
-                                <h4>Economic Dynamism</h4>
-                                <div className="pillar-score">0.23</div>
-                                <div className="pillar-trend trend-up"><i className="bi bi-arrow-up"></i> +12%</div>
+                    <div className="cmci-panel active hidden [&.active]:block" id="panel-overview">
+                        <div className="mb-8 grid grid-cols-5 gap-4 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
+                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(0,50,160,0.1)]" data-pillar="economic-dynamism">
+                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)]"><i className="bi bi-graph-up-arrow text-[1.25rem] text-white"></i></div>
+                                <h4 className="mb-2 text-[0.75rem] leading-[1.3] font-semibold text-[#1a1a1a]">Economic Dynamism</h4>
+                                <div className="mb-1 text-[1.5rem] font-bold text-primary max-[768px]:text-[1.25rem]">0.23</div>
+                                <div className="inline-flex items-center gap-1 rounded-[20px] bg-[rgba(34,197,94,0.1)] px-2 py-[3px] text-[0.6875rem] font-semibold text-[#16a34a]"><i className="bi bi-arrow-up"></i> +12%</div>
                             </div>
-                            <div className="cmci-pillar-card" data-pillar="government-efficiency">
-                                <div className="pillar-icon"><i className="bi bi-building-check"></i></div>
-                                <h4>Government Efficiency</h4>
-                                <div className="pillar-score">1.17</div>
-                                <div className="pillar-trend trend-down"><i className="bi bi-arrow-down"></i> -8%</div>
+                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(0,50,160,0.1)]" data-pillar="government-efficiency">
+                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)]"><i className="bi bi-building-check text-[1.25rem] text-white"></i></div>
+                                <h4 className="mb-2 text-[0.75rem] leading-[1.3] font-semibold text-[#1a1a1a]">Government Efficiency</h4>
+                                <div className="mb-1 text-[1.5rem] font-bold text-primary max-[768px]:text-[1.25rem]">1.17</div>
+                                <div className="inline-flex items-center gap-1 rounded-[20px] bg-[rgba(239,68,68,0.1)] px-2 py-[3px] text-[0.6875rem] font-semibold text-[#dc2626]"><i className="bi bi-arrow-down"></i> -8%</div>
                             </div>
-                            <div className="cmci-pillar-card" data-pillar="infrastructure">
-                                <div className="pillar-icon"><i className="bi bi-building-gear"></i></div>
-                                <h4>Infrastructure</h4>
-                                <div className="pillar-score">0.40</div>
-                                <div className="pillar-trend trend-up"><i className="bi bi-arrow-up"></i> +5%</div>
+                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(0,50,160,0.1)]" data-pillar="infrastructure">
+                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)]"><i className="bi bi-building-gear text-[1.25rem] text-white"></i></div>
+                                <h4 className="mb-2 text-[0.75rem] leading-[1.3] font-semibold text-[#1a1a1a]">Infrastructure</h4>
+                                <div className="mb-1 text-[1.5rem] font-bold text-primary max-[768px]:text-[1.25rem]">0.40</div>
+                                <div className="inline-flex items-center gap-1 rounded-[20px] bg-[rgba(34,197,94,0.1)] px-2 py-[3px] text-[0.6875rem] font-semibold text-[#16a34a]"><i className="bi bi-arrow-up"></i> +5%</div>
                             </div>
-                            <div className="cmci-pillar-card" data-pillar="resiliency">
-                                <div className="pillar-icon"><i className="bi bi-shield-check"></i></div>
-                                <h4>Resiliency</h4>
-                                <div className="pillar-score">1.08</div>
-                                <div className="pillar-trend trend-stable"><i className="bi bi-dash"></i> Stable</div>
+                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(0,50,160,0.1)]" data-pillar="resiliency">
+                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)]"><i className="bi bi-shield-check text-[1.25rem] text-white"></i></div>
+                                <h4 className="mb-2 text-[0.75rem] leading-[1.3] font-semibold text-[#1a1a1a]">Resiliency</h4>
+                                <div className="mb-1 text-[1.5rem] font-bold text-primary max-[768px]:text-[1.25rem]">1.08</div>
+                                <div className="inline-flex items-center gap-1 rounded-[20px] bg-[rgba(107,114,128,0.1)] px-2 py-[3px] text-[0.6875rem] font-semibold text-[#6b7280]"><i className="bi bi-dash"></i> Stable</div>
                             </div>
-                            <div className="cmci-pillar-card" data-pillar="innovation">
-                                <div className="pillar-icon"><i className="bi bi-lightbulb"></i></div>
-                                <h4>Innovation</h4>
-                                <div className="pillar-score">0.68</div>
-                                <div className="pillar-trend trend-up"><i className="bi bi-arrow-up"></i> +25%</div>
+                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(0,50,160,0.1)]" data-pillar="innovation">
+                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)]"><i className="bi bi-lightbulb text-[1.25rem] text-white"></i></div>
+                                <h4 className="mb-2 text-[0.75rem] leading-[1.3] font-semibold text-[#1a1a1a]">Innovation</h4>
+                                <div className="mb-1 text-[1.5rem] font-bold text-primary max-[768px]:text-[1.25rem]">0.68</div>
+                                <div className="inline-flex items-center gap-1 rounded-[20px] bg-[rgba(34,197,94,0.1)] px-2 py-[3px] text-[0.6875rem] font-semibold text-[#16a34a]"><i className="bi bi-arrow-up"></i> +25%</div>
                             </div>
                         </div>
 
-                        <div className="cmci-chart-container">
-                            <h4>
+                        <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6">
+                            <h4 className="mb-5 flex items-center gap-2 text-[0.9375rem] font-semibold text-[#1a1a1a] [&_i]:text-primary">
                                 <i className="bi bi-bar-chart-line"></i>
                                 <span>Key Indicators Trend (2016-2024)</span>
                             </h4>
-                            <div className="chart-wrapper">
-                                <canvas id="cmciOverviewChart"></canvas>
+                            <div className="relative h-[400px] rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 max-[575px]:h-[300px] max-[575px]:p-4">
+                                <canvas id="cmciOverviewChart" className="max-h-full w-full"></canvas>
                             </div>
                         </div>
                     </div>
 
-                    <div className="cmci-panel" id="panel-economic-dynamism">
-                        <div className="cmci-indicator-grid">
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header">
+                    <div className="cmci-panel hidden [&.active]:block" id="panel-economic-dynamism">
+                        <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-currency-exchange"></i> Local Economy Size
                                 </div>
-                                <div className="indicator-value">0.0259</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="2.59"></div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0259</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="2.59"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-graph-up"></i> Local Economy Growth
                                 </div>
-                                <div className="indicator-value">0.0318</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="3.18"></div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0318</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="3.18"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-shop"></i> Active Establishments</div>
-                                <div className="indicator-value">0.4994</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="49.94"></div>
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-shop"></i> Active Establishments</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.4994</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="49.94"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-shield-check"></i> Safety Compliant Business
                                 </div>
-                                <div className="indicator-value">0.2235</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="22.35"></div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.2235</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="22.35"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-people"></i> Employment Generation
                                 </div>
-                                <div className="indicator-value">0.3835</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="38.35"></div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.3835</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="38.35"></div>
                                 </div>
                             </div>
                         </div>
-                        <div className="cmci-chart-container">
-                            <h4>
+                        <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6">
+                            <h4 className="mb-5 flex items-center gap-2 text-[0.9375rem] font-semibold text-[#1a1a1a] [&_i]:text-primary">
                                 <i className="bi bi-graph-up"></i>
                                 <span>Economic Dynamism Trend</span>
                             </h4>
-                            <div className="chart-wrapper">
-                                <canvas id="cmciEconomicChart"></canvas>
+                            <div className="relative h-[400px] rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 max-[575px]:h-[300px] max-[575px]:p-4">
+                                <canvas id="cmciEconomicChart" className="max-h-full w-full"></canvas>
                             </div>
                         </div>
                     </div>
 
-                    <div className="cmci-panel" id="panel-government-efficiency">
-                        <div className="cmci-indicator-grid">
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-cash-coin"></i> Cost of Living</div>
-                                <div className="indicator-value">1.1919</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="47.68"></div>
+                    <div className="cmci-panel hidden [&.active]:block" id="panel-government-efficiency">
+                        <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-cash-coin"></i> Cost of Living</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">1.1919</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="47.68"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-briefcase"></i> Cost of Doing Business
                                 </div>
-                                <div className="indicator-value">1.5599</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="62.40"></div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">1.5599</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="62.40"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-bank"></i> Financial Deepening</div>
-                                <div className="indicator-value">0.8288</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="33.15"></div>
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-bank"></i> Financial Deepening</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.8288</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="33.15"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-speedometer2"></i> Productivity</div>
-                                <div className="indicator-value">0.3297</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="32.97"></div>
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-speedometer2"></i> Productivity</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.3297</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="32.97"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-check2-square"></i> Compliance to Directives
                                 </div>
-                                <div className="indicator-value">1.9600</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="78.40"></div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">1.9600</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="78.40"></div>
                                 </div>
                             </div>
                         </div>
-                        <div className="cmci-chart-container">
-                            <h4>
+                        <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6">
+                            <h4 className="mb-5 flex items-center gap-2 text-[0.9375rem] font-semibold text-[#1a1a1a] [&_i]:text-primary">
                                 <i className="bi bi-graph-up"></i>
                                 <span>Government Efficiency Trend</span>
                             </h4>
-                            <div className="chart-wrapper">
-                                <canvas id="cmciGovernmentChart"></canvas>
+                            <div className="relative h-[400px] rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 max-[575px]:h-[300px] max-[575px]:p-4">
+                                <canvas id="cmciGovernmentChart" className="max-h-full w-full"></canvas>
                             </div>
                         </div>
                     </div>
 
-                    <div className="cmci-panel" id="panel-infrastructure">
-                        <div className="cmci-indicator-grid">
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-signpost-2"></i> Road Network</div>
-                                <div className="indicator-value">0.0016</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="0.16"></div>
+                    <div className="cmci-panel hidden [&.active]:block" id="panel-infrastructure">
+                        <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-signpost-2"></i> Road Network</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0016</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="0.16"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-geo-alt"></i> Distance to Ports</div>
-                                <div className="indicator-value">1.5281</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="61.12"></div>
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-geo-alt"></i> Distance to Ports</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">1.5281</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="61.12"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-lightning-charge"></i> Basic Utilities
                                 </div>
-                                <div className="indicator-value">0.3560</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="14.24"></div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.3560</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="14.24"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-truck"></i> Transportation</div>
-                                <div className="indicator-value">0.0959</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="9.59"></div>
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-truck"></i> Transportation</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0959</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="9.59"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-wifi"></i> IT Capacity</div>
-                                <div className="indicator-value">0.0155</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="1.55"></div>
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-wifi"></i> IT Capacity</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0155</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="1.55"></div>
                                 </div>
                             </div>
                         </div>
-                        <div className="cmci-chart-container">
-                            <h4>
+                        <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6">
+                            <h4 className="mb-5 flex items-center gap-2 text-[0.9375rem] font-semibold text-[#1a1a1a] [&_i]:text-primary">
                                 <i className="bi bi-graph-up"></i>
                                 <span>Infrastructure Trend</span>
                             </h4>
-                            <div className="chart-wrapper">
-                                <canvas id="cmciInfraChart"></canvas>
+                            <div className="relative h-[400px] rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 max-[575px]:h-[300px] max-[575px]:p-4">
+                                <canvas id="cmciInfraChart" className="max-h-full w-full"></canvas>
                             </div>
                         </div>
                     </div>
 
-                    <div className="cmci-panel" id="panel-resiliency">
-                        <div className="cmci-indicator-grid">
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-file-earmark-text"></i> DRR Plan</div>
-                                <div className="indicator-value">1.9783</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="79.13"></div>
+                    <div className="cmci-panel hidden [&.active]:block" id="panel-resiliency">
+                        <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-file-earmark-text"></i> DRR Plan</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">1.9783</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="79.13"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-calendar-event"></i> Annual Disaster Drill
                                 </div>
-                                <div className="indicator-value">1.0023</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="40.09"></div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">1.0023</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="40.09"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-bell"></i> Early Warning System</div>
-                                <div className="indicator-value">1.0397</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="41.59"></div>
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-bell"></i> Early Warning System</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">1.0397</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="41.59"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-piggy-bank"></i> DRRMP Budget</div>
-                                <div className="indicator-value">0.0020</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="0.20"></div>
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-piggy-bank"></i> DRRMP Budget</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0020</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="0.20"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-clipboard-data"></i> Risk Assessments
                                 </div>
-                                <div className="indicator-value">2.0000</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="80.00"></div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">2.0000</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="80.00"></div>
                                 </div>
                             </div>
                         </div>
-                        <div className="cmci-chart-container">
-                            <h4>
+                        <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6">
+                            <h4 className="mb-5 flex items-center gap-2 text-[0.9375rem] font-semibold text-[#1a1a1a] [&_i]:text-primary">
                                 <i className="bi bi-graph-up"></i>
                                 <span>Resiliency Trend</span>
                             </h4>
-                            <div className="chart-wrapper">
-                                <canvas id="cmciResiliencyChart"></canvas>
+                            <div className="relative h-[400px] rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 max-[575px]:h-[300px] max-[575px]:p-4">
+                                <canvas id="cmciResiliencyChart" className="max-h-full w-full"></canvas>
                             </div>
                         </div>
                     </div>
 
-                    <div className="cmci-panel" id="panel-innovation">
-                        <div className="cmci-indicator-grid">
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-file-code"></i> ICT Plan</div>
-                                <div className="indicator-value">2.0001</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="80.00"></div>
+                    <div className="cmci-panel hidden [&.active]:block" id="panel-innovation">
+                        <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-file-code"></i> ICT Plan</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">2.0001</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="80.00"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-search"></i> R&amp;D Expenditures</div>
-                                <div className="indicator-value">0.0006</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="0.06"></div>
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-search"></i> R&amp;D Expenditures</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0006</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="0.06"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-laptop"></i> E-BPLS Software</div>
-                                <div className="indicator-value">2.0000</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="80.00"></div>
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-laptop"></i> E-BPLS Software</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">2.0000</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="80.00"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header"><i className="bi bi-mortarboard"></i> STEM Graduates</div>
-                                <div className="indicator-value">0.0181</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="1.81"></div>
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-mortarboard"></i> STEM Graduates</div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0181</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="1.81"></div>
                                 </div>
                             </div>
-                            <div className="cmci-indicator-card">
-                                <div className="indicator-header">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-rocket-takeoff"></i> Innovation Facilities
                                 </div>
-                                <div className="indicator-value">0.0227</div>
-                                <div className="indicator-bar">
-                                    <div className="indicator-fill" data-value="2.27"></div>
+                                <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0227</div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="2.27"></div>
                                 </div>
                             </div>
                         </div>
-                        <div className="cmci-chart-container">
-                            <h4>
+                        <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6">
+                            <h4 className="mb-5 flex items-center gap-2 text-[0.9375rem] font-semibold text-[#1a1a1a] [&_i]:text-primary">
                                 <i className="bi bi-graph-up"></i>
                                 <span>Innovation Trend</span>
                             </h4>
-                            <div className="chart-wrapper">
-                                <canvas id="cmciInnovationChart"></canvas>
+                            <div className="relative h-[400px] rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 max-[575px]:h-[300px] max-[575px]:p-4">
+                                <canvas id="cmciInnovationChart" className="max-h-full w-full"></canvas>
                             </div>
                         </div>
                     </div>
 
-                    <p className="data-source">
-                        <i className="bi bi-info-circle"></i> Source:{" "}
-                        <a href="https://cmci.dti.gov.ph/" target="_blank" rel="noopener noreferrer">
+                    <p className="mt-6 text-center text-[0.8125rem] text-[#666666]">
+                        <i className="bi bi-info-circle mr-1"></i> Source:{" "}
+                        <a className="text-primary" href="https://cmci.dti.gov.ph/" target="_blank" rel="noopener noreferrer">
                             DTI Cities and Municipalities Competitiveness Index (CMCI)
                         </a>
                     </p>
                 </div>
             </section>
 
-            <section className="stats-section stats-barchart animate-on-scroll">
-                <div className="container">
-                    <div className="section-header-minimal">
-                        <span className="section-tag">
+            <section className="animate-on-scroll bg-white py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
+                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                    <div className="mb-12 text-center">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(0,50,160,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-bar-chart-fill"></i>
                             <span>Visual</span>
                         </span>
-                        <h2>Population Bar Chart</h2>
-                        <p>Comparative view of all {rankedBarangays.length} barangays</p>
+                        <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">Population Bar Chart</h2>
+                        <p className="m-0 text-[1rem] text-[#666666]">Comparative view of all {rankedBarangays.length} barangays</p>
                     </div>
 
-                    <div className="chart-wrapper chart-wrapper-bar">
-                        <canvas id="populationBarChart"></canvas>
+                    <div className="relative h-[600px] rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 max-[575px]:h-[500px] max-[575px]:p-4">
+                        <canvas id="populationBarChart" className="max-h-full w-full"></canvas>
                     </div>
 
-                    <p className="data-source">
-                        <i className="bi bi-info-circle"></i> Source:{" "}
-                        <a href="https://psa.gov.ph/" target="_blank" rel="noopener noreferrer">
+                    <p className="mt-6 text-center text-[0.8125rem] text-[#666666]">
+                        <i className="bi bi-info-circle mr-1"></i> Source:{" "}
+                        <a className="text-primary" href="https://psa.gov.ph/" target="_blank" rel="noopener noreferrer">
                             Philippine Statistics Authority (PSA)
                         </a>
                         {" "}- 2024 Census

@@ -56,11 +56,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
         />
-        <link rel="stylesheet" href="/assets/css/style.css" />
-        <link rel="stylesheet" href="/assets/css/responsive.css" />
-        <link rel="stylesheet" href="/assets/css/accessibility.css" />
-        <link rel="stylesheet" href="/assets/css/footer.css" />
-        <link rel="stylesheet" href="/assets/css/statistics.css" />
       </head>
       <body>
         <LanguageProvider>

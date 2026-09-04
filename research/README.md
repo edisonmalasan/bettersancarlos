@@ -87,6 +87,8 @@ To build a reliable, traceable public-information foundation about **San Carlos 
 | File | Description |
 ## Important Research Status
 
+- **New categories created beyond the original prompt structure:** `city-profile/` (consolidates general info + geography + GIS), `news/` (CURRENT vs HISTORICAL developments), and `official-presence/` (official vs community online channels). These were created where the research revealed meaningful topics deserving their own organization.
+
 - **Official LGU website (sancarlospangasinan.gov.ph):** As of the research date it is a thin single-page site built on Hostinger/Zyro (Astro). Deeper pages share the homepage shell. Historic/official content was recovered from the Internet Archive (2024–2025 snapshots) and from the city's **original WordPress site (`sancarloscitypangasinan.gov.ph`, archived 2017–2020)**.
 - **Population figures:** 2020 Census of Population (PSA) = **205,424**; 2015 = **188,571**; per-barangay populations confirmed via PhilAtlas (sourced from PSA).
 - **Elected officials:** 2025–2028 term data from Comelec-based unofficial tallies (Rappler) and the city CIO Facebook proclamation; treat vote counts as partial/unofficial until Comelec final canvass.

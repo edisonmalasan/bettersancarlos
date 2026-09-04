@@ -20,7 +20,7 @@
 | **RA No. 4866** | Created the Municipality of Basista out of San Carlos (1965). | Wikipedia (San Carlos / Basista). |
 | **RA 9184** | Referenced in the current LGU site's menu under "BIDS and AWARDS" → "COMMITTEE R.A. 9184" (Government Procurement Reform related). **Full text/use not verified in this research.** | [Official LGU site — RA 9184 page](https://sancarlospangasinan.gov.ph/ra-9184) |
 | **EO/Ordinance No. 04-15** (2016) | Only ordinance heading recovered from the old site's Legislative page. | [Old official site — Legislative (archived 2017)](https://web.archive.org/web/20170326024610/http://sancarloscitypangasinan.gov.ph/index.php/legislative/) |
-| **2021 Executive Orders (EO) series** | The old (Negros) site had an EO/news series; locally San Carlos City published PR (press release) series 2021–2023. See `news/26-09-news-current-events.md`. | Internet Archive of old official site. |
+| **2021 Executive Orders (EO) series** | A domain named `sancarloscity.gov.ph` (the OTHER San Carlos City — in Negros Occidental) hosted EO/news series; it is NOT Pangasinan material and must be excluded. The Pangasinan city's official site (`sancarloscitypangasinan.gov.ph`) published press releases (PR) series 2021–2023. See `news/26-09-news-current-events.md`. | Internet Archive of both domains. |
 | **Full Disclosure Policy / Citizen's Charter / Transparency Seal** | Governance accountability documents — see `transparency/26-09-full-disclosure.md`. | [LGU — Transparency Seal (archived)](https://web.archive.org/web/20240603225003/https://www.sancarlospangasinan.gov.ph/transparency-seal) |
 
 ## Where the Real Archives Likely Live (for next-phase scraping)

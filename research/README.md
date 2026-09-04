@@ -49,6 +49,7 @@ To build a reliable, traceable public-information foundation about **San Carlos 
 |---|---|
 | `26-09-city-profile.md` | Official name, classification, income class, coordinates, area, symbols, vision/mission, contact summary |
 | `26-09-geography.md` | Boundaries, terrain, rivers, climate, distances |
+| `26-09-gis-data.md` | Maps/GIS availability, spatial sources, facility-map and hazard-map notes |
 
 ### government/
 | File | Description |

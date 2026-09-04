@@ -275,256 +275,59 @@ export default function NewsEditorPage() {
         [entries]
     );
 
-    const previewBadgeClass = `nc-badge b-${badge}`;
+    const previewBadgeClass =
+        badge === 'success'
+            ? 'bg-[#dcfce7] text-[#15803d]'
+            : badge === 'warning'
+              ? 'bg-[#fef3c7] text-[#b45309]'
+              : 'bg-[#e0f2fe] text-[#0369a1]';
+
+    // Tailwind equivalents of the legacy ne-* styles from the removed <style> block.
+    const neBtn =
+        'cursor-pointer rounded-lg border border-[#e5e7eb] bg-white px-3 py-2 text-[#1f2937] transition-colors hover:border-[#1d4ed8]';
+    const neBtnPrimary = `${neBtn} border-[#1d4ed8] bg-[#1d4ed8] text-white hover:bg-[#1e3a8a]`;
+    const neBtnSm =
+        'cursor-pointer rounded-lg border border-[#e5e7eb] bg-white px-[9px] py-1 text-[0.78rem] text-[#1f2937] transition-colors hover:border-[#1d4ed8]';
+    const neBtnSmDanger = `${neBtnSm} border-[#fecaca] text-[#b91c1c]`;
+    const nePanelH2 = 'm-0 mb-3 text-[0.85rem] font-semibold uppercase tracking-[0.04em] text-[#6b7280]';
+    const neInput = 'w-full rounded-lg border border-[#e5e7eb] bg-white px-2.5 py-2 text-[#1f2937] focus:border-primary focus:outline-none focus:ring-[3px] focus:ring-[rgba(0,50,160,0.2)]';
+    const neInputInvalid = 'w-full rounded-lg border border-[#b91c1c] bg-white px-2.5 py-2 text-[#1f2937] focus:border-[#b91c1c] focus:outline-none focus:ring-[3px] focus:ring-[rgba(0,50,160,0.2)]';
+    const neLabel = 'mb-1 mt-3 block text-[0.8rem] font-semibold';
+    const neHint = 'mt-1 text-[0.72rem] text-[#6b7280]';
 
     return (
         <>
-            <style>{`
-        :root {
-          --primary: #1d4ed8;
-          --primary-dark: #1e3a8a;
-          --border: #e5e7eb;
-          --text: #1f2937;
-          --muted: #6b7280;
-          --bg: #f3f4f6;
-          --danger: #b91c1c;
-          --ok: #15803d;
-        }
-        .ne-app-header {
-          background: #fff;
-          border-bottom: 1px solid var(--border);
-          padding: 14px 20px;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          align-items: center;
-          position: sticky;
-          top: 0;
-          z-index: 5;
-        }
-        .ne-app-header h1 {
-          font-size: 1.05rem;
-          margin: 0;
-          flex: 1 1 220px;
-        }
-        .ne-tag {
-          font-size: 0.7rem;
-          background: #fef3c7;
-          color: #b45309;
-          padding: 2px 8px;
-          border-radius: 50px;
-          font-weight: 600;
-        }
-        .ne-btn {
-          font: inherit;
-          cursor: pointer;
-          border: 1px solid var(--border);
-          background: #fff;
-          color: var(--text);
-          padding: 8px 12px;
-          border-radius: 8px;
-        }
-        .ne-btn:hover { border-color: var(--primary); }
-        .ne-btn-primary {
-          background: var(--primary);
-          border-color: var(--primary);
-          color: #fff;
-        }
-        .ne-btn-primary:hover { background: var(--primary-dark); }
-        .ne-btn-danger { color: var(--danger); border-color: #fecaca; }
-        .ne-main {
-          display: grid;
-          grid-template-columns: minmax(280px, 360px) 1fr;
-          gap: 18px;
-          padding: 18px 20px;
-          align-items: start;
-        }
-        @media (max-width: 840px) {
-          .ne-main { grid-template-columns: 1fr; }
-        }
-        .ne-panel {
-          background: #fff;
-          border: 1px solid var(--border);
-          border-radius: 12px;
-          padding: 16px;
-        }
-        .ne-panel h2 {
-          font-size: 0.85rem;
-          text-transform: uppercase;
-          letter-spacing: 0.04em;
-          color: var(--muted);
-          margin: 0 0 12px;
-        }
-        .ne-entry {
-          border: 1px solid var(--border);
-          border-radius: 10px;
-          padding: 10px 12px;
-          margin-bottom: 10px;
-        }
-        .ne-entry.active {
-          border-color: var(--primary);
-          box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.15);
-        }
-        .ne-entry .row {
-          display: flex;
-          justify-content: space-between;
-          gap: 8px;
-          align-items: baseline;
-        }
-        .ne-entry strong {
-          font-size: 0.92rem;
-          line-height: 1.3;
-        }
-        .ne-entry .meta {
-          font-size: 0.72rem;
-          color: var(--muted);
-          margin-top: 4px;
-        }
-        .ne-entry .actions {
-          margin-top: 8px;
-          display: flex;
-          gap: 6px;
-        }
-        .ne-entry .actions button {
-          padding: 4px 9px;
-          font-size: 0.78rem;
-        }
-        .ne-field label {
-          display: block;
-          font-size: 0.8rem;
-          font-weight: 600;
-          margin: 12px 0 4px;
-        }
-        .ne-field label .opt {
-          color: var(--muted);
-          font-weight: 400;
-        }
-        .ne-field input,
-        .ne-field select,
-        .ne-field textarea {
-          width: 100%;
-          font: inherit;
-          padding: 8px 10px;
-          border: 1px solid var(--border);
-          border-radius: 8px;
-          background: #fff;
-        }
-        .ne-field textarea {
-          min-height: 84px;
-          resize: vertical;
-        }
-        .ne-hint {
-          font-size: 0.72rem;
-          color: var(--muted);
-          margin-top: 4px;
-        }
-        .ne-counter.over {
-          color: var(--danger);
-          font-weight: 600;
-        }
-        .ne-err {
-          color: var(--danger);
-          font-size: 0.75rem;
-          margin-top: 4px;
-          display: none;
-        }
-        .ne-field.invalid input,
-        .ne-field.invalid textarea,
-        .ne-field.invalid select {
-          border-color: var(--danger);
-        }
-        .ne-field.invalid .ne-err { display: block; }
-        .ne-form-actions {
-          margin-top: 16px;
-          display: flex;
-          gap: 8px;
-        }
-        .ne-grid-2 {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 10px;
-        }
-        .ne-status {
-          font-size: 0.78rem;
-          color: var(--muted);
-          margin-left: auto;
-        }
-        .ne-status.ok { color: var(--ok); }
-        .ne-status.bad { color: var(--danger); }
-        .ne-preview-wrap {
-          margin-top: 14px;
-          border-top: 1px dashed var(--border);
-          padding-top: 14px;
-        }
-        .ne-nc {
-          border: 1px solid var(--border);
-          border-radius: 12px;
-          overflow: hidden;
-          max-width: 360px;
-          background: #fff;
-        }
-        .ne-nc-head {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 12px 14px 0;
-        }
-        .ne-nc-badge {
-          font-size: 0.75rem;
-          font-weight: 600;
-          padding: 4px 10px;
-          border-radius: 50px;
-        }
-        .b-info { background: #e0f2fe; color: #0369a1; }
-        .b-success { background: #dcfce7; color: #15803d; }
-        .b-warning { background: #fef3c7; color: #b45309; }
-        .ne-nc-date { font-size: 0.75rem; color: var(--muted); }
-        .ne-nc-body { padding: 8px 14px 14px; }
-        .ne-nc-title { font-size: 1rem; font-weight: 600; margin: 0 0 6px; }
-        .ne-nc-desc { font-size: 0.8125rem; color: var(--muted); margin: 0; line-height: 1.55; }
-        .ne-nc-foot {
-          padding: 0 14px 12px;
-          font-size: 0.8125rem;
-          font-weight: 500;
-          color: var(--primary);
-        }
-        .visually-hidden {
-          position: absolute;
-          left: -9999px;
-        }
-      `}</style>
-
-            <header className="ne-app-header">
-                <h1>
-                    News Curation <span className="ne-tag">internal tool · not deployed</span>
+            <header className="sticky top-0 z-[5] flex flex-wrap items-center gap-2.5 border-b border-[#e5e7eb] bg-white px-5 py-[14px]">
+                <h1 className="m-0 flex-[1_1_220px] text-[1.05rem]">
+                    News Curation <span className="rounded-full bg-[#fef3c7] px-2 py-0.5 text-[0.7rem] font-semibold text-[#b45309]">internal tool · not deployed</span>
                 </h1>
-                <button className="ne-btn" type="button" onClick={fetchFromServer}>
+                <button className={neBtn} type="button" onClick={fetchFromServer}>
                     Reload from server
                 </button>
-                <button className="ne-btn" type="button" onClick={() => fileInputRef.current?.click()}>
+                <button className={neBtn} type="button" onClick={() => fileInputRef.current?.click()}>
                     Import file…
                 </button>
                 <input
                     ref={fileInputRef}
                     type="file"
                     accept="application/json,.json"
-                    className="visually-hidden"
+                    className="absolute left-[-9999px]"
                     onChange={handleImport}
                 />
-                <button className="ne-btn" type="button" onClick={handleCopy}>
+                <button className={neBtn} type="button" onClick={handleCopy}>
                     Copy JSON
                 </button>
-                <button className="ne-btn ne-btn-primary" type="button" onClick={handleDownload}>
+                <button className={neBtnPrimary} type="button" onClick={handleDownload}>
                     Download news.json
                 </button>
-                <span className={`ne-status ${statusKind}`}>{statusText}</span>
+                <span className={`ml-auto text-[0.78rem] ${statusKind === 'ok' ? 'text-[#15803d]' : statusKind === 'bad' ? 'text-[#b91c1c]' : 'text-[#6b7280]'}`}>{statusText}</span>
             </header>
 
-            <main className="ne-main">
-                <section className="ne-panel" aria-label="Current entries">
-                    <h2>Entries ({entries.length})</h2>
+            <main className="grid grid-cols-[minmax(280px,360px)_1fr] items-start gap-[18px] px-5 py-[18px] max-[840px]:grid-cols-1">
+                <section className="rounded-xl border border-[#e5e7eb] bg-white p-4" aria-label="Current entries">
+                    <h2 className={nePanelH2}>Entries ({entries.length})</h2>
                     <button
-                        className="ne-btn ne-btn-primary"
+                        className={neBtnPrimary}
                         type="button"
                         style={{ width: '100%', marginBottom: 12 }}
                         onClick={() => {
@@ -535,21 +338,21 @@ export default function NewsEditorPage() {
                         + Add new update
                     </button>
                     <div id="list">
-                        {sortedEntries.length === 0 && <p className="ne-hint">No updates yet. Click “Add new update”.</p>}
+                        {sortedEntries.length === 0 && <p className={neHint}>No updates yet. Click “Add new update”.</p>}
                         {sortedEntries.map(({ e, i }) => (
-                            <div key={e.id + i} className={`ne-entry${i === editingIndex ? ' active' : ''}`}>
-                                <div className="row">
-                                    <strong dangerouslySetInnerHTML={{ __html: escHtml(e.title) }} />
+                            <div key={e.id + i} className={`mb-2.5 rounded-[10px] border px-3 py-2.5 ${i === editingIndex ? 'border-[#1d4ed8] shadow-[0_0_0_2px_rgba(29,78,216,0.15)]' : 'border-[#e5e7eb]'}`}>
+                                <div className="flex items-baseline justify-between gap-2">
+                                    <strong className="text-[0.92rem] leading-[1.3]" dangerouslySetInnerHTML={{ __html: escHtml(e.title) }} />
                                 </div>
-                                <div className="meta">
+                                <div className="mt-1 text-[0.72rem] text-[#6b7280]">
                                     {escHtml(e.category)} · {escHtml(e.badge)} · {fmtDate(e.date)}
                                     {e.url ? ' · 🔗' : ''}
                                 </div>
-                                <div className="actions">
-                                    <button className="ne-btn" type="button" onClick={() => loadIntoForm(i)}>
+                                <div className="mt-2 flex gap-1.5">
+                                    <button className={neBtnSm} type="button" onClick={() => loadIntoForm(i)}>
                                         Edit
                                     </button>
-                                    <button className="ne-btn ne-btn-danger" type="button" onClick={() => handleDelete(i)}>
+                                    <button className={neBtnSmDanger} type="button" onClick={() => handleDelete(i)}>
                                         Delete
                                     </button>
                                 </div>
@@ -558,40 +361,43 @@ export default function NewsEditorPage() {
                     </div>
                 </section>
 
-                <section className="ne-panel" aria-label="Editor">
-                    <h2>{editingIndex === -1 ? 'Add update' : 'Edit update'}</h2>
+                <section className="rounded-xl border border-[#e5e7eb] bg-white p-4" aria-label="Editor">
+                    <h2 className={nePanelH2}>{editingIndex === -1 ? 'Add update' : 'Edit update'}</h2>
                     <form noValidate onSubmit={handleSubmit}>
-                        <div className={`ne-field${invalidFields.has('title') ? ' invalid' : ''}`}>
-                            <label htmlFor="f-title">Title</label>
+                        <div>
+                            <label className={neLabel} htmlFor="f-title">Title</label>
                             <input
                                 id="f-title"
+                                className={invalidFields.has('title') ? neInputInvalid : neInput}
                                 maxLength={120}
                                 required
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                             />
-                            <div className="ne-hint">
-                                <span className={`ne-counter${title.length > 120 ? ' over' : ''}`}>{title.length}</span>/120
+                            <div className={neHint}>
+                                <span className={title.length > 120 ? 'font-semibold text-[#b91c1c]' : ''}>{title.length}</span>/120
                             </div>
-                            <div className="ne-err">A title is required (max 120 characters).</div>
+                            <div className={invalidFields.has('title') ? 'mt-1 block text-[0.75rem] text-[#b91c1c]' : 'hidden'}>A title is required (max 120 characters).</div>
                         </div>
 
-                        <div className="ne-grid-2">
-                            <div className={`ne-field${invalidFields.has('date') ? ' invalid' : ''}`}>
-                                <label htmlFor="f-date">Date</label>
+                        <div className="grid grid-cols-2 gap-2.5">
+                            <div>
+                                <label className={neLabel} htmlFor="f-date">Date</label>
                                 <input
                                     id="f-date"
+                                    className={invalidFields.has('date') ? neInputInvalid : neInput}
                                     type="date"
                                     required
                                     value={date}
                                     onChange={(e) => setDate(e.target.value)}
                                 />
-                                <div className="ne-err">A valid date is required.</div>
+                                <div className={invalidFields.has('date') ? 'mt-1 block text-[0.75rem] text-[#b91c1c]' : 'hidden'}>A valid date is required.</div>
                             </div>
-                            <div className={`ne-field${invalidFields.has('badge') ? ' invalid' : ''}`}>
-                                <label htmlFor="f-badge">Badge color</label>
+                            <div>
+                                <label className={neLabel} htmlFor="f-badge">Badge color</label>
                                 <select
                                     id="f-badge"
+                                    className={invalidFields.has('badge') ? neInputInvalid : neInput}
                                     required
                                     value={badge}
                                     onChange={(e) => setBadge(e.target.value as NewsEntry['badge'])}
@@ -600,14 +406,15 @@ export default function NewsEditorPage() {
                                     <option value="success">success (green)</option>
                                     <option value="warning">warning (amber)</option>
                                 </select>
-                                <div className="ne-err">Choose a badge color.</div>
+                                <div className={invalidFields.has('badge') ? 'mt-1 block text-[0.75rem] text-[#b91c1c]' : 'hidden'}>Choose a badge color.</div>
                             </div>
                         </div>
 
-                        <div className={`ne-field${invalidFields.has('category') ? ' invalid' : ''}`}>
-                            <label htmlFor="f-category">Category label</label>
+                        <div>
+                            <label className={neLabel} htmlFor="f-category">Category label</label>
                             <input
                                 id="f-category"
+                                className={invalidFields.has('category') ? neInputInvalid : neInput}
                                 list="category-presets"
                                 maxLength={32}
                                 required
@@ -624,73 +431,77 @@ export default function NewsEditorPage() {
                                 <option value="Health" />
                                 <option value="Weather" />
                             </datalist>
-                            <div className="ne-hint">Presets auto-pick a badge color; you can override it above.</div>
-                            <div className="ne-err">A category label is required.</div>
+                            <div className={neHint}>Presets auto-pick a badge color; you can override it above.</div>
+                            <div className={invalidFields.has('category') ? 'mt-1 block text-[0.75rem] text-[#b91c1c]' : 'hidden'}>A category label is required.</div>
                         </div>
 
-                        <div className={`ne-field${invalidFields.has('summary') ? ' invalid' : ''}`}>
-                            <label htmlFor="f-summary">Summary</label>
+                        <div>
+                            <label className={neLabel} htmlFor="f-summary">Summary</label>
                             <textarea
                                 id="f-summary"
+                                className={`${invalidFields.has('summary') ? neInputInvalid : neInput} min-h-[84px] resize-y`}
                                 maxLength={300}
                                 required
                                 value={summary}
                                 onChange={(e) => setSummary(e.target.value)}
                             />
-                            <div className="ne-hint">
-                                <span className={`ne-counter${summary.length > 300 ? ' over' : ''}`}>{summary.length}</span>/300
+                            <div className={neHint}>
+                                <span className={summary.length > 300 ? 'font-semibold text-[#b91c1c]' : ''}>{summary.length}</span>/300
                             </div>
-                            <div className="ne-err">A summary is required (max 300 characters).</div>
+                            <div className={invalidFields.has('summary') ? 'mt-1 block text-[0.75rem] text-[#b91c1c]' : 'hidden'}>A summary is required (max 300 characters).</div>
                         </div>
 
-                        <div className={`ne-field${invalidFields.has('url') ? ' invalid' : ''}`}>
-                            <label htmlFor="f-url">
-                                Link URL <span className="opt">(optional — e.g. the Facebook post)</span>
+                        <div>
+                            <label className={neLabel} htmlFor="f-url">
+                                Link URL <span className="font-normal text-[#6b7280]">(optional — e.g. the Facebook post)</span>
                             </label>
                             <input
                                 id="f-url"
+                                className={invalidFields.has('url') ? neInputInvalid : neInput}
                                 type="url"
                                 placeholder="https://facebook.com/..."
                                 value={url}
                                 onChange={(e) => setUrl(e.target.value)}
                             />
-                            <div className="ne-err">Enter a valid http(s) URL or leave blank.</div>
+                            <div className={invalidFields.has('url') ? 'mt-1 block text-[0.75rem] text-[#b91c1c]' : 'hidden'}>Enter a valid http(s) URL or leave blank.</div>
                         </div>
 
-                        <div className="ne-field">
-                            <label htmlFor="f-source">
-                                Link label <span className="opt">(optional)</span>
+                        <div>
+                            <label className={neLabel} htmlFor="f-source">
+                                Link label <span className="font-normal text-[#6b7280]">(optional)</span>
                             </label>
                             <input
                                 id="f-source"
+                                className={neInput}
                                 maxLength={40}
                                 placeholder="View on Facebook"
                                 value={source}
                                 onChange={(e) => setSource(e.target.value)}
                             />
-                            <div className="ne-hint">Shown on the link. Defaults to “Read more” when a URL is set.</div>
+                            <div className={neHint}>Shown on the link. Defaults to “Read more” when a URL is set.</div>
                         </div>
 
-                        <div className={`ne-field${invalidFields.has('id') ? ' invalid' : ''}`}>
-                            <label htmlFor="f-id">
-                                ID <span className="opt">(auto from title; must be unique)</span>
+                        <div>
+                            <label className={neLabel} htmlFor="f-id">
+                                ID <span className="font-normal text-[#6b7280]">(auto from title; must be unique)</span>
                             </label>
                             <input
                                 id="f-id"
+                                className={invalidFields.has('id') ? neInputInvalid : neInput}
                                 maxLength={80}
                                 required
                                 value={id}
                                 onChange={(e) => setId(e.target.value)}
                             />
-                            <div className="ne-err">A unique ID is required (lowercase, dashes).</div>
+                            <div className={invalidFields.has('id') ? 'mt-1 block text-[0.75rem] text-[#b91c1c]' : 'hidden'}>A unique ID is required (lowercase, dashes).</div>
                         </div>
 
-                        <div className="ne-form-actions">
-                            <button className="ne-btn ne-btn-primary" type="submit">
+                        <div className="mt-4 flex gap-2">
+                            <button className={neBtnPrimary} type="submit">
                                 Save update
                             </button>
                             <button
-                                className="ne-btn"
+                                className={neBtn}
                                 type="button"
                                 onClick={() => clearForm(entries)}
                             >
@@ -699,19 +510,19 @@ export default function NewsEditorPage() {
                         </div>
                     </form>
 
-                    <div className="ne-preview-wrap">
-                        <h2>Live preview (News page card)</h2>
-                        <article className="ne-nc">
-                            <div className="ne-nc-head">
-                                <span className={`ne-nc-badge ${previewBadgeClass}`}>{category || 'Category'}</span>
-                                <span className="ne-nc-date">{fmtDate(date)}</span>
+                    <div className="mt-[14px] border-t border-dashed border-[#e5e7eb] pt-[14px]">
+                        <h2 className={nePanelH2}>Live preview (News page card)</h2>
+                        <article className="max-w-[360px] overflow-hidden rounded-xl border border-[#e5e7eb] bg-white">
+                            <div className="flex items-center justify-between px-[14px] pt-3">
+                                <span className={`rounded-full px-2.5 py-1 text-[0.75rem] font-semibold ${previewBadgeClass}`}>{category || 'Category'}</span>
+                                <span className="text-[0.75rem] text-[#6b7280]">{fmtDate(date)}</span>
                             </div>
-                            <div className="ne-nc-body">
-                                <h3 className="ne-nc-title">{title || 'Title preview'}</h3>
-                                <p className="ne-nc-desc">{summary || 'Summary preview…'}</p>
+                            <div className="px-[14px] pb-[14px] pt-2">
+                                <h3 className="m-0 mb-1.5 text-base font-semibold">{title || 'Title preview'}</h3>
+                                <p className="m-0 text-[0.8125rem] leading-[1.55] text-[#6b7280]">{summary || 'Summary preview…'}</p>
                             </div>
                             {url && (
-                                <div className="ne-nc-foot">{(source.trim() || 'Read more') + ' →'}</div>
+                                <div className="px-[14px] pb-3 text-[0.8125rem] font-medium text-[#1d4ed8]">{(source.trim() || 'Read more') + ' →'}</div>
                             )}
                         </article>
                     </div>

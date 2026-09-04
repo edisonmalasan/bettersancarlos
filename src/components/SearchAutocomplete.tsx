@@ -581,6 +581,22 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
       }
     }
 
+    // Tailwind equivalents of the legacy search-* styles. The
+    // `search-suggestion-item` / `search-result-item` / `selected` names are
+    // kept because keyboard navigation queries/toggles them via classList.
+    const filterBtnCls = (isActive: boolean) =>
+      `shrink-0 cursor-pointer whitespace-nowrap rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all duration-200 ${
+        isActive
+          ? 'border-primary bg-gradient-to-br from-primary to-[#0044cc] text-white shadow-[0_2px_8px_rgba(0,50,160,0.3)]'
+          : 'border-[rgba(0,50,160,0.15)] bg-white text-[#555] hover:border-primary hover:bg-[rgba(0,50,160,0.04)] hover:text-primary'
+      }`;
+    const suggestionItemCls =
+      'search-suggestion-item flex items-center border-l-[3px] border-l-transparent px-4 py-[11px] text-left text-sm text-[#333] no-underline transition-all duration-150 hover:border-l-primary hover:bg-gradient-to-r hover:from-[rgba(0,50,160,0.06)] hover:to-[rgba(0,50,160,0.02)] hover:text-primary hover:no-underline [&.selected]:border-l-primary [&.selected]:bg-gradient-to-r [&.selected]:from-[rgba(0,50,160,0.06)] [&.selected]:to-[rgba(0,50,160,0.02)] [&.selected]:text-primary [&_i]:mr-2.5 [&_i]:text-[0.8125rem] [&_i]:text-[#999] [&_i]:transition-colors hover:[&_i]:text-primary [&.selected]:[&_i]:text-primary';
+    const resultItemCls =
+      'search-result-item block border-b border-l-[3px] border-b-[rgba(0,50,160,0.06)] border-l-transparent px-4 py-[14px] text-left text-[#1a1a1a] no-underline transition-all duration-150 last:border-b-0 hover:border-l-primary hover:bg-gradient-to-r hover:from-[rgba(0,50,160,0.06)] hover:to-[rgba(0,50,160,0.02)] hover:no-underline [&.selected]:border-l-primary [&.selected]:bg-gradient-to-r [&.selected]:from-[rgba(0,50,160,0.06)] [&.selected]:to-[rgba(0,50,160,0.02)]';
+    const sectionHeaderCls =
+      'flex items-center justify-between px-4 pb-2 pt-3 text-[0.6875rem] font-semibold uppercase tracking-[0.5px] text-[#888] [&_i]:mr-[5px] [&_i]:text-primary';
+
     function renderDropdown() {
       if (!open) return null;
 
@@ -591,16 +607,16 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
 
       return (
         <div
-          className="search-autocomplete"
+          className="search-autocomplete absolute left-0 right-0 top-[calc(100%+6px)] z-[100] overflow-hidden rounded-[10px] border border-[rgba(0,50,160,0.12)] bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_6px_rgba(0,0,0,0.04)]"
           role="listbox"
           aria-label="Search suggestions"
         >
           {categories.length > 0 && (
-            <div className="search-filters">
+            <div className="flex flex-nowrap gap-1.5 overflow-x-auto rounded-t-[10px] border-b border-[rgba(0,50,160,0.06)] bg-gradient-to-b from-[#fafbfc] to-white px-[14px] py-3 [&::-webkit-scrollbar]:h-0">
               <button
                 type="button"
                 data-category=""
-                className={`search-filter-btn ${!currentCategory ? 'active' : ''}`}
+                className={filterBtnCls(!currentCategory)}
                 onClick={() => handleCategoryClick('')}
               >
                 All
@@ -610,7 +626,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
                   key={cat.id}
                   type="button"
                   data-category={cat.id}
-                  className={`search-filter-btn ${currentCategory === cat.id ? 'active' : ''}`}
+                  className={filterBtnCls(currentCategory === cat.id)}
                   onClick={() => handleCategoryClick(cat.id)}
                 >
                   {cat.name.split(' ')[0].replace(/,$/, '')}
@@ -620,8 +636,8 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
           )}
 
           {loading && (
-            <div className="search-loading">
-              <span className="search-loading-spinner" aria-hidden="true"></span>
+            <div className="flex items-center justify-center p-6 text-sm text-[#666]">
+              <span className="mr-2.5 h-5 w-5 animate-[searchSpin_0.8s_linear_infinite] rounded-full border-2 border-[rgba(0,50,160,0.2)] border-t-primary" aria-hidden="true"></span>
               <span>Loading services…</span>
             </div>
           )}
@@ -629,14 +645,14 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
           {!loading && showSuggestions && results.length === 0 && (
             <>
               {suggestions.recent.length > 0 && (
-                <div className="search-section">
-                  <div className="search-section-header">
+                <div className="border-b border-[rgba(0,50,160,0.06)] last:border-b-0">
+                  <div className={sectionHeaderCls}>
                     <span>
                       <i className="bi bi-clock-history"></i> Recent Searches
                     </span>
                     <button
                       type="button"
-                      className="search-clear-recent"
+                      className="cursor-pointer rounded border-0 bg-transparent px-2 py-[3px] text-[0.6875rem] font-medium text-primary transition-colors hover:bg-[rgba(0,50,160,0.08)]"
                       onClick={handleClearRecent}
                     >
                       Clear
@@ -646,7 +662,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
                     <a
                       key={`recent-${term}`}
                       href="#"
-                      className="search-suggestion-item"
+                      className={suggestionItemCls}
                       data-suggestion={term}
                       onClick={(e) => {
                         e.preventDefault();
@@ -659,8 +675,8 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
                 </div>
               )}
               {suggestions.popular.length > 0 && (
-                <div className="search-section">
-                  <div className="search-section-header">
+                <div className="border-b border-[rgba(0,50,160,0.06)] last:border-b-0">
+                  <div className={sectionHeaderCls}>
                     <span>
                       <i className="bi bi-fire"></i> Popular Searches
                     </span>
@@ -669,7 +685,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
                     <a
                       key={`popular-${term}`}
                       href="#"
-                      className="search-suggestion-item"
+                      className={suggestionItemCls}
                       data-suggestion={term}
                       onClick={(e) => {
                         e.preventDefault();
@@ -682,8 +698,8 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
                 </div>
               )}
               {suggestions.suggestions.length > 0 && (
-                <div className="search-section">
-                  <div className="search-section-header">
+                <div className="border-b border-[rgba(0,50,160,0.06)] last:border-b-0">
+                  <div className={sectionHeaderCls}>
                     <span>
                       <i className="bi bi-lightbulb"></i> Did you mean?
                     </span>
@@ -692,7 +708,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
                     <a
                       key={`suggest-${term}`}
                       href="#"
-                      className="search-suggestion-item"
+                      className={suggestionItemCls}
                       data-suggestion={term}
                       onClick={(e) => {
                         e.preventDefault();
@@ -708,10 +724,10 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
           )}
 
           {!loading && results.length === 0 && query.trim().length >= 2 && (
-            <div className="search-no-results">
-              <i className="bi bi-search"></i>
-              <p>No services found</p>
-              <small>Try different keywords or check spelling</small>
+            <div className="px-6 py-8 text-center text-[#666]">
+              <i className="bi bi-search mb-3 block text-[2.5rem] text-[rgba(0,50,160,0.2)]"></i>
+              <p className="m-0 mb-1.5 font-semibold text-[#333]">No services found</p>
+              <small className="text-[0.8125rem] text-[#888]">Try different keywords or check spelling</small>
             </div>
           )}
 
@@ -723,7 +739,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
                   <a
                     key={result.id}
                     href={url}
-                    className="search-result-item"
+                    className={resultItemCls}
                     role="option"
                     data-href={url}
                     onClick={(e) => {
@@ -731,7 +747,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
                       handleNavigate(url, true);
                     }}
                   >
-                    <div className="search-result-title">
+                    <div className="mb-1.5 flex items-center gap-2 text-[0.9375rem] font-semibold text-primary [&_mark]:rounded-none [&_mark]:bg-[linear-gradient(180deg,transparent_60%,rgba(0,50,160,0.15)_60%)] [&_mark]:p-0 [&_mark]:text-inherit">
                       <span
                         dangerouslySetInnerHTML={{
                           __html: highlightMatch(result.title, result._query),
@@ -739,40 +755,40 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
                       />
                       {result.processingTime &&
                         result.processingTime.toLowerCase().includes('same day') && (
-                          <span className="search-result-badge">Fast</span>
+                          <span className="rounded bg-[rgba(6,167,125,0.1)] px-1.5 py-0.5 text-[0.625rem] font-semibold uppercase tracking-[0.3px] text-success">Fast</span>
                         )}
                     </div>
-                    <div className="search-result-meta">
-                      <span className="search-result-category">
+                    <div className="mb-1.5 flex flex-wrap gap-3 text-xs [&_i]:text-[0.6875rem] [&_i]:opacity-80 [&_span]:inline-flex [&_span]:items-center [&_span]:gap-[5px]">
+                      <span className="rounded bg-[rgba(0,0,0,0.04)] px-2 py-0.5 text-[#666]">
                         <i className="bi bi-folder"></i> {result.category}
                       </span>
                       {result.fee && (
-                        <span className="search-result-fee">
+                        <span className="font-semibold text-success">
                           <i className="bi bi-cash"></i> {result.fee}
                         </span>
                       )}
                       {result.processingTime && (
-                        <span className="search-result-time">
+                        <span className="text-[#0066cc]">
                           <i className="bi bi-clock"></i> {result.processingTime}
                         </span>
                       )}
                     </div>
                     {result.office && (
-                      <div className="search-result-office">
+                      <div className="mb-1 flex items-center text-xs text-[#777] [&_i]:mr-1.5 [&_i]:text-[0.6875rem] [&_i]:text-primary">
                         <i className="bi bi-building"></i> {result.office}
                       </div>
                     )}
                     {result.description && (
-                      <div className="search-result-desc">{result.description}</div>
+                      <div className="truncate text-[0.8125rem] leading-[1.4] text-[#666]">{result.description}</div>
                     )}
                   </a>
                 );
               })}
-              <div className="search-footer">
-                <span className="search-footer-count">
+              <div className="flex items-center justify-between border-t border-[rgba(0,50,160,0.06)] bg-[#fafbfc] px-4 py-2.5 text-xs text-[#888]">
+                <span className="font-medium">
                   {results.length} service{results.length !== 1 ? 's' : ''} found
                 </span>
-                <span className="search-keyboard-hint">
+                <span className="flex items-center justify-center gap-4 max-[767px]:hidden [&_kbd]:mx-0.5 [&_kbd]:inline-flex [&_kbd]:h-5 [&_kbd]:min-w-5 [&_kbd]:items-center [&_kbd]:justify-center [&_kbd]:rounded [&_kbd]:border [&_kbd]:border-[#ddd] [&_kbd]:bg-white [&_kbd]:px-[5px] [&_kbd]:font-inherit [&_kbd]:text-[0.625rem] [&_kbd]:font-semibold [&_kbd]:text-[#555] [&_kbd]:shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
                   <span>
                     <kbd>↑</kbd>
                     <kbd>↓</kbd> Navigate
@@ -792,12 +808,12 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
     }
 
     return (
-      <div ref={wrapperRef} className="search-autocomplete-wrapper">
+      <div ref={wrapperRef} className="search-autocomplete-wrapper relative min-w-0 flex-1">
         <input
           ref={inputRef}
           type="search"
           id="hero-search"
-          className="service-search-input"
+          className="service-search-input w-full rounded-[10px] border-2 border-[#e5e7eb] bg-[#fafbfc] px-4 py-[14px] font-sans text-base text-foreground transition-all placeholder:text-[#9ca3af] hover:border-[#d0d5dd] hover:bg-white focus:border-primary focus:bg-white focus:outline-none focus:ring-4 focus:ring-[rgba(0,50,160,0.1)]"
           value={query}
           onChange={(e) => handleInput(e.target.value)}
           onFocus={handleFocus}

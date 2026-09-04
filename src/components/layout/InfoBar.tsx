@@ -59,29 +59,29 @@ export default function InfoBar() {
   }, []);
 
   return (
-    <div className="info-bar" role="complementary" aria-label="Real-time information">
-      <div className="container">
-        <div className="info-bar-inner" aria-live="polite" aria-atomic="false">
-          <div className="info-bar-item info-bar-rates" aria-label="Exchange rates">
-            <i className="bi bi-currency-exchange" aria-hidden="true" />
-            <span className="rate-rotator">
-              <span className="rate-display">{rate}</span>
+    <div className="bg-[#00184d] py-1.5 font-sans text-[0.6875rem] font-normal tracking-[0.01em] text-white" role="complementary" aria-label="Real-time information">
+      <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+        <div className="flex flex-wrap items-center justify-end gap-6 max-[1024px]:justify-center max-[767px]:flex-nowrap max-[767px]:justify-center max-[767px]:gap-0" aria-live="polite" aria-atomic="false">
+          <div className="inline-flex items-center gap-[5px] text-white max-[767px]:gap-[3px] max-[767px]:whitespace-nowrap max-[575px]:gap-0.5 max-[575px]:text-[0.625rem]" aria-label="Exchange rates">
+            <i className="bi bi-currency-exchange text-xs text-[#ffff00] max-[575px]:text-[0.6875rem]" aria-hidden="true" />
+            <span className="inline-block min-w-[110px] text-left max-[767px]:min-w-0">
+              <span className="inline-block animate-[rateFadeIn_0.4s_ease-out] text-white">{rate}</span>
             </span>
           </div>
-          <div className="info-bar-item info-bar-weather" aria-label="Current weather in San Carlos">
-            <i className="bi bi-thermometer-half" aria-hidden="true" />
-            <span className="weather-location">San Carlos</span>
-            <span className="weather-temp">{temp}</span>
+          <div className="inline-flex items-center gap-[5px] border-l border-white/15 pl-4 text-white max-[767px]:ml-2 max-[767px]:gap-[3px] max-[767px]:whitespace-nowrap max-[767px]:pl-2 max-[575px]:ml-1.5 max-[575px]:gap-0.5 max-[575px]:pl-1.5 max-[575px]:text-[0.625rem]" aria-label="Current weather in San Carlos">
+            <i className="bi bi-thermometer-half text-xs text-[#ffff00] max-[575px]:text-[0.6875rem]" aria-hidden="true" />
+            <span className="font-normal text-white">San Carlos</span>
+            <span className="font-normal text-white">{temp}</span>
           </div>
-          <div className="info-bar-item info-bar-datetime" aria-label="Philippine Date and Time">
-            <i className="bi bi-calendar3" aria-hidden="true" />
-            <span className="date-value">{dateStr}</span>
-            <span className="datetime-separator" aria-hidden="true">
+          <div className="inline-flex items-center gap-[5px] border-l border-white/15 pl-4 text-white max-[767px]:ml-2 max-[767px]:gap-[3px] max-[767px]:whitespace-nowrap max-[767px]:pl-2 max-[575px]:ml-1.5 max-[575px]:gap-0.5 max-[575px]:pl-1.5 max-[575px]:text-[0.625rem]" aria-label="Philippine Date and Time">
+            <i className="bi bi-calendar3 text-xs text-[#ffff00] max-[575px]:text-[0.6875rem]" aria-hidden="true" />
+            <span className="font-normal text-white">{dateStr}</span>
+            <span className="mx-0.5 text-[0.5rem] text-white max-[767px]:mx-px" aria-hidden="true">
               •
             </span>
-            <i className="bi bi-clock" aria-hidden="true" />
-            <span className="time-value">{timeStr}</span>
-            <span className="time-label">PHT</span>
+            <i className="bi bi-clock text-xs text-[#ffff00] max-[575px]:text-[0.6875rem]" aria-hidden="true" />
+            <span className="font-medium tabular-nums text-white">{timeStr}</span>
+            <span className="text-[0.625rem] font-normal uppercase tracking-[0.5px] text-white max-[575px]:text-[0.5625rem]">PHT</span>
           </div>
         </div>
       </div>

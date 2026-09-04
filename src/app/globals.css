@@ -195,4 +195,264 @@
     html {
         @apply font-sans;
     }
+
+    /* Migrated vanilla base typography (ex-assets/css/style.css).
+       Utilities on individual elements always win over these. */
+    body {
+        font-family: var(--font-main, "Inter", sans-serif);
+        line-height: var(--line-height-body);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+        color: var(--color-primary);
+        transition: color 0.2s ease;
+    }
+
+    p {
+        margin-bottom: var(--spacing-sm);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 700;
+        line-height: var(--line-height-heading);
+        margin-bottom: var(--spacing-sm);
+        letter-spacing: -0.02em;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: var(--color-primary);
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: var(--color-text);
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        color: var(--color-text);
+    }
+
+    h4 {
+        font-size: 1.25rem;
+        color: var(--color-primary);
+    }
+
+    @media (max-width: 1024px) {
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+        }
+
+        h3 {
+            font-size: 1.375rem;
+        }
+    }
+
+    @media (max-width: 767px) {
+        h1 {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+        }
+
+        h4 {
+            font-size: 1.125rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.375rem;
+        }
+    }
+
+    /* Body scroll lock while the mobile menu is open (toggled by Header). */
+    body.mobile-menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    /* Accessible focus ring (ex-accessibility.css). */
+    :focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
+
+    /* Link focus tint (ex-style.css link-focus rules). */
+    a:focus-visible {
+        text-decoration: none;
+        background-color: rgba(247, 127, 0, 0.1);
+        border-radius: 2px;
+    }
+
+    :focus:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+/* Accessibility display modes (ex-accessibility.css) — global feature CSS. */
+body.high-contrast {
+    --color-primary: #ffff00;
+    --color-primary-dark: #ffff00;
+    --color-secondary: #ffffff;
+    --color-bg: #000000;
+    --color-bg-alt: #1a1a1a;
+    --color-text: #ffffff;
+    --color-text-light: #dddddd;
+    --color-white: #000000;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.high-contrast a {
+    color: #ffff00;
+    text-decoration: underline;
+}
+
+body.font-large {
+    font-size: 120%;
+}
+
+body.font-xlarge {
+    font-size: 140%;
+}
+
+/* Shared keyframes (previously duplicated across vanilla CSS files). */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes skeleton-shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@keyframes searchSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rateFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes swBannerIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes swBannerSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*
+ * JS-driven state fallbacks (belt-and-braces alongside the [&.x]: Tailwind
+ * variants in the components). These classes are toggled imperatively by
+ * vanilla JS (IntersectionObserver reveals, CMCI tabs, animated bars), so
+ * tiny global rules are the only way to keep that behavior working.
+ */
+@layer components {
+    .animate-on-scroll.visible,
+    .metric-card.visible,
+    .economy-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .cmci-panel {
+        display: none;
+    }
+
+    .cmci-panel.active {
+        display: block;
+        animation: fadeInUp 0.4s ease;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media print {
+    .site-header,
+    .site-footer,
+    .mobile-menu-toggle,
+    .lang-selector,
+    .skip-link {
+        display: none !important;
+    }
+}
+
+@media (prefers-contrast: high) {
+    a:focus-visible {
+        outline-width: 3px;
+    }
 }

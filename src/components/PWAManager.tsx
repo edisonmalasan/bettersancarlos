@@ -72,17 +72,17 @@ export default function PWAManager() {
   return (
     <>
       {showInstall && (
-        <div className="pwa-install-banner" role="alert" aria-live="polite">
-          <div className="pwa-install-content">
-            <i className="bi bi-download" aria-hidden="true"></i>
+        <div className="fixed bottom-4 left-1/2 z-[10000] flex w-auto max-w-[calc(100%-32px)] -translate-x-1/2 animate-[swBannerIn_0.3s_ease] items-center gap-3 rounded-[10px] bg-primary px-4 py-3 text-sm text-white shadow-[0_4px_20px_rgba(0,0,0,0.25)] max-[767px]:bottom-0 max-[767px]:left-0 max-[767px]:right-0 max-[767px]:max-w-full max-[767px]:translate-x-0 max-[767px]:animate-[swBannerSlideUp_0.3s_ease] max-[767px]:rounded-none max-[767px]:px-4 max-[767px]:py-[14px]" role="alert" aria-live="polite">
+          <div className="flex min-w-0 flex-1 items-center gap-2">
+            <i className="bi bi-download shrink-0 text-[1.125rem]" aria-hidden="true"></i>
             <span>Install BetterSanCarlos for quick access to services.</span>
           </div>
-          <div className="pwa-install-actions">
-            <button className="pwa-install-btn" onClick={handleInstall} aria-label="Install BetterSanCarlos app">
+          <div className="flex shrink-0 items-center gap-1.5">
+            <button className="cursor-pointer rounded-md border-0 bg-[rgba(255,255,255,0.95)] px-4 py-1.5 text-[0.8125rem] font-bold text-primary transition-colors duration-200 hover:bg-white" onClick={handleInstall} aria-label="Install BetterSanCarlos app">
               Install
             </button>
             <button
-              className="pwa-install-dismiss"
+              className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-full border-0 bg-[rgba(255,255,255,0.15)] text-base text-white transition-colors duration-200 hover:bg-[rgba(255,255,255,0.3)]"
               onClick={() => {
                 sessionStorage.setItem('pwa-install-dismissed', '1');
                 setShowInstall(false);
@@ -95,13 +95,13 @@ export default function PWAManager() {
         </div>
       )}
       {showUpdate && (
-        <div className="sw-update-banner" role="alert" aria-live="polite">
+        <div className="fixed bottom-4 left-1/2 z-[10000] flex -translate-x-1/2 animate-[swBannerIn_0.3s_ease] items-center gap-3 rounded-lg bg-primary px-4 py-2.5 text-sm text-white shadow-[0_4px_16px_rgba(0,0,0,0.2)]" role="alert" aria-live="polite">
           <span>A new version is available.</span>
-          <button className="sw-update-btn" onClick={handleUpdate} aria-label="Update now">
+          <button className="cursor-pointer rounded border-0 bg-[rgba(255,255,255,0.2)] px-3.5 py-1.5 text-[0.8125rem] font-semibold text-white transition-colors hover:bg-[rgba(255,255,255,0.35)]" onClick={handleUpdate} aria-label="Update now">
             Update
           </button>
           <button
-            className="sw-update-dismiss"
+            className="cursor-pointer rounded border-0 bg-[rgba(255,255,255,0.2)] px-3.5 py-1.5 text-[0.8125rem] font-semibold text-white transition-colors hover:bg-[rgba(255,255,255,0.35)]"
             onClick={() => setShowUpdate(false)}
             aria-label="Dismiss update notice"
           >

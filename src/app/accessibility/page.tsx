@@ -15,75 +15,75 @@ export default function AccessibilityPage() {
                 ]}
             />
 
-            <section className="section">
-                <div className="container">
-                    <div className="a11y-container">
-                        <div className="a11y-badge-section">
-                            <div className="a11y-conformance-badge">
-                                <i className="bi bi-check-circle-fill"></i>
+            <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
+                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+                    <div className="mx-auto w-full max-w-[800px]">
+                        <div className="mb-12 flex justify-center">
+                            <div className="inline-flex items-center gap-3 rounded-[12px] bg-[linear-gradient(135deg,#06a77d_0%,#05c793_100%)] px-6 py-4 text-white">
+                                <i className="bi bi-check-circle-fill text-[2rem]"></i>
                                 <div>
-                                    <span className="a11y-badge-label">WCAG 2.1 Level AA</span>
-                                    <span className="a11y-badge-text">Conformant</span>
+                                    <span className="block text-[0.75rem] uppercase tracking-[1px] opacity-90">WCAG 2.1 Level AA</span>
+                                    <span className="block text-[1.25rem] font-bold">Conformant</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="a11y-section">
-                            <h2>Our Commitment</h2>
-                            <p>
+                        <div className="mb-12">
+                            <h2 className="mb-6 border-b-2 border-[#f8f9fa] pb-4 text-[1.25rem] font-bold text-[#1a1a1a]">Our Commitment</h2>
+                            <p className="mb-4 leading-[1.6] text-[#666]">
                                 Better San Carlos is committed to ensuring digital accessibility for people with
                                 disabilities. We are continually improving the user experience for everyone and
                                 applying the relevant accessibility standards.
                             </p>
                         </div>
 
-                        <div className="a11y-section">
-                            <h2>Accessibility Features</h2>
-                            <div className="a11y-features-grid">
-                                <div className="a11y-feature">
-                                    <i className="bi bi-keyboard"></i>
-                                    <h3>Keyboard Navigation</h3>
-                                    <p>All functionality available using only a keyboard.</p>
+                        <div className="mb-12">
+                            <h2 className="mb-6 border-b-2 border-[#f8f9fa] pb-4 text-[1.25rem] font-bold text-[#1a1a1a]">Accessibility Features</h2>
+                            <div className="grid grid-cols-3 gap-4 max-[992px]:grid-cols-2 max-[768px]:grid-cols-1">
+                                <div className="rounded-lg bg-muted p-6 text-center">
+                                    <i className="bi bi-keyboard mb-2 text-[1.5rem] text-primary"></i>
+                                    <h3 className="m-0 mb-1 text-[0.875rem] font-bold text-[#1a1a1a]">Keyboard Navigation</h3>
+                                    <p className="m-0 text-[0.8125rem] text-[#666]">All functionality available using only a keyboard.</p>
                                 </div>
-                                <div className="a11y-feature">
-                                    <i className="bi bi-eye"></i>
-                                    <h3>Screen Reader Support</h3>
-                                    <p>Compatible with JAWS, NVDA, and VoiceOver.</p>
+                                <div className="rounded-lg bg-muted p-6 text-center">
+                                    <i className="bi bi-eye mb-2 text-[1.5rem] text-primary"></i>
+                                    <h3 className="m-0 mb-1 text-[0.875rem] font-bold text-[#1a1a1a]">Screen Reader Support</h3>
+                                    <p className="m-0 text-[0.8125rem] text-[#666]">Compatible with JAWS, NVDA, and VoiceOver.</p>
                                 </div>
-                                <div className="a11y-feature">
-                                    <i className="bi bi-type"></i>
-                                    <h3>Text Alternatives</h3>
-                                    <p>All images have descriptive alt text.</p>
+                                <div className="rounded-lg bg-muted p-6 text-center">
+                                    <i className="bi bi-type mb-2 text-[1.5rem] text-primary"></i>
+                                    <h3 className="m-0 mb-1 text-[0.875rem] font-bold text-[#1a1a1a]">Text Alternatives</h3>
+                                    <p className="m-0 text-[0.8125rem] text-[#666]">All images have descriptive alt text.</p>
                                 </div>
-                                <div className="a11y-feature">
-                                    <i className="bi bi-palette"></i>
-                                    <h3>Color Contrast</h3>
-                                    <p>Meets WCAG AA contrast requirements.</p>
+                                <div className="rounded-lg bg-muted p-6 text-center">
+                                    <i className="bi bi-palette mb-2 text-[1.5rem] text-primary"></i>
+                                    <h3 className="m-0 mb-1 text-[0.875rem] font-bold text-[#1a1a1a]">Color Contrast</h3>
+                                    <p className="m-0 text-[0.8125rem] text-[#666]">Meets WCAG AA contrast requirements.</p>
                                 </div>
-                                <div className="a11y-feature">
-                                    <i className="bi bi-phone"></i>
-                                    <h3>Responsive Design</h3>
-                                    <p>Works on all devices and screen sizes.</p>
+                                <div className="rounded-lg bg-muted p-6 text-center">
+                                    <i className="bi bi-phone mb-2 text-[1.5rem] text-primary"></i>
+                                    <h3 className="m-0 mb-1 text-[0.875rem] font-bold text-[#1a1a1a]">Responsive Design</h3>
+                                    <p className="m-0 text-[0.8125rem] text-[#666]">Works on all devices and screen sizes.</p>
                                 </div>
-                                <div className="a11y-feature">
-                                    <i className="bi bi-hourglass-split"></i>
-                                    <h3>No Time Limits</h3>
-                                    <p>No time limits on reading or interacting.</p>
+                                <div className="rounded-lg bg-muted p-6 text-center">
+                                    <i className="bi bi-hourglass-split mb-2 text-[1.5rem] text-primary"></i>
+                                    <h3 className="m-0 mb-1 text-[0.875rem] font-bold text-[#1a1a1a]">No Time Limits</h3>
+                                    <p className="m-0 text-[0.8125rem] text-[#666]">No time limits on reading or interacting.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="a11y-section">
-                            <h2>Known Limitations</h2>
-                            <ul className="a11y-list">
-                                <li>
-                                    <i className="bi bi-exclamation-circle"></i>
+                        <div className="mb-12">
+                            <h2 className="mb-6 border-b-2 border-[#f8f9fa] pb-4 text-[1.25rem] font-bold text-[#1a1a1a]">Known Limitations</h2>
+                            <ul className="list-none p-0">
+                                <li className="flex items-start gap-3 border-b border-[#e5e7eb] py-3 text-[#666] last:border-0">
+                                    <i className="bi bi-exclamation-circle mt-[2px] text-accent"></i>
                                     <span>
                                         Some PDF documents may not be fully accessible to screen readers
                                     </span>
                                 </li>
-                                <li>
-                                    <i className="bi bi-exclamation-circle"></i>
+                                <li className="flex items-start gap-3 border-b border-[#e5e7eb] py-3 text-[#666] last:border-0">
+                                    <i className="bi bi-exclamation-circle mt-[2px] text-accent"></i>
                                     <span>
                                         Some third-party embedded content may have accessibility issues
                                     </span>
@@ -91,36 +91,36 @@ export default function AccessibilityPage() {
                             </ul>
                         </div>
 
-                        <div className="a11y-section">
-                            <h2>Alternative Access</h2>
-                            <p>
+                        <div className="mb-12">
+                            <h2 className="mb-6 border-b-2 border-[#f8f9fa] pb-4 text-[1.25rem] font-bold text-[#1a1a1a]">Alternative Access</h2>
+                            <p className="mb-4 leading-[1.6] text-[#666]">
                                 If you encounter difficulty accessing any information, contact us:
                             </p>
-                            <div className="a11y-contact-grid">
-                                <a href="mailto:volunteer@bettersancarlos.vercel.app" className="a11y-contact-item">
-                                    <i className="bi bi-envelope-fill"></i>
-                                    <span>volunteer@bettersancarlos.vercel.app</span>
+                            <div className="mt-6 grid grid-cols-3 gap-4 max-[992px]:grid-cols-1">
+                                <a href="mailto:volunteer@bettersancarlos.vercel.app" className="group flex items-center gap-3 rounded-lg bg-muted p-4 text-[#1a1a1a] no-underline transition-all duration-200 hover:bg-primary hover:text-white hover:no-underline">
+                                    <i className="bi bi-envelope-fill text-[1.25rem] text-primary group-hover:text-white"></i>
+                                    <span className="text-[0.9375rem] font-medium">volunteer@bettersancarlos.vercel.app</span>
                                 </a>
                             </div>
                         </div>
 
-                        <div className="a11y-section">
-                            <h2>Technical Specifications</h2>
-                            <div className="a11y-tech-tags">
-                                <span className="a11y-tag">HTML5</span>
-                                <span className="a11y-tag">CSS3</span>
-                                <span className="a11y-tag">JavaScript</span>
-                                <span className="a11y-tag">React</span>
-                                <span className="a11y-tag">TypeScript</span>
-                                <span className="a11y-tag">ARIA</span>
+                        <div className="mb-12">
+                            <h2 className="mb-6 border-b-2 border-[#f8f9fa] pb-4 text-[1.25rem] font-bold text-[#1a1a1a]">Technical Specifications</h2>
+                            <div className="flex flex-wrap gap-2">
+                                <span className="rounded-full bg-muted px-4 py-2 text-[0.875rem] font-medium text-[#1a1a1a]">HTML5</span>
+                                <span className="rounded-full bg-muted px-4 py-2 text-[0.875rem] font-medium text-[#1a1a1a]">CSS3</span>
+                                <span className="rounded-full bg-muted px-4 py-2 text-[0.875rem] font-medium text-[#1a1a1a]">JavaScript</span>
+                                <span className="rounded-full bg-muted px-4 py-2 text-[0.875rem] font-medium text-[#1a1a1a]">React</span>
+                                <span className="rounded-full bg-muted px-4 py-2 text-[0.875rem] font-medium text-[#1a1a1a]">TypeScript</span>
+                                <span className="rounded-full bg-muted px-4 py-2 text-[0.875rem] font-medium text-[#1a1a1a]">ARIA</span>
                             </div>
                         </div>
 
-                        <div className="a11y-promise">
-                            <i className="bi bi-heart-fill"></i>
+                        <div className="mt-12 flex items-start gap-6 rounded-[12px] bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] p-8 text-white max-[768px]:flex-col max-[768px]:text-center">
+                            <i className="bi bi-heart-fill text-[1.5rem] opacity-80"></i>
                             <div>
-                                <h3>Our Promise</h3>
-                                <p>
+                                <h3 className="m-0 mb-2 text-[1.125rem] font-bold text-white">Our Promise</h3>
+                                <p className="m-0 leading-[1.6] text-[rgba(255,255,255,0.9)]">
                                     Better San Carlos is committed to ensuring that our digital services are accessible to
                                     all citizens, regardless of ability. We view accessibility not as a feature, but
                                     as a fundamental right.
@@ -128,7 +128,7 @@ export default function AccessibilityPage() {
                             </div>
                         </div>
 
-                        <p className="a11y-date">Last updated: November 29, 2025</p>
+                        <p className="mb-4 mt-8 text-center text-[0.875rem] text-[#666]">Last updated: November 29, 2025</p>
                     </div>
                 </div>
             </section>

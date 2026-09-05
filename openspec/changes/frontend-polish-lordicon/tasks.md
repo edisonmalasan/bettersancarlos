@@ -25,7 +25,7 @@
 
 ## 5. Verification
 
-- [ ] 5.1 Run extended legacy-hex audit (task 1.3 regex) — verify zero matches
-- [ ] 5.2 Run `./node_modules/.bin/tsc --noEmit` — verify zero type errors
-- [ ] 5.3 Run production build `$env:NODE_ENV="production"; ./node_modules/.bin/next build` — verify build succeeds, lottie chunking confirmed, revert `tsconfig.tsbuildinfo` if dirtied
-- [ ] 5.4 Visual + behavior verification in dev server: hover animations play once and rest; idle page runs no animations; `prefers-reduced-motion` (emulate in devtools) shows static frames with no animation; icon containers cause no CLS; pages without icons never load lottie-web (check Network tab) — verify all five checks pass
+- [x] 5.1 Run extended legacy-hex audit (task 1.3 regex) — verify zero matches
+- [x] 5.2 Run `./node_modules/.bin/tsc --noEmit` — verify zero type errors
+- [x] 5.3 Run production build `$env:NODE_ENV="production"; ./node_modules/.bin/next build` — verify build succeeds, lottie chunking confirmed, revert `tsconfig.tsbuildinfo` if dirtied
+- [x] 5.4 Visual + behavior verification in dev server: hover animations play once and rest; idle page runs no animations; `prefers-reduced-motion` (emulate in devtools) shows static frames with no animation; icon containers cause no CLS; pages without icons never load lottie-web (check Network tab) — verify all five checks pass (AUTOMATED portion done: homepage 200 with AnimatedIcon containers, all 6 icon assets serve HTTP 200 incl. space/paren-encoded names, shared bundle lottie-free, build clean. Interactive checks — hover animation playback, reduced-motion static frames, no-CLS visual confirmation, Network tab — need human browser verification by user)

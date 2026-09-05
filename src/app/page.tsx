@@ -52,7 +52,7 @@ export default function HomePage() {
             <div>
               <div className="rounded-2xl border border-[rgba(58, 125, 68,0.08)] bg-white p-8 shadow-[0_8px_32px_rgba(58, 125, 68,0.1),0_2px_8px_rgba(0,0,0,0.04)] transition-[box-shadow,border-color] duration-300 focus-within:border-[rgba(58, 125, 68,0.15)] focus-within:shadow-[0_12px_40px_rgba(58, 125, 68,0.15),0_4px_12px_rgba(0,0,0,0.06)] max-[768px]:p-6">
                 <h2 className="m-0 mb-6 flex items-center gap-2 text-base text-[#2f3e46] [&_i]:text-primary">
-                  <AnimatedIcon name="wired-outline-19-magnifier-hover-spin" size={24} fallbackGlyph="bi-search" /> {t('hero-find-service')}
+                  <i className="bi bi-search"></i> {t('hero-find-service')}
                 </h2>
                 <form role="search" onSubmit={handleSearchSubmit}>
                   <div className="relative flex gap-2">
@@ -90,7 +90,7 @@ export default function HomePage() {
           <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-2 max-[768px]:grid-cols-1">
             <Link href="/services/certificates" className={serviceCardCls}>
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary">
-                <AnimatedIcon name="wired-outline-56-file-text-hover-swipe" size={28} fallbackGlyph="bi-file-earmark-text-fill" />
+                <i className="bi bi-file-earmark-text-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-certificates')}</h3>
@@ -100,7 +100,7 @@ export default function HomePage() {
             </Link>
             <Link href="/services/business" className={serviceCardCls}>
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary">
-                <AnimatedIcon name="wired-outline-1459-signboard-retro-hover-pinch" size={28} fallbackGlyph="bi-shop" />
+                <i className="bi bi-shop"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-business')}</h3>
@@ -110,7 +110,7 @@ export default function HomePage() {
             </Link>
             <Link href="/services/tax-payments" className={serviceCardCls}>
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary">
-                <AnimatedIcon name="wired-outline-298-coins-in-reveal" size={28} fallbackGlyph="bi-cash-coin" />
+                <AnimatedIcon name="dollar" size={28} fallbackGlyph="bi-cash-coin" />
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-tax')}</h3>

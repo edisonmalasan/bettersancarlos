@@ -37,7 +37,7 @@ export default function AnimatedIcon({
             try {
                 const [{ Player }, asset] = await Promise.all([
                     import('@lordicon/react'),
-                    fetch(`/assets/icon/${name}.json`).then((res) => {
+                    fetch(`/assets/icon/${encodeURIComponent(name)}.json`).then((res) => {
                         if (!res.ok) throw new Error(`icon asset unavailable (${res.status})`);
                         return res.json() as Promise<IconData>;
                     }),

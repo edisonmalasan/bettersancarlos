@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import AnimatedIcon from '@/components/icons/AnimatedIcon';
 
 // San Carlos City, Pangasinan (same coordinates used by the info bar and map marker)
 const LAT = 15.928;
@@ -22,6 +23,8 @@ interface WeatherData {
     windSpeed: number;
     condition: string;
     icon: string;
+    code: number;
+    isDay: boolean;
     hourly: HourForecast[];
     timestamp: number;
 }
@@ -49,6 +52,13 @@ function mapWeatherCode(code: number): { condition: string; icon: string } {
         99: { condition: 'Thunderstorm', icon: 'bi-cloud-lightning-rain-fill' },
     };
     return m[code] || { condition: 'Partly cloudy', icon: 'bi-cloud-sun-fill' };
+}
+
+/** Map a WMO weather code + day/night flag to the matching animated Lottie icon asset name. */
+function mapAnimatedIcon(code: number, isDay: boolean): string {
+    if (code === 0 || code === 1) return isDay ? 'Weather-sunny' : 'Weather-night';
+    if (code <= 48) return 'Weather-partly cloudy';
+    return isDay ? 'Weather-rainy(day)' : 'Weather-rainy(night)';
 }
 
 function readCache(): WeatherData | null {
@@ -91,7 +101,7 @@ export default function WeatherWidget() {
             const params = new URLSearchParams({
                 latitude: String(LAT),
                 longitude: String(LON),
-                current: 'temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m',
+                current: 'temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,is_day',
                 hourly: 'temperature_2m,weather_code',
                 timezone: 'Asia/Manila',
                 forecast_days: '1',
@@ -130,6 +140,8 @@ export default function WeatherWidget() {
                 windSpeed: Math.round(cur.wind_speed_10m),
                 condition,
                 icon,
+                code: cur.weather_code,
+                isDay: cur.is_day == null ? true : cur.is_day === 1,
                 hourly,
                 timestamp: Date.now(),
             };
@@ -193,9 +205,13 @@ export default function WeatherWidget() {
     return (
         <div className="group flex h-full flex-col rounded-2xl border border-[rgba(0,0,0,0.06)] bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_8px_24px_rgba(0,0,0,0.06)] max-[767px]:rounded-xl max-[767px]:p-6" role="region" aria-label="Current weather in San Carlos">
             <div className="flex items-start gap-6 pb-6 max-[767px]:justify-start">
-                <div className="text-[3rem] leading-none text-primary opacity-90 transition-transform duration-300 group-hover:scale-105 max-[767px]:text-[2.5rem]" aria-hidden="true">
-                    <i className={`bi ${data.icon}`}></i>
-                </div>
+            <div className="text-[3rem] leading-none text-primary opacity-90 transition-transform duration-300 group-hover:scale-105 max-[767px]:text-[2.5rem]" aria-hidden="true">
+                <AnimatedIcon
+                    name={mapAnimatedIcon(data.code, data.isDay)}
+                    size={56}
+                    fallbackGlyph={data.icon}
+                />
+            </div>
                 <div className="flex-1">
                     <div className="mb-1.5 text-[2.5rem] font-bold leading-none tracking-[-1px] text-foreground max-[767px]:text-[2rem]">{data.temperature}°C</div>
                     <div className="mb-1 text-[0.9375rem] font-medium text-foreground max-[767px]:text-sm">

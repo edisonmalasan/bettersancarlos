@@ -226,7 +226,7 @@ export default function SitemapPage() {
                                 href="https://www.filipizen.com/partners/sancarlospangasinan/bpls/billing"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(6,167,125,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
+                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(58, 125, 68,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
                             >
                                 <i className="bi bi-box-arrow-up-right text-xs text-muted-foreground transition-colors group-hover:text-success"></i>
                                 <span>Business Billing &amp; Payment</span>
@@ -235,7 +235,7 @@ export default function SitemapPage() {
                                 href="https://www.filipizen.com/partners/sancarlospangasinan/bpls/newbusiness"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(6,167,125,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
+                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(58, 125, 68,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
                             >
                                 <i className="bi bi-box-arrow-up-right text-xs text-muted-foreground transition-colors group-hover:text-success"></i>
                                 <span>New Business Application</span>
@@ -244,7 +244,7 @@ export default function SitemapPage() {
                                 href="https://www.filipizen.com/partners/sancarlospangasinan/bpls/renewbusiness"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(6,167,125,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
+                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(58, 125, 68,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
                             >
                                 <i className="bi bi-box-arrow-up-right text-xs text-muted-foreground transition-colors group-hover:text-success"></i>
                                 <span>Business Permit Renewal</span>
@@ -253,7 +253,7 @@ export default function SitemapPage() {
                                 href="https://www.filipizen.com/partners/sancarlospangasinan/rptis/billing"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(6,167,125,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
+                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(58, 125, 68,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
                             >
                                 <i className="bi bi-box-arrow-up-right text-xs text-muted-foreground transition-colors group-hover:text-success"></i>
                                 <span>Real Property Tax Payment</span>
@@ -262,7 +262,7 @@ export default function SitemapPage() {
                                 href="https://www.filipizen.com/partners/sancarlospangasinan/po/billing"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(6,167,125,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
+                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(58, 125, 68,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
                             >
                                 <i className="bi bi-box-arrow-up-right text-xs text-muted-foreground transition-colors group-hover:text-success"></i>
                                 <span>Online Payment Order</span>
@@ -280,7 +280,7 @@ export default function SitemapPage() {
                                 href="https://sancarlospangasinan.gov.ph"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(6,167,125,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
+                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(58, 125, 68,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
                             >
                                 <i className="bi bi-box-arrow-up-right text-xs text-muted-foreground transition-colors group-hover:text-success"></i>
                                 <span>Official San Carlos Website</span>
@@ -289,7 +289,7 @@ export default function SitemapPage() {
                                 href="https://sangguniangbayan.sancarlospangasinan.gov.ph/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(6,167,125,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
+                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(58, 125, 68,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
                             >
                                 <i className="bi bi-box-arrow-up-right text-xs text-muted-foreground transition-colors group-hover:text-success"></i>
                                 <span>Sangguniang Bayan</span>
@@ -298,7 +298,7 @@ export default function SitemapPage() {
                                 href="https://www.facebook.com/sccp.cio/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(6,167,125,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
+                                className="group flex items-center gap-2 rounded-lg border border-[#e5e7eb] bg-[#fafafa] px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-all duration-200 hover:translate-x-0.5 hover:border-success hover:bg-[rgba(58, 125, 68,0.06)] hover:text-success hover:no-underline max-[480px]:py-3"
                             >
                                 <i className="bi bi-box-arrow-up-right text-xs text-muted-foreground transition-colors group-hover:text-success"></i>
                                 <span>Facebook Page</span>

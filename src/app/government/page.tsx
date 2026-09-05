@@ -114,7 +114,7 @@ export default function GovernmentPage() {
                         <SectionBadge
                             icon="bi bi-people-fill"
                             label="Legislative Branch"
-                            gradient="linear-gradient(135deg, var(--color-success) 0%, #05c793 100%)"
+                            gradient="linear-gradient(135deg, var(--color-success) 0%, #2f6136 100%)"
                         />
                         <h3 className="font-bold leading-[1.2] text-[#1a1a1a]" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
                             Sangguniang Bayan Members

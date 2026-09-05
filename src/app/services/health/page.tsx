@@ -230,70 +230,70 @@ export default function HealthPage() {
           </h2>
           <p className="mx-0 -mt-2 mb-4 text-[0.8125rem] text-[#666]">{t('health-bhs-subtitle')}</p>
           <div className="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-2 max-[640px]:grid-cols-2">
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-aggub-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-bagahabag-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-bangaan-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-bangar-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-buenavista-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-calaocan-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-commando-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-concepcion-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-curifang-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-dadap-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-lactawan-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-nangalisan-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-ocapon-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-osmea-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-paitan-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-pilar-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-poblacion-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-quezon-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-quirino-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-roxas-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-tucal-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eaf3ea]">
               <span>{t('health-uddiawan-bhs')}</span>
             </div>
           </div>

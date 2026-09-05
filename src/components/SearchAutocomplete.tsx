@@ -755,7 +755,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
                       />
                       {result.processingTime &&
                         result.processingTime.toLowerCase().includes('same day') && (
-                          <span className="rounded bg-[rgba(6,167,125,0.1)] px-1.5 py-0.5 text-[0.625rem] font-semibold uppercase tracking-[0.3px] text-success">Fast</span>
+                          <span className="rounded bg-[rgba(58, 125, 68,0.1)] px-1.5 py-0.5 text-[0.625rem] font-semibold uppercase tracking-[0.3px] text-success">Fast</span>
                         )}
                     </div>
                     <div className="mb-1.5 flex flex-wrap gap-3 text-xs [&_i]:text-[0.6875rem] [&_i]:opacity-80 [&_span]:inline-flex [&_span]:items-center [&_span]:gap-[5px]">

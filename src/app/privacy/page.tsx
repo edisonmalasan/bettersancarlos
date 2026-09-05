@@ -53,7 +53,7 @@ export default function PrivacyPage() {
                                     <strong>Data Privacy Act of 2012 (Republic Act No. 10173)</strong> of the
                                     Philippines and its Implementing Rules and Regulations (IRR).
                                 </p>
-                                <div className="my-5 flex items-center gap-3 rounded-l-none rounded-r-lg border-l-4 border-success bg-[linear-gradient(135deg,rgba(6,167,125,0.1)_0%,rgba(6,167,125,0.05)_100%)] px-5 py-4">
+                                <div className="my-5 flex items-center gap-3 rounded-l-none rounded-r-lg border-l-4 border-success bg-[linear-gradient(135deg,rgba(58, 125, 68,0.1)_0%,rgba(58, 125, 68,0.05)_100%)] px-5 py-4">
                                     <i className="bi bi-shield-check text-[1.25rem] text-success"></i>
                                     <span className="text-[0.9375rem] text-[#1a1a1a]">
                                         We are committed to <strong>transparency</strong> and{' '}

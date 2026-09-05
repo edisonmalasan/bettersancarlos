@@ -146,7 +146,7 @@ export default function Footer() {
           </div>
           <div className="max-[575px]:flex max-[575px]:flex-col max-[575px]:items-center max-[575px]:text-center">
             <div
-              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-md bg-[rgba(6,167,125,0.08)] px-3 py-1.5 text-xs text-white/80 max-[575px]:mx-auto"
+              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-md bg-[rgba(58, 125, 68,0.08)] px-3 py-1.5 text-xs text-white/80 max-[575px]:mx-auto"
               role="status"
               aria-label="Cost to the People of San Carlos: Zero Pesos"
             >

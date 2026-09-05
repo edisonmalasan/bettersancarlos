@@ -7,8 +7,8 @@
 
 ## 2. Brand Hex Sweep (Phase 1 — the 19 brand files)
 
-- [ ] 2.1 Replace all 62 blue gradients per design D3 mapping (135deg/90deg/180deg variants → `#3A7D44 → #275230`; `#0077be`-pair variants → bamboo-to-info; `#0044cc` variant → nearest ramp pair) across all files listed by `rg -l "0032a0|003d82|002170" src` — verify `rg -c "0032a0" src` returns no matches
-- [ ] 2.2 Replace orange accent hardcodes `#f77f00` (9×) with `#E8990A` (light contexts) or `#F2A900` (dark/on-dark contexts per D1); replace `rgba(247,127,0,...)` focus tint in globals.css with mango `rgba(232,153,10,0.1)` — verify `rg -ci "f77f00|247, ?127" src` returns nothing
+- [x] 2.1 Replace all 62 blue gradients per design D3 mapping (135deg/90deg/180deg variants → `#3A7D44 → #275230`; `#0077be`-pair variants → bamboo-to-info; `#0044cc` variant → nearest ramp pair) across all files listed by `rg -l "0032a0|003d82|002170" src` — verify `rg -c "0032a0" src` returns no matches
+- [x] 2.2 Replace orange accent hardcodes `#f77f00` (9×) with `#E8990A` (light contexts) or `#F2A900` (dark/on-dark contexts per D1); replace `rgba(247,127,0,...)` focus tint in globals.css with mango `rgba(232,153,10,0.1)` — verify `rg -ci "f77f00|247, ?127" src` returns nothing
 - [ ] 2.3 Swap indigo tint `#eef2ff` (26×) → bamboo tint `#EAF3EA`; swap legacy success `#06a77d` (18×) → appropriate bamboo ramp step (`#3A7D44` light / `#7FB069` dark contexts); verify `rg -ci "eef2ff|06a77d" src` returns nothing
 - [ ] 2.4 Update remaining one-off brand hexes: `#0077be`/`#0077BE` gradients, `#0099cc`, `#ff2e51`, `#1d4ed8`/`#1e293b`-adjacent blues used as brand accents → info/primary/neutral equivalents per D1 — verify `rg -ci "0099cc|ff2e51|1d4ed8" src` returns nothing
 - [ ] 2.5 Update PWA chrome: `manifest.ts` theme/background colors → `#3A7D44`/`#FAF9F6`; `theme-color` meta in `layout.tsx` → `#3A7D44` — verify manifest output via build or inspection

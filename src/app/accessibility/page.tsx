@@ -19,7 +19,7 @@ export default function AccessibilityPage() {
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
                     <div className="mx-auto w-full max-w-[800px]">
                         <div className="mb-12 flex justify-center">
-                            <div className="inline-flex items-center gap-3 rounded-[12px] bg-[linear-gradient(135deg,#06a77d_0%,#05c793_100%)] px-6 py-4 text-white">
+                            <div className="inline-flex items-center gap-3 rounded-[12px] bg-[linear-gradient(135deg,#3a7d44_0%,#2f6136_100%)] px-6 py-4 text-white">
                                 <i className="bi bi-check-circle-fill text-[2rem]"></i>
                                 <div>
                                     <span className="block text-[0.75rem] uppercase tracking-[1px] opacity-90">WCAG 2.1 Level AA</span>

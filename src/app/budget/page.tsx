@@ -230,7 +230,7 @@ export default function BudgetPage() {
                                 </div>
                                 <div className="flex flex-col gap-1">
                                     <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#666666]">Contract Cost</span>
-                                    <span className="text-[1.125rem] font-bold text-[#06a77d]">₱144,750,000</span>
+                                    <span className="text-[1.125rem] font-bold text-[#3a7d44]">₱144,750,000</span>
                                 </div>
                             </div>
                         </div>
@@ -278,7 +278,7 @@ export default function BudgetPage() {
                                 </div>
                                 <div className="flex flex-col gap-1">
                                     <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#666666]">Contract Cost</span>
-                                    <span className="text-[1.125rem] font-bold text-[#06a77d]">₱29,700,000</span>
+                                    <span className="text-[1.125rem] font-bold text-[#3a7d44]">₱29,700,000</span>
                                 </div>
                             </div>
                         </div>
@@ -326,7 +326,7 @@ export default function BudgetPage() {
                                 </div>
                                 <div className="flex flex-col gap-1">
                                     <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#666666]">Contract Cost</span>
-                                    <span className="text-[1.125rem] font-bold text-[#06a77d]">₱29,700,000</span>
+                                    <span className="text-[1.125rem] font-bold text-[#3a7d44]">₱29,700,000</span>
                                 </div>
                             </div>
                         </div>

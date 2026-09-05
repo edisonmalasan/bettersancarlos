@@ -9,7 +9,7 @@ const COLORS = {
     primaryDark: '#2f6136',
     secondary: '#275230',
     accent: '#e8990a',
-    success: '#06A77D',
+    success: '#3a7d44',
     info: '#0077BE',
 };
 
@@ -736,7 +736,7 @@ export default function StatisticsPage() {
                             <div className="breakdown-segment flex w-0 items-center justify-center bg-[linear-gradient(90deg,#0077BE_0%,#0099cc_100%)] transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="59.45">
                                 <span className="text-[0.8125rem] font-semibold whitespace-nowrap text-white">IRA 59.45%</span>
                             </div>
-                            <div className="breakdown-segment flex w-0 items-center justify-center bg-[linear-gradient(90deg,#06A77D_0%,#05c793_100%)] transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="40.55">
+                            <div className="breakdown-segment flex w-0 items-center justify-center bg-[linear-gradient(90deg,#3a7d44_0%,#2f6136_100%)] transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="40.55">
                                 <span className="text-[0.8125rem] font-semibold whitespace-nowrap text-white">Local 40.55%</span>
                             </div>
                         </div>
@@ -745,7 +745,7 @@ export default function StatisticsPage() {
                                 <span className="h-3 w-3 rounded-[3px] bg-[#0077BE]"></span>Internal Revenue Allotment
                             </div>
                             <div className="flex items-center gap-2 text-[0.875rem] text-[#1a1a1a]">
-                                <span className="h-3 w-3 rounded-[3px] bg-[#06A77D]"></span>Local Sources
+                                <span className="h-3 w-3 rounded-[3px] bg-[#3a7d44]"></span>Local Sources
                             </div>
                         </div>
                     </div>
@@ -780,9 +780,9 @@ export default function StatisticsPage() {
                             <span className="mb-1 block text-[0.8125rem] text-white">2024</span>
                             <span className="block text-[1.5rem] font-bold text-white max-[575px]:text-[1.25rem]">{formatNumber(totalPopulation)}</span>
                         </div>
-                        <div className="rounded-xl border border-[#06A77D] bg-[rgba(6,167,125,0.1)] px-8 py-5 text-center max-[991px]:px-6 max-[991px]:py-4 max-[575px]:px-5 max-[575px]:py-3">
+                        <div className="rounded-xl border border-[#3a7d44] bg-[rgba(58, 125, 68,0.1)] px-8 py-5 text-center max-[991px]:px-6 max-[991px]:py-4 max-[575px]:px-5 max-[575px]:py-3">
                             <span className="mb-1 block text-[0.8125rem] text-[#666666]">Growth</span>
-                            <span className="block text-[1.5rem] font-bold text-[#06A77D] max-[575px]:text-[1.25rem]">+{historicalGrowth.toFixed(1)}%</span>
+                            <span className="block text-[1.5rem] font-bold text-[#3a7d44] max-[575px]:text-[1.25rem]">+{historicalGrowth.toFixed(1)}%</span>
                         </div>
                     </div>
 
@@ -877,7 +877,7 @@ export default function StatisticsPage() {
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-[#1a1a1a]">COCONUT</div>
                                 <div className="mb-2 text-[0.875rem] text-[#666666]">Major Product</div>
-                                <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(6,167,125,0.1)] px-[10px] py-1 text-[0.75rem] text-[#06A77D]">Principal crop & trade</div>
+                                <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(58, 125, 68,0.1)] px-[10px] py-1 text-[0.75rem] text-[#3a7d44]">Principal crop & trade</div>
                             </div>
                         </div>
                         <div className="economy-card flex items-start gap-4 rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(58, 125, 68,0.1)]">
@@ -885,7 +885,7 @@ export default function StatisticsPage() {
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-[#1a1a1a]">AGRICULTURAL</div>
                                 <div className="mb-2 text-[0.875rem] text-[#666666]">Major Land Use</div>
-                                <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(6,167,125,0.1)] px-[10px] py-1 text-[0.75rem] text-[#06A77D]">Farms & coconut plantations</div>
+                                <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(58, 125, 68,0.1)] px-[10px] py-1 text-[0.75rem] text-[#3a7d44]">Farms & coconut plantations</div>
                             </div>
                         </div>
                         <div className="economy-card flex items-start gap-4 rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(58, 125, 68,0.1)]">
@@ -893,7 +893,7 @@ export default function StatisticsPage() {
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-[#1a1a1a]" data-count="9263">0</div>
                                 <div className="mb-2 text-[0.875rem] text-[#666666]">Households</div>
-                                <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(6,167,125,0.1)] px-[10px] py-1 text-[0.75rem] text-[#06A77D]">DILG municipal profile</div>
+                                <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(58, 125, 68,0.1)] px-[10px] py-1 text-[0.75rem] text-[#3a7d44]">DILG municipal profile</div>
                             </div>
                         </div>
                     </div>
@@ -901,7 +901,7 @@ export default function StatisticsPage() {
                     <div className="animate-on-scroll rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
                         <h4 className="mb-4 text-[1rem] font-bold text-[#1a1a1a]">Economic Sectors</h4>
                         <div className="flex flex-col gap-[14px]">
-                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
                                     <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#10b981] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#1a1a1a]">Agriculture</span>
@@ -911,7 +911,7 @@ export default function StatisticsPage() {
                                     <div className="sc-fill h-full w-0 rounded bg-[#10b981] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="70"></div>
                                 </div>
                             </div>
-                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
                                     <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#3b82f6] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#1a1a1a]">Trade &amp; Commerce</span>
@@ -921,7 +921,7 @@ export default function StatisticsPage() {
                                     <div className="sc-fill h-full w-0 rounded bg-[#3b82f6] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="15"></div>
                                 </div>
                             </div>
-                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
                                     <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#8b5cf6] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#1a1a1a]">Services</span>
@@ -931,7 +931,7 @@ export default function StatisticsPage() {
                                     <div className="sc-fill h-full w-0 rounded bg-[#8b5cf6] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="10"></div>
                                 </div>
                             </div>
-                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
                                     <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#f59e0b] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#1a1a1a]">Industry</span>
@@ -977,17 +977,17 @@ export default function StatisticsPage() {
                         </div>
                         <div className="flex flex-col items-center gap-1 text-[#666666]">
                             <i className="bi bi-arrow-right"></i>
-                            <span className="text-[0.875rem] font-semibold text-[#06A77D]">-0.6%</span>
+                            <span className="text-[0.875rem] font-semibold text-[#3a7d44]">-0.6%</span>
                         </div>
-                        <div className="relative min-w-[200px] rounded-2xl border border-[#06A77D] bg-white p-8 text-center shadow-[0_4px_20px_rgba(6,167,125,0.15)] max-[575px]:min-w-[160px] max-[575px]:p-6">
-                            <span className="mb-4 inline-block rounded-full bg-[rgba(6,167,125,0.1)] px-3 py-1 text-[0.8125rem] font-semibold text-[#06A77D]">2021</span>
+                        <div className="relative min-w-[200px] rounded-2xl border border-[#3a7d44] bg-white p-8 text-center shadow-[0_4px_20px_rgba(58, 125, 68,0.15)] max-[575px]:min-w-[160px] max-[575px]:p-6">
+                            <span className="mb-4 inline-block rounded-full bg-[rgba(58, 125, 68,0.1)] px-3 py-1 text-[0.8125rem] font-semibold text-[#3a7d44]">2021</span>
                             <div className="mb-4 flex items-baseline justify-center gap-[2px]">
                                 <span className="text-[3rem] leading-[1] font-bold text-[#1a1a1a] max-[575px]:text-[2.5rem]">6.4</span>
                                 <span className="text-[1.5rem] font-semibold text-[#666666]">%</span>
                             </div>
-                            <div className="mb-3 h-2 overflow-hidden rounded bg-[#f8f9fa]"><div className="poverty-fill h-full w-0 rounded bg-[#06A77D] transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="6.4"></div></div>
+                            <div className="mb-3 h-2 overflow-hidden rounded bg-[#f8f9fa]"><div className="poverty-fill h-full w-0 rounded bg-[#3a7d44] transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="6.4"></div></div>
                             <span className="text-[0.75rem] text-[#666666]">90% CI: 4.7% - 8.1%</span>
-                            <span className="absolute -top-[10px] -right-[10px] flex items-center gap-1 rounded-full bg-[#06A77D] px-3 py-[6px] text-[0.75rem] font-semibold text-white">
+                            <span className="absolute -top-[10px] -right-[10px] flex items-center gap-1 rounded-full bg-[#3a7d44] px-3 py-[6px] text-[0.75rem] font-semibold text-white">
                                 <i className="bi bi-check-circle-fill"></i>
                                 <span>Improved</span>
                             </span>

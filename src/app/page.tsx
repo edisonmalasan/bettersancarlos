@@ -56,7 +56,7 @@ export default function HomePage() {
                 <form role="search" onSubmit={handleSearchSubmit}>
                   <div className="relative flex gap-2">
                     <SearchAutocomplete ref={searchRef} placeholder={t('hero-search-placeholder')} />
-                    <button type="submit" className="flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-[10px] border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#2f6136_100%)] text-[1.125rem] text-white shadow-[0_2px_8px_rgba(58, 125, 68,0.3)] transition-all hover:-translate-y-px hover:bg-[linear-gradient(135deg,#2f6136_0%,#003399_100%)] hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.4)] active:translate-y-0" aria-label="Search">
+                    <button type="submit" className="flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-[10px] border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#2f6136_100%)] text-[1.125rem] text-white shadow-[0_2px_8px_rgba(58, 125, 68,0.3)] transition-all hover:-translate-y-px hover:bg-[linear-gradient(135deg,#2f6136_0%,#275230_100%)] hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.4)] active:translate-y-0" aria-label="Search">
                       <i className="bi bi-arrow-right"></i>
                     </button>
                   </div>

@@ -768,7 +768,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
                         </span>
                       )}
                       {result.processingTime && (
-                        <span className="text-[#0066cc]">
+                        <span className="text-[#0077be]">
                           <i className="bi bi-clock"></i> {result.processingTime}
                         </span>
                       )}

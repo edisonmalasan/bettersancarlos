@@ -126,7 +126,7 @@ export default function ContactPage() {
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="mb-8">
                         <div className="mb-2 flex items-center gap-4 max-[576px]:flex-col max-[576px]:items-start max-[576px]:gap-2">
-                            <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-br from-[#0077be] to-[#0066a0] px-3 py-1 text-xs font-semibold text-white">
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-br from-[#0077be] to-[#005a8f] px-3 py-1 text-xs font-semibold text-white">
                                 <i className="bi bi-hospital-fill text-white"></i>
                                 <span>Medical</span>
                             </span>

@@ -9,12 +9,12 @@
 
 - [x] 2.1 Install `@lordicon/react` and `lottie-web` with bun; remove unused `lucide-react` — verify `package.json` reflects adds/removal and `bun.lock` updated; record exact versions in design.md if they differ from expectations
 - [x] 2.2 Export 5 icons from Lordicon free tier per design D4/D5 (search, certificate/document, storefront, cash, weather) recolored to bamboo/mango/slate, minified ON, downloaded as Lottie JSON into `public/assets/icons/lordicon/` with kebab-case names — verify files exist and each is valid JSON under 100KB; apply D5 fallback for any icon not in the free tier (user provided 5 JSONs in `public/assets/icon/` — Lordicon original names kept, all valid JSON under 100KB; D5 path/name convention superseded by user-provided assets)
-- [ ] 2.3 Optional: download static SVG fallbacks alongside JSON — verify SVGs render standalone in a browser
+- [x] 2.3 Optional: download static SVG fallbacks alongside JSON — verify SVGs render standalone in a browser (SKIPPED - deliberate: user-provided JSONs include no SVGs; reduced-motion fallback uses Bootstrap glyph via wrapper, which also avoids loading the Lottie runtime entirely under reduced motion; no main-spec behavior depends on SVG fallbacks)
 
 ## 3. AnimatedIcon Infrastructure
 
-- [ ] 3.1 Create `src/components/icons/AnimatedIcon.tsx` per design D3: `'use client'`, fixed-size container, dynamic import of Player+lottie-web, `prefers-reduced-motion` guard rendering static frame only, hover/focus trigger with `playFromBeginning()`, pause after `onComplete`, graceful fallback to Bootstrap glyph if JSON fails to load — verify component typechecks
-- [ ] 3.2 Verify code-splitting: build and confirm `lottie-web` lands in a per-page/dynamic chunk, not the shared bundle — verify via `next build` chunk output; adjust dynamic-import boundary if leaked
+- [x] 3.1 Create `src/components/icons/AnimatedIcon.tsx` per design D3: `'use client'`, fixed-size container, dynamic import of Player+lottie-web, `prefers-reduced-motion` guard rendering static frame only, hover/focus trigger with `playFromBeginning()`, pause after `onComplete`, graceful fallback to Bootstrap glyph if JSON fails to load — verify component typechecks
+- [x] 3.2 Verify code-splitting: build and confirm `lottie-web` lands in a per-page/dynamic chunk, not the shared bundle — verify via `next build` chunk output; adjust dynamic-import boundary if leaked
 
 ## 4. Placements (≤8)
 

@@ -9,7 +9,7 @@ export default function manifest(): MetadataRoute.Manifest {
         description: 'Your digital gateway to LGU San Carlos services, news, and public information.',
         start_url: '/',
         display: 'standalone',
-        background_color: '#ffffff',
+        background_color: '#faf9f6',
         theme_color: '#3a7d44',
         orientation: 'portrait-primary',
         scope: '/',

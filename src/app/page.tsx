@@ -16,9 +16,9 @@ const sectionHeaderCls =
 const sectionLinkCls =
   'inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-primary hover:gap-2.5 hover:no-underline';
 const serviceCardCls =
-  'group flex items-center gap-4 rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.1)] hover:no-underline';
+  'group flex items-center gap-4 rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.1)] hover:no-underline';
 const statCardCls =
-  'group relative flex items-center gap-4 overflow-hidden rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#2f3e46] no-underline transition-all duration-300 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-[linear-gradient(180deg,#3a7d44_0%,#275230_100%)] before:opacity-0 before:transition-opacity before:duration-300 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline hover:before:opacity-100';
+  'group relative flex items-center gap-4 overflow-hidden rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] no-underline transition-all duration-300 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-[linear-gradient(180deg,#3a7d44_0%,#275230_100%)] before:opacity-0 before:transition-opacity before:duration-300 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline hover:before:opacity-100';
 
 export default function HomePage() {
   const { t } = useLanguage();
@@ -40,7 +40,7 @@ export default function HomePage() {
               <h1 className="m-0 mb-4 text-[2.5rem] leading-[1.2] text-white max-[768px]:text-[2rem]">{t('hero-welcome')}</h1>
               <p className="m-0 mb-8 text-[1.125rem] leading-[1.6] text-white/90 max-[768px]:text-base">{t('hero-subtitle')}</p>
               <div className="flex flex-wrap gap-4 max-[992px]:justify-center">
-                <Link href="/services" className="inline-flex items-center gap-2 rounded-lg border-2 border-transparent bg-white px-6 py-3 font-semibold text-primary no-underline transition-all hover:-translate-y-0.5 hover:bg-[#f8f9fa] hover:text-primary hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] hover:no-underline focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)]">
+                <Link href="/services" className="inline-flex items-center gap-2 rounded-lg border-2 border-transparent bg-white px-6 py-3 font-semibold text-primary no-underline transition-all hover:-translate-y-0.5 hover:bg-[#faf9f6] hover:text-primary hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] hover:no-underline focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)]">
                   {t('hero-browse-services')} <i className="bi bi-arrow-right"></i>
                 </Link>
                 <Link href="/contact" className="inline-flex items-center gap-2 rounded-lg border-2 border-white bg-transparent px-6 py-3 font-semibold text-white no-underline transition-all hover:bg-white/15 hover:text-white hover:no-underline">
@@ -62,7 +62,7 @@ export default function HomePage() {
                   </div>
                 </form>
                 <div className="mt-4 flex flex-wrap items-center gap-2 text-[0.8125rem]">
-                  <span className="font-medium text-[#666]">{t('hero-popular')}</span>
+                  <span className="font-medium text-[#5c6b73]">{t('hero-popular')}</span>
                   <Link href="/service-details/birth-certificate" className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary no-underline transition-all hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline">
                     {t('hero-birth-certificate')}
                   </Link>
@@ -84,58 +84,58 @@ export default function HomePage() {
         <div className={containerCls}>
           <div className={sectionHeaderCls}>
             <h2 className="m-0 text-2xl">{t('section-popular')}</h2>
-            <p className="m-0 w-full text-[#666]">{t('popular-services-subtitle')}</p>
+            <p className="m-0 w-full text-[#5c6b73]">{t('popular-services-subtitle')}</p>
           </div>
           <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-2 max-[768px]:grid-cols-1">
             <Link href="/services/certificates" className={serviceCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#f8f9fa] text-xl text-primary">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary">
                 <i className="bi bi-file-earmark-text-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-certificates')}</h3>
-                <p className="m-0 text-[0.8125rem] text-[#666]">{t('service-certificates-desc')}</p>
+                <p className="m-0 text-[0.8125rem] text-[#5c6b73]">{t('service-certificates-desc')}</p>
               </div>
-              <i className="bi bi-arrow-right text-[#666] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
+              <i className="bi bi-arrow-right text-[#5c6b73] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
             </Link>
             <Link href="/services/business" className={serviceCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#f8f9fa] text-xl text-primary">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary">
                 <i className="bi bi-shop"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-business')}</h3>
-                <p className="m-0 text-[0.8125rem] text-[#666]">{t('service-business-desc')}</p>
+                <p className="m-0 text-[0.8125rem] text-[#5c6b73]">{t('service-business-desc')}</p>
               </div>
-              <i className="bi bi-arrow-right text-[#666] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
+              <i className="bi bi-arrow-right text-[#5c6b73] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
             </Link>
             <Link href="/services/tax-payments" className={serviceCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#f8f9fa] text-xl text-primary">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary">
                 <i className="bi bi-cash-coin"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-tax')}</h3>
-                <p className="m-0 text-[0.8125rem] text-[#666]">{t('service-tax-desc')}</p>
+                <p className="m-0 text-[0.8125rem] text-[#5c6b73]">{t('service-tax-desc')}</p>
               </div>
-              <i className="bi bi-arrow-right text-[#666] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
+              <i className="bi bi-arrow-right text-[#5c6b73] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
             </Link>
             <Link href="/services/social-services" className={serviceCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#f8f9fa] text-xl text-primary">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary">
                 <i className="bi bi-people-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-social')}</h3>
-                <p className="m-0 text-[0.8125rem] text-[#666]">{t('service-social-desc')}</p>
+                <p className="m-0 text-[0.8125rem] text-[#5c6b73]">{t('service-social-desc')}</p>
               </div>
-              <i className="bi bi-arrow-right text-[#666] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
+              <i className="bi bi-arrow-right text-[#5c6b73] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
             </Link>
             <Link href="/services/health" className={serviceCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#f8f9fa] text-xl text-primary">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary">
                 <i className="bi bi-heart-pulse-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-health')}</h3>
-                <p className="m-0 text-[0.8125rem] text-[#666]">{t('service-health-desc')}</p>
+                <p className="m-0 text-[0.8125rem] text-[#5c6b73]">{t('service-health-desc')}</p>
               </div>
-              <i className="bi bi-arrow-right text-[#666] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
+              <i className="bi bi-arrow-right text-[#5c6b73] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
             </Link>
             <Link href="/services" className={cn(serviceCardCls, 'border-transparent bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-white hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.3)]')}>
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-white/20 text-xl text-white">
@@ -152,7 +152,7 @@ export default function HomePage() {
       </section>
 
       {/* Quick Stats */}
-      <section className="bg-[#f8f9fa] py-12">
+      <section className="bg-[#faf9f6] py-12">
         <div className={containerCls}>
           <div className="mb-8 flex items-center justify-between max-[576px]:flex-col max-[576px]:gap-4 max-[576px]:text-center">
             <h2 className="m-0 text-xl">{t('stats-at-a-glance')}</h2>
@@ -162,43 +162,43 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-4 gap-6 max-[992px]:grid-cols-2 max-[576px]:grid-cols-1">
             <Link href="/statistics" className={statCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#f8f9fa] text-xl text-primary transition-all duration-300 group-hover:bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] group-hover:text-white">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary transition-all duration-300 group-hover:bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] group-hover:text-white">
                 <i className="bi bi-people-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">52,746</span>
                 <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">{t('stats-population-label')}</span>
-                <span className="mt-0.5 block text-xs text-[#666]">{t('stats-population-source')}</span>
+                <span className="mt-0.5 block text-xs text-[#5c6b73]">{t('stats-population-source')}</span>
               </div>
             </Link>
             <Link href="/government" className={statCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#f8f9fa] text-xl text-primary transition-all duration-300 group-hover:bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] group-hover:text-white">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary transition-all duration-300 group-hover:bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] group-hover:text-white">
                 <i className="bi bi-geo-alt-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">44</span>
                 <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">{t('stats-barangays-label')}</span>
-                <span className="mt-0.5 block text-xs text-[#666]">{t('stats-barangays-source')}</span>
+                <span className="mt-0.5 block text-xs text-[#5c6b73]">{t('stats-barangays-source')}</span>
               </div>
             </Link>
             <Link href="/budget" className={statCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#f8f9fa] text-xl text-primary transition-all duration-300 group-hover:bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] group-hover:text-white">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary transition-all duration-300 group-hover:bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] group-hover:text-white">
                 <i className="bi bi-award-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">1st Class</span>
                 <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">{t('stats-municipality-label')}</span>
-                <span className="mt-0.5 block text-xs text-[#666]">{t('stats-municipality-source')}</span>
+                <span className="mt-0.5 block text-xs text-[#5c6b73]">{t('stats-municipality-source')}</span>
               </div>
             </Link>
             <Link href="/statistics" className={statCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#f8f9fa] text-xl text-primary transition-all duration-300 group-hover:bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] group-hover:text-white">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary transition-all duration-300 group-hover:bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] group-hover:text-white">
                 <i className="bi bi-rulers"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">180.95 km²</span>
                 <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">{t('stats-land-area-label')}</span>
-                <span className="mt-0.5 block text-xs text-[#666]">{t('stats-land-area-source')}</span>
+                <span className="mt-0.5 block text-xs text-[#5c6b73]">{t('stats-land-area-source')}</span>
               </div>
             </Link>
           </div>
@@ -206,7 +206,7 @@ export default function HomePage() {
       </section>
 
       {/* Weather & Map */}
-      <section className="bg-[#f8f9fa] py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      <section className="bg-[#faf9f6] py-16 max-[1024px]:py-8 max-[767px]:py-6">
         <div className={containerCls}>
           <div className="mb-8 flex items-center justify-between">
             <h2 className="m-0 text-xl">{t('weather-map-title')}</h2>
@@ -234,7 +234,7 @@ export default function HomePage() {
                     loading="lazy"
                   ></iframe>
                 </div>
-                <p className="m-0 flex items-center gap-1.5 border-t border-black/[0.05] bg-white px-6 py-3 text-xs text-[#666] [&_i]:text-[0.8125rem] [&_i]:text-primary">
+                <p className="m-0 flex items-center gap-1.5 border-t border-black/[0.05] bg-white px-6 py-3 text-xs text-[#5c6b73] [&_i]:text-[0.8125rem] [&_i]:text-primary">
                   <i className="bi bi-geo-alt" aria-hidden="true"></i> San Carlos City Hall,
                   Pangasinan 2420
                 </p>
@@ -245,7 +245,7 @@ export default function HomePage() {
       </section>
 
       {/* Brief History of San Carlos */}
-      <section className="bg-[linear-gradient(180deg,#f8f9fa_0%,#ffffff_100%)] py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      <section className="bg-[linear-gradient(180deg,#faf9f6_0%,#ffffff_100%)] py-16 max-[1024px]:py-8 max-[767px]:py-6">
         <div className={containerCls}>
           <div className="mb-8 flex items-center justify-between">
             <h2 className="m-0 flex items-center gap-2.5 text-xl [&_i]:text-primary">
@@ -279,7 +279,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-[#2f3e46]">{t('history-pioneers-title')}</h4>
-                  <p className="m-0 text-[0.8125rem] leading-[1.5] text-[#666]">{t('history-pioneers-desc')}</p>
+                  <p className="m-0 text-[0.8125rem] leading-[1.5] text-[#5c6b73]">{t('history-pioneers-desc')}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3.5 rounded-xl border border-black/[0.06] bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] max-[900px]:flex-[1_1_280px] max-[575px]:flex-[1_1_100%]">
@@ -288,7 +288,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-[#2f3e46]">{t('history-namesake-title')}</h4>
-                  <p className="m-0 text-[0.8125rem] leading-[1.5] text-[#666]">{t('history-namesake-desc')}</p>
+                  <p className="m-0 text-[0.8125rem] leading-[1.5] text-[#5c6b73]">{t('history-namesake-desc')}</p>
                 </div>
               </div>
             </div>
@@ -306,48 +306,48 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-2 max-[768px]:grid-cols-1">
-            <article className="rounded-xl border border-[#e5e7eb] bg-white p-6">
+            <article className="rounded-xl border border-[#e2e8e0] bg-white p-6">
               <div className="mb-4 flex items-center gap-4">
                 <span className="rounded-full bg-[#e0f2fe] px-2.5 py-1 text-xs font-semibold text-[#0369a1]">
                   {t('news-announcement')}
                 </span>
-                <span className="text-[0.8125rem] text-[#666]">Nov 28, 2025</span>
+                <span className="text-[0.8125rem] text-[#5c6b73]">Nov 28, 2025</span>
               </div>
               <h3 className="m-0 mb-2 text-base">
                 <Link href="/news" className="text-[#2f3e46] hover:text-primary">{t('news-business-permit-title')}</Link>
               </h3>
-              <p className="m-0 text-sm leading-[1.5] text-[#666]">{t('news-business-permit-desc')}</p>
+              <p className="m-0 text-sm leading-[1.5] text-[#5c6b73]">{t('news-business-permit-desc')}</p>
             </article>
-            <article className="rounded-xl border border-[#e5e7eb] bg-white p-6">
+            <article className="rounded-xl border border-[#e2e8e0] bg-white p-6">
               <div className="mb-4 flex items-center gap-4">
                 <span className="rounded-full bg-[#dcfce7] px-2.5 py-1 text-xs font-semibold text-[#15803d]">
                   {t('news-project')}
                 </span>
-                <span className="text-[0.8125rem] text-[#666]">Nov 15, 2025</span>
+                <span className="text-[0.8125rem] text-[#5c6b73]">Nov 15, 2025</span>
               </div>
               <h3 className="m-0 mb-2 text-base">
                 <Link href="/news" className="text-[#2f3e46] hover:text-primary">{t('news-market-title')}</Link>
               </h3>
-              <p className="m-0 text-sm leading-[1.5] text-[#666]">{t('news-market-desc')}</p>
+              <p className="m-0 text-sm leading-[1.5] text-[#5c6b73]">{t('news-market-desc')}</p>
             </article>
-            <article className="rounded-xl border border-[#e5e7eb] bg-white p-6">
+            <article className="rounded-xl border border-[#e2e8e0] bg-white p-6">
               <div className="mb-4 flex items-center gap-4">
                 <span className="rounded-full bg-[#fef3c7] px-2.5 py-1 text-xs font-semibold text-[#b45309]">
                   {t('news-advisory')}
                 </span>
-                <span className="text-[0.8125rem] text-[#666]">Nov 10, 2025</span>
+                <span className="text-[0.8125rem] text-[#5c6b73]">Nov 10, 2025</span>
               </div>
               <h3 className="m-0 mb-2 text-base">
                 <Link href="/news" className="text-[#2f3e46] hover:text-primary">{t('news-power-title')}</Link>
               </h3>
-              <p className="m-0 text-sm leading-[1.5] text-[#666]">{t('news-power-desc')}</p>
+              <p className="m-0 text-sm leading-[1.5] text-[#5c6b73]">{t('news-power-desc')}</p>
             </article>
           </div>
         </div>
       </section>
 
       {/* Municipal Leadership */}
-      <section className="bg-[#f8f9fa] py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      <section className="bg-[#faf9f6] py-16 max-[1024px]:py-8 max-[767px]:py-6">
         <div className={containerCls}>
           <div className={sectionHeaderCls}>
             <h2 className="m-0 text-2xl">{t('section-leadership')}</h2>
@@ -356,26 +356,26 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-6 max-[768px]:grid-cols-1">
-            <div className="rounded-xl border border-[#e5e7eb] bg-white p-8 text-center">
+            <div className="rounded-xl border border-[#e2e8e0] bg-white p-8 text-center">
               <div className="mb-4 inline-block rounded-full bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-3.5 py-1.5 text-xs font-semibold text-white">{t('title-mayor')}</div>
               <h3 className="m-0 mb-4 text-xl text-[#2f3e46]">{officialsData.mayor.name}</h3>
               <div className="flex flex-col gap-2">
-                <a href="mailto:CIO@sancarlospangasinan.com" className="inline-flex items-center justify-center gap-2 text-sm text-[#666] hover:text-primary">
+                <a href="mailto:CIO@sancarlospangasinan.com" className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary">
                   <i className="bi bi-envelope"></i> CIO@sancarlospangasinan.com
                 </a>
-                <a href="tel:(075) 600-1432" className="inline-flex items-center justify-center gap-2 text-sm text-[#666] hover:text-primary">
+                <a href="tel:(075) 600-1432" className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary">
                   <i className="bi bi-telephone"></i> (075) 600-1432
                 </a>
               </div>
             </div>
-            <div className="rounded-xl border border-[#e5e7eb] bg-white p-8 text-center">
+            <div className="rounded-xl border border-[#e2e8e0] bg-white p-8 text-center">
               <div className="mb-4 inline-block rounded-full bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-3.5 py-1.5 text-xs font-semibold text-white">{t('title-vice-mayor')}</div>
               <h3 className="m-0 mb-4 text-xl text-[#2f3e46]">{officialsData.vice_mayor.name}</h3>
               <div className="flex flex-col gap-2">
-                <a href="mailto:CIO@sancarlospangasinan.com" className="inline-flex items-center justify-center gap-2 text-sm text-[#666] hover:text-primary">
+                <a href="mailto:CIO@sancarlospangasinan.com" className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary">
                   <i className="bi bi-envelope"></i> CIO@sancarlospangasinan.com
                 </a>
-                <a href="tel:(075) 600-1432" className="inline-flex items-center justify-center gap-2 text-sm text-[#666] hover:text-primary">
+                <a href="tel:(075) 600-1432" className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary">
                   <i className="bi bi-telephone"></i> (075) 600-1432
                 </a>
               </div>
@@ -394,34 +394,34 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-1">
-            <a href="tel:0623312067" className="flex items-start gap-4 rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] hover:no-underline">
+            <a href="tel:0623312067" className="flex items-start gap-4 rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] hover:no-underline">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.125rem] text-white">
                 <i className="bi bi-telephone-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#666]">{t('contact-phone')}</h3>
+                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">{t('contact-phone')}</h3>
                 <p className="m-0 mb-1 text-base font-semibold text-[#2f3e46]">(062) 331-2067</p>
-                <span className="text-[0.8125rem] text-[#666]">{t('contact-hours')}</span>
+                <span className="text-[0.8125rem] text-[#5c6b73]">{t('contact-hours')}</span>
               </div>
             </a>
-            <a href="mailto:CIO@sancarlospangasinan.com" className="flex items-start gap-4 rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] hover:no-underline">
+            <a href="mailto:CIO@sancarlospangasinan.com" className="flex items-start gap-4 rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] hover:no-underline">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.125rem] text-white">
                 <i className="bi bi-envelope-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#666]">{t('contact-email')}</h3>
+                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">{t('contact-email')}</h3>
                 <p className="m-0 mb-1 text-base font-semibold text-[#2f3e46]">CIO@sancarlospangasinan.com</p>
-                <span className="text-[0.8125rem] text-[#666]">{t('contact-response')}</span>
+                <span className="text-[0.8125rem] text-[#5c6b73]">{t('contact-response')}</span>
               </div>
             </a>
-            <div className="flex items-start gap-4 rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#2f3e46] transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)]">
+            <div className="flex items-start gap-4 rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)]">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.125rem] text-white">
                 <i className="bi bi-geo-alt-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#666]">{t('contact-address')}</h3>
+                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">{t('contact-address')}</h3>
                 <p className="m-0 mb-1 text-base font-semibold text-[#2f3e46]">{t('contact-municipal-hall')}</p>
-                <span className="text-[0.8125rem] text-[#666]">San Carlos City, Pangasinan 2420</span>
+                <span className="text-[0.8125rem] text-[#5c6b73]">San Carlos City, Pangasinan 2420</span>
               </div>
             </div>
           </div>

@@ -16,7 +16,7 @@ const langBtnBase =
 const langBtnActive = 'border-primary bg-primary text-white opacity-100';
 
 const navLinkBase =
-  'font-medium text-[#2f3e46] select-none [-webkit-tap-highlight-color:transparent] hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:-outline-offset-2 max-[1024px]:block max-[1024px]:rounded-md max-[1024px]:px-4 max-[1024px]:py-3 max-[1024px]:hover:bg-[#f8f9fa]';
+  'font-medium text-[#2f3e46] select-none [-webkit-tap-highlight-color:transparent] hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:-outline-offset-2 max-[1024px]:block max-[1024px]:rounded-md max-[1024px]:px-4 max-[1024px]:py-3 max-[1024px]:hover:bg-[#faf9f6]';
 
 const caretBase =
   'after:ml-1.5 after:inline-block after:h-0 after:w-0 after:border-x-4 after:border-t-4 after:border-x-transparent after:align-middle after:transition-transform after:duration-200 max-[1024px]:flex max-[1024px]:items-center max-[1024px]:justify-between max-[1024px]:after:ml-auto max-[1024px]:after:shrink-0';
@@ -138,7 +138,7 @@ export default function Header() {
     );
 
   const dropdownItemCls =
-    'block whitespace-nowrap px-4 py-2 text-[#2f3e46] transition-colors hover:bg-[#f8f9fa] hover:text-primary hover:no-underline max-[1024px]:whitespace-normal max-[1024px]:px-4 max-[1024px]:py-2.5 max-[1024px]:text-[0.9375rem] max-[1024px]:text-[#666]';
+    'block whitespace-nowrap px-4 py-2 text-[#2f3e46] transition-colors hover:bg-[#faf9f6] hover:text-primary hover:no-underline max-[1024px]:whitespace-normal max-[1024px]:px-4 max-[1024px]:py-2.5 max-[1024px]:text-[0.9375rem] max-[1024px]:text-[#5c6b73]';
 
   return (
     <header className="site-header sticky top-0 z-[1000] bg-white py-2 shadow-[0_2px_4px_rgba(0,0,0,0.05)] max-[1024px]:py-2.5 max-[767px]:py-2 max-[480px]:py-1.5">
@@ -161,12 +161,12 @@ export default function Header() {
           ref={navRef}
           className={`max-[1024px]:order-4 max-[1024px]:w-full max-[1024px]:overflow-hidden max-[1024px]:transition-[max-height,opacity,padding,visibility] max-[1024px]:duration-300 ${
             mobileMenuOpen
-              ? 'max-[1024px]:visible max-[1024px]:max-h-[80vh] max-[1024px]:overflow-y-auto max-[1024px]:opacity-100 max-[1024px]:border-t max-[1024px]:border-[#f8f9fa] max-[1024px]:pt-4 max-[1024px]:mt-4'
+              ? 'max-[1024px]:visible max-[1024px]:max-h-[80vh] max-[1024px]:overflow-y-auto max-[1024px]:opacity-100 max-[1024px]:border-t max-[1024px]:border-[#faf9f6] max-[1024px]:pt-4 max-[1024px]:mt-4'
               : 'max-[1024px]:invisible max-[1024px]:max-h-0 max-[1024px]:opacity-0 max-[1024px]:border-t max-[1024px]:border-transparent max-[1024px]:pt-0 max-[1024px]:mt-0'
           }`}
           aria-label="Main Navigation"
         >
-          <div className={mobileMenuOpen ? 'flex items-center gap-2 border-b border-[#f8f9fa] px-4 pb-3 pt-2 lg:hidden' : 'hidden lg:hidden'}>
+          <div className={mobileMenuOpen ? 'flex items-center gap-2 border-b border-[#faf9f6] px-4 pb-3 pt-2 lg:hidden' : 'hidden lg:hidden'}>
             <button
               type="button"
               className={cn(langBtnBase, language === 'en' && langBtnActive)}

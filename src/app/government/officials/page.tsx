@@ -19,7 +19,7 @@ const data = officialsData as OfficialsData;
 
 function OfficialCard({ official }: { official: Official }) {
     return (
-        <div className="flex h-full flex-col rounded-[10px] border border-[#f8f9fa] bg-white p-6 text-center shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-all duration-200 hover:-translate-y-1 max-[767px]:p-4 max-[480px]:p-2">
+        <div className="flex h-full flex-col rounded-[10px] border border-[#faf9f6] bg-white p-6 text-center shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-all duration-200 hover:-translate-y-1 max-[767px]:p-4 max-[480px]:p-2">
             <div className="mb-6">
                 {official.image ? (
                     <img
@@ -45,7 +45,7 @@ function OfficialCard({ official }: { official: Official }) {
 
 function CouncilorCard({ official }: { official: Official }) {
     return (
-        <div className="flex h-full flex-col rounded-[10px] border border-[#e5e7eb] border-l-[3px] border-l-primary bg-white p-6 text-center shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-all duration-200 hover:-translate-y-1 hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] max-[767px]:p-4 max-[480px]:p-2">
+        <div className="flex h-full flex-col rounded-[10px] border border-[#e2e8e0] border-l-[3px] border-l-primary bg-white p-6 text-center shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-all duration-200 hover:-translate-y-1 hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] max-[767px]:p-4 max-[480px]:p-2">
             {official.image ? (
                 <img
                     src={`/${official.image}`}

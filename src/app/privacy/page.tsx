@@ -23,19 +23,19 @@ export default function PrivacyPage() {
                                 <i className="bi bi-list-ul"></i> <span>Contents</span>
                             </h4>
                             <nav className="flex flex-col gap-1">
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#introduction">Introduction</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#legal-basis">Legal Basis</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#information-collected">Information We Collect</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#how-we-use">How We Use Information</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#cookies">Cookies & Analytics</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#data-sharing">Data Sharing</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#data-security">Data Security</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#data-retention">Data Retention</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#your-rights">Your Rights</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#childrens-privacy">Children&apos;s Privacy</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#third-party">Third-Party Links</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#changes">Policy Changes</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#contact">Contact Us</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#introduction">Introduction</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#legal-basis">Legal Basis</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#information-collected">Information We Collect</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#how-we-use">How We Use Information</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#cookies">Cookies & Analytics</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#data-sharing">Data Sharing</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#data-security">Data Security</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#data-retention">Data Retention</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#your-rights">Your Rights</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#childrens-privacy">Children&apos;s Privacy</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#third-party">Third-Party Links</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#changes">Policy Changes</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#contact">Contact Us</a>
                             </nav>
                         </aside>
 
@@ -114,7 +114,7 @@ export default function PrivacyPage() {
 
                                 <div className="my-5 flex gap-3 rounded-lg bg-muted px-5 py-4">
                                     <i className="bi bi-info-circle mt-[2px] shrink-0 text-[1rem] text-[#0077be]"></i>
-                                    <p className="text-[0.875rem] leading-[1.7] text-[#666]">
+                                    <p className="text-[0.875rem] leading-[1.7] text-[#5c6b73]">
                                         We do <strong>not</strong> collect sensitive personal information such as
                                         government-issued ID numbers, financial information, health records, or
                                         biometric data through this website.
@@ -376,7 +376,7 @@ export default function PrivacyPage() {
                                 </p>
                                 <div className="my-5 flex gap-3 rounded-lg bg-muted px-5 py-4">
                                     <i className="bi bi-building mt-[2px] shrink-0 text-[1rem] text-[#0077be]"></i>
-                                    <p className="text-[0.875rem] leading-[1.7] text-[#666]">
+                                    <p className="text-[0.875rem] leading-[1.7] text-[#5c6b73]">
                                         <strong>National Privacy Commission</strong>
                                         <br />
                                         3rd Floor, Core G, GSIS Headquarters Building
@@ -390,7 +390,7 @@ export default function PrivacyPage() {
                                     </p>
                                 </div>
 
-                                <p className="mb-0 mt-6 border-t border-[rgba(0,0,0,0.06)] pt-6 text-[0.9375rem] italic leading-[1.7] text-[#666]">Last Updated: December 2, 2025</p>
+                                <p className="mb-0 mt-6 border-t border-[rgba(0,0,0,0.06)] pt-6 text-[0.9375rem] italic leading-[1.7] text-[#5c6b73]">Last Updated: December 2, 2025</p>
                             </section>
                         </article>
                     </div>

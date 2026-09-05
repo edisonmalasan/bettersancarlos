@@ -669,25 +669,25 @@ export default function StatisticsPage() {
                             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.5rem] text-white"><i className="bi bi-people-fill"></i></div>
                             <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-[#2f3e46] max-[575px]:text-[1.5rem]" data-count="52746">0</div>
                             <div className="mb-1 text-[0.9375rem] font-semibold text-[#2f3e46]">Population</div>
-                            <div className="text-[0.8125rem] text-[#666666]">2024 Census</div>
+                            <div className="text-[0.8125rem] text-[#5c6b73]">2024 Census</div>
                         </div>
                         <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(58, 125, 68,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="100">
                             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.5rem] text-white"><i className="bi bi-geo-alt-fill"></i></div>
                             <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-[#2f3e46] max-[575px]:text-[1.5rem]">44</div>
                             <div className="mb-1 text-[0.9375rem] font-semibold text-[#2f3e46]">Barangays</div>
-                            <div className="text-[0.8125rem] text-[#666666]">Administrative Units</div>
+                            <div className="text-[0.8125rem] text-[#5c6b73]">Administrative Units</div>
                         </div>
                         <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(58, 125, 68,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="200">
                             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.5rem] text-white"><i className="bi bi-rulers"></i></div>
                             <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-[#2f3e46] max-[575px]:text-[1.5rem]">180.95</div>
                             <div className="mb-1 text-[0.9375rem] font-semibold text-[#2f3e46]">Land Area (km²)</div>
-                            <div className="text-[0.8125rem] text-[#666666]">Total Municipal Area</div>
+                            <div className="text-[0.8125rem] text-[#5c6b73]">Total Municipal Area</div>
                         </div>
                         <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(58, 125, 68,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="300">
                             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.5rem] text-white"><i className="bi bi-award-fill"></i></div>
                             <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-[#2f3e46] max-[575px]:text-[1.5rem]">2nd</div>
                             <div className="mb-1 text-[0.9375rem] font-semibold text-[#2f3e46]">Income Class</div>
-                            <div className="text-[0.8125rem] text-[#666666]">Municipality Classification</div>
+                            <div className="text-[0.8125rem] text-[#5c6b73]">Municipality Classification</div>
                         </div>
                     </div>
                 </div>
@@ -700,7 +700,7 @@ export default function StatisticsPage() {
                             <i className="bi bi-cash-stack"></i> <span>Finance</span>
                         </span>
                         <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#2f3e46] max-[575px]:text-[1.5rem]">Municipal Income</h2>
-                        <p className="m-0 text-[1rem] text-[#666666]">Financial standing based on latest available LGU data</p>
+                        <p className="m-0 text-[1rem] text-[#5c6b73]">Financial standing based on latest available LGU data</p>
                     </div>
 
                     <div className="mb-10 grid grid-cols-3 gap-5 max-[991px]:grid-cols-1">
@@ -713,26 +713,26 @@ export default function StatisticsPage() {
                             <div className="text-[0.8125rem] text-white">Projected baseline from national LGU data</div>
                         </div>
                         <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(58, 125, 68,0.1)]">
-                            <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-[#666666]">
+                            <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-[#5c6b73]">
                                 <i className="bi bi-bank text-[1rem]"></i>
                                 <span>IRA Share</span>
                             </div>
                             <div className="mb-1 text-[1.75rem] font-bold text-[#2f3e46]">₱131.26M</div>
-                            <div className="text-[0.8125rem] text-[#666666]">Internal Revenue Allotment</div>
+                            <div className="text-[0.8125rem] text-[#5c6b73]">Internal Revenue Allotment</div>
                         </div>
                         <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(58, 125, 68,0.1)]">
-                            <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-[#666666]">
+                            <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-[#5c6b73]">
                                 <i className="bi bi-pie-chart-fill text-[1rem]"></i>
                                 <span>IRA Dependency</span>
                             </div>
                             <div className="mb-1 text-[1.75rem] font-bold text-[#2f3e46]">59.45%</div>
-                            <div className="text-[0.8125rem] text-[#666666]">National Tax Share</div>
+                            <div className="text-[0.8125rem] text-[#5c6b73]">National Tax Share</div>
                         </div>
                     </div>
 
                     <div className="animate-on-scroll rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
                         <h4 className="mb-4 text-[1rem] font-bold text-[#2f3e46]">Income Composition</h4>
-                        <div className="flex h-12 overflow-hidden rounded-lg bg-[#f8f9fa]">
+                        <div className="flex h-12 overflow-hidden rounded-lg bg-[#faf9f6]">
                             <div className="breakdown-segment flex w-0 items-center justify-center bg-[linear-gradient(90deg,#0077BE_0%,#005a8f_100%)] transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="59.45">
                                 <span className="text-[0.8125rem] font-semibold whitespace-nowrap text-white">IRA 59.45%</span>
                             </div>
@@ -750,7 +750,7 @@ export default function StatisticsPage() {
                         </div>
                     </div>
 
-                    <p className="mt-6 text-center text-[0.8125rem] text-[#666666]">
+                    <p className="mt-6 text-center text-[0.8125rem] text-[#5c6b73]">
                         <i className="bi bi-info-circle mr-1"></i> Source:{" "}
                         <a className="text-primary" href="https://blgf.gov.ph/" target="_blank" rel="noopener noreferrer">
                             Bureau of Local Government Finance (BLGF)
@@ -760,28 +760,28 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-[#f8f9fa] py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
+            <section className="animate-on-scroll bg-[#faf9f6] py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-graph-up"></i> <span>Growth</span>
                         </span>
                         <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#2f3e46] max-[575px]:text-[1.5rem]">Population Trends</h2>
-                        <p className="m-0 text-[1rem] text-[#666666]">Historical growth from 1990 to 2024</p>
+                        <p className="m-0 text-[1rem] text-[#5c6b73]">Historical growth from 1990 to 2024</p>
                     </div>
 
                     <div className="mb-10 flex flex-wrap items-center justify-center gap-6 max-[991px]:gap-4">
                         <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white px-8 py-5 text-center max-[991px]:px-6 max-[991px]:py-4 max-[575px]:px-5 max-[575px]:py-3">
-                            <span className="mb-1 block text-[0.8125rem] text-[#666666]">1990</span>
+                            <span className="mb-1 block text-[0.8125rem] text-[#5c6b73]">1990</span>
                             <span className="block text-[1.5rem] font-bold text-[#2f3e46] max-[575px]:text-[1.25rem]">{formatNumber(historicalData.populations[0])}</span>
                         </div>
-                        <div className="text-[1.25rem] text-[#666666]"><i className="bi bi-arrow-right"></i></div>
+                        <div className="text-[1.25rem] text-[#5c6b73]"><i className="bi bi-arrow-right"></i></div>
                         <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-8 py-5 text-center max-[991px]:px-6 max-[991px]:py-4 max-[575px]:px-5 max-[575px]:py-3">
                             <span className="mb-1 block text-[0.8125rem] text-white">2024</span>
                             <span className="block text-[1.5rem] font-bold text-white max-[575px]:text-[1.25rem]">{formatNumber(totalPopulation)}</span>
                         </div>
                         <div className="rounded-xl border border-[#3a7d44] bg-[rgba(58, 125, 68,0.1)] px-8 py-5 text-center max-[991px]:px-6 max-[991px]:py-4 max-[575px]:px-5 max-[575px]:py-3">
-                            <span className="mb-1 block text-[0.8125rem] text-[#666666]">Growth</span>
+                            <span className="mb-1 block text-[0.8125rem] text-[#5c6b73]">Growth</span>
                             <span className="block text-[1.5rem] font-bold text-[#3a7d44] max-[575px]:text-[1.25rem]">+{historicalGrowth.toFixed(1)}%</span>
                         </div>
                     </div>
@@ -790,7 +790,7 @@ export default function StatisticsPage() {
                         <canvas id="historicalLineChart" className="max-h-full w-full"></canvas>
                     </div>
 
-                    <p className="mt-6 text-center text-[0.8125rem] text-[#666666]">
+                    <p className="mt-6 text-center text-[0.8125rem] text-[#5c6b73]">
                         <i className="bi bi-info-circle mr-1"></i> Source:{" "}
                         <a className="text-primary" href="https://psa.gov.ph/" target="_blank" rel="noopener noreferrer">
                             Philippine Statistics Authority (PSA)
@@ -807,7 +807,7 @@ export default function StatisticsPage() {
                             <span>Distribution</span>
                         </span>
                         <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#2f3e46] max-[575px]:text-[1.5rem]">Population by Barangay</h2>
-                        <p className="m-0 text-[1rem] text-[#666666]">2024 Census of Population</p>
+                        <p className="m-0 text-[1rem] text-[#5c6b73]">2024 Census of Population</p>
                     </div>
 
                     <div className="grid grid-cols-2 items-start gap-10 max-[991px]:grid-cols-1">
@@ -817,9 +817,9 @@ export default function StatisticsPage() {
                         <div className="flex flex-col gap-2">
                             {top10.map((b) => (
                                 <div className={`grid items-center gap-3 rounded-lg border bg-white px-4 py-[10px] transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)] max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2 ${b.pop === maxPop ? 'grid-cols-[40px_120px_1fr_70px] border-l-[3px] border-[rgba(0,0,0,0.04)] border-l-[#ffd700] max-[575px]:grid-cols-[32px_90px_1fr_60px]' : 'grid-cols-[40px_120px_1fr_70px] border-[rgba(0,0,0,0.04)] max-[575px]:grid-cols-[32px_90px_1fr_60px]'}`} data-rank={b.pop === maxPop ? 1 : undefined} key={b.name}>
-                                    <span className="text-[0.75rem] font-semibold text-[#666666]">#{rankedBarangays.findIndex((r) => r.name === b.name) + 1}</span>
+                                    <span className="text-[0.75rem] font-semibold text-[#5c6b73]">#{rankedBarangays.findIndex((r) => r.name === b.name) + 1}</span>
                                     <span className="text-[0.875rem] font-medium text-[#2f3e46] max-[575px]:text-[0.8125rem]">{b.name}</span>
-                                    <div className="bar-wrap h-2 overflow-hidden rounded bg-[#f8f9fa]">
+                                    <div className="bar-wrap h-2 overflow-hidden rounded bg-[#faf9f6]">
                                         <div
                                             className="bar h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#0077BE_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
                                             data-width={Math.max(2, Math.round((b.pop / maxPop) * 100))}
@@ -836,9 +836,9 @@ export default function StatisticsPage() {
                         <div className="mt-4 flex flex-col gap-2">
                             {remaining.map((b) => (
                                 <div className="grid grid-cols-[40px_120px_1fr_70px] items-center gap-3 rounded-lg border border-[rgba(0,0,0,0.04)] bg-white px-4 py-[10px] transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)] max-[575px]:grid-cols-[32px_90px_1fr_60px] max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2" key={b.name}>
-                                    <span className="text-[0.75rem] font-semibold text-[#666666]">#{rankedBarangays.findIndex((r) => r.name === b.name) + 1}</span>
+                                    <span className="text-[0.75rem] font-semibold text-[#5c6b73]">#{rankedBarangays.findIndex((r) => r.name === b.name) + 1}</span>
                                     <span className="text-[0.875rem] font-medium text-[#2f3e46] max-[575px]:text-[0.8125rem]">{b.name}</span>
-                                    <div className="bar-wrap h-2 overflow-hidden rounded bg-[#f8f9fa]">
+                                    <div className="bar-wrap h-2 overflow-hidden rounded bg-[#faf9f6]">
                                         <div
                                             className="bar h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#0077BE_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
                                             data-width={Math.max(2, Math.round((b.pop / maxPop) * 100))}
@@ -850,7 +850,7 @@ export default function StatisticsPage() {
                         </div>
                     </details>
 
-                    <p className="mt-6 text-center text-[0.8125rem] text-[#666666]">
+                    <p className="mt-6 text-center text-[0.8125rem] text-[#5c6b73]">
                         <i className="bi bi-info-circle mr-1"></i> Source:{" "}
                         <a className="text-primary" href="https://psa.gov.ph/" target="_blank" rel="noopener noreferrer">
                             Philippine Statistics Authority (PSA)
@@ -860,7 +860,7 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-[#f8f9fa] py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
+            <section className="animate-on-scroll bg-[#faf9f6] py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
@@ -868,7 +868,7 @@ export default function StatisticsPage() {
                             <span>Economy</span>
                         </span>
                         <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#2f3e46] max-[575px]:text-[1.5rem]">Economic Indicators</h2>
-                        <p className="m-0 text-[1rem] text-[#666666]">Key economic data based on DILG and agricultural profile</p>
+                        <p className="m-0 text-[1rem] text-[#5c6b73]">Key economic data based on DILG and agricultural profile</p>
                     </div>
 
                     <div className="mb-10 grid grid-cols-3 gap-5 max-[991px]:grid-cols-1">
@@ -876,7 +876,7 @@ export default function StatisticsPage() {
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.25rem] text-white"><i className="bi bi-tree-fill"></i></div>
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-[#2f3e46]">COCONUT</div>
-                                <div className="mb-2 text-[0.875rem] text-[#666666]">Major Product</div>
+                                <div className="mb-2 text-[0.875rem] text-[#5c6b73]">Major Product</div>
                                 <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(58, 125, 68,0.1)] px-[10px] py-1 text-[0.75rem] text-[#3a7d44]">Principal crop & trade</div>
                             </div>
                         </div>
@@ -884,7 +884,7 @@ export default function StatisticsPage() {
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.25rem] text-white"><i className="bi bi-geo-fill"></i></div>
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-[#2f3e46]">AGRICULTURAL</div>
-                                <div className="mb-2 text-[0.875rem] text-[#666666]">Major Land Use</div>
+                                <div className="mb-2 text-[0.875rem] text-[#5c6b73]">Major Land Use</div>
                                 <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(58, 125, 68,0.1)] px-[10px] py-1 text-[0.75rem] text-[#3a7d44]">Farms & coconut plantations</div>
                             </div>
                         </div>
@@ -892,7 +892,7 @@ export default function StatisticsPage() {
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.25rem] text-white"><i className="bi bi-house-door-fill"></i></div>
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-[#2f3e46]" data-count="9263">0</div>
-                                <div className="mb-2 text-[0.875rem] text-[#666666]">Households</div>
+                                <div className="mb-2 text-[0.875rem] text-[#5c6b73]">Households</div>
                                 <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(58, 125, 68,0.1)] px-[10px] py-1 text-[0.75rem] text-[#3a7d44]">DILG municipal profile</div>
                             </div>
                         </div>
@@ -901,7 +901,7 @@ export default function StatisticsPage() {
                     <div className="animate-on-scroll rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
                         <h4 className="mb-4 text-[1rem] font-bold text-[#2f3e46]">Economic Sectors</h4>
                         <div className="flex flex-col gap-[14px]">
-                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#faf9f6] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
                                     <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#10b981] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#2f3e46]">Agriculture</span>
@@ -911,7 +911,7 @@ export default function StatisticsPage() {
                                     <div className="sc-fill h-full w-0 rounded bg-[#10b981] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="70"></div>
                                 </div>
                             </div>
-                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#faf9f6] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
                                     <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#3b82f6] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#2f3e46]">Trade &amp; Commerce</span>
@@ -921,7 +921,7 @@ export default function StatisticsPage() {
                                     <div className="sc-fill h-full w-0 rounded bg-[#3b82f6] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="15"></div>
                                 </div>
                             </div>
-                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#faf9f6] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
                                     <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#8b5cf6] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#2f3e46]">Services</span>
@@ -931,7 +931,7 @@ export default function StatisticsPage() {
                                     <div className="sc-fill h-full w-0 rounded bg-[#8b5cf6] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="10"></div>
                                 </div>
                             </div>
-                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#faf9f6] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
                                     <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#f59e0b] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#2f3e46]">Industry</span>
@@ -944,7 +944,7 @@ export default function StatisticsPage() {
                         </div>
                     </div>
 
-                    <p className="mt-6 text-center text-[0.8125rem] text-[#666666]">
+                    <p className="mt-6 text-center text-[0.8125rem] text-[#5c6b73]">
                         <i className="bi bi-info-circle mr-1"></i> Source:{" "}
                         <a className="text-primary" href="https://sancarlospangasinan.gov.ph/" target="_blank" rel="noopener noreferrer">
                             Department of the Interior and Local Government (DILG) Region I
@@ -962,20 +962,20 @@ export default function StatisticsPage() {
                             <span>Poverty</span>
                         </span>
                         <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#2f3e46] max-[575px]:text-[1.5rem]">Poverty Statistics</h2>
-                        <p className="m-0 text-[1rem] text-[#666666]">2021 City and Municipal Level Poverty Estimates</p>
+                        <p className="m-0 text-[1rem] text-[#5c6b73]">2021 City and Municipal Level Poverty Estimates</p>
                     </div>
 
                     <div className="flex flex-wrap items-center justify-center gap-8 max-[991px]:gap-5">
                         <div className="relative min-w-[200px] rounded-2xl border border-[rgba(0,0,0,0.06)] bg-white p-8 text-center max-[575px]:min-w-[160px] max-[575px]:p-6">
-                            <span className="mb-4 inline-block rounded-full bg-[#f8f9fa] px-3 py-1 text-[0.8125rem] font-semibold text-[#666666]">2018</span>
+                            <span className="mb-4 inline-block rounded-full bg-[#faf9f6] px-3 py-1 text-[0.8125rem] font-semibold text-[#5c6b73]">2018</span>
                             <div className="mb-4 flex items-baseline justify-center gap-[2px]">
                                 <span className="text-[3rem] leading-[1] font-bold text-[#2f3e46] max-[575px]:text-[2.5rem]">7.0</span>
-                                <span className="text-[1.5rem] font-semibold text-[#666666]">%</span>
+                                <span className="text-[1.5rem] font-semibold text-[#5c6b73]">%</span>
                             </div>
-                            <div className="mb-3 h-2 overflow-hidden rounded bg-[#f8f9fa]"><div className="poverty-fill h-full w-0 rounded bg-primary transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="7"></div></div>
-                            <span className="text-[0.75rem] text-[#666666]">90% CI: 4.7% - 9.2%</span>
+                            <div className="mb-3 h-2 overflow-hidden rounded bg-[#faf9f6]"><div className="poverty-fill h-full w-0 rounded bg-primary transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="7"></div></div>
+                            <span className="text-[0.75rem] text-[#5c6b73]">90% CI: 4.7% - 9.2%</span>
                         </div>
-                        <div className="flex flex-col items-center gap-1 text-[#666666]">
+                        <div className="flex flex-col items-center gap-1 text-[#5c6b73]">
                             <i className="bi bi-arrow-right"></i>
                             <span className="text-[0.875rem] font-semibold text-[#3a7d44]">-0.6%</span>
                         </div>
@@ -983,10 +983,10 @@ export default function StatisticsPage() {
                             <span className="mb-4 inline-block rounded-full bg-[rgba(58, 125, 68,0.1)] px-3 py-1 text-[0.8125rem] font-semibold text-[#3a7d44]">2021</span>
                             <div className="mb-4 flex items-baseline justify-center gap-[2px]">
                                 <span className="text-[3rem] leading-[1] font-bold text-[#2f3e46] max-[575px]:text-[2.5rem]">6.4</span>
-                                <span className="text-[1.5rem] font-semibold text-[#666666]">%</span>
+                                <span className="text-[1.5rem] font-semibold text-[#5c6b73]">%</span>
                             </div>
-                            <div className="mb-3 h-2 overflow-hidden rounded bg-[#f8f9fa]"><div className="poverty-fill h-full w-0 rounded bg-[#3a7d44] transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="6.4"></div></div>
-                            <span className="text-[0.75rem] text-[#666666]">90% CI: 4.7% - 8.1%</span>
+                            <div className="mb-3 h-2 overflow-hidden rounded bg-[#faf9f6]"><div className="poverty-fill h-full w-0 rounded bg-[#3a7d44] transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="6.4"></div></div>
+                            <span className="text-[0.75rem] text-[#5c6b73]">90% CI: 4.7% - 8.1%</span>
                             <span className="absolute -top-[10px] -right-[10px] flex items-center gap-1 rounded-full bg-[#3a7d44] px-3 py-[6px] text-[0.75rem] font-semibold text-white">
                                 <i className="bi bi-check-circle-fill"></i>
                                 <span>Improved</span>
@@ -994,7 +994,7 @@ export default function StatisticsPage() {
                         </div>
                     </div>
 
-                    <p className="mt-6 text-center text-[0.8125rem] text-[#666666]">
+                    <p className="mt-6 text-center text-[0.8125rem] text-[#5c6b73]">
                         <i className="bi bi-info-circle mr-1"></i> Source:{" "}
                         <a className="text-primary" href="https://psa.gov.ph/" target="_blank" rel="noopener noreferrer">
                             Philippine Statistics Authority (PSA)
@@ -1004,7 +1004,7 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-[#f8f9fa] py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100" id="competitive-index">
+            <section className="animate-on-scroll bg-[#faf9f6] py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100" id="competitive-index">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
@@ -1012,7 +1012,7 @@ export default function StatisticsPage() {
                             <span>Competitiveness</span>
                         </span>
                         <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#2f3e46] max-[575px]:text-[1.5rem]">San Carlos Competitive Index</h2>
-                        <p className="m-0 text-[1rem] text-[#666666]">
+                        <p className="m-0 text-[1rem] text-[#5c6b73]">
                             Cities and Municipalities Competitiveness Index (CMCI) Performance 2016-2024
                         </p>
                     </div>
@@ -1090,7 +1090,7 @@ export default function StatisticsPage() {
                     <div className="cmci-panel hidden [&.active]:block" id="panel-economic-dynamism">
                         <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-currency-exchange"></i> Local Economy Size
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.0259</div>
@@ -1099,7 +1099,7 @@ export default function StatisticsPage() {
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-graph-up"></i> Local Economy Growth
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.0318</div>
@@ -1108,14 +1108,14 @@ export default function StatisticsPage() {
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-shop"></i> Active Establishments</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-shop"></i> Active Establishments</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.4994</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="49.94"></div>
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-shield-check"></i> Safety Compliant Business
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.2235</div>
@@ -1124,7 +1124,7 @@ export default function StatisticsPage() {
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-people"></i> Employment Generation
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.3835</div>
@@ -1147,14 +1147,14 @@ export default function StatisticsPage() {
                     <div className="cmci-panel hidden [&.active]:block" id="panel-government-efficiency">
                         <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-cash-coin"></i> Cost of Living</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-cash-coin"></i> Cost of Living</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">1.1919</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="47.68"></div>
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-briefcase"></i> Cost of Doing Business
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">1.5599</div>
@@ -1163,21 +1163,21 @@ export default function StatisticsPage() {
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-bank"></i> Financial Deepening</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-bank"></i> Financial Deepening</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.8288</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="33.15"></div>
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-speedometer2"></i> Productivity</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-speedometer2"></i> Productivity</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.3297</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="32.97"></div>
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-check2-square"></i> Compliance to Directives
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">1.9600</div>
@@ -1200,21 +1200,21 @@ export default function StatisticsPage() {
                     <div className="cmci-panel hidden [&.active]:block" id="panel-infrastructure">
                         <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-signpost-2"></i> Road Network</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-signpost-2"></i> Road Network</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.0016</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="0.16"></div>
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-geo-alt"></i> Distance to Ports</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-geo-alt"></i> Distance to Ports</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">1.5281</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="61.12"></div>
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-lightning-charge"></i> Basic Utilities
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.3560</div>
@@ -1223,14 +1223,14 @@ export default function StatisticsPage() {
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-truck"></i> Transportation</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-truck"></i> Transportation</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.0959</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="9.59"></div>
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-wifi"></i> IT Capacity</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-wifi"></i> IT Capacity</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.0155</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="1.55"></div>
@@ -1251,14 +1251,14 @@ export default function StatisticsPage() {
                     <div className="cmci-panel hidden [&.active]:block" id="panel-resiliency">
                         <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-file-earmark-text"></i> DRR Plan</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-file-earmark-text"></i> DRR Plan</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">1.9783</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="79.13"></div>
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-calendar-event"></i> Annual Disaster Drill
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">1.0023</div>
@@ -1267,21 +1267,21 @@ export default function StatisticsPage() {
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-bell"></i> Early Warning System</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-bell"></i> Early Warning System</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">1.0397</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="41.59"></div>
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-piggy-bank"></i> DRRMP Budget</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-piggy-bank"></i> DRRMP Budget</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.0020</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="0.20"></div>
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-clipboard-data"></i> Risk Assessments
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">2.0000</div>
@@ -1304,35 +1304,35 @@ export default function StatisticsPage() {
                     <div className="cmci-panel hidden [&.active]:block" id="panel-innovation">
                         <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-file-code"></i> ICT Plan</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-file-code"></i> ICT Plan</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">2.0001</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="80.00"></div>
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-search"></i> R&amp;D Expenditures</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-search"></i> R&amp;D Expenditures</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.0006</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="0.06"></div>
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-laptop"></i> E-BPLS Software</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-laptop"></i> E-BPLS Software</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">2.0000</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="80.00"></div>
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-mortarboard"></i> STEM Graduates</div>
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-mortarboard"></i> STEM Graduates</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.0181</div>
                                 <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
                                     <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="1.81"></div>
                                 </div>
                             </div>
                             <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
-                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
+                                <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#5c6b73] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-rocket-takeoff"></i> Innovation Facilities
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#2f3e46]">0.0227</div>
@@ -1352,7 +1352,7 @@ export default function StatisticsPage() {
                         </div>
                     </div>
 
-                    <p className="mt-6 text-center text-[0.8125rem] text-[#666666]">
+                    <p className="mt-6 text-center text-[0.8125rem] text-[#5c6b73]">
                         <i className="bi bi-info-circle mr-1"></i> Source:{" "}
                         <a className="text-primary" href="https://cmci.dti.gov.ph/" target="_blank" rel="noopener noreferrer">
                             DTI Cities and Municipalities Competitiveness Index (CMCI)
@@ -1369,14 +1369,14 @@ export default function StatisticsPage() {
                             <span>Visual</span>
                         </span>
                         <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#2f3e46] max-[575px]:text-[1.5rem]">Population Bar Chart</h2>
-                        <p className="m-0 text-[1rem] text-[#666666]">Comparative view of all {rankedBarangays.length} barangays</p>
+                        <p className="m-0 text-[1rem] text-[#5c6b73]">Comparative view of all {rankedBarangays.length} barangays</p>
                     </div>
 
                     <div className="relative h-[600px] rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 max-[575px]:h-[500px] max-[575px]:p-4">
                         <canvas id="populationBarChart" className="max-h-full w-full"></canvas>
                     </div>
 
-                    <p className="mt-6 text-center text-[0.8125rem] text-[#666666]">
+                    <p className="mt-6 text-center text-[0.8125rem] text-[#5c6b73]">
                         <i className="bi bi-info-circle mr-1"></i> Source:{" "}
                         <a className="text-primary" href="https://psa.gov.ph/" target="_blank" rel="noopener noreferrer">
                             Philippine Statistics Authority (PSA)

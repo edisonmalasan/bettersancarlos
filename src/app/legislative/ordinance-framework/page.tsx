@@ -60,10 +60,10 @@ export default function OrdinanceFrameworkPage() {
                                 <tbody>
                                     {ordinances.map((item) => (
                                         <tr key={item.ordinanceNo} className="transition-colors hover:bg-muted [&:last-child>td]:border-b-0">
-                                            <td className="border-b border-[#f8f9fa] px-4 py-3 max-[767px]:px-2"><span className="inline-block whitespace-nowrap rounded-md bg-[rgba(58, 125, 68,0.08)] px-2.5 py-1 text-xs font-semibold text-primary">{item.ordinanceNo}</span></td>
-                                            <td className="border-b border-[#f8f9fa] px-4 py-3 text-sm font-medium text-foreground max-[767px]:px-2">{item.title}</td>
-                                            <td className="whitespace-nowrap border-b border-[#f8f9fa] px-4 py-3 text-sm text-muted-foreground max-[767px]:px-2"><i className="bi bi-calendar-event mr-2 text-primary"></i> {item.sessionDate}</td>
-                                            <td className="border-b border-[#f8f9fa] px-4 py-3 max-[767px]:px-2"><span className="inline-block whitespace-nowrap rounded-full bg-[#e6f4ea] px-3 py-1 text-xs font-semibold text-success">Municipal Ordinance</span></td>
+                                            <td className="border-b border-[#faf9f6] px-4 py-3 max-[767px]:px-2"><span className="inline-block whitespace-nowrap rounded-md bg-[rgba(58, 125, 68,0.08)] px-2.5 py-1 text-xs font-semibold text-primary">{item.ordinanceNo}</span></td>
+                                            <td className="border-b border-[#faf9f6] px-4 py-3 text-sm font-medium text-foreground max-[767px]:px-2">{item.title}</td>
+                                            <td className="whitespace-nowrap border-b border-[#faf9f6] px-4 py-3 text-sm text-muted-foreground max-[767px]:px-2"><i className="bi bi-calendar-event mr-2 text-primary"></i> {item.sessionDate}</td>
+                                            <td className="border-b border-[#faf9f6] px-4 py-3 max-[767px]:px-2"><span className="inline-block whitespace-nowrap rounded-full bg-[#e6f4ea] px-3 py-1 text-xs font-semibold text-success">Municipal Ordinance</span></td>
                                         </tr>
                                     ))}
                                 </tbody>

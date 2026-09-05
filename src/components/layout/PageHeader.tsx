@@ -16,7 +16,7 @@ export default function PageHeader({ title, description, badge, breadcrumbs }: P
     return (
         <>
             <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
-                <nav className="py-4 text-sm text-[#666] max-[767px]:text-[0.8125rem] [&_a]:text-[#666]" aria-label="Breadcrumb">
+                <nav className="py-4 text-sm text-[#5c6b73] max-[767px]:text-[0.8125rem] [&_a]:text-[#5c6b73]" aria-label="Breadcrumb">
                     {breadcrumbs.map((crumb, index) => {
                         const isLast = index === breadcrumbs.length - 1;
                         return (

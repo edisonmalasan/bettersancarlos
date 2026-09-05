@@ -146,7 +146,7 @@ export default function WeatherWidget() {
     }, [load]);
 
     if (status === 'loading') {
-        const shimmer = 'animate-[skeleton-shimmer_1.5s_ease-in-out_infinite] bg-[linear-gradient(90deg,#f0f0f0_25%,#fafafa_50%,#f0f0f0_75%)] bg-[length:200%_100%]';
+        const shimmer = 'animate-[skeleton-shimmer_1.5s_ease-in-out_infinite] bg-[linear-gradient(90deg,#eaece8_25%,#fafafa_50%,#eaece8_75%)] bg-[length:200%_100%]';
         return (
             <div className="rounded-2xl border border-[rgba(0,0,0,0.06)] bg-white p-8" aria-busy="true" aria-label="Loading weather data">
                 <div className="flex items-start gap-6 pb-6 max-[767px]:justify-start">

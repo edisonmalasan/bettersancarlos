@@ -25,8 +25,8 @@ export default function FAQPage() {
                                 <h2 className="m-0 text-[1.125rem] text-foreground">General Questions</h2>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         What are the office hours of the Municipal Hall?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>
@@ -38,8 +38,8 @@ export default function FAQPage() {
                                         </p>
                                     </div>
                                 </details>
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         How can I contact a specific municipal office?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>
@@ -52,8 +52,8 @@ export default function FAQPage() {
                                         </p>
                                     </div>
                                 </details>
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         Can I request services online?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>
@@ -74,8 +74,8 @@ export default function FAQPage() {
                                 <h2 className="m-0 text-[1.125rem] text-foreground">Certificates &amp; Documents</h2>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         How long does it take to get a birth certificate?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>
@@ -86,8 +86,8 @@ export default function FAQPage() {
                                         </p>
                                     </div>
                                 </details>
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         Can someone else request my certificate for me?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>
@@ -100,8 +100,8 @@ export default function FAQPage() {
                                         </ul>
                                     </div>
                                 </details>
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         What is the difference between PSA and local civil registrar certificates?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>
@@ -123,8 +123,8 @@ export default function FAQPage() {
                                 <h2 className="m-0 text-[1.125rem] text-foreground">Business &amp; Permits</h2>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         When should I renew my business permit?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>
@@ -135,8 +135,8 @@ export default function FAQPage() {
                                         </p>
                                     </div>
                                 </details>
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         What do I need to start a new business in San Carlos?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>
@@ -170,8 +170,8 @@ export default function FAQPage() {
                                 <h2 className="m-0 text-[1.125rem] text-foreground">Payments &amp; Fees</h2>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         What payment methods are accepted?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>
@@ -182,8 +182,8 @@ export default function FAQPage() {
                                         </p>
                                     </div>
                                 </details>
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         How can I pay my real property tax?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>
@@ -204,8 +204,8 @@ export default function FAQPage() {
                                 <h2 className="m-0 text-[1.125rem] text-foreground">Social Services</h2>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         How do I apply for a Senior Citizen ID?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>
@@ -223,8 +223,8 @@ export default function FAQPage() {
                                         <p>The ID is issued for free.</p>
                                     </div>
                                 </details>
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         What benefits do senior citizens receive?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>
@@ -245,8 +245,8 @@ export default function FAQPage() {
                                 <h2 className="m-0 text-[1.125rem] text-foreground">Technical Questions</h2>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         I found a broken link or error on this website. How do I report it?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>
@@ -259,8 +259,8 @@ export default function FAQPage() {
                                         </p>
                                     </div>
                                 </details>
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         Is this website mobile-friendly?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>
@@ -280,8 +280,8 @@ export default function FAQPage() {
                                 <h2 className="m-0 text-[1.125rem] text-foreground">About the Developer</h2>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <details className="group overflow-hidden rounded-lg border border-[#e5e7eb] bg-white">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e5e7eb] [&::-webkit-details-marker]:hidden">
+                                <details className="group overflow-hidden rounded-lg border border-[#e2e8e0] bg-white">
+                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-medium transition-colors duration-200 hover:bg-muted group-open:border-b group-open:border-[#e2e8e0] [&::-webkit-details-marker]:hidden">
                                         Who developed Better San Carlos?
                                         <i aria-hidden="true" className="bi bi-chevron-down shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"></i>
                                     </summary>

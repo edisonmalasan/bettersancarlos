@@ -24,7 +24,7 @@ export default function BudgetPage() {
                                 <span>Financial Report</span>
                             </span>
                             <h2 className="mb-1! text-2xl! font-bold text-[#2f3e46] max-[575px]:text-[1.25rem]!">Statement of Receipts &amp; Expenditures</h2>
-                            <p className="m-0! text-[0.9375rem] text-[#666666]">FY 2025 quarterly financial performance</p>
+                            <p className="m-0! text-[0.9375rem] text-[#5c6b73]">FY 2025 quarterly financial performance</p>
                         </div>
                         <div className="flex gap-1 rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-1 shadow-[0_1px_3px_rgba(0,0,0,0.08)] max-[575px]:w-full" role="tablist" aria-label="Select fiscal quarter">
                             <button
@@ -35,7 +35,7 @@ export default function BudgetPage() {
                                 data-quarter="q1"
                             >
                                 <span className="text-base font-bold text-[#2f3e46] transition-colors duration-200 [.active_&]:text-white">Q1</span>
-                                <span className="mt-0.5 text-[0.6875rem] text-[#666666] transition-colors duration-200 [.active_&]:text-white">Jan - Mar</span>
+                                <span className="mt-0.5 text-[0.6875rem] text-[#5c6b73] transition-colors duration-200 [.active_&]:text-white">Jan - Mar</span>
                             </button>
                             <button
                                 type="button"
@@ -45,7 +45,7 @@ export default function BudgetPage() {
                                 data-quarter="q2"
                             >
                                 <span className="text-base font-bold text-[#2f3e46] transition-colors duration-200 [.active_&]:text-white">Q2</span>
-                                <span className="mt-0.5 text-[0.6875rem] text-[#666666] transition-colors duration-200 [.active_&]:text-white">Apr - Jun</span>
+                                <span className="mt-0.5 text-[0.6875rem] text-[#5c6b73] transition-colors duration-200 [.active_&]:text-white">Apr - Jun</span>
                             </button>
                         </div>
                     </div>
@@ -54,28 +54,28 @@ export default function BudgetPage() {
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#10b981_0%,#059669_100%)] text-[1.25rem] text-white"><i className="bi bi-arrow-down-circle"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="sre-metric-value text-[1.375rem] font-bold leading-[1.2] text-[#2f3e46] transition-[opacity_0.15s_ease,transform_0.15s_ease] max-[575px]:text-[1.25rem] [&.updating]:scale-[0.98] [&.updating]:opacity-50" id="sre-total-income">₱158.47 M</span>
-                                <span className="text-xs font-medium text-[#666666]">Total Income</span>
+                                <span className="text-xs font-medium text-[#5c6b73]">Total Income</span>
                             </div>
                         </div>
                         <div className="flex items-center gap-[14px] rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.1)] max-[575px]:p-4">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#f59e0b_0%,#d97706_100%)] text-[1.25rem] text-white"><i className="bi bi-arrow-up-circle"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="sre-metric-value text-[1.375rem] font-bold leading-[1.2] text-[#2f3e46] transition-[opacity_0.15s_ease,transform_0.15s_ease] max-[575px]:text-[1.25rem] [&.updating]:scale-[0.98] [&.updating]:opacity-50" id="sre-total-expense">₱67.51 M</span>
-                                <span className="text-xs font-medium text-[#666666]">Total Expenditures</span>
+                                <span className="text-xs font-medium text-[#5c6b73]">Total Expenditures</span>
                             </div>
                         </div>
                         <div className="flex items-center gap-[14px] rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.1)] max-[575px]:p-4">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#3b82f6_0%,#2563eb_100%)] text-[1.25rem] text-white"><i className="bi bi-plus-slash-minus"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="sre-metric-value text-[1.375rem] font-bold leading-[1.2] text-[#2f3e46] transition-[opacity_0.15s_ease,transform_0.15s_ease] max-[575px]:text-[1.25rem] [&.updating]:scale-[0.98] [&.updating]:opacity-50" id="sre-net-income">₱90.96 M</span>
-                                <span className="text-xs font-medium text-[#666666]">Net Operating Income</span>
+                                <span className="text-xs font-medium text-[#5c6b73]">Net Operating Income</span>
                             </div>
                         </div>
                         <div className="flex items-center gap-[14px] rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.1)] max-[575px]:p-4">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#8b5cf6_0%,#7c3aed_100%)] text-[1.25rem] text-white"><i className="bi bi-wallet2"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="sre-metric-value text-[1.375rem] font-bold leading-[1.2] text-[#2f3e46] transition-[opacity_0.15s_ease,transform_0.15s_ease] max-[575px]:text-[1.25rem] [&.updating]:scale-[0.98] [&.updating]:opacity-50" id="sre-fund-balance">₱283.29 M</span>
-                                <span className="text-xs font-medium text-[#666666]">Fund Balance (End)</span>
+                                <span className="text-xs font-medium text-[#5c6b73]">Fund Balance (End)</span>
                             </div>
                         </div>
                     </div>
@@ -97,22 +97,22 @@ export default function BudgetPage() {
                                         <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#10b981]"></span>
                                         <div className="min-w-0 flex-1">
                                             <span className="block text-sm font-semibold text-[#2f3e46]">Local Sources</span>
-                                            <span className="mt-[1px] block text-xs text-[#666666]">Tax &amp; Non-Tax Revenue</span>
+                                            <span className="mt-[1px] block text-xs text-[#5c6b73]">Tax &amp; Non-Tax Revenue</span>
                                         </div>
                                         <div className="flex flex-col items-end gap-0.5">
                                             <span className="text-[0.9375rem] font-bold text-[#2f3e46]" id="sre-income-local">₱88.85 M</span>
-                                            <span className="rounded bg-[rgba(0,0,0,0.04)] px-1.5 py-0.5 text-[0.6875rem] text-[#666666]" id="sre-income-local-pct">56.1%</span>
+                                            <span className="rounded bg-[rgba(0,0,0,0.04)] px-1.5 py-0.5 text-[0.6875rem] text-[#5c6b73]" id="sre-income-local-pct">56.1%</span>
                                         </div>
                                     </div>
                                     <div className="sre-breakdown-item flex items-center gap-3 rounded-[10px] bg-[#f8fafc] p-3 transition-all duration-200 hover:bg-[#f1f5f9]" data-type="external">
                                         <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#0ea5e9]"></span>
                                         <div className="min-w-0 flex-1">
                                             <span className="block text-sm font-semibold text-[#2f3e46]">External Sources</span>
-                                            <span className="mt-[1px] block text-xs text-[#666666]">National Tax Allotment</span>
+                                            <span className="mt-[1px] block text-xs text-[#5c6b73]">National Tax Allotment</span>
                                         </div>
                                         <div className="flex flex-col items-end gap-0.5">
                                             <span className="text-[0.9375rem] font-bold text-[#2f3e46]" id="sre-income-external">₱69.62 M</span>
-                                            <span className="rounded bg-[rgba(0,0,0,0.04)] px-1.5 py-0.5 text-[0.6875rem] text-[#666666]" id="sre-income-external-pct">43.9%</span>
+                                            <span className="rounded bg-[rgba(0,0,0,0.04)] px-1.5 py-0.5 text-[0.6875rem] text-[#5c6b73]" id="sre-income-external-pct">43.9%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -134,44 +134,44 @@ export default function BudgetPage() {
                                         <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#3b82f6]"></span>
                                         <div className="min-w-0 flex-1">
                                             <span className="block text-sm font-semibold text-[#2f3e46]">General Public Services</span>
-                                            <span className="mt-[1px] block text-xs text-[#666666]">Administration &amp; Operations</span>
+                                            <span className="mt-[1px] block text-xs text-[#5c6b73]">Administration &amp; Operations</span>
                                         </div>
                                         <div className="flex flex-col items-end gap-0.5">
                                             <span className="text-[0.9375rem] font-bold text-[#2f3e46]" id="sre-exp-gps">₱42.76 M</span>
-                                            <span className="rounded bg-[rgba(0,0,0,0.04)] px-1.5 py-0.5 text-[0.6875rem] text-[#666666]" id="sre-exp-gps-pct">63.3%</span>
+                                            <span className="rounded bg-[rgba(0,0,0,0.04)] px-1.5 py-0.5 text-[0.6875rem] text-[#5c6b73]" id="sre-exp-gps-pct">63.3%</span>
                                         </div>
                                     </div>
                                     <div className="sre-breakdown-item flex items-center gap-3 rounded-[10px] bg-[#f8fafc] p-3 transition-all duration-200 hover:bg-[#f1f5f9]" data-type="social">
                                         <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#8b5cf6]"></span>
                                         <div className="min-w-0 flex-1">
                                             <span className="block text-sm font-semibold text-[#2f3e46]">Social Services</span>
-                                            <span className="mt-[1px] block text-xs text-[#666666]">Health, Education, Welfare</span>
+                                            <span className="mt-[1px] block text-xs text-[#5c6b73]">Health, Education, Welfare</span>
                                         </div>
                                         <div className="flex flex-col items-end gap-0.5">
                                             <span className="text-[0.9375rem] font-bold text-[#2f3e46]" id="sre-exp-social">₱13.33 M</span>
-                                            <span className="rounded bg-[rgba(0,0,0,0.04)] px-1.5 py-0.5 text-[0.6875rem] text-[#666666]" id="sre-exp-social-pct">19.7%</span>
+                                            <span className="rounded bg-[rgba(0,0,0,0.04)] px-1.5 py-0.5 text-[0.6875rem] text-[#5c6b73]" id="sre-exp-social-pct">19.7%</span>
                                         </div>
                                     </div>
                                     <div className="sre-breakdown-item flex items-center gap-3 rounded-[10px] bg-[#f8fafc] p-3 transition-all duration-200 hover:bg-[#f1f5f9]" data-type="economic">
                                         <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#f59e0b]"></span>
                                         <div className="min-w-0 flex-1">
                                             <span className="block text-sm font-semibold text-[#2f3e46]">Economic Services</span>
-                                            <span className="mt-[1px] block text-xs text-[#666666]">Infrastructure &amp; Development</span>
+                                            <span className="mt-[1px] block text-xs text-[#5c6b73]">Infrastructure &amp; Development</span>
                                         </div>
                                         <div className="flex flex-col items-end gap-0.5">
                                             <span className="text-[0.9375rem] font-bold text-[#2f3e46]" id="sre-exp-economic">₱11.07 M</span>
-                                            <span className="rounded bg-[rgba(0,0,0,0.04)] px-1.5 py-0.5 text-[0.6875rem] text-[#666666]" id="sre-exp-economic-pct">16.4%</span>
+                                            <span className="rounded bg-[rgba(0,0,0,0.04)] px-1.5 py-0.5 text-[0.6875rem] text-[#5c6b73]" id="sre-exp-economic-pct">16.4%</span>
                                         </div>
                                     </div>
                                     <div className="sre-breakdown-item flex items-center gap-3 rounded-[10px] bg-[#f8fafc] p-3 transition-all duration-200 hover:bg-[#f1f5f9]" data-type="debt">
                                         <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#ef4444]"></span>
                                         <div className="min-w-0 flex-1">
                                             <span className="block text-sm font-semibold text-[#2f3e46]">Debt Service</span>
-                                            <span className="mt-[1px] block text-xs text-[#666666]">Interest &amp; Charges</span>
+                                            <span className="mt-[1px] block text-xs text-[#5c6b73]">Interest &amp; Charges</span>
                                         </div>
                                         <div className="flex flex-col items-end gap-0.5">
                                             <span className="text-[0.9375rem] font-bold text-[#2f3e46]" id="sre-exp-debt">₱0.35 M</span>
-                                            <span className="rounded bg-[rgba(0,0,0,0.04)] px-1.5 py-0.5 text-[0.6875rem] text-[#666666]" id="sre-exp-debt-pct">0.5%</span>
+                                            <span className="rounded bg-[rgba(0,0,0,0.04)] px-1.5 py-0.5 text-[0.6875rem] text-[#5c6b73]" id="sre-exp-debt-pct">0.5%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -179,7 +179,7 @@ export default function BudgetPage() {
                         </div>
                     </div>
 
-                    <p className="m-0! text-center text-[0.8125rem] text-[#666666]">
+                    <p className="m-0! text-center text-[0.8125rem] text-[#5c6b73]">
                         <i className="bi bi-info-circle"></i> Source:{" "}
                         <a
                             href="https://blgf.gov.ph/"
@@ -201,7 +201,7 @@ export default function BudgetPage() {
                             <span>Public Works</span>
                         </span>
                         <h2 className="mb-1! text-2xl! font-bold text-[#2f3e46] max-[767px]:text-[1.375rem]! max-[575px]:text-[1.25rem]!">Infrastructure Investments</h2>
-                        <p className="m-0! text-[0.9375rem] text-[#666666]">Major development projects serving the community</p>
+                        <p className="m-0! text-[0.9375rem] text-[#5c6b73]">Major development projects serving the community</p>
                     </div>
                     <div className="mb-6 overflow-hidden rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white transition-all duration-200 last:mb-0 hover:border-primary hover:shadow-[0_8px_32px_rgba(58, 125, 68,0.1)]">
                         <div className="border-b border-[rgba(0,0,0,0.06)] p-7 max-[575px]:p-5">
@@ -213,7 +213,7 @@ export default function BudgetPage() {
                                 </span>
                             </div>
                             <h3 className="m-0! mb-2.5! text-[1.25rem]! leading-[1.4]! font-bold text-[#2f3e46] max-[575px]:text-[1.125rem]!">FCDS Package 5 - Magat River Flood Control</h3>
-                            <p className="m-0! flex items-center gap-1.5 text-[0.9375rem] text-[#666666]">
+                            <p className="m-0! flex items-center gap-1.5 text-[0.9375rem] text-[#5c6b73]">
                                 <i className="bi bi-geo-alt text-sm text-[#0077be]"></i>
                                 <span>Magat River, Bagahabag Section, San Carlos City, Pangasinan</span>
                             </p>
@@ -221,21 +221,21 @@ export default function BudgetPage() {
                         <div className="bg-[#fafbfc] px-7 py-6 max-[575px]:p-5">
                             <div className="grid grid-cols-3 gap-6 max-[991px]:grid-cols-1 max-[991px]:gap-4">
                                 <div className="flex flex-col gap-1">
-                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#666666]">Type of Work</span>
+                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">Type of Work</span>
                                     <span className="text-[0.9375rem] font-semibold text-[#2f3e46]">Construction of Flood Mitigation Structure</span>
                                 </div>
                                 <div className="flex flex-col gap-1">
-                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#666666]">Contractor</span>
+                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">Contractor</span>
                                     <span className="text-[0.9375rem] font-semibold text-[#2f3e46]">EGB Construction Corporation</span>
                                 </div>
                                 <div className="flex flex-col gap-1">
-                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#666666]">Contract Cost</span>
+                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">Contract Cost</span>
                                     <span className="text-[1.125rem] font-bold text-[#3a7d44]">₱144,750,000</span>
                                 </div>
                             </div>
                         </div>
                         <div className="flex items-center justify-between border-t border-[rgba(0,0,0,0.06)] bg-white px-7 py-4 max-[575px]:flex-col max-[575px]:gap-3 max-[575px]:px-5 max-[575px]:py-[14px] max-[575px]:text-center">
-                            <span className="flex items-center gap-1.5 text-[0.8125rem] text-[#666666]">
+                            <span className="flex items-center gap-1.5 text-[0.8125rem] text-[#5c6b73]">
                                 <i className="bi bi-info-circle"></i>
                                 <span>Source: Sumbong sa Pangulo</span>
                             </span>
@@ -261,7 +261,7 @@ export default function BudgetPage() {
                                 </span>
                             </div>
                             <h3 className="m-0! mb-2.5! text-[1.25rem]! leading-[1.4]! font-bold text-[#2f3e46] max-[575px]:text-[1.125rem]!">Repair/Rehabilitation of Flood Control and Drainage Structure - Section 1</h3>
-                            <p className="m-0! flex items-center gap-1.5 text-[0.9375rem] text-[#666666]">
+                            <p className="m-0! flex items-center gap-1.5 text-[0.9375rem] text-[#5c6b73]">
                                 <i className="bi bi-geo-alt text-sm text-[#0077be]"></i>
                                 <span>Magat River, Bangar Section 1, Brgy. Bangar, San Carlos City, Pangasinan</span>
                             </p>
@@ -269,21 +269,21 @@ export default function BudgetPage() {
                         <div className="bg-[#fafbfc] px-7 py-6 max-[575px]:p-5">
                             <div className="grid grid-cols-3 gap-6 max-[991px]:grid-cols-1 max-[991px]:gap-4">
                                 <div className="flex flex-col gap-1">
-                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#666666]">Type of Work</span>
+                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">Type of Work</span>
                                     <span className="text-[0.9375rem] font-semibold text-[#2f3e46]">Rehabilitation / Major Repair of Flood Control Structure</span>
                                 </div>
                                 <div className="flex flex-col gap-1">
-                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#666666]">Contractor</span>
+                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">Contractor</span>
                                     <span className="text-[0.9375rem] font-semibold text-[#2f3e46]">Shanley Construction</span>
                                 </div>
                                 <div className="flex flex-col gap-1">
-                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#666666]">Contract Cost</span>
+                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">Contract Cost</span>
                                     <span className="text-[1.125rem] font-bold text-[#3a7d44]">₱29,700,000</span>
                                 </div>
                             </div>
                         </div>
                         <div className="flex items-center justify-between border-t border-[rgba(0,0,0,0.06)] bg-white px-7 py-4 max-[575px]:flex-col max-[575px]:gap-3 max-[575px]:px-5 max-[575px]:py-[14px] max-[575px]:text-center">
-                            <span className="flex items-center gap-1.5 text-[0.8125rem] text-[#666666]">
+                            <span className="flex items-center gap-1.5 text-[0.8125rem] text-[#5c6b73]">
                                 <i className="bi bi-info-circle"></i>
                                 <span>Source: Sumbong sa Pangulo</span>
                             </span>
@@ -309,7 +309,7 @@ export default function BudgetPage() {
                                 </span>
                             </div>
                             <h3 className="m-0! mb-2.5! text-[1.25rem]! leading-[1.4]! font-bold text-[#2f3e46] max-[575px]:text-[1.125rem]!">Repair/Rehabilitation of Flood Control and Drainage Structure - Section 2</h3>
-                            <p className="m-0! flex items-center gap-1.5 text-[0.9375rem] text-[#666666]">
+                            <p className="m-0! flex items-center gap-1.5 text-[0.9375rem] text-[#5c6b73]">
                                 <i className="bi bi-geo-alt text-sm text-[#0077be]"></i>
                                 <span>Magat River, Bangar Section 2, Brgy. Bangar, San Carlos City, Pangasinan</span>
                             </p>
@@ -317,21 +317,21 @@ export default function BudgetPage() {
                         <div className="bg-[#fafbfc] px-7 py-6 max-[575px]:p-5">
                             <div className="grid grid-cols-3 gap-6 max-[991px]:grid-cols-1 max-[991px]:gap-4">
                                 <div className="flex flex-col gap-1">
-                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#666666]">Type of Work</span>
+                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">Type of Work</span>
                                     <span className="text-[0.9375rem] font-semibold text-[#2f3e46]">Rehabilitation / Major Repair of Flood Control Structure</span>
                                 </div>
                                 <div className="flex flex-col gap-1">
-                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#666666]">Contractor</span>
+                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">Contractor</span>
                                     <span className="text-[0.9375rem] font-semibold text-[#2f3e46]">Shanley Construction</span>
                                 </div>
                                 <div className="flex flex-col gap-1">
-                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#666666]">Contract Cost</span>
+                                    <span className="text-[0.6875rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">Contract Cost</span>
                                     <span className="text-[1.125rem] font-bold text-[#3a7d44]">₱29,700,000</span>
                                 </div>
                             </div>
                         </div>
                         <div className="flex items-center justify-between border-t border-[rgba(0,0,0,0.06)] bg-white px-7 py-4 max-[575px]:flex-col max-[575px]:gap-3 max-[575px]:px-5 max-[575px]:py-[14px] max-[575px]:text-center">
-                            <span className="flex items-center gap-1.5 text-[0.8125rem] text-[#666666]">
+                            <span className="flex items-center gap-1.5 text-[0.8125rem] text-[#5c6b73]">
                                 <i className="bi bi-info-circle"></i>
                                 <span>Source: Sumbong sa Pangulo</span>
                             </span>
@@ -349,7 +349,7 @@ export default function BudgetPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-[#f8f9fa] py-16 opacity-0! translate-y-[30px]! transition-all! duration-[600ms]! ease-[cubic-bezier(0.16,1,0.3,1)]! max-[575px]:py-12 [&.visible]:translate-y-0! [&.visible]:opacity-100!">
+            <section className="animate-on-scroll bg-[#faf9f6] py-16 opacity-0! translate-y-[30px]! transition-all! duration-[600ms]! ease-[cubic-bezier(0.16,1,0.3,1)]! max-[575px]:py-12 [&.visible]:translate-y-0! [&.visible]:opacity-100!">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
                     <div className="mb-10 text-center">
                         <span className="mb-2 inline-flex items-center gap-1.5 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-primary">
@@ -357,12 +357,12 @@ export default function BudgetPage() {
                             <span>National Government Projects</span>
                         </span>
                         <h2 className="mb-1! text-2xl! font-bold text-[#2f3e46] max-[767px]:text-[1.375rem]! max-[575px]:text-[1.25rem]!">DPWH Infrastructure Projects in San Carlos</h2>
-                        <p className="m-0! text-[0.9375rem] text-[#666666]">Implementing Agency: Pangasinan District Engineering Office</p>
+                        <p className="m-0! text-[0.9375rem] text-[#5c6b73]">Implementing Agency: Pangasinan District Engineering Office</p>
                     </div>
 
                     <div id="dpwh-projects-container"></div>
 
-                    <p className="m-0! mt-6 text-center text-[0.8125rem] text-[#666666]">
+                    <p className="m-0! mt-6 text-center text-[0.8125rem] text-[#5c6b73]">
                         <i className="bi bi-info-circle"></i> Source:{" "}
                         <a
                             href="https://transparency.dpwh.gov.ph/"

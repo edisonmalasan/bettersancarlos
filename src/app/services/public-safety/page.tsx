@@ -20,24 +20,24 @@ export default function PublicSafetyPage() {
       <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
           <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 min-[1200px]:grid-cols-3 max-[1024px]:grid-cols-2 max-[767px]:grid-cols-1">
-            <Link href="/service-details/public-safety" className="rounded-[10px] border border-[#e5e7eb] bg-white p-6 text-inherit no-underline transition-all duration-200 hover:border-primary hover:no-underline hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)]">
+            <Link href="/service-details/public-safety" className="rounded-[10px] border border-[#e2e8e0] bg-white p-6 text-inherit no-underline transition-all duration-200 hover:border-primary hover:no-underline hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)]">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-[#2f3e46]">
                 <i className="bi bi-file-earmark-text text-primary"></i>
                 <span>Emergency Response</span>
               </h3>
-              <p className="m-0 mb-3 text-[0.875rem] text-[#666]">24/7 emergency assistance and rescue</p>
-              <div className="flex gap-6 border-t border-[#f0f0f0] pt-3 text-[0.8125rem] text-[#666]">
+              <p className="m-0 mb-3 text-[0.875rem] text-[#5c6b73]">24/7 emergency assistance and rescue</p>
+              <div className="flex gap-6 border-t border-[#eaece8] pt-3 text-[0.8125rem] text-[#5c6b73]">
                 <span className="flex items-center gap-1"><strong className="text-[#2f3e46]">Fee:</strong> Free</span>
                 <span className="flex items-center gap-1"><strong className="text-[#2f3e46]">Time:</strong> Immediate</span>
               </div>
             </Link>
-            <Link href="/service-details/public-safety" className="rounded-[10px] border border-[#e5e7eb] bg-white p-6 text-inherit no-underline transition-all duration-200 hover:border-primary hover:no-underline hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)]">
+            <Link href="/service-details/public-safety" className="rounded-[10px] border border-[#e2e8e0] bg-white p-6 text-inherit no-underline transition-all duration-200 hover:border-primary hover:no-underline hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)]">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-[#2f3e46]">
                 <i className="bi bi-file-earmark-text text-primary"></i>
                 <span>Disaster Preparedness</span>
               </h3>
-              <p className="m-0 mb-3 text-[0.875rem] text-[#666]">Training and resources for disaster readiness</p>
-              <div className="flex gap-6 border-t border-[#f0f0f0] pt-3 text-[0.8125rem] text-[#666]">
+              <p className="m-0 mb-3 text-[0.875rem] text-[#5c6b73]">Training and resources for disaster readiness</p>
+              <div className="flex gap-6 border-t border-[#eaece8] pt-3 text-[0.8125rem] text-[#5c6b73]">
                 <span className="flex items-center gap-1"><strong className="text-[#2f3e46]">Fee:</strong> Free</span>
                 <span className="flex items-center gap-1"><strong className="text-[#2f3e46]">Time:</strong> Varies</span>
               </div>

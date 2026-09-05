@@ -29,8 +29,8 @@ export default function AccessibilityPage() {
                         </div>
 
                         <div className="mb-12">
-                            <h2 className="mb-6 border-b-2 border-[#f8f9fa] pb-4 text-[1.25rem] font-bold text-[#2f3e46]">Our Commitment</h2>
-                            <p className="mb-4 leading-[1.6] text-[#666]">
+                            <h2 className="mb-6 border-b-2 border-[#faf9f6] pb-4 text-[1.25rem] font-bold text-[#2f3e46]">Our Commitment</h2>
+                            <p className="mb-4 leading-[1.6] text-[#5c6b73]">
                                 Better San Carlos is committed to ensuring digital accessibility for people with
                                 disabilities. We are continually improving the user experience for everyone and
                                 applying the relevant accessibility standards.
@@ -38,51 +38,51 @@ export default function AccessibilityPage() {
                         </div>
 
                         <div className="mb-12">
-                            <h2 className="mb-6 border-b-2 border-[#f8f9fa] pb-4 text-[1.25rem] font-bold text-[#2f3e46]">Accessibility Features</h2>
+                            <h2 className="mb-6 border-b-2 border-[#faf9f6] pb-4 text-[1.25rem] font-bold text-[#2f3e46]">Accessibility Features</h2>
                             <div className="grid grid-cols-3 gap-4 max-[992px]:grid-cols-2 max-[768px]:grid-cols-1">
                                 <div className="rounded-lg bg-muted p-6 text-center">
                                     <i className="bi bi-keyboard mb-2 text-[1.5rem] text-primary"></i>
                                     <h3 className="m-0 mb-1 text-[0.875rem] font-bold text-[#2f3e46]">Keyboard Navigation</h3>
-                                    <p className="m-0 text-[0.8125rem] text-[#666]">All functionality available using only a keyboard.</p>
+                                    <p className="m-0 text-[0.8125rem] text-[#5c6b73]">All functionality available using only a keyboard.</p>
                                 </div>
                                 <div className="rounded-lg bg-muted p-6 text-center">
                                     <i className="bi bi-eye mb-2 text-[1.5rem] text-primary"></i>
                                     <h3 className="m-0 mb-1 text-[0.875rem] font-bold text-[#2f3e46]">Screen Reader Support</h3>
-                                    <p className="m-0 text-[0.8125rem] text-[#666]">Compatible with JAWS, NVDA, and VoiceOver.</p>
+                                    <p className="m-0 text-[0.8125rem] text-[#5c6b73]">Compatible with JAWS, NVDA, and VoiceOver.</p>
                                 </div>
                                 <div className="rounded-lg bg-muted p-6 text-center">
                                     <i className="bi bi-type mb-2 text-[1.5rem] text-primary"></i>
                                     <h3 className="m-0 mb-1 text-[0.875rem] font-bold text-[#2f3e46]">Text Alternatives</h3>
-                                    <p className="m-0 text-[0.8125rem] text-[#666]">All images have descriptive alt text.</p>
+                                    <p className="m-0 text-[0.8125rem] text-[#5c6b73]">All images have descriptive alt text.</p>
                                 </div>
                                 <div className="rounded-lg bg-muted p-6 text-center">
                                     <i className="bi bi-palette mb-2 text-[1.5rem] text-primary"></i>
                                     <h3 className="m-0 mb-1 text-[0.875rem] font-bold text-[#2f3e46]">Color Contrast</h3>
-                                    <p className="m-0 text-[0.8125rem] text-[#666]">Meets WCAG AA contrast requirements.</p>
+                                    <p className="m-0 text-[0.8125rem] text-[#5c6b73]">Meets WCAG AA contrast requirements.</p>
                                 </div>
                                 <div className="rounded-lg bg-muted p-6 text-center">
                                     <i className="bi bi-phone mb-2 text-[1.5rem] text-primary"></i>
                                     <h3 className="m-0 mb-1 text-[0.875rem] font-bold text-[#2f3e46]">Responsive Design</h3>
-                                    <p className="m-0 text-[0.8125rem] text-[#666]">Works on all devices and screen sizes.</p>
+                                    <p className="m-0 text-[0.8125rem] text-[#5c6b73]">Works on all devices and screen sizes.</p>
                                 </div>
                                 <div className="rounded-lg bg-muted p-6 text-center">
                                     <i className="bi bi-hourglass-split mb-2 text-[1.5rem] text-primary"></i>
                                     <h3 className="m-0 mb-1 text-[0.875rem] font-bold text-[#2f3e46]">No Time Limits</h3>
-                                    <p className="m-0 text-[0.8125rem] text-[#666]">No time limits on reading or interacting.</p>
+                                    <p className="m-0 text-[0.8125rem] text-[#5c6b73]">No time limits on reading or interacting.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="mb-12">
-                            <h2 className="mb-6 border-b-2 border-[#f8f9fa] pb-4 text-[1.25rem] font-bold text-[#2f3e46]">Known Limitations</h2>
+                            <h2 className="mb-6 border-b-2 border-[#faf9f6] pb-4 text-[1.25rem] font-bold text-[#2f3e46]">Known Limitations</h2>
                             <ul className="list-none p-0">
-                                <li className="flex items-start gap-3 border-b border-[#e5e7eb] py-3 text-[#666] last:border-0">
+                                <li className="flex items-start gap-3 border-b border-[#e2e8e0] py-3 text-[#5c6b73] last:border-0">
                                     <i className="bi bi-exclamation-circle mt-[2px] text-accent"></i>
                                     <span>
                                         Some PDF documents may not be fully accessible to screen readers
                                     </span>
                                 </li>
-                                <li className="flex items-start gap-3 border-b border-[#e5e7eb] py-3 text-[#666] last:border-0">
+                                <li className="flex items-start gap-3 border-b border-[#e2e8e0] py-3 text-[#5c6b73] last:border-0">
                                     <i className="bi bi-exclamation-circle mt-[2px] text-accent"></i>
                                     <span>
                                         Some third-party embedded content may have accessibility issues
@@ -92,8 +92,8 @@ export default function AccessibilityPage() {
                         </div>
 
                         <div className="mb-12">
-                            <h2 className="mb-6 border-b-2 border-[#f8f9fa] pb-4 text-[1.25rem] font-bold text-[#2f3e46]">Alternative Access</h2>
-                            <p className="mb-4 leading-[1.6] text-[#666]">
+                            <h2 className="mb-6 border-b-2 border-[#faf9f6] pb-4 text-[1.25rem] font-bold text-[#2f3e46]">Alternative Access</h2>
+                            <p className="mb-4 leading-[1.6] text-[#5c6b73]">
                                 If you encounter difficulty accessing any information, contact us:
                             </p>
                             <div className="mt-6 grid grid-cols-3 gap-4 max-[992px]:grid-cols-1">
@@ -105,7 +105,7 @@ export default function AccessibilityPage() {
                         </div>
 
                         <div className="mb-12">
-                            <h2 className="mb-6 border-b-2 border-[#f8f9fa] pb-4 text-[1.25rem] font-bold text-[#2f3e46]">Technical Specifications</h2>
+                            <h2 className="mb-6 border-b-2 border-[#faf9f6] pb-4 text-[1.25rem] font-bold text-[#2f3e46]">Technical Specifications</h2>
                             <div className="flex flex-wrap gap-2">
                                 <span className="rounded-full bg-muted px-4 py-2 text-[0.875rem] font-medium text-[#2f3e46]">HTML5</span>
                                 <span className="rounded-full bg-muted px-4 py-2 text-[0.875rem] font-medium text-[#2f3e46]">CSS3</span>
@@ -128,7 +128,7 @@ export default function AccessibilityPage() {
                             </div>
                         </div>
 
-                        <p className="mb-4 mt-8 text-center text-[0.875rem] text-[#666]">Last updated: November 29, 2025</p>
+                        <p className="mb-4 mt-8 text-center text-[0.875rem] text-[#5c6b73]">Last updated: November 29, 2025</p>
                     </div>
                 </div>
             </section>

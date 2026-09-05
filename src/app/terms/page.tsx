@@ -23,21 +23,21 @@ export default function TermsPage() {
                                 <i className="bi bi-list-ul"></i> <span>Contents</span>
                             </h4>
                             <nav className="flex flex-col gap-1">
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#introduction">Introduction</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#acceptance">Acceptance of Terms</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#public-domain">Public Domain Content</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#disclaimer">&quot;As Is&quot; Disclaimer</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#limitation">Limitation of Liability</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#responsibilities">User Responsibilities</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#no-advice">No Professional Advice</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#external-links">External References</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#availability">Website Availability</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#indemnification">Indemnification</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#modifications">Modifications</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#governing-law">Governing Law</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#severability">Severability</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#takedown">Content Concerns</a>
-                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#666] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#contact">Contact Information</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#introduction">Introduction</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#acceptance">Acceptance of Terms</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#public-domain">Public Domain Content</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#disclaimer">&quot;As Is&quot; Disclaimer</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#limitation">Limitation of Liability</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#responsibilities">User Responsibilities</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#no-advice">No Professional Advice</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#external-links">External References</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#availability">Website Availability</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#indemnification">Indemnification</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#modifications">Modifications</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#governing-law">Governing Law</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#severability">Severability</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#takedown">Content Concerns</a>
+                                <a className="block rounded-md px-3 py-2 text-[0.8125rem] text-[#5c6b73] no-underline transition-all duration-200 hover:bg-muted hover:text-primary hover:no-underline" href="#contact">Contact Information</a>
                             </nav>
                         </aside>
 
@@ -86,7 +86,7 @@ export default function TermsPage() {
                                 </p>
                                 <div className="my-5 flex gap-3 rounded-lg bg-muted px-5 py-4">
                                     <i className="bi bi-info-circle mt-[2px] shrink-0 text-[1rem] text-[#0077be]"></i>
-                                    <p className="text-[0.875rem] leading-[1.7] text-[#666]">
+                                    <p className="text-[0.875rem] leading-[1.7] text-[#5c6b73]">
                                         As a volunteer-run initiative, this website does not replace official government
                                         channels. Residents and stakeholders are encouraged to conduct their own
                                         independent research and verification of all information found here and to
@@ -330,7 +330,7 @@ export default function TermsPage() {
                                         <span>volunteer@bettersancarlos.vercel.app</span>
                                     </a>
                                 </div>
-                                <p className="mb-0 mt-6 border-t border-[rgba(0,0,0,0.06)] pt-6 text-[0.9375rem] italic leading-[1.7] text-[#666]">
+                                <p className="mb-0 mt-6 border-t border-[rgba(0,0,0,0.06)] pt-6 text-[0.9375rem] italic leading-[1.7] text-[#5c6b73]">
                                     Better San Carlos provides public domain information to support civic engagement,
                                     transparency, and informed participation in local governance.
                                 </p>

@@ -53,7 +53,7 @@ export default function GovernmentPage() {
                             label="Executive Branch"
                             gradient="linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)"
                         />
-                        <h3 className="font-bold leading-[1.2] text-[#1a1a1a]" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
+                        <h3 className="font-bold leading-[1.2] text-[#2f3e46]" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
                             Municipal Leadership
                         </h3>
                         <p className="mb-4" style={{ color: 'var(--color-text-light)' }}>
@@ -69,14 +69,14 @@ export default function GovernmentPage() {
                             </div>
                             <div className="px-8 py-6">
                                 <div className="flex flex-col gap-2">
-                                    <a href="mailto:CIO@sancarlospangasinan.com" className="flex items-center gap-2.5 rounded-lg bg-muted px-3 py-2.5 text-[0.875rem] text-[#1a1a1a] no-underline transition-all duration-200 hover:bg-[rgba(58, 125, 68,0.08)] hover:no-underline">
+                                    <a href="mailto:CIO@sancarlospangasinan.com" className="flex items-center gap-2.5 rounded-lg bg-muted px-3 py-2.5 text-[0.875rem] text-[#2f3e46] no-underline transition-all duration-200 hover:bg-[rgba(58, 125, 68,0.08)] hover:no-underline">
                                         <i className="bi bi-envelope text-[1rem] text-primary"></i>
                                         <span>CIO@sancarlospangasinan.com</span>
                                     </a>
-                                    <a href="tel:(075) 600-1432" className="flex items-center gap-2.5 rounded-lg bg-muted px-3 py-2.5 text-[0.875rem] text-[#1a1a1a] no-underline transition-all duration-200 hover:bg-[rgba(58, 125, 68,0.08)] hover:no-underline">
+                                    <a href="tel:(075) 600-1432" className="flex items-center gap-2.5 rounded-lg bg-muted px-3 py-2.5 text-[0.875rem] text-[#2f3e46] no-underline transition-all duration-200 hover:bg-[rgba(58, 125, 68,0.08)] hover:no-underline">
                                         <i className="bi bi-telephone text-[1rem] text-primary"></i> 0917 701 2268
                                     </a>
-                                    <span className="flex items-center gap-2.5 rounded-lg bg-muted px-3 py-2.5 text-[0.875rem] text-[#1a1a1a] no-underline transition-all duration-200">
+                                    <span className="flex items-center gap-2.5 rounded-lg bg-muted px-3 py-2.5 text-[0.875rem] text-[#2f3e46] no-underline transition-all duration-200">
                                         <i className="bi bi-clock text-[1rem] text-primary"></i> Mon-Fri: 8:00 AM - 5:00 PM
                                     </span>
                                 </div>
@@ -90,14 +90,14 @@ export default function GovernmentPage() {
                             </div>
                             <div className="px-8 py-6">
                                 <div className="flex flex-col gap-2">
-                                    <a href="mailto:CIO@sancarlospangasinan.com" className="flex items-center gap-2.5 rounded-lg bg-muted px-3 py-2.5 text-[0.875rem] text-[#1a1a1a] no-underline transition-all duration-200 hover:bg-[rgba(58, 125, 68,0.08)] hover:no-underline">
+                                    <a href="mailto:CIO@sancarlospangasinan.com" className="flex items-center gap-2.5 rounded-lg bg-muted px-3 py-2.5 text-[0.875rem] text-[#2f3e46] no-underline transition-all duration-200 hover:bg-[rgba(58, 125, 68,0.08)] hover:no-underline">
                                         <i className="bi bi-envelope text-[1rem] text-primary"></i>
                                         <span>CIO@sancarlospangasinan.com</span>
                                     </a>
-                                    <a href="tel:(075) 600-1432" className="flex items-center gap-2.5 rounded-lg bg-muted px-3 py-2.5 text-[0.875rem] text-[#1a1a1a] no-underline transition-all duration-200 hover:bg-[rgba(58, 125, 68,0.08)] hover:no-underline">
+                                    <a href="tel:(075) 600-1432" className="flex items-center gap-2.5 rounded-lg bg-muted px-3 py-2.5 text-[0.875rem] text-[#2f3e46] no-underline transition-all duration-200 hover:bg-[rgba(58, 125, 68,0.08)] hover:no-underline">
                                         <i className="bi bi-telephone text-[1rem] text-primary"></i> 0920 925 6688
                                     </a>
-                                    <span className="flex items-center gap-2.5 rounded-lg bg-muted px-3 py-2.5 text-[0.875rem] text-[#1a1a1a] no-underline transition-all duration-200">
+                                    <span className="flex items-center gap-2.5 rounded-lg bg-muted px-3 py-2.5 text-[0.875rem] text-[#2f3e46] no-underline transition-all duration-200">
                                         <i className="bi bi-clock text-[1rem] text-primary"></i> Mon-Fri: 8:00 AM - 5:00 PM
                                     </span>
                                 </div>
@@ -116,7 +116,7 @@ export default function GovernmentPage() {
                             label="Legislative Branch"
                             gradient="linear-gradient(135deg, var(--color-success) 0%, #2f6136 100%)"
                         />
-                        <h3 className="font-bold leading-[1.2] text-[#1a1a1a]" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
+                        <h3 className="font-bold leading-[1.2] text-[#2f3e46]" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
                             Sangguniang Bayan Members
                         </h3>
                         <p className="mb-4" style={{ color: 'var(--color-text-light)' }}>
@@ -130,7 +130,7 @@ export default function GovernmentPage() {
                                 key={c.name}
                                 className="rounded-[10px] border border-[#e5e7eb] border-l-[3px] border-l-primary bg-white p-6 transition-all duration-200 hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] max-[767px]:p-4"
                             >
-                                <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold leading-[1.2] text-[#1a1a1a]">{c.name}</h4>
+                                <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold leading-[1.2] text-[#2f3e46]">{c.name}</h4>
                                 <span className="mb-2.5 inline-block rounded-full bg-primary px-2.5 py-0.5 text-[0.6875rem] font-semibold text-white">SB Member</span>
                             </div>
                         ))}
@@ -147,7 +147,7 @@ export default function GovernmentPage() {
                             label="Barangay Units"
                             gradient="linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)"
                         />
-                        <h3 className="font-bold leading-[1.2] text-[#1a1a1a]" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
+                        <h3 className="font-bold leading-[1.2] text-[#2f3e46]" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
                             Barangays of San Carlos
                         </h3>
                         <p className="mb-4" style={{ color: 'var(--color-text-light)' }}>
@@ -160,7 +160,7 @@ export default function GovernmentPage() {
                             <Link
                                 key={b.name}
                                 href={`/government/barangays/${slugify(b.name)}`}
-                                className="flex flex-col justify-center rounded-[10px] border border-[#e5e7eb] bg-white px-4 py-3 text-[#1a1a1a] no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.1)]"
+                                className="flex flex-col justify-center rounded-[10px] border border-[#e5e7eb] bg-white px-4 py-3 text-[#2f3e46] no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.1)]"
                             >
                                 <div className="flex items-center gap-2">
                                     <i className="bi bi-geo-alt-fill text-[0.875rem] text-primary"></i>

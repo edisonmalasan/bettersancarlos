@@ -16,9 +16,9 @@ const sectionHeaderCls =
 const sectionLinkCls =
   'inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-primary hover:gap-2.5 hover:no-underline';
 const serviceCardCls =
-  'group flex items-center gap-4 rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#1a1a1a] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.1)] hover:no-underline';
+  'group flex items-center gap-4 rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.1)] hover:no-underline';
 const statCardCls =
-  'group relative flex items-center gap-4 overflow-hidden rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#1a1a1a] no-underline transition-all duration-300 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-[linear-gradient(180deg,#3a7d44_0%,#275230_100%)] before:opacity-0 before:transition-opacity before:duration-300 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline hover:before:opacity-100';
+  'group relative flex items-center gap-4 overflow-hidden rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#2f3e46] no-underline transition-all duration-300 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-[linear-gradient(180deg,#3a7d44_0%,#275230_100%)] before:opacity-0 before:transition-opacity before:duration-300 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline hover:before:opacity-100';
 
 export default function HomePage() {
   const { t } = useLanguage();
@@ -50,7 +50,7 @@ export default function HomePage() {
             </div>
             <div>
               <div className="rounded-2xl border border-[rgba(58, 125, 68,0.08)] bg-white p-8 shadow-[0_8px_32px_rgba(58, 125, 68,0.1),0_2px_8px_rgba(0,0,0,0.04)] transition-[box-shadow,border-color] duration-300 focus-within:border-[rgba(58, 125, 68,0.15)] focus-within:shadow-[0_12px_40px_rgba(58, 125, 68,0.15),0_4px_12px_rgba(0,0,0,0.06)] max-[768px]:p-6">
-                <h2 className="m-0 mb-6 flex items-center gap-2 text-base text-[#1a1a1a] [&_i]:text-primary">
+                <h2 className="m-0 mb-6 flex items-center gap-2 text-base text-[#2f3e46] [&_i]:text-primary">
                   <i className="bi bi-search"></i> {t('hero-find-service')}
                 </h2>
                 <form role="search" onSubmit={handleSearchSubmit}>
@@ -92,7 +92,7 @@ export default function HomePage() {
                 <i className="bi bi-file-earmark-text-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-base text-[#1a1a1a]">{t('service-certificates')}</h3>
+                <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-certificates')}</h3>
                 <p className="m-0 text-[0.8125rem] text-[#666]">{t('service-certificates-desc')}</p>
               </div>
               <i className="bi bi-arrow-right text-[#666] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
@@ -102,7 +102,7 @@ export default function HomePage() {
                 <i className="bi bi-shop"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-base text-[#1a1a1a]">{t('service-business')}</h3>
+                <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-business')}</h3>
                 <p className="m-0 text-[0.8125rem] text-[#666]">{t('service-business-desc')}</p>
               </div>
               <i className="bi bi-arrow-right text-[#666] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
@@ -112,7 +112,7 @@ export default function HomePage() {
                 <i className="bi bi-cash-coin"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-base text-[#1a1a1a]">{t('service-tax')}</h3>
+                <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-tax')}</h3>
                 <p className="m-0 text-[0.8125rem] text-[#666]">{t('service-tax-desc')}</p>
               </div>
               <i className="bi bi-arrow-right text-[#666] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
@@ -122,7 +122,7 @@ export default function HomePage() {
                 <i className="bi bi-people-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-base text-[#1a1a1a]">{t('service-social')}</h3>
+                <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-social')}</h3>
                 <p className="m-0 text-[0.8125rem] text-[#666]">{t('service-social-desc')}</p>
               </div>
               <i className="bi bi-arrow-right text-[#666] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
@@ -132,7 +132,7 @@ export default function HomePage() {
                 <i className="bi bi-heart-pulse-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-base text-[#1a1a1a]">{t('service-health')}</h3>
+                <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-health')}</h3>
                 <p className="m-0 text-[0.8125rem] text-[#666]">{t('service-health-desc')}</p>
               </div>
               <i className="bi bi-arrow-right text-[#666] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
@@ -167,7 +167,7 @@ export default function HomePage() {
               </div>
               <div className="min-w-0 flex-1">
                 <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">52,746</span>
-                <span className="mt-0.5 block text-sm font-medium text-[#1a1a1a]">{t('stats-population-label')}</span>
+                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">{t('stats-population-label')}</span>
                 <span className="mt-0.5 block text-xs text-[#666]">{t('stats-population-source')}</span>
               </div>
             </Link>
@@ -177,7 +177,7 @@ export default function HomePage() {
               </div>
               <div className="min-w-0 flex-1">
                 <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">44</span>
-                <span className="mt-0.5 block text-sm font-medium text-[#1a1a1a]">{t('stats-barangays-label')}</span>
+                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">{t('stats-barangays-label')}</span>
                 <span className="mt-0.5 block text-xs text-[#666]">{t('stats-barangays-source')}</span>
               </div>
             </Link>
@@ -187,7 +187,7 @@ export default function HomePage() {
               </div>
               <div className="min-w-0 flex-1">
                 <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">1st Class</span>
-                <span className="mt-0.5 block text-sm font-medium text-[#1a1a1a]">{t('stats-municipality-label')}</span>
+                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">{t('stats-municipality-label')}</span>
                 <span className="mt-0.5 block text-xs text-[#666]">{t('stats-municipality-source')}</span>
               </div>
             </Link>
@@ -197,7 +197,7 @@ export default function HomePage() {
               </div>
               <div className="min-w-0 flex-1">
                 <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">180.95 km²</span>
-                <span className="mt-0.5 block text-sm font-medium text-[#1a1a1a]">{t('stats-land-area-label')}</span>
+                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">{t('stats-land-area-label')}</span>
                 <span className="mt-0.5 block text-xs text-[#666]">{t('stats-land-area-source')}</span>
               </div>
             </Link>
@@ -267,7 +267,7 @@ export default function HomePage() {
                   <div className="absolute -left-7 top-1 z-[1] h-3.5 w-3.5 rounded-full border-[3px] border-primary bg-white transition-all group-hover:scale-125 group-hover:bg-primary group-hover:shadow-[0_0_0_4px_rgba(58, 125, 68,0.15)]"></div>
                   <div className="rounded-[10px] border border-black/[0.06] bg-white px-[18px] py-4 transition-all group-hover:translate-x-1 group-hover:border-primary group-hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)]">
                     <span className="mb-2 inline-block rounded-full bg-primary px-2.5 py-[3px] text-xs font-bold text-white">{item.year}</span>
-                    <p className="m-0 text-sm leading-[1.6] text-[#1a1a1a]">{t(item.key)}</p>
+                    <p className="m-0 text-sm leading-[1.6] text-[#2f3e46]">{t(item.key)}</p>
                   </div>
                 </div>
               ))}
@@ -278,7 +278,7 @@ export default function HomePage() {
                   <i className="bi bi-geo-alt-fill"></i>
                 </div>
                 <div>
-                  <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-[#1a1a1a]">{t('history-pioneers-title')}</h4>
+                  <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-[#2f3e46]">{t('history-pioneers-title')}</h4>
                   <p className="m-0 text-[0.8125rem] leading-[1.5] text-[#666]">{t('history-pioneers-desc')}</p>
                 </div>
               </div>
@@ -287,7 +287,7 @@ export default function HomePage() {
                   <i className="bi bi-grid-3x3"></i>
                 </div>
                 <div>
-                  <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-[#1a1a1a]">{t('history-namesake-title')}</h4>
+                  <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-[#2f3e46]">{t('history-namesake-title')}</h4>
                   <p className="m-0 text-[0.8125rem] leading-[1.5] text-[#666]">{t('history-namesake-desc')}</p>
                 </div>
               </div>
@@ -314,7 +314,7 @@ export default function HomePage() {
                 <span className="text-[0.8125rem] text-[#666]">Nov 28, 2025</span>
               </div>
               <h3 className="m-0 mb-2 text-base">
-                <Link href="/news" className="text-[#1a1a1a] hover:text-primary">{t('news-business-permit-title')}</Link>
+                <Link href="/news" className="text-[#2f3e46] hover:text-primary">{t('news-business-permit-title')}</Link>
               </h3>
               <p className="m-0 text-sm leading-[1.5] text-[#666]">{t('news-business-permit-desc')}</p>
             </article>
@@ -326,7 +326,7 @@ export default function HomePage() {
                 <span className="text-[0.8125rem] text-[#666]">Nov 15, 2025</span>
               </div>
               <h3 className="m-0 mb-2 text-base">
-                <Link href="/news" className="text-[#1a1a1a] hover:text-primary">{t('news-market-title')}</Link>
+                <Link href="/news" className="text-[#2f3e46] hover:text-primary">{t('news-market-title')}</Link>
               </h3>
               <p className="m-0 text-sm leading-[1.5] text-[#666]">{t('news-market-desc')}</p>
             </article>
@@ -338,7 +338,7 @@ export default function HomePage() {
                 <span className="text-[0.8125rem] text-[#666]">Nov 10, 2025</span>
               </div>
               <h3 className="m-0 mb-2 text-base">
-                <Link href="/news" className="text-[#1a1a1a] hover:text-primary">{t('news-power-title')}</Link>
+                <Link href="/news" className="text-[#2f3e46] hover:text-primary">{t('news-power-title')}</Link>
               </h3>
               <p className="m-0 text-sm leading-[1.5] text-[#666]">{t('news-power-desc')}</p>
             </article>
@@ -358,7 +358,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-6 max-[768px]:grid-cols-1">
             <div className="rounded-xl border border-[#e5e7eb] bg-white p-8 text-center">
               <div className="mb-4 inline-block rounded-full bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-3.5 py-1.5 text-xs font-semibold text-white">{t('title-mayor')}</div>
-              <h3 className="m-0 mb-4 text-xl text-[#1a1a1a]">{officialsData.mayor.name}</h3>
+              <h3 className="m-0 mb-4 text-xl text-[#2f3e46]">{officialsData.mayor.name}</h3>
               <div className="flex flex-col gap-2">
                 <a href="mailto:CIO@sancarlospangasinan.com" className="inline-flex items-center justify-center gap-2 text-sm text-[#666] hover:text-primary">
                   <i className="bi bi-envelope"></i> CIO@sancarlospangasinan.com
@@ -370,7 +370,7 @@ export default function HomePage() {
             </div>
             <div className="rounded-xl border border-[#e5e7eb] bg-white p-8 text-center">
               <div className="mb-4 inline-block rounded-full bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-3.5 py-1.5 text-xs font-semibold text-white">{t('title-vice-mayor')}</div>
-              <h3 className="m-0 mb-4 text-xl text-[#1a1a1a]">{officialsData.vice_mayor.name}</h3>
+              <h3 className="m-0 mb-4 text-xl text-[#2f3e46]">{officialsData.vice_mayor.name}</h3>
               <div className="flex flex-col gap-2">
                 <a href="mailto:CIO@sancarlospangasinan.com" className="inline-flex items-center justify-center gap-2 text-sm text-[#666] hover:text-primary">
                   <i className="bi bi-envelope"></i> CIO@sancarlospangasinan.com
@@ -394,33 +394,33 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-1">
-            <a href="tel:0623312067" className="flex items-start gap-4 rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#1a1a1a] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] hover:no-underline">
+            <a href="tel:0623312067" className="flex items-start gap-4 rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] hover:no-underline">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.125rem] text-white">
                 <i className="bi bi-telephone-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#666]">{t('contact-phone')}</h3>
-                <p className="m-0 mb-1 text-base font-semibold text-[#1a1a1a]">(062) 331-2067</p>
+                <p className="m-0 mb-1 text-base font-semibold text-[#2f3e46]">(062) 331-2067</p>
                 <span className="text-[0.8125rem] text-[#666]">{t('contact-hours')}</span>
               </div>
             </a>
-            <a href="mailto:CIO@sancarlospangasinan.com" className="flex items-start gap-4 rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#1a1a1a] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] hover:no-underline">
+            <a href="mailto:CIO@sancarlospangasinan.com" className="flex items-start gap-4 rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] hover:no-underline">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.125rem] text-white">
                 <i className="bi bi-envelope-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#666]">{t('contact-email')}</h3>
-                <p className="m-0 mb-1 text-base font-semibold text-[#1a1a1a]">CIO@sancarlospangasinan.com</p>
+                <p className="m-0 mb-1 text-base font-semibold text-[#2f3e46]">CIO@sancarlospangasinan.com</p>
                 <span className="text-[0.8125rem] text-[#666]">{t('contact-response')}</span>
               </div>
             </a>
-            <div className="flex items-start gap-4 rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#1a1a1a] transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)]">
+            <div className="flex items-start gap-4 rounded-xl border border-[#e5e7eb] bg-white p-6 text-[#2f3e46] transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)]">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.125rem] text-white">
                 <i className="bi bi-geo-alt-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#666]">{t('contact-address')}</h3>
-                <p className="m-0 mb-1 text-base font-semibold text-[#1a1a1a]">{t('contact-municipal-hall')}</p>
+                <p className="m-0 mb-1 text-base font-semibold text-[#2f3e46]">{t('contact-municipal-hall')}</p>
                 <span className="text-[0.8125rem] text-[#666]">San Carlos City, Pangasinan 2420</span>
               </div>
             </div>

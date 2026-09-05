@@ -16,7 +16,7 @@ const langBtnBase =
 const langBtnActive = 'border-primary bg-primary text-white opacity-100';
 
 const navLinkBase =
-  'font-medium text-[#1a1a1a] select-none [-webkit-tap-highlight-color:transparent] hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:-outline-offset-2 max-[1024px]:block max-[1024px]:rounded-md max-[1024px]:px-4 max-[1024px]:py-3 max-[1024px]:hover:bg-[#f8f9fa]';
+  'font-medium text-[#2f3e46] select-none [-webkit-tap-highlight-color:transparent] hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:-outline-offset-2 max-[1024px]:block max-[1024px]:rounded-md max-[1024px]:px-4 max-[1024px]:py-3 max-[1024px]:hover:bg-[#f8f9fa]';
 
 const caretBase =
   'after:ml-1.5 after:inline-block after:h-0 after:w-0 after:border-x-4 after:border-t-4 after:border-x-transparent after:align-middle after:transition-transform after:duration-200 max-[1024px]:flex max-[1024px]:items-center max-[1024px]:justify-between max-[1024px]:after:ml-auto max-[1024px]:after:shrink-0';
@@ -138,7 +138,7 @@ export default function Header() {
     );
 
   const dropdownItemCls =
-    'block whitespace-nowrap px-4 py-2 text-[#1a1a1a] transition-colors hover:bg-[#f8f9fa] hover:text-primary hover:no-underline max-[1024px]:whitespace-normal max-[1024px]:px-4 max-[1024px]:py-2.5 max-[1024px]:text-[0.9375rem] max-[1024px]:text-[#666]';
+    'block whitespace-nowrap px-4 py-2 text-[#2f3e46] transition-colors hover:bg-[#f8f9fa] hover:text-primary hover:no-underline max-[1024px]:whitespace-normal max-[1024px]:px-4 max-[1024px]:py-2.5 max-[1024px]:text-[0.9375rem] max-[1024px]:text-[#666]';
 
   return (
     <header className="site-header sticky top-0 z-[1000] bg-white py-2 shadow-[0_2px_4px_rgba(0,0,0,0.05)] max-[1024px]:py-2.5 max-[767px]:py-2 max-[480px]:py-1.5">

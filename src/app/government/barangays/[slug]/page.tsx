@@ -65,7 +65,7 @@ export default async function BarangayDetailPage({
                 <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6" style={{ background: 'var(--color-bg-alt)' }}>
                     <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
                         <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
-                            <h3 className="font-bold leading-[1.2] text-[#1a1a1a]" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
+                            <h3 className="font-bold leading-[1.2] text-[#2f3e46]" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
                                 Punong Barangay
                             </h3>
                             <p className="mb-4" style={{ color: 'var(--color-text-light)' }}>
@@ -98,7 +98,7 @@ export default async function BarangayDetailPage({
                                 style={{ marginBottom: 'var(--spacing-lg)' }}
                             >
                                 <h3
-                                    className="font-bold leading-[1.2] text-[#1a1a1a]"
+                                    className="font-bold leading-[1.2] text-[#2f3e46]"
                                     style={{
                                         fontSize: '1.5rem',
                                         marginBottom: 'var(--spacing-xs)',
@@ -111,7 +111,7 @@ export default async function BarangayDetailPage({
                             <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 min-[1200px]:grid-cols-3 max-[1024px]:grid-cols-2 max-[767px]:grid-cols-1" style={{ gap: 'var(--spacing-md)' }}>
                                 {pos.officials.map((official, i) => (
                                     <div key={`${pos.position}-${i}`} className="rounded-[10px] border border-[#e5e7eb] border-l-[3px] border-l-primary bg-white p-6 transition-all duration-200 hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] max-[767px]:p-4">
-                                        <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold leading-[1.2] text-[#1a1a1a]">{formatName(official)}</h4>
+                                        <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold leading-[1.2] text-[#2f3e46]">{formatName(official)}</h4>
                                         <span className="mb-2.5 inline-block rounded-full bg-primary px-2.5 py-0.5 text-[0.6875rem] font-semibold text-white">{pos.position}</span>
                                     </div>
                                 ))}

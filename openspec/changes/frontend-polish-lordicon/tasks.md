@@ -7,8 +7,8 @@
 
 ## 2. Dependencies & Icon Assets
 
-- [ ] 2.1 Install `@lordicon/react` and `lottie-web` with bun; remove unused `lucide-react` — verify `package.json` reflects adds/removal and `bun.lock` updated; record exact versions in design.md if they differ from expectations
-- [ ] 2.2 Export 5 icons from Lordicon free tier per design D4/D5 (search, certificate/document, storefront, cash, weather) recolored to bamboo/mango/slate, minified ON, downloaded as Lottie JSON into `public/assets/icons/lordicon/` with kebab-case names — verify files exist and each is valid JSON under 100KB; apply D5 fallback for any icon not in the free tier
+- [x] 2.1 Install `@lordicon/react` and `lottie-web` with bun; remove unused `lucide-react` — verify `package.json` reflects adds/removal and `bun.lock` updated; record exact versions in design.md if they differ from expectations
+- [x] 2.2 Export 5 icons from Lordicon free tier per design D4/D5 (search, certificate/document, storefront, cash, weather) recolored to bamboo/mango/slate, minified ON, downloaded as Lottie JSON into `public/assets/icons/lordicon/` with kebab-case names — verify files exist and each is valid JSON under 100KB; apply D5 fallback for any icon not in the free tier (user provided 5 JSONs in `public/assets/icon/` — Lordicon original names kept, all valid JSON under 100KB; D5 path/name convention superseded by user-provided assets)
 - [ ] 2.3 Optional: download static SVG fallbacks alongside JSON — verify SVGs render standalone in a browser
 
 ## 3. AnimatedIcon Infrastructure

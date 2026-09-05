@@ -733,7 +733,7 @@ export default function StatisticsPage() {
                     <div className="animate-on-scroll rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
                         <h4 className="mb-4 text-[1rem] font-bold text-[#1a1a1a]">Income Composition</h4>
                         <div className="flex h-12 overflow-hidden rounded-lg bg-[#f8f9fa]">
-                            <div className="breakdown-segment flex w-0 items-center justify-center bg-[linear-gradient(90deg,#0077BE_0%,#0099cc_100%)] transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="59.45">
+                            <div className="breakdown-segment flex w-0 items-center justify-center bg-[linear-gradient(90deg,#0077BE_0%,#005a8f_100%)] transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="59.45">
                                 <span className="text-[0.8125rem] font-semibold whitespace-nowrap text-white">IRA 59.45%</span>
                             </div>
                             <div className="breakdown-segment flex w-0 items-center justify-center bg-[linear-gradient(90deg,#3a7d44_0%,#2f6136_100%)] transition-[width] duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]" data-width="40.55">

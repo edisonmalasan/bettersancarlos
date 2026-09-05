@@ -284,10 +284,10 @@ export default function NewsEditorPage() {
 
     // Tailwind equivalents of the legacy ne-* styles from the removed <style> block.
     const neBtn =
-        'cursor-pointer rounded-lg border border-[#e5e7eb] bg-white px-3 py-2 text-[#1f2937] transition-colors hover:border-[#1d4ed8]';
-    const neBtnPrimary = `${neBtn} border-[#1d4ed8] bg-[#1d4ed8] text-white hover:bg-[#1e3a8a]`;
+        'cursor-pointer rounded-lg border border-[#e5e7eb] bg-white px-3 py-2 text-[#1f2937] transition-colors hover:border-[#3a7d44]';
+    const neBtnPrimary = `${neBtn} border-[#3a7d44] bg-[#3a7d44] text-white hover:bg-[#2f6136]`;
     const neBtnSm =
-        'cursor-pointer rounded-lg border border-[#e5e7eb] bg-white px-[9px] py-1 text-[0.78rem] text-[#1f2937] transition-colors hover:border-[#1d4ed8]';
+        'cursor-pointer rounded-lg border border-[#e5e7eb] bg-white px-[9px] py-1 text-[0.78rem] text-[#1f2937] transition-colors hover:border-[#3a7d44]';
     const neBtnSmDanger = `${neBtnSm} border-[#fecaca] text-[#b91c1c]`;
     const nePanelH2 = 'm-0 mb-3 text-[0.85rem] font-semibold uppercase tracking-[0.04em] text-[#6b7280]';
     const neInput = 'w-full rounded-lg border border-[#e5e7eb] bg-white px-2.5 py-2 text-[#1f2937] focus:border-primary focus:outline-none focus:ring-[3px] focus:ring-[rgba(58, 125, 68,0.2)]';
@@ -340,7 +340,7 @@ export default function NewsEditorPage() {
                     <div id="list">
                         {sortedEntries.length === 0 && <p className={neHint}>No updates yet. Click “Add new update”.</p>}
                         {sortedEntries.map(({ e, i }) => (
-                            <div key={e.id + i} className={`mb-2.5 rounded-[10px] border px-3 py-2.5 ${i === editingIndex ? 'border-[#1d4ed8] shadow-[0_0_0_2px_rgba(29,78,216,0.15)]' : 'border-[#e5e7eb]'}`}>
+                            <div key={e.id + i} className={`mb-2.5 rounded-[10px] border px-3 py-2.5 ${i === editingIndex ? 'border-[#3a7d44] shadow-[0_0_0_2px_rgba(58, 125, 68,0.15)]' : 'border-[#e5e7eb]'}`}>
                                 <div className="flex items-baseline justify-between gap-2">
                                     <strong className="text-[0.92rem] leading-[1.3]" dangerouslySetInnerHTML={{ __html: escHtml(e.title) }} />
                                 </div>
@@ -522,7 +522,7 @@ export default function NewsEditorPage() {
                                 <p className="m-0 text-[0.8125rem] leading-[1.55] text-[#6b7280]">{summary || 'Summary preview…'}</p>
                             </div>
                             {url && (
-                                <div className="px-[14px] pb-3 text-[0.8125rem] font-medium text-[#1d4ed8]">{(source.trim() || 'Read more') + ' →'}</div>
+                                <div className="px-[14px] pb-3 text-[0.8125rem] font-medium text-[#3a7d44]">{(source.trim() || 'Read more') + ' →'}</div>
                             )}
                         </article>
                     </div>

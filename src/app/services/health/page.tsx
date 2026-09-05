@@ -304,7 +304,7 @@ export default function HealthPage() {
       <section className="bg-muted bg-[radial-gradient(circle,rgba(0,0,0,0.035)_1px,transparent_1px)] py-12 [background-size:20px_20px] max-[1024px]:py-8 max-[767px]:py-6" aria-label="HIV Care Philippines facility directory">
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
           <div className="flex w-full flex-col items-center gap-4 rounded-[20px] border border-[rgba(16,24,40,0.04)] bg-white p-12 px-14 text-center shadow-[0_1px_2px_rgba(16,24,40,0.04),0_12px_32px_rgba(16,24,40,0.08)] max-[767px]:gap-3.5 max-[767px]:px-7 max-[767px]:py-9 max-[575px]:rounded-2xl max-[575px]:px-5 max-[575px]:py-8">
-            <span className="inline-flex items-center gap-2 rounded-full bg-[rgba(255,46,81,0.08)] px-4 py-1.5 text-[0.8125rem] font-bold uppercase tracking-[0.02em] text-[#c4123f]">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[rgba(176, 46, 46,0.08)] px-4 py-1.5 text-[0.8125rem] font-bold uppercase tracking-[0.02em] text-[#c4123f]">
               <i className="bi bi-shield-check text-[0.9375rem]" aria-hidden="true"></i>
               <span>{t('health-hivcare-cta-eyebrow')}</span>
             </span>
@@ -320,22 +320,22 @@ export default function HealthPage() {
             <p className="m-0 max-w-[560px] text-[1rem] leading-[1.7] text-[#666] max-[575px]:text-[0.9375rem]">{t('health-hivcare-cta-desc')}</p>
             <div className="my-1 mb-2 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 max-[767px]:gap-x-5 max-[767px]:gap-y-2.5 max-[575px]:flex-col max-[575px]:gap-2.5">
               <span className="inline-flex items-center gap-2 text-[0.875rem] font-semibold text-[#1a1a1a]">
-                <i className="bi bi-hospital text-[1.0625rem] text-[#ff2e51]" aria-hidden="true"></i>
-                <strong className="text-[1.0625rem] font-extrabold text-[#ff2e51]">338</strong>
+                <i className="bi bi-hospital text-[1.0625rem] text-[#b02e2e]" aria-hidden="true"></i>
+                <strong className="text-[1.0625rem] font-extrabold text-[#b02e2e]">338</strong>
                 <span>{t('health-hivcare-cta-stat-facilities')}</span>
               </span>
               <span className="inline-flex items-center gap-2 text-[0.875rem] font-semibold text-[#1a1a1a]">
-                <i className="bi bi-phone text-[1.0625rem] text-[#ff2e51]" aria-hidden="true"></i>
+                <i className="bi bi-phone text-[1.0625rem] text-[#b02e2e]" aria-hidden="true"></i>
                 <span>{t('health-hivcare-cta-stat-mobile')}</span>
               </span>
               <span className="inline-flex items-center gap-2 text-[0.875rem] font-semibold text-[#1a1a1a]">
-                <i className="bi bi-patch-check-fill text-[1.0625rem] text-[#ff2e51]" aria-hidden="true"></i>
+                <i className="bi bi-patch-check-fill text-[1.0625rem] text-[#b02e2e]" aria-hidden="true"></i>
                 <span>{t('health-hivcare-cta-stat-verified')}</span>
               </span>
             </div>
             <a
               href="https://hivcareph.org/"
-              className="mt-2 inline-flex items-center gap-2.5 rounded-[10px] bg-[#ff2e51] px-9 py-4 text-[1rem] font-semibold text-white no-underline shadow-[0_4px_16px_rgba(255,46,81,0.25)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#e0193c] hover:text-white hover:no-underline hover:shadow-[0_6px_20px_rgba(255,46,81,0.4)] active:translate-y-0 max-[575px]:w-full max-[575px]:justify-center max-[575px]:px-6 max-[575px]:py-3.5"
+              className="mt-2 inline-flex items-center gap-2.5 rounded-[10px] bg-[#b02e2e] px-9 py-4 text-[1rem] font-semibold text-white no-underline shadow-[0_4px_16px_rgba(176, 46, 46,0.25)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#8f2424] hover:text-white hover:no-underline hover:shadow-[0_6px_20px_rgba(176, 46, 46,0.4)] active:translate-y-0 max-[575px]:w-full max-[575px]:justify-center max-[575px]:px-6 max-[575px]:py-3.5"
               target="_blank"
               rel="noopener noreferrer"
             >

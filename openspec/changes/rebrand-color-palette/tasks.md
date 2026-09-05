@@ -15,9 +15,9 @@
 
 ## 3. Neutral Hex Sweep (Phase 2 — site-wide)
 
-- [ ] 3.1 Sweep text/ink `#1a1a1a` (524×) → `#2F3E46` across `src/` — verify `rg -ci "1a1a1a" src` returns 0 (exception: `body.high-contrast` black `#000000` and `#1a1a1a` bg-alt inside high-contrast block stay)
-- [ ] 3.2 Sweep surface hexes: `#f8f9fa` (74×) → `#FAF9F6`, `#f0f0f0` (46×) → `#EAECE8`, `#e5e7eb` (153×) → `#E2E8E0`, `#666666` (103×) → `#5C6B73` — verify `rg -ci "f8f9fa|f0f0f0|e5e7eb|666666" src` returns 0 outside globals.css high-contrast/commented contexts
-- [ ] 3.3 Spot-check Tailwind neutral utility classes (`gray-*`, `slate-*`) are intentionally left as-is per design D4; record any that sit directly next to swapped hexes and look mismatched, adjust case-by-case — verify no visual seam between `#2F3E46` text and adjacent `gray-800` text in the same section
+- [x] 3.1 Sweep text/ink `#1a1a1a` (524×) → `#2F3E46` across `src/` — verify `rg -ci "1a1a1a" src` returns 0 (exception: `body.high-contrast` black `#000000` and `#1a1a1a` bg-alt inside high-contrast block stay)
+- [x] 3.2 Sweep surface hexes: `#f8f9fa` (74×) → `#FAF9F6`, `#f0f0f0` (46×) → `#EAECE8`, `#e5e7eb` (153×) → `#E2E8E0`, `#666666` (103×) → `#5C6B73` — verify `rg -ci "f8f9fa|f0f0f0|e5e7eb|666666" src` returns 0 outside globals.css high-contrast/commented contexts
+- [x] 3.3 Spot-check Tailwind neutral utility classes (`gray-*`, `slate-*`) are intentionally left as-is per design D4; record any that sit directly next to swapped hexes and look mismatched, adjust case-by-case — verify no visual seam between `#2F3E46` text and adjacent `gray-800` text in the same section
 
 ## 4. Charts & Data Visualizations
 

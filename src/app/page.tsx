@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SearchAutocomplete, { SearchAutocompleteHandle } from '@/components/SearchAutocomplete';
 import WeatherWidget from '@/components/WeatherWidget';
+import AnimatedIcon from '@/components/icons/AnimatedIcon';
 import officialsData from '@/data/officials.json';
 
 const containerCls = 'mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2';
@@ -56,7 +57,7 @@ export default function HomePage() {
                 <form role="search" onSubmit={handleSearchSubmit}>
                   <div className="relative flex gap-2">
                     <SearchAutocomplete ref={searchRef} placeholder={t('hero-search-placeholder')} />
-                    <button type="submit" className="flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-[10px] border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#2f6136_100%)] text-[1.125rem] text-white shadow-[0_2px_8px_rgba(58, 125, 68,0.3)] transition-all hover:-translate-y-px hover:bg-[linear-gradient(135deg,#2f6136_0%,#003399_100%)] hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.4)] active:translate-y-0" aria-label="Search">
+                    <button type="submit" className="flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-[10px] border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#2f6136_100%)] text-[1.125rem] text-white shadow-[0_2px_8px_rgba(58, 125, 68,0.3)] transition-all hover:-translate-y-px hover:bg-[linear-gradient(135deg,#2f6136_0%,#275230_100%)] hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.4)] active:translate-y-0" aria-label="Search">
                       <i className="bi bi-arrow-right"></i>
                     </button>
                   </div>
@@ -109,7 +110,7 @@ export default function HomePage() {
             </Link>
             <Link href="/services/tax-payments" className={serviceCardCls}>
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary">
-                <i className="bi bi-cash-coin"></i>
+                <AnimatedIcon name="dollar" size={28} fallbackGlyph="bi-cash-coin" />
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-tax')}</h3>

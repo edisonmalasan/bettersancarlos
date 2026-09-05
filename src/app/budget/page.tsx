@@ -19,10 +19,6 @@ export default function BudgetPage() {
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
                     <div className="mb-8 flex flex-wrap items-start justify-between gap-6 max-[991px]:flex-col">
                         <div className="min-w-[280px] flex-1">
-                            <span className="mb-2 inline-flex items-center gap-1.5 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-primary">
-                                <i className="bi bi-graph-up-arrow"></i>
-                                <span>Financial Report</span>
-                            </span>
                             <h2 className="mb-1! text-2xl! font-bold text-[#2f3e46] max-[575px]:text-[1.25rem]!">Statement of Receipts &amp; Expenditures</h2>
                             <p className="m-0! text-[0.9375rem] text-[#5c6b73]">FY 2025 quarterly financial performance</p>
                         </div>
@@ -196,10 +192,6 @@ export default function BudgetPage() {
             <section className="animate-on-scroll bg-white py-16 opacity-0! translate-y-[30px]! transition-all! duration-[600ms]! ease-[cubic-bezier(0.16,1,0.3,1)]! max-[575px]:py-12 [&.visible]:translate-y-0! [&.visible]:opacity-100!">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
                     <div className="mb-10 text-center">
-                        <span className="mb-2 inline-flex items-center gap-1.5 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-primary">
-                            <i className="bi bi-building-gear"></i>
-                            <span>Public Works</span>
-                        </span>
                         <h2 className="mb-1! text-2xl! font-bold text-[#2f3e46] max-[767px]:text-[1.375rem]! max-[575px]:text-[1.25rem]!">Infrastructure Investments</h2>
                         <p className="m-0! text-[0.9375rem] text-[#5c6b73]">Major development projects serving the community</p>
                     </div>
@@ -352,10 +344,6 @@ export default function BudgetPage() {
             <section className="animate-on-scroll bg-[#faf9f6] py-16 opacity-0! translate-y-[30px]! transition-all! duration-[600ms]! ease-[cubic-bezier(0.16,1,0.3,1)]! max-[575px]:py-12 [&.visible]:translate-y-0! [&.visible]:opacity-100!">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
                     <div className="mb-10 text-center">
-                        <span className="mb-2 inline-flex items-center gap-1.5 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-primary">
-                            <i className="bi bi-building"></i>
-                            <span>National Government Projects</span>
-                        </span>
                         <h2 className="mb-1! text-2xl! font-bold text-[#2f3e46] max-[767px]:text-[1.375rem]! max-[575px]:text-[1.25rem]!">DPWH Infrastructure Projects in San Carlos</h2>
                         <p className="m-0! text-[0.9375rem] text-[#5c6b73]">Implementing Agency: Pangasinan District Engineering Office</p>
                     </div>

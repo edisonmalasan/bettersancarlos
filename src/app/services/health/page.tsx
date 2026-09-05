@@ -304,10 +304,6 @@ export default function HealthPage() {
       <section className="bg-muted bg-[radial-gradient(circle,rgba(0,0,0,0.035)_1px,transparent_1px)] py-12 [background-size:20px_20px] max-[1024px]:py-8 max-[767px]:py-6" aria-label="HIV Care Philippines facility directory">
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
           <div className="flex w-full flex-col items-center gap-4 rounded-[20px] border border-[rgba(16,24,40,0.04)] bg-white p-12 px-14 text-center shadow-[0_1px_2px_rgba(16,24,40,0.04),0_12px_32px_rgba(16,24,40,0.08)] max-[767px]:gap-3.5 max-[767px]:px-7 max-[767px]:py-9 max-[575px]:rounded-2xl max-[575px]:px-5 max-[575px]:py-8">
-            <span className="inline-flex items-center gap-2 rounded-full bg-[rgba(176, 46, 46,0.08)] px-4 py-1.5 text-[0.8125rem] font-bold uppercase tracking-[0.02em] text-[#c4123f]">
-              <i className="bi bi-shield-check text-[0.9375rem]" aria-hidden="true"></i>
-              <span>{t('health-hivcare-cta-eyebrow')}</span>
-            </span>
             <img
               src="/assets/images/logo/hivcareph-logo.svg"
               alt="HIV Care Philippines"

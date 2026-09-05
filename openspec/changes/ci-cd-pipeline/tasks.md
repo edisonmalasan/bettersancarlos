@@ -1,13 +1,13 @@
 ## 1. Workflow & Config Files
 
-- [ ] 1.1 Create `.github/workflows/ci.yml` per design D1: triggers `pull_request → main`, `push → main`, `workflow_dispatch`; concurrency group `ci-${{ github.ref }}` with `cancel-in-progress`; single `verify` job on `ubuntu-latest` with steps: `actions/checkout@v4`, `oven-sh/setup-bun@v2` (`bun-version: 1.4.0`), `actions/setup-node@v4` (`node-version: 22`), `bun install --frozen-lockfile`, `./node_modules/.bin/tsc --noEmit`, `bun run build` — verify YAML parses (e.g. `bun x yaml-lint` or careful review) and job name is `verify`
-- [ ] 1.2 Create `.github/dependabot.yml` per design D4: `npm` ecosystem weekly with `dev-minor-patch` group (development, minor+patch) and `open-pull-requests-limit: 5`; `github-actions` ecosystem weekly — verify file is valid per Dependabot config reference
-- [ ] 1.3 Add `"packageManager": "bun@1.4.0"` to `package.json` (field only, no script/dependency changes) — verify `git diff package.json` touches only that line and `bun install --frozen-lockfile` still succeeds locally
+- [x] 1.1 Create `.github/workflows/ci.yml` per design D1: triggers `pull_request → main`, `push → main`, `workflow_dispatch`; concurrency group `ci-${{ github.ref }}` with `cancel-in-progress`; single `verify` job on `ubuntu-latest` with steps: `actions/checkout@v4`, `oven-sh/setup-bun@v2` (`bun-version: 1.4.0`), `actions/setup-node@v4` (`node-version: 22`), `bun install --frozen-lockfile`, `./node_modules/.bin/tsc --noEmit`, `bun run build` — verify YAML parses (e.g. `bun x yaml-lint` or careful review) and job name is `verify`
+- [x] 1.2 Create `.github/dependabot.yml` per design D4: `npm` ecosystem weekly with `dev-minor-patch` group (development, minor+patch) and `open-pull-requests-limit: 5`; `github-actions` ecosystem weekly — verify file is valid per Dependabot config reference
+- [x] 1.3 Add `"packageManager": "bun@1.4.0"` to `package.json` (field only, no script/dependency changes) — verify `git diff package.json` touches only that line and `bun install --frozen-lockfile` still succeeds locally
 
 ## 2. Repository Hygiene
 
-- [ ] 2.1 Untrack generated build metadata: `git rm --cached tsconfig.tsbuildinfo` and append `tsconfig.tsbuildinfo` to `.gitignore` — verify the file remains on disk, `git ls-files tsconfig.tsbuildinfo` returns nothing, and running the production build no longer produces a dirty diff
-- [ ] 2.2 Run `./node_modules/.bin/tsc --noEmit` and production build (`NODE_ENV=production next build` equivalent, `bun run build`) — verify both pass before pushing (CI will re-run these)
+- [x] 2.1 Untrack generated build metadata: `git rm --cached tsconfig.tsbuildinfo` and append `tsconfig.tsbuildinfo` to `.gitignore` — verify the file remains on disk, `git ls-files tsconfig.tsbuildinfo` returns nothing, and running the production build no longer produces a dirty diff
+- [x] 2.2 Run `./node_modules/.bin/tsc --noEmit` and production build (`NODE_ENV=production next build` equivalent, `bun run build`) — verify both pass before pushing (CI will re-run these)
 
 ## 3. Push, Merge, Bootstrap Protection
 

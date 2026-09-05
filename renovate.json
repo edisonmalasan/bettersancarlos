@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "timezone": "Asia/Manila",
+  "schedule": ["after 2am and before 6am every weekday"],
+  "enabledManagers": ["bun", "github-actions"],
+  "rangeStrategy": "bump",
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "dev minor/patch"
+    },
+    {
+      "matchPackageNames": ["bun"],
+      "enabled": false
+    }
+  ]
+}

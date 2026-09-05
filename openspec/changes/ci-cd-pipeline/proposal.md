@@ -1,13 +1,13 @@
-# Proposal: CI/CD Pipeline — GitHub Actions Verification, Vercel Deployments, Dependabot
+# Proposal: CI/CD Pipeline — GitHub Actions Verification, Vercel Deployments, Renovate
 
 ## Why
 
-The repository has no CI at all (no `.github/` directory): type errors and broken builds can only be caught by hand-running `tsc --noEmit` and `next build` locally, and dependency updates never arrive. Vercel already deploys via Git integration but nothing independently verifies that a change compiles and type-checks before it reaches `main`. This change adds GitHub Actions verification and Dependabot updates while leaving the working Vercel deployment path untouched.
+The repository has no CI at all (no `.github/` directory): type errors and broken builds can only be caught by hand-running `tsc --noEmit` and `next build` locally, and dependency updates never arrive. Vercel already deploys via Git integration but nothing independently verifies that a change compiles and type-checks before it reaches `main`. This change adds GitHub Actions verification and automated dependency updates while leaving the working Vercel deployment path untouched. The dependency bot was originally Dependabot; its npm ecosystem failed frozen-lockfile on the first real batch (package.json edited without bun.lock regeneration), and it was replaced by Renovate after end-to-end verification on a disposable private repo.
 
 ## What Changes
 
 - Add `.github/workflows/ci.yml` — verification-only CI (no deploy steps): Bun 1.4.0 (pinned) install with `--frozen-lockfile`, Node 22, `./node_modules/.bin/tsc --noEmit`, production `next build`
-- Add `.github/dependabot.yml` — weekly updates for `npm` ecosystem (reads `bun.lock`) and `github-actions` ecosystem; dev-dependency minor/patch grouped to reduce PR noise
+- Add automated dependency updates for the `bun` and `github-actions` managers (ultimately via `renovate.json` — see design D4 — after Dependabot failed the frozen-lockfile requirement in practice); dev-dependency minor/patch grouped to reduce PR noise
 - Untrack `tsconfig.tsbuildinfo` (generated output, observed dirtied by every build this session) and add it to `.gitignore`
 - Add `"packageManager": "bun@1.4.0"` to `package.json` for clarity (informational; Corepack does not manage Bun)
 - Branch protection on `main`: require the `ci` check and Vercel check to pass before merge (configured in GitHub settings, not files)
@@ -25,9 +25,9 @@ The repository has no CI at all (no `.github/` directory): type errors and broke
 
 ## Impact
 
-- **Files created**: `.github/workflows/ci.yml`, `.github/dependabot.yml`
+- **Files created**: `.github/workflows/ci.yml`, `renovate.json` (`.github/dependabot.yml` was created, then removed during the Renovate pivot)
 - **Files changed**: `package.json` (+`packageManager` field only), `.gitignore` (+1 line)
 - **Files untracked**: `tsconfig.tsbuildinfo` (removed from index, stays on disk where present)
 - **GitHub settings** (outside repo files): branch protection on `main` requiring `ci` + Vercel checks — user configures or approves configuration via gh CLI during apply
-- **Systems**: GitHub Actions (public repo — unlimited minutes); Vercel Git integration continues owning Preview + Production deployments; Dependabot PRs will run the same CI workflow
+- **Systems**: GitHub Actions (public repo — unlimited minutes); Vercel Git integration continues owning Preview + Production deployments; Renovate PRs run the same CI workflow
 - **Risk**: `bun install --frozen-lockfile` requires `bun.lock` to stay in sync with `package.json` — any manual dependency edit without `bun install` will fail CI (this is the intended guard)

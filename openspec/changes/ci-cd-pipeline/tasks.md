@@ -19,8 +19,8 @@
 
 ## 4. Dependency Bot Migration (Dependabot -> Renovate)
 
-- [ ] 4.1 Verify Renovate end-to-end on a disposable private test repo (Step 0): PR updates ```package.json``` + ```bun.lock``` together, ```bun install --frozen-lockfile``` passes, CI ```verify``` check passes
-- [ ] 4.2 Close the 7 Dependabot PRs unmerged (user closed them during migration)
-- [ ] 4.3 Delete ```.github/dependabot.yml``` and add production ```renovate.json``` (design D4: bun + github-actions managers, Asia/Manila weekday-night schedule, dev minor/patch group, bun-pin update rule disabled) via PR - verify CI green and merge
+- [x] 4.1 Verify Renovate end-to-end on a disposable private test repo (Step 0): PR updates `package.json` + `bun.lock` together, `bun install --frozen-lockfile` passes, CI `verify` check passes (test repo `bettersancarlos-renovate-test`, self-hosted Renovate 42.99; PR#9 = package.json + bun.lock in one diff, frozen install passed locally, CI `verify` pass 1m02s)
+- [x] 4.2 Close the 7 Dependabot PRs unmerged (user closed them during migration)
+- [x] 4.3 Delete `.github/dependabot.yml` and add production `renovate.json` (design D4: bun + github-actions managers, Asia/Manila weekday-night schedule, dev minor/patch group, bun-pin update rule disabled) via PR — verify CI green and merge (PR #17, verify + Vercel both pass, merged)
 - [ ] 4.4 User installs the Mend Renovate GitHub app on this repository (dashboard action; link provided)
 - [ ] 4.5 Verify Renovate opens its onboarding PR, then the first real update PR: both files together, frozen-lockfile install passes, ```verify``` check green - no auto-merge of any dependency PR

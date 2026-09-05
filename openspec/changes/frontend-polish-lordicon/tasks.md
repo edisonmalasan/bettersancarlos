@@ -18,10 +18,10 @@
 
 ## 4. Placements (≤8)
 
-- [ ] 4.1 Homepage hero search card: replace header `bi bi-search` with AnimatedIcon (hover trigger) — verify icon animates on hover and rests; no layout shift on load
-- [ ] 4.2 Homepage category tiles (certificates, business, tax): replace tile glyphs with AnimatedIcon (hover trigger) — verify each animates once per hover, rests between hovers, tiles keep 12x12 visual footprint via fixed container
-- [ ] 4.3 Weather widget: replace main icon with AnimatedIcon (hover trigger) — verify renders in widget context without shifting adjacent text
-- [ ] 4.4 Placement audit: count AnimatedIcon usages — verify ≤8 and matches design D4 list; update design.md placement list if any reserved slots were used
+- [x] 4.1 Homepage hero search card: replace header `bi bi-search` with AnimatedIcon (hover trigger) — verify icon animates on hover and rests; no layout shift on load (ROLLED BACK per user decision — restored to `bi-search`; placement removed from D4)
+- [x] 4.2 Homepage category tiles (certificates, business, tax): replace tile glyphs with AnimatedIcon (hover trigger) — verify each animates once per hover, rests between hovers, tiles keep 12x12 visual footprint via fixed container (AMENDED per user decision: certificates + business rolled back to Bootstrap glyphs; tax tile wired to `dollar.json`)
+- [x] 4.3 Weather widget: replace main icon with AnimatedIcon (hover trigger) — verify renders in widget context without shifting adjacent text (IMPLEMENTED via user's Option 4: dynamic Lottie per WMO code + `is_day` — `Weather-sunny`/`Weather-night`/`Weather-partly cloudy`/`Weather-rainy(day)`/`Weather-rainy(night)`; bi glyph retained as loading/failure fallback)
+- [x] 4.4 Placement audit: count AnimatedIcon usages — verify ≤8 and matches design D4 list; update design.md placement list if any reserved slots were used (2 placements: weather widget dynamic + tax tile dollar; D4 amended)
 
 ## 5. Verification
 

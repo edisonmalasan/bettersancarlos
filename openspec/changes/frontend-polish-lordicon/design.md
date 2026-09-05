@@ -60,16 +60,19 @@ public/assets/icons/lordicon/<name>.svg      (static fallback, optional)
 
 **Alternative rejected**: `@lordicon/element` web component. The React player has first-class refs/state handling and the docs' recommended React path; the web-component route adds registration complexity inside Next.
 
-### D4 — Sanctioned placements (the ≤8 list)
+### D4 — Sanctioned placements (amended by user decision)
 
-1. Hero search card header icon (homepage) — hover
-2. Certificates category tile (homepage) — hover
-3. Business permits category tile (homepage) — hover
-4. Tax payments category tile (homepage) — hover
-5. Weather widget main icon — hover
-6–8. Reserved: at most 3 more if a natural fit emerges during apply (e.g., contact page channels, news empty state). Adding any requires updating this list.
+Final placement list (2 active, well under the ≤8 cap):
 
-Icon candidates from the free tier, System family preferred (minimalist, civic tone): search, document/certificate, storefront/building, cash/tax, weather/sun-cloud. Final pick constrained by free availability — user exports them.
+1. Weather widget main icon — **dynamic**: Lottie asset chosen per WMO code + day/night (`is_day` from open-meteo):
+   - code 0–1 + day → `Weather-sunny.json`; night → `Weather-night.json`
+   - code 2–48 (cloudy/overcast/fog) → `Weather-partly cloudy.json`
+   - code 51–99 (drizzle/rain/thunderstorm) → `Weather-rainy(day).json` / `Weather-rainy(night).json` (fog/thunder were not in the user's list; mapped to nearest family — cloudy / rainy respectively)
+2. Tax payments category tile (homepage) — `dollar.json` — hover
+
+Rolled back per user decision: hero search card, certificates tile, storefront tile (reverted to Bootstrap glyphs; their JSONs — magnifier, file-text, signboard, coins-in-reveal — are now unused assets left in `public/assets/icon/` pending user cleanup).
+
+Icon candidates were user-selected from the free tier; the doodle-family cloud is user-chosen, overriding the original System-family preference.
 
 ### D5 — Asset pipeline (user-in-the-loop, one-time)
 

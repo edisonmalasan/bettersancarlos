@@ -18,7 +18,7 @@ export default function HealthPage() {
         </nav>
       </div>
 
-      <section className="bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] py-12 text-white max-[1024px]:py-8 max-[767px]:py-6">
+      <section className="bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] py-12 text-white max-[1024px]:py-8 max-[767px]:py-6">
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
           <div className="mx-auto max-w-[600px] text-center">
             <span className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-[rgba(255,255,255,0.15)] px-4 py-1.5 text-[0.8125rem] font-medium text-white">
@@ -35,7 +35,7 @@ export default function HealthPage() {
       <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
           <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 min-[1200px]:grid-cols-3 max-[1024px]:grid-cols-2 max-[767px]:grid-cols-1">
-            <div className="rounded-[10px] border border-[#e5e7eb] bg-white p-6 transition-all duration-200 hover:border-primary hover:shadow-[0_4px_12px_rgba(0,50,160,0.08)]">
+            <div className="rounded-[10px] border border-[#e5e7eb] bg-white p-6 transition-all duration-200 hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)]">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-[#1a1a1a]">
                 <i className="bi bi-hospital text-primary"></i>
                 <span>{t('health-consultation')}</span>
@@ -51,7 +51,7 @@ export default function HealthPage() {
               </div>
             </div>
 
-            <div className="rounded-[10px] border border-[#e5e7eb] bg-white p-6 transition-all duration-200 hover:border-primary hover:shadow-[0_4px_12px_rgba(0,50,160,0.08)]">
+            <div className="rounded-[10px] border border-[#e5e7eb] bg-white p-6 transition-all duration-200 hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)]">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-[#1a1a1a]">
                 <i className="bi bi-shield-plus text-primary"></i>
                 <span>{t('health-vaccination')}</span>
@@ -67,7 +67,7 @@ export default function HealthPage() {
               </div>
             </div>
 
-            <div className="rounded-[10px] border border-[#e5e7eb] bg-white p-6 transition-all duration-200 hover:border-primary hover:shadow-[0_4px_12px_rgba(0,50,160,0.08)]">
+            <div className="rounded-[10px] border border-[#e5e7eb] bg-white p-6 transition-all duration-200 hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)]">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-[#1a1a1a]">
                 <i className="bi bi-heart text-primary"></i>
                 <span>{t('health-maternal')}</span>
@@ -83,7 +83,7 @@ export default function HealthPage() {
               </div>
             </div>
 
-            <div className="rounded-[10px] border border-[#e5e7eb] bg-white p-6 transition-all duration-200 hover:border-primary hover:shadow-[0_4px_12px_rgba(0,50,160,0.08)]">
+            <div className="rounded-[10px] border border-[#e5e7eb] bg-white p-6 transition-all duration-200 hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)]">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-[#1a1a1a]">
                 <i className="bi bi-prescription2 text-primary"></i>
                 <span>{t('health-medicine')}</span>
@@ -106,19 +106,19 @@ export default function HealthPage() {
       <section className="py-6 max-[1024px]:py-8 max-[767px]:py-6">
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
           <div className="grid grid-cols-4 gap-3 max-[768px]:grid-cols-2">
-            <div className="rounded-lg border border-[#e5e7eb] bg-white p-4 px-3 text-center transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(0,50,160,0.1)] max-[640px]:px-2.5 max-[640px]:py-3">
+            <div className="rounded-lg border border-[#e5e7eb] bg-white p-4 px-3 text-center transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.1)] max-[640px]:px-2.5 max-[640px]:py-3">
               <span className="mb-1 block text-[1.75rem] font-bold leading-none text-primary max-[640px]:text-[1.5rem]">88</span>
               <span className="text-[0.75rem] leading-[1.2] text-[#666]">{t('health-stat-facilities')}</span>
             </div>
-            <div className="rounded-lg border border-[#e5e7eb] bg-white p-4 px-3 text-center transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(0,50,160,0.1)] max-[640px]:px-2.5 max-[640px]:py-3">
+            <div className="rounded-lg border border-[#e5e7eb] bg-white p-4 px-3 text-center transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.1)] max-[640px]:px-2.5 max-[640px]:py-3">
               <span className="mb-1 block text-[1.75rem] font-bold leading-none text-primary max-[640px]:text-[1.5rem]">3</span>
               <span className="text-[0.75rem] leading-[1.2] text-[#666]">{t('health-stat-hospitals')}</span>
             </div>
-            <div className="rounded-lg border border-[#e5e7eb] bg-white p-4 px-3 text-center transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(0,50,160,0.1)] max-[640px]:px-2.5 max-[640px]:py-3">
+            <div className="rounded-lg border border-[#e5e7eb] bg-white p-4 px-3 text-center transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.1)] max-[640px]:px-2.5 max-[640px]:py-3">
               <span className="mb-1 block text-[1.75rem] font-bold leading-none text-primary max-[640px]:text-[1.5rem]">22</span>
               <span className="text-[0.75rem] leading-[1.2] text-[#666]">{t('health-stat-bhs')}</span>
             </div>
-            <div className="rounded-lg border border-[#e5e7eb] bg-white p-4 px-3 text-center transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(0,50,160,0.1)] max-[640px]:px-2.5 max-[640px]:py-3">
+            <div className="rounded-lg border border-[#e5e7eb] bg-white p-4 px-3 text-center transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.1)] max-[640px]:px-2.5 max-[640px]:py-3">
               <span className="mb-1 block text-[1.75rem] font-bold leading-none text-primary max-[640px]:text-[1.5rem]">1</span>
               <span className="text-[0.75rem] leading-[1.2] text-[#666]">{t('health-stat-mho')}</span>
             </div>
@@ -134,8 +134,8 @@ export default function HealthPage() {
             <span>{t('health-section-hospitals')}</span>
           </h2>
           <div className="grid grid-cols-3 gap-3 max-[1024px]:grid-cols-2 max-[768px]:grid-cols-1">
-            <div className="rounded-[0_8px_8px_0] border border-[#e5e7eb] border-l-[3px] border-l-primary bg-white p-4 transition-all duration-200 hover:border-primary hover:border-l-[#002170] hover:shadow-[0_2px_8px_rgba(0,50,160,0.08)]">
-              <div className="mb-2 inline-block rounded bg-[rgba(0,50,160,0.1)] px-2 py-[3px] text-[0.625rem] font-semibold uppercase tracking-[0.5px] text-primary">Tertiary Hospital</div>
+            <div className="rounded-[0_8px_8px_0] border border-[#e5e7eb] border-l-[3px] border-l-primary bg-white p-4 transition-all duration-200 hover:border-primary hover:border-l-[#2f6136] hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)]">
+              <div className="mb-2 inline-block rounded bg-[rgba(58, 125, 68,0.1)] px-2 py-[3px] text-[0.625rem] font-semibold uppercase tracking-[0.5px] text-primary">Tertiary Hospital</div>
               <h3 className="m-0 mb-1.5 text-[0.9375rem] font-semibold leading-[1.3] text-[#1a1a1a]">{t('health-pltciluis-a-tiam-medical-center')}</h3>
               <p className="m-0 mb-2.5 text-[0.8125rem] leading-[1.5] text-[#666]">
                 {t('health-a-tertiary-level-philhealthaccredited-private')}
@@ -148,8 +148,8 @@ export default function HealthPage() {
               </div>
             </div>
 
-            <div className="rounded-[0_8px_8px_0] border border-[#e5e7eb] border-l-[3px] border-l-primary bg-white p-4 transition-all duration-200 hover:border-primary hover:border-l-[#002170] hover:shadow-[0_2px_8px_rgba(0,50,160,0.08)]">
-              <div className="mb-2 inline-block rounded bg-[rgba(0,50,160,0.1)] px-2 py-[3px] text-[0.625rem] font-semibold uppercase tracking-[0.5px] text-primary">Private Hospital</div>
+            <div className="rounded-[0_8px_8px_0] border border-[#e5e7eb] border-l-[3px] border-l-primary bg-white p-4 transition-all duration-200 hover:border-primary hover:border-l-[#2f6136] hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)]">
+              <div className="mb-2 inline-block rounded bg-[rgba(58, 125, 68,0.1)] px-2 py-[3px] text-[0.625rem] font-semibold uppercase tracking-[0.5px] text-primary">Private Hospital</div>
               <h3 className="m-0 mb-1.5 text-[0.9375rem] font-semibold leading-[1.3] text-[#1a1a1a]">{t('health-medical-mission-group-hospital-health-services')}</h3>
               <p className="m-0 mb-2.5 text-[0.8125rem] leading-[1.5] text-[#666]">
                 {t('health-also-known-as-new-mmg-hospital-providing-quality')}
@@ -162,8 +162,8 @@ export default function HealthPage() {
               </div>
             </div>
 
-            <div className="rounded-[0_8px_8px_0] border border-[#e5e7eb] border-l-[3px] border-l-primary bg-white p-4 transition-all duration-200 hover:border-primary hover:border-l-[#002170] hover:shadow-[0_2px_8px_rgba(0,50,160,0.08)]">
-              <div className="mb-2 inline-block rounded bg-[rgba(0,50,160,0.1)] px-2 py-[3px] text-[0.625rem] font-semibold uppercase tracking-[0.5px] text-primary">Medical Center</div>
+            <div className="rounded-[0_8px_8px_0] border border-[#e5e7eb] border-l-[3px] border-l-primary bg-white p-4 transition-all duration-200 hover:border-primary hover:border-l-[#2f6136] hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)]">
+              <div className="mb-2 inline-block rounded bg-[rgba(58, 125, 68,0.1)] px-2 py-[3px] text-[0.625rem] font-semibold uppercase tracking-[0.5px] text-primary">Medical Center</div>
               <h3 className="m-0 mb-1.5 text-[0.9375rem] font-semibold leading-[1.3] text-[#1a1a1a]">{t('health-salubris-inc-salubris-medical-center')}</h3>
               <p className="m-0 mb-2.5 text-[0.8125rem] leading-[1.5] text-[#666]">
                 {t('health-private-medical-center-offering-various')}
@@ -230,70 +230,70 @@ export default function HealthPage() {
           </h2>
           <p className="mx-0 -mt-2 mb-4 text-[0.8125rem] text-[#666]">{t('health-bhs-subtitle')}</p>
           <div className="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-2 max-[640px]:grid-cols-2">
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-aggub-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-bagahabag-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-bangaan-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-bangar-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-buenavista-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-calaocan-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-commando-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-concepcion-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-curifang-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-dadap-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-lactawan-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-nangalisan-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-ocapon-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-osmea-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-paitan-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-pilar-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-poblacion-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-quezon-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-quirino-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-roxas-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-tucal-bhs')}</span>
             </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#002170] hover:bg-[#eef2ff]">
+            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-[#1a1a1a] transition-all duration-150 hover:border-l-[#2f6136] hover:bg-[#eef2ff]">
               <span>{t('health-uddiawan-bhs')}</span>
             </div>
           </div>

@@ -290,8 +290,8 @@ export default function NewsEditorPage() {
         'cursor-pointer rounded-lg border border-[#e5e7eb] bg-white px-[9px] py-1 text-[0.78rem] text-[#1f2937] transition-colors hover:border-[#1d4ed8]';
     const neBtnSmDanger = `${neBtnSm} border-[#fecaca] text-[#b91c1c]`;
     const nePanelH2 = 'm-0 mb-3 text-[0.85rem] font-semibold uppercase tracking-[0.04em] text-[#6b7280]';
-    const neInput = 'w-full rounded-lg border border-[#e5e7eb] bg-white px-2.5 py-2 text-[#1f2937] focus:border-primary focus:outline-none focus:ring-[3px] focus:ring-[rgba(0,50,160,0.2)]';
-    const neInputInvalid = 'w-full rounded-lg border border-[#b91c1c] bg-white px-2.5 py-2 text-[#1f2937] focus:border-[#b91c1c] focus:outline-none focus:ring-[3px] focus:ring-[rgba(0,50,160,0.2)]';
+    const neInput = 'w-full rounded-lg border border-[#e5e7eb] bg-white px-2.5 py-2 text-[#1f2937] focus:border-primary focus:outline-none focus:ring-[3px] focus:ring-[rgba(58, 125, 68,0.2)]';
+    const neInputInvalid = 'w-full rounded-lg border border-[#b91c1c] bg-white px-2.5 py-2 text-[#1f2937] focus:border-[#b91c1c] focus:outline-none focus:ring-[3px] focus:ring-[rgba(58, 125, 68,0.2)]';
     const neLabel = 'mb-1 mt-3 block text-[0.8rem] font-semibold';
     const neHint = 'mt-1 text-[0.72rem] text-[#6b7280]';
 

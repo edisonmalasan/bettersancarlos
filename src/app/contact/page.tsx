@@ -20,24 +20,24 @@ export default function ContactPage() {
             <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))]" style={{ gap: 'var(--spacing-md)' }}>
-                        <Link href="mailto:CIO@sancarlospangasinan.com" className="flex overflow-hidden rounded-xl border border-[#e5e7eb] bg-white text-foreground no-underline transition-all duration-200 hover:border-primary hover:no-underline hover:shadow-[0_4px_16px_rgba(0,50,160,0.1)]">
-                            <div className="flex w-14 shrink-0 items-center justify-center bg-gradient-to-br from-primary to-[#003d82] text-[1.25rem] text-white"><i className="bi bi-envelope-fill"></i></div>
+                        <Link href="mailto:CIO@sancarlospangasinan.com" className="flex overflow-hidden rounded-xl border border-[#e5e7eb] bg-white text-foreground no-underline transition-all duration-200 hover:border-primary hover:no-underline hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)]">
+                            <div className="flex w-14 shrink-0 items-center justify-center bg-gradient-to-br from-primary to-[#275230] text-[1.25rem] text-white"><i className="bi bi-envelope-fill"></i></div>
                             <div className="flex-1 p-6">
                                 <h3 className="m-0 mb-1 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-muted-foreground">Email</h3>
                                 <p className="m-0 mb-1 text-base font-semibold text-foreground">CIO@sancarlospangasinan.com</p>
                                 <span className="text-[0.8125rem] text-muted-foreground">We'll respond within 24 hours</span>
                             </div>
                         </Link>
-                        <Link href="tel:(075) 600-1432" className="flex overflow-hidden rounded-xl border border-[#e5e7eb] bg-white text-foreground no-underline transition-all duration-200 hover:border-primary hover:no-underline hover:shadow-[0_4px_16px_rgba(0,50,160,0.1)]">
-                            <div className="flex w-14 shrink-0 items-center justify-center bg-gradient-to-br from-primary to-[#003d82] text-[1.25rem] text-white"><i className="bi bi-phone-fill"></i></div>
+                        <Link href="tel:(075) 600-1432" className="flex overflow-hidden rounded-xl border border-[#e5e7eb] bg-white text-foreground no-underline transition-all duration-200 hover:border-primary hover:no-underline hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)]">
+                            <div className="flex w-14 shrink-0 items-center justify-center bg-gradient-to-br from-primary to-[#275230] text-[1.25rem] text-white"><i className="bi bi-phone-fill"></i></div>
                             <div className="flex-1 p-6">
                                 <h3 className="m-0 mb-1 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-muted-foreground">Mobile</h3>
                                 <p className="m-0 mb-1 text-base font-semibold text-foreground">0917-701-2268</p>
                                 <span className="text-[0.8125rem] text-muted-foreground">Mon-Fri: 8:00 AM - 5:00 PM</span>
                             </div>
                         </Link>
-                        <Link href="tel:0623312067" className="flex overflow-hidden rounded-xl border border-[#e5e7eb] bg-white text-foreground no-underline transition-all duration-200 hover:border-primary hover:no-underline hover:shadow-[0_4px_16px_rgba(0,50,160,0.1)]">
-                            <div className="flex w-14 shrink-0 items-center justify-center bg-gradient-to-br from-primary to-[#003d82] text-[1.25rem] text-white"><i className="bi bi-telephone-fill"></i></div>
+                        <Link href="tel:0623312067" className="flex overflow-hidden rounded-xl border border-[#e5e7eb] bg-white text-foreground no-underline transition-all duration-200 hover:border-primary hover:no-underline hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)]">
+                            <div className="flex w-14 shrink-0 items-center justify-center bg-gradient-to-br from-primary to-[#275230] text-[1.25rem] text-white"><i className="bi bi-telephone-fill"></i></div>
                             <div className="flex-1 p-6">
                                 <h3 className="m-0 mb-1 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-muted-foreground">Phone</h3>
                                 <p className="m-0 mb-1 text-base font-semibold text-foreground">(062) 331-2067</p>
@@ -51,7 +51,7 @@ export default function ContactPage() {
             <section className="bg-muted py-8">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="overflow-hidden rounded-xl border border-[#e5e7eb] bg-white">
-                        <div className="flex items-center gap-4 bg-gradient-to-br from-primary to-[#003d82] px-8 py-6 text-white max-[576px]:px-4 max-[576px]:py-4">
+                        <div className="flex items-center gap-4 bg-gradient-to-br from-primary to-[#275230] px-8 py-6 text-white max-[576px]:px-4 max-[576px]:py-4">
                             <i className="bi bi-clock-fill text-[1.25rem]"></i>
                             <h2 className="m-0 text-[1.125rem] text-white">Office Hours</h2>
                         </div>

@@ -116,7 +116,7 @@ export default function AccessibilityPage() {
                             </div>
                         </div>
 
-                        <div className="mt-12 flex items-start gap-6 rounded-[12px] bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] p-8 text-white max-[768px]:flex-col max-[768px]:text-center">
+                        <div className="mt-12 flex items-start gap-6 rounded-[12px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] p-8 text-white max-[768px]:flex-col max-[768px]:text-center">
                             <i className="bi bi-heart-fill text-[1.5rem] opacity-80"></i>
                             <div>
                                 <h3 className="m-0 mb-2 text-[1.125rem] font-bold text-white">Our Promise</h3>

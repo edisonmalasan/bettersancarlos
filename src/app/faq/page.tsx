@@ -335,7 +335,7 @@ export default function FAQPage() {
                             </div>
                         </div>
 
-                        <div className="mt-12 flex items-center gap-6 rounded-xl bg-gradient-to-br from-primary to-[#003d82] p-8 text-white max-[768px]:flex-col max-[768px]:text-center">
+                        <div className="mt-12 flex items-center gap-6 rounded-xl bg-gradient-to-br from-primary to-[#275230] p-8 text-white max-[768px]:flex-col max-[768px]:text-center">
                             <i className="bi bi-chat-dots-fill text-[2rem] opacity-80"></i>
                             <div className="flex-1">
                                 <h3 className="m-0 mb-1 text-[1.125rem] text-white">Still have questions?</h3>

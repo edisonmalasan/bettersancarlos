@@ -5,9 +5,9 @@ import PageHeader from '@/components/layout/PageHeader';
 import Chart from 'chart.js/auto';
 
 const COLORS = {
-    primary: '#0032a0',
-    primaryDark: '#002170',
-    secondary: '#003D82',
+    primary: '#3a7d44',
+    primaryDark: '#2f6136',
+    secondary: '#275230',
     accent: '#F77F00',
     success: '#06A77D',
     info: '#0077BE',
@@ -182,8 +182,8 @@ function useChart() {
 function createHistoricalChart(canvas: HTMLCanvasElement): Chart {
     const ctx = canvas.getContext('2d');
     const gradient = ctx!.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0, 'rgba(0, 50, 160, 0.2)');
-    gradient.addColorStop(1, 'rgba(0, 50, 160, 0)');
+    gradient.addColorStop(0, 'rgba(58, 125, 68, 0.2)');
+    gradient.addColorStop(1, 'rgba(58, 125, 68, 0)');
     return new Chart(canvas, {
         type: 'line',
         data: {
@@ -213,7 +213,7 @@ function createHistoricalChart(canvas: HTMLCanvasElement): Chart {
             plugins: {
                 legend: { display: false },
                 tooltip: {
-                    backgroundColor: 'rgba(0, 50, 160, 0.95)',
+                    backgroundColor: 'rgba(58, 125, 68, 0.95)',
                     titleFont: { size: 14, weight: 600 },
                     bodyFont: { size: 13 },
                     padding: 12,
@@ -263,7 +263,7 @@ function createDistributionChart(canvas: HTMLCanvasElement): Chart {
                     labels: { boxWidth: 14, padding: 12, font: { size: 12 }, usePointStyle: true, pointStyle: 'circle' },
                 },
                 tooltip: {
-                    backgroundColor: 'rgba(0, 50, 160, 0.95)',
+                    backgroundColor: 'rgba(58, 125, 68, 0.95)',
                     titleFont: { size: 14, weight: 600 },
                     bodyFont: { size: 13 },
                     padding: 12,
@@ -293,7 +293,7 @@ function createBarChart(canvas: HTMLCanvasElement): Chart {
                     data: sorted.map((d) => d.pop),
                     backgroundColor: sorted.map((_, i) => {
                         const opacity = 1 - i * 0.03;
-                        return `rgba(0, 50, 160, ${opacity})`;
+                        return `rgba(58, 125, 68, ${opacity})`;
                     }),
                     borderRadius: 4,
                     borderSkipped: false,
@@ -308,7 +308,7 @@ function createBarChart(canvas: HTMLCanvasElement): Chart {
             plugins: {
                 legend: { display: false },
                 tooltip: {
-                    backgroundColor: 'rgba(0, 50, 160, 0.95)',
+                    backgroundColor: 'rgba(58, 125, 68, 0.95)',
                     titleFont: { size: 14, weight: 600 },
                     bodyFont: { size: 13 },
                     padding: 12,
@@ -357,7 +357,7 @@ function createCMCIOverviewChart(canvas: HTMLCanvasElement): Chart {
                     labels: { boxWidth: 12, padding: 16, font: { size: 11 }, usePointStyle: true },
                 },
                 tooltip: {
-                    backgroundColor: 'rgba(0, 50, 160, 0.95)',
+                    backgroundColor: 'rgba(58, 125, 68, 0.95)',
                     padding: 12,
                     cornerRadius: 8,
                     callbacks: {
@@ -403,7 +403,7 @@ function createCMCIPillarChart(canvas: HTMLCanvasElement, pillarKey: keyof typeo
                     labels: { boxWidth: 10, padding: 12, font: { size: 10 }, usePointStyle: true },
                 },
                 tooltip: {
-                    backgroundColor: 'rgba(0, 50, 160, 0.95)',
+                    backgroundColor: 'rgba(58, 125, 68, 0.95)',
                     padding: 10,
                     cornerRadius: 6,
                     callbacks: {
@@ -665,26 +665,26 @@ export default function StatisticsPage() {
             <section className="relative z-[2] mt-10 pb-[60px]">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="grid grid-cols-4 gap-5 max-[991px]:grid-cols-2 max-[575px]:grid-cols-1 max-[575px]:gap-3">
-                        <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,50,160,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="0">
-                            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] text-[1.5rem] text-white"><i className="bi bi-people-fill"></i></div>
+                        <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(58, 125, 68,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="0">
+                            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.5rem] text-white"><i className="bi bi-people-fill"></i></div>
                             <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]" data-count="52746">0</div>
                             <div className="mb-1 text-[0.9375rem] font-semibold text-[#1a1a1a]">Population</div>
                             <div className="text-[0.8125rem] text-[#666666]">2024 Census</div>
                         </div>
-                        <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,50,160,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="100">
-                            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] text-[1.5rem] text-white"><i className="bi bi-geo-alt-fill"></i></div>
+                        <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(58, 125, 68,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="100">
+                            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.5rem] text-white"><i className="bi bi-geo-alt-fill"></i></div>
                             <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">44</div>
                             <div className="mb-1 text-[0.9375rem] font-semibold text-[#1a1a1a]">Barangays</div>
                             <div className="text-[0.8125rem] text-[#666666]">Administrative Units</div>
                         </div>
-                        <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,50,160,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="200">
-                            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] text-[1.5rem] text-white"><i className="bi bi-rulers"></i></div>
+                        <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(58, 125, 68,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="200">
+                            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.5rem] text-white"><i className="bi bi-rulers"></i></div>
                             <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">180.95</div>
                             <div className="mb-1 text-[0.9375rem] font-semibold text-[#1a1a1a]">Land Area (km²)</div>
                             <div className="text-[0.8125rem] text-[#666666]">Total Municipal Area</div>
                         </div>
-                        <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,50,160,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="300">
-                            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] text-[1.5rem] text-white"><i className="bi bi-award-fill"></i></div>
+                        <div className="metric-card animate-on-scroll rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(58, 125, 68,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="300">
+                            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.5rem] text-white"><i className="bi bi-award-fill"></i></div>
                             <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">2nd</div>
                             <div className="mb-1 text-[0.9375rem] font-semibold text-[#1a1a1a]">Income Class</div>
                             <div className="text-[0.8125rem] text-[#666666]">Municipality Classification</div>
@@ -696,7 +696,7 @@ export default function StatisticsPage() {
             <section className="animate-on-scroll bg-white py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="mb-12 text-center">
-                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(0,50,160,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-cash-stack"></i> <span>Finance</span>
                         </span>
                         <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">Municipal Income</h2>
@@ -704,7 +704,7 @@ export default function StatisticsPage() {
                     </div>
 
                     <div className="mb-10 grid grid-cols-3 gap-5 max-[991px]:grid-cols-1">
-                        <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] p-6 text-white transition-all duration-300">
+                        <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] p-6 text-white transition-all duration-300">
                             <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-white">
                                 <i className="bi bi-graph-up-arrow text-[1rem]"></i>
                                 <span>Annual Income</span>
@@ -712,7 +712,7 @@ export default function StatisticsPage() {
                             <div className="mb-1 text-[1.75rem] font-bold text-white">₱220.77M</div>
                             <div className="text-[0.8125rem] text-white">Projected baseline from national LGU data</div>
                         </div>
-                        <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(0,50,160,0.1)]">
+                        <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(58, 125, 68,0.1)]">
                             <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-[#666666]">
                                 <i className="bi bi-bank text-[1rem]"></i>
                                 <span>IRA Share</span>
@@ -720,7 +720,7 @@ export default function StatisticsPage() {
                             <div className="mb-1 text-[1.75rem] font-bold text-[#1a1a1a]">₱131.26M</div>
                             <div className="text-[0.8125rem] text-[#666666]">Internal Revenue Allotment</div>
                         </div>
-                        <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(0,50,160,0.1)]">
+                        <div className="rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(58, 125, 68,0.1)]">
                             <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-[#666666]">
                                 <i className="bi bi-pie-chart-fill text-[1rem]"></i>
                                 <span>IRA Dependency</span>
@@ -763,7 +763,7 @@ export default function StatisticsPage() {
             <section className="animate-on-scroll bg-[#f8f9fa] py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="mb-12 text-center">
-                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(0,50,160,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-graph-up"></i> <span>Growth</span>
                         </span>
                         <h2 className="mb-2 text-[1.75rem] leading-[1.2] font-bold text-[#1a1a1a] max-[575px]:text-[1.5rem]">Population Trends</h2>
@@ -776,7 +776,7 @@ export default function StatisticsPage() {
                             <span className="block text-[1.5rem] font-bold text-[#1a1a1a] max-[575px]:text-[1.25rem]">{formatNumber(historicalData.populations[0])}</span>
                         </div>
                         <div className="text-[1.25rem] text-[#666666]"><i className="bi bi-arrow-right"></i></div>
-                        <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] px-8 py-5 text-center max-[991px]:px-6 max-[991px]:py-4 max-[575px]:px-5 max-[575px]:py-3">
+                        <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-8 py-5 text-center max-[991px]:px-6 max-[991px]:py-4 max-[575px]:px-5 max-[575px]:py-3">
                             <span className="mb-1 block text-[0.8125rem] text-white">2024</span>
                             <span className="block text-[1.5rem] font-bold text-white max-[575px]:text-[1.25rem]">{formatNumber(totalPopulation)}</span>
                         </div>
@@ -802,7 +802,7 @@ export default function StatisticsPage() {
             <section className="animate-on-scroll bg-white py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="mb-12 text-center">
-                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(0,50,160,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-pie-chart-fill"></i>
                             <span>Distribution</span>
                         </span>
@@ -816,12 +816,12 @@ export default function StatisticsPage() {
                         </div>
                         <div className="flex flex-col gap-2">
                             {top10.map((b) => (
-                                <div className={`grid items-center gap-3 rounded-lg border bg-white px-4 py-[10px] transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(0,50,160,0.08)] max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2 ${b.pop === maxPop ? 'grid-cols-[40px_120px_1fr_70px] border-l-[3px] border-[rgba(0,0,0,0.04)] border-l-[#ffd700] max-[575px]:grid-cols-[32px_90px_1fr_60px]' : 'grid-cols-[40px_120px_1fr_70px] border-[rgba(0,0,0,0.04)] max-[575px]:grid-cols-[32px_90px_1fr_60px]'}`} data-rank={b.pop === maxPop ? 1 : undefined} key={b.name}>
+                                <div className={`grid items-center gap-3 rounded-lg border bg-white px-4 py-[10px] transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)] max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2 ${b.pop === maxPop ? 'grid-cols-[40px_120px_1fr_70px] border-l-[3px] border-[rgba(0,0,0,0.04)] border-l-[#ffd700] max-[575px]:grid-cols-[32px_90px_1fr_60px]' : 'grid-cols-[40px_120px_1fr_70px] border-[rgba(0,0,0,0.04)] max-[575px]:grid-cols-[32px_90px_1fr_60px]'}`} data-rank={b.pop === maxPop ? 1 : undefined} key={b.name}>
                                     <span className="text-[0.75rem] font-semibold text-[#666666]">#{rankedBarangays.findIndex((r) => r.name === b.name) + 1}</span>
                                     <span className="text-[0.875rem] font-medium text-[#1a1a1a] max-[575px]:text-[0.8125rem]">{b.name}</span>
                                     <div className="bar-wrap h-2 overflow-hidden rounded bg-[#f8f9fa]">
                                         <div
-                                            className="bar h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#0077BE_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                                            className="bar h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#0077BE_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
                                             data-width={Math.max(2, Math.round((b.pop / maxPop) * 100))}
                                         ></div>
                                     </div>
@@ -835,12 +835,12 @@ export default function StatisticsPage() {
                         <summary className="cursor-pointer p-3 text-center font-medium text-primary">View all {rankedBarangays.length} barangays</summary>
                         <div className="mt-4 flex flex-col gap-2">
                             {remaining.map((b) => (
-                                <div className="grid grid-cols-[40px_120px_1fr_70px] items-center gap-3 rounded-lg border border-[rgba(0,0,0,0.04)] bg-white px-4 py-[10px] transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(0,50,160,0.08)] max-[575px]:grid-cols-[32px_90px_1fr_60px] max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2" key={b.name}>
+                                <div className="grid grid-cols-[40px_120px_1fr_70px] items-center gap-3 rounded-lg border border-[rgba(0,0,0,0.04)] bg-white px-4 py-[10px] transition-all duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)] max-[575px]:grid-cols-[32px_90px_1fr_60px] max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2" key={b.name}>
                                     <span className="text-[0.75rem] font-semibold text-[#666666]">#{rankedBarangays.findIndex((r) => r.name === b.name) + 1}</span>
                                     <span className="text-[0.875rem] font-medium text-[#1a1a1a] max-[575px]:text-[0.8125rem]">{b.name}</span>
                                     <div className="bar-wrap h-2 overflow-hidden rounded bg-[#f8f9fa]">
                                         <div
-                                            className="bar h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#0077BE_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                                            className="bar h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#0077BE_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
                                             data-width={Math.max(2, Math.round((b.pop / maxPop) * 100))}
                                         ></div>
                                     </div>
@@ -863,7 +863,7 @@ export default function StatisticsPage() {
             <section className="animate-on-scroll bg-[#f8f9fa] py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="mb-12 text-center">
-                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(0,50,160,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-briefcase-fill"></i>
                             <span>Economy</span>
                         </span>
@@ -872,24 +872,24 @@ export default function StatisticsPage() {
                     </div>
 
                     <div className="mb-10 grid grid-cols-3 gap-5 max-[991px]:grid-cols-1">
-                        <div className="economy-card flex items-start gap-4 rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(0,50,160,0.1)]">
-                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] text-[1.25rem] text-white"><i className="bi bi-tree-fill"></i></div>
+                        <div className="economy-card flex items-start gap-4 rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(58, 125, 68,0.1)]">
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.25rem] text-white"><i className="bi bi-tree-fill"></i></div>
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-[#1a1a1a]">COCONUT</div>
                                 <div className="mb-2 text-[0.875rem] text-[#666666]">Major Product</div>
                                 <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(6,167,125,0.1)] px-[10px] py-1 text-[0.75rem] text-[#06A77D]">Principal crop & trade</div>
                             </div>
                         </div>
-                        <div className="economy-card flex items-start gap-4 rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(0,50,160,0.1)]">
-                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] text-[1.25rem] text-white"><i className="bi bi-geo-fill"></i></div>
+                        <div className="economy-card flex items-start gap-4 rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(58, 125, 68,0.1)]">
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.25rem] text-white"><i className="bi bi-geo-fill"></i></div>
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-[#1a1a1a]">AGRICULTURAL</div>
                                 <div className="mb-2 text-[0.875rem] text-[#666666]">Major Land Use</div>
                                 <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(6,167,125,0.1)] px-[10px] py-1 text-[0.75rem] text-[#06A77D]">Farms & coconut plantations</div>
                             </div>
                         </div>
-                        <div className="economy-card flex items-start gap-4 rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(0,50,160,0.1)]">
-                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] text-[1.25rem] text-white"><i className="bi bi-house-door-fill"></i></div>
+                        <div className="economy-card flex items-start gap-4 rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 transition-all duration-300 hover:border-primary hover:shadow-[0_4px_20px_rgba(58, 125, 68,0.1)]">
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.25rem] text-white"><i className="bi bi-house-door-fill"></i></div>
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-[#1a1a1a]" data-count="9263">0</div>
                                 <div className="mb-2 text-[0.875rem] text-[#666666]">Households</div>
@@ -901,7 +901,7 @@ export default function StatisticsPage() {
                     <div className="animate-on-scroll rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-6 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
                         <h4 className="mb-4 text-[1rem] font-bold text-[#1a1a1a]">Economic Sectors</h4>
                         <div className="flex flex-col gap-[14px]">
-                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(0,50,160,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
                                     <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#10b981] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#1a1a1a]">Agriculture</span>
@@ -911,7 +911,7 @@ export default function StatisticsPage() {
                                     <div className="sc-fill h-full w-0 rounded bg-[#10b981] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="70"></div>
                                 </div>
                             </div>
-                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(0,50,160,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
                                     <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#3b82f6] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#1a1a1a]">Trade &amp; Commerce</span>
@@ -921,7 +921,7 @@ export default function StatisticsPage() {
                                     <div className="sc-fill h-full w-0 rounded bg-[#3b82f6] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="15"></div>
                                 </div>
                             </div>
-                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(0,50,160,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
                                     <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#8b5cf6] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#1a1a1a]">Services</span>
@@ -931,7 +931,7 @@ export default function StatisticsPage() {
                                     <div className="sc-fill h-full w-0 rounded bg-[#8b5cf6] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="10"></div>
                                 </div>
                             </div>
-                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(0,50,160,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
+                            <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#f8f9fa] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eef2ff] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
                                     <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#f59e0b] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#1a1a1a]">Industry</span>
@@ -957,7 +957,7 @@ export default function StatisticsPage() {
             <section className="animate-on-scroll bg-white py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="mb-12 text-center">
-                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(0,50,160,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-graph-down-arrow"></i>
                             <span>Poverty</span>
                         </span>
@@ -1007,7 +1007,7 @@ export default function StatisticsPage() {
             <section className="animate-on-scroll bg-[#f8f9fa] py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100" id="competitive-index">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="mb-12 text-center">
-                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(0,50,160,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-trophy-fill"></i>
                             <span>Competitiveness</span>
                         </span>
@@ -1044,32 +1044,32 @@ export default function StatisticsPage() {
 
                     <div className="cmci-panel active hidden [&.active]:block" id="panel-overview">
                         <div className="mb-8 grid grid-cols-5 gap-4 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
-                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(0,50,160,0.1)]" data-pillar="economic-dynamism">
-                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)]"><i className="bi bi-graph-up-arrow text-[1.25rem] text-white"></i></div>
+                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.1)]" data-pillar="economic-dynamism">
+                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)]"><i className="bi bi-graph-up-arrow text-[1.25rem] text-white"></i></div>
                                 <h4 className="mb-2 text-[0.75rem] leading-[1.3] font-semibold text-[#1a1a1a]">Economic Dynamism</h4>
                                 <div className="mb-1 text-[1.5rem] font-bold text-primary max-[768px]:text-[1.25rem]">0.23</div>
                                 <div className="inline-flex items-center gap-1 rounded-[20px] bg-[rgba(34,197,94,0.1)] px-2 py-[3px] text-[0.6875rem] font-semibold text-[#16a34a]"><i className="bi bi-arrow-up"></i> +12%</div>
                             </div>
-                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(0,50,160,0.1)]" data-pillar="government-efficiency">
-                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)]"><i className="bi bi-building-check text-[1.25rem] text-white"></i></div>
+                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.1)]" data-pillar="government-efficiency">
+                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)]"><i className="bi bi-building-check text-[1.25rem] text-white"></i></div>
                                 <h4 className="mb-2 text-[0.75rem] leading-[1.3] font-semibold text-[#1a1a1a]">Government Efficiency</h4>
                                 <div className="mb-1 text-[1.5rem] font-bold text-primary max-[768px]:text-[1.25rem]">1.17</div>
                                 <div className="inline-flex items-center gap-1 rounded-[20px] bg-[rgba(239,68,68,0.1)] px-2 py-[3px] text-[0.6875rem] font-semibold text-[#dc2626]"><i className="bi bi-arrow-down"></i> -8%</div>
                             </div>
-                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(0,50,160,0.1)]" data-pillar="infrastructure">
-                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)]"><i className="bi bi-building-gear text-[1.25rem] text-white"></i></div>
+                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.1)]" data-pillar="infrastructure">
+                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)]"><i className="bi bi-building-gear text-[1.25rem] text-white"></i></div>
                                 <h4 className="mb-2 text-[0.75rem] leading-[1.3] font-semibold text-[#1a1a1a]">Infrastructure</h4>
                                 <div className="mb-1 text-[1.5rem] font-bold text-primary max-[768px]:text-[1.25rem]">0.40</div>
                                 <div className="inline-flex items-center gap-1 rounded-[20px] bg-[rgba(34,197,94,0.1)] px-2 py-[3px] text-[0.6875rem] font-semibold text-[#16a34a]"><i className="bi bi-arrow-up"></i> +5%</div>
                             </div>
-                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(0,50,160,0.1)]" data-pillar="resiliency">
-                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)]"><i className="bi bi-shield-check text-[1.25rem] text-white"></i></div>
+                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.1)]" data-pillar="resiliency">
+                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)]"><i className="bi bi-shield-check text-[1.25rem] text-white"></i></div>
                                 <h4 className="mb-2 text-[0.75rem] leading-[1.3] font-semibold text-[#1a1a1a]">Resiliency</h4>
                                 <div className="mb-1 text-[1.5rem] font-bold text-primary max-[768px]:text-[1.25rem]">1.08</div>
                                 <div className="inline-flex items-center gap-1 rounded-[20px] bg-[rgba(107,114,128,0.1)] px-2 py-[3px] text-[0.6875rem] font-semibold text-[#6b7280]"><i className="bi bi-dash"></i> Stable</div>
                             </div>
-                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(0,50,160,0.1)]" data-pillar="innovation">
-                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)]"><i className="bi bi-lightbulb text-[1.25rem] text-white"></i></div>
+                            <div className="cursor-pointer rounded-xl border border-[rgba(0,0,0,0.06)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.1)]" data-pillar="innovation">
+                                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)]"><i className="bi bi-lightbulb text-[1.25rem] text-white"></i></div>
                                 <h4 className="mb-2 text-[0.75rem] leading-[1.3] font-semibold text-[#1a1a1a]">Innovation</h4>
                                 <div className="mb-1 text-[1.5rem] font-bold text-primary max-[768px]:text-[1.25rem]">0.68</div>
                                 <div className="inline-flex items-center gap-1 rounded-[20px] bg-[rgba(34,197,94,0.1)] px-2 py-[3px] text-[0.6875rem] font-semibold text-[#16a34a]"><i className="bi bi-arrow-up"></i> +25%</div>
@@ -1089,47 +1089,47 @@ export default function StatisticsPage() {
 
                     <div className="cmci-panel hidden [&.active]:block" id="panel-economic-dynamism">
                         <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-currency-exchange"></i> Local Economy Size
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0259</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="2.59"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="2.59"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-graph-up"></i> Local Economy Growth
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0318</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="3.18"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="3.18"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-shop"></i> Active Establishments</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.4994</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="49.94"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="49.94"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-shield-check"></i> Safety Compliant Business
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.2235</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="22.35"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="22.35"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-people"></i> Employment Generation
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.3835</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="38.35"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="38.35"></div>
                                 </div>
                             </div>
                         </div>
@@ -1146,43 +1146,43 @@ export default function StatisticsPage() {
 
                     <div className="cmci-panel hidden [&.active]:block" id="panel-government-efficiency">
                         <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-cash-coin"></i> Cost of Living</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">1.1919</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="47.68"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="47.68"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-briefcase"></i> Cost of Doing Business
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">1.5599</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="62.40"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="62.40"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-bank"></i> Financial Deepening</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.8288</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="33.15"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="33.15"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-speedometer2"></i> Productivity</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.3297</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="32.97"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="32.97"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-check2-square"></i> Compliance to Directives
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">1.9600</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="78.40"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="78.40"></div>
                                 </div>
                             </div>
                         </div>
@@ -1199,41 +1199,41 @@ export default function StatisticsPage() {
 
                     <div className="cmci-panel hidden [&.active]:block" id="panel-infrastructure">
                         <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-signpost-2"></i> Road Network</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0016</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="0.16"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="0.16"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-geo-alt"></i> Distance to Ports</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">1.5281</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="61.12"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="61.12"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-lightning-charge"></i> Basic Utilities
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.3560</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="14.24"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="14.24"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-truck"></i> Transportation</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0959</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="9.59"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="9.59"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-wifi"></i> IT Capacity</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0155</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="1.55"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="1.55"></div>
                                 </div>
                             </div>
                         </div>
@@ -1250,43 +1250,43 @@ export default function StatisticsPage() {
 
                     <div className="cmci-panel hidden [&.active]:block" id="panel-resiliency">
                         <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-file-earmark-text"></i> DRR Plan</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">1.9783</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="79.13"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="79.13"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-calendar-event"></i> Annual Disaster Drill
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">1.0023</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="40.09"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="40.09"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-bell"></i> Early Warning System</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">1.0397</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="41.59"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="41.59"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-piggy-bank"></i> DRRMP Budget</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0020</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="0.20"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="0.20"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-clipboard-data"></i> Risk Assessments
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">2.0000</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="80.00"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="80.00"></div>
                                 </div>
                             </div>
                         </div>
@@ -1303,41 +1303,41 @@ export default function StatisticsPage() {
 
                     <div className="cmci-panel hidden [&.active]:block" id="panel-innovation">
                         <div className="mb-7 grid grid-cols-5 gap-3 max-[1200px]:grid-cols-3 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-file-code"></i> ICT Plan</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">2.0001</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="80.00"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="80.00"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-search"></i> R&amp;D Expenditures</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0006</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="0.06"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="0.06"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-laptop"></i> E-BPLS Software</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">2.0000</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="80.00"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="80.00"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary"><i className="bi bi-mortarboard"></i> STEM Graduates</div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0181</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="1.81"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="1.81"></div>
                                 </div>
                             </div>
-                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(0,50,160,0.08)]">
+                            <div className="rounded-[10px] border border-[rgba(0,0,0,0.06)] bg-white p-4 transition-all duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
                                 <div className="mb-2 flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.3px] text-[#666666] uppercase [&_i]:text-[0.875rem] [&_i]:text-primary">
                                     <i className="bi bi-rocket-takeoff"></i> Innovation Facilities
                                 </div>
                                 <div className="mb-[10px] text-[1.25rem] font-bold text-[#1a1a1a]">0.0227</div>
-                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(0,50,160,0.08)]">
-                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#0032a0_0%,#003d82_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="2.27"></div>
+                                <div className="h-[6px] overflow-hidden rounded bg-[rgba(58, 125, 68,0.08)]">
+                                    <div className="indicator-fill h-full w-0 rounded bg-[linear-gradient(90deg,#3a7d44_0%,#275230_100%)] transition-[width] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] [&.animated]:w-[var(--fill-width)]" data-value="2.27"></div>
                                 </div>
                             </div>
                         </div>
@@ -1364,7 +1364,7 @@ export default function StatisticsPage() {
             <section className="animate-on-scroll bg-white py-20 opacity-0 translate-y-[40px] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:py-12 [&.visible]:translate-y-0 [&.visible]:opacity-100">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="mb-12 text-center">
-                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(0,50,160,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-bar-chart-fill"></i>
                             <span>Visual</span>
                         </span>

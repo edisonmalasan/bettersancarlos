@@ -363,7 +363,7 @@ export default function PrivacyPage() {
                                     contact us:
                                 </p>
                                 <div className="my-6">
-                                    <a href="mailto:volunteer@bettersancarlos.vercel.app" className="inline-flex items-center gap-[10px] rounded-lg bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] px-6 py-[14px] text-[0.9375rem] font-medium text-white no-underline transition-all duration-200 hover:-translate-y-[2px] hover:text-white hover:no-underline hover:shadow-[0_4px_16px_rgba(0,50,160,0.25)]">
+                                    <a href="mailto:volunteer@bettersancarlos.vercel.app" className="inline-flex items-center gap-[10px] rounded-lg bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-6 py-[14px] text-[0.9375rem] font-medium text-white no-underline transition-all duration-200 hover:-translate-y-[2px] hover:text-white hover:no-underline hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.25)]">
                                         <i className="bi bi-envelope-fill text-[1.125rem]"></i>
                                         <span>volunteer@bettersancarlos.vercel.app</span>
                                     </a>

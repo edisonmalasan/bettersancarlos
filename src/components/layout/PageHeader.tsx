@@ -33,7 +33,7 @@ export default function PageHeader({ title, description, badge, breadcrumbs }: P
                 </nav>
             </div>
 
-            <section className="bg-[linear-gradient(135deg,#0032a0_0%,#003d82_100%)] py-12 text-white">
+            <section className="bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] py-12 text-white">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="mx-auto max-w-[600px] text-center">
                         {badge && (

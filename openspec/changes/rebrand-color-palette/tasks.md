@@ -1,9 +1,9 @@
 ## 1. Token Foundation (globals.css)
 
-- [ ] 1.1 Update `@theme` block in `src/app/globals.css`: primary `#3A7D44`, primary-dark `#2F6136`, add primary-deep `#275230`, accent `#E8990A`, bg-alt `#FAF9F6`, text `#2F3E46`, text-light `#5C6B73`, success `#3A7D44`, danger `#B02E2E`, info `#0077BE`; update shadcn mappings (primary/accent/destructive/ring/border) to match — verify `tsc --noEmit` still passes
-- [ ] 1.2 Update `:root` block legacy vars + shadcn vars (`--primary`, `--accent`, `--muted`, `--border`, `--ring`, `--chart-1..5` per design D1) and `--sidebar` family — verify no references to removed vars remain in globals.css
-- [ ] 1.3 Rebase `.dark` block to green-slate family: bg `#141D17`, card/popover/secondary/muted `#1B2A1F`, foreground `#EAF3EA`, primary `#7FB069`, accent `#F2A900`, destructive `#E05B5B`, ring `#7FB069`, dark chart ramp, sidebar family — verify dark values differ from light values only where design D1 specifies
-- [ ] 1.4 Update global base styles: `a { color }`, `h1/h4 { color }`, `:focus-visible` outline, `a:focus-visible` background tint → bamboo/slate values; keep `body.high-contrast` yellow-on-black scheme untouched — verify focus ring is bamboo green by tabbing through nav in dev server
+- [x] 1.1 Update `@theme` block in `src/app/globals.css`: primary `#3A7D44`, primary-dark `#2F6136`, add primary-deep `#275230`, accent `#E8990A`, bg-alt `#FAF9F6`, text `#2F3E46`, text-light `#5C6B73`, success `#3A7D44`, danger `#B02E2E`, info `#0077BE`; update shadcn mappings (primary/accent/destructive/ring/border) to match — verify `tsc --noEmit` still passes
+- [x] 1.2 Update `:root` block legacy vars + shadcn vars (`--primary`, `--accent`, `--muted`, `--border`, `--ring`, `--chart-1..5` per design D1) and `--sidebar` family — verify no references to removed vars remain in globals.css
+- [x] 1.3 Rebase `.dark` block to green-slate family: bg `#141D17`, card/popover/secondary/muted `#1B2A1F`, foreground `#EAF3EA`, primary `#7FB069`, accent `#F2A900`, destructive `#E05B5B`, ring `#7FB069`, dark chart ramp, sidebar family — verify dark values differ from light values only where design D1 specifies
+- [x] 1.4 Update global base styles: `a { color }`, `h1/h4 { color }`, `:focus-visible` outline, `a:focus-visible` background tint → bamboo/slate values; keep `body.high-contrast` yellow-on-black scheme untouched — verify focus ring is bamboo green by tabbing through nav in dev server
 
 ## 2. Brand Hex Sweep (Phase 1 — the 19 brand files)
 

@@ -5,58 +5,60 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-    /* Existing Better San Carlos palette — preserved exactly */
-    --color-primary: #0032a0;
-    --color-primary-dark: #002170;
-    --color-secondary: #003d82;
-    --color-accent: #f77f00;
-    --color-success: #06a77d;
-    --color-danger: #d62828;
+    /* San Carlos City brand palette — Bamboo Green & Mango Yellow */
+    --color-primary: #3a7d44;
+    --color-primary-dark: #2f6136;
+    --color-primary-deep: #275230;
+    --color-secondary: #275230;
+    --color-accent: #e8990a;
+    --color-success: #3a7d44;
+    --color-danger: #b02e2e;
     --color-info: #0077be;
     --color-bg: #ffffff;
-    --color-bg-alt: #f8f9fa;
-    --color-text: #1a1a1a;
-    --color-text-light: #666666;
+    --color-bg-alt: #faf9f6;
+    --color-text: #2f3e46;
+    --color-text-light: #5c6b73;
     --color-white: #ffffff;
 
-    /* shadcn/ui semantic mapping to the Better San Carlos palette */
+    /* shadcn/ui semantic mapping to the San Carlos City palette */
     --color-background: #ffffff;
-    --color-foreground: #1a1a1a;
+    --color-foreground: #2f3e46;
     --color-card: #ffffff;
-    --color-card-foreground: #1a1a1a;
+    --color-card-foreground: #2f3e46;
     --color-popover: #ffffff;
-    --color-popover-foreground: #1a1a1a;
-    --color-primary-shadcn: #0032a0;
+    --color-popover-foreground: #2f3e46;
+    --color-primary-shadcn: #3a7d44;
     --color-primary-foreground: #ffffff;
-    --color-secondary-shadcn: #f8f9fa;
-    --color-secondary-foreground: #1a1a1a;
-    --color-muted: #f8f9fa;
-    --color-muted-foreground: #666666;
-    --color-accent-shadcn: #f77f00;
-    --color-accent-foreground: #ffffff;
-    --color-destructive: #d62828;
+    --color-secondary-shadcn: #faf9f6;
+    --color-secondary-foreground: #2f3e46;
+    --color-muted: #faf9f6;
+    --color-muted-foreground: #5c6b73;
+    --color-accent-shadcn: #e8990a;
+    --color-accent-foreground: #2f3e46;
+    --color-destructive: #b02e2e;
     --color-destructive-foreground: #ffffff;
-    --color-border: rgba(0, 0, 0, 0.1);
-    --color-input: rgba(0, 0, 0, 0.1);
-    --color-ring: #0032a0;
+    --color-border: rgba(47, 62, 70, 0.12);
+    --color-input: rgba(47, 62, 70, 0.12);
+    --color-ring: #3a7d44;
     --radius: 0.5rem;
 
     --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-    /* Better San Carlos legacy variables — kept for existing CSS */
-    --color-primary: #0032a0;
-    --color-primary-dark: #002170;
-    --color-secondary: #003d82;
-    --color-accent: #f77f00;
-    --color-success: #06a77d;
-    --color-danger: #d62828;
+    /* San Carlos City brand variables (legacy var names kept for existing CSS) */
+    --color-primary: #3a7d44;
+    --color-primary-dark: #2f6136;
+    --color-primary-deep: #275230;
+    --color-secondary: #275230;
+    --color-accent: #e8990a;
+    --color-success: #3a7d44;
+    --color-danger: #b02e2e;
     --color-info: #0077be;
     --color-bg: #ffffff;
-    --color-bg-alt: #f8f9fa;
-    --color-text: #1a1a1a;
-    --color-text-light: #666666;
+    --color-bg-alt: #faf9f6;
+    --color-text: #2f3e46;
+    --color-text-light: #5c6b73;
     --color-white: #ffffff;
     --font-main: "Inter", sans-serif;
     --line-height-body: 1.6;
@@ -71,39 +73,39 @@
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-    /* shadcn/ui variables — mapped to Better San Carlos palette */
+    /* shadcn/ui variables — mapped to San Carlos City palette */
     --background: #ffffff;
-    --foreground: #1a1a1a;
+    --foreground: #2f3e46;
     --card: #ffffff;
-    --card-foreground: #1a1a1a;
+    --card-foreground: #2f3e46;
     --popover: #ffffff;
-    --popover-foreground: #1a1a1a;
-    --primary: #0032a0;
+    --popover-foreground: #2f3e46;
+    --primary: #3a7d44;
     --primary-foreground: #ffffff;
-    --secondary: #f8f9fa;
-    --secondary-foreground: #1a1a1a;
-    --muted: #f8f9fa;
-    --muted-foreground: #666666;
-    --accent: #f77f00;
-    --accent-foreground: #ffffff;
-    --destructive: #d62828;
-    --border: rgba(0, 0, 0, 0.1);
-    --input: rgba(0, 0, 0, 0.1);
-    --ring: #0032a0;
+    --secondary: #faf9f6;
+    --secondary-foreground: #2f3e46;
+    --muted: #faf9f6;
+    --muted-foreground: #5c6b73;
+    --accent: #e8990a;
+    --accent-foreground: #2f3e46;
+    --destructive: #b02e2e;
+    --border: rgba(47, 62, 70, 0.12);
+    --input: rgba(47, 62, 70, 0.12);
+    --ring: #3a7d44;
     --radius: 0.5rem;
-    --chart-1: #0032a0;
-    --chart-2: #003d82;
+    --chart-1: #3a7d44;
+    --chart-2: #275230;
     --chart-3: #0077be;
-    --chart-4: #06a77d;
-    --chart-5: #f77f00;
-    --sidebar: #f8f9fa;
-    --sidebar-foreground: #1a1a1a;
-    --sidebar-primary: #0032a0;
+    --chart-4: #e8990a;
+    --chart-5: #2f3e46;
+    --sidebar: #faf9f6;
+    --sidebar-foreground: #2f3e46;
+    --sidebar-primary: #3a7d44;
     --sidebar-primary-foreground: #ffffff;
-    --sidebar-accent: #f77f00;
-    --sidebar-accent-foreground: #ffffff;
-    --sidebar-border: rgba(0, 0, 0, 0.1);
-    --sidebar-ring: #0032a0;
+    --sidebar-accent: #e8990a;
+    --sidebar-accent-foreground: #2f3e46;
+    --sidebar-border: rgba(47, 62, 70, 0.12);
+    --sidebar-ring: #3a7d44;
 }
 
 @theme inline {
@@ -150,37 +152,37 @@
 }
 
 .dark {
-    --background: #0f172a;
-    --foreground: #f8fafc;
-    --card: #1e293b;
-    --card-foreground: #f8fafc;
-    --popover: #1e293b;
-    --popover-foreground: #f8fafc;
-    --primary: #3b82f6;
-    --primary-foreground: #ffffff;
-    --secondary: #1e293b;
-    --secondary-foreground: #f8fafc;
-    --muted: #1e293b;
-    --muted-foreground: #94a3b8;
-    --accent: #f77f00;
-    --accent-foreground: #ffffff;
-    --destructive: #ef4444;
-    --border: rgba(255, 255, 255, 0.1);
-    --input: rgba(255, 255, 255, 0.15);
-    --ring: #3b82f6;
-    --chart-1: #3b82f6;
-    --chart-2: #60a5fa;
-    --chart-3: #38bdf8;
-    --chart-4: #34d399;
-    --chart-5: #fbbf24;
-    --sidebar: #1e293b;
-    --sidebar-foreground: #f8fafc;
-    --sidebar-primary: #3b82f6;
-    --sidebar-primary-foreground: #ffffff;
-    --sidebar-accent: #f77f00;
-    --sidebar-accent-foreground: #ffffff;
-    --sidebar-border: rgba(255, 255, 255, 0.1);
-    --sidebar-ring: #3b82f6;
+    --background: #141d17;
+    --foreground: #eaf3ea;
+    --card: #1b2a1f;
+    --card-foreground: #eaf3ea;
+    --popover: #1b2a1f;
+    --popover-foreground: #eaf3ea;
+    --primary: #7fb069;
+    --primary-foreground: #141d17;
+    --secondary: #1b2a1f;
+    --secondary-foreground: #eaf3ea;
+    --muted: #1b2a1f;
+    --muted-foreground: #a8bca8;
+    --accent: #f2a900;
+    --accent-foreground: #141d17;
+    --destructive: #e05b5b;
+    --border: rgba(234, 243, 234, 0.12);
+    --input: rgba(234, 243, 234, 0.15);
+    --ring: #7fb069;
+    --chart-1: #7fb069;
+    --chart-2: #a8d08d;
+    --chart-3: #4da8d8;
+    --chart-4: #f2a900;
+    --chart-5: #eaf3ea;
+    --sidebar: #1b2a1f;
+    --sidebar-foreground: #eaf3ea;
+    --sidebar-primary: #7fb069;
+    --sidebar-primary-foreground: #141d17;
+    --sidebar-accent: #f2a900;
+    --sidebar-accent-foreground: #141d17;
+    --sidebar-border: rgba(234, 243, 234, 0.12);
+    --sidebar-ring: #7fb069;
 }
 
 @layer base {
@@ -229,7 +231,6 @@
         font-size: 2.5rem;
         color: var(--color-primary);
     }
-
     h2 {
         font-size: 2rem;
         color: var(--color-text);
@@ -305,7 +306,7 @@
     /* Link focus tint (ex-style.css link-focus rules). */
     a:focus-visible {
         text-decoration: none;
-        background-color: rgba(247, 127, 0, 0.1);
+        background-color: rgba(232, 153, 10, 0.1);
         border-radius: 2px;
     }
 

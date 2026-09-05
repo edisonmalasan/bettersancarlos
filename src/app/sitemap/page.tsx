@@ -215,7 +215,7 @@ export default function SitemapPage() {
 
                     <div className="mb-12 last:mb-0">
                         <div className="mb-6 flex items-center gap-3 border-b-2 border-muted pb-4">
-                            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-success to-[#059669] max-[768px]:h-8 max-[768px]:w-8">
+                            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-success to-[#2f6136] max-[768px]:h-8 max-[768px]:w-8">
                                 <i className="bi bi-globe2 text-base text-white max-[768px]:text-sm"></i>
                             </span>
                             <h2 className="m-0 text-[1.125rem] font-semibold text-foreground max-[768px]:text-base">Online Services</h2>

@@ -11,6 +11,8 @@ const COLORS = {
     accent: '#e8990a',
     success: '#3a7d44',
     info: '#0077BE',
+    slate: '#2f3e46',
+    danger: '#b02e2e',
 };
 
 const barangayData = [
@@ -133,18 +135,18 @@ const cmciData = {
     },
 };
 
-const chartColors = [COLORS.primary, COLORS.accent, COLORS.success, COLORS.info, '#8B5CF6'];
+const chartColors = [COLORS.primary, COLORS.accent, COLORS.secondary, COLORS.info, COLORS.slate];
 const distributionColors = [
     COLORS.primary,
     COLORS.accent,
-    COLORS.success,
-    COLORS.info,
-    '#8B5CF6',
-    '#EC4899',
-    '#14B8A6',
-    '#F59E0B',
-    '#6366F1',
     COLORS.secondary,
+    COLORS.info,
+    COLORS.slate,
+    '#7fb069',
+    COLORS.danger,
+    '#a8d08d',
+    '#5c6b73',
+    '#005a8f',
 ];
 
 function formatNumber(n: number): string {
@@ -244,7 +246,7 @@ function createDistributionChart(canvas: HTMLCanvasElement): Chart {
             datasets: [
                 {
                     data: [...top10.map((d) => d.pop), othersPop],
-                    backgroundColor: [...distributionColors, '#CBD5E1'],
+                    backgroundColor: [...distributionColors, '#a8bca8'],
                     borderColor: '#fff',
                     borderWidth: 3,
                     hoverBorderWidth: 3,
@@ -903,42 +905,42 @@ export default function StatisticsPage() {
                         <div className="flex flex-col gap-[14px]">
                             <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#faf9f6] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
-                                    <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#10b981] transition-transform duration-200 group-hover:scale-[1.3]"></span>
+                                    <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#3a7d44] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#2f3e46]">Agriculture</span>
                                 </div>
                                 <span className="col-start-2 row-start-1 text-right text-[0.875rem] font-bold text-primary transition-transform duration-200 group-hover:scale-[1.08]">70%</span>
                                 <div className="col-span-full row-start-2 h-2 overflow-hidden rounded bg-[rgba(0,0,0,0.06)]">
-                                    <div className="sc-fill h-full w-0 rounded bg-[#10b981] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="70"></div>
+                                    <div className="sc-fill h-full w-0 rounded bg-[#3a7d44] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="70"></div>
                                 </div>
                             </div>
                             <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#faf9f6] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
-                                    <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#3b82f6] transition-transform duration-200 group-hover:scale-[1.3]"></span>
+                                    <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#0077be] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#2f3e46]">Trade &amp; Commerce</span>
                                 </div>
                                 <span className="col-start-2 row-start-1 text-right text-[0.875rem] font-bold text-primary transition-transform duration-200 group-hover:scale-[1.08]">15%</span>
                                 <div className="col-span-full row-start-2 h-2 overflow-hidden rounded bg-[rgba(0,0,0,0.06)]">
-                                    <div className="sc-fill h-full w-0 rounded bg-[#3b82f6] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="15"></div>
+                                    <div className="sc-fill h-full w-0 rounded bg-[#0077be] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="15"></div>
                                 </div>
                             </div>
                             <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#faf9f6] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
-                                    <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#8b5cf6] transition-transform duration-200 group-hover:scale-[1.3]"></span>
+                                    <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#5c6b73] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#2f3e46]">Services</span>
                                 </div>
                                 <span className="col-start-2 row-start-1 text-right text-[0.875rem] font-bold text-primary transition-transform duration-200 group-hover:scale-[1.08]">10%</span>
                                 <div className="col-span-full row-start-2 h-2 overflow-hidden rounded bg-[rgba(0,0,0,0.06)]">
-                                    <div className="sc-fill h-full w-0 rounded bg-[#8b5cf6] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="10"></div>
+                                    <div className="sc-fill h-full w-0 rounded bg-[#5c6b73] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="10"></div>
                                 </div>
                             </div>
                             <div className="group grid cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-x-3 gap-y-[10px] rounded-[10px] bg-[#faf9f6] px-4 py-[14px] transition-[background,box-shadow] duration-200 hover:bg-[#eaf3ea] hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[575px]:px-[14px] max-[575px]:py-3">
                                 <div className="col-start-1 row-start-1 flex items-center gap-[10px]">
-                                    <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#f59e0b] transition-transform duration-200 group-hover:scale-[1.3]"></span>
+                                    <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#e8990a] transition-transform duration-200 group-hover:scale-[1.3]"></span>
                                     <span className="text-[0.875rem] font-semibold text-[#2f3e46]">Industry</span>
                                 </div>
                                 <span className="col-start-2 row-start-1 text-right text-[0.875rem] font-bold text-primary transition-transform duration-200 group-hover:scale-[1.08]">5%</span>
                                 <div className="col-span-full row-start-2 h-2 overflow-hidden rounded bg-[rgba(0,0,0,0.06)]">
-                                    <div className="sc-fill h-full w-0 rounded bg-[#f59e0b] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="5"></div>
+                                    <div className="sc-fill h-full w-0 rounded bg-[#e8990a] transition-[width,filter,box-shadow] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:shadow-[0_0_8px_rgba(0,0,0,0.12)] group-hover:brightness-110" data-width="5"></div>
                                 </div>
                             </div>
                         </div>

@@ -51,28 +51,28 @@ export default function BudgetPage() {
                     </div>
                     <div className="mb-8 grid grid-cols-4 gap-4 max-[991px]:grid-cols-2 max-[575px]:grid-cols-1 max-[575px]:gap-3">
                         <div className="flex items-center gap-[14px] rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.1)] max-[575px]:p-4">
-                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#10b981_0%,#059669_100%)] text-[1.25rem] text-white"><i className="bi bi-arrow-down-circle"></i></div>
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#2f6136_100%)] text-[1.25rem] text-white"><i className="bi bi-arrow-down-circle"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="sre-metric-value text-[1.375rem] font-bold leading-[1.2] text-[#2f3e46] transition-[opacity_0.15s_ease,transform_0.15s_ease] max-[575px]:text-[1.25rem] [&.updating]:scale-[0.98] [&.updating]:opacity-50" id="sre-total-income">₱158.47 M</span>
                                 <span className="text-xs font-medium text-[#5c6b73]">Total Income</span>
                             </div>
                         </div>
                         <div className="flex items-center gap-[14px] rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.1)] max-[575px]:p-4">
-                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#f59e0b_0%,#d97706_100%)] text-[1.25rem] text-white"><i className="bi bi-arrow-up-circle"></i></div>
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#e8990a_0%,#c47f09_100%)] text-[1.25rem] text-white"><i className="bi bi-arrow-up-circle"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="sre-metric-value text-[1.375rem] font-bold leading-[1.2] text-[#2f3e46] transition-[opacity_0.15s_ease,transform_0.15s_ease] max-[575px]:text-[1.25rem] [&.updating]:scale-[0.98] [&.updating]:opacity-50" id="sre-total-expense">₱67.51 M</span>
                                 <span className="text-xs font-medium text-[#5c6b73]">Total Expenditures</span>
                             </div>
                         </div>
                         <div className="flex items-center gap-[14px] rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.1)] max-[575px]:p-4">
-                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#3b82f6_0%,#2563eb_100%)] text-[1.25rem] text-white"><i className="bi bi-plus-slash-minus"></i></div>
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#0077be_0%,#005a8f_100%)] text-[1.25rem] text-white"><i className="bi bi-plus-slash-minus"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="sre-metric-value text-[1.375rem] font-bold leading-[1.2] text-[#2f3e46] transition-[opacity_0.15s_ease,transform_0.15s_ease] max-[575px]:text-[1.25rem] [&.updating]:scale-[0.98] [&.updating]:opacity-50" id="sre-net-income">₱90.96 M</span>
                                 <span className="text-xs font-medium text-[#5c6b73]">Net Operating Income</span>
                             </div>
                         </div>
                         <div className="flex items-center gap-[14px] rounded-2xl border border-[rgba(0,0,0,0.04)] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.1)] max-[575px]:p-4">
-                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#8b5cf6_0%,#7c3aed_100%)] text-[1.25rem] text-white"><i className="bi bi-wallet2"></i></div>
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,#5c6b73_0%,#46545c_100%)] text-[1.25rem] text-white"><i className="bi bi-wallet2"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="sre-metric-value text-[1.375rem] font-bold leading-[1.2] text-[#2f3e46] transition-[opacity_0.15s_ease,transform_0.15s_ease] max-[575px]:text-[1.25rem] [&.updating]:scale-[0.98] [&.updating]:opacity-50" id="sre-fund-balance">₱283.29 M</span>
                                 <span className="text-xs font-medium text-[#5c6b73]">Fund Balance (End)</span>
@@ -94,7 +94,7 @@ export default function BudgetPage() {
                                 </div>
                                 <div className="flex flex-col gap-3">
                                     <div className="sre-breakdown-item flex items-center gap-3 rounded-[10px] bg-[#f8fafc] p-3 transition-all duration-200 hover:bg-[#f1f5f9]" data-type="local">
-                                        <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#10b981]"></span>
+                                        <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#3a7d44]"></span>
                                         <div className="min-w-0 flex-1">
                                             <span className="block text-sm font-semibold text-[#2f3e46]">Local Sources</span>
                                             <span className="mt-[1px] block text-xs text-[#5c6b73]">Tax &amp; Non-Tax Revenue</span>
@@ -131,7 +131,7 @@ export default function BudgetPage() {
                                 </div>
                                 <div className="flex flex-col gap-3">
                                     <div className="sre-breakdown-item flex items-center gap-3 rounded-[10px] bg-[#f8fafc] p-3 transition-all duration-200 hover:bg-[#f1f5f9]" data-type="gps">
-                                        <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#3b82f6]"></span>
+                                        <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#0077be]"></span>
                                         <div className="min-w-0 flex-1">
                                             <span className="block text-sm font-semibold text-[#2f3e46]">General Public Services</span>
                                             <span className="mt-[1px] block text-xs text-[#5c6b73]">Administration &amp; Operations</span>
@@ -142,7 +142,7 @@ export default function BudgetPage() {
                                         </div>
                                     </div>
                                     <div className="sre-breakdown-item flex items-center gap-3 rounded-[10px] bg-[#f8fafc] p-3 transition-all duration-200 hover:bg-[#f1f5f9]" data-type="social">
-                                        <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#8b5cf6]"></span>
+                                        <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#5c6b73]"></span>
                                         <div className="min-w-0 flex-1">
                                             <span className="block text-sm font-semibold text-[#2f3e46]">Social Services</span>
                                             <span className="mt-[1px] block text-xs text-[#5c6b73]">Health, Education, Welfare</span>
@@ -153,7 +153,7 @@ export default function BudgetPage() {
                                         </div>
                                     </div>
                                     <div className="sre-breakdown-item flex items-center gap-3 rounded-[10px] bg-[#f8fafc] p-3 transition-all duration-200 hover:bg-[#f1f5f9]" data-type="economic">
-                                        <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#f59e0b]"></span>
+                                        <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#e8990a]"></span>
                                         <div className="min-w-0 flex-1">
                                             <span className="block text-sm font-semibold text-[#2f3e46]">Economic Services</span>
                                             <span className="mt-[1px] block text-xs text-[#5c6b73]">Infrastructure &amp; Development</span>
@@ -164,7 +164,7 @@ export default function BudgetPage() {
                                         </div>
                                     </div>
                                     <div className="sre-breakdown-item flex items-center gap-3 rounded-[10px] bg-[#f8fafc] p-3 transition-all duration-200 hover:bg-[#f1f5f9]" data-type="debt">
-                                        <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#ef4444]"></span>
+                                        <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#b02e2e]"></span>
                                         <div className="min-w-0 flex-1">
                                             <span className="block text-sm font-semibold text-[#2f3e46]">Debt Service</span>
                                             <span className="mt-[1px] block text-xs text-[#5c6b73]">Interest &amp; Charges</span>

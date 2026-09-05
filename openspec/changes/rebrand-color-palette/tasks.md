@@ -21,12 +21,12 @@
 
 ## 4. Charts & Data Visualizations
 
-- [ ] 4.1 Update Chart.js color literals in statistics/budget/economy components to the D1 chart ramps (light and dark values per mode context) — verify each series color differs from neighbors in lightness AND hue
+- [x] 4.1 Update Chart.js color literals in statistics/budget/economy components to the D1 chart ramps (light and dark values per mode context) — verify each series color differs from neighbors in lightness AND hue
 - [ ] 4.2 Verify statistics page (43 gradients) renders correctly after sweep: bars, animated metric cards, CMCI tabs — verify tabs toggle and bars animate in dev server with no console errors
 
 ## 5. Verification & Audit
 
-- [ ] 5.1 Run legacy-hex audit: `rg -i "0032a0|003d82|002170|f77f00|0044cc|06a77d" src` must return zero matches — verify output is empty
+- [x] 5.1 Run legacy-hex audit: `rg -i "0032a0|003d82|002170|f77f00|0044cc|06a77d" src` must return zero matches — verify output is empty
 - [ ] 5.2 Run `./node_modules/.bin/tsc --noEmit` — verify zero type errors
 - [ ] 5.3 Run production build `$env:NODE_ENV="production"; ./node_modules/.bin/next build` — verify build succeeds; revert `tsconfig.tsbuildinfo` if dirtied
 - [ ] 5.4 Visual verification in dev server: homepage, services, statistics, budget, government pages in light mode, dark mode, and high-contrast mode — verify hero gradients, buttons, badges, links, and charts all render in the new palette with no blue remnants and WCAG AA pairings per design D1

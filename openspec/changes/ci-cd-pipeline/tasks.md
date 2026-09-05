@@ -11,7 +11,7 @@
 
 ## 3. Push, Merge, Bootstrap Protection
 
-- [ ] 3.1 Commit on `ci/ci-cd-pipeline`, push, open PR to `main` — verify the new `verify` check appears and passes on the PR (dogfooding the workflow), alongside the existing Vercel check
+- [x] 3.1 Commit on `ci/ci-cd-pipeline`, push, open PR to `main` — verify the new `verify` check appears and passes on the PR (dogfooding the workflow), alongside the existing Vercel check (PR #7; verify PASSED 52s; check names confirmed: `verify` + `Vercel`)
 - [ ] 3.2 After approval, merge the PR (merge commit per repo convention) — verify CI re-runs on `main` via the `push` trigger and passes
 - [ ] 3.3 Trigger `workflow_dispatch` run on `main` to establish the `verify` check name history — verify the run is green
 - [ ] 3.4 Enable branch protection on `main` requiring the `verify` check and the Vercel check (confirm exact Vercel check name from PR checks first) per design D5 — verify a fresh PR with a deliberate failure (e.g. temp branch) is blocked, then delete the temp branch

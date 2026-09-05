@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "timezone": "Asia/Manila",
-  "schedule": [],
+  "schedule": ["after 2am and before 6am every weekday"],
   "enabledManagers": ["bun", "github-actions"],
   "rangeStrategy": "bump",
   "lockFileMaintenance": {

@@ -97,14 +97,14 @@ export default function ResolutionFrameworkPage() {
                                 for policies and programs affecting the City of San Carlos.
                             </p>
                             <div className="flex flex-wrap gap-3">
-                                <Link href="/legislative" className="inline-flex items-center gap-2 rounded-lg border-2 border-primary bg-white px-6 py-3 font-semibold text-primary no-underline transition-all duration-200 hover:bg-muted hover:no-underline focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(247,127,0,0.5)] max-[767px]:px-5 max-[767px]:py-2.5 max-[767px]:text-[0.9375rem]">
+                                <Link href="/legislative" className="inline-flex items-center gap-2 rounded-lg border-2 border-primary bg-white px-6 py-3 font-semibold text-primary no-underline transition-all duration-200 hover:bg-muted hover:no-underline focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)] max-[767px]:px-5 max-[767px]:py-2.5 max-[767px]:text-[0.9375rem]">
                                     <i className="bi bi-arrow-left"></i> Back to Legislative
                                 </Link>
                                 <a
                                     href="https://www.officialgazette.gov.ph/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-lg border-2 border-primary bg-primary px-6 py-3 font-semibold text-white no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#2f6136] hover:no-underline hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(247,127,0,0.5)] max-[767px]:px-5 max-[767px]:py-2.5 max-[767px]:text-[0.9375rem]"
+                                    className="inline-flex items-center gap-2 rounded-lg border-2 border-primary bg-primary px-6 py-3 font-semibold text-white no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#2f6136] hover:no-underline hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)] max-[767px]:px-5 max-[767px]:py-2.5 max-[767px]:text-[0.9375rem]"
                                 >
                                     <i className="bi bi-box-arrow-up-right"></i> Visit SB Website
                                 </a>

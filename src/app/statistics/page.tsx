@@ -8,7 +8,7 @@ const COLORS = {
     primary: '#3a7d44',
     primaryDark: '#2f6136',
     secondary: '#275230',
-    accent: '#F77F00',
+    accent: '#e8990a',
     success: '#06A77D',
     info: '#0077BE',
 };

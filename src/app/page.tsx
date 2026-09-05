@@ -40,7 +40,7 @@ export default function HomePage() {
               <h1 className="m-0 mb-4 text-[2.5rem] leading-[1.2] text-white max-[768px]:text-[2rem]">{t('hero-welcome')}</h1>
               <p className="m-0 mb-8 text-[1.125rem] leading-[1.6] text-white/90 max-[768px]:text-base">{t('hero-subtitle')}</p>
               <div className="flex flex-wrap gap-4 max-[992px]:justify-center">
-                <Link href="/services" className="inline-flex items-center gap-2 rounded-lg border-2 border-transparent bg-white px-6 py-3 font-semibold text-primary no-underline transition-all hover:-translate-y-0.5 hover:bg-[#f8f9fa] hover:text-primary hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] hover:no-underline focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(247,127,0,0.5)]">
+                <Link href="/services" className="inline-flex items-center gap-2 rounded-lg border-2 border-transparent bg-white px-6 py-3 font-semibold text-primary no-underline transition-all hover:-translate-y-0.5 hover:bg-[#f8f9fa] hover:text-primary hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] hover:no-underline focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)]">
                   {t('hero-browse-services')} <i className="bi bi-arrow-right"></i>
                 </Link>
                 <Link href="/contact" className="inline-flex items-center gap-2 rounded-lg border-2 border-white bg-transparent px-6 py-3 font-semibold text-white no-underline transition-all hover:bg-white/15 hover:text-white hover:no-underline">

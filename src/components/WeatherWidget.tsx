@@ -180,7 +180,7 @@ export default function WeatherWidget() {
                     <p className="mb-6 text-sm text-muted-foreground">Weather data unavailable</p>
                     <button
                         type="button"
-                        className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg border-2 border-transparent bg-primary px-4 py-2 text-[0.8125rem] font-semibold text-white transition-all duration-200 hover:bg-[#2f6136] focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(247,127,0,0.5)]"
+                        className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg border-2 border-transparent bg-primary px-4 py-2 text-[0.8125rem] font-semibold text-white transition-all duration-200 hover:bg-[#2f6136] focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)]"
                         onClick={() => load(true)}
                     >
                         <i className="bi bi-arrow-clockwise" aria-hidden="true"></i> Retry

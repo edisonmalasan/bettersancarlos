@@ -9,3 +9,4 @@ public/sw.js
 public/sw.js.map
 public/swe-worker-*
 .playwright-mcp
+tsconfig.tsbuildinfo

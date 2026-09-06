@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 
 export default function InfoBar() {
   const [rate, setRate] = useState('1 USD = ₱ --');
@@ -58,8 +59,22 @@ export default function InfoBar() {
       .catch(() => { });
   }, []);
 
+  const prefersReducedMotion = useReducedMotion();
+  const { scrollY } = useScroll();
+  const collapseHeight = useTransform(scrollY, [0, 80], [36, 0]);
+  const collapseOpacity = useTransform(scrollY, [0, 50], [1, 0]);
+
   return (
-    <div className="bg-[#275230] py-1.5 font-sans text-[0.6875rem] font-normal tracking-[0.01em] text-white" role="complementary" aria-label="Real-time information">
+    <motion.div
+      style={
+        prefersReducedMotion
+          ? { overflow: 'hidden' }
+          : { height: collapseHeight, opacity: collapseOpacity, overflow: 'hidden' }
+      }
+      className="bg-[#275230] font-sans text-[0.6875rem] font-normal tracking-[0.01em] text-white"
+      role="complementary"
+      aria-label="Real-time information"
+    >
       <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
         <div className="flex flex-wrap items-center justify-end gap-6 max-[1024px]:justify-center max-[767px]:flex-nowrap max-[767px]:justify-center max-[767px]:gap-0" aria-live="polite" aria-atomic="false">
           <div className="inline-flex items-center gap-[5px] text-white max-[767px]:gap-[3px] max-[767px]:whitespace-nowrap max-[575px]:gap-0.5 max-[575px]:text-[0.625rem]" aria-label="Exchange rates">
@@ -85,6 +100,6 @@ export default function InfoBar() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

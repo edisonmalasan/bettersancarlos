@@ -440,6 +440,11 @@ body.font-xlarge {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+
+    /* Hero: static poster instead of playing video */
+    .hero-video {
+        display: none !important;
+    }
 }
 
 @media print {

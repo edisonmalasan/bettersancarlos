@@ -56,6 +56,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
         />
+        <link
+          rel="preload"
+          as="image"
+          href="/assets/videos/hero-poster.jpg"
+          fetchPriority="high"
+        />
       </head>
       <body>
         <LanguageProvider>

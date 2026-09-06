@@ -22,3 +22,10 @@ The InfoBar SHALL collapse smoothly upward (to zero height) when the user scroll
 #### Scenario: Reduced motion
 - **WHEN** the OS reports `prefers-reduced-motion: reduce`
 - **THEN** the InfoBar collapses and expands instantly without animation
+
+### Requirement: InfoBar presents as a compact centered strip
+The InfoBar SHALL render as a slim, vertically-centered, horizontally-balanced information strip (compact padding, centered items, consistent gaps and separators) rather than a secondary header, while preserving readability.
+
+#### Scenario: Visual proportions
+- **WHEN** the InfoBar renders at any width
+- **THEN** its items are vertically aligned on one line, horizontally centered as a balanced group, and the strip's height stays minimal relative to its text size

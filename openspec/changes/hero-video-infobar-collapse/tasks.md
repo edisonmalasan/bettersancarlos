@@ -24,3 +24,13 @@
 - [x] 4.2 Run production build (`$env:NODE_ENV="production"; ./node_modules/.bin/next build`) — verify success, video + poster present in `out/`, revert `tsconfig.tsbuildinfo` if dirtied (build pass; out/assets/videos contains 1826.4 KB mp4 + 73.6 KB jpg; tsbuildinfo clean)
 - [ ] 4.3 Full visual pass: desktop (video autoplays blurred behind scrim, content readable), mobile 375px (poster-only, no video bytes), reduced-motion (poster + instant InfoBar), scroll behavior (InfoBar collapse/expand, navbar stable) — verify all four and record anything deferred
 - [x] 4.4 Confirm asset budget: hero-bettersc.mp4 <= 6 MB (1.78 MB), hero-poster.jpg <= 200 KB (73.6 KB), homepage First Load JS delta from motion within reason (140 kB vs 139 kB pre-change; page size 12.2 kB vs 11.5 kB - recorded here)
+
+## 5. Refinement Pass 1 (user visual feedback)
+
+- [x] 5.1 Re-encode video with subtle blur (boxblur 12->6, CRF 26) + re-extract poster (blur 10->4) - verify footage recognizable and sizes within budget (3.27 MB / 108.8 KB)
+- [x] 5.2 Split scrim: directional dark gradient (0.62->0.15 left-to-right) + light bamboo multiply tint (0.30) replacing heavy uniform wash - verify footage clearly visible and headline AA holds
+- [x] 5.3 Hero geometry: min-h calc(100dvh-6rem) accounting for navbar + InfoBar chrome - verify next section peeks after natural scroll
+- [x] 5.4 Bottom white fade (h-24) hand-off into Popular Services surface - verify seamless seam
+- [x] 5.5 InfoBar refinement: py-1 (was missing padding entirely - root cause of tall strip), collapse height 30->26, justify-center + gap-5/4/3 centered balance - verify slim centered strip
+- [x] 5.6 Sync OpenSpec artifacts: design D1/D2/D3 amendments + D7 feedback record; spec deltas updated (footage-visibility scenario, chrome-aware geometry, harmonized transition requirement, compact-strip requirement)
+- [ ] 5.7 Automated checks re-run (tsc, build) and user browser re-approval of task 4.3

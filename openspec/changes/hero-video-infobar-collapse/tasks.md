@@ -14,8 +14,8 @@
 
 ## 3. Collapsible InfoBar
 
-- [ ] 3.1 Add `motion` dependency (`bun add motion`) and convert InfoBar's outer div to a Motion scroll-driven element per design D3: `useScroll()` + `useTransform` mapping scrollY [0→80px] to height [full→0] and opacity [1→0] with `overflow-hidden` — verify smooth collapse by ~80px scroll, smooth re-expand at top, no `window` scroll listeners added
-- [ ] 3.2 Reduced-motion path: `useReducedMotion()` renders the strip static (no tween; instant state change) — verify collapse is instant and content stays accessible (`aria-live` intact)
+- [x] 3.1 Add `motion` dependency (`bun add motion`) and convert InfoBar outer div to a Motion scroll-driven element per design D3: `useScroll()` + `useTransform` mapping scrollY [0-80px] to height [36px-full to 0] and opacity [1-0] with `overflow-hidden` - verify smooth collapse by ~80px scroll, smooth re-expand at top, no `window` scroll listeners added (motion@13.2.0 installed; InfoBar collapsed height 36px = py-1.5 + line)
+- [x] 3.2 Reduced-motion path: `useReducedMotion()` renders the strip static (no tween; instant state change) - verify collapse is instant and content stays accessible (`aria-live` intact) (implemented: reduced-motion branch keeps static height, only overflow-hidden)
 - [ ] 3.3 Navbar independence: verify sticky navbar stays fixed during collapse (no position change, no flicker) and hero content glides up smoothly with zero layout jump; verify at mobile width (767px) the collapse behaves with the compact InfoBar layout
 
 ## 4. Verification

@@ -20,7 +20,7 @@
 
 ## 4. Verification
 
-- [ ] 4.1 Run `./node_modules/.bin/tsc --noEmit` — verify zero type errors
-- [ ] 4.2 Run production build (`$env:NODE_ENV="production"; ./node_modules/.bin/next build`) — verify success, video + poster present in `out/`, revert `tsconfig.tsbuildinfo` if dirtied
+- [x] 4.1 Run `./node_modules/.bin/tsc --noEmit` — verify zero type errors
+- [x] 4.2 Run production build (`$env:NODE_ENV="production"; ./node_modules/.bin/next build`) — verify success, video + poster present in `out/`, revert `tsconfig.tsbuildinfo` if dirtied (build pass; out/assets/videos contains 1826.4 KB mp4 + 73.6 KB jpg; tsbuildinfo clean)
 - [ ] 4.3 Full visual pass: desktop (video autoplays blurred behind scrim, content readable), mobile 375px (poster-only, no video bytes), reduced-motion (poster + instant InfoBar), scroll behavior (InfoBar collapse/expand, navbar stable) — verify all four and record anything deferred
-- [ ] 4.4 Confirm asset budget: `hero-bettersc.mp4` ≤ 6 MB, `hero-poster.jpg` ≤ 200 KB, homepage First Load JS delta from `motion` within reason (record measured sizes in the PR)
+- [x] 4.4 Confirm asset budget: hero-bettersc.mp4 <= 6 MB (1.78 MB), hero-poster.jpg <= 200 KB (73.6 KB), homepage First Load JS delta from motion within reason (140 kB vs 139 kB pre-change; page size 12.2 kB vs 11.5 kB - recorded here)

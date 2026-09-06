@@ -1,118 +1,112 @@
-# Design: Full-Viewport Video Hero & Collapsible InfoBar
+﻿# Design: Full-Viewport Video Hero & Collapsible InfoBar
+
+> **Refinement Pass 1 (user feedback)** incorporated throughout — see D7. Original decisions D1-D6 stand as amended.
 
 ## Context
 
-Current hero: `src/app/page.tsx` line 37 — `<section class="bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] py-[120px]">` (~560px effective height) containing the two-column hero grid. Header is `sticky top-0 z-[1000]`; InfoBar is a normal-flow sibling below it (`bg-[#275230]`, `py-1.5`, ~28px tall), already a client component fetching FX/weather. User's trimmed source: `C:\Users\ediso\Videos\hero-bettersc-.mp4` — 40.147s, 1920x1080 h264 + AAC audio, **23.03 MB**, ~9.9 Mbps. Git-tracked `public/assets/videos/hero-bettersc.mp4` (83.5 MB original) was deleted from the working tree by the user; the re-encode replaces it. ffmpeg 9.0.1 available locally. Motion (`motion/react`) is NOT currently installed.
+Current hero: `src/app/page.tsx` — after pass 1 of apply it is `relative flex min-h-[100dvh] items-center overflow-hidden` with video (`hero-bettersc.mp4`, 1.78 MB, blur 12 baked), scrim `rgba(42,84,49,0.85)->rgba(39,82,48,0.68)`, poster underlay. InfoBar is a client component with Motion scroll-collapse (height 36px→0 over scrollY 0→80). User's visual review found: (1) scrim+blur too heavy — footage barely visible, (2) hero consumes ~110% of viewport (navbar+InfoBar+100dvh) delaying the next section, (3) abrupt hero→white-section seam, (4) InfoBar misaligned/too tall. Source asset: `C:\Users\ediso\Videos\hero-bettersc-.mp4` (40.147s, 1080p, 23 MB). ffmpeg 9.0.1 local. `motion@13.2.0` installed.
 
 ## Goals / Non-Goals
 
 **Goals:**
-- Cinematic `min-h-[100dvh]` hero with the video as background, existing hero content untouched above it
-- Readability: baked-in blur + bamboo scrim (WCAG AA over white text)
-- Asset: 40s footage preserved, audio stripped, blurred encode well under ~6 MB, poster extracted
-- Mobile <768px: poster-only (no video bytes); desktop: poster-first, video swaps in
-- InfoBar animated collapse/expand (scroll-driven), reduced-motion instant, navbar untouched
+- Cinematic footage clearly VISIBLE behind a light brand treatment (not a solid green wash)
+- Subtle blur; readability via layered gradients, not a heavy uniform scrim
+- Hero height that fits the visible viewport below navbar+InfoBar so the next section appears naturally
+- Tasteful hero→white-section transition
+- Slim, centered, balanced InfoBar (compact strip, not a secondary header)
+- Collapse behavior preserved exactly (smooth, reversible, reduced-motion instant, navbar stable)
 
 **Non-Goals:**
-- No hero content/copy/layout redesign beyond background and height
-- No Navbar changes (sticky behavior already correct)
-- No other pages get video heroes (homepage only)
-- No GitHub-hosted video/CDN change — self-hosted asset in `public/`
-- Do not re-trim or select a different segment than the user's 40s source
+- No hero content/copy changes; no navbar changes
+- No re-trimming or segment change (user's 40s source stays)
+- No decorative extras beyond the specified treatments
+- No Renovate/CI/Vercel impact
 
 ## Decisions
 
-### D1 — Asset pipeline (one-time ffmpeg, run during apply)
+### D1 — Asset pipeline (amended: subtle blur)
 
-Source: `C:\Users\ediso\Videos\hero-bettersc-.mp4` (40.147s, 1080p, has AAC audio).
+Original pass used `boxblur=12:2` (too destructive). Refinement:
 
 ```
-Pass 1 (video, blur baked in, muted):
 ffmpeg -i hero-bettersc-.mp4 -an
-  -vf "boxblur=12:2,scale=1280:-2"          <- blur then downscale (blur hides artifacts)
-  -c:v libx264 -crf 27 -preset slow
+  -vf "boxblur=6:1,scale=1280:-2"
+  -c:v libx264 -crf 26 -preset slow
   -movflags +faststart -pix_fmt yuv420p
   hero-bettersc.mp4
-Pass 2 (poster, sharp-ish for LCP):
-ffmpeg -ss 2 -i hero-bettersc-.mp4 -frames:v 1
-  -vf "boxblur=10:1,scale=1600:-2" -q:v 4 hero-poster.jpg
 ```
 
-- Blur ~10-12px baked into footage: guarantees readability at ANY frame, compresses drastically (flat regions), and removes any runtime CSS `filter: blur()` GPU cost
-- Downscale 1080p → 1280w: behind a scrim + blur, indistinguishable at 1440p viewports
-- CRF 27 + preset slow: quality floor for blurred content; expect **~3-5 MB** for 40s (from 23 MB)
-- `-an`: audio stripped (user already edited muted content; guaranteed silent)
-- `+faststart`: moov atom up front for streaming playback
-- Poster: slight blur + scrim-friendly frame (t=2s), JPEG q4, target <150 KB
-- Replace `public/assets/videos/hero-bettersc.mp4` with the encode; add `public/assets/videos/hero-poster.jpg`; commit both (old 83 MB blob stays in history — acceptable, already there)
+- Blur reduced 12→6 (subtle softening, footage remains legible)
+- CRF 26 (light blur compresses worse than heavy blur — accept ~2-4 MB; ceiling still 8 MB)
+- Poster re-extracted to match: `boxblur=4:1`, t=2s, 1600w, q:v 4
+- Everything else (mute, faststart, yuv420p, 40.147s duration) unchanged
 
-**Alternative rejected:** runtime CSS `backdrop-filter`/`filter: blur()` on the video element — GPU cost on scroll/perf-sensitive mobile, and doesn't reduce file size.
+**Alternative rejected:** runtime CSS blur (GPU cost on mobile) — remains rejected from the original design.
 
-### D2 — Hero geometry & markup
+### D2 — Hero geometry, layering, and section transition (amended)
 
 ```tsx
-<section className="relative flex min-h-[100dvh] items-center overflow-hidden py-24 ...">
-  {/* video: desktop only */}
-  <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline
-         preload="metadata" poster="/assets/videos/hero-poster.jpg" aria-hidden="true" tabIndex={-1} />
-  {/* scrim */}
-  <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(42,84,49,0.82)_0%,rgba(39,82,48,0.66)_100%)]" aria-hidden="true" />
-  {/* existing content grid, wrapped in relative z-[1] container */}
+<section className="relative flex min-h-[calc(100dvh-6rem)] items-center overflow-hidden
+                    bg-cover bg-center bg-[url('/assets/videos/hero-poster.jpg')] py-24">
+  <video ... className="hero-video absolute inset-0 h-full w-full object-cover hidden min-[768px]:block" />
+  {/* R1 scrim: light brand wash, denser toward the headline (left) */}
+  <div className="absolute inset-0
+      bg-[linear-gradient(100deg,rgba(23,34,27,0.62)_0%,rgba(23,34,27,0.34)_45%,rgba(23,34,27,0.15)_100%)]" />
+  {/* R1 brand tint (bamboo, uniform, light) */}
+  <div className="absolute inset-0 bg-[rgba(39,82,48,0.30)] mix-blend-multiply" />
+  {/* R3 bottom hand-off to the white next section */}
+  <div className="absolute inset-x-0 bottom-0 h-24
+      bg-[linear-gradient(to_bottom,rgba(255,255,255,0),#ffffff)]" />
+  <div className="relative z-[1] {containerCls}"> ...existing content... </div>
 </section>
 ```
 
-- `min-h-[100dvh]` + `flex items-center`: content vertically centered in the *visible* viewport; `100dvh` tracks mobile address-bar collapse
-- Sticky navbar overlays the top of the viewport — hero content clears it via `items-center` + generous padding; navbar itself is opaque white, no transparency juggling
-- Scrim: bamboo-family gradient at ~66-82% opacity — preserves brand over any frame; exact opacity tuned during apply against WCAG (verify with contrast check on the lightest frame)
-- `overflow-hidden` guards the blurred edges
-- Mobile <768px: video element NOT rendered (CSS-hidden at the markup level via `hidden min-[768px]:block` — conditional render preferred if trivially checkable; poster path: section keeps `bg-[url('/assets/videos/hero-poster.jpg')] bg-cover bg-center` layered under the scrim so <768px never downloads video bytes
-- `prefers-reduced-motion`: video hidden, poster path active (CSS `@media (prefers-reduced-motion: reduce) { .hero-video { display: none } }` plus the mobile bg class always present beneath)
+- **R2 height**: `min-h-[calc(100dvh-6rem)]` — 6rem (96px) ≈ sticky navbar (~64px) + InfoBar (~28px) + hairline; hero + visible chrome now ≈ one viewport, so the white section peeks after a natural first scroll. `flex items-center` retained (content centers in the remaining space)
+- **R1 scrim split**: replaced the single heavy bamboo wash with (a) a directional dark gradient — densest (0.62) behind the white headline at left, lightening to 0.15 on the right where the opaque white search card provides its own contrast surface — plus (b) a light uniform bamboo tint (0.30 multiply) that keeps brand identity without flattening the footage
+- **R3 transition**: 96px white fade strip pinned to the hero's bottom edge — hands off into the Popular Services section (whose surface is `#ffffff`) with no seam
+- WCAG AA check applies to the headline zone (densest area ≈ 0.62 dark + 0.30 bamboo over footage); verified visually against the lightest frame during apply
+- Video `autoPlay muted loop playsInline preload="metadata" aria-hidden tabIndex={-1}`; hidden <768px and under reduced motion (`.hero-video` display none) — unchanged from original apply
 
-LCP: poster is preloaded in `layout.tsx`/page head (`<link rel="preload" as="image">` via Next metadata or explicit `<link>`) — the video is `preload="metadata"` so it never fights the poster.
+### D3 — InfoBar collapse (amended: compact bar)
 
-### D3 — InfoBar collapse: Motion (added dependency) over hand-rolled
+- Strip slimmed: `py-1.5` → `py-1` (rendered height ~28px), items horizontally **centered** (`justify-center` at all widths — was right-aligned), separators unchanged (`border-l white/15`), single-line layout preserved
+- Motion mapping updated to the new geometry: scrollY [0→80] ⇒ height [**30**→0], opacity [0→50] ⇒ [1→0] (was 36→0)
+- Everything else stands: Motion values only (no scroll listeners), `useReducedMotion` renders static strip (instant), navbar untouched, `aria-live` region intact
 
-Add `motion` (Motion for React, `motion/react`). InfoBar becomes a scroll-aware client component:
+### D4 — Reduced motion & a11y
 
-```tsx
-const { scrollY } = useScroll();
-const height = useTransform(scrollY, [0, 80], [BAR_H, 0]);
-const opacity = useTransform(scrollY, [0, 60], [1, 0]);
-// <motion.div style={{ height, opacity, overflow: 'hidden' }}>
-```
+Unchanged: video `aria-hidden tabIndex={-1}`; poster under reduced motion; scrim contrast AA in the headline zone; InfoBar instant collapse; skip-link/focus order untouched.
 
-- Motion value-driven (no `window` scroll listeners, no setState per frame — skill-mandated)
-- Threshold ~80px: InfoBar fully collapsed by the time the hero's first rows scroll past; re-expands identically on reverse
-- `overflow: hidden` + animated height: content below (hero) glides up smoothly — no jump because the height change is continuous
-- `useReducedMotion()` → render plain static div (collapse instant/no animation or keep static — instant, per spec)
-- Navbar untouched: it is `sticky` and sits above; InfoBar collapse happens beneath it in flow
+### D5 — Dependency-bot posture
 
-**Alternative rejected:** CSS-only `animation-timeline: scroll()` — browser support still patchy for production confidence; Motion is the skill's sanctioned library and future-proof for further header polish. If bundle weight becomes a concern, `motion`'s `m` + LazyMotion trims it (apply-time detail).
+N/A to this change (covered by `ci-cd-pipeline`, archived).
 
-### D4 — Reduced motion & a11y summary
+### D6 — First-run bootstrap ordering
 
-- Hero: `aria-hidden` on video + scrim; poster under reduced motion; contrast AA enforced by scrim opacity
-- InfoBar: `useReducedMotion` → instant state, no tween; content remains accessible (`aria-live` region preserved)
-- Keyboard: video `tabIndex={-1}`; hero content focus order unchanged
+N/A to this change (protection already bootstrapped).
+
+### D7 — Refinement pass 1 (user feedback record)
+
+User visual review rejected pass 1 of apply: "mostly solid green background with barely recognizable video", "100dvh consumes too much space", "abrupt hero→white seam", "InfoBar misaligned/too tall". Amendments: D1 (blur 12→6, CRF 27→26), D2 (scrim split into directional dark + light bamboo multiply; height calc 100dvh→calc(100dvh-6rem); bottom white fade), D3 (py-1, centered, height 36→30). Spec deltas updated (hero-media: geometry + footage-visibility scenarios; infobar-collapse: compact/centered wording). Tasks 5.x added.
 
 ## Risks / Trade-offs
 
-- [Compressed blurred video looks muddy on huge screens] → 1280w behind scrim+blur is a texture, not detail content; quality check at 1440p during apply
-- [Bamboo scrim alters footage mood] → scrim opacity is the tuning knob (0.6-0.85 range); pick lowest that passes AA on the lightest frame
-- [Motion dependency adds client JS] → LazyMotion/m variant available; alternative CSS-only fallback recorded if it measures heavy
-- [iOS Safari `100dvh` + sticky address-bar jumps] → `100dvh` is the fix (not `100vh`); verify on iOS profile during apply
-- [Video file still large after encode] → hard ceiling: if >8 MB at CRF 27, step to CRF 29 / 960w; do not exceed 8 MB
-- [Poster/video flash-of-content] → poster always painted first (it's the section bg on mobile AND video `poster` attr on desktop); video fades/starts only when ready
-- [Old 83 MB blob remains in git history] → accepted (already public history); future: bfg/lfs if repo weight matters
+- [Lighter blur exposes footage detail/compression artifacts] → CRF 26 + 1280w behind light scrim holds up; quality check at 1440p during apply
+- [Lighter scrim risks AA failure on bright frames] → directional gradient keeps 0.62 density over the headline zone; contrast verified against lightest frame; search card is opaque white (self-sufficient)
+- [calc(100dvh-6rem) mismatch on short viewports] → content is flex-centered with py-24 floor; worst case hero slightly shorter/taller than perfect fit — acceptable, no cut content
+- [Bottom white fade over poster on mobile] → fade also covers poster path (same layer stack) — intended, harmonized on mobile too
+- [InfoBar collapse height var drifts from rendered height] → heights hardcoded 30/0; if content wraps at extreme widths the strip clips — watch 480px during apply
+- [Motion dependency adds client JS] → measured: homepage First Load 140 kB (was 139 kB) — negligible
 
 ## Migration Plan
 
-1. Encode assets (D1) → verify sizes + loop seam visually
-2. Hero markup + scrim + poster preload (D2) → desktop/mobile/reduced-motion visual check + contrast check
-3. Install `motion`, InfoBar collapse (D3) → scroll behavior + reduced-motion check
+1. Re-encode video + poster (D1) → size + quality check
+2. Hero layering/geometry edits (D2) → desktop/mobile/transition checks
+3. InfoBar compact + centered (D3) → collapse behavior re-check
 4. `tsc --noEmit` + production build + CI on PR
-5. Rollback: revert PR (asset + markup are additive; InfoBar reverts to static strip)
+5. User visual approval → mark 4.3 → archive
+6. Rollback: revert PR
 
 ## Open Questions
 
-None — all decisions confirmed by the user (Option B both features; 40s source preserved; audio stripped; mobile poster fallback; cinematic full viewport).
+None — all five refinement areas have approved direction; implementation is in-flight.

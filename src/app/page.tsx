@@ -34,7 +34,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative flex min-h-[100dvh] items-center overflow-hidden bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] bg-cover bg-center py-28 max-[767px]:py-20 bg-[url('/assets/videos/hero-poster.jpg')]">
+      <section className="relative flex min-h-[calc(100dvh-6rem)] items-center overflow-hidden bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] bg-cover bg-center py-24 max-[767px]:py-20 bg-[url('/assets/videos/hero-poster.jpg')]">
         <video
           className="hero-video absolute inset-0 h-full w-full object-cover max-[767px]:hidden"
           src="/assets/videos/hero-bettersc.mp4"
@@ -47,7 +47,9 @@ export default function HomePage() {
           aria-hidden="true"
           tabIndex={-1}
         />
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(42,84,49,0.85)_0%,rgba(39,82,48,0.68)_100%)]" aria-hidden="true"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(23,34,27,0.62)_0%,rgba(23,34,27,0.34)_45%,rgba(23,34,27,0.15)_100%)]" aria-hidden="true"></div>
+        <div className="absolute inset-0 bg-[rgba(39,82,48,0.30)] mix-blend-multiply" aria-hidden="true"></div>
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-[linear-gradient(to_bottom,rgba(255,255,255,0),#ffffff)]" aria-hidden="true"></div>
         <div className={containerCls + " relative z-[1]"}>
           <div className="grid grid-cols-2 items-center gap-12 max-[992px]:grid-cols-1 max-[992px]:gap-8">
             <div className="max-[992px]:text-center">

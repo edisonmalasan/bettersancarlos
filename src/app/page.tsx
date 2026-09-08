@@ -49,7 +49,6 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(23,34,27,0.62)_0%,rgba(23,34,27,0.34)_45%,rgba(23,34,27,0.15)_100%)]" aria-hidden="true"></div>
         <div className="absolute inset-0 bg-[rgba(39,82,48,0.30)] mix-blend-multiply" aria-hidden="true"></div>
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-[linear-gradient(to_bottom,rgba(255,255,255,0),#ffffff)]" aria-hidden="true"></div>
         <div className={containerCls + " relative z-[1]"}>
           <div className="grid grid-cols-2 items-center gap-12 max-[992px]:grid-cols-1 max-[992px]:gap-8">
             <div className="max-[992px]:text-center">

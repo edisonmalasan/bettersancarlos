@@ -169,12 +169,19 @@ export default function InfoBar() {
                 className="bi bi-calendar3 text-xs leading-none text-[#ffff00] max-[575px]:text-[0.6875rem]"
                 aria-hidden="true"
               />
-              <span className="font-normal text-white">{dateStr}</span>
+              {/* Live Manila clock: intentionally differs from the SSR HTML, so
+              suppress the hydration warning — the 1s ticker owns this content. */}
+              <span className="font-normal text-white" suppressHydrationWarning>{dateStr}</span>
               <span className="mx-0.5 text-[0.5rem] text-white max-[767px]:mx-px" aria-hidden="true">
                 •
               </span>
               <i className="bi bi-clock text-xs leading-none text-[#ffff00] max-[575px]:text-[0.6875rem]" aria-hidden="true" />
-              <span className="font-medium tabular-nums text-white">{timeStr}</span>
+              <span
+                className="font-medium tabular-nums text-white"
+                suppressHydrationWarning
+              >
+                {timeStr}
+              </span>
               <span className="text-[0.625rem] font-normal uppercase tracking-[0.5px] text-white max-[575px]:text-[0.5625rem]">
                 PHT
               </span>

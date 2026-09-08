@@ -40,8 +40,21 @@ export default function PWAManager() {
     };
     window.addEventListener('beforeinstallprompt', onBeforeInstall);
 
-    // Service worker registration + update detection
-    if ('serviceWorker' in navigator) {
+    // Service worker registration + update detection.
+    // Dev guard: public/sw.js is a production build artifact with an embedded
+    // precache manifest. Registering it on localhost would let a stale worker
+    // serve cached old HTML/chunks and mask local changes — so in development
+    // we skip registration and actively unregister any leftover worker/caches.
+    if (process.env.NODE_ENV === 'development') {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then((regs) => {
+          regs.forEach((reg) => reg.unregister());
+        });
+      }
+      if ('caches' in window) {
+        caches.keys().then((keys) => keys.forEach((key) => caches.delete(key)));
+      }
+    } else if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js').then((reg) => {
         setInterval(() => reg.update(), 30 * 60 * 1000);
 

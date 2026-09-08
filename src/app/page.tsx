@@ -34,8 +34,23 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] py-[120px]">
-        <div className={containerCls}>
+      <section className="relative flex min-h-[calc(100dvh-6rem)] items-center overflow-hidden bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] bg-cover bg-center py-24 max-[767px]:py-20 bg-[url('/assets/videos/hero-poster.jpg')]">
+        <video
+          className="hero-video absolute inset-0 h-full w-full object-cover max-[767px]:hidden"
+          src="/assets/videos/hero-bettersc.mp4"
+          poster="/assets/videos/hero-poster.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(23,34,27,0.62)_0%,rgba(23,34,27,0.34)_45%,rgba(23,34,27,0.15)_100%)]" aria-hidden="true"></div>
+        <div className="absolute inset-0 bg-[rgba(39,82,48,0.30)] mix-blend-multiply" aria-hidden="true"></div>
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-[linear-gradient(to_bottom,rgba(255,255,255,0),#ffffff)]" aria-hidden="true"></div>
+        <div className={containerCls + " relative z-[1]"}>
           <div className="grid grid-cols-2 items-center gap-12 max-[992px]:grid-cols-1 max-[992px]:gap-8">
             <div className="max-[992px]:text-center">
               <h1 className="m-0 mb-4 text-[2.5rem] leading-[1.2] text-white max-[768px]:text-[2rem]">{t('hero-welcome')}</h1>

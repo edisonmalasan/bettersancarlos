@@ -67,11 +67,12 @@ ffmpeg -i hero-bettersc-.mp4 -an
 - WCAG AA check applies to the headline zone (densest area ≈ 0.62 dark + 0.30 bamboo over footage); verified visually against the lightest frame during apply
 - Video `autoPlay muted loop playsInline preload="metadata" aria-hidden tabIndex={-1}`; hidden <768px and under reduced motion (`.hero-video` display none) — unchanged from original apply
 
-### D3 — InfoBar collapse (amended: compact bar)
+### D3 — InfoBar collapse (amended: compact bar, right-aligned, no Motion)
 
-- Strip slimmed: `py-1.5` → `py-1` (rendered height ~28px), items horizontally **centered** (`justify-center` at all widths — was right-aligned), separators unchanged (`border-l white/15`), single-line layout preserved
-- Motion mapping updated to the new geometry: scrollY [0→80] ⇒ height [**30**→0], opacity [0→50] ⇒ [1→0] (was 36→0)
-- Everything else stands: Motion values only (no scroll listeners), `useReducedMotion` renders static strip (instant), navbar untouched, `aria-live` region intact
+- Strip slimmed: `py-1` equivalent (rendered height ~26px), items right-aligned on desktop (`justify-end` — the original site layout; refinement pass 1's `justify-center` was user-rejected), centered ≤1024px, separators unchanged (`border-l white/15`), single-line layout preserved
+- **Collapse mechanism (amended in pass 2)**: Motion/react removed from InfoBar (and uninstalled — it was only used here). Replaced by a client-safe IntersectionObserver: a zero-height sentinel just below the sticky navbar leaves the viewport after ~80px scroll ⇒ strip collapses (`max-height`/`opacity`/`padding` CSS transition, 300ms); re-enters at the top ⇒ re-expands. No `window` scroll listeners. All live-data effects (Asia/Manila clock @1s with interval cleanup, exchange-rate fetch, weather fetch, placeholder fallbacks) are unchanged and populate after hydration.
+- Reduced motion: globals.css already zeroes `transition-duration` globally (`0.01ms`), so the collapse is instant for reduced-motion users — no JS branch needed
+- Navbar untouched, `aria-live` region intact
 
 ### D4 — Reduced motion & a11y
 
@@ -88,6 +89,12 @@ N/A to this change (protection already bootstrapped).
 ### D7 — Refinement pass 1 (user feedback record)
 
 User visual review rejected pass 1 of apply: "mostly solid green background with barely recognizable video", "100dvh consumes too much space", "abrupt hero→white seam", "InfoBar misaligned/too tall". Amendments: D1 (blur 12→6, CRF 27→26), D2 (scrim split into directional dark + light bamboo multiply; height calc 100dvh→calc(100dvh-6rem); bottom white fade), D3 (py-1, centered, height 36→30). Spec deltas updated (hero-media: geometry + footage-visibility scenarios; infobar-collapse: compact/centered wording). Tasks 5.x added.
+
+### D8 — Refinement pass 2 (user feedback record)
+
+User browser review of pass 1 found two InfoBar regressions: (1) centering was NOT wanted — the desktop strip must stay right-aligned as before (this amends D3/D7's "centered" decision; spec delta reworded to right-aligned desktop / centered ≤1024px); (2) placeholders appeared to persist in the browser (rate/temp/date/time). Investigation: the interrupted IntersectionObserver edit had applied cleanly; all live-data effects were intact. Headless-browser verification (real-time Chrome via CDP) proved hydration populates all four values (rate, temp, date, clock, PHT), so the placeholders the user saw were a stale/halted dev-server session from the interrupted edit, not a code defect. Collapse was re-verified working (expand at top ⇔ collapsed past ~80px). Motion was uninstalled (zero remaining imports; First Load JS 140→104 kB). Pre-existing, out-of-scope finding recorded: `dotlottie-player.mjs` is loaded via `next/script` as a classic script, causing an unrelated "Cannot use import statement outside a module" console error on every page (also present on the deployed production site).
+
+Pass-2 addendum (user review of the deployed pre-branch build): the strip's text sat ~2px above optical center (line-box + Inter font metrics) and the user read the strip against the taller pre-branch bar as "content at the top". Fix: `leading-none` on the strip and its icons (line box now hugs glyphs, making flex centering symmetric), explicit `flex items-center` on the strip and inner container, padding 6px, rendered height ~24.5px desktop / 23.6px mobile (single line). Measured ink gaps after fix: 8.3px above / 8.2px below (was 9.7/12.0 on the deployed build). Also: `PWAManager` now skips service-worker registration in development and unregisters any leftover worker/caches — a stale production `sw.js` precache on localhost was serving old markup and masking local changes during review.
 
 ## Risks / Trade-offs
 

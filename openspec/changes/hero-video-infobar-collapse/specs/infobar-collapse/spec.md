@@ -23,9 +23,17 @@ The InfoBar SHALL collapse smoothly upward (to zero height) when the user scroll
 - **WHEN** the OS reports `prefers-reduced-motion: reduce`
 - **THEN** the InfoBar collapses and expands instantly without animation
 
-### Requirement: InfoBar presents as a compact centered strip
-The InfoBar SHALL render as a slim, vertically-centered, horizontally-balanced information strip (compact padding, centered items, consistent gaps and separators) rather than a secondary header, while preserving readability.
+### Requirement: InfoBar presents as a compact right-aligned strip
+The InfoBar SHALL render as a slim, vertically-centered information strip (compact padding, single-line items, consistent gaps and separators) rather than a secondary header, with its items right-aligned on desktop widths (the original site layout) and centered on tablet/mobile widths, while preserving readability.
 
 #### Scenario: Visual proportions
-- **WHEN** the InfoBar renders at any width
-- **THEN** its items are vertically aligned on one line, horizontally centered as a balanced group, and the strip's height stays minimal relative to its text size
+- **WHEN** the InfoBar renders on a desktop viewport (>1024px)
+- **THEN** its items are vertically aligned on one line and right-aligned as a group, and the strip's height stays minimal relative to its text size (~26px)
+
+#### Scenario: Compact widths
+- **WHEN** the InfoBar renders at tablet or mobile widths (≤1024px)
+- **THEN** its items remain on one line, horizontally centered, with tightened gaps
+
+#### Scenario: Live data
+- **WHEN** the page has hydrated in the browser
+- **THEN** the USD→PHP exchange rate, San Carlos temperature, and Philippine date/time populate from their live client-side sources, and PHT remains visible

@@ -2,34 +2,56 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-export default function InfoBar() {
-  const [rate, setRate] = useState('1 USD = ₱ --');
-  const [temp, setTemp] = useState('--°C');
-  const [dateStr, setDateStr] = useState('--- --, ----');
-  const [timeStr, setTimeStr] = useState('--:-- --');
+const MONTHS = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
 
-  const updateClock = useCallback(() => {
+const DATE_FALLBACK = '--- --, ----';
+const TIME_FALLBACK = '--:-- --';
+
+// Manila wall-clock formatted exactly as the live ticker renders it. Runs
+// synchronously (no network needed), so it is used for the initial state to
+// avoid flashing the `--` placeholders on first paint before the interval
+// effect fires. Falls back to the placeholders if the `timeZone` option is
+// unsupported rather than throwing during render.
+function getManilaNow(): { dateStr: string; timeStr: string } {
+  try {
     const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
-    const months = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ];
-    setDateStr(`${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`);
     let h = now.getHours();
     const m = now.getMinutes();
     const ampm = h >= 12 ? 'PM' : 'AM';
     h = h % 12 || 12;
-    setTimeStr(`${h}:${m < 10 ? '0' + m : m} ${ampm}`);
+    return {
+      dateStr: `${MONTHS[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`,
+      timeStr: `${h}:${m < 10 ? '0' + m : m} ${ampm}`,
+    };
+  } catch {
+    // timeZone formatting unsupported: keep placeholders; the interval below retries.
+    return { dateStr: DATE_FALLBACK, timeStr: TIME_FALLBACK };
+  }
+}
+
+export default function InfoBar() {
+  const [rate, setRate] = useState('1 USD = ₱ --');
+  const [temp, setTemp] = useState('--°C');
+  const [dateStr, setDateStr] = useState(() => getManilaNow().dateStr);
+  const [timeStr, setTimeStr] = useState(() => getManilaNow().timeStr);
+
+  const updateClock = useCallback(() => {
+    const { dateStr: nextDate, timeStr: nextTime } = getManilaNow();
+    setDateStr(nextDate);
+    setTimeStr(nextTime);
   }, []);
 
   useEffect(() => {
@@ -39,10 +61,18 @@ export default function InfoBar() {
   }, [updateClock]);
 
   useEffect(() => {
+    let mounted = true;
+
     fetch('https://open.er-api.com/v6/latest/USD')
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(`exchange-rate request failed: ${r.status}`);
+        return r.json();
+      })
       .then((data) => {
-        if (data?.rates?.PHP) setRate(`1 USD = ₱ ${data.rates.PHP.toFixed(2)}`);
+        // Coerce via Number so a numeric-string payload still renders instead of
+        // throwing on `.toFixed` and sticking at the `--` placeholder.
+        const php = Number(data?.rates?.PHP);
+        if (mounted && Number.isFinite(php)) setRate(`1 USD = ₱ ${php.toFixed(2)}`);
       })
       .catch(() => {
         // API/network failure: keep the placeholder rather than faking a value.
@@ -51,15 +81,23 @@ export default function InfoBar() {
     fetch(
       'https://api.open-meteo.com/v1/forecast?latitude=15.928&longitude=120.349&current_weather=true'
     )
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(`weather request failed: ${r.status}`);
+        return r.json();
+      })
       .then((data) => {
-        if (data?.current_weather?.temperature != null) {
-          setTemp(`${Math.round(data.current_weather.temperature)}°C`);
+        const celsius = Number(data?.current_weather?.temperature);
+        if (mounted && Number.isFinite(celsius)) {
+          setTemp(`${Math.round(celsius)}°C`);
         }
       })
       .catch(() => {
         // API/network failure: keep the placeholder rather than faking a value.
       });
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   // Scroll-driven collapse without Motion: a zero-height sentinel at the very top
@@ -96,7 +134,7 @@ export default function InfoBar() {
       >
         <div className="mx-auto flex w-full items-center max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
           <div
-            className="flex flex-nowrap items-center justify-end gap-5 max-[1024px]:justify-center max-[1024px]:gap-4 max-[767px]:flex-nowrap max-[767px]:justify-center max-[767px]:gap-3"
+            className="flex w-full flex-nowrap items-center justify-end gap-5 max-[1024px]:justify-center max-[1024px]:gap-4 max-[767px]:flex-nowrap max-[767px]:justify-center max-[767px]:gap-3"
             aria-live="polite"
             aria-atomic="false"
           >

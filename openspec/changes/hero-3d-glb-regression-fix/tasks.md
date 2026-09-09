@@ -10,7 +10,7 @@
 
 ## 3. Build verification & delivery
 
-- [ ] 3.1 Run `./node_modules/.bin/tsc --noEmit` — must pass with no errors; revert `tsconfig.tsbuildinfo` if dirtied
-- [ ] 3.2 Run `$env:NODE_ENV="production"; ./node_modules/.bin/next build` — must succeed; revert `tsconfig.tsbuildinfo` and any dirtied `next-env.d.ts` before finishing
-- [ ] 3.3 Commit with Conventional Commits message (`fix: replace hero 3D logo GLB with web-optimized derivative (50.4 MB -> ~2.6 MB)`) touching only `public/assets/models/san-carlos-logo-3d.glb` and the openspec change artifacts — verify `git show --stat` lists exactly those files; push the branch
-- [ ] 3.4 Report completion via `worker_done` with final derivative size and the file list; coordinator handles PR, merge, sync, and archive
+- [x] 3.1 Run `./node_modules/.bin/tsc --noEmit` — must pass with no errors; revert `tsconfig.tsbuildinfo` if dirtied
+- [x] 3.2 Run `$env:NODE_ENV="production"; ./node_modules/.bin/next build` — must succeed; revert `tsconfig.tsbuildinfo` and any dirtied `next-env.d.ts` before finishing
+- [x] 3.3 Commit with Conventional Commits message (`fix: replace hero 3D logo GLB with web-optimized derivative (50.4 MB -> ~2.6 MB)`) touching only `public/assets/models/san-carlos-logo-3d.glb` and the openspec change artifacts — verify `git show --stat` lists exactly those files; push the branch
+- [x] 3.4 Report completion via `worker_done` with final derivative size and the file list; coordinator handles PR, merge, sync, and archive

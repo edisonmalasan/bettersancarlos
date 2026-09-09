@@ -15,7 +15,7 @@ export default function BudgetPage() {
                 ]}
             />
 
-            <section className="animate-on-scroll bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[30px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
+            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
                     <div className="mb-8 flex flex-wrap items-start justify-between gap-6 max-[991px]:flex-col">
                         <div className="min-w-[280px] flex-1">
@@ -189,7 +189,7 @@ export default function BudgetPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[30px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
+            <section className="bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
                     <div className="mb-10 text-center">
                         <h2 className="mb-1! text-2xl! font-bold text-foreground max-[767px]:text-[1.375rem]! max-[575px]:text-[1.25rem]!">Infrastructure Investments</h2>
@@ -341,7 +341,7 @@ export default function BudgetPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[30px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
+            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
                     <div className="mb-10 text-center">
                         <h2 className="mb-1! text-2xl! font-bold text-foreground max-[767px]:text-[1.375rem]! max-[575px]:text-[1.25rem]!">DPWH Infrastructure Projects in San Carlos</h2>

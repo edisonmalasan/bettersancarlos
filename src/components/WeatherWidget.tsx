@@ -175,10 +175,10 @@ export default function WeatherWidget() {
                     <div className={`h-4 w-[70px] rounded-md ${shimmer}`}></div>
                 </div>
                 <div className="mt-auto flex justify-between gap-1.5 pt-6 max-[767px]:justify-start max-[767px]:overflow-x-auto max-[767px]:pb-1 max-[767px]:[scrollbar-width:none] max-[767px]:[&::-webkit-scrollbar]:hidden">
-                    <div className={`h-[72px] min-w-0 flex-1 rounded-[10px] ${shimmer}`}></div>
-                    <div className={`h-[72px] min-w-0 flex-1 rounded-[10px] ${shimmer}`}></div>
-                    <div className={`h-[72px] min-w-0 flex-1 rounded-[10px] ${shimmer}`}></div>
-                    <div className={`h-[72px] min-w-0 flex-1 rounded-[10px] ${shimmer}`}></div>
+                    <div className={`h-[72px] min-w-0 flex-1 rounded-lg ${shimmer}`}></div>
+                    <div className={`h-[72px] min-w-0 flex-1 rounded-lg ${shimmer}`}></div>
+                    <div className={`h-[72px] min-w-0 flex-1 rounded-lg ${shimmer}`}></div>
+                    <div className={`h-[72px] min-w-0 flex-1 rounded-lg ${shimmer}`}></div>
                 </div>
             </div>
         );
@@ -192,7 +192,7 @@ export default function WeatherWidget() {
                     <p className="mb-6 text-sm text-muted-foreground">Weather data unavailable</p>
                     <button
                         type="button"
-                        className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg border-2 border-transparent bg-primary px-4 py-2 text-[0.8125rem] font-semibold text-white transition-all duration-200 hover:bg-[#2f6136] focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)]"
+                        className="inline-flex cursor-pointer items-center gap-1.5 rounded-lg border-2 border-transparent bg-primary px-4 py-2 text-[0.8125rem] font-semibold text-white transition-[background-color,box-shadow] duration-200 hover:bg-primary-dark active:scale-[0.97] focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)]"
                         onClick={() => load(true)}
                     >
                         <i className="bi bi-arrow-clockwise" aria-hidden="true"></i> Retry
@@ -203,7 +203,7 @@ export default function WeatherWidget() {
     }
 
     return (
-        <div className="group flex h-full flex-col rounded-2xl border border-[rgba(0,0,0,0.06)] bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_8px_24px_rgba(0,0,0,0.06)] max-[767px]:rounded-xl max-[767px]:p-6" role="region" aria-label="Current weather in San Carlos">
+        <div className="group flex h-full flex-col rounded-2xl border border-line bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)] transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_8px_24px_rgba(0,0,0,0.06)] max-[767px]:rounded-xl max-[767px]:p-6" role="region" aria-label="Current weather in San Carlos">
             <div className="flex items-start gap-6 pb-6 max-[767px]:justify-start">
             <div className="text-[3rem] leading-none text-primary opacity-90 transition-transform duration-300 group-hover:scale-105 max-[767px]:text-[2.5rem]" aria-hidden="true">
                 <AnimatedIcon
@@ -249,7 +249,7 @@ export default function WeatherWidget() {
             {data.hourly.length > 0 && (
                 <div className="mt-auto flex justify-between gap-1.5 pt-6 max-[767px]:justify-start max-[767px]:overflow-x-auto max-[767px]:pb-1 max-[767px]:[scrollbar-width:none] max-[767px]:[&::-webkit-scrollbar]:hidden" role="list" aria-label="Hourly forecast">
                     {data.hourly.map((h, i) => (
-                        <div className="flex min-w-0 flex-1 flex-col items-center gap-1 rounded-[10px] bg-muted px-2.5 py-2 transition-all duration-200 hover:-translate-y-px hover:bg-[rgba(58, 125, 68,0.06)] max-[767px]:min-w-16 max-[767px]:flex-none" role="listitem" key={i}>
+                        <div className="flex min-w-0 flex-1 flex-col items-center gap-1 rounded-lg bg-muted px-2.5 py-2 transition-[background-color,transform] duration-200 hover:-translate-y-px hover:bg-[rgba(58, 125, 68,0.06)] max-[767px]:min-w-16 max-[767px]:flex-none" role="listitem" key={i}>
                             <span className="text-[0.625rem] font-medium uppercase tracking-[0.3px] text-muted-foreground">{h.time}</span>
                             <i className={`bi ${h.icon} text-base text-primary opacity-85`} aria-hidden="true"></i>
                             <span className="text-[0.8125rem] font-semibold text-foreground">{h.temp}°</span>

@@ -18,7 +18,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="site-footer bg-[linear-gradient(180deg,#2f3e46_0%,#111111_100%)] text-white">
+    <footer className="site-footer bg-[#2f3e46] text-white">
       <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
         <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 border-b border-white/[0.08] py-[60px] pb-10 max-[991px]:grid-cols-2 max-[991px]:gap-10 max-[575px]:grid-cols-1 max-[575px]:gap-8 max-[575px]:py-10 max-[575px]:pb-8">
           <div className="max-w-[320px] max-[991px]:col-[1/-1] max-[991px]:max-w-full max-[991px]:text-left max-[575px]:flex max-[575px]:flex-col max-[575px]:items-center max-[575px]:text-center">
@@ -32,38 +32,12 @@ export default function Footer() {
               decoding="async"
             />
             <p className="m-0 mb-6 text-sm leading-[1.6] text-white/70 max-[575px]:text-center">{t('footer-tagline')}</p>
-            <div className="hidden">
-              <a
-                href="https://www.facebook.com/bettersancarlos"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-              >
-                <i className="bi bi-facebook"></i>
-              </a>
-              <a
-                href="https://www.linkedin.com/company/bettersancarlos/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <i className="bi bi-linkedin"></i>
-              </a>
-              <a
-                href="https://discord.com/invite/qeSu7RJkjQ"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Discord"
-              >
-                <i className="bi bi-discord"></i>
-              </a>
-            </div>
           </div>
           <div className="max-[575px]:flex max-[575px]:flex-col max-[575px]:items-center max-[575px]:text-center">
             <h4 className="m-0 mb-5 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-white/50">{t('footer-quick-links')}</h4>
             <ul className="m-0 list-none p-0">
               <li className="mb-2">
-                <a href="/sitemap-page" className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline">{t('footer-sitemap')}</a>
+                <a href="/sitemap" className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline">{t('footer-sitemap')}</a>
               </li>
               <li className="mb-2">
                 <a
@@ -152,12 +126,12 @@ export default function Footer() {
             >
               {t('footer-cost')} <span className="font-bold text-success">₱0</span>
             </div>
-            <a href="mailto:volunteer@bettersancarlos" className="mt-3 inline-flex items-center gap-2 rounded-full bg-white/[0.05] px-4 py-2 text-[0.8125rem] text-white/70 no-underline transition-all hover:bg-white/10 hover:text-white hover:no-underline [&_i]:text-white">
+            <a href="mailto:volunteer@bettersancarlos" className="mt-3 inline-flex items-center gap-2 rounded-full bg-white/[0.05] px-4 py-2 text-[0.8125rem] text-white/70 no-underline transition-colors duration-200 hover:bg-white/10 hover:text-white hover:no-underline [&_i]:text-white">
               <i className="bi bi-envelope-heart"></i> {t('footer-volunteer')}
             </a>
             <a
               href="https://github.com/BetterSanCarlos/bettersancarlos"
-              className="mt-3 inline-flex items-center gap-2 rounded-full bg-white/[0.05] px-4 py-2 text-[0.8125rem] text-white/70 no-underline transition-all hover:bg-white/10 hover:text-white hover:no-underline [&_i]:text-white"
+              className="mt-3 inline-flex items-center gap-2 rounded-full bg-white/[0.05] px-4 py-2 text-[0.8125rem] text-white/70 no-underline transition-colors duration-200 hover:bg-white/10 hover:text-white hover:no-underline [&_i]:text-white"
               target="_blank"
               rel="noopener noreferrer"
             >

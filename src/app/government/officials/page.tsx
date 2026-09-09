@@ -19,7 +19,7 @@ const data = officialsData as OfficialsData;
 
 function OfficialCard({ official }: { official: Official }) {
     return (
-        <div className="flex h-full flex-col rounded-[10px] border border-[#faf9f6] bg-white p-6 text-center shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-all duration-200 hover:-translate-y-1 max-[767px]:p-4 max-[480px]:p-2">
+        <div className="flex h-full flex-col rounded-xl border border-line bg-white p-6 text-center shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[767px]:p-4 max-[480px]:p-2">
             <div className="mb-6">
                 {official.image ? (
                     <img
@@ -45,7 +45,7 @@ function OfficialCard({ official }: { official: Official }) {
 
 function CouncilorCard({ official }: { official: Official }) {
     return (
-        <div className="flex h-full flex-col rounded-[10px] border border-[#e2e8e0] border-l-[3px] border-l-primary bg-white p-6 text-center shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-all duration-200 hover:-translate-y-1 hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] max-[767px]:p-4 max-[480px]:p-2">
+        <div className="flex h-full flex-col rounded-xl border border-line border-l-[3px] border-l-primary bg-white p-6 text-center shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[767px]:p-4 max-[480px]:p-2">
             {official.image ? (
                 <img
                     src={`/${official.image}`}
@@ -60,7 +60,7 @@ function CouncilorCard({ official }: { official: Official }) {
                 ></i>
             )}
             <h4 className="mb-4 text-[1.25rem] font-bold leading-[1.2] text-primary max-[767px]:text-[1.125rem]">{official.name}</h4>
-            <p className="inline-block rounded bg-[#e8f0fe] px-2 py-1 text-[0.75rem] font-semibold uppercase text-[#0077be]">{official.title}</p>
+            <p className="inline-block rounded bg-[#e8f0fe] px-2 py-1 text-[0.75rem] font-semibold uppercase text-info">{official.title}</p>
         </div>
     );
 }
@@ -80,7 +80,7 @@ export default function OfficialsPage() {
 
             <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
-                    <h3 className="mb-4 text-center text-[1.5rem] font-bold leading-[1.2] text-[#2f3e46] max-[1024px]:text-[1.375rem] max-[767px]:text-[1.25rem]">Executive Branch</h3>
+                    <h3 className="mb-4 text-center text-[1.5rem] font-bold leading-[1.2] text-foreground max-[1024px]:text-[1.375rem] max-[767px]:text-[1.25rem]">Executive Branch</h3>
                     <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 min-[1200px]:grid-cols-2 min-[1200px]:gap-8 max-[767px]:grid-cols-1">
                         <OfficialCard official={data.mayor} />
                         <OfficialCard official={data.vice_mayor} />
@@ -90,7 +90,7 @@ export default function OfficialsPage() {
 
             <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
-                    <h3 className="mb-4 text-center text-[1.5rem] font-bold leading-[1.2] text-[#2f3e46] max-[1024px]:text-[1.375rem] max-[767px]:text-[1.25rem]">Sangguniang Bayan Members</h3>
+                    <h3 className="mb-4 text-center text-[1.5rem] font-bold leading-[1.2] text-foreground max-[1024px]:text-[1.375rem] max-[767px]:text-[1.25rem]">Sangguniang Bayan Members</h3>
                     <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-6 min-[1200px]:grid-cols-4 min-[1025px]:max-[1199px]:gap-4 max-[1024px]:grid-cols-2 max-[767px]:grid-cols-1">
                         {data.councilors.map((councilor) => (
                             <CouncilorCard key={councilor.name} official={councilor} />

@@ -16,12 +16,14 @@ interface NewsItem {
 
 export default function NewsPage() {
     const [news, setNews] = useState<NewsItem[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch('/data/news.json')
             .then((res) => res.json())
             .then((data) => setNews(data.news || []))
-            .catch(() => setNews([]));
+            .catch(() => setNews([]))
+            .finally(() => setLoading(false));
     }, []);
 
     const badgeClass = (badge: string) => {
@@ -39,6 +41,9 @@ export default function NewsPage() {
         }
     };
 
+    const cardCls =
+        'flex flex-col overflow-hidden rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] focus-within:outline-2 focus-within:outline-primary focus-within:outline-offset-2';
+
     return (
         <>
             <PageHeader
@@ -54,28 +59,40 @@ export default function NewsPage() {
             <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="grid grid-cols-3 gap-6 max-[1024px]:grid-cols-2 max-[480px]:grid-cols-1">
-                        {news.length === 0 && (
-                            <article className="flex flex-col overflow-hidden rounded-lg border border-muted bg-white transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] focus-within:outline-2 focus-within:outline-primary focus-within:outline-offset-2" aria-label="Loading">
-                                <div className="flex items-center justify-between px-4 pt-3">
-                                    <span className="inline-block rounded bg-[#e8f0fe] px-2 py-1 text-xs font-semibold uppercase text-info">Loading</span>
-                                    <span className="whitespace-nowrap text-xs text-muted-foreground">...</span>
+                        {loading && (
+                            <div
+                                className="flex flex-col gap-4 rounded-xl border border-line bg-white p-6 animate-pulse"
+                                aria-busy="true"
+                                aria-label="Loading news"
+                            >
+                                <div className="flex items-center justify-between">
+                                    <div className="h-5 w-16 rounded bg-line-soft"></div>
+                                    <div className="h-4 w-20 rounded bg-line-soft"></div>
                                 </div>
-                                <div className="flex flex-1 flex-col px-4 pb-4 pt-2">
-                                    <h3 className="m-0 mb-2 text-base font-semibold leading-[1.35] text-foreground">Loading news...</h3>
-                                    <p className="m-0 flex-1 text-[0.8125rem] leading-[1.55] text-muted-foreground">Fetching news and updates from San Carlos.</p>
+                                <div className="flex flex-1 flex-col gap-2.5">
+                                    <div className="h-4 w-3/4 rounded bg-line-soft"></div>
+                                    <div className="h-4 w-1/2 rounded bg-line-soft"></div>
+                                    <div className="mt-2 h-3 w-full rounded bg-line-soft"></div>
+                                    <div className="h-3 w-5/6 rounded bg-line-soft"></div>
+                                    <div className="h-3 w-2/3 rounded bg-line-soft"></div>
                                 </div>
-                            </article>
+                            </div>
+                        )}
+                        {!loading && news.length === 0 && (
+                            <p className="col-span-full m-0 text-center text-muted-foreground">
+                                No news available right now. Check back soon.
+                            </p>
                         )}
                         {news.map((item) => {
                             const body = (
                                 <>
-                                    <div className="flex items-center justify-between px-4 pt-3">
+                                    <div className="mb-4 flex items-center justify-between">
                                         <span className={badgeClass(item.badge)}>{item.category}</span>
                                         <span className="whitespace-nowrap text-xs text-muted-foreground">
                                             <i className="bi bi-calendar-event"></i> {item.date}
                                         </span>
                                     </div>
-                                    <div className="flex flex-1 flex-col px-4 pb-4 pt-2">
+                                    <div className="flex flex-1 flex-col">
                                         <h3 className="m-0 mb-2 text-base font-semibold leading-[1.35] text-foreground">{item.title}</h3>
                                         <p className="m-0 flex-1 overflow-hidden text-[0.8125rem] leading-[1.55] text-muted-foreground line-clamp-3 max-[480px]:line-clamp-2">{item.summary}</p>
                                     </div>
@@ -88,12 +105,12 @@ export default function NewsPage() {
                                     href={item.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex flex-col overflow-hidden rounded-lg border border-muted bg-white transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] focus-within:outline-2 focus-within:outline-primary focus-within:outline-offset-2"
+                                    className={cardCls}
                                 >
                                     {body}
                                 </a>
                             ) : (
-                                <article key={item.id} className="flex flex-col overflow-hidden rounded-lg border border-muted bg-white transition-all duration-200 hover:-translate-y-[3px] hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] focus-within:outline-2 focus-within:outline-primary focus-within:outline-offset-2">
+                                <article key={item.id} className={cardCls}>
                                     {body}
                                 </article>
                             );
@@ -102,38 +119,27 @@ export default function NewsPage() {
                 </div>
             </section>
 
-            <section className="bg-[#f8fafc] py-16 max-[1024px]:py-8 max-[767px]:py-6" aria-label="Facebook updates">
+            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="mb-6 text-center">
                         <h2 className="m-0 mb-1.5">From our Facebook Page</h2>
                         <p className="m-0 text-muted-foreground">The latest posts published by the Official LGU San Carlos Facebook Page.</p>
                     </div>
-                    <div className="flex justify-center">
-                        <iframe
-                            title="Latest posts from the Official LGU San Carlos Facebook Page"
-                            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FOfficialLGUSolano&tabs=timeline&width=500&height=720&small_header=false&adapt_container_width=true&hide_cover=false&show_facecount=true"
-                            width="500"
-                            height="720"
-                            scrolling="no"
-                            frameBorder="0"
-                            allowFullScreen={true}
-                            loading="lazy"
-                            allow="encrypted-media; clipboard-write; web-share"
-                            className="w-[500px] max-w-full overflow-hidden rounded-xl border-0 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
-                        ></iframe>
-                    </div>
-                    <p className="mt-6 text-center text-sm text-muted-foreground">
-                        Can&apos;t see the feed?
+                    <div className="flex flex-col items-center gap-6">
+                        <p className="m-0 max-w-[600px] text-center text-sm leading-[1.6] text-muted-foreground">
+                            Follow the official page for real-time advisories, announcements, and community updates.
+                        </p>
                         <a
                             href="https://www.facebook.com/sccp.cio"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="font-medium text-primary no-underline hover:underline"
+                            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white no-underline transition-[box-shadow,transform,background-color] duration-200 hover:bg-primary-dark hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.3)] active:scale-[0.97]"
                         >
+                            <i className="bi bi-facebook" aria-hidden="true"></i>
                             Visit the Official LGU San Carlos Facebook Page
                             <i className="bi bi-box-arrow-up-right" aria-hidden="true"></i>
                         </a>
-                    </p>
+                    </div>
                 </div>
             </section>
         </>

@@ -8,7 +8,6 @@ import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SearchAutocomplete, { SearchAutocompleteHandle } from '@/components/SearchAutocomplete';
 import WeatherWidget from '@/components/WeatherWidget';
-import AnimatedIcon from '@/components/icons/AnimatedIcon';
 import officialsData from '@/data/officials.json';
 
 const containerCls =
@@ -17,11 +16,11 @@ const sectionCls = 'py-16 max-[1024px]:py-8 max-[767px]:py-6';
 const sectionHeaderCls =
   'mb-8 flex flex-wrap items-center justify-between gap-4 max-[768px]:flex-col max-[768px]:text-center';
 const sectionLinkCls =
-  'inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-primary hover:gap-2.5 hover:no-underline';
+  'inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-primary transition-[gap] duration-200 hover:gap-2.5 hover:no-underline';
 const serviceCardCls =
-  'group flex items-center gap-4 rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.1)] hover:no-underline';
+  'group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline';
 const statCardCls =
-  'group relative flex items-center gap-4 overflow-hidden rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] no-underline transition-all duration-300 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-[linear-gradient(180deg,#3a7d44_0%,#275230_100%)] before:opacity-0 before:transition-opacity before:duration-300 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline hover:before:opacity-100';
+  'group relative flex items-center gap-4 overflow-hidden rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[background-color,border-color,box-shadow,transform] duration-200 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-[linear-gradient(180deg,#3a7d44_0%,#275230_100%)] before:opacity-0 before:transition-opacity before:duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline hover:before:opacity-100';
 
 const Hero3DLogo = dynamic(() => import('@/components/three/Hero3DLogo'), {
   ssr: false,
@@ -80,7 +79,7 @@ export default function HomePage() {
                 {t('hero-subtitle')}
               </p>
               <div className="w-full max-w-[560px] rounded-2xl border border-[rgba(58, 125, 68,0.08)] bg-white p-6 shadow-[0_8px_32px_rgba(58, 125, 68,0.1),0_2px_8px_rgba(0,0,0,0.04)] transition-[box-shadow,border-color] duration-300 focus-within:border-[rgba(58, 125, 68,0.15)] focus-within:shadow-[0_12px_40px_rgba(58, 125, 68,0.15),0_4px_12px_rgba(0,0,0,0.06)] max-[768px]:p-5 max-[992px]:mx-auto">
-                <h2 className="m-0 mb-5 flex items-center gap-2 text-base text-[#2f3e46] [&_i]:text-primary">
+                <h2 className="m-0 mb-5 flex items-center gap-2 text-base text-foreground [&_i]:text-primary">
                   <i className="bi bi-search"></i> {t('hero-find-service')}
                 </h2>
                 <form role="search" onSubmit={handleSearchSubmit}>
@@ -91,7 +90,7 @@ export default function HomePage() {
                     />
                     <button
                       type="submit"
-                      className="flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-[10px] border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#2f6136_100%)] text-[1.125rem] text-white shadow-[0_2px_8px_rgba(58, 125, 68,0.3)] transition-all hover:-translate-y-px hover:bg-[linear-gradient(135deg,#2f6136_0%,#275230_100%)] hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.4)] active:translate-y-0"
+                      className="flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-lg border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#2f6136_100%)] text-[1.125rem] text-white shadow-[0_2px_8px_rgba(58, 125, 68,0.3)] transition-[box-shadow,transform] duration-200 hover:bg-[linear-gradient(135deg,#2f6136_0%,#275230_100%)] hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.4)] active:scale-[0.97]"
                       aria-label="Search"
                     >
                       <i className="bi bi-arrow-right"></i>
@@ -99,22 +98,22 @@ export default function HomePage() {
                   </div>
                 </form>
                 <div className="mt-4 flex flex-wrap items-center gap-2 text-[0.8125rem]">
-                  <span className="font-medium text-[#5c6b73]">{t('hero-popular')}</span>
+                  <span className="font-medium text-muted-foreground">{t('hero-popular')}</span>
                   <Link
                     href="/service-details/birth-certificate"
-                    className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary no-underline transition-all hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline"
+                    className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary transition-[border-color,background-color] duration-200 hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline"
                   >
                     {t('hero-birth-certificate')}
                   </Link>
                   <Link
                     href="/service-details/business-permits-licensing"
-                    className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary no-underline transition-all hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline"
+                    className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary transition-[border-color,background-color] duration-200 hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline"
                   >
                     {t('hero-business-permit')}
                   </Link>
                   <Link
                     href="/service-details/municipal-treasurer"
-                    className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary no-underline transition-all hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline"
+                    className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary transition-[border-color,background-color] duration-200 hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline"
                   >
                     {t('hero-real-property-tax')}
                   </Link>
@@ -135,60 +134,60 @@ export default function HomePage() {
         <div className={containerCls}>
           <div className={sectionHeaderCls}>
             <h2 className="m-0 text-2xl">{t('section-popular')}</h2>
-            <p className="m-0 w-full text-[#5c6b73]">{t('popular-services-subtitle')}</p>
+            <p className="m-0 w-full text-muted-foreground">{t('popular-services-subtitle')}</p>
           </div>
           <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-2 max-[768px]:grid-cols-1">
             <Link href="/services/certificates" className={serviceCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-muted text-xl text-primary">
                 <i className="bi bi-file-earmark-text-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-certificates')}</h3>
-                <p className="m-0 text-[0.8125rem] text-[#5c6b73]">
+                <h3 className="m-0 mb-1 text-base text-foreground">{t('service-certificates')}</h3>
+                <p className="m-0 text-[0.8125rem] text-muted-foreground">
                   {t('service-certificates-desc')}
                 </p>
               </div>
-              <i className="bi bi-arrow-right text-[#5c6b73] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
+              <i className="bi bi-arrow-right text-muted-foreground opacity-0 transition-[opacity,transform] duration-200 group-hover:translate-x-1 group-hover:opacity-100"></i>
             </Link>
             <Link href="/services/business" className={serviceCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-muted text-xl text-primary">
                 <i className="bi bi-shop"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-business')}</h3>
-                <p className="m-0 text-[0.8125rem] text-[#5c6b73]">{t('service-business-desc')}</p>
+                <h3 className="m-0 mb-1 text-base text-foreground">{t('service-business')}</h3>
+                <p className="m-0 text-[0.8125rem] text-muted-foreground">{t('service-business-desc')}</p>
               </div>
-              <i className="bi bi-arrow-right text-[#5c6b73] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
+              <i className="bi bi-arrow-right text-muted-foreground opacity-0 transition-[opacity,transform] duration-200 group-hover:translate-x-1 group-hover:opacity-100"></i>
             </Link>
             <Link href="/services/tax-payments" className={serviceCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary">
-                <AnimatedIcon name="dollar" size={28} fallbackGlyph="bi-cash-coin" />
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-muted text-xl text-primary">
+                <i className="bi bi-cash-coin"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-tax')}</h3>
-                <p className="m-0 text-[0.8125rem] text-[#5c6b73]">{t('service-tax-desc')}</p>
+                <h3 className="m-0 mb-1 text-base text-foreground">{t('service-tax')}</h3>
+                <p className="m-0 text-[0.8125rem] text-muted-foreground">{t('service-tax-desc')}</p>
               </div>
-              <i className="bi bi-arrow-right text-[#5c6b73] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
+              <i className="bi bi-arrow-right text-muted-foreground opacity-0 transition-[opacity,transform] duration-200 group-hover:translate-x-1 group-hover:opacity-100"></i>
             </Link>
             <Link href="/services/social-services" className={serviceCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-muted text-xl text-primary">
                 <i className="bi bi-people-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-social')}</h3>
-                <p className="m-0 text-[0.8125rem] text-[#5c6b73]">{t('service-social-desc')}</p>
+                <h3 className="m-0 mb-1 text-base text-foreground">{t('service-social')}</h3>
+                <p className="m-0 text-[0.8125rem] text-muted-foreground">{t('service-social-desc')}</p>
               </div>
-              <i className="bi bi-arrow-right text-[#5c6b73] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
+              <i className="bi bi-arrow-right text-muted-foreground opacity-0 transition-[opacity,transform] duration-200 group-hover:translate-x-1 group-hover:opacity-100"></i>
             </Link>
             <Link href="/services/health" className={serviceCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-muted text-xl text-primary">
                 <i className="bi bi-heart-pulse-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-health')}</h3>
-                <p className="m-0 text-[0.8125rem] text-[#5c6b73]">{t('service-health-desc')}</p>
+                <h3 className="m-0 mb-1 text-base text-foreground">{t('service-health')}</h3>
+                <p className="m-0 text-[0.8125rem] text-muted-foreground">{t('service-health-desc')}</p>
               </div>
-              <i className="bi bi-arrow-right text-[#5c6b73] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
+              <i className="bi bi-arrow-right text-muted-foreground opacity-0 transition-[opacity,transform] duration-200 group-hover:translate-x-1 group-hover:opacity-100"></i>
             </Link>
             <Link
               href="/services"
@@ -197,89 +196,89 @@ export default function HomePage() {
                 'border-transparent bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-white hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.3)]'
               )}
             >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-white/20 text-xl text-white">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white/20 text-xl text-white">
                 <i className="bi bi-grid-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="m-0 mb-1 text-base text-white">{t('btn-view-all-services')}</h3>
                 <p className="m-0 text-[0.8125rem] text-white">{t('popular-browse-directory')}</p>
               </div>
-              <i className="bi bi-arrow-right text-white opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
+              <i className="bi bi-arrow-right text-white opacity-0 transition-[opacity,transform] duration-200 group-hover:translate-x-1 group-hover:opacity-100"></i>
             </Link>
           </div>
         </div>
       </section>
 
       {/* Quick Stats */}
-      <section className="bg-[#faf9f6] py-12">
+      <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
         <div className={containerCls}>
           <div className="mb-8 flex items-center justify-between max-[576px]:flex-col max-[576px]:gap-4 max-[576px]:text-center">
-            <h2 className="m-0 text-xl">{t('stats-at-a-glance')}</h2>
+            <h2 className="m-0 text-2xl">{t('stats-at-a-glance')}</h2>
             <Link href="/statistics" className={sectionLinkCls}>
               {t('stats-view-statistics')} <i className="bi bi-arrow-right"></i>
             </Link>
           </div>
           <div className="grid grid-cols-4 gap-6 max-[992px]:grid-cols-2 max-[576px]:grid-cols-1">
             <Link href="/statistics" className={statCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary transition-all duration-300 group-hover:bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] group-hover:text-white">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary transition-colors duration-200 group-hover:bg-primary/20">
                 <i className="bi bi-people-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">
+                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors duration-200 group-hover:text-primary-dark">
                   52,746
                 </span>
-                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">
+                <span className="mt-0.5 block text-sm font-medium text-foreground">
                   {t('stats-population-label')}
                 </span>
-                <span className="mt-0.5 block text-xs text-[#5c6b73]">
+                <span className="mt-0.5 block text-xs text-muted-foreground">
                   {t('stats-population-source')}
                 </span>
               </div>
             </Link>
             <Link href="/government" className={statCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary transition-all duration-300 group-hover:bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] group-hover:text-white">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary transition-colors duration-200 group-hover:bg-primary/20">
                 <i className="bi bi-geo-alt-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">
+                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors duration-200 group-hover:text-primary-dark">
                   44
                 </span>
-                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">
+                <span className="mt-0.5 block text-sm font-medium text-foreground">
                   {t('stats-barangays-label')}
                 </span>
-                <span className="mt-0.5 block text-xs text-[#5c6b73]">
+                <span className="mt-0.5 block text-xs text-muted-foreground">
                   {t('stats-barangays-source')}
                 </span>
               </div>
             </Link>
             <Link href="/budget" className={statCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary transition-all duration-300 group-hover:bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] group-hover:text-white">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary transition-colors duration-200 group-hover:bg-primary/20">
                 <i className="bi bi-award-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">
+                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors duration-200 group-hover:text-primary-dark">
                   1st Class
                 </span>
-                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">
+                <span className="mt-0.5 block text-sm font-medium text-foreground">
                   {t('stats-municipality-label')}
                 </span>
-                <span className="mt-0.5 block text-xs text-[#5c6b73]">
+                <span className="mt-0.5 block text-xs text-muted-foreground">
                   {t('stats-municipality-source')}
                 </span>
               </div>
             </Link>
             <Link href="/statistics" className={statCardCls}>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-[#faf9f6] text-xl text-primary transition-all duration-300 group-hover:bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] group-hover:text-white">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary transition-colors duration-200 group-hover:bg-primary/20">
                 <i className="bi bi-rulers"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">
+                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors duration-200 group-hover:text-primary-dark">
                   180.95 km²
                 </span>
-                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">
+                <span className="mt-0.5 block text-sm font-medium text-foreground">
                   {t('stats-land-area-label')}
                 </span>
-                <span className="mt-0.5 block text-xs text-[#5c6b73]">
+                <span className="mt-0.5 block text-xs text-muted-foreground">
                   {t('stats-land-area-source')}
                 </span>
               </div>
@@ -289,10 +288,10 @@ export default function HomePage() {
       </section>
 
       {/* Weather & Map */}
-      <section className="bg-[#faf9f6] py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
         <div className={containerCls}>
           <div className="mb-8 flex items-center justify-between">
-            <h2 className="m-0 text-xl">{t('weather-map-title')}</h2>
+            <h2 className="m-0 text-2xl">{t('weather-map-title')}</h2>
           </div>
           <div className="grid grid-cols-[340px_1fr] items-stretch gap-8 max-[991px]:grid-cols-1 max-[991px]:gap-6">
             <div className="flex flex-col">
@@ -301,7 +300,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex flex-col">
-              <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-black/[0.06] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_2px_6px_rgba(0,0,0,0.06),0_8px_24px_rgba(0,0,0,0.06)] max-[575px]:rounded-xl">
+              <div className="flex h-full flex-col overflow-hidden rounded-xl border border-line bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)]">
                 <div
                   id="map-container"
                   className="relative z-[1] min-h-[300px] w-full flex-1 bg-[#f5f5f5]"
@@ -317,7 +316,7 @@ export default function HomePage() {
                     loading="lazy"
                   ></iframe>
                 </div>
-                <p className="m-0 flex items-center gap-1.5 border-t border-black/[0.05] bg-white px-6 py-3 text-xs text-[#5c6b73] [&_i]:text-[0.8125rem] [&_i]:text-primary">
+                <p className="m-0 flex items-center gap-1.5 border-t border-line-soft bg-white px-6 py-3 text-xs text-muted-foreground [&_i]:text-[0.8125rem] [&_i]:text-primary">
                   <i className="bi bi-geo-alt" aria-hidden="true"></i> San Carlos City Hall,
                   Pangasinan 2420
                 </p>
@@ -331,7 +330,7 @@ export default function HomePage() {
       <section className="bg-[linear-gradient(180deg,#faf9f6_0%,#ffffff_100%)] py-16 max-[1024px]:py-8 max-[767px]:py-6">
         <div className={containerCls}>
           <div className="mb-8 flex items-center justify-between">
-            <h2 className="m-0 flex items-center gap-2.5 text-xl [&_i]:text-primary">
+            <h2 className="m-0 flex items-center gap-2.5 text-2xl [&_i]:text-primary">
               <i className="bi bi-book" aria-hidden="true"></i> {t('history-title')}
             </h2>
           </div>
@@ -339,12 +338,12 @@ export default function HomePage() {
             <div className="relative pl-7 before:absolute before:bottom-2 before:left-1.5 before:top-2 before:w-0.5 before:rounded-sm before:bg-[linear-gradient(180deg,#3a7d44_0%,rgba(58, 125, 68,0.2)_100%)]">
               {[
                 { year: '1578', key: 'history-1578', delay: '100ms' },
-                { year: '1660', key: 'history-1660', delay: '200ms' },
-                { year: '1762', key: 'history-1762', delay: '300ms' },
-                { year: '1763', key: 'history-1763', delay: '400ms' },
-                { year: '1965', key: 'history-1965', delay: '500ms' },
-                { year: '2001', key: 'history-2001', delay: '600ms' },
-                { year: '2010', key: 'history-2010', delay: '700ms' },
+                { year: '1660', key: 'history-1660', delay: '150ms' },
+                { year: '1762', key: 'history-1762', delay: '200ms' },
+                { year: '1763', key: 'history-1763', delay: '250ms' },
+                { year: '1965', key: 'history-1965', delay: '300ms' },
+                { year: '2001', key: 'history-2001', delay: '350ms' },
+                { year: '2010', key: 'history-2010', delay: '400ms' },
               ].map((item) => (
                 <div
                   key={item.year}
@@ -352,39 +351,39 @@ export default function HomePage() {
                   className="group relative animate-[fadeInUp_0.5s_ease_forwards] pb-5 opacity-0 last:pb-0"
                   style={{ animationDelay: item.delay }}
                 >
-                  <div className="absolute -left-7 top-1 z-[1] h-3.5 w-3.5 rounded-full border-[3px] border-primary bg-white transition-all group-hover:scale-125 group-hover:bg-primary group-hover:shadow-[0_0_0_4px_rgba(58, 125, 68,0.15)]"></div>
-                  <div className="rounded-[10px] border border-black/[0.06] bg-white px-[18px] py-4 transition-all group-hover:translate-x-1 group-hover:border-primary group-hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)]">
+                  <div className="absolute -left-7 top-1 z-[1] h-3.5 w-3.5 rounded-full border-[3px] border-primary bg-white transition-transform duration-200 group-hover:scale-125 group-hover:bg-primary group-hover:shadow-[0_0_0_4px_rgba(58, 125, 68,0.15)]"></div>
+                  <div className="rounded-lg border border-line bg-white px-[18px] py-4 transition-[border-color,box-shadow,transform] duration-200 group-hover:translate-x-1 group-hover:border-primary group-hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)]">
                     <span className="mb-2 inline-block rounded-full bg-primary px-2.5 py-[3px] text-xs font-bold text-white">
                       {item.year}
                     </span>
-                    <p className="m-0 text-sm leading-[1.6] text-[#2f3e46]">{t(item.key)}</p>
+                    <p className="m-0 text-sm leading-[1.6] text-foreground">{t(item.key)}</p>
                   </div>
                 </div>
               ))}
             </div>
             <div className="sticky top-[100px] flex flex-col gap-4 max-[900px]:static max-[900px]:flex-row max-[900px]:flex-wrap max-[575px]:flex-col">
-              <div className="flex items-start gap-3.5 rounded-xl border border-black/[0.06] bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] max-[900px]:flex-[1_1_280px] max-[575px]:flex-[1_1_100%]">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] [&_i]:text-xl [&_i]:text-white">
+              <div className="flex items-start gap-3.5 rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] max-[900px]:flex-[1_1_280px] max-[575px]:flex-[1_1_100%]">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary [&_i]:text-xl">
                   <i className="bi bi-geo-alt-fill"></i>
                 </div>
                 <div>
-                  <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-[#2f3e46]">
+                  <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-foreground">
                     {t('history-pioneers-title')}
                   </h4>
-                  <p className="m-0 text-[0.8125rem] leading-[1.5] text-[#5c6b73]">
+                  <p className="m-0 text-[0.8125rem] leading-[1.5] text-muted-foreground">
                     {t('history-pioneers-desc')}
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-3.5 rounded-xl border border-black/[0.06] bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] max-[900px]:flex-[1_1_280px] max-[575px]:flex-[1_1_100%]">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] [&_i]:text-xl [&_i]:text-white">
+              <div className="flex items-start gap-3.5 rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] max-[900px]:flex-[1_1_280px] max-[575px]:flex-[1_1_100%]">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary [&_i]:text-xl">
                   <i className="bi bi-grid-3x3"></i>
                 </div>
                 <div>
-                  <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-[#2f3e46]">
+                  <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-foreground">
                     {t('history-namesake-title')}
                   </h4>
-                  <p className="m-0 text-[0.8125rem] leading-[1.5] text-[#5c6b73]">
+                  <p className="m-0 text-[0.8125rem] leading-[1.5] text-muted-foreground">
                     {t('history-namesake-desc')}
                   </p>
                 </div>
@@ -404,56 +403,56 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-2 max-[768px]:grid-cols-1">
-            <article className="rounded-xl border border-[#e2e8e0] bg-white p-6">
+            <article className="rounded-xl border border-line bg-white p-6">
               <div className="mb-4 flex items-center gap-4">
                 <span className="rounded-full bg-[#e0f2fe] px-2.5 py-1 text-xs font-semibold text-[#0369a1]">
                   {t('news-announcement')}
                 </span>
-                <span className="text-[0.8125rem] text-[#5c6b73]">Nov 28, 2025</span>
+                <span className="text-[0.8125rem] text-muted-foreground">Nov 28, 2025</span>
               </div>
               <h3 className="m-0 mb-2 text-base">
-                <Link href="/news" className="text-[#2f3e46] hover:text-primary">
+                <Link href="/news" className="text-foreground hover:text-primary">
                   {t('news-business-permit-title')}
                 </Link>
               </h3>
-              <p className="m-0 text-sm leading-[1.5] text-[#5c6b73]">
+              <p className="m-0 text-sm leading-[1.5] text-muted-foreground">
                 {t('news-business-permit-desc')}
               </p>
             </article>
-            <article className="rounded-xl border border-[#e2e8e0] bg-white p-6">
+            <article className="rounded-xl border border-line bg-white p-6">
               <div className="mb-4 flex items-center gap-4">
                 <span className="rounded-full bg-[#dcfce7] px-2.5 py-1 text-xs font-semibold text-[#15803d]">
                   {t('news-project')}
                 </span>
-                <span className="text-[0.8125rem] text-[#5c6b73]">Nov 15, 2025</span>
+                <span className="text-[0.8125rem] text-muted-foreground">Nov 15, 2025</span>
               </div>
               <h3 className="m-0 mb-2 text-base">
-                <Link href="/news" className="text-[#2f3e46] hover:text-primary">
+                <Link href="/news" className="text-foreground hover:text-primary">
                   {t('news-market-title')}
                 </Link>
               </h3>
-              <p className="m-0 text-sm leading-[1.5] text-[#5c6b73]">{t('news-market-desc')}</p>
+              <p className="m-0 text-sm leading-[1.5] text-muted-foreground">{t('news-market-desc')}</p>
             </article>
-            <article className="rounded-xl border border-[#e2e8e0] bg-white p-6">
+            <article className="rounded-xl border border-line bg-white p-6">
               <div className="mb-4 flex items-center gap-4">
                 <span className="rounded-full bg-[#fef3c7] px-2.5 py-1 text-xs font-semibold text-[#b45309]">
                   {t('news-advisory')}
                 </span>
-                <span className="text-[0.8125rem] text-[#5c6b73]">Nov 10, 2025</span>
+                <span className="text-[0.8125rem] text-muted-foreground">Nov 10, 2025</span>
               </div>
               <h3 className="m-0 mb-2 text-base">
-                <Link href="/news" className="text-[#2f3e46] hover:text-primary">
+                <Link href="/news" className="text-foreground hover:text-primary">
                   {t('news-power-title')}
                 </Link>
               </h3>
-              <p className="m-0 text-sm leading-[1.5] text-[#5c6b73]">{t('news-power-desc')}</p>
+              <p className="m-0 text-sm leading-[1.5] text-muted-foreground">{t('news-power-desc')}</p>
             </article>
           </div>
         </div>
       </section>
 
       {/* Municipal Leadership */}
-      <section className="bg-[#faf9f6] py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
         <div className={containerCls}>
           <div className={sectionHeaderCls}>
             <h2 className="m-0 text-2xl">{t('section-leadership')}</h2>
@@ -462,41 +461,41 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-6 max-[768px]:grid-cols-1">
-            <div className="rounded-xl border border-[#e2e8e0] bg-white p-8 text-center">
+            <div className="rounded-xl border border-line bg-white p-8 text-center">
               <div className="mb-4 inline-block rounded-full bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-3.5 py-1.5 text-xs font-semibold text-white">
                 {t('title-mayor')}
               </div>
-              <h3 className="m-0 mb-4 text-xl text-[#2f3e46]">{officialsData.mayor.name}</h3>
+              <h3 className="m-0 mb-4 text-xl text-foreground">{officialsData.mayor.name}</h3>
               <div className="flex flex-col gap-2">
                 <a
                   href="mailto:CIO@sancarlospangasinan.com"
-                  className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary"
+                  className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
                 >
                   <i className="bi bi-envelope"></i> CIO@sancarlospangasinan.com
                 </a>
                 <a
                   href="tel:(075) 600-1432"
-                  className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary"
+                  className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
                 >
                   <i className="bi bi-telephone"></i> (075) 600-1432
                 </a>
               </div>
             </div>
-            <div className="rounded-xl border border-[#e2e8e0] bg-white p-8 text-center">
+            <div className="rounded-xl border border-line bg-white p-8 text-center">
               <div className="mb-4 inline-block rounded-full bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-3.5 py-1.5 text-xs font-semibold text-white">
                 {t('title-vice-mayor')}
               </div>
-              <h3 className="m-0 mb-4 text-xl text-[#2f3e46]">{officialsData.vice_mayor.name}</h3>
+              <h3 className="m-0 mb-4 text-xl text-foreground">{officialsData.vice_mayor.name}</h3>
               <div className="flex flex-col gap-2">
                 <a
                   href="mailto:CIO@sancarlospangasinan.com"
-                  className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary"
+                  className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
                 >
                   <i className="bi bi-envelope"></i> CIO@sancarlospangasinan.com
                 </a>
                 <a
                   href="tel:(075) 600-1432"
-                  className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary"
+                  className="inline-flex items-center justify-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
                 >
                   <i className="bi bi-telephone"></i> (075) 600-1432
                 </a>
@@ -518,48 +517,48 @@ export default function HomePage() {
           <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-1">
             <a
               href="tel:0623312067"
-              className="flex items-start gap-4 rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] hover:no-underline"
+              className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline"
             >
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.125rem] text-white">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-[1.125rem] text-primary">
                 <i className="bi bi-telephone-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">
+                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-muted-foreground">
                   {t('contact-phone')}
                 </h3>
-                <p className="m-0 mb-1 text-base font-semibold text-[#2f3e46]">(062) 331-2067</p>
-                <span className="text-[0.8125rem] text-[#5c6b73]">{t('contact-hours')}</span>
+                <p className="m-0 mb-1 text-base font-semibold text-foreground">(062) 331-2067</p>
+                <span className="text-[0.8125rem] text-muted-foreground">{t('contact-hours')}</span>
               </div>
             </a>
             <a
               href="mailto:CIO@sancarlospangasinan.com"
-              className="flex items-start gap-4 rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] hover:no-underline"
+              className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline"
             >
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.125rem] text-white">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-[1.125rem] text-primary">
                 <i className="bi bi-envelope-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">
+                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-muted-foreground">
                   {t('contact-email')}
                 </h3>
-                <p className="m-0 mb-1 text-base font-semibold text-[#2f3e46]">
+                <p className="m-0 mb-1 text-base font-semibold text-foreground">
                   CIO@sancarlospangasinan.com
                 </p>
-                <span className="text-[0.8125rem] text-[#5c6b73]">{t('contact-response')}</span>
+                <span className="text-[0.8125rem] text-muted-foreground">{t('contact-response')}</span>
               </div>
             </a>
-            <div className="flex items-start gap-4 rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)]">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.125rem] text-white">
+            <div className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-[1.125rem] text-primary">
                 <i className="bi bi-geo-alt-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">
+                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-muted-foreground">
                   {t('contact-address')}
                 </h3>
-                <p className="m-0 mb-1 text-base font-semibold text-[#2f3e46]">
+                <p className="m-0 mb-1 text-base font-semibold text-foreground">
                   {t('contact-municipal-hall')}
                 </p>
-                <span className="text-[0.8125rem] text-[#5c6b73]">
+                <span className="text-[0.8125rem] text-muted-foreground">
                   San Carlos City, Pangasinan 2420
                 </span>
               </div>

@@ -74,6 +74,17 @@ On unmount: cancel RAF, remove listeners (`resize`/`ResizeObserver`, `pointermov
 - Right column becomes `<Hero3DLogo />` (dynamic import) in a `flex items-center justify-center` container with an aspect-bounded box (e.g. `max-w-[520px] w-full aspect-[4/3]`), so mobile stacking (content → card → logo, natural DOM order) and tablet behavior fall out of the existing `grid-cols-2 → grid-cols-1` breakpoint — no new layout system.
 - Static export: no config changes; `public/` copies to `out/` automatically. Serwist precache grows by the optimized GLB (≤ 3 MB) — acceptable.
 
+### D8 — Material presentation parity (amendment after visual review)
+
+The seal's materials bind a 16×-tiled normal map and a metallic-roughness texture (gold rim is metallic). Lit by bare directional lights with no environment, the normal tiling produced visible "scratch" speckle and the metal read harshly — Blender's viewport (the visual reference) uses soft studio HDRI lighting instead. Rendering setup therefore:
+
+- Adds `RoomEnvironment` + `PMREMGenerator` as `scene.environment` (`environmentIntensity` 0.85) — soft image-based lighting for metals, matching the Blender viewport look; replaces the hemisphere light.
+- Switches the renderer to `ACESFilmicToneMapping` (exposure 1.12) to match Blender's tone curve.
+- Reduces `normalScale` to 0.35 at runtime to tame the 16×-tiled normal map (asset texture kept intact).
+- Key/fill directional lights softened (1.1/0.35) as fill only.
+
+Verified by before/after headless screenshots: scratch speckle eliminated; colors/proportions match the Blender reference at 2× DPR.
+
 ## Risks / Trade-offs
 
 - [Simplify degrades texture/color fidelity up close] → tune `--simplify-error` / ratio during apply; visually inspect the derivative at hero size (and 2× DPR) before committing; worst case raise the triangle budget within the 3 MB cap.

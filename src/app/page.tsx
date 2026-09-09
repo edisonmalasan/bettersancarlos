@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import dynamic from 'next/dynamic';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SearchAutocomplete, { SearchAutocompleteHandle } from '@/components/SearchAutocomplete';
@@ -10,7 +11,8 @@ import WeatherWidget from '@/components/WeatherWidget';
 import AnimatedIcon from '@/components/icons/AnimatedIcon';
 import officialsData from '@/data/officials.json';
 
-const containerCls = 'mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2';
+const containerCls =
+  'mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2';
 const sectionCls = 'py-16 max-[1024px]:py-8 max-[767px]:py-6';
 const sectionHeaderCls =
   'mb-8 flex flex-wrap items-center justify-between gap-4 max-[768px]:flex-col max-[768px]:text-center';
@@ -20,6 +22,19 @@ const serviceCardCls =
   'group flex items-center gap-4 rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.1)] hover:no-underline';
 const statCardCls =
   'group relative flex items-center gap-4 overflow-hidden rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] no-underline transition-all duration-300 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-[linear-gradient(180deg,#3a7d44_0%,#275230_100%)] before:opacity-0 before:transition-opacity before:duration-300 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline hover:before:opacity-100';
+
+const Hero3DLogo = dynamic(() => import('@/components/three/Hero3DLogo'), {
+  ssr: false,
+  loading: () => (
+    <img
+      src="/assets/images/logo/better-san-carlos-logo-white.png"
+      alt=""
+      aria-hidden="true"
+      draggable={false}
+      className="h-full w-full object-contain"
+    />
+  ),
+});
 
 export default function HomePage() {
   const { t } = useLanguage();
@@ -47,47 +62,68 @@ export default function HomePage() {
           aria-hidden="true"
           tabIndex={-1}
         />
-        <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(23,34,27,0.62)_0%,rgba(23,34,27,0.34)_45%,rgba(23,34,27,0.15)_100%)]" aria-hidden="true"></div>
-        <div className="absolute inset-0 bg-[rgba(39,82,48,0.30)] mix-blend-multiply" aria-hidden="true"></div>
-        <div className={containerCls + " relative z-[1]"}>
-          <div className="grid grid-cols-2 items-center gap-12 max-[992px]:grid-cols-1 max-[992px]:gap-8">
+        <div
+          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(23,34,27,0.62)_0%,rgba(23,34,27,0.34)_45%,rgba(23,34,27,0.15)_100%)]"
+          aria-hidden="true"
+        ></div>
+        <div
+          className="absolute inset-0 bg-[rgba(39,82,48,0.30)] mix-blend-multiply"
+          aria-hidden="true"
+        ></div>
+        <div className={containerCls + ' relative z-[1]'}>
+          <div className="grid grid-cols-[1fr_1.1fr] items-center gap-24 max-[1280px]:gap-16 max-[992px]:grid-cols-1 max-[992px]:gap-8">
             <div className="max-[992px]:text-center">
-              <h1 className="m-0 mb-4 text-[2.5rem] leading-[1.2] text-white max-[768px]:text-[2rem]">{t('hero-welcome')}</h1>
-              <p className="m-0 mb-8 text-[1.125rem] leading-[1.6] text-white/90 max-[768px]:text-base">{t('hero-subtitle')}</p>
-              <div className="flex flex-wrap gap-4 max-[992px]:justify-center">
-                <Link href="/services" className="inline-flex items-center gap-2 rounded-lg border-2 border-transparent bg-white px-6 py-3 font-semibold text-primary no-underline transition-all hover:-translate-y-0.5 hover:bg-[#faf9f6] hover:text-primary hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] hover:no-underline focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)]">
-                  {t('hero-browse-services')} <i className="bi bi-arrow-right"></i>
-                </Link>
-                <Link href="/contact" className="inline-flex items-center gap-2 rounded-lg border-2 border-white bg-transparent px-6 py-3 font-semibold text-white no-underline transition-all hover:bg-white/15 hover:text-white hover:no-underline">
-                  {t('hero-contact-us')}
-                </Link>
-              </div>
-            </div>
-            <div>
-              <div className="rounded-2xl border border-[rgba(58, 125, 68,0.08)] bg-white p-8 shadow-[0_8px_32px_rgba(58, 125, 68,0.1),0_2px_8px_rgba(0,0,0,0.04)] transition-[box-shadow,border-color] duration-300 focus-within:border-[rgba(58, 125, 68,0.15)] focus-within:shadow-[0_12px_40px_rgba(58, 125, 68,0.15),0_4px_12px_rgba(0,0,0,0.06)] max-[768px]:p-6">
-                <h2 className="m-0 mb-6 flex items-center gap-2 text-base text-[#2f3e46] [&_i]:text-primary">
+              <h1 className="m-0 mb-4 text-[2.5rem] leading-[1.2] text-white max-[768px]:text-[2rem]">
+                {t('hero-welcome')}
+              </h1>
+              <p className="m-0 mb-8 text-[1.125rem] leading-[1.6] text-white/90 max-[768px]:text-base">
+                {t('hero-subtitle')}
+              </p>
+              <div className="w-full max-w-[560px] rounded-2xl border border-[rgba(58, 125, 68,0.08)] bg-white p-6 shadow-[0_8px_32px_rgba(58, 125, 68,0.1),0_2px_8px_rgba(0,0,0,0.04)] transition-[box-shadow,border-color] duration-300 focus-within:border-[rgba(58, 125, 68,0.15)] focus-within:shadow-[0_12px_40px_rgba(58, 125, 68,0.15),0_4px_12px_rgba(0,0,0,0.06)] max-[768px]:p-5 max-[992px]:mx-auto">
+                <h2 className="m-0 mb-5 flex items-center gap-2 text-base text-[#2f3e46] [&_i]:text-primary">
                   <i className="bi bi-search"></i> {t('hero-find-service')}
                 </h2>
                 <form role="search" onSubmit={handleSearchSubmit}>
                   <div className="relative flex gap-2">
-                    <SearchAutocomplete ref={searchRef} placeholder={t('hero-search-placeholder')} />
-                    <button type="submit" className="flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-[10px] border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#2f6136_100%)] text-[1.125rem] text-white shadow-[0_2px_8px_rgba(58, 125, 68,0.3)] transition-all hover:-translate-y-px hover:bg-[linear-gradient(135deg,#2f6136_0%,#275230_100%)] hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.4)] active:translate-y-0" aria-label="Search">
+                    <SearchAutocomplete
+                      ref={searchRef}
+                      placeholder={t('hero-search-placeholder')}
+                    />
+                    <button
+                      type="submit"
+                      className="flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-[10px] border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#2f6136_100%)] text-[1.125rem] text-white shadow-[0_2px_8px_rgba(58, 125, 68,0.3)] transition-all hover:-translate-y-px hover:bg-[linear-gradient(135deg,#2f6136_0%,#275230_100%)] hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.4)] active:translate-y-0"
+                      aria-label="Search"
+                    >
                       <i className="bi bi-arrow-right"></i>
                     </button>
                   </div>
                 </form>
                 <div className="mt-4 flex flex-wrap items-center gap-2 text-[0.8125rem]">
                   <span className="font-medium text-[#5c6b73]">{t('hero-popular')}</span>
-                  <Link href="/service-details/birth-certificate" className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary no-underline transition-all hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline">
+                  <Link
+                    href="/service-details/birth-certificate"
+                    className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary no-underline transition-all hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline"
+                  >
                     {t('hero-birth-certificate')}
                   </Link>
-                  <Link href="/service-details/business-permits-licensing" className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary no-underline transition-all hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline">
+                  <Link
+                    href="/service-details/business-permits-licensing"
+                    className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary no-underline transition-all hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline"
+                  >
                     {t('hero-business-permit')}
                   </Link>
-                  <Link href="/service-details/municipal-treasurer" className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary no-underline transition-all hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline">
+                  <Link
+                    href="/service-details/municipal-treasurer"
+                    className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary no-underline transition-all hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline"
+                  >
                     {t('hero-real-property-tax')}
                   </Link>
                 </div>
+              </div>
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="aspect-[4/3] w-full max-w-[640px] max-[1280px]:max-w-[560px] max-[992px]:max-w-[440px] max-[767px]:max-w-[320px]">
+                <Hero3DLogo />
               </div>
             </div>
           </div>
@@ -108,7 +144,9 @@ export default function HomePage() {
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="m-0 mb-1 text-base text-[#2f3e46]">{t('service-certificates')}</h3>
-                <p className="m-0 text-[0.8125rem] text-[#5c6b73]">{t('service-certificates-desc')}</p>
+                <p className="m-0 text-[0.8125rem] text-[#5c6b73]">
+                  {t('service-certificates-desc')}
+                </p>
               </div>
               <i className="bi bi-arrow-right text-[#5c6b73] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
             </Link>
@@ -152,7 +190,13 @@ export default function HomePage() {
               </div>
               <i className="bi bi-arrow-right text-[#5c6b73] opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100"></i>
             </Link>
-            <Link href="/services" className={cn(serviceCardCls, 'border-transparent bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-white hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.3)]')}>
+            <Link
+              href="/services"
+              className={cn(
+                serviceCardCls,
+                'border-transparent bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-white hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.3)]'
+              )}
+            >
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[10px] bg-white/20 text-xl text-white">
                 <i className="bi bi-grid-fill"></i>
               </div>
@@ -181,9 +225,15 @@ export default function HomePage() {
                 <i className="bi bi-people-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">52,746</span>
-                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">{t('stats-population-label')}</span>
-                <span className="mt-0.5 block text-xs text-[#5c6b73]">{t('stats-population-source')}</span>
+                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">
+                  52,746
+                </span>
+                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">
+                  {t('stats-population-label')}
+                </span>
+                <span className="mt-0.5 block text-xs text-[#5c6b73]">
+                  {t('stats-population-source')}
+                </span>
               </div>
             </Link>
             <Link href="/government" className={statCardCls}>
@@ -191,9 +241,15 @@ export default function HomePage() {
                 <i className="bi bi-geo-alt-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">44</span>
-                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">{t('stats-barangays-label')}</span>
-                <span className="mt-0.5 block text-xs text-[#5c6b73]">{t('stats-barangays-source')}</span>
+                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">
+                  44
+                </span>
+                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">
+                  {t('stats-barangays-label')}
+                </span>
+                <span className="mt-0.5 block text-xs text-[#5c6b73]">
+                  {t('stats-barangays-source')}
+                </span>
               </div>
             </Link>
             <Link href="/budget" className={statCardCls}>
@@ -201,9 +257,15 @@ export default function HomePage() {
                 <i className="bi bi-award-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">1st Class</span>
-                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">{t('stats-municipality-label')}</span>
-                <span className="mt-0.5 block text-xs text-[#5c6b73]">{t('stats-municipality-source')}</span>
+                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">
+                  1st Class
+                </span>
+                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">
+                  {t('stats-municipality-label')}
+                </span>
+                <span className="mt-0.5 block text-xs text-[#5c6b73]">
+                  {t('stats-municipality-source')}
+                </span>
               </div>
             </Link>
             <Link href="/statistics" className={statCardCls}>
@@ -211,9 +273,15 @@ export default function HomePage() {
                 <i className="bi bi-rulers"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">180.95 km²</span>
-                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">{t('stats-land-area-label')}</span>
-                <span className="mt-0.5 block text-xs text-[#5c6b73]">{t('stats-land-area-source')}</span>
+                <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors group-hover:text-[#2f6136]">
+                  180.95 km²
+                </span>
+                <span className="mt-0.5 block text-sm font-medium text-[#2f3e46]">
+                  {t('stats-land-area-label')}
+                </span>
+                <span className="mt-0.5 block text-xs text-[#5c6b73]">
+                  {t('stats-land-area-source')}
+                </span>
               </div>
             </Link>
           </div>
@@ -278,10 +346,17 @@ export default function HomePage() {
                 { year: '2001', key: 'history-2001', delay: '600ms' },
                 { year: '2010', key: 'history-2010', delay: '700ms' },
               ].map((item) => (
-                <div key={item.year} data-year={item.year} className="group relative animate-[fadeInUp_0.5s_ease_forwards] pb-5 opacity-0 last:pb-0" style={{ animationDelay: item.delay }}>
+                <div
+                  key={item.year}
+                  data-year={item.year}
+                  className="group relative animate-[fadeInUp_0.5s_ease_forwards] pb-5 opacity-0 last:pb-0"
+                  style={{ animationDelay: item.delay }}
+                >
                   <div className="absolute -left-7 top-1 z-[1] h-3.5 w-3.5 rounded-full border-[3px] border-primary bg-white transition-all group-hover:scale-125 group-hover:bg-primary group-hover:shadow-[0_0_0_4px_rgba(58, 125, 68,0.15)]"></div>
                   <div className="rounded-[10px] border border-black/[0.06] bg-white px-[18px] py-4 transition-all group-hover:translate-x-1 group-hover:border-primary group-hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)]">
-                    <span className="mb-2 inline-block rounded-full bg-primary px-2.5 py-[3px] text-xs font-bold text-white">{item.year}</span>
+                    <span className="mb-2 inline-block rounded-full bg-primary px-2.5 py-[3px] text-xs font-bold text-white">
+                      {item.year}
+                    </span>
                     <p className="m-0 text-sm leading-[1.6] text-[#2f3e46]">{t(item.key)}</p>
                   </div>
                 </div>
@@ -293,8 +368,12 @@ export default function HomePage() {
                   <i className="bi bi-geo-alt-fill"></i>
                 </div>
                 <div>
-                  <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-[#2f3e46]">{t('history-pioneers-title')}</h4>
-                  <p className="m-0 text-[0.8125rem] leading-[1.5] text-[#5c6b73]">{t('history-pioneers-desc')}</p>
+                  <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-[#2f3e46]">
+                    {t('history-pioneers-title')}
+                  </h4>
+                  <p className="m-0 text-[0.8125rem] leading-[1.5] text-[#5c6b73]">
+                    {t('history-pioneers-desc')}
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-3.5 rounded-xl border border-black/[0.06] bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] max-[900px]:flex-[1_1_280px] max-[575px]:flex-[1_1_100%]">
@@ -302,8 +381,12 @@ export default function HomePage() {
                   <i className="bi bi-grid-3x3"></i>
                 </div>
                 <div>
-                  <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-[#2f3e46]">{t('history-namesake-title')}</h4>
-                  <p className="m-0 text-[0.8125rem] leading-[1.5] text-[#5c6b73]">{t('history-namesake-desc')}</p>
+                  <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-[#2f3e46]">
+                    {t('history-namesake-title')}
+                  </h4>
+                  <p className="m-0 text-[0.8125rem] leading-[1.5] text-[#5c6b73]">
+                    {t('history-namesake-desc')}
+                  </p>
                 </div>
               </div>
             </div>
@@ -329,9 +412,13 @@ export default function HomePage() {
                 <span className="text-[0.8125rem] text-[#5c6b73]">Nov 28, 2025</span>
               </div>
               <h3 className="m-0 mb-2 text-base">
-                <Link href="/news" className="text-[#2f3e46] hover:text-primary">{t('news-business-permit-title')}</Link>
+                <Link href="/news" className="text-[#2f3e46] hover:text-primary">
+                  {t('news-business-permit-title')}
+                </Link>
               </h3>
-              <p className="m-0 text-sm leading-[1.5] text-[#5c6b73]">{t('news-business-permit-desc')}</p>
+              <p className="m-0 text-sm leading-[1.5] text-[#5c6b73]">
+                {t('news-business-permit-desc')}
+              </p>
             </article>
             <article className="rounded-xl border border-[#e2e8e0] bg-white p-6">
               <div className="mb-4 flex items-center gap-4">
@@ -341,7 +428,9 @@ export default function HomePage() {
                 <span className="text-[0.8125rem] text-[#5c6b73]">Nov 15, 2025</span>
               </div>
               <h3 className="m-0 mb-2 text-base">
-                <Link href="/news" className="text-[#2f3e46] hover:text-primary">{t('news-market-title')}</Link>
+                <Link href="/news" className="text-[#2f3e46] hover:text-primary">
+                  {t('news-market-title')}
+                </Link>
               </h3>
               <p className="m-0 text-sm leading-[1.5] text-[#5c6b73]">{t('news-market-desc')}</p>
             </article>
@@ -353,7 +442,9 @@ export default function HomePage() {
                 <span className="text-[0.8125rem] text-[#5c6b73]">Nov 10, 2025</span>
               </div>
               <h3 className="m-0 mb-2 text-base">
-                <Link href="/news" className="text-[#2f3e46] hover:text-primary">{t('news-power-title')}</Link>
+                <Link href="/news" className="text-[#2f3e46] hover:text-primary">
+                  {t('news-power-title')}
+                </Link>
               </h3>
               <p className="m-0 text-sm leading-[1.5] text-[#5c6b73]">{t('news-power-desc')}</p>
             </article>
@@ -372,25 +463,41 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 gap-6 max-[768px]:grid-cols-1">
             <div className="rounded-xl border border-[#e2e8e0] bg-white p-8 text-center">
-              <div className="mb-4 inline-block rounded-full bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-3.5 py-1.5 text-xs font-semibold text-white">{t('title-mayor')}</div>
+              <div className="mb-4 inline-block rounded-full bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-3.5 py-1.5 text-xs font-semibold text-white">
+                {t('title-mayor')}
+              </div>
               <h3 className="m-0 mb-4 text-xl text-[#2f3e46]">{officialsData.mayor.name}</h3>
               <div className="flex flex-col gap-2">
-                <a href="mailto:CIO@sancarlospangasinan.com" className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary">
+                <a
+                  href="mailto:CIO@sancarlospangasinan.com"
+                  className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary"
+                >
                   <i className="bi bi-envelope"></i> CIO@sancarlospangasinan.com
                 </a>
-                <a href="tel:(075) 600-1432" className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary">
+                <a
+                  href="tel:(075) 600-1432"
+                  className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary"
+                >
                   <i className="bi bi-telephone"></i> (075) 600-1432
                 </a>
               </div>
             </div>
             <div className="rounded-xl border border-[#e2e8e0] bg-white p-8 text-center">
-              <div className="mb-4 inline-block rounded-full bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-3.5 py-1.5 text-xs font-semibold text-white">{t('title-vice-mayor')}</div>
+              <div className="mb-4 inline-block rounded-full bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-3.5 py-1.5 text-xs font-semibold text-white">
+                {t('title-vice-mayor')}
+              </div>
               <h3 className="m-0 mb-4 text-xl text-[#2f3e46]">{officialsData.vice_mayor.name}</h3>
               <div className="flex flex-col gap-2">
-                <a href="mailto:CIO@sancarlospangasinan.com" className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary">
+                <a
+                  href="mailto:CIO@sancarlospangasinan.com"
+                  className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary"
+                >
                   <i className="bi bi-envelope"></i> CIO@sancarlospangasinan.com
                 </a>
-                <a href="tel:(075) 600-1432" className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary">
+                <a
+                  href="tel:(075) 600-1432"
+                  className="inline-flex items-center justify-center gap-2 text-sm text-[#5c6b73] hover:text-primary"
+                >
                   <i className="bi bi-telephone"></i> (075) 600-1432
                 </a>
               </div>
@@ -409,23 +516,35 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-1">
-            <a href="tel:0623312067" className="flex items-start gap-4 rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] hover:no-underline">
+            <a
+              href="tel:0623312067"
+              className="flex items-start gap-4 rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] hover:no-underline"
+            >
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.125rem] text-white">
                 <i className="bi bi-telephone-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">{t('contact-phone')}</h3>
+                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">
+                  {t('contact-phone')}
+                </h3>
                 <p className="m-0 mb-1 text-base font-semibold text-[#2f3e46]">(062) 331-2067</p>
                 <span className="text-[0.8125rem] text-[#5c6b73]">{t('contact-hours')}</span>
               </div>
             </a>
-            <a href="mailto:CIO@sancarlospangasinan.com" className="flex items-start gap-4 rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] hover:no-underline">
+            <a
+              href="mailto:CIO@sancarlospangasinan.com"
+              className="flex items-start gap-4 rounded-xl border border-[#e2e8e0] bg-white p-6 text-[#2f3e46] no-underline transition-all hover:border-primary hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.08)] hover:no-underline"
+            >
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-[1.125rem] text-white">
                 <i className="bi bi-envelope-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">{t('contact-email')}</h3>
-                <p className="m-0 mb-1 text-base font-semibold text-[#2f3e46]">CIO@sancarlospangasinan.com</p>
+                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">
+                  {t('contact-email')}
+                </h3>
+                <p className="m-0 mb-1 text-base font-semibold text-[#2f3e46]">
+                  CIO@sancarlospangasinan.com
+                </p>
                 <span className="text-[0.8125rem] text-[#5c6b73]">{t('contact-response')}</span>
               </div>
             </a>
@@ -434,15 +553,20 @@ export default function HomePage() {
                 <i className="bi bi-geo-alt-fill"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">{t('contact-address')}</h3>
-                <p className="m-0 mb-1 text-base font-semibold text-[#2f3e46]">{t('contact-municipal-hall')}</p>
-                <span className="text-[0.8125rem] text-[#5c6b73]">San Carlos City, Pangasinan 2420</span>
+                <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-[#5c6b73]">
+                  {t('contact-address')}
+                </h3>
+                <p className="m-0 mb-1 text-base font-semibold text-[#2f3e46]">
+                  {t('contact-municipal-hall')}
+                </p>
+                <span className="text-[0.8125rem] text-[#5c6b73]">
+                  San Carlos City, Pangasinan 2420
+                </span>
               </div>
             </div>
           </div>
         </div>
       </section>
-
     </>
   );
 }

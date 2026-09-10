@@ -94,7 +94,6 @@ export default function Hero3DLogo() {
       try {
         const THREE = await import('three');
         const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
-        const { MeshoptDecoder } = await import('three/examples/jsm/libs/meshopt_decoder.module.js');
         const { RoomEnvironment } =
           await import('three/examples/jsm/environments/RoomEnvironment.js');
         if (disposed) return;
@@ -141,7 +140,6 @@ export default function Hero3DLogo() {
         const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
 
         const loader = new GLTFLoader();
-        loader.setMeshoptDecoder(MeshoptDecoder);
         const gltf = await new Promise<GLTF>((resolve, reject) => {
           loader.load(MODEL_URL, resolve, undefined, reject);
         });

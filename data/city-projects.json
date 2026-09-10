@@ -1,0 +1,39 @@
+{
+  "_schema_version": "1.0",
+  "_status": "partially-verified",
+  "_updated": "2026-09-04",
+  "_source": "research/infrastructure/26-09-city-projects.md (official LGU site menus; old official site news 2016-2018)",
+  "_note": "Program buckets are the official site's own project/program menu categories. No project-level budget, contractor, or completion-date data was verifiable online - budgets are pending verification and must be collected from the City Engineering Office / Bids and Awards Committee.",
+  "program_buckets": [
+    { "name": "Accomplished / Ongoing Infrastructure Projects", "status": "official site menu category", "document_status": "project details not retrievable (JS-only pages)" },
+    { "name": "Programs/Projects in Supplemental Investment Program", "status": "official site menu category", "document_status": "details not retrievable" },
+    { "name": "Projects for Implementation Under Land Bank Loan", "status": "official site menu category (city used LandBank financing)", "document_status": "details not retrievable" },
+    { "name": "Proposed Projects & Activities", "status": "official site menu category", "document_status": "details not retrievable" },
+    { "name": "Gender and Development (GAD) Plan", "status": "official site menu category", "document_status": "plan body not extracted" },
+    { "name": "Disaster Risk Reduction and Management Plan", "status": "official site menu category", "document_status": "plan body not extracted; see /disaster-preparedness" },
+    { "name": "List of PPAS (Programs, Projects, Activities, Services)", "status": "official site menu category", "document_status": "list not extracted" }
+  ],
+  "known_projects": [
+    {
+      "name": "Construction of slope protection works",
+      "reference_only": true,
+      "evidence": "Archived LGU announcement (2025) - project body is JS-only; budget/contractor unverified"
+    },
+    {
+      "name": "BUB (Bottom-Up Budgeting) child development centers",
+      "reference_only": true,
+      "evidence": "Old official site news, 2016"
+    },
+    {
+      "name": "Don Federico Mandapat Sports Dome",
+      "reference_only": true,
+      "evidence": "Public sports infrastructure (Wikipedia caption / evacuation plan)"
+    },
+    {
+      "name": "City Gymnasium, Palaris Street",
+      "reference_only": true,
+      "evidence": "Public sports infrastructure (official evacuation plan)"
+    }
+  ],
+  "budgets_status": "pending verification - no project budget/contractor data verifiable online; request from the City Engineering Office / BAC"
+}

@@ -40,8 +40,8 @@
 
 ## 6. Phase E — Cross-cutting completion
 
-- [ ] 6.1 `data/transparency-docs.json` + `/budget` transparency section (Citizen's Charter offices, FDP reports, SGLG, eBPLS/forms); `data/city-projects.json` + `/budget` projects section (buckets + known projects, budgets-pending note) — verify
-- [ ] 6.2 `data/government-directory.json` (offices with phone_status/department heads with confidence flags) + `/contact` directory section (verified vs historical labels) — verify
-- [ ] 6.3 `data/news.json`: add 8 historical items (keep editor-compatible shape, optional `recency` field) + `/news` CURRENT/HISTORIAL grouping — verify editor still works with new file
-- [ ] 6.4 Create `openspec/changes/research-data-integration/checklist.md`: all 21 categories → status + files (EXCLUDED entries with reasons for gis-data, hazard-maps, blgf-budget, water-district, legislation-archive, official-presence-provenance) — verify 21/21
-- [ ] 6.5 Final gates: tsc PASS; build PASS (all new routes prerender); `rg -n "52,746|52,746|180.95|062) 331|Magat|coconut" src/` → zero; link check on new internal links; full visual smoke (new pages at 1440/768/375); commit `feat: complete research data integration with transparency, directory, and news data` + push + `worker_done` with checklist summary
+- [x] 6.1 `data/transparency-docs.json` + `/budget` transparency section (Citizen's Charter offices, FDP reports, SGLG, eBPLS/forms); `data/city-projects.json` + `/budget` projects section (buckets + known projects, budgets-pending note) — verify
+- [x] 6.2 `data/government-directory.json` (offices with phone_status/department heads with confidence flags) + `/contact` directory section (verified vs historical labels) — verify
+- [x] 6.3 `data/news.json`: add 8 historical items (keep editor-compatible shape, optional `recency` field) + `/news` CURRENT/HISTORIAL grouping — verify editor still works with new file
+- [x] 6.4 Create `openspec/changes/research-data-integration/checklist.md`: all 21 categories → status + files (EXCLUDED entries with reasons for gis-data, hazard-maps, blgf-budget, water-district, legislation-archive, official-presence-provenance) — verify 21/21
+- [x] 6.5 Final gates: tsc PASS; build PASS (all new routes prerender); `rg -n "52,746|52,746|180.95|062) 331|Magat|coconut" src/` → zero; link check on new internal links; full visual smoke (new pages at 1440/768/375); commit `feat: complete research data integration with transparency, directory, and news data` + push + `worker_done` with checklist summary

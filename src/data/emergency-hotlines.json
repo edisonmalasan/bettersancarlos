@@ -1,0 +1,61 @@
+{
+    "_schema_version":  "1.0",
+    "_status":  "partially-verified",
+    "_updated":  "2026-09-04",
+    "_source":  "research/emergency/26-09-emergency-hotlines.md",
+    "_note":  "National numbers are widely published. City-level numbers marked historical come from the decommissioned official website (2017) and must be re-dialed and verified before being treated as current.",
+    "city":  "San Carlos City",
+    "province":  "Pangasinan",
+    "national":  [
+                     {
+                         "service":  "National Emergency Hotline",
+                         "number":  "911",
+                         "status":  "verified",
+                         "source":  "https://911.gov.ph/"
+                     },
+                     {
+                         "service":  "PNP Emergency Hotline",
+                         "number":  "117",
+                         "status":  "verified",
+                         "source":  "https://pnp.gov.ph/"
+                     },
+                     {
+                         "service":  "Philippine Red Cross",
+                         "number":  "143",
+                         "status":  "verified",
+                         "source":  "https://redcross.org.ph/"
+                     },
+                     {
+                         "service":  "Citizens Complaint Hotline (Office of the President)",
+                         "number":  "8888",
+                         "status":  "verified",
+                         "source":  "https://8888.gov.ph/"
+                     }
+                 ],
+    "city_hotlines":  [
+                          {
+                              "service":  "City Hall (general trunk line)",
+                              "number":  "(075) 600-1432",
+                              "status":  "verified",
+                              "source":  "https://sancarlospangasinan.gov.ph/"
+                          },
+                          {
+                              "service":  "CDRRMO (Disaster Risk Reduction and Management Office)",
+                              "number":  "(075) 955-5911",
+                              "status":  "historical - re-verify",
+                              "source":  "old official site (archived 2017-03-22)"
+                          },
+                          {
+                              "service":  "Police Station (PNP San Carlos)",
+                              "number":  "(075) 532-9896",
+                              "status":  "historical - re-verify",
+                              "source":  "old official site (archived 2017-03-22)"
+                          },
+                          {
+                              "service":  "Fire Station (BFP San Carlos)",
+                              "number":  "(075) 544-2887",
+                              "status":  "historical - re-verify",
+                              "source":  "old official site (archived 2017-03-22)"
+                          }
+                      ]
+}

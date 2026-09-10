@@ -9,6 +9,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import SearchAutocomplete, { SearchAutocompleteHandle } from '@/components/SearchAutocomplete';
 import WeatherWidget from '@/components/WeatherWidget';
 import officialsData from '@/data/officials.json';
+import cityProfile from '@/data/city-profile.json';
+import demographics from '@/data/demographics.json';
 
 const containerCls =
   'mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2';
@@ -225,13 +227,13 @@ export default function HomePage() {
               </div>
               <div className="min-w-0 flex-1">
                 <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors duration-200 group-hover:text-primary-dark">
-                  52,746
+                  {cityProfile.population.total.toLocaleString('en-PH')}
                 </span>
                 <span className="mt-0.5 block text-sm font-medium text-foreground">
                   {t('stats-population-label')}
                 </span>
                 <span className="mt-0.5 block text-xs text-muted-foreground">
-                  {t('stats-population-source')}
+                  {cityProfile.population.year} census
                 </span>
               </div>
             </Link>
@@ -241,13 +243,13 @@ export default function HomePage() {
               </div>
               <div className="min-w-0 flex-1">
                 <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors duration-200 group-hover:text-primary-dark">
-                  44
+                  {demographics.barangay_count}
                 </span>
                 <span className="mt-0.5 block text-sm font-medium text-foreground">
                   {t('stats-barangays-label')}
                 </span>
                 <span className="mt-0.5 block text-xs text-muted-foreground">
-                  {t('stats-barangays-source')}
+                  PSA {cityProfile.population.year}
                 </span>
               </div>
             </Link>
@@ -257,13 +259,13 @@ export default function HomePage() {
               </div>
               <div className="min-w-0 flex-1">
                 <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors duration-200 group-hover:text-primary-dark">
-                  1st Class
+                  {demographics.income_class} Class
                 </span>
                 <span className="mt-0.5 block text-sm font-medium text-foreground">
-                  {t('stats-municipality-label')}
+                  {t('stats-city-label')}
                 </span>
                 <span className="mt-0.5 block text-xs text-muted-foreground">
-                  {t('stats-municipality-source')}
+                  {t('stats-income-source')}
                 </span>
               </div>
             </Link>
@@ -273,7 +275,7 @@ export default function HomePage() {
               </div>
               <div className="min-w-0 flex-1">
                 <span className="block text-2xl font-bold leading-[1.2] text-primary transition-colors duration-200 group-hover:text-primary-dark">
-                  180.95 km²
+                  {cityProfile.land_area_km2} km²
                 </span>
                 <span className="mt-0.5 block text-sm font-medium text-foreground">
                   {t('stats-land-area-label')}
@@ -451,7 +453,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Municipal Leadership */}
+      {/* City Leadership */}
       <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
         <div className={containerCls}>
           <div className={sectionHeaderCls}>
@@ -516,7 +518,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-1">
             <a
-              href="tel:0623312067"
+              href="tel:(075) 600-1432"
               className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline"
             >
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-[1.125rem] text-primary">
@@ -526,7 +528,7 @@ export default function HomePage() {
                 <h3 className="m-0 mb-1 text-[0.8125rem] font-medium uppercase tracking-[0.5px] text-muted-foreground">
                   {t('contact-phone')}
                 </h3>
-                <p className="m-0 mb-1 text-base font-semibold text-foreground">(062) 331-2067</p>
+                <p className="m-0 mb-1 text-base font-semibold text-foreground">(075) 600-1432</p>
                 <span className="text-[0.8125rem] text-muted-foreground">{t('contact-hours')}</span>
               </div>
             </a>

@@ -3,6 +3,10 @@
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import { departmentLinks } from '@/lib/contact';
+import emergencyHotlines from '@/data/emergency-hotlines.json';
+import cityProfile from '@/data/city-profile.json';
+
+const cityPhone = cityProfile.contact.phone;
 
 export default function ContactPage() {
     return (
@@ -25,25 +29,17 @@ export default function ContactPage() {
                             <div className="flex-1 p-6">
                                 <h3 className="m-0 mb-1 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-muted-foreground">Email</h3>
                                 <p className="m-0 mb-1 text-base font-semibold text-foreground">CIO@sancarlospangasinan.com</p>
-                                <span className="text-[0.8125rem] text-muted-foreground">We'll respond within 24 hours</span>
+                                <span className="text-[0.8125rem] text-muted-foreground">We&apos;ll respond within 24 hours</span>
                             </div>
                         </Link>
-                        <Link href="tel:(075) 600-1432" className="flex overflow-hidden rounded-xl border border-line bg-white text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
-                            <div className="flex w-14 shrink-0 items-center justify-center bg-primary text-[1.25rem] text-white"><i className="bi bi-phone-fill"></i></div>
-                            <div className="flex-1 p-6">
-                                <h3 className="m-0 mb-1 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-muted-foreground">Mobile</h3>
-                                <p className="m-0 mb-1 text-base font-semibold text-foreground">0917-701-2268</p>
-                                <span className="text-[0.8125rem] text-muted-foreground">Mon-Fri: 8:00 AM - 5:00 PM</span>
-                            </div>
-                        </Link>
-                        <Link href="tel:0623312067" className="flex overflow-hidden rounded-xl border border-line bg-white text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+                        <a href={`tel:${cityPhone}`} className="flex overflow-hidden rounded-xl border border-line bg-white text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
                             <div className="flex w-14 shrink-0 items-center justify-center bg-primary text-[1.25rem] text-white"><i className="bi bi-telephone-fill"></i></div>
                             <div className="flex-1 p-6">
                                 <h3 className="m-0 mb-1 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-muted-foreground">Phone</h3>
-                                <p className="m-0 mb-1 text-base font-semibold text-foreground">(062) 331-2067</p>
-                                <span className="text-[0.8125rem] text-muted-foreground">Mon-Fri: 8:00 AM - 5:00 PM</span>
+                                <p className="m-0 mb-1 text-base font-semibold text-foreground">{cityPhone}</p>
+                                <span className="text-[0.8125rem] text-muted-foreground">City Hall trunk line · Mon-Fri: 8:00 AM - 5:00 PM</span>
                             </div>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -101,23 +97,23 @@ export default function ContactPage() {
                                 <i className="bi bi-exclamation-triangle-fill"></i>
                                 <span>Emergency</span>
                             </span>
-                            <h2 className="m-0 text-[1.25rem]">Emergency Hotlines</h2>
+                            <h2 className="m-0 text-[1.25rem]">National Emergency Hotlines</h2>
                         </div>
-                        <p className="m-0 text-[0.9375rem] text-muted-foreground">For emergencies and inquiries, contact these numbers anytime.</p>
+                        <p className="m-0 text-[0.9375rem] text-muted-foreground">Nationwide emergency numbers, verified against official national directories.</p>
                     </div>
-                    <div className="grid grid-cols-3 gap-4 max-[992px]:grid-cols-2 max-[576px]:grid-cols-1">
-                        <a href="tel:(075) 600-1432" className="flex items-center gap-3 rounded-lg border border-line bg-white px-4 py-3 text-foreground no-underline transition-[border-color,background-color] duration-200 hover:border-[#dc2626] hover:bg-[#fef2f2] hover:no-underline">
-                            <i className="bi bi-building-fill shrink-0 text-base text-[#dc2626]"></i>
-                            <span>Mayor's Office 0917 701 2268</span>
-                        </a>
-                        <a href="tel:(075) 600-1432" className="flex items-center gap-3 rounded-lg border border-line bg-white px-4 py-3 text-foreground no-underline transition-[border-color,background-color] duration-200 hover:border-[#dc2626] hover:bg-[#fef2f2] hover:no-underline">
-                            <i className="bi bi-building shrink-0 text-base text-[#dc2626]"></i>
-                            <span>Vice Mayor's Office 0920 925 6688</span>
-                        </a>
-                        <a href="tel:0623312067" className="flex items-center gap-3 rounded-lg border border-line bg-white px-4 py-3 text-foreground no-underline transition-[border-color,background-color] duration-200 hover:border-[#dc2626] hover:bg-[#fef2f2] hover:no-underline">
-                            <i className="bi bi-telephone-fill shrink-0 text-base text-[#dc2626]"></i>
-                            <span>Municipal Office (062) 331-2067</span>
-                        </a>
+                    <div className="grid grid-cols-4 gap-4 max-[992px]:grid-cols-2 max-[576px]:grid-cols-1">
+                        {emergencyHotlines.national.map((hotline) => (
+                            <a key={hotline.number} href={`tel:${hotline.number}`} className="flex flex-col gap-1 rounded-lg border border-line bg-white px-4 py-3 text-foreground no-underline transition-[border-color,background-color] duration-200 hover:border-[#dc2626] hover:bg-[#fef2f2] hover:no-underline">
+                                <span className="flex items-center gap-2">
+                                    <i className="bi bi-telephone-fill shrink-0 text-base text-[#dc2626]"></i>
+                                    <span className="text-base font-bold text-foreground">{hotline.number}</span>
+                                </span>
+                                <span className="text-[0.8125rem] text-muted-foreground">{hotline.service}</span>
+                                <span className="inline-flex w-fit items-center gap-1 rounded-md bg-[rgba(34,197,94,0.1)] px-2 py-[2px] text-[0.6875rem] font-semibold text-[#16a34a]">
+                                    <i className="bi bi-check-circle-fill"></i> Verified
+                                </span>
+                            </a>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -126,28 +122,55 @@ export default function ContactPage() {
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="mb-8">
                         <div className="mb-2 flex items-center gap-4 max-[576px]:flex-col max-[576px]:items-start max-[576px]:gap-2">
-                            <span className="inline-flex items-center gap-1.5 rounded-full bg-info px-3 py-1 text-xs font-semibold text-white">
-                                <i className="bi bi-hospital-fill text-white"></i>
-                                <span>Medical</span>
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fef2f2] px-3 py-1 text-xs font-semibold text-[#dc2626]">
+                                <i className="bi bi-building-fill"></i>
+                                <span>City Lines</span>
                             </span>
-                            <h2 className="m-0 text-[1.25rem]">Medical Emergency Hotlines</h2>
+                            <h2 className="m-0 text-[1.25rem]">City Emergency &amp; Office Lines</h2>
                         </div>
-                        <p className="m-0 text-[0.9375rem] text-muted-foreground">For medical emergencies and hospital inquiries.</p>
+                        <p className="m-0 text-[0.9375rem] text-muted-foreground">
+                            Each line shows its verification status. Lines marked &ldquo;historical&rdquo; come from the decommissioned 2017 city website and must be re-dialed before being treated as current — please call the verified City Hall trunk line first.
+                        </p>
                     </div>
-                    <div className="grid grid-cols-3 gap-4 max-[992px]:grid-cols-2 max-[576px]:grid-cols-1">
-                        <a href="tel:(075) 600-1432" className="flex items-center gap-3 rounded-lg border border-[#bfdbfe] bg-white px-4 py-3 text-foreground no-underline transition-[border-color,background-color] duration-200 hover:border-[#0077be] hover:bg-[#eff6ff] hover:no-underline">
-                            <i className="bi bi-hospital shrink-0 text-base text-[#0077be]"></i>
-                            <span>RHU San Carlos 0917 701 2268</span>
-                        </a>
-                        <a href="tel:0623312067" className="flex items-center gap-3 rounded-lg border border-[#bfdbfe] bg-white px-4 py-3 text-foreground no-underline transition-[border-color,background-color] duration-200 hover:border-[#0077be] hover:bg-[#eff6ff] hover:no-underline">
-                            <i className="bi bi-truck shrink-0 text-base text-[#0077be]"></i>
-                            <span>Ambulance (062) 331-2067</span>
-                        </a>
-                        <a href="tel:0623312067" className="flex items-center gap-3 rounded-lg border border-[#bfdbfe] bg-white px-4 py-3 text-foreground no-underline transition-[border-color,background-color] duration-200 hover:border-[#0077be] hover:bg-[#eff6ff] hover:no-underline">
-                            <i className="bi bi-hospital shrink-0 text-base text-[#0077be]"></i>
-                            <span>Medical Emergency (062) 331-2067</span>
-                        </a>
+                    <div className="grid grid-cols-2 gap-4 max-[992px]:grid-cols-1">
+                        {emergencyHotlines.city_hotlines.map((hotline) => {
+                            const verified = hotline.status === 'verified';
+                            return (
+                                <a
+                                    key={hotline.service}
+                                    href={`tel:${hotline.number}`}
+                                    className="flex flex-col gap-1 rounded-lg border border-line bg-white px-4 py-3 text-foreground no-underline transition-[border-color,background-color] duration-200 hover:border-[#dc2626] hover:bg-[#fef2f2] hover:no-underline"
+                                >
+                                    <span className="flex flex-wrap items-center gap-2">
+                                        <i className="bi bi-telephone-fill shrink-0 text-base text-[#dc2626]"></i>
+                                        <span className="text-base font-bold text-foreground">{hotline.number}</span>
+                                        <span
+                                            className={
+                                                verified
+                                                    ? 'inline-flex items-center gap-1 rounded-md bg-[rgba(34,197,94,0.1)] px-2 py-[2px] text-[0.6875rem] font-semibold text-[#16a34a]'
+                                                    : 'inline-flex items-center gap-1 rounded-md bg-[rgba(232,153,10,0.08)] px-2 py-[2px] text-[0.6875rem] font-semibold text-[#8a5a00]'
+                                            }
+                                        >
+                                            {verified ? (
+                                                <>
+                                                    <i className="bi bi-check-circle-fill"></i> Verified
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <i className="bi bi-hourglass-split"></i> {hotline.status}
+                                                </>
+                                            )}
+                                        </span>
+                                    </span>
+                                    <span className="text-[0.8125rem] text-muted-foreground">{hotline.service}</span>
+                                </a>
+                            );
+                        })}
                     </div>
+                    <p className="mt-6 mb-0 flex flex-wrap items-center gap-1.5 rounded-lg bg-white px-4 py-3 text-[0.8125rem] text-muted-foreground">
+                        <i className="bi bi-hourglass-split text-[#8a5a00]"></i>
+                        Dedicated ambulance and medical-emergency hotlines for the city are pending verification and will be published once confirmed with the LGU. For medical emergencies, call 911 or the verified City Hall line.
+                    </p>
                 </div>
             </section>
 
@@ -161,7 +184,7 @@ export default function ContactPage() {
                             </span>
                             <h2 className="m-0 text-[1.25rem]">Department & Service Pages</h2>
                         </div>
-                        <p className="m-0 text-[0.9375rem] text-muted-foreground">Follow and reach out to municipal services and partner offices on Facebook.</p>
+                        <p className="m-0 text-[0.9375rem] text-muted-foreground">Follow and reach out to city services and partner offices on Facebook.</p>
                     </div>
                     <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
                         {departmentLinks.map((link) => (

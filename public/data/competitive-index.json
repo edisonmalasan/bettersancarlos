@@ -1,13 +1,124 @@
 {
-    "title":  "San Carlos City Competitive Index",
-    "description":  "Annual competitiveness indicators measuring local economic performance",
-    "source":  "Cities and Municipalities Competitiveness Index (CMCI) - Department of Trade and Industry",
-    "_status":  "unverified",
-    "_note":  "CMCI pillar scores for San Carlos City, Pangasinan could not be verified during research (2026-09-04); previous placeholder values have been removed. Retrieve official scores from cmci.dti.gov.ph.",
-    "years":  [
-
-              ],
-    "pillars":  [
-
-                ]
+  "_schema_version": "1.0",
+  "_status": "historical",
+  "_updated": "2026-09-04",
+  "_source": "research/competitiveness/26-09-cmci-index.md (DTI CMCI portal via Internet Archive, captured 2019-12-11; live portal returned HTTP 404 at research time)",
+  "_note": "Historical CMCI data - last data update 2019. All ranks are within the Component City category unless noted. The 2018 capture listed two overall panels: Overall Total Score (rank 64, score 40.5642) and Overall Category (rank 52, score 42.2676); the category values are carried in the series and the total-score values are preserved here in this note. Resiliency pillar was not captured for 2016-2017. Innovation pillar scores were not separately listed in the captured profile (5-pillar framework introduced in later CMCI iterations). Economic Dynamism 2019 score was not published in the capture. Sub-indicator breakdowns are from the 2019 capture only. Re-verify against cmci.dti.gov.ph when back online.",
+  "title": "San Carlos City Competitive Index (CMCI)",
+  "description": "Cities and Municipalities Competitiveness Index rankings and scores for San Carlos City, Pangasinan",
+  "source": "DTI Cities and Municipalities Competitiveness Index (CMCI), via the Internet Archive",
+  "category": "Component City",
+  "years": [
+    2016,
+    2017,
+    2018,
+    2019
+  ],
+  "overall": {
+    "label": "Overall",
+    "ranks": [
+      { "year": 2016, "rank": 96, "basis": "total score" },
+      { "year": 2017, "rank": 104, "basis": "total score" },
+      { "year": 2018, "rank": 52, "basis": "category" },
+      { "year": 2019, "rank": 74, "basis": "category" }
+    ],
+    "scores": [
+      { "year": 2016, "score": 25.5956, "basis": "total score" },
+      { "year": 2017, "score": 20.132474, "basis": "total score" },
+      { "year": 2018, "score": 42.2676, "basis": "category" },
+      { "year": 2019, "score": 4.143087715, "basis": "category" }
+    ]
+  },
+  "pillars": {
+    "economic_dynamism": {
+      "label": "Economic Dynamism",
+      "ranks": [
+        { "year": 2016, "rank": 100 },
+        { "year": 2017, "rank": 103 },
+        { "year": 2018, "rank": 99 },
+        { "year": 2019, "rank": 74 }
+      ],
+      "scores": [
+        { "year": 2016, "score": 4.7103 },
+        { "year": 2017, "score": 5.418165 },
+        { "year": 2018, "score": 4.0996 }
+      ],
+      "sub_indicators": []
+    },
+    "government_efficiency": {
+      "label": "Government Efficiency",
+      "ranks": [
+        { "year": 2016, "rank": 95 },
+        { "year": 2017, "rank": 106 },
+        { "year": 2018, "rank": 32 },
+        { "year": 2019, "rank": 38 }
+      ],
+      "scores": [
+        { "year": 2016, "score": 12.9798 },
+        { "year": 2017, "score": 6.302619 },
+        { "year": 2018, "score": 12.5692 },
+        { "year": 2019, "score": 10.89092554 }
+      ],
+      "sub_indicators": [
+        { "name": "Compliance to National Directives", "rank": 3, "score": 2.430555556 },
+        { "name": "Presence of Investment Promotion Unit", "rank": 1, "score": 2.5 },
+        { "name": "Business Registration Efficiency", "rank": 9, "score": 2.327642939 },
+        { "name": "Capacity to Generate Local Resource", "rank": 78, "score": 0.048642812 },
+        { "name": "Capacity of Health Services", "rank": 25, "score": 0.451582129 },
+        { "name": "Capacity of School Services", "rank": 100, "score": 1.464627292 },
+        { "name": "Peace and Order", "rank": 39, "score": 0.136678201 },
+        { "name": "Social Protection", "rank": 20, "score": 0.781397399 }
+      ]
+    },
+    "infrastructure": {
+      "label": "Infrastructure",
+      "ranks": [
+        { "year": 2016, "rank": 90 },
+        { "year": 2017, "rank": 90 },
+        { "year": 2018, "rank": 38 },
+        { "year": 2019, "rank": 43 }
+      ],
+      "scores": [
+        { "year": 2016, "score": 7.9054 },
+        { "year": 2017, "score": 8.411691 },
+        { "year": 2018, "score": 8.7241 },
+        { "year": 2019, "score": 7.210400032 }
+      ],
+      "sub_indicators": [
+        { "name": "Road Network", "rank": 72, "score": 0.095349984 },
+        { "name": "Distance to Ports", "rank": 46, "score": 2.259988935 },
+        { "name": "Availability of Basic Utilities", "rank": 50, "score": 2.415422914 },
+        { "name": "Transportation Vehicles", "rank": 86, "score": 0.056891736 },
+        { "name": "Education", "rank": 12, "score": 0.769959915 },
+        { "name": "Health", "rank": 24, "score": 0.548288983 },
+        { "name": "LGU Investment", "rank": 65, "score": 0.308788053 },
+        { "name": "Accommodation Capacity", "rank": 74, "score": 0.024571674 },
+        { "name": "IT Capacity", "rank": 54, "score": 0.537313433 },
+        { "name": "Financial Technology Capacity", "rank": 70, "score": 0.193824405 }
+      ]
+    },
+    "resiliency": {
+      "label": "Resiliency",
+      "ranks": [
+        { "year": 2018, "rank": 60 },
+        { "year": 2019, "rank": 38 }
+      ],
+      "scores": [
+        { "year": 2018, "score": 16.8747 },
+        { "year": 2019, "score": 17.09517551 }
+      ],
+      "sub_indicators": [
+        { "name": "Land Use Plan", "rank": 3, "score": 2.49975223 },
+        { "name": "Disaster Risk Reduction Plan", "rank": 4, "score": 2.44047619 },
+        { "name": "Annual Disaster Drill", "rank": 4, "score": 2.291666667 },
+        { "name": "Early Warning System", "rank": 1, "score": 2.5 },
+        { "name": "Budget for DRRMP", "rank": 66, "score": 0.413632712 },
+        { "name": "Local Risk Assessments", "rank": 1, "score": 2.5 },
+        { "name": "Emergency Infrastructure", "rank": 55, "score": 0.388465609 },
+        { "name": "Utilities", "rank": 69, "score": 1.880447916 },
+        { "name": "Employed Population", "rank": 20, "score": 0.172306544 },
+        { "name": "Sanitary System", "rank": 19, "score": 2.008427645 }
+      ]
+    }
+  }
 }

@@ -1,4 +1,5 @@
 import PageHeader from '@/components/layout/PageHeader';
+import DirectoryLinkCard from '@/components/DirectoryLinkCard';
 import cityProfile from '@/data/city-profile.json';
 
 const containerCls =
@@ -284,6 +285,19 @@ export default function AboutPage() {
             <i className="bi bi-info-circle mr-1"></i> Source: research/culture-history/26-09-culture-heritage.md (LGU
             tourism archived 2024-06-03; old official site; Wikipedia; Wikivoyage)
           </p>
+
+          <DirectoryLinkCard
+            href="/tourism"
+            icon="bi bi-sun"
+            title="Tourism"
+            description="Attractions, the Mango-Bamboo Festival, food and drink, and places to stay"
+          />
+          <DirectoryLinkCard
+            href="/transportation"
+            icon="bi bi-bus-front"
+            title="Transportation"
+            description="Travel times, entry routes, and bus carriers for getting to the city"
+          />
         </div>
       </section>
     </>

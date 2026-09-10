@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
+import DirectoryLinkCard from '@/components/DirectoryLinkCard';
 
 
 export default function PublicSafetyPage() {
@@ -43,6 +44,18 @@ export default function PublicSafetyPage() {
               </div>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Disaster preparedness directory cross-link */}
+      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6" aria-label="Disaster preparedness directory">
+        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+          <DirectoryLinkCard
+            href="/disaster-preparedness"
+            icon="bi bi-shield-fill-check"
+            title="Disaster Preparedness Guide"
+            description="CDRRMO contacts and evacuation sites for San Carlos City, Pangasinan"
+          />
         </div>
       </section>
     </>

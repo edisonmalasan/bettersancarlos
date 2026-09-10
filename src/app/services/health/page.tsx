@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageHeader from '@/components/layout/PageHeader';
+import healthFacilities from '@/data/health-facilities.json';
 
 export default function HealthPage() {
   const { t } = useLanguage();
@@ -91,222 +92,107 @@ export default function HealthPage() {
         </div>
       </section>
 
-      {/* Health Facilities Statistics */}
+      {/* Health Facilities pending notice (verified data on /health) */}
       <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
-          <div className="grid grid-cols-4 gap-3 max-[768px]:grid-cols-2">
-            <div className="rounded-lg border border-line bg-white p-4 px-3 text-center transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.1)] max-[640px]:px-2.5 max-[640px]:py-3">
-              <span className="mb-1 block text-[1.75rem] font-bold leading-none text-primary max-[640px]:text-[1.5rem]">88</span>
-              <span className="text-[0.75rem] leading-[1.2] text-muted-foreground">{t('health-stat-facilities')}</span>
-            </div>
-            <div className="rounded-lg border border-line bg-white p-4 px-3 text-center transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.1)] max-[640px]:px-2.5 max-[640px]:py-3">
-              <span className="mb-1 block text-[1.75rem] font-bold leading-none text-primary max-[640px]:text-[1.5rem]">3</span>
-              <span className="text-[0.75rem] leading-[1.2] text-muted-foreground">{t('health-stat-hospitals')}</span>
-            </div>
-            <div className="rounded-lg border border-line bg-white p-4 px-3 text-center transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.1)] max-[640px]:px-2.5 max-[640px]:py-3">
-              <span className="mb-1 block text-[1.75rem] font-bold leading-none text-primary max-[640px]:text-[1.5rem]">22</span>
-              <span className="text-[0.75rem] leading-[1.2] text-muted-foreground">{t('health-stat-bhs')}</span>
-            </div>
-            <div className="rounded-lg border border-line bg-white p-4 px-3 text-center transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.1)] max-[640px]:px-2.5 max-[640px]:py-3">
-              <span className="mb-1 block text-[1.75rem] font-bold leading-none text-primary max-[640px]:text-[1.5rem]">1</span>
-              <span className="text-[0.75rem] leading-[1.2] text-muted-foreground">{t('health-stat-mho')}</span>
-            </div>
+          <div className="rounded-xl border border-line bg-white p-6 text-center">
+            <span className="mb-3 inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-3 py-1.5 text-[0.8125rem] font-semibold text-[#8a5a00]">
+              <i className="bi bi-hourglass-split"></i> Facility statistics pending verification
+            </span>
+            <p className="m-0 text-[0.9375rem] leading-[1.6] text-muted-foreground">
+              Previously displayed facility counts could not be verified for San Carlos City, Pangasinan and have been
+              withheld. Verified hospital and health-office information is available on the{' '}
+              <Link href="/health" className="text-primary hover:underline">
+                Health Facilities page
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Hospitals Directory */}
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      {/* Hospitals Directory (verified names only) */}
+      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6 bg-muted">
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
           <h2 className="mb-6 flex items-center gap-2 text-[1.375rem] font-semibold leading-[1.2] text-foreground">
             <i className="bi bi-hospital text-primary"></i>
             <span>{t('health-section-hospitals')}</span>
           </h2>
-          <div className="grid grid-cols-3 gap-3 max-[1024px]:grid-cols-2 max-[768px]:grid-cols-1">
-            <div className="rounded-[0_8px_8px_0] border border-line border-l-[3px] border-l-primary bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)]">
-              <div className="mb-2 inline-block rounded bg-[rgba(58, 125, 68,0.1)] px-2 py-[3px] text-[0.625rem] font-semibold uppercase tracking-[0.5px] text-primary">Tertiary Hospital</div>
-              <h3 className="m-0 mb-1.5 text-[0.9375rem] font-semibold leading-[1.3] text-foreground">{t('health-pltciluis-a-tiam-medical-center')}</h3>
-              <p className="m-0 mb-2.5 text-[0.8125rem] leading-[1.5] text-muted-foreground">
-                {t('health-a-tertiary-level-philhealthaccredited-private')}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="flex items-center gap-[5px] text-[0.75rem] text-muted-foreground">
-                  <i className="bi bi-geo-alt text-[0.6875rem] text-primary"></i>
-                  <span>{t('health-national-highway-san-carlos')}</span>
+          <div className="grid grid-cols-2 gap-4 max-[991px]:grid-cols-1">
+            {healthFacilities.facilities.map((f) => (
+              <div
+                key={f.name}
+                className="rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)]"
+              >
+                <div className="mb-2 flex items-start gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <i className="bi bi-hospital"></i>
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="m-0 mb-0.5 text-[0.9375rem] font-semibold leading-[1.3] text-foreground">{f.name}</h3>
+                    <p className="m-0 text-[0.8125rem] text-muted-foreground">{f.type}</p>
+                  </div>
+                </div>
+                <span className="inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]">
+                  <i className="bi bi-hourglass-split"></i> Name verified — DOH data pending
                 </span>
               </div>
-            </div>
-
-            <div className="rounded-[0_8px_8px_0] border border-line border-l-[3px] border-l-primary bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)]">
-              <div className="mb-2 inline-block rounded bg-[rgba(58, 125, 68,0.1)] px-2 py-[3px] text-[0.625rem] font-semibold uppercase tracking-[0.5px] text-primary">Private Hospital</div>
-              <h3 className="m-0 mb-1.5 text-[0.9375rem] font-semibold leading-[1.3] text-foreground">{t('health-medical-mission-group-hospital-health-services')}</h3>
-              <p className="m-0 mb-2.5 text-[0.8125rem] leading-[1.5] text-muted-foreground">
-                {t('health-also-known-as-new-mmg-hospital-providing-quality')}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="flex items-center gap-[5px] text-[0.75rem] text-muted-foreground">
-                  <i className="bi bi-geo-alt text-[0.6875rem] text-primary"></i>
-                  <span>{t('health-bintawan-road-brgy-quezon')}</span>
-                </span>
-              </div>
-            </div>
-
-            <div className="rounded-[0_8px_8px_0] border border-line border-l-[3px] border-l-primary bg-white p-4 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)]">
-              <div className="mb-2 inline-block rounded bg-[rgba(58, 125, 68,0.1)] px-2 py-[3px] text-[0.625rem] font-semibold uppercase tracking-[0.5px] text-primary">Medical Center</div>
-              <h3 className="m-0 mb-1.5 text-[0.9375rem] font-semibold leading-[1.3] text-foreground">{t('health-salubris-inc-salubris-medical-center')}</h3>
-              <p className="m-0 mb-2.5 text-[0.8125rem] leading-[1.5] text-muted-foreground">
-                {t('health-private-medical-center-offering-various')}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="flex items-center gap-[5px] text-[0.75rem] text-muted-foreground">
-                  <i className="bi bi-geo-alt text-[0.6875rem] text-primary"></i>
-                  <span>{t('health-national-highway-san-carlos')}</span>
-                </span>
-              </div>
-            </div>
+            ))}
           </div>
+          <p className="mt-4 mb-0 text-[0.8125rem] text-muted-foreground">
+            <i className="bi bi-info-circle mr-1"></i> Facility names are verified from the official city evacuation plan
+            (archived 2017). DOH license, bed capacity, and contact data are not verified and are not shown. See{' '}
+            <Link href="/health" className="text-primary hover:underline">
+              /health
+            </Link>{' '}
+            for details.
+          </p>
         </div>
       </section>
 
-      {/* Municipal Health Office */}
-      <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
-          <h2 className="mb-6 flex items-center gap-2 text-[1.375rem] font-semibold leading-[1.2] text-foreground">
-            <i className="bi bi-building text-primary"></i>
-            <span>{t('health-section-mho')}</span>
-          </h2>
-          <div className="rounded-[0_8px_8px_0] border border-line border-l-[3px] border-l-primary bg-white p-5">
-            <div>
-              <h3 className="m-0 mb-2 text-[1rem] font-semibold leading-[1.2] text-foreground">{t('health-mho-title')}</h3>
-              <p className="m-0 mb-3.5 text-[0.8125rem] leading-[1.5] text-muted-foreground">{t('health-mho-desc')}</p>
-              <div className="flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-[5px] rounded bg-muted px-2.5 py-[5px] text-[0.75rem] text-foreground max-[640px]:px-2 max-[640px]:py-1 max-[640px]:text-[0.6875rem]">
-                  <i className="bi bi-check-circle text-[0.6875rem] text-primary"></i>
-                  <span className="inline-flex items-center gap-[5px] rounded bg-muted px-2.5 py-[5px] text-[0.75rem] text-foreground max-[640px]:px-2 max-[640px]:py-1 max-[640px]:text-[0.6875rem]">{t('health-service-lying-in')}</span>
-                </span>
-                <span className="inline-flex items-center gap-[5px] rounded bg-muted px-2.5 py-[5px] text-[0.75rem] text-foreground max-[640px]:px-2 max-[640px]:py-1 max-[640px]:text-[0.6875rem]">
-                  <i className="bi bi-check-circle text-[0.6875rem] text-primary"></i>
-                  <span className="inline-flex items-center gap-[5px] rounded bg-muted px-2.5 py-[5px] text-[0.75rem] text-foreground max-[640px]:px-2 max-[640px]:py-1 max-[640px]:text-[0.6875rem]">{t('health-service-laboratory')}</span>
-                </span>
-                <span className="inline-flex items-center gap-[5px] rounded bg-muted px-2.5 py-[5px] text-[0.75rem] text-foreground max-[640px]:px-2 max-[640px]:py-1 max-[640px]:text-[0.6875rem]">
-                  <i className="bi bi-check-circle text-[0.6875rem] text-primary"></i>
-                  <span className="inline-flex items-center gap-[5px] rounded bg-muted px-2.5 py-[5px] text-[0.75rem] text-foreground max-[640px]:px-2 max-[640px]:py-1 max-[640px]:text-[0.6875rem]">{t('health-service-immunization')}</span>
-                </span>
-                <span className="inline-flex items-center gap-[5px] rounded bg-muted px-2.5 py-[5px] text-[0.75rem] text-foreground max-[640px]:px-2 max-[640px]:py-1 max-[640px]:text-[0.6875rem]">
-                  <i className="bi bi-check-circle text-[0.6875rem] text-primary"></i>
-                  <span className="inline-flex items-center gap-[5px] rounded bg-muted px-2.5 py-[5px] text-[0.75rem] text-foreground max-[640px]:px-2 max-[640px]:py-1 max-[640px]:text-[0.6875rem]">{t('health-service-prenatal')}</span>
-                </span>
-                <span className="inline-flex items-center gap-[5px] rounded bg-muted px-2.5 py-[5px] text-[0.75rem] text-foreground max-[640px]:px-2 max-[640px]:py-1 max-[640px]:text-[0.6875rem]">
-                  <i className="bi bi-check-circle text-[0.6875rem] text-primary"></i>
-                  <span className="inline-flex items-center gap-[5px] rounded bg-muted px-2.5 py-[5px] text-[0.75rem] text-foreground max-[640px]:px-2 max-[640px]:py-1 max-[640px]:text-[0.6875rem]">{t('health-service-family-planning')}</span>
-                </span>
-                <span className="inline-flex items-center gap-[5px] rounded bg-muted px-2.5 py-[5px] text-[0.75rem] text-foreground max-[640px]:px-2 max-[640px]:py-1 max-[640px]:text-[0.6875rem]">
-                  <i className="bi bi-check-circle text-[0.6875rem] text-primary"></i>
-                  <span className="inline-flex items-center gap-[5px] rounded bg-muted px-2.5 py-[5px] text-[0.75rem] text-foreground max-[640px]:px-2 max-[640px]:py-1 max-[640px]:text-[0.6875rem]">{t('health-service-tb-dots')}</span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Barangay Health Stations */}
+      {/* City Health Office */}
       <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
           <h2 className="mb-6 flex items-center gap-2 text-[1.375rem] font-semibold leading-[1.2] text-foreground">
-            <i className="bi bi-plus-circle text-primary"></i>
-            <span>{t('health-section-bhs')}</span>
+            <i className="bi bi-building text-primary"></i>
+            <span>City Health Office</span>
           </h2>
-          <p className="mx-0 -mt-2 mb-4 text-[0.8125rem] text-muted-foreground">{t('health-bhs-subtitle')}</p>
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-2 max-[640px]:grid-cols-2">
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-aggub-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-bagahabag-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-bangaan-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-bangar-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-buenavista-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-calaocan-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-commando-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-concepcion-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-curifang-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-dadap-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-lactawan-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-nangalisan-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-ocapon-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-osmea-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-paitan-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-pilar-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-poblacion-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-quezon-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-quirino-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-roxas-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-tucal-bhs')}</span>
-            </div>
-            <div className="rounded-[0_6px_6px_0] border-l-[3px] border-l-primary bg-muted px-3 py-2.5 text-[0.8125rem] font-medium text-foreground transition-colors duration-200 hover:bg-line-soft">
-              <span>{t('health-uddiawan-bhs')}</span>
+          <div className="rounded-xl border border-line bg-white p-6">
+            <div className="flex items-start gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary">
+                <i className="bi bi-hospital"></i>
+              </div>
+              <div className="min-w-0 flex-1">
+                <h3 className="m-0 mb-1.5 text-[1.125rem] font-bold text-foreground">{healthFacilities.city_health_office.name}</h3>
+                <p className="m-0 mb-2 text-[0.875rem] text-muted-foreground">
+                  City Hall Building, Palaris Street, San Carlos City, Pangasinan
+                </p>
+                <p className="m-0 flex flex-wrap items-center gap-2 text-[0.875rem] text-foreground">
+                  <i className="bi bi-telephone text-primary"></i>
+                  {healthFacilities.city_health_office.phone}
+                  <span className="inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]">
+                    <i className="bi bi-archive"></i> {healthFacilities.city_health_office.phone_status}
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* City Health Facilities directory cross-link */}
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6" aria-label="City health facilities directory">
+      {/* Barangay Health Stations pending notice */}
+      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
-          <Link
-            href="/health"
-            className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
-          >
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary">
-              <i className="bi bi-hospital"></i>
-            </div>
-            <div className="min-w-0 flex-1">
-              <h3 className="m-0 mb-1 text-base text-foreground">City Health Facilities Directory</h3>
-              <p className="m-0 text-[0.8125rem] text-muted-foreground">
-                Hospitals and the City Health Office serving San Carlos City, Pangasinan
-              </p>
-            </div>
-            <i className="bi bi-arrow-right text-muted-foreground opacity-0 transition-[opacity,transform] duration-200 group-hover:translate-x-1 group-hover:opacity-100"></i>
-          </Link>
+          <div className="rounded-xl border border-line bg-white p-6 text-center">
+            <span className="mb-3 inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-3 py-1.5 text-[0.8125rem] font-semibold text-[#8a5a00]">
+              <i className="bi bi-hourglass-split"></i> Barangay health stations pending verification
+            </span>
+            <p className="m-0 text-[0.9375rem] leading-[1.6] text-muted-foreground">
+              Per-barangay health station names and locations for San Carlos City are being verified with the City Health
+              Office. Previously listed stations could not be confirmed for this city and have been removed. For
+              health-service locations, call the City Hall trunk line (075) 600-1432.
+            </p>
+          </div>
         </div>
       </section>
 

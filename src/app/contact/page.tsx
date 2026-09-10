@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
+import DirectoryLinkCard from '@/components/DirectoryLinkCard';
 import { departmentLinks } from '@/lib/contact';
 import emergencyHotlines from '@/data/emergency-hotlines.json';
 import cityProfile from '@/data/city-profile.json';
@@ -209,7 +210,13 @@ export default function ContactPage() {
             </section>
 
             <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+                    <DirectoryLinkCard
+                        href="/utilities"
+                        icon="bi bi-lightning-charge"
+                        title="Utilities"
+                        description="Electricity (CENPELCO), water, and telecom service information"
+                    />
                     <p className="mt-4 text-sm text-muted-foreground">
                         <i className="bi bi-info-circle mr-1"></i>
                         Source: Contact details and social links scraped from the official City of San Carlos, Pangasinan website (

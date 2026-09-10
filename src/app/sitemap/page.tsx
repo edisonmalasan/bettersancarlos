@@ -92,6 +92,10 @@ export default function SitemapPage() {
                                 <i className="bi bi-arrow-right text-xs text-muted-foreground transition-colors group-hover:text-primary"></i>
                                 <span>Utilities</span>
                             </Link>
+                            <Link href="/quiz" className="group flex items-center gap-2 rounded-lg border border-line bg-white px-[14px] py-2.5 text-[0.8125rem] font-medium text-foreground no-underline transition-[border-color,background-color,box-shadow,transform] duration-200 hover:translate-x-0.5 hover:border-primary hover:bg-[rgba(58, 125, 68,0.04)] hover:text-primary hover:no-underline max-[480px]:py-3">
+                                <i className="bi bi-arrow-right text-xs text-muted-foreground transition-colors group-hover:text-primary"></i>
+                                <span>History Quiz</span>
+                            </Link>
                         </div>
                     </div>
 

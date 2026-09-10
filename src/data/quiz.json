@@ -1,0 +1,113 @@
+{
+  "_status": "verified",
+  "_source": "research/culture-history/26-09-history.md; research/culture-history/26-09-culture-heritage.md",
+  "_note": "Every question, option set, answer, and explanation is derived from the two research files. Distractors are plausible-but-wrong values drawn from the same research corpus (neighboring LGUs, off-by-one dates, other people/events in the same file) and are never presented as explanations. The founding question uses the research-documented primary value (1587, Fr. Francisco dela Lama, Augustinian) and footnotes the 1578 (Wikipedia) conflict.",
+  "questions": [
+    {
+      "id": "pre-colonial-name",
+      "question": "What was San Carlos City called before it was renamed in the 18th century?",
+      "options": ["Binalatongan", "Binmaley", "Calasiao", "Lingayen"],
+      "answer": 0,
+      "explanation": "The settlement began as Binalatongan, a riverside trading center visited by Chinese, Japanese, and Indian traders. The Province of Pangasinan describes it as a capital of Caboloan.",
+      "source": "research/culture-history/26-09-history.md#Pre-Colonial Era — Binalatongan"
+    },
+    {
+      "id": "binalatongan-name-origin",
+      "question": "The name \"Binalatongan\" comes from \"balatong\" — what is a balatong?",
+      "options": ["A species of river fish", "The Pangasinan word for mung bean (mongo)", "A Spanish colonial tax", "A variety of bamboo"],
+      "answer": 1,
+      "explanation": "Binalatongan takes its name from balatong, the Pangasinan term for mung bean (mongo), which was abundant in the area.",
+      "source": "research/culture-history/26-09-history.md#Pre-Colonial Era — Binalatongan"
+    },
+    {
+      "id": "malong-revolt-1660",
+      "question": "Who led the major revolt against Spanish colonial rule in Binalatongan in 1660?",
+      "options": ["Juan dela Cruz Palaris", "Juan Caragay", "Andres Malong", "Padre Bernardo Navarro"],
+      "answer": 2,
+      "explanation": "Andres Malong led the 1660 revolt against Spanish colonial rule and is regarded as a native hero of Binalatongan. (Palaris led the later 1762–1763 revolt; Caragay led the 1718 uprising.)",
+      "source": "research/culture-history/26-09-history.md#Famous Revolts / Resistance"
+    },
+    {
+      "id": "palaris-revolt-1762",
+      "question": "The 1762–1763 revolt against tribute and forced labor was led by whom?",
+      "options": ["Juan dela Cruz Palaris", "Andres Malong", "Juan Caragay", "Carlos III"],
+      "answer": 0,
+      "explanation": "Juan dela Cruz Palaris (also known as Pantaleon Perez, named for his skill in esgrima de mano, native fencing) led the 1762–1763 revolt; his rebels held an independent government based in Binalatongan for about two years.",
+      "source": "research/culture-history/26-09-history.md#Famous Revolts / Resistance"
+    },
+    {
+      "id": "carlos-iii-rename",
+      "question": "Which Spanish king ordered the town razed and renamed \"San Carlos\" after the revolts?",
+      "options": ["King Philip II", "King Ferdinand VII", "King Charles IV", "King Carlos III"],
+      "answer": 3,
+      "explanation": "After the revolts were defeated, King Carlos III of Spain ordered the town razed and renamed it San Carlos in his honor; the site was moved to its present location.",
+      "source": "research/culture-history/26-09-history.md#Famous Revolts / Resistance"
+    },
+    {
+      "id": "poblacion-move-1718",
+      "question": "In 1718, after an uprising, the poblacion was relocated — to where?",
+      "options": ["Across the Agno River, to its west bank", "East of the San Juan River, at its present site", "To the coast of Lingayen Gulf", "To the barangay of Lucban"],
+      "answer": 1,
+      "explanation": "After the 1718 Caragay uprising burned the church and convent, the Poblacion was relocated east of the San Juan River on November 4, 1718 (feast of St. Charles Borromeo), and the settlement was renamed San Carlos Binalatongan. (The move to the Lucban site came later, by decree of Charles III in 1763.)",
+      "source": "research/culture-history/26-09-history.md#The Church and the Poblacion Relocations"
+    },
+    {
+      "id": "founding-1587",
+      "question": "According to the LGU's archived history, who founded the community in 1587?",
+      "options": ["Fr. Francisco dela Lama, an Augustinian friar", "Padre Bernardo Navarro de Santa Catalina, O.P.", "Fr. Juan de Castro, O.P.", "Juan Caragay"],
+      "answer": 0,
+      "explanation": "The LGU's archived history records the community's founding by Fr. Francisco dela Lama, an Augustinian friar, in 1587. (Wikipedia's infobox instead dates the founding to 1578 — a documented source conflict. Bernardo Navarro became the first vicar in 1588.)",
+      "source": "research/culture-history/26-09-history.md#Spanish Colonial Era"
+    },
+    {
+      "id": "cityhood-ra4487",
+      "question": "Which law converted San Carlos into a city?",
+      "options": ["Republic Act No. 4487", "Republic Act No. 4866", "Republic Act No. 7160", "Republic Act No. 2264"],
+      "answer": 0,
+      "explanation": "Republic Act No. 4487, signed June 19, 1965, converted the municipality into the City of San Carlos, effective January 1, 1966 after local ratification. (RA 4866 is the law that created the Municipality of Basista.)",
+      "source": "research/culture-history/26-09-history.md#Philippine Independence Era / Cityhood"
+    },
+    {
+      "id": "basista-separation",
+      "question": "In 1965 the Municipality of San Carlos was divided — which municipality was created from the smaller zone?",
+      "options": ["Calasiao", "Urbiztondo", "Basista", "Aguilar"],
+      "answer": 2,
+      "explanation": "In 1965 the municipality was divided: the smaller zone became the Municipality of Basista (under RA 4866), while the larger portion became the City of San Carlos.",
+      "source": "research/culture-history/26-09-history.md#Philippine Independence Era / Cityhood"
+    },
+    {
+      "id": "mango-bamboo-festival",
+      "question": "When was the Mango-Bamboo Festival launched, and when is it held?",
+      "options": ["Launched 1998; first week of April", "Launched 2005; last week of March", "Launched 2001; last week of April", "Launched 2001; second week of May"],
+      "answer": 2,
+      "explanation": "The city's signature festival was launched in 2001 and is held in the last week of April, promoting San Carlos as a major trading center for bamboo-based products and a top producer of carabao mangoes.",
+      "source": "research/culture-history/26-09-culture-heritage.md#Festivals"
+    },
+    {
+      "id": "minor-basilica-timeline",
+      "question": "Which statement about the Minor Basilica of Saint Dominic is correct?",
+      "options": [
+        "Built 1587, rebuilt 1660; declared a Minor Basilica by Pope John Paul II",
+        "Church completed 1773, rebuilt 1803; declared a Minor Basilica by Pope Francis on July 6, 2022",
+        "Built 1763, rebuilt 1898; declared a Minor Basilica by Pope Benedict XVI",
+        "Built 1803, rebuilt 1988; declared a Minor Basilica by Pope Francis on January 14, 2022"
+      ],
+      "answer": 1,
+      "explanation": "The current site is the church's third location: a church was completed in 1773, destroyed by earthquakes several times, and rebuilt in 1803 measuring 89 yards long and 22 yards wide. It was declared a Minor Basilica by Pope Francis on July 6, 2022, and solemnly proclaimed on January 14, 2023.",
+      "source": "research/culture-history/26-09-culture-heritage.md#The Minor Basilica of Saint Dominic"
+    },
+    {
+      "id": "nhcp-marker-1988",
+      "question": "What did the National Historical Commission of the Philippines install at the city plaza in 1988?",
+      "options": [
+        "A statue of Andres Malong",
+        "The \"Lungsod ng San Carlos\" historical marker",
+        "A monument to King Carlos III",
+        "A shrine to Saint Dominic de Guzman"
+      ],
+      "answer": 1,
+      "explanation": "In 1988, the NHCP installed the \"Lungsod ng San Carlos\" historical marker at the city plaza.",
+      "source": "research/culture-history/26-09-history.md#Significant Recent Historical Moments"
+    }
+  ]
+}

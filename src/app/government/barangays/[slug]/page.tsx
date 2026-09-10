@@ -13,6 +13,12 @@ interface Barangay {
     barangay: string;
     total_officials: number;
     positions: Position[];
+    tel?: string;
+    tel_status?: string;
+    tel_shared_with?: string[];
+    population_2020?: number;
+    population_2015?: number;
+    poblacion?: boolean;
 }
 
 const barangays = barangayOfficials.barangays as Barangay[];
@@ -30,6 +36,16 @@ function formatName(name: string | null): string {
         .split(/\s+/)
         .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
         .join(' ');
+}
+
+/** Render dataset names for display only (fixes the double-escaped ñ in
+ * "Malaca\u00f1ang" without touching stored names, so slugs stay identical). */
+function displayName(name: string): string {
+    return name.replace(/\\u00f1/g, 'ñ');
+}
+
+function formatPopulation(n: number): string {
+    return n.toLocaleString('en-PH');
 }
 
 export default async function BarangayDetailPage({
@@ -50,15 +66,54 @@ export default async function BarangayDetailPage({
     return (
         <>
             <PageHeader
-                title={`Barangay ${barangay.barangay}`}
+                title={`Barangay ${displayName(barangay.barangay)}`}
                 description={`Barangay officials for the ${barangayOfficials.term} term`}
                 badge={{ icon: 'bi bi-geo-alt-fill', label: 'Barangay Unit' }}
                 breadcrumbs={[
                     { label: 'nav-home', href: '/' },
                     { label: 'Government', href: '/government' },
-                    { label: barangay.barangay },
+                    { label: displayName(barangay.barangay) },
                 ]}
             />
+
+            {/* Barangay profile stats */}
+            {(barangay.population_2020 !== undefined || barangay.poblacion) && (
+                <section className="relative z-[2] mt-10 pb-[40px]">
+                    <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                        <div className="grid grid-cols-3 gap-4 max-[767px]:grid-cols-1">
+                            {barangay.population_2020 !== undefined && (
+                                <div className="rounded-xl border border-line bg-white p-5 text-center">
+                                    <span className="block text-[1.5rem] font-bold text-primary">{formatPopulation(barangay.population_2020)}</span>
+                                    <span className="mt-0.5 block text-[0.8125rem] font-medium text-foreground">Population (2020)</span>
+                                    <span className="block text-[0.6875rem] text-muted-foreground">PSA Census</span>
+                                </div>
+                            )}
+                            {barangay.population_2015 !== undefined && (
+                                <div className="rounded-xl border border-line bg-white p-5 text-center">
+                                    <span className="block text-[1.5rem] font-bold text-primary">{formatPopulation(barangay.population_2015)}</span>
+                                    <span className="mt-0.5 block text-[0.8125rem] font-medium text-foreground">Population (2015)</span>
+                                    <span className="block text-[0.6875rem] text-muted-foreground">PSA Census</span>
+                                </div>
+                            )}
+                            <div className="rounded-xl border border-line bg-white p-5 text-center">
+                                {barangay.poblacion ? (
+                                    <>
+                                        <span className="block text-[1.5rem] font-bold text-primary">Poblacion</span>
+                                        <span className="mt-0.5 block text-[0.8125rem] font-medium text-foreground">Urban core</span>
+                                        <span className="block text-[0.6875rem] text-muted-foreground">City center barangay</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <span className="block text-[1.5rem] font-bold text-primary">86 total</span>
+                                        <span className="mt-0.5 block text-[0.8125rem] font-medium text-foreground">City: 30 urban / 56 rural</span>
+                                        <span className="block text-[0.6875rem] text-muted-foreground">Classification pending verification</span>
+                                    </>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
 
             {/* Punong Barangay */}
             {punong && (
@@ -70,7 +125,7 @@ export default async function BarangayDetailPage({
                             </h3>
                             <p className="mb-4" style={{ color: 'var(--color-text-light)' }}>
                                 {barangay.total_officials} officials serving Barangay{' '}
-                                {barangay.barangay}
+                                {displayName(barangay.barangay)}
                             </p>
                         </div>
                         <div
@@ -83,6 +138,12 @@ export default async function BarangayDetailPage({
                                     {formatName(punong.officials[0])}
                                 </h4>
                             </div>
+                            {barangay.tel_status === 'shared line' ? (
+                                <p className="m-0 border-t border-line bg-white px-6 py-4 text-center text-[0.8125rem] text-muted-foreground">
+                                    <i className="bi bi-telephone-x mr-1 text-[#8a5a00]"></i>
+                                    Contact number shared with {barangay.tel_shared_with?.map(displayName).join(' and ') || 'another barangay'} — please call the City Hall trunk line (075) 600-1432 for assistance.
+                                </p>
+                            ) : null}
                         </div>
                     </div>
                 </section>

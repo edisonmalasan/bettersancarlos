@@ -32,6 +32,41 @@ export default function Footer() {
               decoding="async"
             />
             <p className="m-0 mb-6 text-sm leading-[1.6] text-white/70 max-[575px]:text-center">{t('footer-tagline')}</p>
+            <div>
+              <h4 className="m-0 mb-3 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-white/50">Official Channels</h4>
+              <ul className="m-0 list-none p-0">
+                <li className="mb-2">
+                  <a
+                    href="https://sancarlospangasinan.gov.ph"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline"
+                  >
+                    <i className="bi bi-building" aria-hidden="true"></i> sancarlospangasinan.gov.ph
+                  </a>
+                </li>
+                <li className="mb-2">
+                  <a
+                    href="https://www.facebook.com/sccp.cio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline"
+                  >
+                    <i className="bi bi-facebook" aria-hidden="true"></i> City Information Office (Facebook)
+                  </a>
+                </li>
+                <li className="mb-2">
+                  <a
+                    href="https://prod4.ebpls.com/sancarlospangasinan/index.php"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline"
+                  >
+                    <i className="bi bi-globe" aria-hidden="true"></i> eBPLS — Business Permits Online
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
           <div className="max-[575px]:flex max-[575px]:flex-col max-[575px]:items-center max-[575px]:text-center">
             <h4 className="m-0 mb-5 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-white/50">{t('footer-quick-links')}</h4>

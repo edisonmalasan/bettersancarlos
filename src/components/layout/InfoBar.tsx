@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { fetchCurrentWeather } from '@/lib/weather';
 
 const MONTHS = [
   'Jan',
@@ -78,15 +79,9 @@ export default function InfoBar() {
         // API/network failure: keep the placeholder rather than faking a value.
       });
 
-    fetch(
-      'https://api.open-meteo.com/v1/forecast?latitude=15.928&longitude=120.349&current_weather=true'
-    )
-      .then((r) => {
-        if (!r.ok) throw new Error(`weather request failed: ${r.status}`);
-        return r.json();
-      })
+    fetchCurrentWeather()
       .then((data) => {
-        const celsius = Number(data?.current_weather?.temperature);
+        const celsius = Number(data?.current_weather?.temperature ?? data?.current?.temperature_2m);
         if (mounted && Number.isFinite(celsius)) {
           setTemp(`${Math.round(celsius)}°C`);
         }

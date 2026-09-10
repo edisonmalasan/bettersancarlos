@@ -2,11 +2,10 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { fetchCurrentWeather } from '@/lib/weather';
 import AnimatedIcon from '@/components/icons/AnimatedIcon';
 
-// San Carlos City, Pangasinan (same coordinates used by the info bar and map marker)
-const LAT = 15.928;
-const LON = 120.349;
+// San Carlos City, Pangasinan (coordinates and fetching live in @/lib/weather)
 const CACHE_KEY = 'san_carlos_weather_cache';
 const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
 
@@ -98,29 +97,17 @@ export default function WeatherWidget() {
             }
         }
         try {
-            const params = new URLSearchParams({
-                latitude: String(LAT),
-                longitude: String(LON),
-                current: 'temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,is_day',
-                hourly: 'temperature_2m,weather_code',
-                timezone: 'Asia/Manila',
-                forecast_days: '1',
-            });
-            const controller = new AbortController();
-            const timer = setTimeout(() => controller.abort(), 10000);
-            const res = await fetch(`https://api.open-meteo.com/v1/forecast?${params}`, {
-                signal: controller.signal,
-            });
-            clearTimeout(timer);
-            if (!res.ok) throw new Error(`API ${res.status}`);
-            const json = await res.json();
+            const json = await fetchCurrentWeather(force);
+            if (!json) throw new Error('No weather data');
             const cur = json.current;
-            if (!cur || cur.temperature_2m == null) throw new Error('No current weather');
+            if (!cur || cur.temperature_2m == null || cur.weather_code == null) throw new Error('No current weather');
 
             const { condition, icon } = mapWeatherCode(cur.weather_code);
             const nowHour = new Date().getHours();
             const hourly: HourForecast[] = [];
             const times: string[] = json.hourly?.time ?? [];
+            const hourlyTemps: number[] = json.hourly?.temperature_2m ?? [];
+            const hourlyCodes: number[] = json.hourly?.weather_code ?? [];
             for (let i = 0; i < 4 && nowHour + i < times.length; i++) {
                 const idx = nowHour + i;
                 hourly.push({
@@ -128,16 +115,16 @@ export default function WeatherWidget() {
                         hour: 'numeric',
                         hour12: true,
                     }),
-                    temp: Math.round(json.hourly.temperature_2m[idx]),
-                    icon: mapWeatherCode(json.hourly.weather_code[idx]).icon,
+                    temp: Math.round(hourlyTemps[idx] ?? cur.temperature_2m),
+                    icon: mapWeatherCode(hourlyCodes[idx] ?? cur.weather_code).icon,
                 });
             }
 
             const result: WeatherData = {
                 temperature: Math.round(cur.temperature_2m),
                 feelsLike: Math.round(cur.apparent_temperature ?? cur.temperature_2m),
-                humidity: Math.round(cur.relative_humidity_2m),
-                windSpeed: Math.round(cur.wind_speed_10m),
+                humidity: Math.round(cur.relative_humidity_2m ?? 0),
+                windSpeed: Math.round(cur.wind_speed_10m ?? 0),
                 condition,
                 icon,
                 code: cur.weather_code,

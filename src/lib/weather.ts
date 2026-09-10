@@ -39,7 +39,6 @@ function buildUrl(): string {
     latitude: String(LAT),
     longitude: String(LON),
     current: 'temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,is_day',
-    current_weather: 'true',
     hourly: 'temperature_2m,weather_code',
     timezone: 'Asia/Manila',
     forecast_days: '1',

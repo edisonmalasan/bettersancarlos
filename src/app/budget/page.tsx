@@ -2,8 +2,11 @@
 
 import PageHeader from '@/components/layout/PageHeader';
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
 import Chart from 'chart.js/auto';
 import fiscalData from '@/data/fiscal_transparency.json';
+import transparencyDocs from '@/data/transparency-docs.json';
+import cityProjects from '@/data/city-projects.json';
 
 interface FiscalYear {
     year: number;
@@ -202,6 +205,148 @@ export default function BudgetPage() {
                             once they are confirmed from the BLGF Statement of Receipts and Expenditures.
                         </p>
                     </div>
+                </div>
+            </section>
+
+            {/* Transparency & Full Disclosure */}
+            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
+                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+                    <div className="mb-8 text-center">
+                        <h2 className="mb-1! text-2xl! font-bold text-foreground max-[767px]:text-[1.375rem]! max-[575px]:text-[1.25rem]!">Transparency &amp; Full Disclosure</h2>
+                        <p className="m-0! text-[0.9375rem] text-muted-foreground">Transparency Seal, Citizen&apos;s Charter, FDP reports, and e-services</p>
+                    </div>
+
+                    <div className="mb-6 grid grid-cols-3 gap-5 max-[991px]:grid-cols-1">
+                        <div className="rounded-xl border border-line bg-white p-6">
+                            <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground [&_i]:text-primary">
+                                <i className="bi bi-patch-check"></i> Transparency Seal
+                            </h3>
+                            <p className="m-0 mb-2 text-[0.875rem] leading-[1.5] text-muted-foreground">{transparencyDocs.transparency_seal.status}</p>
+                            <span className="inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]">
+                                <i className="bi bi-file-earmark-x"></i> Compliance documents not yet published online
+                            </span>
+                        </div>
+                        <div className="rounded-xl border border-line bg-white p-6">
+                            <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground [&_i]:text-primary">
+                                <i className="bi bi-award"></i> Seal of Good Local Governance
+                            </h3>
+                            <p className="m-0 mb-2 text-[0.875rem] leading-[1.5] text-muted-foreground">
+                                The city holds SGLG recognition per the official LGU announcement.
+                            </p>
+                            <span className="inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]">
+                                <i className="bi bi-question-circle"></i> Award year pending DILG verification
+                            </span>
+                        </div>
+                        <div className="rounded-xl border border-line bg-white p-6">
+                            <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground [&_i]:text-primary">
+                                <i className="bi bi-globe"></i> e-Services
+                            </h3>
+                            <a
+                                href={transparencyDocs.eservices[0].url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mb-2 inline-flex items-center gap-1.5 text-[0.875rem] font-semibold text-primary hover:underline"
+                            >
+                                {transparencyDocs.eservices[0].name} <i className="bi bi-box-arrow-up-right text-[0.75rem]"></i>
+                            </a>
+                            <p className="m-0 text-[0.8125rem] leading-[1.5] text-muted-foreground">{transparencyDocs.eservices[1].note}</p>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-6 max-[991px]:grid-cols-1">
+                        <div className="rounded-xl border border-line bg-white p-6">
+                            <h3 className="m-0 mb-3 flex items-center gap-2 text-[1rem] font-semibold text-foreground [&_i]:text-primary">
+                                <i className="bi bi-journal-text"></i> Citizen&apos;s Charter — service offices
+                            </h3>
+                            <p className="m-0 mb-3 text-[0.8125rem] leading-[1.5] text-muted-foreground">{transparencyDocs.citizens_charter.status}</p>
+                            <ul className="m-0 grid list-none grid-cols-2 gap-x-4 gap-y-1.5 pl-0 max-[575px]:grid-cols-1" role="list">
+                                {transparencyDocs.citizens_charter.offices.map((o) => (
+                                    <li key={o} className="flex gap-2 text-[0.875rem] leading-[1.4] text-foreground">
+                                        <i className="bi bi-dot text-primary"></i>
+                                        <span>{o}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <p className="mb-0 mt-3 text-[0.75rem] text-muted-foreground">{transparencyDocs.citizens_charter.gap}</p>
+                        </div>
+                        <div className="rounded-xl border border-line bg-white p-6">
+                            <h3 className="m-0 mb-3 flex items-center gap-2 text-[1rem] font-semibold text-foreground [&_i]:text-primary">
+                                <i className="bi bi-file-earmark-bar-graph"></i> Full Disclosure Policy reports
+                            </h3>
+                            <p className="m-0 mb-3 text-[0.8125rem] leading-[1.5] text-muted-foreground">
+                                Standard FDP financial reports listed on the city&apos;s FDP Policy Board (2017 archive):
+                            </p>
+                            <ul className="m-0 flex list-none flex-col gap-2 pl-0" role="list">
+                                {transparencyDocs.fdp_reports.map((r) => (
+                                    <li key={r.name} className="flex flex-wrap items-center gap-2 text-[0.875rem] text-foreground">
+                                        <i className="bi bi-file-earmark text-primary"></i> {r.name}
+                                        <span className="inline-flex items-center gap-1 rounded-md bg-[rgba(232,153,10,0.08)] px-2 py-[2px] text-[0.6875rem] font-semibold text-[#8a5a00]">
+                                            file pending
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p className="mt-6 mb-0 text-center text-[0.8125rem] text-muted-foreground">
+                        <i className="bi bi-info-circle mr-1"></i> Source: research/transparency/26-09-full-disclosure.md
+                        (official LGU pages, archived)
+                    </p>
+                </div>
+            </section>
+
+            {/* City Projects & Programs */}
+            <section className="bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6">
+                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+                    <div className="mb-8 text-center">
+                        <h2 className="mb-1! text-2xl! font-bold text-foreground max-[767px]:text-[1.375rem]! max-[575px]:text-[1.25rem]!">City Projects &amp; Programs</h2>
+                        <p className="m-0! text-[0.9375rem] text-muted-foreground">Program areas tracked by the city government</p>
+                    </div>
+
+                    <div className="mb-6 rounded-xl border border-line bg-white p-5 text-center">
+                        <span className="inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-3 py-1.5 text-[0.8125rem] font-semibold text-[#8a5a00]">
+                            <i className="bi bi-cash-coin"></i> {cityProjects.budgets_status}
+                        </span>
+                    </div>
+
+                    <div className="grid grid-cols-4 gap-5 max-[1200px]:grid-cols-2 max-[575px]:grid-cols-1">
+                        {cityProjects.program_buckets.map((b) => (
+                            <div
+                                key={b.name}
+                                className="rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+                            >
+                                <h3 className="m-0 mb-2 flex items-start gap-2 text-[0.875rem] font-bold leading-[1.3] text-foreground">
+                                    <i className="bi bi-diagram-3 mt-[2px] text-primary"></i>
+                                    <span>{b.name}</span>
+                                </h3>
+                                <p className="m-0 text-[0.8125rem] leading-[1.5] text-muted-foreground">{b.document_status}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="mt-6 rounded-xl border border-line bg-white p-6">
+                        <h3 className="m-0 mb-3 flex items-center gap-2 text-[1rem] font-semibold text-foreground [&_i]:text-primary">
+                            <i className="bi bi-building"></i> Known public projects (reference only)
+                        </h3>
+                        <ul className="m-0 flex list-none flex-col gap-2 pl-0" role="list">
+                            {cityProjects.known_projects.map((p) => (
+                                <li key={p.name} className="flex flex-wrap items-baseline gap-2 text-[0.9375rem] text-foreground">
+                                    <i className="bi bi-hammer text-primary"></i> {p.name}
+                                    <span className="text-[0.75rem] text-muted-foreground">— {p.evidence}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <p className="mt-6 mb-0 text-center text-[0.8125rem] text-muted-foreground">
+                        <i className="bi bi-info-circle mr-1"></i> Project budgets and contractors are not verifiable online
+                        and must come from the City Engineering Office / BAC. See also{' '}
+                        <Link href="/disaster-preparedness" className="text-primary hover:underline">
+                            /disaster-preparedness
+                        </Link>{' '}
+                        for the DRRM program.
+                    </p>
                 </div>
             </section>
         </>

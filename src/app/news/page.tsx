@@ -12,6 +12,7 @@ interface NewsItem {
     badge: string;
     summary: string;
     url: string | null;
+    recency?: string;
 }
 
 export default function NewsPage() {
@@ -25,6 +26,9 @@ export default function NewsPage() {
             .catch(() => setNews([]))
             .finally(() => setLoading(false));
     }, []);
+
+    const current = news.filter((n) => n.recency !== 'historical');
+    const historical = news.filter((n) => n.recency === 'historical');
 
     const badgeClass = (badge: string) => {
         const base = 'inline-block rounded px-2 py-1 text-xs font-semibold uppercase';
@@ -58,6 +62,11 @@ export default function NewsPage() {
 
             <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                    {!loading && current.length > 0 && (
+                        <h2 className="mb-6 flex items-center gap-2 text-[1.25rem] font-bold text-foreground">
+                            <i className="bi bi-broadcast text-primary"></i> Current Updates
+                        </h2>
+                    )}
                     <div className="grid grid-cols-3 gap-6 max-[1024px]:grid-cols-2 max-[480px]:grid-cols-1">
                         {loading && (
                             <div
@@ -83,7 +92,7 @@ export default function NewsPage() {
                                 No news available right now. Check back soon.
                             </p>
                         )}
-                        {news.map((item) => {
+                        {current.map((item) => {
                             const body = (
                                 <>
                                     <div className="mb-4 flex items-center justify-between">
@@ -118,6 +127,55 @@ export default function NewsPage() {
                     </div>
                 </div>
             </section>
+
+            {historical.length > 0 && (
+                <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
+                    <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+                            <h2 className="m-0 flex items-center gap-2 text-[1.25rem] font-bold text-foreground">
+                                <i className="bi bi-archive text-primary"></i> Historical Archive
+                            </h2>
+                            <span className="inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]">
+                                <i className="bi bi-clock-history"></i> Past events (2016-2023) kept for context
+                            </span>
+                        </div>
+                        <div className="grid grid-cols-3 gap-6 max-[1024px]:grid-cols-2 max-[480px]:grid-cols-1">
+                            {historical.map((item) => {
+                                const body = (
+                                    <>
+                                        <div className="mb-4 flex items-center justify-between">
+                                            <span className={badgeClass(item.badge)}>{item.category}</span>
+                                            <span className="whitespace-nowrap text-xs text-muted-foreground">
+                                                <i className="bi bi-calendar-event"></i> {item.date}
+                                            </span>
+                                        </div>
+                                        <div className="flex flex-1 flex-col">
+                                            <h3 className="m-0 mb-2 text-base font-semibold leading-[1.35] text-foreground">{item.title}</h3>
+                                            <p className="m-0 flex-1 overflow-hidden text-[0.8125rem] leading-[1.55] text-muted-foreground line-clamp-3 max-[480px]:line-clamp-2">{item.summary}</p>
+                                        </div>
+                                    </>
+                                );
+
+                                return item.url ? (
+                                    <a
+                                        key={item.id}
+                                        href={item.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={cardCls}
+                                    >
+                                        {body}
+                                    </a>
+                                ) : (
+                                    <article key={item.id} className={cardCls}>
+                                        {body}
+                                    </article>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </section>
+            )}
 
             <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">

@@ -11,6 +11,7 @@ interface NewsEntry {
     summary: string;
     url: string | null;
     source?: string;
+    recency?: 'current' | 'historical';
 }
 
 const DATA_URL = '/data/news.json';
@@ -43,6 +44,7 @@ export default function NewsEditorPage() {
     const [summary, setSummary] = useState('');
     const [url, setUrl] = useState('');
     const [source, setSource] = useState('');
+    const [recency, setRecency] = useState<'current' | 'historical'>('current');
     const [id, setId] = useState('');
 
     const [invalidFields, setInvalidFields] = useState<Set<string>>(new Set());
@@ -104,6 +106,7 @@ export default function NewsEditorPage() {
             summary: e.summary || '',
             url: e.url || null,
             source: e.source || undefined,
+            recency: e.recency === 'historical' ? 'historical' : e.recency === 'current' ? 'current' : undefined,
         }));
     }
 
@@ -141,6 +144,7 @@ export default function NewsEditorPage() {
         setSummary('');
         setUrl('');
         setSource('');
+        setRecency('current');
         setId(uniqueId('', nextEntries ?? entries, -1));
         setInvalidFields(new Set());
     }
@@ -155,6 +159,7 @@ export default function NewsEditorPage() {
         setSummary(e.summary || '');
         setUrl(e.url || '');
         setSource(e.source || '');
+        setRecency(e.recency === 'historical' ? 'historical' : 'current');
         setId(e.id || '');
         setInvalidFields(new Set());
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -193,6 +198,7 @@ export default function NewsEditorPage() {
             url: url.trim() || null,
         };
         if (source.trim()) item.source = source.trim();
+        item.recency = recency === 'historical' ? 'historical' : 'current';
         return item;
     }
 
@@ -479,6 +485,22 @@ export default function NewsEditorPage() {
                                 onChange={(e) => setSource(e.target.value)}
                             />
                             <div className={neHint}>Shown on the link. Defaults to “Read more” when a URL is set.</div>
+                        </div>
+
+                        <div>
+                            <label className={neLabel} htmlFor="f-recency">
+                                Recency
+                            </label>
+                            <select
+                                id="f-recency"
+                                className={neInput}
+                                value={recency}
+                                onChange={(e) => setRecency(e.target.value === 'historical' ? 'historical' : 'current')}
+                            >
+                                <option value="current">current</option>
+                                <option value="historical">historical</option>
+                            </select>
+                            <div className={neHint}>Historical items are grouped under “Historical Archive” on the News page.</div>
                         </div>
 
                         <div>

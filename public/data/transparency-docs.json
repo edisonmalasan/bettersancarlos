@@ -1,0 +1,55 @@
+{
+  "_schema_version": "1.0",
+  "_status": "partially-verified",
+  "_updated": "2026-09-04",
+  "_source": "research/transparency/26-09-full-disclosure.md (official LGU pages, archived 2017/2024/2025)",
+  "_note": "The city participates in the Full Disclosure Policy / Transparency Seal and holds SGLG recognition, but the underlying PDF documents were not retrievable during research (the live site serves a one-page shell). Document files must be collected from city hall / BLGF before they can be published here.",
+  "transparency_seal": {
+    "status": "maintained on the official LGU site (menu: TRANSPARENCY > Transparency Seal)",
+    "quote": "Government information is a pearl, meant to be shared with the public in order to maximize its inherent value...",
+    "quote_source": "DBM directive, as shown on the archived Transparency Seal page",
+    "documents_status": "Seal compliance documents (budget files, reports, procurement monitor) were not downloadable during research"
+  },
+  "citizens_charter": {
+    "status": "Office list from the old official site (archived 2017); the current site has a Citizens Charter menu item (page shell - service tables not extracted)",
+    "offices": [
+      "City Mayor's Office (Business One-Stop Shop)",
+      "City Assessor's Office",
+      "City Treasurer's Office",
+      "City Health Office",
+      "City Engineer's Office",
+      "City Civil Registry Office",
+      "City Planning & Development Office",
+      "City Social Welfare Development Office",
+      "City Population Office"
+    ],
+    "gap": "Per-service requirements, fees, and processing times not yet extracted"
+  },
+  "fdp_reports": [
+    { "name": "Statement of Cash Flows", "status": "listed on FDP board (2017 archive); file not captured" },
+    { "name": "Statement of Receipts and Expenditures", "status": "listed on FDP board (2017 archive); file not captured" },
+    { "name": "Local DRRM Fund Utilization", "status": "listed on FDP board (2017 archive); file not captured" },
+    { "name": "Special Education Fund (SEF) Utilization Report", "status": "listed on FDP board (2017 archive); file not captured" },
+    { "name": "Statement of Financial Operations", "status": "listed on FDP board (2017 archive); file not captured" },
+    { "name": "20% IRA Utilization", "status": "listed on FDP board (2017 archive); file not captured" }
+  ],
+  "sglg": {
+    "awarded": true,
+    "year": null,
+    "year_status": "Award year not captured from the JS-rendered article (likely 2024 or 2025) - verify with DILG",
+    "evidence": "Official LGU article: \"San Carlos City, Pangasinan: A Beacon of Excellence in Governance - Securing the Seal of Good Local Governance (SGLG) Award\" (archived 2025-12-07)"
+  },
+  "eservices": [
+    {
+      "name": "eBPLS - Electronic Business Permit & Licensing System",
+      "url": "https://prod4.ebpls.com/sancarlospangasinan/index.php",
+      "status": "verified",
+      "note": "Online permit processing, linked from the official LGU website"
+    },
+    {
+      "name": "Downloadable forms (2017 archive)",
+      "status": "historical - re-verify availability",
+      "note": "Business permit application/termination, electrical/sanitary/occupancy permits, peddler's permit, assessor's forms (FAAS building/land/machinery), building depreciation/floor-area worksheets"
+    }
+  ]
+}

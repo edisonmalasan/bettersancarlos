@@ -6,6 +6,7 @@ import DirectoryLinkCard from '@/components/DirectoryLinkCard';
 import { departmentLinks } from '@/lib/contact';
 import emergencyHotlines from '@/data/emergency-hotlines.json';
 import cityProfile from '@/data/city-profile.json';
+import govDir from '@/data/government-directory.json';
 
 const cityPhone = cityProfile.contact.phone;
 
@@ -172,6 +173,83 @@ export default function ContactPage() {
                         <i className="bi bi-hourglass-split text-[#8a5a00]"></i>
                         Dedicated ambulance and medical-emergency hotlines for the city are pending verification and will be published once confirmed with the LGU. For medical emergencies, call 911 or the verified City Hall line.
                     </p>
+                </div>
+            </section>
+
+            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
+                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+                    <div className="mb-8">
+                        <div className="mb-2 flex items-center gap-4 max-[576px]:flex-col max-[576px]:items-start max-[576px]:gap-2">
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-white">
+                                <i className="bi bi-building text-white"></i>
+                                <span>Directory</span>
+                            </span>
+                            <h2 className="m-0 text-[1.25rem]">City Government Directory</h2>
+                        </div>
+                        <p className="m-0 text-[0.9375rem] text-muted-foreground">
+                            The verified City Hall trunk line works for every office. Per-office numbers below are from the
+                            old city website (2017 archive) — labeled historical, do not dial until verified. Department head
+                            names are from the 2024 archived LGU directory.
+                        </p>
+                    </div>
+
+                    <div className="mb-6 grid grid-cols-2 gap-4 max-[991px]:grid-cols-1">
+                        <a href={`tel:${govDir.current_verified.phone}`} className="flex items-center gap-4 rounded-xl border border-line bg-white px-5 py-4 no-underline transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)]">
+                            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[rgba(34,197,94,0.1)] text-primary"><i className="bi bi-telephone-fill"></i></span>
+                            <span className="min-w-0 flex-1">
+                                <span className="block text-[0.9375rem] font-bold text-foreground">{govDir.current_verified.phone} — City Hall trunk line</span>
+                                <span className="block text-[0.8125rem] text-muted-foreground">Verified (official LGU site) — ask for any office</span>
+                            </span>
+                            <span className="shrink-0 rounded-md bg-[rgba(34,197,94,0.1)] px-2 py-[3px] text-[0.6875rem] font-semibold text-[#16a34a]">Verified</span>
+                        </a>
+                        <div className="flex items-center gap-4 rounded-xl border border-line bg-white px-5 py-4">
+                            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"><i className="bi bi-envelope-fill"></i></span>
+                            <span className="min-w-0 flex-1">
+                                <span className="block text-[0.9375rem] font-bold text-foreground">{govDir.current_verified.email_cio}</span>
+                                <span className="block text-[0.8125rem] text-muted-foreground">General / City Information Office · Mayor&apos;s Office: {govDir.current_verified.email_cmo}</span>
+                            </span>
+                            <span className="shrink-0 rounded-md bg-[rgba(34,197,94,0.1)] px-2 py-[3px] text-[0.6875rem] font-semibold text-[#16a34a]">Verified</span>
+                        </div>
+                    </div>
+
+                    <div className="overflow-hidden rounded-xl border border-line bg-white">
+                        <div className="border-b border-line px-5 py-4">
+                            <h3 className="m-0! flex flex-wrap items-center gap-2 text-[0.9375rem]! font-semibold text-foreground">
+                                <i className="bi bi-list-columns text-base text-primary"></i>
+                                <span>Per-office numbers (historical, 2017 archive)</span>
+                                <span className="inline-flex items-center gap-1 rounded-md bg-[rgba(232,153,10,0.08)] px-2 py-[3px] text-[0.6875rem] font-semibold text-[#8a5a00]">
+                                    <i className="bi bi-telephone-x"></i> historical — do not dial until verified
+                                </span>
+                            </h3>
+                        </div>
+                        <div className="grid grid-cols-3 gap-x-6 gap-y-1.5 px-5 py-4 max-[1024px]:grid-cols-2 max-[767px]:grid-cols-1">
+                            {govDir.offices.map((o) => (
+                                <span key={o.name} className="text-[0.8125rem] leading-[1.5] text-muted-foreground">
+                                    {o.name} — <span className="text-foreground">{o.phone}</span>
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="mt-6 overflow-hidden rounded-xl border border-line bg-white">
+                        <div className="border-b border-line px-5 py-4">
+                            <h3 className="m-0! flex flex-wrap items-center gap-2 text-[0.9375rem]! font-semibold text-foreground">
+                                <i className="bi bi-person-vcard text-base text-primary"></i>
+                                <span>Department heads</span>
+                                <span className="text-[0.6875rem] font-normal text-muted-foreground">as of {govDir.department_heads_as_of}</span>
+                            </h3>
+                        </div>
+                        <div className="grid grid-cols-2 gap-x-6 gap-y-1.5 px-5 py-4 max-[1024px]:grid-cols-1">
+                            {govDir.department_heads.map((h) => (
+                                <span key={h.office} className="text-[0.8125rem] leading-[1.5] text-muted-foreground">
+                                    {h.office} — <span className="text-foreground">{h.name}</span>
+                                    {h.confidence === 'unconfirmed' ? (
+                                        <span className="ml-1.5 inline-flex items-center rounded bg-[rgba(232,153,10,0.08)] px-1.5 py-[1px] text-[0.625rem] font-semibold text-[#8a5a00]">unconfirmed</span>
+                                    ) : null}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </section>
 

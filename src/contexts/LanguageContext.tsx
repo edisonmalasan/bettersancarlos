@@ -44,10 +44,10 @@ const translations: Record<string, Record<string, string>> = {
     'section-updates': 'Latest Updates',
     'btn-view-all': 'View All',
 
-    // Municipal Leadership
-    'section-leadership': 'Municipal Leadership',
-    'title-mayor': 'Municipal Mayor',
-    'title-vice-mayor': 'Municipal Vice Mayor',
+    // City Leadership
+    'section-leadership': 'City Leadership',
+    'title-mayor': 'City Mayor',
+    'title-vice-mayor': 'City Vice Mayor',
     'btn-view-officials': 'View All Officials',
 
     // Contact Section
@@ -57,7 +57,7 @@ const translations: Record<string, Record<string, string>> = {
     'contact-address': 'Address',
     'contact-hours': 'Mon-Fri: 8:00 AM - 5:00 PM',
     'contact-response': "We'll respond within 24 hours",
-    'contact-municipal-hall': 'Municipal Hall',
+    'contact-municipal-hall': 'City Hall',
 
     // Services Page
     'services-title': 'Municipal Services Directory',
@@ -383,11 +383,11 @@ const translations: Record<string, Record<string, string>> = {
     'stats-at-a-glance': 'San Carlos City at a Glance',
     'stats-view-statistics': 'View Statistics',
     'stats-population-label': 'Population',
-    'stats-population-source': '2024 Census',
+    'stats-population-source': '2020 Census',
     'stats-barangays-label': 'Barangays',
     'stats-barangays-source': 'Administrative Units',
-    'stats-municipality-label': 'Municipality',
-    'stats-municipality-source': 'Income Classification',
+    'stats-city-label': 'City',
+    'stats-income-source': 'Income Classification',
     'stats-land-area-label': 'Land Area',
     'stats-land-area-source': 'Total Municipal Area',
 
@@ -500,10 +500,10 @@ const translations: Record<string, Record<string, string>> = {
     'section-updates': 'Pinakabagong mga Update',
     'btn-view-all': 'Tingnan Lahat',
 
-    // Municipal Leadership
-    'section-leadership': 'Pamunuan ng Munisipalidad',
-    'title-mayor': 'Punong Bayan',
-    'title-vice-mayor': 'Bise Punong Bayan',
+    // City Leadership
+    'section-leadership': 'Pamunuan ng Lungsod',
+    'title-mayor': 'Punong Lungsod',
+    'title-vice-mayor': 'Bise Punong Lungsod',
     'btn-view-officials': 'Tingnan Lahat ng Opisyal',
 
     // Contact Section
@@ -513,7 +513,7 @@ const translations: Record<string, Record<string, string>> = {
     'contact-address': 'Adres',
     'contact-hours': 'Lunes-Biyernes: 8:00 AM - 5:00 PM',
     'contact-response': 'Sasagutin namin sa loob ng 24 na oras',
-    'contact-municipal-hall': 'Munisipyo',
+    'contact-municipal-hall': 'City Hall',
 
     // Services Page
     'services-title': 'Direktoryo ng Serbisyong Munisipal',
@@ -850,11 +850,11 @@ const translations: Record<string, Record<string, string>> = {
     'stats-at-a-glance': 'Isang Tingin sa San Carlos',
     'stats-view-statistics': 'Tingnan ang Estadistika',
     'stats-population-label': 'Populasyon',
-    'stats-population-source': '2024 Senso',
+    'stats-population-source': 'Senso 2020',
     'stats-barangays-label': 'Mga Barangay',
     'stats-barangays-source': 'Mga Yunit Administratibo',
-    'stats-municipality-label': 'Munisipalidad',
-    'stats-municipality-source': 'Klasipikasyon ng Kita',
+    'stats-city-label': 'Siyudad',
+    'stats-income-source': 'Klasipikasyon ng Kita',
     'stats-land-area-label': 'Lawak ng Lupa',
     'stats-land-area-source': 'Kabuuang Lawak ng Munisipalidad',
 

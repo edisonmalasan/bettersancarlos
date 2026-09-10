@@ -1,0 +1,41 @@
+{
+  "_schema_version": "1.0",
+  "_status": "historical",
+  "_updated": "2026-09-04",
+  "_source": "research/transportation/26-09-public-transport.md (old official site archived 2017; Province of Pangasinan; PhilAtlas)",
+  "_note": "Getting-here data comes from the official city website (archived 2017) and is historical. Bus schedules and booking links are not verified. Intra-city routes, terminals, and fares were NOT found in official sources - do not treat as current.",
+  "getting_here": {
+    "travel_times": [
+      { "from": "Manila", "time": "4-5 hours" },
+      { "from": "Clark, Pampanga", "time": "3-4 hours" },
+      { "from": "Baguio City", "time": "1.5-2.5 hours" }
+    ],
+    "entry_routes_from_manila": [
+      "Via Camiling",
+      "Via Bayambang",
+      "Via Malasiqui",
+      "Alternate: via Rosales, then Bayambang, then Malasiqui"
+    ],
+    "entry_routes_from_baguio": ["Via San Fabian", "Via Dagupan"],
+    "status": "historical (2017 archive)"
+  },
+  "carriers": [
+    { "name": "Five Star Bus Company", "status": "historical" },
+    { "name": "First North Luzon Transit Inc.", "status": "historical" },
+    { "name": "Pangasinan Solid North Transit Inc.", "status": "historical" }
+  ],
+  "carriers_status": "Carriers listed on the 2017 city site; current schedules/terminals unverified",
+  "provincial_capital": {
+    "destination": "Lingayen (provincial capital)",
+    "distance": "~19 km by road"
+  },
+  "intra_city": {
+    "modes": "Jeepneys and tricycles operate per general knowledge; specific routes, terminals, and fares were not found in official sources.",
+    "status": "pending verification - do not publish unverified route maps or fares"
+  },
+  "rail_history": {
+    "note": "A barangay named PNR Station Site (Poblacion) marks a former Philippine National Railways station - a vestige of the historic Ferrocarril de Manila a Dagupan railway, which closed in the 1980s. Historical context only; no operational service.",
+    "status": "historical"
+  },
+  "gap_note": "Current bus schedules, booking links, registered tricycle/jeepney counts, and a dedicated traffic hotline were not found in official sources."
+}

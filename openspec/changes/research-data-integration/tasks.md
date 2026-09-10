@@ -30,13 +30,13 @@
 
 ## 5. Phase D — New pages II (tourism, agriculture, transportation, disaster-preparedness, utilities)
 
-- [ ] 5.1 `data/tourism.json` + `/tourism` (attractions with source badges, festival block, mango pie record, food/stay, dates-pending notice) — verify
-- [ ] 5.2 `data/agriculture.json` + `/agriculture` (mango/bamboo identity, 2008 trees stat, offices, volumes-pending) — verify
-- [ ] 5.3 `data/transportation.json` + `/transportation` (getting-here, carriers, distances, fares-pending, rail history) — verify
-- [ ] 5.4 `data/evacuation-centers.json` + `/disaster-preparedness` (CDRRMO card, 5 convergence areas, 10 high-rise shelters with 2017-data badge, hotline cross-link) — verify
-- [ ] 5.5 `data/utilities.json` + `/utilities` (CENPELCO verified + branches, water unverified card, telecom not-researched, outage guidance) — verify
-- [ ] 5.6 Sitemap + cross-links for all five (tourism↔services/agriculture? no — tourism↔about, utilities↔contact, disaster↔services/public-safety, transportation↔about) — verify
-- [ ] 5.7 Verify gates + commit `feat: add tourism, agriculture, transportation, disaster, and utilities pages` + push + `worker_done`
+- [x] 5.1 `data/tourism.json` + `/tourism` (attractions with source badges, festival block, mango pie record, food/stay, dates-pending notice) — verify
+- [x] 5.2 `data/agriculture.json` + `/agriculture` (mango/bamboo identity, 2008 trees stat, offices, volumes-pending) — verify
+- [x] 5.3 `data/transportation.json` + `/transportation` (getting-here, carriers, distances, fares-pending, rail history) — verify
+- [x] 5.4 `data/evacuation-centers.json` + `/disaster-preparedness` (CDRRMO card, 5 convergence areas, 10 high-rise shelters with 2017-data badge, hotline cross-link) — verify
+- [x] 5.5 `data/utilities.json` + `/utilities` (CENPELCO verified + branches, water unverified card, telecom not-researched, outage guidance) — verify
+- [x] 5.6 Sitemap + cross-links for all five (tourism↔about, utilities↔contact, disaster↔services/public-safety, transportation↔about, agriculture↔services/agriculture) — verify
+- [x] 5.7 Verify gates + commit `feat: add tourism, agriculture, transportation, disaster, and utilities pages` + push + `worker_done`
 
 ## 6. Phase E — Cross-cutting completion
 

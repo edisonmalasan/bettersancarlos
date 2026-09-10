@@ -1,0 +1,45 @@
+{
+  "_schema_version": "1.0",
+  "_status": "partially-verified",
+  "_updated": "2026-09-04",
+  "_source": "research/health/26-09-health-facilities.md; research/health/26-09-doh-facilities.md",
+  "_note": "Facility names are corroborated by the official LGU evacuation-plan page (archived 2017) and the Wikipedia city gallery. DOH license numbers, bed capacities, and accreditation status were NOT obtainable (DOH HFSRB list and OLRS portal unreachable) and are deliberately NOT published. Addresses and contact numbers are likewise unverified.",
+  "city_health_office": {
+    "name": "City Health Office",
+    "phone": "(075) 955-5917",
+    "phone_status": "historical - re-verify",
+    "phone_source": "old official site (archived 2017-03-22)",
+    "officers": [
+      { "name": "Dr. Edwin DV. Guinto", "confidence": "likely" },
+      { "name": "Dra. Luisa F. Cayabyab", "confidence": "likely" }
+    ],
+    "officers_source": "LGU Departments/Offices directory (archived 2024-06-03)"
+  },
+  "facilities": [
+    {
+      "name": "Pangasinan Provincial Hospital",
+      "type": "Hospital",
+      "verification": "name-only",
+      "evidence": "Named in the official city evacuation plan as a high-rise safe building (archived 2017); photographed in the Wikipedia city gallery"
+    },
+    {
+      "name": "Pangasinan Doctors' Hospital",
+      "type": "Hospital",
+      "verification": "name-only",
+      "evidence": "Named in the official city evacuation plan as a high-rise safe building (archived 2017)"
+    },
+    {
+      "name": "Blessed Family Hospital",
+      "type": "Hospital",
+      "verification": "name-only",
+      "evidence": "Named in the official city evacuation plan as a high-rise safe building (archived 2017)"
+    },
+    {
+      "name": "Virgen Milagrosa University Foundation (VMUF) Hospital",
+      "type": "University hospital",
+      "verification": "name-only",
+      "evidence": "Named in the official city evacuation plan as a convergence/high-rise area (archived 2017); hospital is regionally known per Wikivoyage; hospital details unverified"
+    }
+  ],
+  "gap_note": "DOH facility masterlist data (hospital level/classification, bed count, accreditation) was not resolved during research and must not be published until verified with DOH HFSRB. RHU/barangay health stations, pharmacies, labs, and clinics were not compiled."
+}

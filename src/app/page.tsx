@@ -335,6 +335,9 @@ export default function HomePage() {
             <h2 className="m-0 flex items-center gap-2.5 text-2xl [&_i]:text-primary">
               <i className="bi bi-book" aria-hidden="true"></i> {t('history-title')}
             </h2>
+            <Link href="/about" className={sectionLinkCls}>
+              <span>{t('history-title')}</span> <i className="bi bi-arrow-right"></i>
+            </Link>
           </div>
           <div className="grid grid-cols-[1fr_340px] items-start gap-8 max-[900px]:grid-cols-1">
             <div className="relative pl-7 before:absolute before:bottom-2 before:left-1.5 before:top-2 before:w-0.5 before:rounded-sm before:bg-[linear-gradient(180deg,#3a7d44_0%,rgba(58, 125, 68,0.2)_100%)]">

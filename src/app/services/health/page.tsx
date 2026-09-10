@@ -289,6 +289,27 @@ export default function HealthPage() {
         </div>
       </section>
 
+      {/* City Health Facilities directory cross-link */}
+      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6" aria-label="City health facilities directory">
+        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+          <Link
+            href="/health"
+            className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+          >
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary">
+              <i className="bi bi-hospital"></i>
+            </div>
+            <div className="min-w-0 flex-1">
+              <h3 className="m-0 mb-1 text-base text-foreground">City Health Facilities Directory</h3>
+              <p className="m-0 text-[0.8125rem] text-muted-foreground">
+                Hospitals and the City Health Office serving San Carlos City, Pangasinan
+              </p>
+            </div>
+            <i className="bi bi-arrow-right text-muted-foreground opacity-0 transition-[opacity,transform] duration-200 group-hover:translate-x-1 group-hover:opacity-100"></i>
+          </Link>
+        </div>
+      </section>
+
       {/* HIV Care Philippines CTA */}
       <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6" aria-label="HIV Care Philippines facility directory">
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">

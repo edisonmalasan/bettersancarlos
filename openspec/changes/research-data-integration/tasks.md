@@ -22,11 +22,11 @@
 
 ## 4. Phase C — New pages I (about, health, education)
 
-- [ ] 4.1 Create `data/city-profile.json` extensions (geography/boundaries/distances/seal/languages/history-timeline/heritage per design.md D3) + build `/about` route with PageHeader + sections; include 1718 event, 1578/1587 conflict footnote, 2011 mango pie — verify page renders
-- [ ] 4.2 Create `data/health-facilities.json` + `/health` route (name-only verification badges, DOH-gap notice) — verify page renders
-- [ ] 4.3 Create `data/schools.json` + `/education` route (HEI/secondary/elementary/library, DepEd-gap notice) — verify page renders
-- [ ] 4.4 All new pages follow visual-design-system spec (PageHeader, tokens, radius/timing locks, rhythm); add routes to `/sitemap` page + cross-links (about↔homepage history section, health↔services/health, education↔services/education) — verify discoverability
-- [ ] 4.5 Verify gates + commit `feat: add about, health, and education pages from verified research` + push + `worker_done`
+- [x] 4.1 Create `data/city-profile.json` extensions (geography/boundaries/distances/seal/languages/history-timeline/heritage per design.md D3) + build `/about` route with PageHeader + sections; include 1718 event, 1578/1587 conflict footnote, 2011 mango pie — verify page renders
+- [x] 4.2 Create `data/health-facilities.json` + `/health` route (name-only verification badges, DOH-gap notice) — verify page renders
+- [x] 4.3 Create `data/schools.json` + `/education` route (HEI/secondary/elementary/library, DepEd-gap notice) — verify page renders
+- [x] 4.4 All new pages follow visual-design-system spec (PageHeader, tokens, radius/timing locks, rhythm); add routes to `/sitemap` page + cross-links (about↔homepage history section, health↔services/health, education↔services/education) — verify discoverability
+- [x] 4.5 Verify gates + commit `feat: add about, health, and education pages from verified research` + push + `worker_done`
 
 ## 5. Phase D — New pages II (tourism, agriculture, transportation, disaster-preparedness, utilities)
 

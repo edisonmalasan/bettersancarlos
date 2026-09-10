@@ -1,0 +1,64 @@
+{
+  "_schema_version": "1.0",
+  "_status": "partially-verified",
+  "_updated": "2026-09-04",
+  "_source": "research/education/26-09-schools.md (institution lists from Wikipedia, compiled from general knowledge/DepEd indexes)",
+  "_note": "DepEd school IDs, exact addresses, and contact details are NOT verified. Before relying on this directory, cross-check each school against the DepEd School Masterlist (School Information System) and the city's own records. 'Te ES' is listed among high schools by Wikipedia but is likely elementary - flagged verify.",
+  "heis": [
+    { "name": "Colegio Anunciata", "type": "Private HEI" },
+    { "name": "Palaris Colleges", "type": "Private HEI" },
+    { "name": "PIMSAT Colleges", "type": "Private HEI" },
+    { "name": "San Carlos College", "type": "Private HEI" },
+    { "name": "St. Therese College Foundation", "type": "Private HEI", "note": "Listed in the city's evacuation high-rise safe-areas list (as 'Therese College Foundation')" },
+    { "name": "Virgen Milagrosa University Foundation (VMUF)", "type": "Private university", "note": "VMUF Hospital operates in the city; listed in evacuation convergence/high-rise lists" },
+    { "name": "National University - Pangasinan", "type": "Planned", "note": "Under construction/planned (Wikipedia notes 'to be completed in 2028') - unverified status" },
+    { "name": "University of Pangasinan", "type": "Private HEI" },
+    { "name": "University of San Carlos", "type": "Private HEI", "note": "Per Wikipedia; distinct from Cebu's USC" }
+  ],
+  "vocational": [
+    { "name": "Metro San Carlos Institute of Technology", "type": "Technical/vocational" },
+    { "name": "TESDA training programs", "type": "Certified centers", "note": "TESDA-certified centers in the city were not individually verified; check the TESDA Program Registration list." }
+  ],
+  "secondary": [
+    { "name": "Abanon National High School", "type": "Public" },
+    { "name": "Agdao Integrated School", "type": "Public" },
+    { "name": "Bacnar National High School", "type": "Public" },
+    { "name": "Bolingit National High School", "type": "Public" },
+    { "name": "Cobol National High School", "type": "Public" },
+    { "name": "Coliling National High School", "type": "Public" },
+    { "name": "Doyong National High School", "type": "Public" },
+    { "name": "Guelew Integrated School", "type": "Public" },
+    { "name": "Libas National High School", "type": "Public" },
+    { "name": "Lilimasan National High School", "type": "Public" },
+    { "name": "Mabalbalino National High School", "type": "Public" },
+    { "name": "Malaca\u00f1ang National High School", "type": "Public" },
+    { "name": "Pangalangan National High School", "type": "Public" },
+    { "name": "Salinap National High School", "type": "Public" },
+    { "name": "Speaker Eugenio Perez National Agricultural School", "type": "Public" },
+    { "name": "Tamayo National High School", "type": "Public" },
+    { "name": "Tandoc National High School", "type": "Public" },
+    { "name": "Tarece Integrated School", "type": "Public" },
+    { "name": "Tebag Elementary School", "type": "Public", "note": "Listed among high schools by Wikipedia; likely elementary - verify" },
+    { "name": "Turac National High School", "type": "Public" },
+    { "name": "Virgen Milagrosa Special Science High School", "type": "Private" },
+    { "name": "VMUF - San Luis High School", "type": "Private" },
+    { "name": "VMUF - St. Dominic High School", "type": "Private" },
+    { "name": "VMUF - Senior High School", "type": "Private" }
+  ],
+  "elementary": {
+    "public": [
+      "Abanon Central School", "Ano ES", "Antipangol ES", "Aponit ES", "Bacnar ES", "Balaya ES", "Balayong ES", "Baldog ES", "Balite Sur ES", "Bani ES", "Bolingit ES", "Bogaoan ES", "Bolosan-Caingal ES", "C. P. Gutierrez ES", "Calobaoan ES", "Calomboyan ES", "Candido Marcellano Integrated School", "Caoayan-Kiling ES", "Central I ES", "Central II ES", "Coliling ES", "Don Pablo C. Tulagan ES", "Don Vicente G. Ferrer ES", "Doyong ES", "Gamata ES", "Isla ES", "Ignacio Centeno ES", "Jose Macam Paningbatan Sr. ES", "Julian Valerio Resuello ES", "Libas ES", "Lilimasan ES", "Mabalbalino ES", "Magtaking ES", "Malaca\u00f1ang ES", "Mestizo Norte ES", "Naguilayan ES", "Nelintap ES", "Pagal ES", "Palaming ES", "Palospos ES", "Pangalangan ES", "Pangoloan ES", "Pangpang ES", "Parayao ES", "Payapa ES", "Payar ES", "Polo ES", "Quintong ES", "Salinap ES", "Supo ES", "Tandoc ES", "Talang Central School", "Tamayo ES", "Tarectec ES", "Turac ES"
+    ],
+    "private": [
+      "Butterfly Kingdom e-Learning School", "Clark Educational Center", "Ednas School of San Carlos", "Gospel of Christ School of San Carlos", "Holy Child Play Center", "Mother Goose Special School System", "Our Lady of Grace School of San Carlos City", "Rainbow School of San Carlos", "San Carlos Preparatory School", "Saint Albert The Great Science Academy", "St. Charles Academy", "VM Child Learning Center"
+    ]
+  },
+  "library": {
+    "name": "City Library",
+    "operator": "City Government of San Carlos",
+    "phone": "(075) 632-3086",
+    "phone_status": "historical - re-verify",
+    "phone_source": "old official site (archived 2017-03-22)"
+  },
+  "gap_note": "DepEd school IDs not yet obtained (consider DepEd Region 1 SIS); university program offerings and official websites need enrichment; school coordinates not yet collected."
+}

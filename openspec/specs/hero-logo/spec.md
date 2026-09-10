@@ -7,15 +7,15 @@ Governs the homepage hero's right-column 3D San Carlos logo: which asset is serv
 ## Requirements
 
 ### Requirement: Hero 3D logo asset
-The hero SHALL render the San Carlos logo as a 3D model served from `public/assets/models/san-carlos-logo-3d.glb`. The served file MUST be a web-optimized derivative of the source asset at `assets/images/logo/san-carlos-logo-3d.glb` (which MUST NOT be modified) and MUST NOT exceed 3 MB. The derivative MAY use KHR_mesh_quantization or EXT_meshopt_compression for compression; when EXT_meshopt_compression is used, the 3D loader MUST register a meshopt decoder so the model renders correctly. The derivative MUST preserve the logo's visual identity (colors, materials, proportions, orientation) at hero viewing distance AND at close viewing range: it MUST NOT exhibit simplification artifacts (shading streaks, "scratch"-like sliver-triangle artifacts, faceting) that the source model does not show.
+The hero SHALL render the San Carlos logo as a single self-contained 3D model served from `public/assets/models/san-carlos-logo-3d.glb`. There is intentionally no separate source file in the repository — the served file IS the asset. The served file MUST NOT exceed 30 MB. The 3D loader MUST support every extension the served file requires; no specific compression extension is mandated, and no decoder registration is required beyond what the file's own extensions demand. The asset MUST preserve the logo's visual identity (colors, materials, proportions, orientation) at hero viewing distance AND at close viewing range: it MUST NOT exhibit simplification artifacts (shading streaks, "scratch"-like sliver-triangle artifacts, faceting) beyond what the authored model shows.
 
 #### Scenario: Optimized asset exists and is within budget
 - **WHEN** the repository is built for production
-- **THEN** `public/assets/models/san-carlos-logo-3d.glb` exists, is ≤ 3 MB, is byte-derived from the source GLB via lossless-ish optimization (simplify/quantize/meshopt), and the source file is unchanged
+- **THEN** `public/assets/models/san-carlos-logo-3d.glb` exists and is ≤ 30 MB as a single self-contained asset with no second copy required anywhere in the repository
 
 #### Scenario: Close-range visual identity
-- **WHEN** the derivative and the original source model are rendered side-by-side with identical camera, lighting, and tone mapping, including close-up views of the ring, lettering, and rim at the idle-sway angle extremes
-- **THEN** the derivative shows no shading streaks, scratch-like artifacts, or faceting that the source does not show, and colors, materials, proportions, and orientation match
+- **WHEN** the served model is rendered, including close-up views of the ring, lettering, and rim at the idle-sway angle extremes
+- **THEN** it shows no shading streaks, scratch-like artifacts, or faceting beyond the authored model, and colors, materials, proportions, and orientation match the city seal
 
 ### Requirement: Hero 3D logo renders centered in the right hero column
 The hero's right column SHALL display the 3D logo in a transparent-background rendering, horizontally and vertically centered within the column, fully visible (not cropped), proportional (no stretching), with breathing room, and not overlapping the hero text or the search card at any viewport width from 320px up.

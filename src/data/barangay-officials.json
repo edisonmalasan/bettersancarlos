@@ -1,1215 +1,1498 @@
-﻿{
-    "province":  "PANGASINAN",
-    "municipality":  "SAN CARLOS",
-    "region":  "REGION I",
-    "term":  "2023-2026",
-    "source":  "City Government of San Carlos â€” Barangay Officials (official LGU site, archived 2024-06-03); research/barangays/26-09-barangay-directory.md",
-    "barangay_count":  86,
-    "total_officials":  86,
-    "barangays":  [
-                      {
-                          "barangay":  "Abanon",
-                          "total_officials":  1,
-                          "tel":  "09465815209",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Juan C. Paningbatan"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Agdao",
-                          "total_officials":  1,
-                          "tel":  "09282087902",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Ana Marie Arguell"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Anando",
-                          "total_officials":  1,
-                          "tel":  "09751420351",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Ranny Francisco"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Ano",
-                          "total_officials":  1,
-                          "tel":  "09517344046",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Marciano Sales"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Antipangol",
-                          "total_officials":  1,
-                          "tel":  "09086730582",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Lito C. De Guzman"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Aponit",
-                          "total_officials":  1,
-                          "tel":  "09090957205",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Renan D. Dela Cruz"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Bacnar",
-                          "total_officials":  1,
-                          "tel":  "09066057819",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Antonio R. Mislang"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Balaya",
-                          "total_officials":  1,
-                          "tel":  "09262724463",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Paterno Resuello"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Balayong",
-                          "total_officials":  1,
-                          "tel":  "09196160249",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Andres G. Reyes"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Baldog",
-                          "total_officials":  1,
-                          "tel":  "09317417199",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Francisco C. Franza Jr."
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Balite Sur",
-                          "total_officials":  1,
-                          "tel":  "09369633538",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Leonardo B. De Vera"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Balococ",
-                          "total_officials":  1,
-                          "tel":  "09186875696",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Gabriel P. Rosario"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Bani",
-                          "total_officials":  1,
-                          "tel":  "09186289933",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Roberto C. Dela Cruz"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Bega",
-                          "total_officials":  1,
-                          "tel":  "09473664750",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Oscar C. Arellano"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Bocboc",
-                          "total_officials":  1,
-                          "tel":  "09465889759",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Fernando Erguiza"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Bogaoan",
-                          "total_officials":  1,
-                          "tel":  "09674355930",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Boyet P. Perez"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Bolingit",
-                          "total_officials":  1,
-                          "tel":  "09457961359",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Jherwin R. Lumanlan"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Bolosan",
-                          "total_officials":  1,
-                          "tel":  "09511289017",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Dionel B. Perez"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Bonifacio",
-                          "total_officials":  1,
-                          "tel":  "09297061518",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Alex Martinez"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Buenglat",
-                          "total_officials":  1,
-                          "tel":  "09705053795",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Jerry M. Rosario"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Bugallon-Posadas St.",
-                          "total_officials":  1,
-                          "tel":  "09075178350",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Jonas S. Pamintuan"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Burgos-Padlan",
-                          "total_officials":  1,
-                          "tel":  "09124693478",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Loreto DV. Baguio"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Cacaritan",
-                          "total_officials":  1,
-                          "tel":  "09614857488",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Jose R. Soriano"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Caingal",
-                          "total_officials":  1,
-                          "tel":  "09924258763",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Jaime A. Apostol"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Calobaoan",
-                          "total_officials":  1,
-                          "tel":  "09158741072",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Bienvenido Q. Arce Jr."
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Calomboyan",
-                          "total_officials":  1,
-                          "tel":  "09305481815",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Ronaldo R. Zacarias"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Caoayan-Kiling",
-                          "total_officials":  1,
-                          "tel":  "09067380372",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Arnold Berma"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Capataan",
-                          "total_officials":  1,
-                          "tel":  "09397594096",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Edilberto F. Pamintuan"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Cobol",
-                          "total_officials":  1,
-                          "tel":  "09059001315",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Dionisio D. Caldona"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Coliling",
-                          "total_officials":  1,
-                          "tel":  "09178910108",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Jose Christopher Gallego"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Cruz",
-                          "total_officials":  1,
-                          "tel":  "09556629766",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Leonardo Bandong"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Doyong",
-                          "total_officials":  1,
-                          "tel":  "09464969107",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Danilo Palagana"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Gamata",
-                          "total_officials":  1,
-                          "tel":  "09478789450",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Rodolfo De Guzman"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Guelew",
-                          "total_officials":  1,
-                          "tel":  "09287278101",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Joe NG. Lazaga"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Ilang",
-                          "total_officials":  1,
-                          "tel":  "09998221247",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Reynaldo DV. Caranto"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Inerangan",
-                          "total_officials":  1,
-                          "tel":  "09810316155",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Roger A. Carlos"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Isla",
-                          "total_officials":  1,
-                          "tel":  "09533722009",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Noel Cruz"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Libas",
-                          "total_officials":  1,
-                          "tel":  "09675945618",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Joel M. Paronable"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Lilimasan",
-                          "total_officials":  1,
-                          "tel":  "09393546144",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Jonand Rey Estabillo"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Longos",
-                          "total_officials":  1,
-                          "tel":  "09179307541",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Anthony Magallanes"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Lucban",
-                          "total_officials":  1,
-                          "tel":  "09706551250",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Romeo Gille"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Mabalbalino",
-                          "total_officials":  1,
-                          "tel":  "09058140597",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Nestor B. Alcantara"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Mabini",
-                          "total_officials":  1,
-                          "tel":  "09499354143",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Marieto B. Meneses"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Magtaking",
-                          "total_officials":  1,
-                          "tel":  "09469973251",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Rolando Versosa"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Malaca\\u00f1ang",
-                          "total_officials":  1,
-                          "tel":  "09264443247",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Ryan Pagsolingan"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Maliwara",
-                          "total_officials":  1,
-                          "tel":  "09958929079",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Mar C. Posadas"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Mamarlao",
-                          "total_officials":  1,
-                          "tel":  "09751405828",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Ronnie Dauz"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Manzon",
-                          "total_officials":  1,
-                          "tel":  "09095968114",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Ernesto S. Garcia"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Matagdem",
-                          "total_officials":  1,
-                          "tel":  "09951441045",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Thelma B. Taroma"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Mestizo Norte",
-                          "total_officials":  1,
-                          "tel":  "09914177914",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Cesario M. Prada"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "M. Soriano St.",
-                          "total_officials":  1,
-                          "tel":  "09687761408",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Marianito Quintas"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Naguilayan",
-                          "total_officials":  1,
-                          "tel":  "09518662593",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Vergil Reyes"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Nelintap",
-                          "total_officials":  1,
-                          "tel":  "09398916134",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Jovito Rosario"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Padilla-Gomez",
-                          "total_officials":  1,
-                          "tel":  "09977929933",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Eduardo M. Magalong"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Pagal",
-                          "total_officials":  1,
-                          "tel":  "09178507591",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Marissa S. De Guzman"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Paitan-Panoypoy",
-                          "total_officials":  1,
-                          "tel":  "09293864947",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Genaro Diadid Jr."
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Palaming",
-                          "total_officials":  1,
-                          "tel":  "09918003142",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Kevin George Calugay"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Palaris",
-                          "total_officials":  1,
-                          "tel":  "09916916242",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Martinez G. Vincent"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Palospos",
-                          "total_officials":  1,
-                          "tel":  "09759888159",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Orlando DC. Bacani"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Pangalangan",
-                          "total_officials":  1,
-                          "tel":  "09430551988",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Jose D. Dela Cruz"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Pangoloan",
-                          "total_officials":  1,
-                          "tel":  "09491650218",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Ricardo Cayabyab"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Pangpang",
-                          "total_officials":  1,
-                          "tel":  "09327389054",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Eduardo R. Aquino Sr."
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Parayao",
-                          "total_officials":  1,
-                          "tel":  "09391054564",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Alexander Magat"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Payapa",
-                          "total_officials":  1,
-                          "tel":  "09186301950",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Zaldy T. Ferrer"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Payar",
-                          "total_officials":  1,
-                          "tel":  "09471601313",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Reynaldo Paragas"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Perez Boulevard",
-                          "total_officials":  1,
-                          "tel":  "09158800347",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Lance Soriano"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "PNR Station Site",
-                          "total_officials":  1,
-                          "tel":  "09507928824",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Loreto Leocandio"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Polo",
-                          "total_officials":  1,
-                          "tel":  "09282087902",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Roberto D. Aquino"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Quezon Boulevard",
-                          "total_officials":  1,
-                          "tel":  "09183786633",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Myrna S. Estabillo"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Quintong",
-                          "total_officials":  1,
-                          "tel":  "09464304842",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Luis M. Jutie Jr."
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Rizal Avenue",
-                          "total_officials":  1,
-                          "tel":  "09688567313",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Hilario C. Cruz Jr."
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Roxas Boulevard",
-                          "total_officials":  1,
-                          "tel":  "09667280238",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Edberto C. Millora"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Salinap",
-                          "total_officials":  1,
-                          "tel":  "09322678063",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Rodrigo C. Tandoc"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "San Juan",
-                          "total_officials":  1,
-                          "tel":  "09083708940",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Joseph Vedana"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "San Pedro-Taloy",
-                          "total_officials":  1,
-                          "tel":  "09474513556",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Juanito Aquino"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Sapinit",
-                          "total_officials":  1,
-                          "tel":  "09994219969",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Eduardo C. Tamondong"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Supo",
-                          "total_officials":  1,
-                          "tel":  "09272380850",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Arsenio C. Camacho"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Talang",
-                          "total_officials":  1,
-                          "tel":  "09338189562",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Jaime P. Posadas Jr."
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Tamayo",
-                          "total_officials":  1,
-                          "tel":  "09262730652",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Angel DC. De Leon"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Tandang Sora",
-                          "total_officials":  1,
-                          "tel":  "09685652873",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Josephine C. Co"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Tandoc",
-                          "total_officials":  1,
-                          "tel":  "09635168301",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Ramil Macalanda"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Tarece",
-                          "total_officials":  1,
-                          "tel":  "09172014984",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Gerardo C. Mercado"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Tarectec",
-                          "total_officials":  1,
-                          "tel":  "09388205015",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Roberto C. Valdez"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Tayambani",
-                          "total_officials":  1,
-                          "tel":  "09666470526",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Rogelio C. Daroy"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Tebag",
-                          "total_officials":  1,
-                          "tel":  "09196496772",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Raymundo P. Dulay"
-                                                              ]
-                                            }
-                                        ]
-                      },
-                      {
-                          "barangay":  "Turac",
-                          "total_officials":  1,
-                          "tel":  "09464969107",
-                          "positions":  [
-                                            {
-                                                "position":  "Punong Barangay",
-                                                "count":  1,
-                                                "officials":  [
-                                                                  "Samuel C. Cayabyab"
-                                                              ]
-                                            }
-                                        ]
-                      }
-                  ]
+{
+  "province": "PANGASINAN",
+  "municipality": "SAN CARLOS",
+  "region": "REGION I",
+  "term": "2023-2026",
+  "source": "City Government of San Carlos — Barangay Officials (official LGU site, archived 2024-06-03); research/barangays/26-09-barangay-directory.md",
+  "barangay_count": 86,
+  "total_officials": 86,
+  "barangays": [
+    {
+      "barangay": "Abanon",
+      "total_officials": 1,
+      "tel": "09465815209",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Juan C. Paningbatan"
+          ]
+        }
+      ],
+      "population_2020": 1974,
+      "population_2015": 1877,
+      "poblacion": false
+    },
+    {
+      "barangay": "Agdao",
+      "total_officials": 1,
+      "tel": "09282087902",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Ana Marie Arguell"
+          ]
+        }
+      ],
+      "population_2020": 3983,
+      "population_2015": 3776,
+      "poblacion": false,
+      "tel_status": "shared line",
+      "tel_shared_with": [
+        "Polo"
+      ]
+    },
+    {
+      "barangay": "Anando",
+      "total_officials": 1,
+      "tel": "09751420351",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Ranny Francisco"
+          ]
+        }
+      ],
+      "population_2020": 1106,
+      "population_2015": 1048,
+      "poblacion": false
+    },
+    {
+      "barangay": "Ano",
+      "total_officials": 1,
+      "tel": "09517344046",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Marciano Sales"
+          ]
+        }
+      ],
+      "population_2020": 2799,
+      "population_2015": 2758,
+      "poblacion": false
+    },
+    {
+      "barangay": "Antipangol",
+      "total_officials": 1,
+      "tel": "09086730582",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Lito C. De Guzman"
+          ]
+        }
+      ],
+      "population_2020": 1802,
+      "population_2015": 1889,
+      "poblacion": false
+    },
+    {
+      "barangay": "Aponit",
+      "total_officials": 1,
+      "tel": "09090957205",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Renan D. Dela Cruz"
+          ]
+        }
+      ],
+      "population_2020": 2580,
+      "population_2015": 2128,
+      "poblacion": false
+    },
+    {
+      "barangay": "Bacnar",
+      "total_officials": 1,
+      "tel": "09066057819",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Antonio R. Mislang"
+          ]
+        }
+      ],
+      "population_2020": 5717,
+      "population_2015": 5145,
+      "poblacion": false
+    },
+    {
+      "barangay": "Balaya",
+      "total_officials": 1,
+      "tel": "09262724463",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Paterno Resuello"
+          ]
+        }
+      ],
+      "population_2020": 1938,
+      "population_2015": 1906,
+      "poblacion": false
+    },
+    {
+      "barangay": "Balayong",
+      "total_officials": 1,
+      "tel": "09196160249",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Andres G. Reyes"
+          ]
+        }
+      ],
+      "population_2020": 2166,
+      "population_2015": 1883,
+      "poblacion": false
+    },
+    {
+      "barangay": "Baldog",
+      "total_officials": 1,
+      "tel": "09317417199",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Francisco C. Franza Jr."
+          ]
+        }
+      ],
+      "population_2020": 2152,
+      "population_2015": 2001,
+      "poblacion": false
+    },
+    {
+      "barangay": "Balite Sur",
+      "total_officials": 1,
+      "tel": "09369633538",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Leonardo B. De Vera"
+          ]
+        }
+      ],
+      "population_2020": 4110,
+      "population_2015": 3346,
+      "poblacion": false
+    },
+    {
+      "barangay": "Balococ",
+      "total_officials": 1,
+      "tel": "09186875696",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Gabriel P. Rosario"
+          ]
+        }
+      ],
+      "population_2020": 2170,
+      "population_2015": 1736,
+      "poblacion": false
+    },
+    {
+      "barangay": "Bani",
+      "total_officials": 1,
+      "tel": "09186289933",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Roberto C. Dela Cruz"
+          ]
+        }
+      ],
+      "population_2020": 690,
+      "population_2015": 723,
+      "poblacion": false
+    },
+    {
+      "barangay": "Bega",
+      "total_officials": 1,
+      "tel": "09473664750",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Oscar C. Arellano"
+          ]
+        }
+      ],
+      "population_2020": 2446,
+      "population_2015": 2013,
+      "poblacion": false
+    },
+    {
+      "barangay": "Bocboc",
+      "total_officials": 1,
+      "tel": "09465889759",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Fernando Erguiza"
+          ]
+        }
+      ],
+      "population_2020": 991,
+      "population_2015": 1122,
+      "poblacion": false
+    },
+    {
+      "barangay": "Bogaoan",
+      "total_officials": 1,
+      "tel": "09674355930",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Boyet P. Perez"
+          ]
+        }
+      ],
+      "population_2020": 2613,
+      "population_2015": 2692,
+      "poblacion": false
+    },
+    {
+      "barangay": "Bolingit",
+      "total_officials": 1,
+      "tel": "09457961359",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Jherwin R. Lumanlan"
+          ]
+        }
+      ],
+      "population_2020": 3679,
+      "population_2015": 3285,
+      "poblacion": false
+    },
+    {
+      "barangay": "Bolosan",
+      "total_officials": 1,
+      "tel": "09511289017",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Dionel B. Perez"
+          ]
+        }
+      ],
+      "population_2020": 1979,
+      "population_2015": 1109,
+      "poblacion": false
+    },
+    {
+      "barangay": "Bonifacio",
+      "total_officials": 1,
+      "tel": "09297061518",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Alex Martinez"
+          ]
+        }
+      ],
+      "population_2020": 521,
+      "population_2015": 618,
+      "poblacion": true
+    },
+    {
+      "barangay": "Buenglat",
+      "total_officials": 1,
+      "tel": "09705053795",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Jerry M. Rosario"
+          ]
+        }
+      ],
+      "population_2020": 1993,
+      "population_2015": 1552,
+      "poblacion": false
+    },
+    {
+      "barangay": "Bugallon-Posadas St.",
+      "total_officials": 1,
+      "tel": "09075178350",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Jonas S. Pamintuan"
+          ]
+        }
+      ],
+      "population_2020": 801,
+      "population_2015": 513,
+      "poblacion": true
+    },
+    {
+      "barangay": "Burgos-Padlan",
+      "total_officials": 1,
+      "tel": "09124693478",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Loreto DV. Baguio"
+          ]
+        }
+      ],
+      "population_2020": 1194,
+      "population_2015": 1240,
+      "poblacion": true
+    },
+    {
+      "barangay": "Cacaritan",
+      "total_officials": 1,
+      "tel": "09614857488",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Jose R. Soriano"
+          ]
+        }
+      ],
+      "population_2020": 2869,
+      "population_2015": 2220,
+      "poblacion": false
+    },
+    {
+      "barangay": "Caingal",
+      "total_officials": 1,
+      "tel": "09924258763",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Jaime A. Apostol"
+          ]
+        }
+      ],
+      "population_2020": 1553,
+      "population_2015": 1435,
+      "poblacion": false
+    },
+    {
+      "barangay": "Calobaoan",
+      "total_officials": 1,
+      "tel": "09158741072",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Bienvenido Q. Arce Jr."
+          ]
+        }
+      ],
+      "population_2020": 3992,
+      "population_2015": 3608,
+      "poblacion": false
+    },
+    {
+      "barangay": "Calomboyan",
+      "total_officials": 1,
+      "tel": "09305481815",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Ronaldo R. Zacarias"
+          ]
+        }
+      ],
+      "population_2020": 3887,
+      "population_2015": 3514,
+      "poblacion": false
+    },
+    {
+      "barangay": "Caoayan-Kiling",
+      "total_officials": 1,
+      "tel": "09067380372",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Arnold Berma"
+          ]
+        }
+      ],
+      "population_2020": 4478,
+      "population_2015": 4261,
+      "poblacion": false
+    },
+    {
+      "barangay": "Capataan",
+      "total_officials": 1,
+      "tel": "09397594096",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Edilberto F. Pamintuan"
+          ]
+        }
+      ],
+      "population_2020": 2626,
+      "population_2015": 2221,
+      "poblacion": false
+    },
+    {
+      "barangay": "Cobol",
+      "total_officials": 1,
+      "tel": "09059001315",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Dionisio D. Caldona"
+          ]
+        }
+      ],
+      "population_2020": 3959,
+      "population_2015": 3640,
+      "poblacion": false
+    },
+    {
+      "barangay": "Coliling",
+      "total_officials": 1,
+      "tel": "09178910108",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Jose Christopher Gallego"
+          ]
+        }
+      ],
+      "population_2020": 5173,
+      "population_2015": 4541,
+      "poblacion": false
+    },
+    {
+      "barangay": "Cruz",
+      "total_officials": 1,
+      "tel": "09556629766",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Leonardo Bandong"
+          ]
+        }
+      ],
+      "population_2020": 2104,
+      "population_2015": 2027,
+      "poblacion": false
+    },
+    {
+      "barangay": "Doyong",
+      "total_officials": 1,
+      "tel": "09464969107",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Danilo Palagana"
+          ]
+        }
+      ],
+      "population_2020": 2312,
+      "population_2015": 2175,
+      "poblacion": false,
+      "tel_status": "shared line",
+      "tel_shared_with": [
+        "Turac"
+      ]
+    },
+    {
+      "barangay": "Gamata",
+      "total_officials": 1,
+      "tel": "09478789450",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Rodolfo De Guzman"
+          ]
+        }
+      ],
+      "population_2020": 1799,
+      "population_2015": 2161,
+      "poblacion": false
+    },
+    {
+      "barangay": "Guelew",
+      "total_officials": 1,
+      "tel": "09287278101",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Joe NG. Lazaga"
+          ]
+        }
+      ],
+      "population_2020": 4093,
+      "population_2015": 4116,
+      "poblacion": false
+    },
+    {
+      "barangay": "Ilang",
+      "total_officials": 1,
+      "tel": "09998221247",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Reynaldo DV. Caranto"
+          ]
+        }
+      ],
+      "population_2020": 1381,
+      "population_2015": 1226,
+      "poblacion": false
+    },
+    {
+      "barangay": "Inerangan",
+      "total_officials": 1,
+      "tel": "09810316155",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Roger A. Carlos"
+          ]
+        }
+      ],
+      "population_2020": 1678,
+      "population_2015": 1504,
+      "poblacion": false
+    },
+    {
+      "barangay": "Isla",
+      "total_officials": 1,
+      "tel": "09533722009",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Noel Cruz"
+          ]
+        }
+      ],
+      "population_2020": 2901,
+      "population_2015": 2520,
+      "poblacion": false
+    },
+    {
+      "barangay": "Libas",
+      "total_officials": 1,
+      "tel": "09675945618",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Joel M. Paronable"
+          ]
+        }
+      ],
+      "population_2020": 3981,
+      "population_2015": 4030,
+      "poblacion": false
+    },
+    {
+      "barangay": "Lilimasan",
+      "total_officials": 1,
+      "tel": "09393546144",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Jonand Rey Estabillo"
+          ]
+        }
+      ],
+      "population_2020": 2738,
+      "population_2015": 2488,
+      "poblacion": false
+    },
+    {
+      "barangay": "Longos",
+      "total_officials": 1,
+      "tel": "09179307541",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Anthony Magallanes"
+          ]
+        }
+      ],
+      "population_2020": 1203,
+      "population_2015": 1205,
+      "poblacion": false
+    },
+    {
+      "barangay": "Lucban",
+      "total_officials": 1,
+      "tel": "09706551250",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Romeo Gille"
+          ]
+        }
+      ],
+      "population_2020": 985,
+      "population_2015": 1070,
+      "poblacion": true
+    },
+    {
+      "barangay": "Mabalbalino",
+      "total_officials": 1,
+      "tel": "09058140597",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Nestor B. Alcantara"
+          ]
+        }
+      ],
+      "population_2020": 1936,
+      "population_2015": 1173,
+      "poblacion": false
+    },
+    {
+      "barangay": "Mabini",
+      "total_officials": 1,
+      "tel": "09499354143",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Marieto B. Meneses"
+          ]
+        }
+      ],
+      "population_2020": 425,
+      "population_2015": 678,
+      "poblacion": true
+    },
+    {
+      "barangay": "Magtaking",
+      "total_officials": 1,
+      "tel": "09469973251",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Rolando Versosa"
+          ]
+        }
+      ],
+      "population_2020": 3016,
+      "population_2015": 2926,
+      "poblacion": false
+    },
+    {
+      "barangay": "Malaca\\u00f1ang",
+      "total_officials": 1,
+      "tel": "09264443247",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Ryan Pagsolingan"
+          ]
+        }
+      ],
+      "population_2020": 3837,
+      "population_2015": 3882,
+      "poblacion": false
+    },
+    {
+      "barangay": "Maliwara",
+      "total_officials": 1,
+      "tel": "09958929079",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Mar C. Posadas"
+          ]
+        }
+      ],
+      "population_2020": 817,
+      "population_2015": 822,
+      "poblacion": false
+    },
+    {
+      "barangay": "Mamarlao",
+      "total_officials": 1,
+      "tel": "09751405828",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Ronnie Dauz"
+          ]
+        }
+      ],
+      "population_2020": 3122,
+      "population_2015": 2679,
+      "poblacion": false
+    },
+    {
+      "barangay": "Manzon",
+      "total_officials": 1,
+      "tel": "09095968114",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Ernesto S. Garcia"
+          ]
+        }
+      ],
+      "population_2020": 2191,
+      "population_2015": 1779,
+      "poblacion": false
+    },
+    {
+      "barangay": "Matagdem",
+      "total_officials": 1,
+      "tel": "09951441045",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Thelma B. Taroma"
+          ]
+        }
+      ],
+      "population_2020": 3406,
+      "population_2015": 3216,
+      "poblacion": false
+    },
+    {
+      "barangay": "Mestizo Norte",
+      "total_officials": 1,
+      "tel": "09914177914",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Cesario M. Prada"
+          ]
+        }
+      ],
+      "population_2020": 1783,
+      "population_2015": 1592,
+      "poblacion": false
+    },
+    {
+      "barangay": "M. Soriano St.",
+      "total_officials": 1,
+      "tel": "09687761408",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Marianito Quintas"
+          ]
+        }
+      ],
+      "population_2020": 745,
+      "population_2015": 932,
+      "poblacion": true
+    },
+    {
+      "barangay": "Naguilayan",
+      "total_officials": 1,
+      "tel": "09518662593",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Vergil Reyes"
+          ]
+        }
+      ],
+      "population_2020": 1784,
+      "population_2015": 1626,
+      "poblacion": false
+    },
+    {
+      "barangay": "Nelintap",
+      "total_officials": 1,
+      "tel": "09398916134",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Jovito Rosario"
+          ]
+        }
+      ],
+      "population_2020": 1632,
+      "population_2015": 1417,
+      "poblacion": false
+    },
+    {
+      "barangay": "Padilla-Gomez",
+      "total_officials": 1,
+      "tel": "09977929933",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Eduardo M. Magalong"
+          ]
+        }
+      ],
+      "population_2020": 2029,
+      "population_2015": 2096,
+      "poblacion": true
+    },
+    {
+      "barangay": "Pagal",
+      "total_officials": 1,
+      "tel": "09178507591",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Marissa S. De Guzman"
+          ]
+        }
+      ],
+      "population_2020": 4714,
+      "population_2015": 4121,
+      "poblacion": false
+    },
+    {
+      "barangay": "Paitan-Panoypoy",
+      "total_officials": 1,
+      "tel": "09293864947",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Genaro Diadid Jr."
+          ]
+        }
+      ],
+      "population_2020": 1791,
+      "population_2015": 1656,
+      "poblacion": false
+    },
+    {
+      "barangay": "Palaming",
+      "total_officials": 1,
+      "tel": "09918003142",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Kevin George Calugay"
+          ]
+        }
+      ],
+      "population_2020": 3141,
+      "population_2015": 2823,
+      "poblacion": false
+    },
+    {
+      "barangay": "Palaris",
+      "total_officials": 1,
+      "tel": "09916916242",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Martinez G. Vincent"
+          ]
+        }
+      ],
+      "population_2020": 514,
+      "population_2015": 616,
+      "poblacion": true
+    },
+    {
+      "barangay": "Palospos",
+      "total_officials": 1,
+      "tel": "09759888159",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Orlando DC. Bacani"
+          ]
+        }
+      ],
+      "population_2020": 1621,
+      "population_2015": 1480,
+      "poblacion": false
+    },
+    {
+      "barangay": "Pangalangan",
+      "total_officials": 1,
+      "tel": "09430551988",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Jose D. Dela Cruz"
+          ]
+        }
+      ],
+      "population_2020": 3474,
+      "population_2015": 3112,
+      "poblacion": false
+    },
+    {
+      "barangay": "Pangoloan",
+      "total_officials": 1,
+      "tel": "09491650218",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Ricardo Cayabyab"
+          ]
+        }
+      ],
+      "population_2020": 1539,
+      "population_2015": 1523,
+      "poblacion": false
+    },
+    {
+      "barangay": "Pangpang",
+      "total_officials": 1,
+      "tel": "09327389054",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Eduardo R. Aquino Sr."
+          ]
+        }
+      ],
+      "population_2020": 3579,
+      "population_2015": 3140,
+      "poblacion": false
+    },
+    {
+      "barangay": "Parayao",
+      "total_officials": 1,
+      "tel": "09391054564",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Alexander Magat"
+          ]
+        }
+      ],
+      "population_2020": 1189,
+      "population_2015": 934,
+      "poblacion": false
+    },
+    {
+      "barangay": "Payapa",
+      "total_officials": 1,
+      "tel": "09186301950",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Zaldy T. Ferrer"
+          ]
+        }
+      ],
+      "population_2020": 1428,
+      "population_2015": 1295,
+      "poblacion": false
+    },
+    {
+      "barangay": "Payar",
+      "total_officials": 1,
+      "tel": "09471601313",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Reynaldo Paragas"
+          ]
+        }
+      ],
+      "population_2020": 1814,
+      "population_2015": 1667,
+      "poblacion": false
+    },
+    {
+      "barangay": "Perez Boulevard",
+      "total_officials": 1,
+      "tel": "09158800347",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Lance Soriano"
+          ]
+        }
+      ],
+      "population_2020": 677,
+      "population_2015": 694,
+      "poblacion": true
+    },
+    {
+      "barangay": "PNR Station Site",
+      "total_officials": 1,
+      "tel": "09507928824",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Loreto Leocandio"
+          ]
+        }
+      ],
+      "population_2020": 1063,
+      "population_2015": 890,
+      "poblacion": true
+    },
+    {
+      "barangay": "Polo",
+      "total_officials": 1,
+      "tel": "09282087902",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Roberto D. Aquino"
+          ]
+        }
+      ],
+      "population_2020": 1783,
+      "population_2015": 1654,
+      "poblacion": false,
+      "tel_status": "shared line",
+      "tel_shared_with": [
+        "Agdao"
+      ]
+    },
+    {
+      "barangay": "Quezon Boulevard",
+      "total_officials": 1,
+      "tel": "09183786633",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Myrna S. Estabillo"
+          ]
+        }
+      ],
+      "population_2020": 1891,
+      "population_2015": 1599,
+      "poblacion": true
+    },
+    {
+      "barangay": "Quintong",
+      "total_officials": 1,
+      "tel": "09464304842",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Luis M. Jutie Jr."
+          ]
+        }
+      ],
+      "population_2020": 3964,
+      "population_2015": 3709,
+      "poblacion": false
+    },
+    {
+      "barangay": "Rizal Avenue",
+      "total_officials": 1,
+      "tel": "09688567313",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Hilario C. Cruz Jr."
+          ]
+        }
+      ],
+      "population_2020": 2713,
+      "population_2015": 2579,
+      "poblacion": true
+    },
+    {
+      "barangay": "Roxas Boulevard",
+      "total_officials": 1,
+      "tel": "09667280238",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Edberto C. Millora"
+          ]
+        }
+      ],
+      "population_2020": 1385,
+      "population_2015": 1503,
+      "poblacion": true
+    },
+    {
+      "barangay": "Salinap",
+      "total_officials": 1,
+      "tel": "09322678063",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Rodrigo C. Tandoc"
+          ]
+        }
+      ],
+      "population_2020": 2670,
+      "population_2015": 2471,
+      "poblacion": false
+    },
+    {
+      "barangay": "San Juan",
+      "total_officials": 1,
+      "tel": "09083708940",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Joseph Vedana"
+          ]
+        }
+      ],
+      "population_2020": 3468,
+      "population_2015": 2900,
+      "poblacion": false
+    },
+    {
+      "barangay": "San Pedro-Taloy",
+      "total_officials": 1,
+      "tel": "09474513556",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Juanito Aquino"
+          ]
+        }
+      ],
+      "population_2020": 2408,
+      "population_2015": 2551,
+      "poblacion": true
+    },
+    {
+      "barangay": "Sapinit",
+      "total_officials": 1,
+      "tel": "09994219969",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Eduardo C. Tamondong"
+          ]
+        }
+      ],
+      "population_2020": 1661,
+      "population_2015": 1360,
+      "poblacion": false
+    },
+    {
+      "barangay": "Supo",
+      "total_officials": 1,
+      "tel": "09272380850",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Arsenio C. Camacho"
+          ]
+        }
+      ],
+      "population_2020": 1607,
+      "population_2015": 1480,
+      "poblacion": false
+    },
+    {
+      "barangay": "Talang",
+      "total_officials": 1,
+      "tel": "09338189562",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Jaime P. Posadas Jr."
+          ]
+        }
+      ],
+      "population_2020": 1637,
+      "population_2015": 1611,
+      "poblacion": false
+    },
+    {
+      "barangay": "Tamayo",
+      "total_officials": 1,
+      "tel": "09262730652",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Angel DC. De Leon"
+          ]
+        }
+      ],
+      "population_2020": 3547,
+      "population_2015": 3059,
+      "poblacion": false
+    },
+    {
+      "barangay": "Tandang Sora",
+      "total_officials": 1,
+      "tel": "09685652873",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Josephine C. Co"
+          ]
+        }
+      ],
+      "population_2020": 582,
+      "population_2015": 585,
+      "poblacion": false
+    },
+    {
+      "barangay": "Tandoc",
+      "total_officials": 1,
+      "tel": "09635168301",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Ramil Macalanda"
+          ]
+        }
+      ],
+      "population_2020": 3801,
+      "population_2015": 3758,
+      "poblacion": false
+    },
+    {
+      "barangay": "Tarece",
+      "total_officials": 1,
+      "tel": "09172014984",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Gerardo C. Mercado"
+          ]
+        }
+      ],
+      "population_2020": 4474,
+      "population_2015": 4666,
+      "poblacion": false
+    },
+    {
+      "barangay": "Tarectec",
+      "total_officials": 1,
+      "tel": "09388205015",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Roberto C. Valdez"
+          ]
+        }
+      ],
+      "population_2020": 1674,
+      "population_2015": 1525,
+      "poblacion": false
+    },
+    {
+      "barangay": "Tayambani",
+      "total_officials": 1,
+      "tel": "09666470526",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Rogelio C. Daroy"
+          ]
+        }
+      ],
+      "population_2020": 1491,
+      "population_2015": 1540,
+      "poblacion": false
+    },
+    {
+      "barangay": "Tebag",
+      "total_officials": 1,
+      "tel": "09196496772",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Raymundo P. Dulay"
+          ]
+        }
+      ],
+      "population_2020": 1366,
+      "population_2015": 1228,
+      "poblacion": false
+    },
+    {
+      "barangay": "Turac",
+      "total_officials": 1,
+      "tel": "09464969107",
+      "positions": [
+        {
+          "position": "Punong Barangay",
+          "count": 1,
+          "officials": [
+            "Samuel C. Cayabyab"
+          ]
+        }
+      ],
+      "population_2020": 6919,
+      "population_2015": 5702,
+      "poblacion": false,
+      "tel_status": "shared line",
+      "tel_shared_with": [
+        "Doyong"
+      ]
+    }
+  ],
+  "populations_source": "PSA 2020/2015 Census of Population via PhilAtlas (canonical copy: data/demographics.json)",
+  "urban_rural_split": {
+    "total": 86,
+    "urban": 30,
+    "rural": 56,
+    "source": "LGU Demography page (archived 2024-06-03) via research/barangays/26-09-barangay-directory.md",
+    "note": "Per-barangay urban/rural classification is not in the verified research corpus; only the 30/56 aggregate and the (Poblacion) barangays are documented. poblacion:true marks barangays the research table lists as (Poblacion)."
+  },
+  "term_note": "Captains reflect the term following the October 2023 Barangay and Sangguniang Kabataan Elections (BSKE); re-validate after the next BSKE."
 }

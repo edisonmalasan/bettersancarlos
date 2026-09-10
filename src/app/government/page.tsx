@@ -119,7 +119,64 @@ export default function GovernmentPage() {
                                 className="rounded-lg border border-line border-l-[3px] border-l-primary bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)] max-[767px]:p-4"
                             >
                                 <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold leading-[1.2] text-foreground">{c.name}</h4>
+                                {c.party && c.votes !== undefined ? (
+                                    <p className="m-0 mb-2 text-[0.75rem] text-muted-foreground">
+                                        {c.party} · {c.votes.toLocaleString('en-PH')} votes
+                                    </p>
+                                ) : null}
                                 <span className="mb-2.5 inline-block rounded-full bg-primary px-2.5 py-0.5 text-[0.6875rem] font-semibold text-white">SB Member</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Historical Terms */}
+            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
+                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+                    <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
+                        <SectionBadge
+                            icon="bi bi-clock-history"
+                            label="Historical Terms"
+                        />
+                        <h3 className="font-bold leading-[1.2] text-foreground" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
+                            Previous City Leadership
+                        </h3>
+                        <p className="mb-4" style={{ color: 'var(--color-text-light)' }}>
+                            Verified elected officials from the {officialsData.registered_voters.election === '2025' ? '2016–2025' : 'past'} terms
+                        </p>
+                        <span className="inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-3 py-1.5 text-[0.75rem] font-semibold text-[#8a5a00]">
+                            <i className="bi bi-archive"></i> Historical data — compiled from Comelec records
+                        </span>
+                    </div>
+                    <div className="grid gap-6 min-[1024px]:grid-cols-3 max-[1023px]:grid-cols-1">
+                        {officialsData.history.map((h) => (
+                            <div key={h.term} className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)]">
+                                <div className="mb-3 flex items-center justify-between">
+                                    <span className="rounded-full bg-primary px-3 py-1 text-[0.75rem] font-bold text-white">{h.term}</span>
+                                    {h.note ? <span className="text-[0.6875rem] text-muted-foreground">{h.note}</span> : null}
+                                </div>
+                                <p className="m-0 mb-1.5 text-[0.875rem] text-foreground">
+                                    <span className="font-semibold">Mayor:</span> {h.mayor}
+                                </p>
+                                <p className="m-0 mb-1.5 text-[0.875rem] text-foreground">
+                                    <span className="font-semibold">Vice Mayor:</span> {h.vice_mayor}
+                                </p>
+                                {h.representative ? (
+                                    <p className="m-0 mb-1.5 text-[0.875rem] text-foreground">
+                                        <span className="font-semibold">Representative:</span> {h.representative}
+                                    </p>
+                                ) : null}
+                                {h.councilors ? (
+                                    <details className="mt-2">
+                                        <summary className="cursor-pointer text-[0.8125rem] font-medium text-primary">Councilors ({h.councilors.length})</summary>
+                                        <ul className="mt-2 mb-0 flex list-none flex-col gap-1 pl-0" role="list">
+                                            {h.councilors.map((c) => (
+                                                <li key={c} className="text-[0.8125rem] leading-[1.5] text-muted-foreground">{c}</li>
+                                            ))}
+                                        </ul>
+                                    </details>
+                                ) : null}
                             </div>
                         ))}
                     </div>
@@ -151,7 +208,7 @@ export default function GovernmentPage() {
                             >
                                 <div className="flex items-center gap-2">
                                     <i className="bi bi-geo-alt-fill text-[0.875rem] text-primary"></i>
-                                    <span className="text-[0.9375rem] font-semibold text-primary">{b.name}</span>
+                                    <span className="text-[0.9375rem] font-semibold text-primary">{b.name.replace(/\\u00f1/g, 'ñ')}</span>
                                 </div>
                             </Link>
                         ))}

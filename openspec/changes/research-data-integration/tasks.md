@@ -15,10 +15,10 @@
 
 ## 3. Phase B — Barangay + officials enrichment
 
-- [ ] 3.1 Extend `src/data/barangay-officials.json`: join `population_2020`, `population_2015`, `urban_rural` from `research/barangays/26-09-barangay-directory.md` onto all 86 entries by canonical name; run a join-verification script — ZERO unmatched required; fix mojibake `source` field ("â€”" → "—") — verify join report 86/86
-- [ ] 3.2 Extend `src/data/officials.json` (+ `data/officials.json` mirror): add councilor `party`/`votes`, `registered_voters`, `history` (2016–2019, 2019–2022, 2022–2025 terms) from `research/government/26-09-city-officials.md`; keep shape editor/consumer compatible — verify tsc + pages render
-- [ ] 3.3 `/government/barangays/[slug]`: display populations (+ urban/rural) and captain from joined data; `/government`: historical terms block or link; handle duplicated mobile numbers per research caution (flag "shared line" rather than inventing) — verify a sample of 6 barangay pages against research (incl. Turac 6,919)
-- [ ] 3.4 Verify gates (tsc, build, visual smoke) + commit `feat: enrich barangay and officials data with verified research` + push + `worker_done`
+- [x] 3.1 Extend `src/data/barangay-officials.json`: join `population_2020`, `population_2015`, `urban_rural` from `research/barangays/26-09-barangay-directory.md` onto all 86 entries by canonical name; run a join-verification script — ZERO unmatched required; fix mojibake `source` field ("â€”" → "—") — verify join report 86/86
+- [x] 3.2 Extend `src/data/officials.json` (+ `data/officials.json` mirror): add councilor `party`/`votes`, `registered_voters`, `history` (2016–2019, 2019–2022, 2022–2025 terms) from `research/government/26-09-city-officials.md`; keep shape editor/consumer compatible — verify tsc + pages render
+- [x] 3.3 `/government/barangays/[slug]`: display populations (+ urban/rural) and captain from joined data; `/government`: historical terms block or link; handle duplicated mobile numbers per research caution (flag "shared line" rather than inventing) — verify a sample of 6 barangay pages against research (incl. Turac 6,919)
+- [x] 3.4 Verify gates (tsc, build, visual smoke) + commit `feat: enrich barangay and officials data with verified research` + push + `worker_done`
 
 ## 4. Phase C — New pages I (about, health, education)
 

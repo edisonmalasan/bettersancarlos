@@ -298,6 +298,12 @@ export default function AboutPage() {
             title="Transportation"
             description="Travel times, entry routes, and bus carriers for getting to the city"
           />
+          <DirectoryLinkCard
+            href="/quiz"
+            icon="bi bi-patch-question"
+            title="History Quiz"
+            description="Test what you learned — 12 questions on the city's history and heritage"
+          />
         </div>
       </section>
     </>

@@ -61,9 +61,11 @@ from `data/civic` records. Legacy scripts stay untouched until their row says re
 | `city-profile.json` | canonical | done (phase 5) |
 | `fiscal_transparency.json` | canonical | done (phase 5) |
 | `competitive-index.json` | canonical | done (phase 5) |
-| `ordinances.json` | `scripts/gen-legislative.ps1` | canonical (phase 5) |
-| `resolutions.json` | `scripts/gen-legislative.ps1` | canonical (phase 5) |
-| `dpwh-projects.json` | `scripts/gen-legislative.ps1` | canonical (phase 5) |
+| `ordinances.json` | canonical | done (phase 5) |
+| `resolutions.json` | canonical | done (phase 5) |
+| `dpwh-projects.json` | canonical | done (phase 5) |
+| `barangays.json` (`data/` home + `public/data/` + `src/data/` mirrors) | canonical | done (phase 5) |
+| `barangay-officials.json` (`data/` home + `public/data/` + `src/data/` mirrors) | canonical | done (phase 5) |
 | `agriculture.json` | manual | documented (phase 5) |
 | `city-projects.json` | manual | documented (phase 5) |
 | `evacuation-centers.json` | manual | documented (phase 5) |
@@ -76,8 +78,10 @@ from `data/civic` records. Legacy scripts stay untouched until their row says re
 | `transportation.json` | manual | documented (phase 5) |
 | `utilities.json` | manual | documented (phase 5) |
 
-`src/data/barangays.json` and `src/data/barangay-officials.json` are produced
-by `scripts/gen-barangays.ps1` (phase 5 target: canonical).
+`src/data/barangays.json` and `src/data/barangay-officials.json` are generated
+from canonical barangay records by `bun run data:generate`, with `data/*.json`
+as the home and byte-identical `public/data/` + `src/data/` mirrors
+(done, phase 5).
 
 ## Retired scripts log
 
@@ -91,6 +95,12 @@ by `scripts/gen-barangays.ps1` (phase 5 target: canonical).
 - `scripts/gen-fiscal-cmci.ps1` (phase 5): fiscal + CMCI facts moved to
   canonical records; `data:generate` is the producer for both files.
   The script throws instead of writing.
+- `scripts/gen-legislative.ps1` (phase 5): ordinances/resolutions/DPWH facts
+  moved to canonical records; `data:generate` is the producer for all three
+  files. The script throws instead of writing.
+- `scripts/gen-barangays.ps1` (phase 5): captain/directory facts moved to
+  canonical barangay records (populations join from the demographics table);
+  `data:generate` is the producer. The script throws instead of writing.
 - `scripts/gen-news.ps1` (phase 4): all facts moved to canonical news
   records; `data:generate` is the producer. The script throws instead of
   writing so it can never fork `news.json` again.

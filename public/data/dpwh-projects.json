@@ -1,14 +1,12 @@
 {
-    "_status":  "unverified",
-    "_note":  "No verified DPWH infrastructure project list for San Carlos City, Pangasinan was available during research (2026-09-04); the previous contents referenced barangays of a different San Carlos (Nueva Vizcaya) and have been removed. Pull official data from the DPWH Transparency Portal.",
-    "summary":  {
-                    "totalProjects":  0,
-                    "totalCost":  0,
-                    "completedProjects":  0,
-                    "ongoingProjects":  0,
-                    "implementingAgency":  "DPWH Pangasinan District Engineering Office (pending verification)"
-                },
-    "projects":  [
-
-                 ]
+  "_status": "unverified",
+  "_note": "No verified DPWH infrastructure project list for San Carlos City, Pangasinan was available during research (2026-09-04); the previous contents referenced barangays of a different San Carlos (Nueva Vizcaya) and have been removed. Pull official data from the DPWH Transparency Portal.",
+  "summary": {
+    "totalProjects": 0,
+    "totalCost": 0,
+    "completedProjects": 0,
+    "ongoingProjects": 0,
+    "implementingAgency": "DPWH Pangasinan District Engineering Office (pending verification)"
+  },
+  "projects": []
 }

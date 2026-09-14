@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { buildCityProfileJson, buildCmciJson, buildDemographicsJson, buildFiscalJson, buildNewsJson, isFbNewsRecord } from './generate';
+import { buildCityProfileJson, buildCmciJson, buildDemographicsJson, buildDomainJson, buildFiscalJson, buildNewsJson, isFbNewsRecord } from './generate';
 import { loadRecords, loadSources, type CivicRecord } from './lib/civic';
 import { FB_MAX_ITEMS } from './lib/facebook';
 
@@ -125,10 +125,11 @@ test('seeded canonical news reproduces the shipped news.json items exactly', () 
 });
 
 test('generated mirrors stay byte-identical', () => {
-  for (const file of ['officials.json', 'emergency-hotlines.json', 'news.json', 'demographics.json', 'city-profile.json', 'fiscal_transparency.json', 'competitive-index.json']) {
+  for (const file of ['officials.json', 'emergency-hotlines.json', 'news.json', 'demographics.json', 'city-profile.json', 'fiscal_transparency.json', 'competitive-index.json', 'ordinances.json', 'resolutions.json', 'dpwh-projects.json', 'barangays.json', 'barangay-officials.json']) {
     const copies = [
       path.join(process.cwd(), 'data', file),
       path.join(process.cwd(), 'public', 'data', file),
+      path.join(process.cwd(), 'src', 'data', file),
     ].filter((p) => fs.existsSync(p));
     assert.ok(copies.length >= 2, `${file} should be mirrored`);
     const hashes = new Set(copies.map((p) => fs.readFileSync(p).toString('base64')));
@@ -204,4 +205,67 @@ test('seeded canonical CMCI series reproduces the shipped file content', () => {
   // File-level standing for the frozen 2019 capture, not the record vocabulary.
   assert.equal(out._status, 'historical');
   assert.ok(String(out._source).includes('dti-cmci'));
+});
+
+function shippedJson(name: string): Record<string, unknown> {
+  return JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', name), 'utf8')) as Record<string, unknown>;
+}
+
+function shippedSrcJson(name: string): Record<string, unknown> {
+  let text = fs.readFileSync(path.join(process.cwd(), 'src', 'data', name), 'utf8');
+  if (text.charCodeAt(0) === 0xfeff) text = text.slice(1);
+  return JSON.parse(text) as Record<string, unknown>;
+}
+
+test('seeded legislation files reproduce the shipped content', () => {
+  const records = loadRecords().records;
+  const sources = loadSources().sources;
+  for (const [domain, file] of [
+    ['ordinances', 'ordinances.json'],
+    ['resolutions', 'resolutions.json'],
+    ['dpwh', 'dpwh-projects.json'],
+  ] as Array<[string, string]>) {
+    const out = buildDomainJson(domain, records, sources);
+    const shipped = shippedJson(file);
+    assert.deepEqual(Object.keys(out), Object.keys(shipped), `${file} keys`);
+    for (const key of Object.keys(shipped)) {
+      if (key === '_source' || key === '_updated') continue;
+      assert.deepEqual(out[key], shipped[key], `${file} key differs: ${key}`);
+    }
+  }
+});
+
+test('legislative cadences are quarterly; captains are post-BSKE event-driven', () => {
+  const records = loadRecords().records;
+  const ordinances = records.filter((r) => r.id.startsWith('ordinance-'));
+  assert.ok(ordinances.length > 0);
+  for (const r of ordinances) {
+    assert.equal(r.updateCadence, 'quarterly');
+    assert.equal(r.riskTier, 'high');
+  }
+  const captains = records.filter((r) => r.id.startsWith('barangay-captain-'));
+  assert.equal(captains.length, 86);
+  for (const r of captains) {
+    assert.equal(r.updateCadence, 'event-driven');
+    assert.equal(r.riskTier, 'high');
+    assert.equal(r.status, 'verified');
+  }
+});
+
+test('seeded barangay files reproduce the shipped content with joined populations', () => {
+  const records = loadRecords().records;
+  const sources = loadSources().sources;
+  const barangays = buildDomainJson('barangays', records, sources) as { barangays: unknown[] };
+  assert.deepEqual(barangays, shippedSrcJson('barangays.json'));
+  const officials = buildDomainJson('barangayOfficials', records, sources) as Record<string, unknown>;
+  const shipped = shippedSrcJson('barangay-officials.json');
+  assert.deepEqual(Object.keys(officials), Object.keys(shipped));
+  for (const key of Object.keys(shipped)) {
+    if (key === 'source') continue;
+    assert.deepEqual(officials[key], shipped[key], `barangay-officials key differs: ${key}`);
+  }
+  // Populations are joined from the demographics table, never duplicated.
+  const pops = (loadRecords().records.find((r) => r.id === 'demographics-barangay-populations')?.data as Record<string, unknown>).barangays as Array<{ name: string; population_2020: unknown }>;
+  const turac = (officials.barangays as Array<Record<string, unknown>>).find((b) => b.barangay === 'Turac');
+  assert.equal(turac?.population_2020, pops.find((p) => p.name === 'Turac')?.population_2020);
 });

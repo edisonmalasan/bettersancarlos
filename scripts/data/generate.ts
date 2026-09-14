@@ -151,6 +151,11 @@ const EMITTERS: Record<string, { file: string; emit: (ctx: EmitContext) => Recor
   cityProfile: { file: 'city-profile.json', emit: emitCityProfile },
   fiscal: { file: 'fiscal_transparency.json', emit: emitFiscal },
   cmci: { file: 'competitive-index.json', emit: emitCmci },
+  ordinances: { file: 'ordinances.json', emit: emitOrdinances },
+  resolutions: { file: 'resolutions.json', emit: emitResolutions },
+  dpwh: { file: 'dpwh-projects.json', emit: emitDpwh },
+  barangays: { file: 'barangays.json', emit: emitBarangays },
+  barangayOfficials: { file: 'barangay-officials.json', emit: emitBarangayOfficials },
 };
 
 export function isFbNewsRecord(record: CivicRecord): boolean {
@@ -259,6 +264,129 @@ export function buildCmciJson(records: CivicRecord[], sources: SourceRecord[]): 
     sources: new Map(sources.map((s) => [s.id, s])),
   };
   return emitCmci(ctx);
+}
+
+function ordinanceRecords(ctx: EmitContext): CivicRecord[] {
+  return [...ctx.records.values()]
+    .filter((r) => r.id.startsWith('ordinance-') && r.status !== 'retired')
+    .sort((a, b) => {
+      const ao = (a.data as Record<string, unknown>).order;
+      const bo = (b.data as Record<string, unknown>).order;
+      return (typeof ao === 'number' ? ao : 0) - (typeof bo === 'number' ? bo : 0);
+    });
+}
+
+function emitOrdinances(ctx: EmitContext): Record<string, unknown> {
+  const note = requiredRecord(ctx, 'sp-ordinances-note');
+  return {
+    // File-level standing preserved verbatim: entries are reported, not
+    // independently confirmed against the SP archive (see _note).
+    _status: 'unverified',
+    _note: (note.data as Record<string, unknown>).note,
+    ordinances: ordinanceRecords(ctx).map((r) => {
+      const data = r.data as Record<string, unknown>;
+      return { ordinanceNo: data.ordinanceNo, title: data.title, sessionDate: data.sessionDate };
+    }),
+  };
+}
+
+function emitResolutions(ctx: EmitContext): Record<string, unknown> {
+  const current = requiredRecord(ctx, 'sp-resolutions-current');
+  const note = requiredRecord(ctx, 'sp-resolutions-note');
+  return {
+    _status: 'unverified',
+    _note: (note.data as Record<string, unknown>).note,
+    resolutions: (current.data as Record<string, unknown>).entries,
+  };
+}
+
+function emitDpwh(ctx: EmitContext): Record<string, unknown> {
+  const summary = requiredRecord(ctx, 'dpwh-projects-summary');
+  const note = requiredRecord(ctx, 'dpwh-projects-note');
+  const data = summary.data as Record<string, unknown>;
+  return {
+    // The summary record is `blocked` (insufficient evidence): this file is an
+    // explicitly labeled gap notice, never presented as a current project list.
+    _status: 'unverified',
+    _note: (note.data as Record<string, unknown>).note,
+    summary: data.summary,
+    projects: data.entries,
+  };
+}
+
+function captainRecords(ctx: EmitContext): CivicRecord[] {
+  return [...ctx.records.values()]
+    .filter((r) => r.id.startsWith('barangay-captain-') && r.status !== 'retired')
+    .sort((a, b) => {
+      const ao = (a.data as Record<string, unknown>).order;
+      const bo = (b.data as Record<string, unknown>).order;
+      return (typeof ao === 'number' ? ao : 0) - (typeof bo === 'number' ? bo : 0);
+    });
+}
+
+function barangayPopulations(ctx: EmitContext): Map<string, { population_2020: unknown; population_2015: unknown }> {
+  const table = requiredRecord(ctx, 'demographics-barangay-populations');
+  const list = ((table.data as Record<string, unknown>).barangays ?? []) as Array<{
+    name: string;
+    population_2020: unknown;
+    population_2015: unknown;
+  }>;
+  return new Map(list.map((b) => [b.name, b]));
+}
+
+function emitBarangays(ctx: EmitContext): Record<string, unknown> {
+  return {
+    barangays: captainRecords(ctx).map((r) => {
+      const data = r.data as Record<string, unknown>;
+      return { name: data.barangay, captain: data.captain };
+    }),
+  };
+}
+
+function emitBarangayOfficials(ctx: EmitContext): Record<string, unknown> {
+  const term = requiredRecord(ctx, 'barangay-term');
+  const split = requiredRecord(ctx, 'barangay-urban-rural');
+  const populations = barangayPopulations(ctx);
+  const termData = term.data as Record<string, unknown>;
+  const splitData = split.data as Record<string, unknown>;
+  const captains = captainRecords(ctx);
+  const entries = captains.map((r) => {
+    const data = r.data as Record<string, unknown>;
+    const pop = populations.get(String(data.barangay));
+    if (!pop) throw new Error(`generate: no canonical population for barangay: ${data.barangay}`);
+    const entry: Record<string, unknown> = {
+      barangay: data.barangay,
+      total_officials: 1,
+      tel: data.tel,
+      positions: [{ position: 'Punong Barangay', count: 1, officials: [data.captain] }],
+      population_2020: pop.population_2020,
+      population_2015: pop.population_2015,
+      poblacion: data.poblacion,
+    };
+    if (data.tel_status !== undefined) entry.tel_status = data.tel_status;
+    if (data.tel_shared_with !== undefined) entry.tel_shared_with = data.tel_shared_with;
+    return entry;
+  });
+
+  return {
+    province: termData.province,
+    municipality: termData.municipality,
+    region: termData.region,
+    term: termData.term,
+    source: `City Government of San Carlos — Barangay Officials (official LGU site, archived 2024-06-03); registry: lgu-website; research: research/barangays/26-09-barangay-directory.md`,
+    barangay_count: captains.length,
+    total_officials: captains.length,
+    barangays: entries,
+    populations_source: splitData.populations_source,
+    urban_rural_split: {
+      total: splitData.total,
+      urban: splitData.urban,
+      rural: splitData.rural,
+      source: splitData.source,
+      note: splitData.note,
+    },
+    term_note: termData.term_note,
+  };
 }
 
 function emitNews(ctx: EmitContext): Record<string, unknown> {
@@ -386,6 +514,19 @@ function emitCityProfile(ctx: EmitContext): Record<string, unknown> {
     history_timeline: historyData.history_timeline,
     heritage: cultureData.heritage,
   };
+}
+
+export function buildDomainJson(
+  domain: string,
+  records: CivicRecord[],
+  sources: SourceRecord[],
+): Record<string, unknown> {
+  const emitter = EMITTERS[domain];
+  if (!emitter) throw new Error(`generate: unknown domain: ${domain}`);
+  return emitter.emit({
+    records: new Map(records.map((r) => [r.id, r])),
+    sources: new Map(sources.map((s) => [s.id, s])),
+  });
 }
 
 function mirrorTargets(root: string, file: string): string[] {  const targets = [path.join(root, 'data', file), path.join(root, 'public', 'data', file)];

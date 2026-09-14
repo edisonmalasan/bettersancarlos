@@ -3678,6 +3678,3975 @@
       "effectiveTo": null,
       "notes": "File-level provenance note carried into the generated competitive-index.json as _note.",
       "history": []
+    },
+    {
+      "id": "ordinance-2025-05-11",
+      "domain": "legislation",
+      "type": "document",
+      "label": "Ordinance 2025-05-11",
+      "data": {
+        "ordinanceNo": "2025-05-11",
+        "title": "An Ordinance Creating the Film Development Council of the City of San Carlos, Pangasinan, Providing for Its Powers and Functions, and for Other Purposes",
+        "sessionDate": "2025-04-21",
+        "order": 0
+      },
+      "claimSources": {
+        "ordinanceNo": [
+          "src-sp-list-unverified"
+        ],
+        "title": [
+          "src-sp-list-unverified"
+        ],
+        "sessionDate": [
+          "src-sp-list-unverified"
+        ]
+      },
+      "sourceIds": [
+        "src-sp-list-unverified"
+      ],
+      "status": "reported",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-14",
+      "updateCadence": "quarterly",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Reported but not independently confirmed against the SP archive; re-verify location.",
+      "history": []
+    },
+    {
+      "id": "ordinance-2025-04-11",
+      "domain": "legislation",
+      "type": "document",
+      "label": "Ordinance 2025-04-11",
+      "data": {
+        "ordinanceNo": "2025-04-11",
+        "title": "An Ordinance Prohibiting the Entry of Nuisance Contraband Inside the San Carlos District Jail in the City of San Carlos, Pangasinan, and Providing Penalties for Violation Thereof",
+        "sessionDate": "2025-04-21",
+        "order": 1
+      },
+      "claimSources": {
+        "ordinanceNo": [
+          "src-sp-list-unverified"
+        ],
+        "title": [
+          "src-sp-list-unverified"
+        ],
+        "sessionDate": [
+          "src-sp-list-unverified"
+        ]
+      },
+      "sourceIds": [
+        "src-sp-list-unverified"
+      ],
+      "status": "reported",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-14",
+      "updateCadence": "quarterly",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Reported but not independently confirmed against the SP archive; re-verify location.",
+      "history": []
+    },
+    {
+      "id": "ordinance-2025-03-11",
+      "domain": "legislation",
+      "type": "document",
+      "label": "Ordinance 2025-03-11",
+      "data": {
+        "ordinanceNo": "2025-03-11",
+        "title": "An Ordinance Creating the San Carlos Municipal Housing Board, Defining Its Powers and Functions, and for Other Purposes",
+        "sessionDate": "2025-03-03",
+        "order": 2
+      },
+      "claimSources": {
+        "ordinanceNo": [
+          "src-sp-list-unverified"
+        ],
+        "title": [
+          "src-sp-list-unverified"
+        ],
+        "sessionDate": [
+          "src-sp-list-unverified"
+        ]
+      },
+      "sourceIds": [
+        "src-sp-list-unverified"
+      ],
+      "status": "reported",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-14",
+      "updateCadence": "quarterly",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Reported but not independently confirmed against the SP archive; re-verify location.",
+      "history": []
+    },
+    {
+      "id": "ordinance-2025-02-11",
+      "domain": "legislation",
+      "type": "document",
+      "label": "Ordinance 2025-02-11",
+      "data": {
+        "ordinanceNo": "2025-02-11",
+        "title": "An Ordinance Requiring All Households in the City of San Carlos, Pangasinan to Comply with Zero Open Defecation (ZOD), Providing for Its Guidelines and Penalties for Violation and Appropriating Funds Therefor",
+        "sessionDate": "2025-02-25",
+        "order": 3
+      },
+      "claimSources": {
+        "ordinanceNo": [
+          "src-sp-list-unverified"
+        ],
+        "title": [
+          "src-sp-list-unverified"
+        ],
+        "sessionDate": [
+          "src-sp-list-unverified"
+        ]
+      },
+      "sourceIds": [
+        "src-sp-list-unverified"
+      ],
+      "status": "reported",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-14",
+      "updateCadence": "quarterly",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Reported but not independently confirmed against the SP archive; re-verify location.",
+      "history": []
+    },
+    {
+      "id": "ordinance-2025-01-11",
+      "domain": "legislation",
+      "type": "document",
+      "label": "Ordinance 2025-01-11",
+      "data": {
+        "ordinanceNo": "2025-01-11",
+        "title": "An Ordinance Revising the Gender and Development Code of the City of San Carlos, Pangasinan and for Other Purposes, Subject to All Laws and Existing Rules and Regulations",
+        "sessionDate": "2025-02-25",
+        "order": 4
+      },
+      "claimSources": {
+        "ordinanceNo": [
+          "src-sp-list-unverified"
+        ],
+        "title": [
+          "src-sp-list-unverified"
+        ],
+        "sessionDate": [
+          "src-sp-list-unverified"
+        ]
+      },
+      "sourceIds": [
+        "src-sp-list-unverified"
+      ],
+      "status": "reported",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-14",
+      "updateCadence": "quarterly",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Reported but not independently confirmed against the SP archive; re-verify location.",
+      "history": []
+    },
+    {
+      "id": "sp-ordinances-note",
+      "domain": "legislation",
+      "type": "document",
+      "label": "Ordinances publication note",
+      "data": {
+        "note": "Entries reference the City of San Carlos, Pangasinan but could not be verified against the Sangguniang Panlungsod archive during research (SP subdomain unreachable, 2026-09-04). See research/legislation/26-09-legislation-archive.md."
+      },
+      "claimSources": {
+        "note": [
+          "src-sp-list-unverified"
+        ]
+      },
+      "sourceIds": [
+        "src-sp-list-unverified"
+      ],
+      "status": "reported",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-14",
+      "updateCadence": "quarterly",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "File-level verification warning carried into the generated ordinances.json as _note.",
+      "history": []
+    },
+    {
+      "id": "sp-resolutions-current",
+      "domain": "legislation",
+      "type": "document",
+      "label": "Resolutions (none verified)",
+      "data": {
+        "entries": []
+      },
+      "claimSources": {
+        "entries": [
+          "src-sp-list-unverified"
+        ]
+      },
+      "sourceIds": [
+        "src-sp-list-unverified"
+      ],
+      "status": "reported",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-14",
+      "updateCadence": "quarterly",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Empty: no SP resolutions verified; previous contents referenced the wrong San Carlos and were removed.",
+      "history": []
+    },
+    {
+      "id": "sp-resolutions-note",
+      "domain": "legislation",
+      "type": "document",
+      "label": "Resolutions publication note",
+      "data": {
+        "note": "No Sangguniang Panlungsod resolutions for San Carlos City, Pangasinan could be verified during research (2026-09-04); the previous contents referenced a different San Carlos municipality (Nueva Vizcaya) and have been removed. See research/legislation/26-09-legislation-archive.md."
+      },
+      "claimSources": {
+        "note": [
+          "src-sp-list-unverified"
+        ]
+      },
+      "sourceIds": [
+        "src-sp-list-unverified"
+      ],
+      "status": "reported",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-14",
+      "updateCadence": "quarterly",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "File-level verification warning carried into the generated resolutions.json as _note.",
+      "history": []
+    },
+    {
+      "id": "dpwh-projects-summary",
+      "domain": "infrastructure",
+      "type": "project",
+      "label": "DPWH projects summary (none verified)",
+      "data": {
+        "summary": {
+          "totalProjects": 0,
+          "totalCost": 0,
+          "completedProjects": 0,
+          "ongoingProjects": 0,
+          "implementingAgency": "DPWH Pangasinan District Engineering Office (pending verification)"
+        },
+        "entries": []
+      },
+      "claimSources": {
+        "summary": [
+          "src-dpwh-portal"
+        ],
+        "entries": [
+          "src-dpwh-portal"
+        ]
+      },
+      "sourceIds": [
+        "src-dpwh-portal"
+      ],
+      "status": "blocked",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-14",
+      "updateCadence": "quarterly",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Insufficient evidence (no list retrieved): the generated file presents this explicitly as an unverified gap notice, never as current fact.",
+      "history": []
+    },
+    {
+      "id": "dpwh-projects-note",
+      "domain": "infrastructure",
+      "type": "document",
+      "label": "DPWH projects publication note",
+      "data": {
+        "note": "No verified DPWH infrastructure project list for San Carlos City, Pangasinan was available during research (2026-09-04); the previous contents referenced barangays of a different San Carlos (Nueva Vizcaya) and have been removed. Pull official data from the DPWH Transparency Portal."
+      },
+      "claimSources": {
+        "note": [
+          "src-dpwh-portal"
+        ]
+      },
+      "sourceIds": [
+        "src-dpwh-portal"
+      ],
+      "status": "blocked",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-14",
+      "updateCadence": "quarterly",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "File-level verification warning carried into the generated dpwh-projects.json as _note.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-abanon",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Abanon",
+      "data": {
+        "barangay": "Abanon",
+        "captain": "Juan C. Paningbatan",
+        "tel": "09465815209",
+        "poblacion": false,
+        "order": 0
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-agdao",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Agdao",
+      "data": {
+        "barangay": "Agdao",
+        "captain": "Ana Marie Arguell",
+        "tel": "09282087902",
+        "poblacion": false,
+        "order": 1,
+        "tel_status": "shared line",
+        "tel_shared_with": [
+          "Polo"
+        ]
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-anando",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Anando",
+      "data": {
+        "barangay": "Anando",
+        "captain": "Ranny Francisco",
+        "tel": "09751420351",
+        "poblacion": false,
+        "order": 2
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-ano",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Ano",
+      "data": {
+        "barangay": "Ano",
+        "captain": "Marciano Sales",
+        "tel": "09517344046",
+        "poblacion": false,
+        "order": 3
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-antipangol",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Antipangol",
+      "data": {
+        "barangay": "Antipangol",
+        "captain": "Lito C. De Guzman",
+        "tel": "09086730582",
+        "poblacion": false,
+        "order": 4
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-aponit",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Aponit",
+      "data": {
+        "barangay": "Aponit",
+        "captain": "Renan D. Dela Cruz",
+        "tel": "09090957205",
+        "poblacion": false,
+        "order": 5
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-bacnar",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Bacnar",
+      "data": {
+        "barangay": "Bacnar",
+        "captain": "Antonio R. Mislang",
+        "tel": "09066057819",
+        "poblacion": false,
+        "order": 6
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-balaya",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Balaya",
+      "data": {
+        "barangay": "Balaya",
+        "captain": "Paterno Resuello",
+        "tel": "09262724463",
+        "poblacion": false,
+        "order": 7
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-balayong",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Balayong",
+      "data": {
+        "barangay": "Balayong",
+        "captain": "Andres G. Reyes",
+        "tel": "09196160249",
+        "poblacion": false,
+        "order": 8
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-baldog",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Baldog",
+      "data": {
+        "barangay": "Baldog",
+        "captain": "Francisco C. Franza Jr.",
+        "tel": "09317417199",
+        "poblacion": false,
+        "order": 9
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-balite-sur",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Balite Sur",
+      "data": {
+        "barangay": "Balite Sur",
+        "captain": "Leonardo B. De Vera",
+        "tel": "09369633538",
+        "poblacion": false,
+        "order": 10
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-balococ",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Balococ",
+      "data": {
+        "barangay": "Balococ",
+        "captain": "Gabriel P. Rosario",
+        "tel": "09186875696",
+        "poblacion": false,
+        "order": 11
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-bani",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Bani",
+      "data": {
+        "barangay": "Bani",
+        "captain": "Roberto C. Dela Cruz",
+        "tel": "09186289933",
+        "poblacion": false,
+        "order": 12
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-bega",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Bega",
+      "data": {
+        "barangay": "Bega",
+        "captain": "Oscar C. Arellano",
+        "tel": "09473664750",
+        "poblacion": false,
+        "order": 13
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-bocboc",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Bocboc",
+      "data": {
+        "barangay": "Bocboc",
+        "captain": "Fernando Erguiza",
+        "tel": "09465889759",
+        "poblacion": false,
+        "order": 14
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-bogaoan",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Bogaoan",
+      "data": {
+        "barangay": "Bogaoan",
+        "captain": "Boyet P. Perez",
+        "tel": "09674355930",
+        "poblacion": false,
+        "order": 15
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-bolingit",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Bolingit",
+      "data": {
+        "barangay": "Bolingit",
+        "captain": "Jherwin R. Lumanlan",
+        "tel": "09457961359",
+        "poblacion": false,
+        "order": 16
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-bolosan",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Bolosan",
+      "data": {
+        "barangay": "Bolosan",
+        "captain": "Dionel B. Perez",
+        "tel": "09511289017",
+        "poblacion": false,
+        "order": 17
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-bonifacio",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Bonifacio",
+      "data": {
+        "barangay": "Bonifacio",
+        "captain": "Alex Martinez",
+        "tel": "09297061518",
+        "poblacion": true,
+        "order": 18
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-buenglat",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Buenglat",
+      "data": {
+        "barangay": "Buenglat",
+        "captain": "Jerry M. Rosario",
+        "tel": "09705053795",
+        "poblacion": false,
+        "order": 19
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-bugallon-posadas-st",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Bugallon-Posadas St.",
+      "data": {
+        "barangay": "Bugallon-Posadas St.",
+        "captain": "Jonas S. Pamintuan",
+        "tel": "09075178350",
+        "poblacion": true,
+        "order": 20
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-burgos-padlan",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Burgos-Padlan",
+      "data": {
+        "barangay": "Burgos-Padlan",
+        "captain": "Loreto DV. Baguio",
+        "tel": "09124693478",
+        "poblacion": true,
+        "order": 21
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-cacaritan",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Cacaritan",
+      "data": {
+        "barangay": "Cacaritan",
+        "captain": "Jose R. Soriano",
+        "tel": "09614857488",
+        "poblacion": false,
+        "order": 22
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-caingal",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Caingal",
+      "data": {
+        "barangay": "Caingal",
+        "captain": "Jaime A. Apostol",
+        "tel": "09924258763",
+        "poblacion": false,
+        "order": 23
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-calobaoan",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Calobaoan",
+      "data": {
+        "barangay": "Calobaoan",
+        "captain": "Bienvenido Q. Arce Jr.",
+        "tel": "09158741072",
+        "poblacion": false,
+        "order": 24
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-calomboyan",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Calomboyan",
+      "data": {
+        "barangay": "Calomboyan",
+        "captain": "Ronaldo R. Zacarias",
+        "tel": "09305481815",
+        "poblacion": false,
+        "order": 25
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-caoayan-kiling",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Caoayan-Kiling",
+      "data": {
+        "barangay": "Caoayan-Kiling",
+        "captain": "Arnold Berma",
+        "tel": "09067380372",
+        "poblacion": false,
+        "order": 26
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-capataan",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Capataan",
+      "data": {
+        "barangay": "Capataan",
+        "captain": "Edilberto F. Pamintuan",
+        "tel": "09397594096",
+        "poblacion": false,
+        "order": 27
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-cobol",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Cobol",
+      "data": {
+        "barangay": "Cobol",
+        "captain": "Dionisio D. Caldona",
+        "tel": "09059001315",
+        "poblacion": false,
+        "order": 28
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-coliling",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Coliling",
+      "data": {
+        "barangay": "Coliling",
+        "captain": "Jose Christopher Gallego",
+        "tel": "09178910108",
+        "poblacion": false,
+        "order": 29
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-cruz",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Cruz",
+      "data": {
+        "barangay": "Cruz",
+        "captain": "Leonardo Bandong",
+        "tel": "09556629766",
+        "poblacion": false,
+        "order": 30
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-doyong",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Doyong",
+      "data": {
+        "barangay": "Doyong",
+        "captain": "Danilo Palagana",
+        "tel": "09464969107",
+        "poblacion": false,
+        "order": 31,
+        "tel_status": "shared line",
+        "tel_shared_with": [
+          "Turac"
+        ]
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-gamata",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Gamata",
+      "data": {
+        "barangay": "Gamata",
+        "captain": "Rodolfo De Guzman",
+        "tel": "09478789450",
+        "poblacion": false,
+        "order": 32
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-guelew",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Guelew",
+      "data": {
+        "barangay": "Guelew",
+        "captain": "Joe NG. Lazaga",
+        "tel": "09287278101",
+        "poblacion": false,
+        "order": 33
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-ilang",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Ilang",
+      "data": {
+        "barangay": "Ilang",
+        "captain": "Reynaldo DV. Caranto",
+        "tel": "09998221247",
+        "poblacion": false,
+        "order": 34
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-inerangan",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Inerangan",
+      "data": {
+        "barangay": "Inerangan",
+        "captain": "Roger A. Carlos",
+        "tel": "09810316155",
+        "poblacion": false,
+        "order": 35
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-isla",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Isla",
+      "data": {
+        "barangay": "Isla",
+        "captain": "Noel Cruz",
+        "tel": "09533722009",
+        "poblacion": false,
+        "order": 36
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-libas",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Libas",
+      "data": {
+        "barangay": "Libas",
+        "captain": "Joel M. Paronable",
+        "tel": "09675945618",
+        "poblacion": false,
+        "order": 37
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-lilimasan",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Lilimasan",
+      "data": {
+        "barangay": "Lilimasan",
+        "captain": "Jonand Rey Estabillo",
+        "tel": "09393546144",
+        "poblacion": false,
+        "order": 38
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-longos",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Longos",
+      "data": {
+        "barangay": "Longos",
+        "captain": "Anthony Magallanes",
+        "tel": "09179307541",
+        "poblacion": false,
+        "order": 39
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-lucban",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Lucban",
+      "data": {
+        "barangay": "Lucban",
+        "captain": "Romeo Gille",
+        "tel": "09706551250",
+        "poblacion": true,
+        "order": 40
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-mabalbalino",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Mabalbalino",
+      "data": {
+        "barangay": "Mabalbalino",
+        "captain": "Nestor B. Alcantara",
+        "tel": "09058140597",
+        "poblacion": false,
+        "order": 41
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-mabini",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Mabini",
+      "data": {
+        "barangay": "Mabini",
+        "captain": "Marieto B. Meneses",
+        "tel": "09499354143",
+        "poblacion": true,
+        "order": 42
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-magtaking",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Magtaking",
+      "data": {
+        "barangay": "Magtaking",
+        "captain": "Rolando Versosa",
+        "tel": "09469973251",
+        "poblacion": false,
+        "order": 43
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-malaca-u00f1ang",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Malaca\\u00f1ang",
+      "data": {
+        "barangay": "Malaca\\u00f1ang",
+        "captain": "Ryan Pagsolingan",
+        "tel": "09264443247",
+        "poblacion": false,
+        "order": 44
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-maliwara",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Maliwara",
+      "data": {
+        "barangay": "Maliwara",
+        "captain": "Mar C. Posadas",
+        "tel": "09958929079",
+        "poblacion": false,
+        "order": 45
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-mamarlao",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Mamarlao",
+      "data": {
+        "barangay": "Mamarlao",
+        "captain": "Ronnie Dauz",
+        "tel": "09751405828",
+        "poblacion": false,
+        "order": 46
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-manzon",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Manzon",
+      "data": {
+        "barangay": "Manzon",
+        "captain": "Ernesto S. Garcia",
+        "tel": "09095968114",
+        "poblacion": false,
+        "order": 47
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-matagdem",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Matagdem",
+      "data": {
+        "barangay": "Matagdem",
+        "captain": "Thelma B. Taroma",
+        "tel": "09951441045",
+        "poblacion": false,
+        "order": 48
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-mestizo-norte",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Mestizo Norte",
+      "data": {
+        "barangay": "Mestizo Norte",
+        "captain": "Cesario M. Prada",
+        "tel": "09914177914",
+        "poblacion": false,
+        "order": 49
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-m-soriano-st",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, M. Soriano St.",
+      "data": {
+        "barangay": "M. Soriano St.",
+        "captain": "Marianito Quintas",
+        "tel": "09687761408",
+        "poblacion": true,
+        "order": 50
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-naguilayan",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Naguilayan",
+      "data": {
+        "barangay": "Naguilayan",
+        "captain": "Vergil Reyes",
+        "tel": "09518662593",
+        "poblacion": false,
+        "order": 51
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-nelintap",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Nelintap",
+      "data": {
+        "barangay": "Nelintap",
+        "captain": "Jovito Rosario",
+        "tel": "09398916134",
+        "poblacion": false,
+        "order": 52
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-padilla-gomez",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Padilla-Gomez",
+      "data": {
+        "barangay": "Padilla-Gomez",
+        "captain": "Eduardo M. Magalong",
+        "tel": "09977929933",
+        "poblacion": true,
+        "order": 53
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-pagal",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Pagal",
+      "data": {
+        "barangay": "Pagal",
+        "captain": "Marissa S. De Guzman",
+        "tel": "09178507591",
+        "poblacion": false,
+        "order": 54
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-paitan-panoypoy",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Paitan-Panoypoy",
+      "data": {
+        "barangay": "Paitan-Panoypoy",
+        "captain": "Genaro Diadid Jr.",
+        "tel": "09293864947",
+        "poblacion": false,
+        "order": 55
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-palaming",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Palaming",
+      "data": {
+        "barangay": "Palaming",
+        "captain": "Kevin George Calugay",
+        "tel": "09918003142",
+        "poblacion": false,
+        "order": 56
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-palaris",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Palaris",
+      "data": {
+        "barangay": "Palaris",
+        "captain": "Martinez G. Vincent",
+        "tel": "09916916242",
+        "poblacion": true,
+        "order": 57
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-palospos",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Palospos",
+      "data": {
+        "barangay": "Palospos",
+        "captain": "Orlando DC. Bacani",
+        "tel": "09759888159",
+        "poblacion": false,
+        "order": 58
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-pangalangan",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Pangalangan",
+      "data": {
+        "barangay": "Pangalangan",
+        "captain": "Jose D. Dela Cruz",
+        "tel": "09430551988",
+        "poblacion": false,
+        "order": 59
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-pangoloan",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Pangoloan",
+      "data": {
+        "barangay": "Pangoloan",
+        "captain": "Ricardo Cayabyab",
+        "tel": "09491650218",
+        "poblacion": false,
+        "order": 60
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-pangpang",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Pangpang",
+      "data": {
+        "barangay": "Pangpang",
+        "captain": "Eduardo R. Aquino Sr.",
+        "tel": "09327389054",
+        "poblacion": false,
+        "order": 61
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-parayao",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Parayao",
+      "data": {
+        "barangay": "Parayao",
+        "captain": "Alexander Magat",
+        "tel": "09391054564",
+        "poblacion": false,
+        "order": 62
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-payapa",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Payapa",
+      "data": {
+        "barangay": "Payapa",
+        "captain": "Zaldy T. Ferrer",
+        "tel": "09186301950",
+        "poblacion": false,
+        "order": 63
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-payar",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Payar",
+      "data": {
+        "barangay": "Payar",
+        "captain": "Reynaldo Paragas",
+        "tel": "09471601313",
+        "poblacion": false,
+        "order": 64
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-perez-boulevard",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Perez Boulevard",
+      "data": {
+        "barangay": "Perez Boulevard",
+        "captain": "Lance Soriano",
+        "tel": "09158800347",
+        "poblacion": true,
+        "order": 65
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-pnr-station-site",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, PNR Station Site",
+      "data": {
+        "barangay": "PNR Station Site",
+        "captain": "Loreto Leocandio",
+        "tel": "09507928824",
+        "poblacion": true,
+        "order": 66
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-polo",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Polo",
+      "data": {
+        "barangay": "Polo",
+        "captain": "Roberto D. Aquino",
+        "tel": "09282087902",
+        "poblacion": false,
+        "order": 67,
+        "tel_status": "shared line",
+        "tel_shared_with": [
+          "Agdao"
+        ]
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-quezon-boulevard",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Quezon Boulevard",
+      "data": {
+        "barangay": "Quezon Boulevard",
+        "captain": "Myrna S. Estabillo",
+        "tel": "09183786633",
+        "poblacion": true,
+        "order": 68
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-quintong",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Quintong",
+      "data": {
+        "barangay": "Quintong",
+        "captain": "Luis M. Jutie Jr.",
+        "tel": "09464304842",
+        "poblacion": false,
+        "order": 69
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-rizal-avenue",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Rizal Avenue",
+      "data": {
+        "barangay": "Rizal Avenue",
+        "captain": "Hilario C. Cruz Jr.",
+        "tel": "09688567313",
+        "poblacion": true,
+        "order": 70
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-roxas-boulevard",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Roxas Boulevard",
+      "data": {
+        "barangay": "Roxas Boulevard",
+        "captain": "Edberto C. Millora",
+        "tel": "09667280238",
+        "poblacion": true,
+        "order": 71
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-salinap",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Salinap",
+      "data": {
+        "barangay": "Salinap",
+        "captain": "Rodrigo C. Tandoc",
+        "tel": "09322678063",
+        "poblacion": false,
+        "order": 72
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-san-juan",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, San Juan",
+      "data": {
+        "barangay": "San Juan",
+        "captain": "Joseph Vedana",
+        "tel": "09083708940",
+        "poblacion": false,
+        "order": 73
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-san-pedro-taloy",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, San Pedro-Taloy",
+      "data": {
+        "barangay": "San Pedro-Taloy",
+        "captain": "Juanito Aquino",
+        "tel": "09474513556",
+        "poblacion": true,
+        "order": 74
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-sapinit",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Sapinit",
+      "data": {
+        "barangay": "Sapinit",
+        "captain": "Eduardo C. Tamondong",
+        "tel": "09994219969",
+        "poblacion": false,
+        "order": 75
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-supo",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Supo",
+      "data": {
+        "barangay": "Supo",
+        "captain": "Arsenio C. Camacho",
+        "tel": "09272380850",
+        "poblacion": false,
+        "order": 76
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-talang",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Talang",
+      "data": {
+        "barangay": "Talang",
+        "captain": "Jaime P. Posadas Jr.",
+        "tel": "09338189562",
+        "poblacion": false,
+        "order": 77
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-tamayo",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Tamayo",
+      "data": {
+        "barangay": "Tamayo",
+        "captain": "Angel DC. De Leon",
+        "tel": "09262730652",
+        "poblacion": false,
+        "order": 78
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-tandang-sora",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Tandang Sora",
+      "data": {
+        "barangay": "Tandang Sora",
+        "captain": "Josephine C. Co",
+        "tel": "09685652873",
+        "poblacion": false,
+        "order": 79
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-tandoc",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Tandoc",
+      "data": {
+        "barangay": "Tandoc",
+        "captain": "Ramil Macalanda",
+        "tel": "09635168301",
+        "poblacion": false,
+        "order": 80
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-tarece",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Tarece",
+      "data": {
+        "barangay": "Tarece",
+        "captain": "Gerardo C. Mercado",
+        "tel": "09172014984",
+        "poblacion": false,
+        "order": 81
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-tarectec",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Tarectec",
+      "data": {
+        "barangay": "Tarectec",
+        "captain": "Roberto C. Valdez",
+        "tel": "09388205015",
+        "poblacion": false,
+        "order": 82
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-tayambani",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Tayambani",
+      "data": {
+        "barangay": "Tayambani",
+        "captain": "Rogelio C. Daroy",
+        "tel": "09666470526",
+        "poblacion": false,
+        "order": 83
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-tebag",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Tebag",
+      "data": {
+        "barangay": "Tebag",
+        "captain": "Raymundo P. Dulay",
+        "tel": "09196496772",
+        "poblacion": false,
+        "order": 84
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-captain-turac",
+      "domain": "barangays",
+      "type": "official",
+      "label": "Punong Barangay, Turac",
+      "data": {
+        "barangay": "Turac",
+        "captain": "Samuel C. Cayabyab",
+        "tel": "09464969107",
+        "poblacion": false,
+        "order": 85,
+        "tel_status": "shared line",
+        "tel_shared_with": [
+          "Doyong"
+        ]
+      },
+      "claimSources": {
+        "barangay": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "captain": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "tel": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "poblacion": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "high",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Post-2023-BSKE term; re-validate after the next BSKE. Contact numbers are publicly published official info.",
+      "history": []
+    },
+    {
+      "id": "barangay-term",
+      "domain": "barangays",
+      "type": "directory",
+      "label": "Barangay officials term",
+      "data": {
+        "province": "PANGASINAN",
+        "municipality": "SAN CARLOS",
+        "region": "REGION I",
+        "term": "2023-2026",
+        "term_note": "Captains reflect the term following the October 2023 Barangay and Sangguniang Kabataan Elections (BSKE); re-validate after the next BSKE."
+      },
+      "claimSources": {
+        "province": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "municipality": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "region": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "term": [
+          "src-lgu-barangay-directory-2024"
+        ],
+        "term_note": [
+          "src-lgu-barangay-directory-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-barangay-directory-2024"
+      ],
+      "status": "verified",
+      "riskTier": "medium",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Term labels for the barangay-officials file header.",
+      "history": []
+    },
+    {
+      "id": "barangay-urban-rural",
+      "domain": "barangays",
+      "type": "statistic",
+      "label": "Urban/rural barangay split",
+      "data": {
+        "total": 86,
+        "urban": 30,
+        "rural": 56,
+        "source": "LGU Demography page (archived 2024-06-03) via research/barangays/26-09-barangay-directory.md",
+        "note": "Per-barangay urban/rural classification is not in the verified research corpus; only the 30/56 aggregate and the (Poblacion) barangays are documented. poblacion:true marks barangays the research table lists as (Poblacion).",
+        "populations_source": "PSA 2020/2015 Census of Population via PhilAtlas (canonical copy: data/demographics.json)"
+      },
+      "claimSources": {
+        "total": [
+          "src-lgu-demography-2024"
+        ],
+        "urban": [
+          "src-lgu-demography-2024"
+        ],
+        "rural": [
+          "src-lgu-demography-2024"
+        ],
+        "source": [
+          "src-lgu-demography-2024"
+        ],
+        "note": [
+          "src-lgu-demography-2024"
+        ],
+        "populations_source": [
+          "src-lgu-demography-2024"
+        ]
+      },
+      "sourceIds": [
+        "src-lgu-demography-2024"
+      ],
+      "status": "verified",
+      "riskTier": "medium",
+      "lastVerified": "2026-09-14",
+      "acceptedBy": "civic-data-pipeline-seed",
+      "acceptedAt": "2026-09-14",
+      "nextReviewOn": "2026-12-31",
+      "updateCadence": "event-driven",
+      "effectiveFrom": null,
+      "effectiveTo": null,
+      "notes": "Only the 30/56 aggregate is verified; per-barangay classification is not in the research corpus.",
+      "history": []
     }
   ]
 }

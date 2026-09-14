@@ -401,6 +401,41 @@
       "sourceState": "archived",
       "registryId": "dti-cmci",
       "notes": "2016-2019 ranks/scores; live portal returned 404 at research time; research: research/competitiveness/26-09-cmci-index.md."
+    },
+    {
+      "id": "src-sp-list-unverified",
+      "title": "Sangguniang Panlungsod ordinance list (unverified)",
+      "publisher": "Sangguniang Panlungsod of San Carlos City",
+      "discovery": "SP subdomain unreachable during 2026-09-04 research; re-verify location (see research/legislation/26-09-legislation-archive.md)",
+      "documentType": "other",
+      "retrievedAt": "2026-09-04",
+      "verifier": "research-2026-09-04",
+      "sourceState": "moved",
+      "notes": "Entries could not be verified against the SP archive; candidates for re-verification, not confirmed law."
+    },
+    {
+      "id": "src-lgu-barangay-directory-2024",
+      "title": "Barangay Officials list (official LGU site, archived 2024-06-03)",
+      "publisher": "City Government of San Carlos",
+      "url": "https://web.archive.org/web/20240603225000/https://www.sancarlospangasinan.gov.ph/barangay-officials",
+      "documentType": "webpage",
+      "retrievedAt": "2026-09-04",
+      "verifier": "research-2026-09-04",
+      "sourceState": "archived",
+      "registryId": "lgu-website",
+      "notes": "86 captains + contact numbers, post-2023-BSKE term; research: research/barangays/26-09-barangay-directory.md."
+    },
+    {
+      "id": "src-dpwh-portal",
+      "title": "DPWH Transparency Portal (no verified project list retrieved)",
+      "publisher": "Department of Public Works and Highways",
+      "discovery": "DPWH Transparency Portal project list for San Carlos City (none verified during research)",
+      "documentType": "webpage",
+      "retrievedAt": "2026-09-04",
+      "verifier": "research-2026-09-04",
+      "sourceState": "unavailable",
+      "registryId": "dpwh-projects",
+      "notes": "Placeholder until an official project list is pulled; research: research/legislation/26-09-legislation-archive.md."
     }
   ]
 }

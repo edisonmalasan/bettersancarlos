@@ -1,3 +1,9 @@
+# RETIRED (civic-data-pipeline phase 5): data/ordinances.json,
+# data/resolutions.json and data/dpwh-projects.json are now generated from
+# canonical civic records via `bun run data:generate` (see docs/data-pipeline.md).
+# All facts below moved to data/civic/records.json. This script throws instead
+# of writing so it can never fork those files again.
+throw 'scripts/gen-legislative.ps1 is retired; run `bun run data:generate` instead (see docs/data-pipeline.md).'
 # Generator: ordinances.json + resolutions.json + dpwh-projects.json
 $ErrorActionPreference = 'Stop'
 $enc = New-Object System.Text.UTF8Encoding($false)

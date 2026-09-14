@@ -4,8 +4,9 @@ How the **Latest Updates** (homepage) and **News** page are kept up to date.
 
 ## How it works
 
-Both sections are rendered by [`assets/js/news.js`](../assets/js/news.js) from a single
-file: [`data/news.json`](../data/news.json). The homepage shows the 3 most recent items;
+Both sections read a single file: [`data/news.json`](../data/news.json) — generated
+from canonical news records by `bun run data:generate` (see
+[`data-pipeline.md`](data-pipeline.md)). The homepage shows the 3 most recent items;
 the News page shows all of them, newest first. No backend is involved — it is a static
 JSON file served from cPanel.
 
@@ -38,6 +39,10 @@ This is an **internal tool**. It is excluded from the production build
 5. Click **Download news.json**.
 6. Replace [`data/news.json`](../data/news.json) with the downloaded file, commit, and
    deploy (`npm run build` → upload `dist/`).
+   NOTE: `data/news.json` is now generated from canonical civic records
+   (`bun run data:generate`). Do not hand-edit it as the source of truth —
+   route editor changes through the pipeline instead (add/update the canonical
+   `news-<slug>` record, then regenerate).
 
 `Copy JSON` and `Import file…` are available if you prefer pasting, or want to resume
 editing a file you saved earlier.
@@ -61,8 +66,10 @@ editing a file you saved earlier.
 }
 ```
 
-`news.js` escapes all fields before rendering and ignores non-`http(s)` URLs, so the
-feed is safe even if a future automated source (e.g. a Facebook Graph API sync) appends
-items in the same shape. When that access becomes available, the sync writes
-Facebook-sourced entries into the same array and they merge automatically with the
-manually curated ones.
+The News page and homepage widget escape all fields before rendering and ignore
+non-`http(s)` URLs, so the
+feed is safe even with automated entries in the same shape. Facebook-sourced
+entries now arrive through the pipeline: `scripts/sync-facebook.js` collects
+Graph posts into research-run candidates, review promotes them as `reported`,
+and `bun run data:generate` merges them with the manually curated ones
+(see [`facebook-sync.md`](facebook-sync.md)).

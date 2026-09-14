@@ -1,3 +1,10 @@
+# RETIRED (civic-data-pipeline phase 5): src/data/barangays.json and
+# src/data/barangay-officials.json are now generated from canonical civic
+# records via `bun run data:generate` (see docs/data-pipeline.md), with
+# data/*.json as the home and byte-identical public/data + src/data mirrors.
+# All facts below moved to data/civic/records.json. This script throws instead
+# of writing so it can never fork those files again.
+throw 'scripts/gen-barangays.ps1 is retired; run `bun run data:generate` instead (see docs/data-pipeline.md).'
 # Generate barangays.json and barangay-officials.json from research captains data
 # Source: research/barangays/26-09-barangay-directory.md (official LGU list archived 2024-06-03)
 $data = @(

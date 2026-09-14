@@ -34,5 +34,8 @@ jobs:
       - name: Typecheck
         run: ./node_modules/.bin/tsc --noEmit
 
+      - name: Civic data validation
+        run: bun run data:validate
+
       - name: Production build
         run: bun run build

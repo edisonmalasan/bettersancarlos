@@ -1,3 +1,8 @@
+# RETIRED (civic-data-pipeline phase 5): data/demographics.json is now generated
+# from canonical civic records via `bun run data:generate`
+# (see docs/data-pipeline.md). All facts below moved to data/civic/records.json.
+# This script throws instead of writing so it can never fork demographics.json again.
+throw 'scripts/gen-demographics.ps1 is retired; run `bun run data:generate -- --domain=demographics` instead (see docs/data-pipeline.md).'
 # Generator: demographics.json (PSA 2020 CPH via PhilAtlas)
 $ErrorActionPreference = 'Stop'
 $enc = New-Object System.Text.UTF8Encoding($false)

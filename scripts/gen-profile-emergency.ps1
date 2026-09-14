@@ -1,4 +1,10 @@
-# Generator: emergency-hotlines.json + city-profile.json (new data packs from research)
+# RETIRED (civic-data-pipeline phases 2+5): data/emergency-hotlines.json and
+# data/city-profile.json are now generated from canonical civic records via
+# `bun run data:generate` (see docs/data-pipeline.md). All facts below moved
+# to data/civic/records.json. This script throws instead of writing so it can
+# never fork either file again.
+throw 'scripts/gen-profile-emergency.ps1 is retired; run `bun run data:generate` instead (see docs/data-pipeline.md).'
+# Generator: city-profile.json (emergency-hotlines.json retired - see below)
 $ErrorActionPreference = 'Stop'
 $enc = New-Object System.Text.UTF8Encoding($false)
 function Write-Json($obj, $path) {
@@ -6,30 +12,9 @@ function Write-Json($obj, $path) {
     [System.IO.File]::WriteAllText((Join-Path (Get-Location) $path), $json, $enc)
     Write-Host "wrote $path"
 }
-$national = @(
-    [PSCustomObject]@{ service = 'National Emergency Hotline'; number = '911'; status = 'verified'; source = 'https://911.gov.ph/' },
-    [PSCustomObject]@{ service = 'PNP Emergency Hotline'; number = '117'; status = 'verified'; source = 'https://pnp.gov.ph/' },
-    [PSCustomObject]@{ service = 'Philippine Red Cross'; number = '143'; status = 'verified'; source = 'https://redcross.org.ph/' },
-    [PSCustomObject]@{ service = 'Citizens Complaint Hotline (Office of the President)'; number = '8888'; status = 'verified'; source = 'https://8888.gov.ph/' }
-)
-$cityLines = @(
-    [PSCustomObject]@{ service = 'City Hall (general trunk line)'; number = '(075) 600-1432'; status = 'verified'; source = 'https://sancarlospangasinan.gov.ph/' },
-    [PSCustomObject]@{ service = 'CDRRMO (Disaster Risk Reduction and Management Office)'; number = '(075) 955-5911'; status = 'historical - re-verify'; source = 'old official site (archived 2017-03-22)' },
-    [PSCustomObject]@{ service = 'Police Station (PNP San Carlos)'; number = '(075) 532-9896'; status = 'historical - re-verify'; source = 'old official site (archived 2017-03-22)' },
-    [PSCustomObject]@{ service = 'Fire Station (BFP San Carlos)'; number = '(075) 544-2887'; status = 'historical - re-verify'; source = 'old official site (archived 2017-03-22)' }
-)
-$emergency = [PSCustomObject]@{
-    '_schema_version' = '1.0'
-    '_status' = 'partially-verified'
-    '_updated' = '2026-09-04'
-    '_source' = 'research/emergency/26-09-emergency-hotlines.md'
-    '_note' = 'National numbers are widely published. City-level numbers marked historical come from the decommissioned official website (2017) and must be re-dialed and verified before being treated as current.'
-    'city' = 'San Carlos City'
-    'province' = 'Pangasinan'
-    national = $national
-    city_hotlines = $cityLines
-}
-Write-Json $emergency 'data/emergency-hotlines.json'
+# RETIRED (civic-data-pipeline phase 2): data/emergency-hotlines.json is now
+# generated from canonical civic records via `bun run data:generate`
+# (see docs/data-pipeline.md). Do not re-add hardcoded facts here.
 
 $cityProfile = [PSCustomObject]@{
     '_schema_version' = '1.0'

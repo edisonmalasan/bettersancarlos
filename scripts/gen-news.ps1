@@ -1,3 +1,8 @@
+# RETIRED (civic-data-pipeline phase 4): data/news.json is now generated
+# from canonical civic records via `bun run data:generate`
+# (see docs/data-pipeline.md). All facts below moved to data/civic/records.json.
+# This script throws instead of writing so it can never fork news.json again.
+throw 'scripts/gen-news.ps1 is retired; run `bun run data:generate` instead (see docs/data-pipeline.md).'
 # Generator: news.json (verified events from research)
 $ErrorActionPreference = 'Stop'
 $enc = New-Object System.Text.UTF8Encoding($false)

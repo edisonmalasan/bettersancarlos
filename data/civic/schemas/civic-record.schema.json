@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://lgu.bettergov.ph/schemas/civic-record.schema.json",
+  "title": "Canonical civic record",
+  "description": "One accepted civic fact with stable ID, record-level provenance, verification status, and freshness metadata. Accepted records live in data/civic/records.json.",
+  "type": "object",
+  "required": [
+    "id",
+    "domain",
+    "type",
+    "label",
+    "data",
+    "sourceIds",
+    "status",
+    "lastVerified",
+    "acceptedBy",
+    "acceptedAt",
+    "nextReviewOn",
+    "updateCadence"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Stable record ID, independent of the record value."
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "government",
+        "barangays",
+        "demographics",
+        "emergency",
+        "health",
+        "education",
+        "economy",
+        "agriculture",
+        "tourism",
+        "transportation",
+        "legislation",
+        "transparency",
+        "infrastructure",
+        "disaster-risk",
+        "environment",
+        "utilities",
+        "competitiveness",
+        "culture-history",
+        "news",
+        "official-presence",
+        "city-profile"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "official",
+        "contact",
+        "statistic",
+        "document",
+        "service",
+        "facility",
+        "event",
+        "project",
+        "directory",
+        "announcement"
+      ]
+    },
+    "label": { "type": "string", "minLength": 1 },
+    "data": { "type": "object", "description": "The accepted civic fact payload." },
+    "claimSources": {
+      "type": "object",
+      "description": "Maps data field paths to the source IDs supporting each claim.",
+      "additionalProperties": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+    },
+    "sourceIds": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Stable IDs of supporting source records in sources.json."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "provisional",
+        "verified",
+        "reported",
+        "needs-reverification",
+        "blocked",
+        "retired"
+      ]
+    },
+    "riskTier": { "type": "string", "enum": ["high", "medium", "low"], "default": "medium" },
+    "lastVerified": { "type": "string", "format": "date" },
+    "acceptedBy": { "type": "string", "minLength": 1 },
+    "acceptedAt": { "type": "string", "format": "date" },
+    "nextReviewOn": { "type": "string", "format": "date" },
+    "updateCadence": {
+      "type": "string",
+      "enum": [
+        "daily",
+        "weekly",
+        "monthly",
+        "quarterly",
+        "annually",
+        "per-term",
+        "per-document",
+        "manual",
+        "event-driven"
+      ]
+    },
+    "effectiveFrom": { "type": ["string", "null"], "format": "date" },
+    "effectiveTo": { "type": ["string", "null"], "format": "date" },
+    "collectedBy": { "type": "string" },
+    "notes": { "type": "string" },
+    "history": {
+      "type": "array",
+      "description": "Append-only prior revisions. Never rewritten or erased.",
+      "items": {
+        "type": "object",
+        "required": ["revision", "data", "acceptedBy", "acceptedAt", "sourceIds"],
+        "properties": {
+          "revision": { "type": "integer", "minimum": 1 },
+          "data": { "type": "object" },
+          "acceptedBy": { "type": "string" },
+          "acceptedAt": { "type": "string", "format": "date" },
+          "sourceIds": { "type": "array", "items": { "type": "string" } },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

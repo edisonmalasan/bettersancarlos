@@ -13,8 +13,9 @@
  *
  * STRATEGY (progressive enhancement, graceful degradation)
  * --------------------------------------------------------
- *   1. Immediately render a self-hosted feed from data/news.json — the same
- *      file scripts/sync-facebook.js writes Facebook posts into. This always
+ *   1. Immediately render a self-hosted feed from data/news.json — generated
+ *      by `bun run data:generate` from canonical news records (Facebook posts
+ *      flow in via pipeline research runs, never by direct overwrite). This always
  *      works (same-origin, no cookies, unblockable) and is the base layer.
  *   2. Lazily probe the live Facebook Page Plugin. We can't read a cross-origin
  *      iframe's contents, but a working plugin postMessages its parent for

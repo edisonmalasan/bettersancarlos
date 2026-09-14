@@ -37,7 +37,7 @@
 ## 7. CI and runbook
 
 - [x] 7.1 Add the `data:test` script running the offline pipeline suite and insert it into `.github/workflows/ci.yml` between validation and build; verify CI config by running the same command sequence locally
-- [ ] 7.2 Update the scheduled `refresh.yml` only as required by the hardened run schema (new artifact rides along in run PRs; guard still refuses non-run changes); verify with a manual dispatch producing a reviewable run PR with no canonical changes
+- [x] 7.2 Update the scheduled `refresh.yml` only as required by the hardened run schema (new artifact rides along in run PRs; guard still refuses non-run changes); verify with a manual dispatch producing a reviewable run PR with no canonical changes
 - [ ] 7.3 Update `AGENTS.md` + `docs/data-pipeline.md` (instance lifecycle, scope model, retry policy, risk rules, sentinel semantics, Test-10 unchanged-data guarantee); verify a fresh-agent Scenario-H dry run following only the runbook
 - [ ] 7.4 Run Test 10 (identical evidence + identical fact → UNCHANGED with no new history revision) plus the full suite, `tsc --noEmit`, `data:validate`, and production `next build`; verify the frontend spot-check renders identically
 

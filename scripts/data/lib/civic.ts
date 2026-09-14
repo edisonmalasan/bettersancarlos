@@ -92,6 +92,11 @@ export interface RegistryEntry {
   discovery?: string;
   sourceType: SourceType;
   collector: string | null;
+  /**
+   * Acquisition mechanism: `http` (shared polite fetcher, default) or
+   * `facebook-graph` (Graph API path with credentials). Absent means `http`.
+   */
+  acquisition?: 'http' | 'facebook-graph';
   updateCadence: Cadence;
   riskTier?: RiskTier;
   accessNotes?: string;

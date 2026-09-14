@@ -100,5 +100,6 @@ jobs:
               --base main \
               --head "$BRANCH" \
               --title "chore: scheduled civic-data refresh ($(date -u +%F))" \
-              --body "Scheduled refresh run. No canonical data changed - review the research run, then promote explicitly if warranted. Health summary follows. Never auto-merge: promotion stays a separate reviewer step (see docs/data-pipeline.md)."
+              --body "Scheduled refresh run. No canonical data changed - review the research run, then promote explicitly if warranted. Health summary follows. Never auto-merge: promotion stays a separate reviewer step (see docs/data-pipeline.md)." \
+            || { echo "HINT: PR creation needs Settings > Actions > General > 'Allow GitHub Actions to create and approve pull requests'."; exit 1; }
           fi

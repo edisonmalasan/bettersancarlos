@@ -39,8 +39,8 @@
 - [x] 7.1 Add the `data:test` script running the offline pipeline suite and insert it into `.github/workflows/ci.yml` between validation and build; verify CI config by running the same command sequence locally
 - [x] 7.2 Update the scheduled `refresh.yml` only as required by the hardened run schema (new artifact rides along in run PRs; guard still refuses non-run changes); verify with a manual dispatch producing a reviewable run PR with no canonical changes
 - [x] 7.3 Update `AGENTS.md` + `docs/data-pipeline.md` (instance lifecycle, scope model, retry policy, risk rules, sentinel semantics, Test-10 unchanged-data guarantee); verify a fresh-agent Scenario-H dry run following only the runbook
-- [ ] 7.4 Run Test 10 (identical evidence + identical fact → UNCHANGED with no new history revision) plus the full suite, `tsc --noEmit`, `data:validate`, and production `next build`; verify the frontend spot-check renders identically
+- [x] 7.4 Run Test 10 (identical evidence + identical fact → UNCHANGED with no new history revision) plus the full suite, `tsc --noEmit`, `data:validate`, and production `next build`; verify the frontend spot-check renders identically
 
 ## 8. Collector roadmap only
 
-- [ ] 8.1 Document the prioritized collector roadmap (PSA, FDPP, DPWH, Comelec, DOH/DepEd, CENPELCO, others; PSGC/CMCI parked) with value/volatility/stability rationale per source; verify every registry source appears exactly once with either a priority or a parked reason. No collectors implemented in this change
+- [x] 8.1 Document the prioritized collector roadmap (PSA, FDPP, DPWH, Comelec, DOH/DepEd, CENPELCO, others; PSGC/CMCI parked) with value/volatility/stability rationale per source; verify every registry source appears exactly once with either a priority or a parked reason. No collectors implemented in this change

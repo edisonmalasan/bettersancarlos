@@ -211,7 +211,6 @@ via `bun test scripts/data/refresh.test.ts`. If any command above fails on a
 clean tree, the runbook — not your intuition — is what needs fixing.
 
 ## News auto-promotion (low-risk path only)
-
 Official-page news candidates (`domain: news`, sourced from the registered
 `lgu-facebook-cio` page) may be accepted without an independent reviewer via
 `bun run data:promote -- --auto-news`. Justification: news items are
@@ -222,3 +221,42 @@ reported, not independently confirmed. The gate refuses anything else:
 non-news domains, non-official sources, and updates to existing canonical
 records all require normal reviewer promotion. High-risk categories can never
 use this path.
+
+## Collector roadmap (future changes, prioritized)
+
+Already automated: `lgu-website` (city-website), `lgu-facebook-cio`
+(facebook), `lgu-old-site-archive` (city-website, historical only). Each item
+below ships as its own scoped OpenSpec change reusing the
+source-instance/candidate contract; ordered by data value × volatility ×
+source stability × structuredness. No collectors are implemented here.
+
+1. `psa-census-philatlas` — structured portal tables; highest reuse
+   (demographics, barangays); per-document releases.
+2. `comelec-results` — Rappler mirror is structured HTML; high value at
+   election/vacancy events (per-term cadence).
+3. `dilg-fdpp` — high-value transparency documents; probe portal access
+   first (unreachable at research time).
+4. `coa-audit` — annual audit reports; start manual, automate once the
+   extraction path is repeatable.
+5. `blgf` — fiscal series; was HTTP 403, follow the extraction path in
+   `research/transparency/26-09-blgf-budget.md` before automating.
+6. `dpwh-projects` — portal URL unverified; inquiry path (City Engineering
+   Office / BAC) until verified, then automate.
+7. `deped-schools` — school directory; verify IDs via the School Info
+   System, then automate the list pull.
+8. `doh-hfsrb` — facility list was 404 and OLRS is login-only; manual
+   first, automate only if a public endpoint appears.
+9. `cenpelco` — simple website, quarterly contact volatility; automate the
+   branch/contact pull after one manual verification.
+10. `province-pangasinan` — stable annual profile page; low volatility,
+    automate opportunistically.
+
+Parked (no automation until the stated condition clears):
+
+- `psgc` — HTTP 403 at research time; re-attempt direct access first.
+- `dti-cmci` — portal 404; Internet-Archive recovery only.
+- `pnp-national`, `dilg-911` — static national numbers; annual manual
+  re-check is sufficient, automation adds nothing.
+- `dilg-pro1-inquiry` — human verification channel by nature; manual forever.
+- `lwua`, `nea`, `official-gazette` — blocked or manual-only at research
+  time; manual follow-up before any automation talk.

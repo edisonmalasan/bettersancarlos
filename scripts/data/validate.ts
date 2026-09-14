@@ -430,6 +430,9 @@ function validateRuns(
         result.errors.push(`research run ${name} has unknown source outcome: ${entry.outcome}`);
       }
     }
+    if (!manifest.endedAt) {
+      result.warnings.push(`research run ${name} has no endedAt (incomplete or interrupted run)`);
+    }
     const candidatesPath = path.join(runDir, 'candidates.json');
     if (!fs.existsSync(candidatesPath)) continue;
     let candidates: { candidates: Candidate[] };

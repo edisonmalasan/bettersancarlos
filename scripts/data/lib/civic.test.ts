@@ -24,9 +24,17 @@ test('loads the real registry: 21 entries, known fields, url-or-discovery', () =
   assert.equal(site?.url, 'https://sancarlospangasinan.gov.ph/');
 });
 
-test('loads empty records and sources envelopes', () => {
-  assert.deepEqual(loadRecords().records, []);
-  assert.deepEqual(loadSources().sources, []);
+test('loads records and sources envelopes with unique ids', () => {
+  const records = loadRecords().records;
+  assert.ok(records.length > 0, 'expected seeded canonical records');
+  const ids = records.map((r) => r.id);
+  assert.equal(new Set(ids).size, ids.length);
+  const mayor = records.find((r) => r.id === 'city-mayor-current');
+  assert.equal(mayor?.domain, 'government');
+  assert.ok((mayor?.sourceIds.length ?? 0) > 0);
+  const sources = loadSources().sources;
+  const sourceIds = sources.map((s) => s.id);
+  assert.equal(new Set(sourceIds).size, sourceIds.length);
 });
 
 test('CIVIC_ROOT redirects loaders to a fixture tree', () => {

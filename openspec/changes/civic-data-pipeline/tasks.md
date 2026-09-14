@@ -44,5 +44,18 @@
 ## 6. Runbook, scheduled refresh, acceptance
 
 - [x] 6.1 Write the agent refresh runbook (AGENTS.md data-pipeline section + `docs/data-pipeline.md`): commands, order, research-run requirements, never-overwrite rules, promotion rules, conflict handling; verify a fresh agent can follow it to run a fixture refresh without other context (Scenario H dry run)
-- [ ] 6.2 Add `.github/workflows/refresh.yml` (phase 6): scheduled/manual trigger → `data:refresh --due` → `data:diff` → open/update PR with run artifacts via `gh`; never auto-merge, no secrets in data; verify the workflow file is valid (`gh workflow list`/actionlint-equivalent check) and a manual dispatch on a fixture source produces a PR with no canonical changes on `main` (Scenario: scheduled refresh is reviewable)
-- [ ] 6.3 Execute the full acceptance matrix against fixtures/real data: A (unchanged), B (changed), C (source unavailable), D (conflict), E (stale detection), F (supersession preserves history), G (frontend compatibility — `bun run verify` + spot-check pages), H (fresh-agent runbook run); verify each scenario's expected result and record outcomes in the change's checklist before requesting verification
+- [x] 6.2 Add `.github/workflows/refresh.yml` (phase 6): scheduled/manual trigger → `data:refresh --due` → `data:diff` → open/update PR with run artifacts via `gh`; never auto-merge, no secrets in data; verify the workflow file is valid (`gh workflow list`/actionlint-equivalent check) and a manual dispatch on a fixture source produces a PR with no canonical changes on `main` (Scenario: scheduled refresh is reviewable)
+- [x] 6.3 Execute the full acceptance matrix against fixtures/real data: A (unchanged), B (changed), C (source unavailable), D (conflict), E (stale detection), F (supersession preserves history), G (frontend compatibility — `bun run verify` + spot-check pages), H (fresh-agent runbook run); verify each scenario's expected result and record outcomes in the change's checklist before requesting verification
+
+## Acceptance outcomes (recorded 2026-09-14, all passing)
+
+- A (unchanged): `refresh.test.ts` scenario A + `diff.test.ts` scenario A — UNCHANGED, canonical byte-identical.
+- B (changed): `refresh.test.ts` scenario B + `diff.test.ts` scenario B — CHANGED candidate, canonical untouched.
+- C (source unavailable): `refresh.test.ts` scenario C (refused endpoint → `unavailable`, 0 candidates, canonical untouched); live CI dispatch recorded `collected`/`failed` honestly.
+- D (conflict): `refresh.test.ts` scenario D + `diff.test.ts` scenario D (CONFLICT) + `promote.test.ts` refuses conflicting candidates.
+- E (stale detection): `diff.test.ts` stale flag + `validate.test.ts` stale failure + `report.test.ts` stale fixture; live `data:report` shows Stale: 0.
+- F (supersession preserves history): `promote.test.ts` keeps the previous revision in `history`.
+- G (frontend compatibility): `bun run verify` green (tsc + validate 0 errors + 148-page build); `out/` spot-checks hit on statistics, budget, officials, about, Turac barangay page, and the news/ordinance static payloads.
+- H (fresh-agent runbook run): Scenario H commands ran verbatim — offline refresh records `skipped` with a complete run dir, diff/report/validate all offline-clean.
+- Scheduled refresh reviewable: 8 live dispatches of `refresh.yml` — refresh/diff/validate/guard green on runners; PR #73 (closed after verification) carried only `research/runs/` artifacts, no auto-merge, merge blocked pending review, `main` untouched. Two fixes landed from the exercise: YAML literal-block indentation (flush-left lines kill trigger parsing) and collision-free run ids for same-day reruns. One owner action remains: enable Settings → Actions → General → "Allow GitHub Actions to create and approve pull requests" so the workflow's `gh pr create` succeeds (verification PR was opened with a user token instead).
+- Suite totals: `bun test` 89 pass / 0 fail (13 files); `tsc --noEmit` clean.

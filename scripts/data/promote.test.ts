@@ -505,3 +505,36 @@ test('promotion agrees with validation windows for every cadence', async () => {
     fs.rmSync(root, { recursive: true, force: true });
   }
 });
+
+test('new official-type facts default to high risk even outside listed domains', () => {
+  const root = fixtureRoot();
+  try {
+    const run = createRun(root, { date: '2026-09-14', collectedBy: 'agent' });
+    writeCandidates(run.dir, [
+      {
+        id: 'division-superintendent-new',
+        domain: 'education',
+        type: 'official',
+        label: 'Division Superintendent',
+        data: { name: 'Reyes' },
+        sourceIds: ['src-dir'],
+        sourceInstanceIds: [REG_INSTANCE_ID],
+        status: 'provisional',
+        collectedBy: 'agent',
+        runId: run.runId,
+      },
+    ]);
+    writeSourceInstances(run.dir, [regSiteInstance(run.runId)]);
+    const summary = promoteRun(
+      { root, runId: run.runId, records: ['division-superintendent-new'], reviewer: 'reviewer' },
+      '2026-09-14',
+    );
+    assert.deepEqual(summary.promoted, ['division-superintendent-new']);
+    const file = JSON.parse(fs.readFileSync(path.join(root, 'data', 'civic', 'records.json'), 'utf8')) as {
+      records: Array<{ id: string; riskTier: string }>;
+    };
+    assert.equal(file.records.find((r) => r.id === 'division-superintendent-new')?.riskTier, 'high');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});

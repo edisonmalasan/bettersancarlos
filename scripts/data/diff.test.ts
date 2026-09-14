@@ -13,6 +13,7 @@ function record(overrides: Partial<CivicRecord> = {}): CivicRecord {
     claimSources: { name: ['src-dir'] },
     sourceIds: ['src-dir'],
     status: 'verified',
+    riskTier: 'high',
     lastVerified: '2026-09-01',
     acceptedBy: 'reviewer',
     acceptedAt: '2026-09-02',

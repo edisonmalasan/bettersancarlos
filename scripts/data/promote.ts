@@ -4,7 +4,7 @@ import path from 'node:path';
 import { loadRecords, loadRegistry, loadSources, type Candidate, type CivicRecord, type SourceInstance, type SourceRecord } from './lib/civic';
 import { writeJsonAtomic, stableStringify } from './lib/json';
 import { findSourceByContent } from './lib/instances';
-import { CADENCE_POLICY, cadenceWindowDays, isTimeBasedCadence, nextReviewDate } from './lib/policy';
+import { CADENCE_POLICY, cadenceWindowDays, isHighRisk, isTimeBasedCadence, nextReviewDate, policyDefaultRiskTier } from './lib/policy';
 import { recordsPath, sourcesPath, runsDir } from './lib/paths';
 import { readCandidates } from './lib/runs';
 import { readSourceInstances } from './lib/instances';
@@ -28,9 +28,8 @@ export interface PromoteSummary {
   reviewer: string;
 }
 
-// Domains whose NEW records always require an independent reviewer.
-// (Risk centralization in lib/policy.ts takes over this rule in Phase 5.)
-const HIGH_RISK_DOMAINS = new Set(['government', 'emergency', 'health', 'transparency', 'legislation']);
+// High-risk classification lives in lib/policy.ts isHighRisk (single rule over
+// record tier, domain, and type); nothing here duplicates it.
 
 export const NEWS_AUTO_PRINCIPAL = 'news-auto-path';
 const NEWS_AUTO_REGISTRY = 'lgu-facebook-cio';
@@ -158,9 +157,7 @@ function validateProposedState(
       if (!STATUSES.includes(record.status)) fail(`record ${id} has unknown status: ${record.status}`);
       if (!CADENCES.includes(record.updateCadence)) fail(`record ${id} has unknown cadence: ${record.updateCadence}`);
       if (!RECORD_TYPES.includes(record.type)) fail(`record ${id} has unknown type: ${record.type}`);
-      if (record.riskTier !== undefined && !RISK_TIERS.includes(record.riskTier)) {
-        fail(`record ${id} has unknown riskTier: ${record.riskTier}`);
-      }
+      if (!RISK_TIERS.includes(record.riskTier)) fail(`record ${id} is missing riskTier`);
       if (!Array.isArray(record.sourceIds) || record.sourceIds.length === 0) fail(`record ${id} has no sourceIds`);
       else {
         for (const sid of record.sourceIds) {
@@ -289,6 +286,7 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
         acceptedAt: today,
         nextReviewOn: nextReviewDate('weekly', today),
         updateCadence: 'weekly',
+        riskTier: policyDefaultRiskTier(candidate.domain, candidate.type),
         collectedBy: candidate.collectedBy,
         notes: candidate.notes,
         history: [],
@@ -298,9 +296,11 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
       continue;
     }
 
-    const highRisk = existing
-      ? (existing.riskTier ?? 'medium') === 'high'
-      : HIGH_RISK_DOMAINS.has(candidate.domain);
+    const highRisk = isHighRisk({
+      riskTier: existing?.riskTier,
+      domain: (existing ?? candidate).domain,
+      type: (existing ?? candidate).type,
+    });
     if (highRisk && candidate.collectedBy === reviewer) {
       throw new Error(
         `promote: high-risk ${id} was collected by ${reviewer}; an independent reviewer must accept it`,
@@ -348,6 +348,7 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
         acceptedAt: today,
         nextReviewOn: nextReviewDate(cadence as CivicRecord['updateCadence'], today),
         updateCadence: cadence as CivicRecord['updateCadence'],
+        riskTier: policyDefaultRiskTier(candidate.domain, candidate.type),
         collectedBy: candidate.collectedBy,
         notes: candidate.notes,
         history: [],

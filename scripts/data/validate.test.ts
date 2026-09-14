@@ -36,6 +36,7 @@ function baseRecord(): Record<string, unknown> {
     claimSources: { name: ['src-doc'] },
     sourceIds: ['src-doc'],
     status: 'verified',
+    riskTier: 'high',
     lastVerified: '2026-09-01',
     acceptedBy: 'reviewer',
     acceptedAt: '2026-09-02',
@@ -451,6 +452,23 @@ test('non-scheduled cadences must keep the nextReviewOn == acceptedAt sentinel',
   });
   try {
     assert.deepEqual(validateRoot(fix.root).errors, []);
+  } finally {
+    cleanup(fix);
+  }
+});
+
+test('canonical record without riskTier fails (explicit tiers required)', () => {
+  const fix = writeTree();
+  try {
+    const recordsPath = path.join(fix.root, 'data', 'civic', 'records.json');
+    const file = JSON.parse(fs.readFileSync(recordsPath, 'utf8')) as { records: Array<Record<string, unknown>> };
+    delete file.records[0].riskTier;
+    fs.writeFileSync(recordsPath, JSON.stringify(file));
+    const result = validateRoot(fix.root);
+    assert.ok(
+      result.errors.some((e) => e.includes('record rec-one is missing riskTier')),
+      JSON.stringify(result.errors),
+    );
   } finally {
     cleanup(fix);
   }

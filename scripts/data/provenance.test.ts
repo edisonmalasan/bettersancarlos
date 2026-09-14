@@ -84,6 +84,7 @@ test('end-to-end exact provenance: refresh to promotion to generate', async () =
       data: { note: 'fixture note' },
       sourceIds: ['src-fix'],
       status: 'verified',
+      riskTier: 'low',
       lastVerified: '2026-09-01',
       acceptedBy: 'fixture',
       acceptedAt: '2026-09-02',

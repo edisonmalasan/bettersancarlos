@@ -42,7 +42,8 @@ export interface CivicRecord {
   claimSources?: Record<string, string[]>;
   sourceIds: string[];
   status: CivicStatus;
-  riskTier?: RiskTier;
+  /** Required: explicit impact tier. Absent tiers never silently default away high-impact facts (see lib/policy isHighRisk). */
+  riskTier: RiskTier;
   lastVerified: string;
   acceptedBy: string;
   acceptedAt: string;

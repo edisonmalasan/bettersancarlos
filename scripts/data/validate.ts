@@ -313,7 +313,9 @@ export function validateRoot(root: string): ValidationResult {
     if (!CADENCES.includes(record.updateCadence)) {
       result.errors.push(`${tag} has unknown updateCadence: ${record.updateCadence}`);
     }
-    if (record.riskTier && !RISK_TIERS.includes(record.riskTier)) {
+    if (!record.riskTier) {
+      result.errors.push(`${tag} is missing riskTier`);
+    } else if (!RISK_TIERS.includes(record.riskTier)) {
       result.errors.push(`${tag} has unknown riskTier: ${record.riskTier}`);
     }
     if (!Array.isArray(record.sourceIds) || record.sourceIds.length === 0) {

@@ -1,0 +1,24 @@
+{
+  "runId": "2026-09-14",
+  "startedAt": "2026-09-14T16:53:24.795Z",
+  "endedAt": "2026-09-14T16:53:28.701Z",
+  "parameters": {
+    "sources": [
+      "lgu-website"
+    ],
+    "domains": null,
+    "due": true,
+    "offline": false
+  },
+  "sources": [
+    {
+      "sourceId": "lgu-website",
+      "checkedAt": "2026-09-14T16:53:24.796Z",
+      "outcome": "unavailable",
+      "error": "fetch: HTTP 403 for https://sancarlospangasinan.gov.ph/"
+    }
+  ],
+  "candidatesProduced": 0,
+  "conflictsFound": 0,
+  "collectedBy": "scheduled-refresh"
+}

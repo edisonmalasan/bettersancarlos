@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://lgu.bettergov.ph/schemas/source-record.schema.json",
+  "title": "Civic source record",
+  "description": "One retrieved evidence instance backing canonical records. Lives in data/civic/sources.json.",
+  "type": "object",
+  "required": ["id", "title", "publisher", "documentType", "retrievedAt", "verifier", "sourceState"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "title": { "type": "string", "minLength": 1 },
+    "publisher": { "type": "string", "minLength": 1 },
+    "url": { "type": "string" },
+    "discovery": {
+      "type": "string",
+      "description": "How to locate the source when no stable URL exists (e.g. archive lookup steps, direct inquiry)."
+    },
+    "documentType": {
+      "type": "string",
+      "enum": ["webpage", "facebook-post", "pdf", "xlsx", "csv", "json", "gis", "image", "inquiry-note", "other"]
+    },
+    "publishedAt": { "type": ["string", "null"], "format": "date" },
+    "effectivePeriod": {
+      "type": ["object", "null"],
+      "properties": {
+        "from": { "type": ["string", "null"], "format": "date" },
+        "to": { "type": ["string", "null"], "format": "date" }
+      },
+      "additionalProperties": false
+    },
+    "retrievedAt": { "type": "string", "format": "date" },
+    "verifiedAt": { "type": ["string", "null"], "format": "date" },
+    "verifier": { "type": "string", "minLength": 1 },
+    "sourceState": { "type": "string", "enum": ["active", "archived", "unavailable", "moved"] },
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "evidencePath": {
+      "type": "string",
+      "description": "Repo-relative path to stored evidence (e.g. research/runs/<run>/evidence/<file>)."
+    },
+    "registryId": {
+      "type": "string",
+      "description": "Stable ID of the source-registry entry this evidence was collected from, when applicable."
+    },
+    "notes": { "type": "string" }
+  },
+  "anyOf": [{ "required": ["url"] }, { "required": ["discovery"] }],
+  "additionalProperties": false
+}

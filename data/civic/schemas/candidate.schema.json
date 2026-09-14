@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://lgu.bettergov.ph/schemas/candidate.schema.json",
+  "title": "Candidate civic record",
+  "description": "Proposed (not yet accepted) civic fact produced by a refresh run. Research collection may only emit candidates; reviewer-owned acceptance fields are structurally forbidden here.",
+  "type": "object",
+  "required": ["id", "domain", "type", "label", "data", "sourceIds", "status", "collectedBy", "runId"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "government",
+        "barangays",
+        "demographics",
+        "emergency",
+        "health",
+        "education",
+        "economy",
+        "agriculture",
+        "tourism",
+        "transportation",
+        "legislation",
+        "transparency",
+        "infrastructure",
+        "disaster-risk",
+        "environment",
+        "utilities",
+        "competitiveness",
+        "culture-history",
+        "news",
+        "official-presence",
+        "city-profile"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "official",
+        "contact",
+        "statistic",
+        "document",
+        "service",
+        "facility",
+        "event",
+        "project",
+        "directory",
+        "announcement"
+      ]
+    },
+    "label": { "type": "string", "minLength": 1 },
+    "data": { "type": "object" },
+    "claimSources": {
+      "type": "object",
+      "additionalProperties": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+    },
+    "sourceIds": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "status": { "const": "provisional" },
+    "collectedBy": { "type": "string", "minLength": 1 },
+    "runId": { "type": "string", "minLength": 1 },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": false
+}

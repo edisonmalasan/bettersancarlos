@@ -1,0 +1,250 @@
+# Better San Carlos — civic source registry.
+# Every entry MUST cite an existing research file in evidenceRef.
+# No invented URLs: entries without a research-documented URL use discovery + collector null.
+version: 1
+sources:
+  - id: lgu-website
+    publisher: City Government of San Carlos
+    url: 'https://sancarlospangasinan.gov.ph/'
+    sourceType: website
+    collector: city-website
+    updateCadence: quarterly
+    riskTier: high
+    accessNotes: 'Current official site is a thin single-page site; deeper pages share the homepage shell.'
+    evidenceRef: 'research/government/26-09-government-directory.md'
+    domains:
+      - government
+      - emergency
+      - transparency
+      - infrastructure
+      - news
+  - id: lgu-facebook-cio
+    publisher: City Information Office
+    url: 'https://www.facebook.com/sccp.cio'
+    sourceType: facebook-page
+    collector: facebook
+    updateCadence: weekly
+    riskTier: medium
+    accessNotes: 'Official page posts feed news/advisory candidates; Graph API token required for automation.'
+    evidenceRef: 'research/government/26-09-government-directory.md'
+    domains:
+      - news
+      - government
+  - id: lgu-old-site-archive
+    publisher: City Government of San Carlos (archived WordPress site)
+    url: 'http://sancarloscitypangasinan.gov.ph/'
+    sourceType: archive
+    collector: city-website
+    updateCadence: manual
+    riskTier: medium
+    accessNotes: 'Frozen decommissioned site (2017-2020 content) via web.archive.org; historical reconciliation only, never a sole source for current facts.'
+    evidenceRef: 'research/government/26-09-lgu-structure.md'
+    domains:
+      - government
+      - emergency
+      - health
+      - legislation
+      - transparency
+  - id: psa-census-philatlas
+    publisher: Philippine Statistics Authority (via PhilAtlas)
+    url: 'https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html'
+    sourceType: portal
+    collector: null
+    updateCadence: per-document
+    riskTier: medium
+    accessNotes: 'PSA census figures mirrored by PhilAtlas; automated collector planned (phase 4).'
+    evidenceRef: 'research/demographics/26-09-demographics.md'
+    domains:
+      - demographics
+      - barangays
+  - id: psgc
+    publisher: Philippine Statistics Authority - PSGC
+    discovery: 'PSGC geographic code pages for San Carlos City; blocked with HTTP 403 during 2026-09-04 research, re-attempt direct access first.'
+    sourceType: portal
+    collector: null
+    updateCadence: per-document
+    riskTier: medium
+    accessNotes: 'No automated collection until a working PSGC URL is verified.'
+    evidenceRef: 'research/city-profile/26-09-gis-data.md'
+    domains:
+      - demographics
+      - barangays
+      - city-profile
+  - id: comelec-results
+    publisher: Commission on Elections (via Rappler media server mirror)
+    url: 'https://ph.rappler.com/elections/2025/local-race/pangasinan/san-carlos-city'
+    sourceType: portal
+    collector: null
+    updateCadence: per-term
+    riskTier: high
+    accessNotes: 'Rappler figures are partial/unofficial until the Comelec certificate of canvass; re-check after special elections or vacancies.'
+    evidenceRef: 'research/government/26-09-city-officials.md'
+    domains:
+      - government
+  - id: dilg-fdpp
+    publisher: DILG Full Disclosure Policy Portal
+    url: 'http://www.fdpp.gov.ph/'
+    sourceType: portal
+    collector: null
+    updateCadence: per-document
+    riskTier: high
+    accessNotes: 'Not retrievable during research; automated collector planned (phase 4).'
+    evidenceRef: 'research/transparency/26-09-blgf-budget.md'
+    domains:
+      - transparency
+  - id: blgf
+    publisher: Bureau of Local Government Finance
+    url: 'https://blgf.gov.ph/'
+    sourceType: portal
+    collector: null
+    updateCadence: per-document
+    riskTier: high
+    accessNotes: 'Returned HTTP 403 during research; follow the extraction path in the evidence file.'
+    evidenceRef: 'research/transparency/26-09-blgf-budget.md'
+    domains:
+      - transparency
+  - id: coa-audit
+    publisher: Commission on Audit
+    url: 'https://www.coa.gov.ph/'
+    sourceType: portal
+    collector: null
+    updateCadence: annually
+    riskTier: high
+    accessNotes: 'LGU audit reports not retrieved during research; manual extraction.'
+    evidenceRef: 'research/transparency/26-09-blgf-budget.md'
+    domains:
+      - transparency
+  - id: dpwh-projects
+    publisher: DPWH Pangasinan District Engineering Office / City Engineering Office
+    discovery: 'DPWH project data for San Carlos City; portal URL unverified, collect via City Engineering Office / BAC until verified.'
+    sourceType: inquiry
+    collector: null
+    updateCadence: per-document
+    riskTier: high
+    accessNotes: 'No automated collection until the portal URL is verified against an authoritative source.'
+    evidenceRef: 'research/infrastructure/26-09-city-projects.md'
+    domains:
+      - infrastructure
+  - id: dti-cmci
+    publisher: Department of Trade and Industry - CMCI
+    url: 'https://cmci.dti.gov.ph/'
+    sourceType: portal
+    collector: null
+    updateCadence: per-document
+    riskTier: medium
+    accessNotes: 'Rankings page returned 404 during research; historical pillars recovered via archive.'
+    evidenceRef: 'research/competitiveness/26-09-cmci-index.md'
+    domains:
+      - competitiveness
+      - economy
+  - id: doh-hfsrb
+    publisher: Department of Health - HFSRB
+    url: 'https://hfsrb.doh.gov.ph/'
+    sourceType: portal
+    collector: null
+    updateCadence: annually
+    riskTier: high
+    accessNotes: 'Facility list returned 404; OLRS is login-only with no public search.'
+    evidenceRef: 'research/health/26-09-doh-facilities.md'
+    domains:
+      - health
+  - id: deped-schools
+    publisher: Department of Education
+    url: 'https://www.deped.gov.ph/'
+    sourceType: portal
+    collector: null
+    updateCadence: annually
+    riskTier: medium
+    accessNotes: 'School IDs to verify via the DepEd School Info System.'
+    evidenceRef: 'research/education/26-09-schools.md'
+    domains:
+      - education
+  - id: pnp-national
+    publisher: Philippine National Police
+    url: 'https://pnp.gov.ph/'
+    sourceType: website
+    collector: null
+    updateCadence: annually
+    riskTier: high
+    accessNotes: 'Canonical reference for the national PNP hotline only; local station contacts need direct verification.'
+    evidenceRef: 'research/emergency/26-09-emergency-hotlines.md'
+    domains:
+      - emergency
+  - id: dilg-911
+    publisher: DILG - National Emergency Hotline
+    url: 'https://911.gov.ph/'
+    sourceType: website
+    collector: null
+    updateCadence: annually
+    riskTier: high
+    accessNotes: 'Canonical reference for the national 911 number.'
+    evidenceRef: 'research/emergency/26-09-emergency-hotlines.md'
+    domains:
+      - emergency
+  - id: dilg-pro1-inquiry
+    publisher: DILG Region I / Police Regional Office 1
+    discovery: 'Direct verification channel for PNP/BFP station addresses and contacts (DILG Region I / PRO1).'
+    sourceType: inquiry
+    collector: null
+    updateCadence: manual
+    riskTier: high
+    accessNotes: 'Manual verification channel; no automated collection.'
+    evidenceRef: 'research/emergency/26-09-emergency-hotlines.md'
+    domains:
+      - emergency
+  - id: lwua
+    publisher: Local Water Utilities Administration
+    url: 'https://lwua.gov.ph/water-districts/'
+    sourceType: portal
+    collector: null
+    updateCadence: manual
+    riskTier: medium
+    accessNotes: 'Returned HTTP 403 during research; water district identity still unverified.'
+    evidenceRef: 'research/utilities/26-09-water-district.md'
+    domains:
+      - utilities
+  - id: cenpelco
+    publisher: Central Pangasinan Electric Cooperative
+    url: 'https://cenpelco.com/'
+    sourceType: website
+    collector: null
+    updateCadence: quarterly
+    riskTier: medium
+    accessNotes: 'Branch list confirmed; hotlines, email, and GM name remain unverified.'
+    evidenceRef: 'research/utilities/26-09-cenpelco-contacts.md'
+    domains:
+      - utilities
+  - id: province-pangasinan
+    publisher: Province of Pangasinan
+    url: 'https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/'
+    sourceType: website
+    collector: null
+    updateCadence: annually
+    riskTier: medium
+    accessNotes: 'Charter and cityhood context; reconcile the land-area conflict against PSA before use.'
+    evidenceRef: 'research/legislation/26-09-legislation-archive.md'
+    domains:
+      - city-profile
+      - legislation
+  - id: official-gazette
+    publisher: Official Gazette of the Philippines
+    url: 'https://www.officialgazette.gov.ph/'
+    sourceType: portal
+    collector: null
+    updateCadence: manual
+    riskTier: medium
+    accessNotes: 'Returned 403 during research; RA text verification pending.'
+    evidenceRef: 'research/legislation/26-09-legislation-archive.md'
+    domains:
+      - legislation
+  - id: nea
+    publisher: National Electrification Administration
+    url: 'https://www.nea.gov.ph/'
+    sourceType: portal
+    collector: null
+    updateCadence: manual
+    riskTier: medium
+    accessNotes: 'Blocked during research; manual follow-up for cooperative franchise confirmation.'
+    evidenceRef: 'research/utilities/26-09-public-utilities.md'
+    domains:
+      - utilities

@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://lgu.bettergov.ph/schemas/source-registry.schema.json",
+  "title": "Civic source registry",
+  "description": "Known collectable sources: where/what/how to collect. Lives in data/civic/source-registry.yaml with a top-level sources list.",
+  "type": "object",
+  "required": ["version", "sources"],
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "publisher",
+          "sourceType",
+          "updateCadence",
+          "evidenceRef"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "publisher": { "type": "string", "minLength": 1 },
+          "url": { "type": "string" },
+          "discovery": { "type": "string" },
+          "sourceType": {
+            "type": "string",
+            "enum": ["website", "facebook-page", "portal", "document", "archive", "inquiry"]
+          },
+          "collector": {
+            "type": ["string", "null"],
+            "description": "Collector module under scripts/data/collectors (without extension), or null for manual-only sources."
+          },
+          "updateCadence": {
+            "type": "string",
+            "enum": [
+              "daily",
+              "weekly",
+              "monthly",
+              "quarterly",
+              "annually",
+              "per-term",
+              "per-document",
+              "manual",
+              "event-driven"
+            ]
+          },
+          "riskTier": { "type": "string", "enum": ["high", "medium", "low"] },
+          "accessNotes": { "type": "string" },
+          "evidenceRef": {
+            "type": "string",
+            "description": "Repo-relative research file documenting this source. Required: no invented sources."
+          },
+          "domains": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Civic domains this source feeds."
+          }
+        },
+        "anyOf": [{ "required": ["url"] }, { "required": ["discovery"] }],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

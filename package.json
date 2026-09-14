@@ -9,7 +9,13 @@
     "build": "NODE_ENV=production next build --webpack",
     "start": "next start",
     "serve": "npx serve -s out -p 8000",
-    "serve:dist": "npx serve -s out -p 8080"
+    "serve:dist": "npx serve -s out -p 8080",
+    "data:validate": "bun run scripts/data/validate.ts",
+    "data:refresh": "bun run scripts/data/refresh.ts",
+    "data:diff": "bun run scripts/data/diff.ts",
+    "data:generate": "bun run scripts/data/generate.ts",
+    "data:report": "bun run scripts/data/report.ts",
+    "verify": "tsc --noEmit && bun run data:validate && bun run build"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

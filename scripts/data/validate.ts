@@ -320,6 +320,11 @@ export function validateRoot(root: string): ValidationResult {
     } else {
       for (const sid of record.sourceIds) {
         if (!resolveSource(sid)) result.errors.push(`${tag} references unknown source id: ${sid}`);
+        else if (!sourceById.has(sid)) {
+          result.errors.push(
+            `${tag} cites registry ${sid} without an exact sources.json record; canonical claims require evidence instances`,
+          );
+        }
         const cited = sourceById.get(sid);
         if (
           cited &&
@@ -340,6 +345,11 @@ export function validateRoot(root: string): ValidationResult {
         }
         for (const sid of sids ?? []) {
           if (!resolveSource(sid)) result.errors.push(`${tag} claim "${claimPath}" references unknown source: ${sid}`);
+          else if (!sourceById.has(sid)) {
+            result.errors.push(
+              `${tag} claim "${claimPath}" cites registry ${sid} without an exact sources.json record`,
+            );
+          }
         }
       }
     }

@@ -1762,11 +1762,11 @@
       },
       "claimSources": {
         "note": [
-          "lgu-website"
+          "src-lgu-website-2026"
         ]
       },
       "sourceIds": [
-        "lgu-website"
+        "src-lgu-website-2026"
       ],
       "status": "verified",
       "riskTier": "low",
@@ -3090,11 +3090,11 @@
       },
       "claimSources": {
         "note": [
-          "lgu-website"
+          "src-lgu-website-2026"
         ]
       },
       "sourceIds": [
-        "lgu-website"
+        "src-lgu-website-2026"
       ],
       "status": "verified",
       "riskTier": "low",

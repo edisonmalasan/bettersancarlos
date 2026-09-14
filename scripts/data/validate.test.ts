@@ -377,3 +377,47 @@ test('candidate linking an unknown source instance fails', () => {
     cleanup(fix);
   }
 });
+
+test('canonical record citing a bare registry ID fails; candidates stay exempt', () => {
+  const fix = writeTree((fix2) => {
+    fix2.records[0].sourceIds = ['reg-site'];
+    fix2.records[0].claimSources = {};
+  });
+  try {
+    const runDir = path.join(fix.root, 'research', 'runs', '2026-09-14');
+    fs.mkdirSync(runDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'manifest.json'),
+      JSON.stringify({ runId: '2026-09-14', startedAt: '2026-09-14T00:00:00Z', parameters: {}, sources: [] }),
+    );
+    fs.writeFileSync(
+      path.join(runDir, 'candidates.json'),
+      JSON.stringify({
+        candidates: [
+          {
+            id: 'rec-two',
+            domain: 'government',
+            type: 'official',
+            label: 'Record Two',
+            data: { name: 'Zed' },
+            sourceIds: ['reg-site'],
+            status: 'provisional',
+            collectedBy: 'agent',
+            runId: '2026-09-14',
+          },
+        ],
+      }),
+    );
+    const result = validateRoot(fix.root);
+    assert.ok(
+      result.errors.some((e) => e.includes('record rec-one cites registry reg-site without an exact sources.json record')),
+      JSON.stringify(result.errors),
+    );
+    assert.ok(
+      !result.errors.some((e) => e.includes('rec-two')),
+      `candidates must stay exempt: ${JSON.stringify(result.errors)}`,
+    );
+  } finally {
+    cleanup(fix);
+  }
+});

@@ -1,46 +1,16 @@
 // Facebook Graph API evidence collector (fixture-driven).
 //
 // Parses a recorded Graph response envelope ({data: [...]}) into provisional
-// news candidates with stable IDs. Deterministic: the same posts always
-// produce the same candidates. Phase 4 replaces the title/category mapping
-// with the battle-tested transform from scripts/sync-facebook.js.
+// news candidates with stable IDs using the shared battle-tested transform in
+// ../lib/facebook.ts (the same categorize/deriveTitle/validate logic the live
+// ingestion path uses). Deterministic: the same posts always produce the same
+// candidates.
 import { parseJsonEvidence } from '../parsers/json';
+import { isValidFbItem, transformFbPost, type FbRawPost } from '../lib/facebook';
 import type { Collector, CollectorArgs } from './types';
-
-interface GraphPost {
-  id?: unknown;
-  message?: unknown;
-  story?: unknown;
-  created_time?: unknown;
-  permalink_url?: unknown;
-}
 
 function sanitizeId(raw: string): string {
   return raw.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'post';
-}
-
-function toDate(value: unknown): string {
-  const d = new Date(String(value ?? ''));
-  return isNaN(d.getTime()) ? '' : d.toISOString().slice(0, 10);
-}
-
-function truncate(s: string, max: number): string {
-  const clean = s.replace(/\s+/g, ' ').trim();
-  return clean.length <= max ? clean : clean.slice(0, max - 1).trimEnd() + '…';
-}
-
-function tier(message: string): string {
-  const text = message.toLowerCase();
-  if (/(power interruption|brownout|outage|closure|suspend|typhoon|storm|flood|evacuat|advisory|alert|emergency|disaster)/.test(text)) {
-    return 'Advisory';
-  }
-  if (/(groundbreaking|inaugurat|turnover|completed|project|construction|rehabilitation|opened)/.test(text)) {
-    return 'Project';
-  }
-  if (/(invit|join us|will be held|fiesta|festival|celebration|ceremony|seminar|training|event)/.test(text)) {
-    return 'Event';
-  }
-  return 'Announcement';
 }
 
 export function collectFacebook(args: CollectorArgs): ReturnType<Collector> {
@@ -48,26 +18,42 @@ export function collectFacebook(args: CollectorArgs): ReturnType<Collector> {
   if (!envelope || !Array.isArray(envelope.data)) {
     throw new Error(`parse: expected a Graph envelope {data: [...]} in ${args.evidenceName}`);
   }
+  const posts = envelope.data as FbRawPost[];
+  const notes: string[] = [`${posts.length} post(s) in evidence`];
   const candidates: ReturnType<Collector>['candidates'] = [];
-  const notes: string[] = [`${envelope.data.length} post(s) in evidence`];
-  for (const raw of envelope.data as GraphPost[]) {
+  let dropped = 0;
+  for (const raw of posts) {
     if (!raw || typeof raw.id === 'undefined') {
       notes.push('skipped a post without an id');
       continue;
     }
-    const message = String(raw.message ?? raw.story ?? '');
-    const category = tier(message);
+    const item = transformFbPost(raw);
+    if (!isValidFbItem(item)) {
+      dropped++;
+      continue;
+    }
     candidates.push({
       id: `news-fb-${sanitizeId(String(raw.id))}`,
       domain: 'news',
       type: 'announcement',
-      label: truncate(message.split('\n').find((l) => l.trim()) ?? 'Update', 120) || `${category} Update`,
+      label: item.title,
       data: {
-        title: truncate(message.split('\n').find((l) => l.trim()) ?? '', 120) || `${category} Update`,
-        date: toDate(raw.created_time),
-        category,
-        summary: truncate(message, 300),
-        url: typeof raw.permalink_url === 'string' ? raw.permalink_url : null,
+        title: item.title,
+        date: item.date,
+        category: item.category,
+        badge: item.badge,
+        summary: item.summary,
+        url: item.url,
+        recency: 'current',
+      },
+      claimSources: {
+        title: [args.registryId],
+        date: [args.registryId],
+        category: [args.registryId],
+        badge: [args.registryId],
+        summary: [args.registryId],
+        url: [args.registryId],
+        recency: [args.registryId],
       },
       sourceIds: [args.registryId],
       status: 'provisional',
@@ -76,6 +62,7 @@ export function collectFacebook(args: CollectorArgs): ReturnType<Collector> {
       notes: `Collected from ${args.registryId} evidence ${args.evidenceName}`,
     });
   }
+  if (dropped > 0) notes.push(`dropped ${dropped} invalid item(s) after validation`);
   candidates.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
   return { candidates, notes };
 }

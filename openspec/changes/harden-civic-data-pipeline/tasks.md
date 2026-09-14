@@ -15,8 +15,8 @@
 
 ## 3. Diff scope fix
 
-- [ ] 3.1 Define the canonical manifest scope contract (`sources`/`domains` arrays) and derive diff scope as requested ∪ attempted-source registry domains ∪ candidate domains (passing registry data into `diffRun`); verify the old singular-`domain` fixture style is gone from tests
-- [ ] 3.2 Implement `SOURCE_UNAVAILABLE`-with-zero-candidates and `MISSING`-on-successful-gap plus out-of-scope exclusion; verify Tests 4 and 5 using real `runRefresh()` output fed into `diffRun()` (no hand-built manifests): domain-scoped refresh + unavailable source, and domain-scoped success + missing candidate
+- [x] 3.1 Define the canonical manifest scope contract (`sources`/`domains` arrays) and derive diff scope as requested ∪ attempted-source registry domains ∪ candidate domains (passing registry data into `diffRun`); verify the old singular-`domain` fixture style is gone from tests
+- [x] 3.2 Implement `SOURCE_UNAVAILABLE`-with-zero-candidates and `MISSING`-on-successful-gap plus out-of-scope exclusion; verify Tests 4 and 5 using real `runRefresh()` output fed into `diffRun()` (no hand-built manifests): domain-scoped refresh + unavailable source, and domain-scoped success + missing candidate
 
 ## 4. Cadence and retry hardening
 

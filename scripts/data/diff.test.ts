@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { diffRun, renderReport } from './diff';
-import type { Candidate, CivicRecord, RunManifest, SourceRecord } from './lib/civic';
+import { diffRun, diffScope, renderReport } from './diff';
+import type { Candidate, CivicRecord, RegistryEntry, RunManifest, SourceRecord } from './lib/civic';
 
 function record(overrides: Partial<CivicRecord> = {}): CivicRecord {
   return {
@@ -62,12 +62,35 @@ function manifest(overrides: Partial<RunManifest> = {}): RunManifest {
   };
 }
 
+const REGISTRY: RegistryEntry[] = [
+  {
+    id: 'reg-site',
+    publisher: 'Fixture',
+    url: 'https://example.test/',
+    sourceType: 'website',
+    collector: 'city-website',
+    updateCadence: 'quarterly',
+    evidenceRef: 'research/evidence.md',
+    domains: ['government'],
+  },
+  {
+    id: 'reg-multi',
+    publisher: 'Fixture',
+    url: 'https://example.test/multi',
+    sourceType: 'portal',
+    collector: null,
+    updateCadence: 'monthly',
+    evidenceRef: 'research/evidence.md',
+    domains: ['health', 'emergency'],
+  },
+];
+
 const TODAY = '2026-09-14';
 
 test('scenario A: identical candidate is UNCHANGED and canonical is untouched', () => {
   const canonical = [record()];
   const before = JSON.parse(JSON.stringify(canonical)) as unknown;
-  const entries = diffRun({ canonical, candidates: [candidate()], manifest: manifest(), sources: SOURCES }, TODAY);
+  const entries = diffRun({ canonical, candidates: [candidate()], manifest: manifest(), sources: SOURCES, registry: REGISTRY }, TODAY);
   assert.equal(entries.length, 1);
   assert.equal(entries[0].outcome, 'UNCHANGED');
   assert.deepEqual(canonical, before);
@@ -80,7 +103,7 @@ test('scenario B: different value is CHANGED with old and candidate data', () =>
       canonical,
       candidates: [candidate({ data: { name: 'Maria Santos' } })],
       manifest: manifest(),
-      sources: SOURCES,
+      sources: SOURCES, registry: REGISTRY,
     },
     TODAY,
   );
@@ -96,12 +119,12 @@ test('scenario C: failed source with no candidate is SOURCE_UNAVAILABLE', () => 
       canonical: [record()],
       candidates: [],
       manifest: manifest({
-        parameters: { domain: 'government' },
+        parameters: { domains: ['government'] },
         sources: [
           { sourceId: 'reg-site', checkedAt: '2026-09-14T01:00:00Z', outcome: 'failed', error: 'fetch: HTTP 500' },
         ],
       }),
-      sources: SOURCES,
+      sources: SOURCES, registry: REGISTRY,
     },
     TODAY,
   );
@@ -114,7 +137,7 @@ test('parse failure maps to SOURCE_CHANGED', () => {
       canonical: [record()],
       candidates: [],
       manifest: manifest({
-        parameters: { domain: 'government' },
+        parameters: { domains: ['government'] },
         sources: [
           {
             sourceId: 'reg-site',
@@ -124,7 +147,7 @@ test('parse failure maps to SOURCE_CHANGED', () => {
           },
         ],
       }),
-      sources: SOURCES,
+      sources: SOURCES, registry: REGISTRY,
     },
     TODAY,
   );
@@ -137,7 +160,7 @@ test('scenario D: disagreeing candidates are CONFLICT', () => {
       canonical: [record()],
       candidates: [candidate({ data: { name: 'A' } }), candidate({ data: { name: 'B' } })],
       manifest: manifest(),
-      sources: SOURCES,
+      sources: SOURCES, registry: REGISTRY,
     },
     TODAY,
   );
@@ -150,7 +173,7 @@ test('unknown id is NEW; uncovered in-scope record is MISSING; out-of-scope skip
       canonical: [record(), record({ id: 'other-record', domain: 'health' })],
       candidates: [candidate({ id: 'brand-new', domain: 'news', label: 'New', data: {} })],
       manifest: manifest(),
-      sources: SOURCES,
+      sources: SOURCES, registry: REGISTRY,
     },
     TODAY,
   );
@@ -167,7 +190,7 @@ test('in-scope uncovered record is MISSING', () => {
       canonical: [record(), record({ id: 'city-mayor-current', label: 'Mayor', data: {} })],
       candidates: [candidate()],
       manifest: manifest(),
-      sources: SOURCES,
+      sources: SOURCES, registry: REGISTRY,
     },
     TODAY,
   );
@@ -182,7 +205,7 @@ test('stale covered record is flagged', () => {
       canonical: [record({ acceptedAt: '2020-01-02', lastVerified: '2020-01-01', nextReviewOn: '2020-04-01' })],
       candidates: [candidate()],
       manifest: manifest(),
-      sources: SOURCES,
+      sources: SOURCES, registry: REGISTRY,
     },
     TODAY,
   );
@@ -196,7 +219,7 @@ test('report renders OLD/CANDIDATE/SOURCE/RESULT/ACTION blocks', () => {
       canonical: [record()],
       candidates: [candidate({ data: { name: 'Maria Santos' } })],
       manifest: manifest(),
-      sources: SOURCES,
+      sources: SOURCES, registry: REGISTRY,
     },
     TODAY,
   );
@@ -205,4 +228,29 @@ test('report renders OLD/CANDIDATE/SOURCE/RESULT/ACTION blocks', () => {
     assert.ok(report.includes(marker), `report missing ${marker}`);
   }
   assert.ok(report.includes('Review required.'));
+});
+
+test('diffScope unions requested, attempted, and observed domains', () => {
+  const failedGov = manifest({
+    parameters: { domains: ['government'] },
+    sources: [{ sourceId: 'reg-site', checkedAt: '2026-09-14T01:00:00Z', outcome: 'failed', error: 'fetch: x' }],
+  });
+  assert.deepEqual([...diffScope(failedGov, [], REGISTRY)].sort(), ['government']);
+  // Attempted multi-domain source contributes both domains without candidates.
+  const multi = manifest({
+    parameters: {},
+    sources: [{ sourceId: 'reg-multi', checkedAt: '2026-09-14T01:00:00Z', outcome: 'collected' }],
+  });
+  assert.deepEqual([...diffScope(multi, [], REGISTRY)].sort(), ['emergency', 'health']);
+  // Skipped and unregistered sources attempted nothing.
+  const skipped = manifest({
+    parameters: {},
+    sources: [
+      { sourceId: 'reg-site', checkedAt: '2026-09-14T01:00:00Z', outcome: 'skipped' },
+      { sourceId: 'nope', checkedAt: '2026-09-14T01:00:00Z', outcome: 'unregistered' },
+    ],
+  });
+  assert.deepEqual([...diffScope(skipped, [], REGISTRY)], []);
+  // Null manifest degrades to observed candidate domains only.
+  assert.deepEqual([...diffScope(null, [candidate()], REGISTRY)], ['government']);
 });

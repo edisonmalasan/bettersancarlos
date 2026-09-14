@@ -2,10 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {
   loadRecords,
+  loadRegistry,
   loadSources,
   type Candidate,
   type CivicRecord,
   type DiffOutcome,
+  type RegistryEntry,
   type RunManifest,
   type SourceRecord,
 } from './lib/civic';
@@ -31,6 +33,7 @@ export interface DiffInput {
   candidates: Candidate[];
   manifest: RunManifest | null;
   sources: SourceRecord[];
+  registry: RegistryEntry[];
 }
 
 function sourceTitle(sources: Map<string, SourceRecord>, id: string): string {
@@ -53,8 +56,39 @@ function isStale(record: CivicRecord, today: string): boolean {
   return published && changing && record.nextReviewOn < today;
 }
 
+/**
+ * Canonical run scope: what the refresh actually attempted, derived from the
+ * real manifest — explicitly requested domains, registry domains of attempted
+ * sources (collected/unchanged/failed/unavailable; skipped and unregistered
+ * sources attempted nothing), plus observed candidate domains. Attempted
+ * evidence outranks candidate absence: a failed attempt is informative, a
+ * missing candidate is not.
+ */
+export function diffScope(
+  manifest: RunManifest | null,
+  candidates: Candidate[],
+  registry: RegistryEntry[],
+): Set<string> {
+  const scope = new Set(candidates.map((c) => c.domain));
+  const params = manifest?.parameters ?? {};
+  const requested = Array.isArray(params.domains) ? params.domains : [];
+  for (const domain of requested) {
+    if (typeof domain === 'string') scope.add(domain);
+  }
+  const byRegistryId = new Map(registry.map((e) => [e.id, e]));
+  for (const entry of manifest?.sources ?? []) {
+    if (entry.outcome !== 'collected' && entry.outcome !== 'unchanged' && entry.outcome !== 'failed' && entry.outcome !== 'unavailable') {
+      continue;
+    }
+    for (const domain of byRegistryId.get(entry.sourceId)?.domains ?? []) {
+      scope.add(domain);
+    }
+  }
+  return scope;
+}
+
 export function diffRun(input: DiffInput, today: string = todayUtc()): DiffEntry[] {
-  const { canonical, candidates, manifest, sources } = input;
+  const { canonical, candidates, manifest, sources, registry } = input;
   const sourceMap = new Map(sources.map((s) => [s.id, s]));
   const byId = new Map<string, Candidate[]>();
   for (const candidate of candidates) {
@@ -63,12 +97,7 @@ export function diffRun(input: DiffInput, today: string = todayUtc()): DiffEntry
     byId.set(candidate.id, list);
   }
   const canonicalIds = new Set(canonical.map((r) => r.id));
-
-  // A run only speaks for the domains it covered: candidate domains plus an
-  // explicit --domain filter recorded in the manifest parameters.
-  const scope = new Set(candidates.map((c) => c.domain));
-  const paramDomain = manifest?.parameters?.domain;
-  if (typeof paramDomain === 'string') scope.add(paramDomain);
+  const scope = diffScope(manifest, candidates, registry);
 
   const failedSources = new Map<string, 'unavailable' | 'changed'>();
   for (const entry of manifest?.sources ?? []) {
@@ -249,8 +278,9 @@ function main(): number {
   const candidates = readCandidates(runDir);
   const canonical = loadRecords(root).records;
   const sources = loadSources(root).sources;
+  const registry = loadRegistry(root).sources;
   const today = todayUtc();
-  const entries = diffRun({ canonical, candidates, manifest, sources }, today);
+  const entries = diffRun({ canonical, candidates, manifest, sources, registry }, today);
   const report = renderReport(manifest.runId, entries, today);
   const target = path.join(runDir, 'review-report.md');
   const tmp = `${target}.tmp-${process.pid}`;

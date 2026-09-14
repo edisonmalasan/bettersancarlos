@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { diffRun } from './diff';
-import { loadRecords } from './lib/civic';
+import { loadRecords, loadRegistry } from './lib/civic';
 import { readSourceInstances } from './lib/instances';
 import { sha256FileHex } from './lib/json';
 import { runRefresh } from './refresh';
@@ -122,7 +122,7 @@ test('scenario A: unchanged source yields UNCHANGED and canonical is byte-identi
     const canonical = loadRecords(root).records;
     const { readCandidates } = await import('./lib/runs');
     const candidates = readCandidates(summary.run.dir);
-    const entries = diffRun({ canonical, candidates, manifest: null, sources: [] }, '2026-09-14');
+    const entries = diffRun({ canonical, candidates, manifest: null, sources: [], registry: [] }, '2026-09-14');
     assert.equal(entries.length, 1);
     assert.equal(entries[0].outcome, 'UNCHANGED');
   } finally {
@@ -148,7 +148,7 @@ test('scenario B: changed number yields CHANGED and canonical is untouched', asy
     const canonical = loadRecords(root).records;
     const { readCandidates } = await import('./lib/runs');
     const candidates = readCandidates(summary.run.dir);
-    const entries = diffRun({ canonical, candidates, manifest: null, sources: [] }, '2026-09-14');
+    const entries = diffRun({ canonical, candidates, manifest: null, sources: [], registry: [] }, '2026-09-14');
     assert.equal(entries[0].outcome, 'CHANGED');
     assert.deepEqual(entries[0].candidateData, {
       service: 'City Hall (general trunk line)',
@@ -192,8 +192,101 @@ test('scenario D: two disagreeing evidences yield CONFLICT', async () => {
     const { readCandidates } = await import('./lib/runs');
     const candidates = readCandidates(summary.run.dir);
     assert.equal(candidates.length, 2);
-    const entries = diffRun({ canonical, candidates, manifest: null, sources: [] }, '2026-09-14');
+    const entries = diffRun({ canonical, candidates, manifest: null, sources: [], registry: [] }, '2026-09-14');
     assert.equal(entries[0].outcome, 'CONFLICT');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('Test 4a: source-scoped refresh with unavailable source reports SOURCE_UNAVAILABLE (real manifest)', async () => {
+  const root = fixtureRoot();
+  try {
+    const summary = await runRefresh({ root, sources: ['fix-site'], collectedBy: 'test-4a', date: '2026-09-14' });
+    assert.equal(summary.outcomes['fix-site'], 'unavailable');
+    assert.equal(summary.candidates, 0);
+    const { readCandidates, readManifest } = await import('./lib/runs');
+    const manifest = readManifest(summary.run.dir);
+    const params = manifest.parameters as Record<string, unknown>;
+    assert.ok(params.domains === null || Array.isArray(params.domains), 'manifest scope uses plural arrays');
+    const entries = diffRun(
+      {
+        canonical: loadRecords(root).records,
+        candidates: readCandidates(summary.run.dir),
+        manifest,
+        sources: [],
+        registry: loadRegistry(root).sources,
+      },
+      '2026-09-14',
+    );
+    assert.equal(entries.length, 1);
+    assert.equal(entries[0].recordId, 'city-hall-trunk-line');
+    assert.equal(entries[0].outcome, 'SOURCE_UNAVAILABLE');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('Test 4b: domain-scoped refresh with unavailable sources and zero candidates still reports scope', { timeout: 30000 }, async () => {
+  const root = fixtureRoot();
+  try {
+    const summary = await runRefresh({ root, domains: ['emergency'], collectedBy: 'test-4b', date: '2026-09-14' });
+    assert.equal(summary.candidates, 0);
+    const { readCandidates, readManifest } = await import('./lib/runs');
+    const manifest = readManifest(summary.run.dir);
+    assert.deepEqual((manifest.parameters as Record<string, unknown>).domains, ['emergency']);
+    const entries = diffRun(
+      {
+        canonical: loadRecords(root).records,
+        candidates: readCandidates(summary.run.dir),
+        manifest,
+        sources: [],
+        registry: loadRegistry(root).sources,
+      },
+      '2026-09-14',
+    );
+    const byId = new Map(entries.map((e) => [e.recordId, e.outcome]));
+    assert.equal(byId.get('city-hall-trunk-line'), 'SOURCE_UNAVAILABLE');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('Test 5: domain-scoped success reports MISSING gaps and skips out-of-scope records', async () => {
+  const root = fixtureRoot();
+  const ev = evidenceDir({ 'fix-site.html': SITE_HTML('(075) 600-1432') });
+  try {
+    const summary = await runRefresh({
+      root,
+      domains: ['emergency'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'test-5',
+      date: '2026-09-14',
+    });
+    const { readCandidates, readManifest } = await import('./lib/runs');
+    const manifest = readManifest(summary.run.dir);
+    const [trunk] = loadRecords(root).records;
+    const canonical = [
+      ...loadRecords(root).records,
+      { ...trunk, id: 'cdrmo-emergency-contact', label: 'CDRRMO', data: {} },
+      { ...trunk, id: 'other-record', domain: 'health', label: 'Other' },
+    ];
+    const entries = diffRun(
+      {
+        canonical,
+        candidates: readCandidates(summary.run.dir),
+        manifest,
+        sources: [],
+        registry: loadRegistry(root).sources,
+      },
+      '2026-09-14',
+    );
+    const byId = new Map(entries.map((e) => [e.recordId, e.outcome]));
+    assert.equal(byId.get('city-hall-trunk-line'), 'UNCHANGED');
+    assert.equal(byId.get('cdrmo-emergency-contact'), 'MISSING');
+    assert.ok(!byId.has('other-record'), 'health record is out of scope');
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
     fs.rmSync(ev, { recursive: true, force: true });

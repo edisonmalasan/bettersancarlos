@@ -7,7 +7,7 @@ Defines the repository's automated verification contract: GitHub Actions CI runs
 ## Requirements
 
 ### Requirement: CI verifies every pull request and push to main
-The system SHALL run a CI workflow on every pull request targeting `main` and on every push to `main`, and the workflow SHALL run the project's verification commands: `./node_modules/.bin/tsc --noEmit`, civic-data validation equivalent to `bun run data:validate`, and a production Next.js build equivalent to `next build`. Civic-data validation SHALL operate deterministically on repository state without network access, and the CI workflow SHALL NOT perform scraping or source fetching.
+The system SHALL run a CI workflow on every pull request targeting `main` and on every push to `main`, and the workflow SHALL run the project's verification commands: `./node_modules/.bin/tsc --noEmit`, civic-data validation equivalent to `bun run data:validate`, the civic pipeline unit/integration tests equivalent to `bun run data:test`, and a production Next.js build equivalent to `next build`. Civic-data validation SHALL operate deterministically on repository state without network access, and the CI workflow SHALL NOT perform scraping or source fetching.
 
 #### Scenario: Pull request opened
 - **WHEN** a pull request targeting `main` is opened or updated
@@ -24,6 +24,10 @@ The system SHALL run a CI workflow on every pull request targeting `main` and on
 #### Scenario: CI never scrapes
 - **WHEN** the CI verification workflow runs
 - **THEN** no step performs network-dependent civic collection; validation succeeds or fails purely on repository state
+
+#### Scenario: Broken pipeline test fails CI
+- **WHEN** a PR breaks a civic pipeline unit or integration test
+- **THEN** the `data:test` CI step fails with the failing test named, and the PR cannot merge
 
 ### Requirement: CI uses the Bun toolchain exclusively
 The system SHALL perform dependency installation and script execution in CI using Bun only, with a pinned Bun version matching the local development environment (1.4.0) and `--frozen-lockfile` installation against the committed `bun.lock`, and SHALL NOT invoke npm for installation.

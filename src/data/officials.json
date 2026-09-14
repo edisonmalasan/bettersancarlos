@@ -15,21 +15,81 @@
     "image": ""
   },
   "councilors": [
-    { "name": "Hon. Sam S. Baniqued", "title": "City Councilor", "image": "", "party": "NP", "votes": 54049 },
-    { "name": "Hon. Elpidio 'Bido' R. Fermin Jr.", "title": "City Councilor", "image": "", "party": "NP", "votes": 50954 },
-    { "name": "Hon. Rolando 'Nick' D. Cano", "title": "City Councilor", "image": "", "party": "NPC", "votes": 50218 },
-    { "name": "Hon. Christian Carlo A. Cancino", "title": "City Councilor", "image": "", "party": "NP", "votes": 49862 },
-    { "name": "Hon. Eduardo 'Manoy' R. Garcia", "title": "City Councilor", "image": "", "party": "NP", "votes": 49664 },
-    { "name": "Hon. Carmina D. Resuello", "title": "City Councilor", "image": "", "party": "NP", "votes": 48379 },
-    { "name": "Hon. Orlando 'Jun' E. Banaag Jr.", "title": "City Councilor", "image": "", "party": "NP", "votes": 47926 },
-    { "name": "Hon. Winston Manuel T. Millora", "title": "City Councilor", "image": "", "party": "NP", "votes": 45915 },
-    { "name": "Hon. Caren Joyce G. Frias", "title": "City Councilor", "image": "", "party": "NP", "votes": 45836 },
-    { "name": "Hon. George P. Calugay", "title": "City Councilor", "image": "", "party": "NP", "votes": 44750 }
+    {
+      "name": "Hon. Sam S. Baniqued",
+      "title": "City Councilor",
+      "image": "",
+      "party": "NP",
+      "votes": 54049
+    },
+    {
+      "name": "Hon. Elpidio 'Bido' R. Fermin Jr.",
+      "title": "City Councilor",
+      "image": "",
+      "party": "NP",
+      "votes": 50954
+    },
+    {
+      "name": "Hon. Rolando 'Nick' D. Cano",
+      "title": "City Councilor",
+      "image": "",
+      "party": "NPC",
+      "votes": 50218
+    },
+    {
+      "name": "Hon. Christian Carlo A. Cancino",
+      "title": "City Councilor",
+      "image": "",
+      "party": "NP",
+      "votes": 49862
+    },
+    {
+      "name": "Hon. Eduardo 'Manoy' R. Garcia",
+      "title": "City Councilor",
+      "image": "",
+      "party": "NP",
+      "votes": 49664
+    },
+    {
+      "name": "Hon. Carmina D. Resuello",
+      "title": "City Councilor",
+      "image": "",
+      "party": "NP",
+      "votes": 48379
+    },
+    {
+      "name": "Hon. Orlando 'Jun' E. Banaag Jr.",
+      "title": "City Councilor",
+      "image": "",
+      "party": "NP",
+      "votes": 47926
+    },
+    {
+      "name": "Hon. Winston Manuel T. Millora",
+      "title": "City Councilor",
+      "image": "",
+      "party": "NP",
+      "votes": 45915
+    },
+    {
+      "name": "Hon. Caren Joyce G. Frias",
+      "title": "City Councilor",
+      "image": "",
+      "party": "NP",
+      "votes": 45836
+    },
+    {
+      "name": "Hon. George P. Calugay",
+      "title": "City Councilor",
+      "image": "",
+      "party": "NP",
+      "votes": 44750
+    }
   ],
   "registered_voters": {
     "count": 126193,
     "election": "2025",
-    "source": "Comelec via Rappler 2025 election summary"
+    "source": "https://ph.rappler.com/elections/2025/local-race/pangasinan/san-carlos-city"
   },
   "history": [
     {
@@ -74,7 +134,7 @@
     }
   ],
   "_term": "2025-2028",
-  "_source": "Comelec 2025 NLE via Rappler (100% precincts, unofficial until final canvass); City Information Office proclamation; historical terms from research/government/26-09-city-officials.md",
+  "_source": "Generated from canonical civic records; registry: comelec-results, lgu-facebook-cio, lgu-old-site-archive; sources: src-peoplaid-2023, src-wikipedia-2025-house; research: research/government/26-09-city-officials.md",
   "_status": "partially-verified",
   "_votes_note": "2025 vote counts are partial/unofficial pending the official Comelec certificate of canvass. Party codes: NP = Nacionalista Party, NPC = Nationalist People's Coalition, API = Asenso Pangasinan Inc."
 }

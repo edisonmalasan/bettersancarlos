@@ -1,0 +1,24 @@
+{
+  "runId": "2026-09-14-2",
+  "startedAt": "2026-09-14T16:56:32.083Z",
+  "endedAt": "2026-09-14T16:56:33.456Z",
+  "parameters": {
+    "sources": [
+      "lgu-website"
+    ],
+    "domains": null,
+    "due": true,
+    "offline": false
+  },
+  "sources": [
+    {
+      "sourceId": "lgu-website",
+      "checkedAt": "2026-09-14T16:56:32.083Z",
+      "outcome": "collected",
+      "evidenceSha256": "d42e823170b8a342c3e29c2356485c454bfa1b28a50afffab27439c1d50d8dfb"
+    }
+  ],
+  "candidatesProduced": 1,
+  "conflictsFound": 0,
+  "collectedBy": "scheduled-refresh"
+}

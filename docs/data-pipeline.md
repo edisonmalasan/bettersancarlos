@@ -57,8 +57,8 @@ from `data/civic` records. Legacy scripts stay untouched until their row says re
 | `officials.json` | canonical | done (phase 2) |
 | `emergency-hotlines.json` | canonical | done (phase 2) |
 | `news.json` | canonical | done (phase 4) |
-| `demographics.json` | `scripts/gen-demographics.ps1` | canonical (phase 5) |
-| `city-profile.json` | manual (hand-extended; script output is stale — do not rerun `gen-profile-emergency.ps1`) | canonical (phase 5) |
+| `demographics.json` | canonical | done (phase 5) |
+| `city-profile.json` | canonical | done (phase 5) |
 | `fiscal_transparency.json` | `scripts/gen-fiscal-cmci.ps1` | canonical (phase 5) |
 | `competitive-index.json` | `scripts/gen-fiscal-cmci.ps1` | canonical (phase 5) |
 | `ordinances.json` | `scripts/gen-legislative.ps1` | canonical (phase 5) |
@@ -81,10 +81,13 @@ by `scripts/gen-barangays.ps1` (phase 5 target: canonical).
 
 ## Retired scripts log
 
-- `scripts/gen-profile-emergency.ps1` (emergency-hotlines portion only, phase 2):
-  facts moved to canonical records; `data:generate` is the producer.
-  The city-profile portion is stale relative to the hand-extended
-  `data/city-profile.json` — do not rerun it; phase 5 replaces it.
+- `scripts/gen-profile-emergency.ps1` (fully retired, phases 2+5):
+  emergency-hotlines facts moved in phase 2, city-profile facts in phase 5;
+  `data:generate` is the producer for both. The script throws instead of
+  writing so it can never fork either file again.
+- `scripts/gen-demographics.ps1` (phase 5): all facts moved to canonical
+  demographics records; `data:generate -- --domain=demographics` is the
+  producer. The script throws instead of writing.
 - `scripts/gen-news.ps1` (phase 4): all facts moved to canonical news
   records; `data:generate` is the producer. The script throws instead of
   writing so it can never fork `news.json` again.

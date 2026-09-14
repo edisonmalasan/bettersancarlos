@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { buildNewsJson, isFbNewsRecord } from './generate';
+import { buildCityProfileJson, buildDemographicsJson, buildNewsJson, isFbNewsRecord } from './generate';
 import { loadRecords, loadSources, type CivicRecord } from './lib/civic';
 import { FB_MAX_ITEMS } from './lib/facebook';
 
@@ -125,7 +125,7 @@ test('seeded canonical news reproduces the shipped news.json items exactly', () 
 });
 
 test('generated mirrors stay byte-identical', () => {
-  for (const file of ['officials.json', 'emergency-hotlines.json', 'news.json']) {
+  for (const file of ['officials.json', 'emergency-hotlines.json', 'news.json', 'demographics.json', 'city-profile.json']) {
     const copies = [
       path.join(process.cwd(), 'data', file),
       path.join(process.cwd(), 'public', 'data', file),
@@ -134,4 +134,40 @@ test('generated mirrors stay byte-identical', () => {
     const hashes = new Set(copies.map((p) => fs.readFileSync(p).toString('base64')));
     assert.equal(hashes.size, 1, `${file} mirrors diverged`);
   }
+});
+
+test('seeded canonical demographics reproduces the shipped file content', () => {
+  const records = loadRecords().records;
+  const sources = loadSources().sources;
+  const out = buildDemographicsJson(records, sources) as Record<string, unknown>;
+  const shipped = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', 'demographics.json'), 'utf8')) as Record<
+    string,
+    unknown
+  >;
+  assert.deepEqual(Object.keys(out), Object.keys(shipped));
+  for (const key of Object.keys(shipped)) {
+    if (key === '_source') continue;
+    assert.deepEqual(out[key], shipped[key], `demographics key differs: ${key}`);
+  }
+  assert.ok(String(out._source).includes('psa-census-philatlas'));
+  assert.ok(String(out._source).includes('research/demographics/26-09-demographics.md'));
+});
+
+test('seeded canonical city-profile reproduces the shipped file content', () => {
+  const records = loadRecords().records;
+  const sources = loadSources().sources;
+  const out = buildCityProfileJson(records, sources) as Record<string, unknown>;
+  const shipped = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', 'city-profile.json'), 'utf8')) as Record<
+    string,
+    unknown
+  >;
+  assert.deepEqual(Object.keys(out), Object.keys(shipped));
+  for (const key of Object.keys(shipped)) {
+    if (key === '_source' || key === '_updated') continue;
+    assert.deepEqual(out[key], shipped[key], `city-profile key differs: ${key}`);
+  }
+  assert.ok(String(out._source).includes('research/city-profile/26-09-city-profile.md'));
+  // Contact phone always tracks the canonical emergency trunk-line record.
+  const trunk = records.find((r) => r.id === 'city-hall-trunk-line');
+  assert.equal((out.contact as Record<string, unknown>).phone, (trunk?.data as Record<string, unknown>).number);
 });

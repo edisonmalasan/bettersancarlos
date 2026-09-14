@@ -147,6 +147,8 @@ const EMITTERS: Record<string, { file: string; emit: (ctx: EmitContext) => Recor
   officials: { file: 'officials.json', emit: emitOfficials },
   emergency: { file: 'emergency-hotlines.json', emit: emitEmergency },
   news: { file: 'news.json', emit: emitNews },
+  demographics: { file: 'demographics.json', emit: emitDemographics },
+  cityProfile: { file: 'city-profile.json', emit: emitCityProfile },
 };
 
 export function isFbNewsRecord(record: CivicRecord): boolean {
@@ -183,6 +185,22 @@ export function buildNewsJson(records: CivicRecord[], sources: SourceRecord[]): 
   return emitNews(ctx);
 }
 
+export function buildDemographicsJson(records: CivicRecord[], sources: SourceRecord[]): Record<string, unknown> {
+  const ctx: EmitContext = {
+    records: new Map(records.map((r) => [r.id, r])),
+    sources: new Map(sources.map((s) => [s.id, s])),
+  };
+  return emitDemographics(ctx);
+}
+
+export function buildCityProfileJson(records: CivicRecord[], sources: SourceRecord[]): Record<string, unknown> {
+  const ctx: EmitContext = {
+    records: new Map(records.map((r) => [r.id, r])),
+    sources: new Map(sources.map((s) => [s.id, s])),
+  };
+  return emitCityProfile(ctx);
+}
+
 function emitNews(ctx: EmitContext): Record<string, unknown> {
   const publishable = [...ctx.records.values()].filter(
     (r) => r.domain === 'news' && (r.status === 'verified' || r.status === 'reported') && r.id !== 'news-publication-note',
@@ -209,8 +227,108 @@ function emitNews(ctx: EmitContext): Record<string, unknown> {
   };
 }
 
-function mirrorTargets(root: string, file: string): string[] {
-  const targets = [path.join(root, 'data', file), path.join(root, 'public', 'data', file)];
+function emitDemographics(ctx: EmitContext): Record<string, unknown> {
+  const pop = requiredRecord(ctx, 'population-total-2020');
+  const history = requiredRecord(ctx, 'demographics-census-history');
+  const households = requiredRecord(ctx, 'demographics-households');
+  const barangays = requiredRecord(ctx, 'demographics-barangay-populations');
+  const core = requiredRecord(ctx, 'demographics-core');
+  const geo = requiredRecord(ctx, 'city-geo-core');
+  const note = requiredRecord(ctx, 'demographics-publication-note');
+  const factRecords = [pop, history, households, barangays, core, geo];
+  const popData = pop.data as Record<string, unknown>;
+  const coreData = core.data as Record<string, unknown>;
+  const geoData = geo.data as Record<string, unknown>;
+
+  return {
+    _schema_version: '1.1',
+    _status: aggregateFileStatus(factRecords, false),
+    _source: `Generated from canonical civic records; ${registryRefs(ctx, factRecords)}; research: research/demographics/26-09-demographics.md`,
+    _note: (note.data as Record<string, unknown>).note,
+    municipality: coreData.municipality,
+    province: coreData.province,
+    region: coreData.region,
+    population: { total: popData.total, year: popData.year, source: popData.source },
+    land_area_km2: geoData.land_area_km2,
+    barangay_count: geoData.barangay_count,
+    income_class: coreData.income_class,
+    coordinates: geoData.coordinates,
+    census_history: (history.data as Record<string, unknown>).entries,
+    households: households.data,
+    barangays: (barangays.data as Record<string, unknown>).barangays,
+  };
+}
+
+function emitCityProfile(ctx: EmitContext): Record<string, unknown> {
+  const pop = requiredRecord(ctx, 'population-total-2020');
+  const geo = requiredRecord(ctx, 'city-geo-core');
+  const contact = requiredRecord(ctx, 'city-hall-contact');
+  const trunkLine = requiredRecord(ctx, 'city-hall-trunk-line');
+  const identity = requiredRecord(ctx, 'city-profile-identity');
+  const admin = requiredRecord(ctx, 'city-profile-admin');
+  const geoDetail = requiredRecord(ctx, 'city-profile-geo-detail');
+  const seal = requiredRecord(ctx, 'city-profile-seal');
+  const leadership = requiredRecord(ctx, 'city-profile-leadership');
+  const history = requiredRecord(ctx, 'city-profile-history');
+  const culture = requiredRecord(ctx, 'city-profile-culture');
+  const visionMission = requiredRecord(ctx, 'city-profile-vision-mission');
+  const note = requiredRecord(ctx, 'city-profile-publication-note');
+  const factRecords = [pop, geo, contact, identity, admin, geoDetail, seal, leadership, history, culture, visionMission];
+  const popData = pop.data as Record<string, unknown>;
+  const geoData = geo.data as Record<string, unknown>;
+  const contactData = contact.data as Record<string, unknown>;
+  const trunkData = trunkLine.data as Record<string, unknown>;
+  const identityData = identity.data as Record<string, unknown>;
+  const adminData = admin.data as Record<string, unknown>;
+  const historyData = history.data as Record<string, unknown>;
+  const cultureData = culture.data as Record<string, unknown>;
+  const visionData = visionMission.data as Record<string, unknown>;
+  const leadershipData = leadership.data as Record<string, unknown>;
+
+  return {
+    _schema_version: '2.0',
+    _status: aggregateFileStatus(factRecords, false),
+    _updated: maxAcceptedAt(factRecords),
+    _source: `Generated from canonical civic records; ${registryRefs(ctx, factRecords)}; research: research/city-profile/26-09-city-profile.md; research/city-profile/26-09-geography.md; research/culture-history/26-09-history.md; research/culture-history/26-09-culture-heritage.md`,
+    _note: (note.data as Record<string, unknown>).note,
+    official_name: identityData.official_name,
+    local_names: identityData.local_names,
+    type: identityData.type,
+    income_class: adminData.income_class,
+    province: adminData.province,
+    region: adminData.region,
+    legislative_district: adminData.legislative_district,
+    coordinates: geoData.coordinates,
+    elevation_m: geoData.elevation_m,
+    elevation_note: geoData.elevation_note,
+    land_area_km2: geoData.land_area_km2,
+    barangays: geoData.barangay_count,
+    population: { total: popData.total, year: popData.year, source: popData.source },
+    postal_code: adminData.postal_code,
+    area_code: adminData.area_code,
+    founded: historyData.founded,
+    cityhood: historyData.cityhood,
+    nicknames: identityData.nicknames,
+    languages: cultureData.languages,
+    geography: (geoDetail.data as Record<string, unknown>).geography,
+    seal: (seal.data as Record<string, unknown>).seal,
+    mayor: leadershipData.mayor,
+    vice_mayor: leadershipData.vice_mayor,
+    contact: {
+      address: contactData.address,
+      phone: trunkData.number,
+      email: contactData.email,
+      website: contactData.website,
+      facebook: contactData.facebook,
+    },
+    vision: visionData.vision,
+    mission: visionData.mission,
+    history_timeline: historyData.history_timeline,
+    heritage: cultureData.heritage,
+  };
+}
+
+function mirrorTargets(root: string, file: string): string[] {  const targets = [path.join(root, 'data', file), path.join(root, 'public', 'data', file)];
   // src/data mirrors exist only for statically imported files; never create new ones here.
   const srcMirror = path.join(root, 'src', 'data', file);
   if (fs.existsSync(srcMirror)) targets.push(srcMirror);

@@ -1,8 +1,8 @@
 {
   "_schema_version": "2.0",
   "_status": "verified",
-  "_updated": "2026-09-04",
-  "_source": "research/city-profile/26-09-city-profile.md (PSA 2020 CPH via PhilAtlas; Province of Pangasinan; official LGU site); research/city-profile/26-09-geography.md; research/culture-history/26-09-history.md; research/culture-history/26-09-culture-heritage.md",
+  "_updated": "2026-09-14",
+  "_source": "Generated from canonical civic records; registry: lgu-old-site-archive, lgu-website, province-pangasinan, psa-census-philatlas; sources: src-wikipedia-city; research: research/city-profile/26-09-city-profile.md; research/city-profile/26-09-geography.md; research/culture-history/26-09-history.md; research/culture-history/26-09-culture-heritage.md",
   "_note": "Founding year conflict (1578 Wikipedia vs 1587 LGU history) is preserved as a documented footnote, not resolved. Founding friar is 'Fr. Francisco dela Lama' per the history research and 'dela Rama' in the city-profile research - conflict noted. Land area 169.03 km2 is the research-documented primary value (province site lists 17,087 ha - see research notes).",
   "official_name": "City of San Carlos",
   "local_names": {
@@ -52,43 +52,139 @@
       "San Juan River"
     ],
     "boundaries": [
-      { "direction": "North", "adjacent": "Binmaley, Calasiao" },
-      { "direction": "Northeast", "adjacent": "Santa Barbara" },
-      { "direction": "East", "adjacent": "Malasiqui" },
-      { "direction": "Southeast", "adjacent": "Basista" },
-      { "direction": "South", "adjacent": "Urbiztondo" },
-      { "direction": "Southwest", "adjacent": "Aguilar" },
-      { "direction": "West", "adjacent": "Bugallon" },
-      { "direction": "Northwest", "adjacent": "Lingayen (provincial capital)" }
+      {
+        "direction": "North",
+        "adjacent": "Binmaley, Calasiao"
+      },
+      {
+        "direction": "Northeast",
+        "adjacent": "Santa Barbara"
+      },
+      {
+        "direction": "East",
+        "adjacent": "Malasiqui"
+      },
+      {
+        "direction": "Southeast",
+        "adjacent": "Basista"
+      },
+      {
+        "direction": "South",
+        "adjacent": "Urbiztondo"
+      },
+      {
+        "direction": "Southwest",
+        "adjacent": "Aguilar"
+      },
+      {
+        "direction": "West",
+        "adjacent": "Bugallon"
+      },
+      {
+        "direction": "Northwest",
+        "adjacent": "Lingayen (provincial capital)"
+      }
     ],
     "distances": [
-      { "destination": "Dagupan City", "distance": "12.96 km", "direction": "N" },
-      { "destination": "Urdaneta City", "distance": "24.04 km", "direction": "SE-NE" },
-      { "destination": "Alaminos City", "distance": "46.90 km", "direction": "WNW" },
-      { "destination": "Tarlac City", "distance": "55.16 km", "direction": "SSE" },
-      { "destination": "Baguio City", "distance": "59.80 km", "direction": "NNE" },
-      { "destination": "Manila", "distance": "162.61 km", "direction": "SSE", "note": "national capital" },
-      { "destination": "Lingayen", "distance": "19 km", "direction": "NW", "note": "provincial capital, by road" }
+      {
+        "destination": "Dagupan City",
+        "distance": "12.96 km",
+        "direction": "N"
+      },
+      {
+        "destination": "Urdaneta City",
+        "distance": "24.04 km",
+        "direction": "SE-NE"
+      },
+      {
+        "destination": "Alaminos City",
+        "distance": "46.90 km",
+        "direction": "WNW"
+      },
+      {
+        "destination": "Tarlac City",
+        "distance": "55.16 km",
+        "direction": "SSE"
+      },
+      {
+        "destination": "Baguio City",
+        "distance": "59.80 km",
+        "direction": "NNE"
+      },
+      {
+        "destination": "Manila",
+        "distance": "162.61 km",
+        "direction": "SSE",
+        "note": "national capital"
+      },
+      {
+        "destination": "Lingayen",
+        "distance": "19 km",
+        "direction": "NW",
+        "note": "provincial capital, by road"
+      }
     ],
     "nearest_municipalities": [
-      { "name": "Malasiqui", "distance": "7.07 km", "direction": "E" },
-      { "name": "Calasiao", "distance": "9.20 km", "direction": "N" },
-      { "name": "Basista", "distance": "9.94 km", "direction": "SE" },
-      { "name": "Santa Barbara", "distance": "10.16 km", "direction": "NE" },
-      { "name": "Urbiztondo", "distance": "11.58 km", "direction": "S" },
-      { "name": "Aguilar", "distance": "12.46 km", "direction": "WSW" }
+      {
+        "name": "Malasiqui",
+        "distance": "7.07 km",
+        "direction": "E"
+      },
+      {
+        "name": "Calasiao",
+        "distance": "9.20 km",
+        "direction": "N"
+      },
+      {
+        "name": "Basista",
+        "distance": "9.94 km",
+        "direction": "SE"
+      },
+      {
+        "name": "Santa Barbara",
+        "distance": "10.16 km",
+        "direction": "NE"
+      },
+      {
+        "name": "Urbiztondo",
+        "distance": "11.58 km",
+        "direction": "S"
+      },
+      {
+        "name": "Aguilar",
+        "distance": "12.46 km",
+        "direction": "WSW"
+      }
     ],
     "source": "Wikipedia; PhilAtlas; Province of Pangasinan (research/city-profile/26-09-geography.md)"
   },
   "seal": {
     "source": "Old official site - The Official Seal (archived 2017-10-16)",
     "elements": [
-      { "name": "Wide orb", "meaning": "San Carlos at the center of Pangasinan Province; became a City in 1965" },
-      { "name": "Philippine sun", "meaning": "Hub of a wheel moving three triangles representing the city's three economic activities" },
-      { "name": "Agriculture (left flange)", "meaning": "Tractor for high-tech farming; the mango and bamboo industries" },
-      { "name": "Commerce & Industry (top flange)", "meaning": "Modern shopping centers, industrial parks, and high-rise buildings flanking City Hall" },
-      { "name": "Tourism (right flange)", "meaning": "Heritage and theme parks, represented by the centuries-old Saint Dominic Church and the City Plaza" },
-      { "name": "The Spirit of God", "meaning": "Hovers above the city; peace is key to progress" }
+      {
+        "name": "Wide orb",
+        "meaning": "San Carlos at the center of Pangasinan Province; became a City in 1965"
+      },
+      {
+        "name": "Philippine sun",
+        "meaning": "Hub of a wheel moving three triangles representing the city's three economic activities"
+      },
+      {
+        "name": "Agriculture (left flange)",
+        "meaning": "Tractor for high-tech farming; the mango and bamboo industries"
+      },
+      {
+        "name": "Commerce & Industry (top flange)",
+        "meaning": "Modern shopping centers, industrial parks, and high-rise buildings flanking City Hall"
+      },
+      {
+        "name": "Tourism (right flange)",
+        "meaning": "Heritage and theme parks, represented by the centuries-old Saint Dominic Church and the City Plaza"
+      },
+      {
+        "name": "The Spirit of God",
+        "meaning": "Hovers above the city; peace is key to progress"
+      }
     ]
   },
   "mayor": "Hon. Julier \"Ayoy\" C. Resuello",
@@ -176,12 +272,30 @@
       "source": "LGU Tourism page (archived 2024-06-03); Wikipedia"
     },
     "landmarks": [
-      { "name": "Speaker Eugenio P. Perez Sr. Memorial Building", "description": "Named for the late Speaker; serves as the city museum (the NHCP 1988 marker is installed at the plaza)." },
-      { "name": "San Carlos City Plaza (City Park), Palaris Street", "description": "Public plaza used for festivals and public viewing; described as a heritage park." },
-      { "name": "Quadricentennial Arch (Bolingit)", "description": "Commemorative arch cited among the city's interesting spots." },
-      { "name": "Binalatongan Ruins (San Juan)", "description": "Ruins relating to the city's pre-San-Carlos history as Binalatongan." },
-      { "name": "San Carlos City Hall (Palaris Street)", "description": "Government heritage structure featured in city images." },
-      { "name": "Ancestral houses", "description": "Noted as a feature of the old city." }
+      {
+        "name": "Speaker Eugenio P. Perez Sr. Memorial Building",
+        "description": "Named for the late Speaker; serves as the city museum (the NHCP 1988 marker is installed at the plaza)."
+      },
+      {
+        "name": "San Carlos City Plaza (City Park), Palaris Street",
+        "description": "Public plaza used for festivals and public viewing; described as a heritage park."
+      },
+      {
+        "name": "Quadricentennial Arch (Bolingit)",
+        "description": "Commemorative arch cited among the city's interesting spots."
+      },
+      {
+        "name": "Binalatongan Ruins (San Juan)",
+        "description": "Ruins relating to the city's pre-San-Carlos history as Binalatongan."
+      },
+      {
+        "name": "San Carlos City Hall (Palaris Street)",
+        "description": "Government heritage structure featured in city images."
+      },
+      {
+        "name": "Ancestral houses",
+        "description": "Noted as a feature of the old city."
+      }
     ],
     "legend": "The sunken church bell of the San Juan River: the great bell of the Binalatongan belfry - said to be the biggest and most sonorous in the province - was lost when the raft carrying it across the river collapsed; local legend says a mermaid guards it at the bottom of the river.",
     "source": "research/culture-history/26-09-culture-heritage.md (LGU Tourism archived 2024-06-03; old official site; Wikipedia; Wikivoyage)"

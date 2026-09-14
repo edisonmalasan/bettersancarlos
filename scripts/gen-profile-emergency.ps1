@@ -1,3 +1,9 @@
+# RETIRED (civic-data-pipeline phases 2+5): data/emergency-hotlines.json and
+# data/city-profile.json are now generated from canonical civic records via
+# `bun run data:generate` (see docs/data-pipeline.md). All facts below moved
+# to data/civic/records.json. This script throws instead of writing so it can
+# never fork either file again.
+throw 'scripts/gen-profile-emergency.ps1 is retired; run `bun run data:generate` instead (see docs/data-pipeline.md).'
 # Generator: city-profile.json (emergency-hotlines.json retired - see below)
 $ErrorActionPreference = 'Stop'
 $enc = New-Object System.Text.UTF8Encoding($false)

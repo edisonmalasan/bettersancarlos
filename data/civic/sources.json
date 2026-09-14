@@ -294,6 +294,89 @@
       "sourceState": "archived",
       "registryId": "lgu-website",
       "notes": "Seeded from pre-migration data/news.json manual entry drug-cleared-barangays-2022; research: research/news/26-09-news-current-events.md."
+    },
+    {
+      "id": "src-psa-2020-philatlas",
+      "title": "San Carlos City, Pangasinan profile (PSA 2020 CPH figures)",
+      "publisher": "Philippine Statistics Authority (via PhilAtlas)",
+      "url": "https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html",
+      "documentType": "webpage",
+      "retrievedAt": "2026-09-04",
+      "verifier": "research-2026-09-04",
+      "sourceState": "active",
+      "registryId": "psa-census-philatlas",
+      "notes": "2020 census total, census history 1903-2020, barangay 2020/2015 populations; research: research/demographics/26-09-demographics.md."
+    },
+    {
+      "id": "src-psa-2015-philatlas",
+      "title": "San Carlos City household data (PSA 2015 census)",
+      "publisher": "Philippine Statistics Authority (via PhilAtlas)",
+      "url": "https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html",
+      "documentType": "webpage",
+      "retrievedAt": "2026-09-04",
+      "verifier": "research-2026-09-04",
+      "sourceState": "active",
+      "registryId": "psa-census-philatlas",
+      "notes": "2015 household count and average size; research: research/demographics/26-09-demographics.md."
+    },
+    {
+      "id": "src-lgu-demography-2024",
+      "title": "Demography page (official LGU site, archived 2024-06-03)",
+      "publisher": "City Government of San Carlos",
+      "url": "https://web.archive.org/web/20240603225002/https://www.sancarlospangasinan.gov.ph/demography",
+      "documentType": "webpage",
+      "retrievedAt": "2026-09-04",
+      "verifier": "research-2026-09-04",
+      "sourceState": "archived",
+      "registryId": "lgu-website",
+      "notes": "Corroborating municipality/region/income-class facts; research: research/demographics/26-09-demographics.md."
+    },
+    {
+      "id": "src-province-geo",
+      "title": "Province of Pangasinan — San Carlos City geography",
+      "publisher": "Province of Pangasinan",
+      "discovery": "Province of Pangasinan official site city profile (see research/city-profile/26-09-geography.md)",
+      "documentType": "webpage",
+      "retrievedAt": "2026-09-04",
+      "verifier": "research-2026-09-04",
+      "sourceState": "active",
+      "registryId": "province-pangasinan",
+      "notes": "Land area 169.03 km2, boundaries, distances; research: research/city-profile/26-09-geography.md."
+    },
+    {
+      "id": "src-old-site-history",
+      "title": "Official city history (old official site, archived)",
+      "publisher": "City Government of San Carlos (archived WordPress site)",
+      "discovery": "Old official site history/seal pages via web.archive.org (see research/culture-history/26-09-history.md)",
+      "documentType": "webpage",
+      "retrievedAt": "2026-09-04",
+      "verifier": "research-2026-09-04",
+      "sourceState": "archived",
+      "registryId": "lgu-old-site-archive",
+      "notes": "Founding/cityhood/history timeline/seal/vision-mission; research: research/culture-history/26-09-history.md."
+    },
+    {
+      "id": "src-lgu-tourism-archived",
+      "title": "LGU Tourism page (archived 2024-06-03)",
+      "publisher": "City Government of San Carlos",
+      "discovery": "LGU Tourism page snapshot 2024-06-03 (see research/culture-history/26-09-culture-heritage.md)",
+      "documentType": "webpage",
+      "retrievedAt": "2026-09-04",
+      "verifier": "research-2026-09-04",
+      "sourceState": "archived",
+      "registryId": "lgu-website",
+      "notes": "Basilica/heritage landmarks; research: research/culture-history/26-09-culture-heritage.md."
+    },
+    {
+      "id": "src-wikipedia-city",
+      "title": "San Carlos, Pangasinan (Wikipedia overview)",
+      "publisher": "Wikipedia contributors",
+      "discovery": "Wikipedia article San Carlos, Pangasinan + Wikidata Q43165 (cited in research, not directly fetched)",
+      "documentType": "webpage",
+      "retrievedAt": "2026-09-04",
+      "verifier": "research-2026-09-04",
+      "sourceState": "active",
+      "notes": "Languages, heritage corroboration, elevation cross-check; research: research/city-profile/26-09-city-profile.md."
     }
   ]
 }

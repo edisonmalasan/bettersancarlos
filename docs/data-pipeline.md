@@ -66,17 +66,17 @@ from `data/civic` records. Legacy scripts stay untouched until their row says re
 | `dpwh-projects.json` | canonical | done (phase 5) |
 | `barangays.json` (`data/` home + `public/data/` + `src/data/` mirrors) | canonical | done (phase 5) |
 | `barangay-officials.json` (`data/` home + `public/data/` + `src/data/` mirrors) | canonical | done (phase 5) |
-| `agriculture.json` | manual | documented (phase 5) |
-| `city-projects.json` | manual | documented (phase 5) |
-| `evacuation-centers.json` | manual | documented (phase 5) |
-| `government-directory.json` | manual | documented (phase 5) |
-| `health-facilities.json` | manual | documented (phase 5) |
-| `schools.json` | manual | documented (phase 5) |
-| `services.json` | manual | documented (phase 5) |
-| `tourism.json` | manual | documented (phase 5) |
-| `transparency-docs.json` | manual | documented (phase 5) |
-| `transportation.json` | manual | documented (phase 5) |
-| `utilities.json` | manual | documented (phase 5) |
+| `agriculture.json` | manual (partially-verified) | refresh 2008-era stats on new PSA/agriculture releases |
+| `city-projects.json` | manual (partially-verified) | verify buckets against DPWH/FDPP project lists |
+| `evacuation-centers.json` | manual (partially-verified) | re-verify shelters with CDRRMO |
+| `government-directory.json` | manual (partially-verified) | reconcile office-holder names with canonical officials records when migrated |
+| `health-facilities.json` | manual (partially-verified) | verify facilities against the DOH HFDB list |
+| `schools.json` | manual (partially-verified) | verify institution lists against the DepEd school directory |
+| `services.json` | manual (57-service hand directory, no provenance block) | add per-service research provenance before migration |
+| `tourism.json` | manual (partially-verified) | — |
+| `transparency-docs.json` | manual (partially-verified) | refresh FDP links on the DILG posting cycle |
+| `transportation.json` | manual (historical) | re-verify routes/fares (2017-era sources) |
+| `utilities.json` | manual (partially-verified) | re-verify CENPELCO contacts |
 
 `src/data/barangays.json` and `src/data/barangay-officials.json` are generated
 from canonical barangay records by `bun run data:generate`, with `data/*.json`

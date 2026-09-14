@@ -16,9 +16,13 @@ function requiredRecord(ctx: EmitContext, id: string): CivicRecord {
 }
 
 function recordSources(ctx: EmitContext, record: CivicRecord): SourceRecord[] {
-  return record.sourceIds
-    .map((id) => ctx.sources.get(id))
-    .filter((s): s is SourceRecord => s !== undefined);
+  return record.sourceIds.map((id) => {
+    const source = ctx.sources.get(id);
+    if (!source) {
+      throw new Error(`generate: record ${record.id} cites unresolvable source: ${id}`);
+    }
+    return source;
+  });
 }
 
 // Display label for a source inside generated compatibility files.

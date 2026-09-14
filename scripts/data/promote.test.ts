@@ -91,7 +91,7 @@ function fixtureRoot(): string {
           lastVerified: '2026-09-01',
           acceptedBy: 'maintainer',
           acceptedAt: '2026-09-02',
-          nextReviewOn: '2099-01-01',
+          nextReviewOn: '2026-12-01',
           updateCadence: 'quarterly',
           history: [],
         },
@@ -436,6 +436,71 @@ test('byte-identical re-collection reuses the accepted instance (dedupe)', () =>
     assert.equal(countSources(), 2, 'no duplicate source record for identical evidence');
     assert.deepEqual(two.promotedSources, [REG_INSTANCE_ID]);
     assert.deepEqual(one.promotedSources, [REG_INSTANCE_ID]);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('promotion agrees with validation windows for every cadence', async () => {
+  const { nextReviewDate } = await import('./lib/policy');
+  const { makeSourceInstanceId } = await import('./lib/instances');
+  const { saveEvidence } = await import('./lib/runs');
+  const { validateRoot } = await import('./validate');
+  const root = fixtureRoot();
+  try {
+    const cadences = ['daily', 'weekly', 'monthly', 'quarterly', 'annually', 'per-term', 'per-document', 'manual', 'event-driven'];
+    const run = createRun(root, { date: '2026-09-14', collectedBy: 'agent' });
+    const instances = cadences.map((cadence) => {
+      const name = `probe-${cadence}.html`;
+      const sha = saveEvidence(run.dir, name, `<html>${cadence} evidence</html>`);
+      return {
+        id: makeSourceInstanceId('reg-site', '2026-09-14', sha),
+        registryId: 'reg-site',
+        title: `Probe evidence (${cadence})`,
+        publisher: 'Fixture',
+        url: 'https://example.test/',
+        documentType: 'webpage',
+        retrievedAt: '2026-09-14',
+        sourceState: 'active' as const,
+        evidencePath: `research/runs/${run.runId}/evidence/${name}`,
+        sha256: sha,
+        collectedBy: 'agent',
+        runId: run.runId,
+      };
+    });
+    writeCandidates(
+      run.dir,
+      cadences.map((cadence, i) => ({
+        id: `cadence-probe-${cadence}`,
+        domain: 'demographics',
+        type: 'statistic',
+        label: `Probe ${cadence}`,
+        data: { probe: cadence },
+        sourceIds: ['reg-site'],
+        sourceInstanceIds: [instances[i].id],
+        status: 'provisional' as const,
+        collectedBy: 'agent',
+        runId: run.runId,
+      })),
+    );
+    writeSourceInstances(run.dir, instances);
+    for (let i = 0; i < cadences.length; i++) {
+      promoteRun(
+        { root, runId: run.runId, records: [`cadence-probe-${cadences[i]}`], reviewer: 'reviewer', cadence: cadences[i] },
+        '2026-09-14',
+      );
+    }
+    const file = JSON.parse(fs.readFileSync(path.join(root, 'data', 'civic', 'records.json'), 'utf8')) as {
+      records: Array<{ id: string; nextReviewOn: string; acceptedAt: string; updateCadence: string }>;
+    };
+    for (const cadence of cadences) {
+      const record = file.records.find((r) => r.id === `cadence-probe-${cadence}`);
+      assert.ok(record, `missing promoted record for ${cadence}`);
+      assert.equal(record.nextReviewOn, nextReviewDate(cadence as 'quarterly', '2026-09-14'));
+    }
+    const manual = file.records.find((r) => r.id === 'cadence-probe-manual');
+    assert.equal(manual?.nextReviewOn, manual?.acceptedAt);
+    assert.deepEqual(validateRoot(root).errors, []);
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
   }

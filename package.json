@@ -17,6 +17,7 @@
     "data:promote": "bun run scripts/data/promote.ts",
     "data:ingest-facebook": "bun run scripts/data/ingest-facebook.ts",
     "data:report": "bun run scripts/data/report.ts",
+    "data:test": "bun test scripts/data scripts/sync-facebook.test.js",
     "verify": "tsc --noEmit && bun run data:validate && bun run build"
   },
   "dependencies": {

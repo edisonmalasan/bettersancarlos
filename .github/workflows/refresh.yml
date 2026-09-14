@@ -64,3 +64,18 @@ jobs:
 
       - name: Validate (runs + canonical data, offline)
         run: bun run data:validate
+
+      - name: Guard - only research/runs may have changed
+        run: |
+          CHANGED="$(git status --porcelain | awk '{print $2}')"
+          echo "$CHANGED"
+          OUTSIDE="$(echo "$CHANGED" | grep -v '^research/runs/' || true)"
+          if [ -n "$OUTSIDE" ]; then
+            echo "Refusing: files outside research/runs/ changed:"
+            echo "$OUTSIDE"
+            exit 1
+          fi
+          if [ -z "$CHANGED" ]; then
+            echo "No new research artifacts; nothing to propose."
+            echo "EMPTY=true" >> "$GITHUB_ENV"
+          fi

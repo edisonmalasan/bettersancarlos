@@ -11,7 +11,7 @@
 - [x] 2.3 Rework `promote.ts` to accept source instances atomically with records (validate-then-write-twice, history preserves old source refs, dedupe on registry+hash); verify Test 3 (forced mid-promotion error leaves both files byte-identical) and Test 2 (supersession history)
 - [x] 2.4 Migrate the two registry-only note records to exact source instances and tighten `validate.ts` to reject bare registry IDs in canonical records (candidates exempt); verify `data:validate` passes on the migrated corpus and fails on a deliberately registry-cited copy
 - [x] 2.5 Make `generate.ts` resolve source labels strictly from `sources.json` and fail loudly on unresolvable references; verify the failure names the record and mirrors are untouched, then verify full parity output on the migrated corpus
-- [ ] 2.6 Add Test 1 end-to-end (refresh → evidence → candidate → independent promotion → instance in `sources.json` → exact reference → generate succeeds); verify it passes offline
+- [x] 2.6 Add Test 1 end-to-end (refresh → evidence → candidate → independent promotion → instance in `sources.json` → exact reference → generate succeeds); verify it passes offline
 
 ## 3. Diff scope fix
 

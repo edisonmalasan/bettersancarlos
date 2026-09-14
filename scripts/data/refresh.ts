@@ -187,6 +187,17 @@ export async function runRefresh(options: RefreshOptions): Promise<RefreshSummar
       }
     }
     if (!evidence) {
+      if (offline) {
+        outcomes[entry.id] = 'skipped';
+        recordSource(run.dir, {
+          sourceId: entry.id,
+          checkedAt,
+          outcome: 'skipped',
+          error: 'offline mode: no live fetch without supplied evidence',
+        });
+        findingLines.push(`- ${entry.id}: SKIPPED (offline, no evidence supplied)`);
+        continue;
+      }
       if (!entry.url) {
         outcomes[entry.id] = 'skipped';
         recordSource(run.dir, {

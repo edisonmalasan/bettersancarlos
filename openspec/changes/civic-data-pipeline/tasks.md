@@ -43,6 +43,6 @@
 
 ## 6. Runbook, scheduled refresh, acceptance
 
-- [ ] 6.1 Write the agent refresh runbook (AGENTS.md data-pipeline section + `docs/data-pipeline.md`): commands, order, research-run requirements, never-overwrite rules, promotion rules, conflict handling; verify a fresh agent can follow it to run a fixture refresh without other context (Scenario H dry run)
+- [x] 6.1 Write the agent refresh runbook (AGENTS.md data-pipeline section + `docs/data-pipeline.md`): commands, order, research-run requirements, never-overwrite rules, promotion rules, conflict handling; verify a fresh agent can follow it to run a fixture refresh without other context (Scenario H dry run)
 - [ ] 6.2 Add `.github/workflows/refresh.yml` (phase 6): scheduled/manual trigger → `data:refresh --due` → `data:diff` → open/update PR with run artifacts via `gh`; never auto-merge, no secrets in data; verify the workflow file is valid (`gh workflow list`/actionlint-equivalent check) and a manual dispatch on a fixture source produces a PR with no canonical changes on `main` (Scenario: scheduled refresh is reviewable)
 - [ ] 6.3 Execute the full acceptance matrix against fixtures/real data: A (unchanged), B (changed), C (source unavailable), D (conflict), E (stale detection), F (supersession preserves history), G (frontend compatibility — `bun run verify` + spot-check pages), H (fresh-agent runbook run); verify each scenario's expected result and record outcomes in the change's checklist before requesting verification

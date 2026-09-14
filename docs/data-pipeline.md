@@ -108,16 +108,83 @@ as the home and byte-identical `public/data/` + `src/data/` mirrors
   `scripts/gen-legislative.ps1`, `scripts/gen-barangays.ps1`: active until
   their phase-5 parity is verified.
 
-## Agent refresh runbook (summary)
+## Agent refresh runbook
 
-1. `bun run data:refresh` (add `-- --source=<id>` / `-- --domain=<d>` to narrow).
-2. Inspect `research/runs/<new-run>/`: manifest, candidates, conflicts, findings.
-3. `bun run data:diff` and read the review report.
-4. Stop. Do NOT edit `data/civic/records.json`, `data/civic/sources.json`,
+Follow these steps in order. You need no other context: the source registry
+(`data/civic/source-registry.yaml`) tells you what can be collected, and every
+command below is safe to run (collection never modifies canonical data).
+
+1. Read the registry entry for your target: `id`, `collector`, `updateCadence`,
+   `domains`, `accessNotes`. Collectors run registry sources only — an
+   unregistered source is refused, never scraped.
+2. Refresh: `bun run data:refresh` (narrow with `-- --source=<id>` and/or
+   `-- --domain=<d>`; add `-- --due` for due sources only). This creates
+   `research/runs/<YYYY-MM-DD[-n]>/` and nothing else.
+3. Inspect the new run directory (requirements — every run must contain):
+   - `manifest.json`: run id, start/end, parameters, per-source entries
+     (`sourceId`, `checkedAt`, outcome, error if failed, evidence SHA-256),
+     candidate/conflict counts, `collectedBy`.
+   - `evidence/`: raw retrieved bytes (hash recorded in the manifest).
+   - `candidates.json`: record-shaped candidates, all `provisional`, each with
+     `collectedBy` + `runId`, and NO reviewer fields (`acceptedBy`/`acceptedAt`
+     on a candidate fails validation).
+   - `findings.md` (what changed/failed) and `conflicts.md` (disagreements).
+4. Diff: `bun run data:diff [-- --run=<id>]` and read the review report in the
+   run directory (`OLD` / `CANDIDATE` / `SOURCE` / `RESULT` / `ACTION` per
+   record). Outcomes: `UNCHANGED` (no action), `NEW` / `CHANGED` (review),
+   `MISSING` (coverage gap — never a deletion), `STALE` (past `nextReviewOn`),
+   `CONFLICT` (blocked), `SOURCE_UNAVAILABLE` / `SOURCE_CHANGED` (keep existing
+   data, deadlines unchanged).
+5. Stop. Do NOT edit `data/civic/records.json`, `data/civic/sources.json`,
    or any `data/*.json` directly.
-5. Promotion is a separate reviewer step (`bun run data:promote`); a collector
-   must never accept its own high-risk candidates, and conflicts fail closed.
-6. After any accepted promotion: `bun run data:generate`, then `bun run verify`.
+
+### Never-overwrite rules
+
+- Research and collection produce evidence + candidates only. Canonical records
+  change exclusively through `data:promote`; compatibility JSON exclusively
+  through `data:generate`.
+- No pipeline command modifies `research/` outside `research/runs/`
+  (validation fails otherwise).
+- Empty results, zero valid items, or unreachable sources leave canonical data
+  and compatibility outputs byte-identical. A failed source never deletes data
+  or extends a review deadline. An interrupted run leaves everything untouched.
+
+### Promotion rules (reviewer step, separate from collection)
+
+- `bun run data:promote -- --run=<id> (--record=<id> ... | --all) --reviewer=<name>`
+  appends a history revision, sets `acceptedBy`/`acceptedAt`/`lastVerified`,
+  recomputes `nextReviewOn` from cadence, and flips `provisional` → `verified`.
+- A collector must never accept its own high-risk candidates: promotion refuses
+  when `--reviewer` equals the candidate's `collectedBy` on high-risk records
+  (emergency contacts, officials, fees, budgets, legislation, procurement).
+- Conflict-blocked candidates are refused; resolve first, never auto-resolve.
+- Official-page news may use the low-risk auto-path (see below).
+- After any accepted promotion: `bun run data:generate`, then `bun run verify`.
+
+### Conflict handling
+
+1. `CONFLICT` means two candidates/sources disagree: the candidate is blocked
+   from promotion and the disagreement is documented in `conflicts.md`.
+2. Re-check the sources (a new refresh run often resolves stale disagreements).
+3. A reviewer decides based on authoritative evidence; the losing side stays in
+   run history, never deleted. No pipeline step silently resolves a conflict.
+
+### Scenario H self-test (fixture refresh with no other context)
+
+An agent with only this file must be able to produce a research run:
+
+```bash
+bun run data:refresh -- --source=lgu-website --offline --collected-by=<your-name>
+bun run data:diff
+bun run data:report
+bun run data:validate
+```
+
+The refresh records the source as `skipped` (offline, no evidence supplied) and
+still writes a complete run directory; diff/report/validate all run offline.
+Deeper fixture scenarios (changed values, conflicts, unavailable sources) run
+via `bun test scripts/data/refresh.test.ts`. If any command above fails on a
+clean tree, the runbook — not your intuition — is what needs fixing.
 
 ## News auto-promotion (low-risk path only)
 

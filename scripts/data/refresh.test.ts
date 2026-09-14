@@ -241,6 +241,27 @@ test('refresh only adds files under research/runs', async () => {
   }
 });
 
+test('offline mode never fetches: source is skipped but the run is still recorded', async () => {
+  const root = fixtureRoot();
+  try {
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-site'],
+      offline: true,
+      collectedBy: 'offline-check',
+      date: '2026-09-14',
+    });
+    assert.equal(summary.outcomes['fix-site'], 'skipped');
+    assert.equal(summary.candidates, 0);
+    const { readManifest } = await import('./lib/runs');
+    const manifest = readManifest(summary.run.dir);
+    assert.equal(manifest.sources[0].outcome, 'skipped');
+    assert.ok((manifest.sources[0].error ?? '').includes('offline'));
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test('CLI: bun run data:refresh -- --source works against a fixture tree', () => {
   const root = fixtureRoot();
   const ev = evidenceDir({ 'fix-site.html': SITE_HTML('(075) 600-1432') });

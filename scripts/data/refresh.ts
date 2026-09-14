@@ -13,7 +13,7 @@ import {
   type RunHandle,
 } from './lib/runs';
 import { writeSourceInstances } from './lib/instances';
-import { isTimeBasedCadence, cadenceWindowDays } from './lib/policy';
+import { isTimeBasedCadence, cadenceWindowDays, isSuccessfulCollectionOutcome, retryDueDays } from './lib/policy';
 import { runsDir } from './lib/paths';
 import type { Candidate, SourceInstance } from './lib/civic';
 
@@ -38,38 +38,62 @@ export function cadenceDueDays(cadence: string): number | null {
   return cadenceWindowDays(cadence);
 }
 
-function lastCheckedAt(root: string, registryId: string): string | null {
-  let latest: string | null = null;
+export interface SourceCheckTimes {
+  /** Most recent successful check (collected/unchanged), if any. */
+  success: string | null;
+  /** Most recent failed check (failed/unavailable), if any. Skipped and unregistered sources never count. */
+  failure: string | null;
+}
+
+function lastCheckTimes(root: string, registryId: string): SourceCheckTimes {
+  const times: SourceCheckTimes = { success: null, failure: null };
   let names: string[] = [];
   try {
     names = fs.readdirSync(runsDir(root));
   } catch {
-    return null;
+    return times;
   }
   for (const name of names) {
     const manifestPath = path.join(runsDir(root), name, 'manifest.json');
     if (!fs.existsSync(manifestPath)) continue;
     try {
       const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8')) as {
-        sources?: Array<{ sourceId?: string; checkedAt?: string }>;
+        sources?: Array<{ sourceId?: string; checkedAt?: string; outcome?: string }>;
       };
       for (const entry of manifest.sources ?? []) {
-        if (entry.sourceId === registryId && entry.checkedAt) {
-          if (!latest || entry.checkedAt > latest) latest = entry.checkedAt;
+        if (entry.sourceId !== registryId || !entry.checkedAt) continue;
+        const slot = isSuccessfulCollectionOutcome(entry.outcome ?? '') ? 'success' : null;
+        if (slot) {
+          if (!times.success || entry.checkedAt > times.success) times.success = entry.checkedAt;
+        } else if (entry.outcome === 'failed' || entry.outcome === 'unavailable') {
+          if (!times.failure || entry.checkedAt > times.failure) times.failure = entry.checkedAt;
         }
+        // skipped/unregistered: recorded but never count as checks.
       }
     } catch {
       // A corrupt manifest never blocks refresh; validation reports it.
     }
   }
-  return latest;
+  return times;
 }
 
-function isDue(registry: RegistryEntry, lastChecked: string | null, nowMs: number): boolean {
-  if (!lastChecked) return true;
+function isDue(registry: RegistryEntry, times: SourceCheckTimes, nowMs: number): boolean {
   const days = cadenceDueDays(registry.updateCadence);
   if (days === null) return false;
-  return nowMs - Date.parse(lastChecked) >= days * 24 * 60 * 60 * 1000;
+  if (!times.success) {
+    // Never successfully checked: due unless a recent failure is still in retry.
+    if (!times.failure) return true;
+    const retry = retryDueDays(registry.updateCadence) ?? days;
+    return nowMs - Date.parse(times.failure) >= retry * 24 * 60 * 60 * 1000;
+  }
+  if (nowMs - Date.parse(times.success) >= days * 24 * 60 * 60 * 1000) return true;
+  // A failure after the last success recovers on the retry policy, not the
+  // normal cadence — a failed fetch never postpones review, it hastens retry.
+  if (times.failure && times.failure > times.success) {
+    const retry = retryDueDays(registry.updateCadence) ?? days;
+    return nowMs - Date.parse(times.failure) >= retry * 24 * 60 * 60 * 1000;
+  }
+  return false;
 }
 
 function findEvidenceFile(evidenceDir: string, registryId: string): string | null {
@@ -113,8 +137,12 @@ export async function runRefresh(options: RefreshOptions): Promise<RefreshSummar
       if (options.domains && options.domains.length > 0) {
         if (!entry.domains || !entry.domains.some((d) => options.domains?.includes(d))) continue;
       } else if (options.due || !options.domains) {
-        // Default (and --due): only sources whose review date is due.
-        if (!isDue(entry, lastCheckedAt(root, entry.id), nowMs)) continue;
+        // Default (and --due): only due sources with a collector. A source
+        // with no collector can never be collected automatically; it runs
+        // only via explicit --source/--domain and never clutters due runs
+        // with skip entries.
+        if (!entry.collector) continue;
+        if (!isDue(entry, lastCheckTimes(root, entry.id), nowMs)) continue;
       }
       selected.push(entry);
     }

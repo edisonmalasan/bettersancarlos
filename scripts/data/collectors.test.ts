@@ -7,6 +7,7 @@ import { extractPhones, htmlToText } from './parsers/html';
 import { collectCityWebsite } from './collectors/city-website';
 import { collectFacebook } from './collectors/facebook';
 import { resolveCollector } from './collectors/index';
+import type { RegistryEntry } from './lib/civic';
 
 const FB_FIXTURE = JSON.stringify({
   data: [
@@ -28,9 +29,36 @@ const FB_FIXTURE = JSON.stringify({
 const SITE_FIXTURE = `<html><body><div class="contact">City Hall trunk line: (075) 600-1432. Office hours apply.</div></body></html>`;
 const SITE_CHANGED_FIXTURE = `<html><body><div class="contact">City Hall trunk line: (075) 600-9999. Office hours apply.</div></body></html>`;
 
+function fbRegistry(): RegistryEntry {
+  return {
+    id: 'lgu-facebook-cio',
+    publisher: 'City Information Office',
+    url: 'https://www.facebook.com/sccp.cio',
+    sourceType: 'facebook-page',
+    collector: 'facebook',
+    updateCadence: 'weekly',
+    evidenceRef: 'research/evidence.md',
+    domains: ['news'],
+  };
+}
+
+function siteRegistry(): RegistryEntry {
+  return {
+    id: 'lgu-website',
+    publisher: 'City Government of San Carlos',
+    url: 'https://example.test/',
+    sourceType: 'website',
+    collector: 'city-website',
+    updateCadence: 'quarterly',
+    evidenceRef: 'research/evidence.md',
+    domains: ['emergency'],
+  };
+}
+
 function fbArgs(evidenceText: string = FB_FIXTURE) {
   return {
     registryId: 'lgu-facebook-cio',
+    registry: fbRegistry(),
     evidenceName: 'graph-fixture.json',
     evidenceText,
     runId: '2026-09-14',
@@ -41,6 +69,7 @@ function fbArgs(evidenceText: string = FB_FIXTURE) {
 function siteArgs(evidenceText: string = SITE_FIXTURE) {
   return {
     registryId: 'lgu-website',
+    registry: siteRegistry(),
     evidenceName: 'contact-fixture.html',
     evidenceText,
     runId: '2026-09-14',
@@ -64,6 +93,20 @@ test('facebook collector is deterministic and provisional', () => {
   assert.equal(first.candidates[1].data.category, 'Event');
 });
 
+test('facebook collector emits one exact instance linked from every candidate', () => {
+  const result = collectFacebook(fbArgs());
+  assert.equal(result.sourceInstances.length, 1);
+  const [instance] = result.sourceInstances;
+  assert.match(instance.id, /^src-lgu-facebook-cio-2026-09-14-[0-9a-f]{8}$/);
+  assert.equal(instance.registryId, 'lgu-facebook-cio');
+  assert.equal(instance.runId, '2026-09-14');
+  assert.equal(instance.collectedBy, 'fixture-agent');
+  assert.match(instance.sha256 ?? '', /^[0-9a-f]{64}$/);
+  for (const candidate of result.candidates) {
+    assert.deepEqual(candidate.sourceInstanceIds, [instance.id]);
+  }
+});
+
 test('facebook collector rejects a non-envelope fixture', () => {
   assert.throws(() => collectFacebook(fbArgs('{"nope": true}')), /parse: expected a Graph envelope/);
   assert.throws(() => collectFacebook(fbArgs('not json')), /parse: invalid JSON/);
@@ -77,6 +120,9 @@ test('city-website collector observes the trunk line deterministically', () => {
   assert.equal(first.candidates[0].id, 'city-hall-trunk-line');
   assert.equal(first.candidates[0].data.number, '(075) 600-1432');
   assert.equal(first.candidates[0].status, 'provisional');
+  assert.equal(first.sourceInstances.length, 1);
+  assert.match(first.sourceInstances[0].id, /^src-lgu-website-2026-09-14-[0-9a-f]{8}$/);
+  assert.deepEqual(first.candidates[0].sourceInstanceIds, [first.sourceInstances[0].id]);
 });
 
 test('city-website collector surfaces a changed number as a new candidate value', () => {

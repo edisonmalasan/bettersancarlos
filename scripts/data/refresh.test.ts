@@ -6,6 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { diffRun } from './diff';
 import { loadRecords } from './lib/civic';
+import { readSourceInstances } from './lib/instances';
 import { sha256FileHex } from './lib/json';
 import { runRefresh } from './refresh';
 
@@ -275,6 +276,38 @@ test('CLI: bun run data:refresh -- --source works against a fixture tree', () =>
     assert.ok(out.includes('fix-site'), out);
     const runs = fs.readdirSync(path.join(root, 'research', 'runs'));
     assert.deepEqual(runs, ['2026-09-15']);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('refresh writes source-instances.json with every candidate link resolving', async () => {
+  const root = fixtureRoot();
+  const ev = evidenceDir({ 'fix-site.html': SITE_HTML('(075) 600-1432') });
+  try {
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-site'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'scenario-instances',
+      date: '2026-09-14',
+    });
+    assert.ok(summary.candidates > 0);
+    const instances = readSourceInstances(summary.run.dir);
+    assert.equal(instances.length, 1);
+    assert.match(instances[0].id, /^src-fix-site-2026-09-14-[0-9a-f]{8}$/);
+    const { readCandidates } = await import('./lib/runs');
+    const candidates = readCandidates(summary.run.dir);
+    assert.ok(candidates.length > 0);
+    const known = new Set(instances.map((i) => i.id));
+    for (const candidate of candidates) {
+      assert.ok((candidate.sourceInstanceIds ?? []).length > 0, `${candidate.id} must link an instance`);
+      for (const iid of candidate.sourceInstanceIds ?? []) {
+        assert.ok(known.has(iid), `unknown instance link: ${iid}`);
+      }
+    }
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
     fs.rmSync(ev, { recursive: true, force: true });

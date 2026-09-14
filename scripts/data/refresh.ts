@@ -12,9 +12,10 @@ import {
   writeMarkdown,
   type RunHandle,
 } from './lib/runs';
+import { writeSourceInstances } from './lib/instances';
 import { isTimeBasedCadence, cadenceWindowDays } from './lib/policy';
 import { runsDir } from './lib/paths';
-import type { Candidate } from './lib/civic';
+import type { Candidate, SourceInstance } from './lib/civic';
 
 export interface RefreshOptions {
   root: string;
@@ -132,6 +133,7 @@ export async function runRefresh(options: RefreshOptions): Promise<RefreshSummar
 
   const outcomes: Record<string, string> = {};
   const allCandidates: Candidate[] = [];
+  const allInstances: SourceInstance[] = [];
   const findingLines = [
     `# Refresh findings — run ${run.runId}`,
     '',
@@ -222,6 +224,7 @@ export async function runRefresh(options: RefreshOptions): Promise<RefreshSummar
     try {
       const result = collector({
         registryId: entry.id,
+        registry: entry,
         evidenceName: evidence.name,
         evidenceText: evidence.bytes.toString('utf8'),
         sourceUrl: entry.url,
@@ -231,6 +234,7 @@ export async function runRefresh(options: RefreshOptions): Promise<RefreshSummar
       outcomes[entry.id] = outcome;
       recordSource(run.dir, { sourceId: entry.id, checkedAt, outcome, evidenceSha256: sha });
       allCandidates.push(...result.candidates);
+      allInstances.push(...result.sourceInstances);
       findingLines.push(`- ${entry.id}: ${outcome.toUpperCase()} (${result.candidates.length} candidate(s))`);
       for (const note of result.notes) findingLines.push(`  - ${note}`);
     } catch (err) {
@@ -247,7 +251,17 @@ export async function runRefresh(options: RefreshOptions): Promise<RefreshSummar
   }
 
   // Candidates are provisional by construction; the writer enforces it.
+  // Every candidate instance link must resolve to a collected instance.
+  const instanceIds = new Set(allInstances.map((i) => i.id));
+  for (const candidate of allCandidates) {
+    for (const iid of candidate.sourceInstanceIds ?? []) {
+      if (!instanceIds.has(iid)) {
+        throw new Error(`refresh: candidate ${candidate.id} links unknown source instance: ${iid}`);
+      }
+    }
+  }
   writeCandidates(run.dir, allCandidates);
+  writeSourceInstances(run.dir, allInstances);
   writeMarkdown(run.dir, 'findings.md', findingLines.join('\n'));
   writeMarkdown(
     run.dir,

@@ -224,6 +224,15 @@ test('collector-produced official-page items take the auto-path as reported, nev
   try {
     const collected = collectFacebook({
       registryId: 'lgu-facebook-cio',
+      registry: {
+        id: 'lgu-facebook-cio',
+        publisher: 'City Information Office',
+        url: 'https://www.facebook.com/sccp.cio',
+        sourceType: 'facebook-page',
+        collector: 'facebook',
+        updateCadence: 'weekly',
+        evidenceRef: 'research/evidence.md',
+      },
       evidenceName: 'graph-fixture.json',
       evidenceText: JSON.stringify({
         data: [

@@ -27,7 +27,7 @@
 ## 5. Risk hardening
 
 - [x] 5.1 Replace the scattered domain list + tier default with centralized `isHighRisk()` (tier, domain, type) and make `riskTier` required on canonical records with a backfill audit; verify no current record silently changes class and new official-type facts default high-risk
-- [ ] 5.2 Enforce no-downgrade on promotion (existing high stays high regardless of candidate content); verify Test 8 (same-identity refusal, independent-identity success) for a high-risk record
+- [x] 5.2 Enforce no-downgrade on promotion (existing high stays high regardless of candidate content); verify Test 8 (same-identity refusal, independent-identity success) for a high-risk record
 
 ## 6. Freshness semantics
 

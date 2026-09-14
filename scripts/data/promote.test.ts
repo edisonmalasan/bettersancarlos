@@ -538,3 +538,46 @@ test('new official-type facts default to high risk even outside listed domains',
     fs.rmSync(root, { recursive: true, force: true });
   }
 });
+
+test('Test 8: high-risk review cannot be bypassed by the collecting identity', () => {
+  const root = fixtureRoot();
+  try {
+    const run = createRun(root, { date: '2026-09-14', collectedBy: 'agent-a' });
+    writeCandidates(run.dir, [
+      {
+        id: 'city-engineer-current',
+        domain: 'government',
+        type: 'official',
+        label: 'City Engineer',
+        data: { name: 'Maria Santos' },
+        sourceIds: ['src-dir'],
+        sourceInstanceIds: [REG_INSTANCE_ID],
+        status: 'provisional',
+        collectedBy: 'agent-a',
+        runId: run.runId,
+      },
+    ]);
+    writeSourceInstances(run.dir, [{ ...regSiteInstance(run.runId), collectedBy: 'agent-a' }]);
+    const before = snapshotCivic(root);
+    // Same identity collects and reviews: refused, nothing written.
+    assert.throws(
+      () => promoteRun({ root, runId: run.runId, records: ['city-engineer-current'], reviewer: 'agent-a' }, '2026-09-14'),
+      /independent reviewer/,
+    );
+    assert.deepEqual(snapshotCivic(root), before);
+    // Independent reviewer with valid evidence: proceeds, tier stays high.
+    const summary = promoteRun(
+      { root, runId: run.runId, records: ['city-engineer-current'], reviewer: 'agent-b' },
+      '2026-09-14',
+    );
+    assert.deepEqual(summary.promoted, ['city-engineer-current']);
+    const file = JSON.parse(fs.readFileSync(path.join(root, 'data', 'civic', 'records.json'), 'utf8')) as {
+      records: Array<{ id: string; riskTier: string; acceptedBy: string }>;
+    };
+    const record = file.records.find((r) => r.id === 'city-engineer-current');
+    assert.equal(record?.acceptedBy, 'agent-b');
+    assert.equal(record?.riskTier, 'high');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});

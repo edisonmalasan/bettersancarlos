@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { loadRecords, type Candidate, type CivicRecord } from './lib/civic';
 import { writeJsonAtomic, stableStringify } from './lib/json';
+import { CADENCE_POLICY, nextReviewDate } from './lib/policy';
 import { recordsPath, runsDir } from './lib/paths';
 import { readCandidates } from './lib/runs';
 import { todayUtc } from './validate';
@@ -23,31 +24,12 @@ export interface PromoteSummary {
   reviewer: string;
 }
 
-// Cadence to review-horizon mapping used when promotion recomputes
-// nextReviewOn. `manual` means review is due immediately (today).
-const CADENCE_INTERVAL_DAYS: Record<string, number> = {
-  daily: 1,
-  weekly: 7,
-  monthly: 30,
-  quarterly: 91,
-  annually: 365,
-  'per-term': 1096,
-  'per-document': 365,
-  manual: 0,
-  'event-driven': 91,
-};
-
 // Domains whose NEW records always require an independent reviewer.
+// (Risk centralization in lib/policy.ts takes over this rule in Phase 5.)
 const HIGH_RISK_DOMAINS = new Set(['government', 'emergency', 'health', 'transparency', 'legislation']);
 
 export const NEWS_AUTO_PRINCIPAL = 'news-auto-path';
 const NEWS_AUTO_REGISTRY = 'lgu-facebook-cio';
-
-function addDays(date: string, days: number): string {
-  const dt = new Date(date + 'T00:00:00Z');
-  dt.setUTCDate(dt.getUTCDate() + days);
-  return dt.toISOString().slice(0, 10);
-}
 
 function resolveReviewer(explicit?: string): string {
   if (explicit) return explicit;
@@ -130,7 +112,7 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
         lastVerified: today,
         acceptedBy: NEWS_AUTO_PRINCIPAL,
         acceptedAt: today,
-        nextReviewOn: addDays(today, CADENCE_INTERVAL_DAYS['weekly']),
+        nextReviewOn: nextReviewDate('weekly', today),
         updateCadence: 'weekly',
         collectedBy: candidate.collectedBy,
         notes: candidate.notes,
@@ -158,7 +140,6 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
         acceptedAt: existing.acceptedAt,
         sourceIds: existing.sourceIds,
       };
-      const interval = CADENCE_INTERVAL_DAYS[existing.updateCadence] ?? 91;
       records.set(id, {
         ...existing,
         data: candidate.data,
@@ -168,13 +149,13 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
         lastVerified: today,
         acceptedBy: reviewer,
         acceptedAt: today,
-        nextReviewOn: addDays(today, interval),
+        nextReviewOn: nextReviewDate(existing.updateCadence, today),
         collectedBy: candidate.collectedBy,
         history: [...history, revision],
       });
     } else {
       const cadence = options.cadence ?? 'quarterly';
-      if (!(cadence in CADENCE_INTERVAL_DAYS)) throw new Error(`promote: unknown cadence: ${cadence}`);
+      if (!(cadence in CADENCE_POLICY)) throw new Error(`promote: unknown cadence: ${cadence}`);
       records.set(id, {
         id: candidate.id,
         domain: candidate.domain,
@@ -187,7 +168,7 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
         lastVerified: today,
         acceptedBy: reviewer,
         acceptedAt: today,
-        nextReviewOn: addDays(today, CADENCE_INTERVAL_DAYS[cadence]),
+        nextReviewOn: nextReviewDate(cadence as CivicRecord['updateCadence'], today),
         updateCadence: cadence as CivicRecord['updateCadence'],
         collectedBy: candidate.collectedBy,
         notes: candidate.notes,

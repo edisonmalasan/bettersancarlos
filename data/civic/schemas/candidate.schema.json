@@ -55,6 +55,12 @@
       "additionalProperties": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
     },
     "sourceIds": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "sourceInstanceIds": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Exact retrieved-evidence instances backing this candidate (research/runs/<run-id>/source-instances.json). Registry IDs in sourceIds alone never satisfy canonical provenance."
+    },
     "status": { "const": "provisional" },
     "collectedBy": { "type": "string", "minLength": 1 },
     "runId": { "type": "string", "minLength": 1 },

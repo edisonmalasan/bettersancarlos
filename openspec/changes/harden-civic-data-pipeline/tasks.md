@@ -1,8 +1,8 @@
 ## 1. Policy and schemas
 
-- [ ] 1.1 Create `scripts/data/lib/policy.ts` with the shared cadence table (days + time-based flags per D6), `nextReviewDate()`, `isTimeBasedCadence()`, `isHighRisk()`, `isPublishedStatus()`, `isSuccessfulCollectionOutcome()`, and the retry table; verify with `bun test` unit cases for every cadence and the high-risk domain/type matrix
-- [ ] 1.2 Add JSON Schemas for `source-instances.json` and extend the manifest/candidate/record schemas with versioned, backwards-compatible instance-link fields; verify each schema loads and the existing fixtures still validate against them
-- [ ] 1.3 Delete the duplicated `CADENCE_DAYS` / `CADENCE_INTERVAL_DAYS` maps and rewire `refresh.ts` + `promote.ts` to the policy module with no behavior change; verify `bun test` passes unchanged and `data:validate` output is identical
+- [x] 1.1 Create `scripts/data/lib/policy.ts` with the shared cadence table (days + time-based flags per D6), `nextReviewDate()`, `isTimeBasedCadence()`, `isHighRisk()`, `isPublishedStatus()`, `isSuccessfulCollectionOutcome()`, and the retry table; verify with `bun test` unit cases for every cadence and the high-risk domain/type matrix
+- [x] 1.2 Add JSON Schemas for `source-instances.json` and extend the manifest/candidate/record schemas with versioned, backwards-compatible instance-link fields; verify each schema loads and the existing fixtures still validate against them
+- [x] 1.3 Delete the duplicated `CADENCE_DAYS` / `CADENCE_INTERVAL_DAYS` maps and rewire `refresh.ts` + `promote.ts` to the policy module with no behavior change; verify `bun test` passes unchanged and `data:validate` output is identical
 
 ## 2. Exact provenance
 

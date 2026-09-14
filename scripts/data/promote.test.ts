@@ -102,8 +102,9 @@ test('promotion accepts a changed candidate and preserves history (scenario F)',
     assert.equal(record.acceptedBy, 'reviewer');
     assert.equal(record.acceptedAt, '2026-09-14');
     assert.equal(record.lastVerified, '2026-09-14');
-    // Quarterly cadence from 2026-09-14 recomputes the review date.
-    assert.equal(record.nextReviewOn, '2026-12-14');
+    // Quarterly cadence from 2026-09-14 recomputes the review date (92-day
+    // shared policy window).
+    assert.equal(record.nextReviewOn, '2026-12-15');
     assert.equal(record.history.length, 1);
     assert.deepEqual(record.history[0].data, { name: 'Juan Dela Cruz' });
   } finally {

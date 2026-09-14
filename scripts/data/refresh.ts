@@ -12,6 +12,7 @@ import {
   writeMarkdown,
   type RunHandle,
 } from './lib/runs';
+import { isTimeBasedCadence, cadenceWindowDays } from './lib/policy';
 import { runsDir } from './lib/paths';
 import type { Candidate } from './lib/civic';
 
@@ -26,23 +27,14 @@ export interface RefreshOptions {
   date?: string;
 }
 
-// Cadence to re-check interval. Null means "never automatically due":
-// per-term, per-document, manual, and event-driven sources are collected
-// only when explicitly requested.
-const CADENCE_DAYS: Record<string, number | null> = {
-  daily: 1,
-  weekly: 7,
-  monthly: 30,
-  quarterly: 91,
-  annually: 365,
-  'per-term': null,
-  'per-document': null,
-  manual: null,
-  'event-driven': null,
-};
-
+// Cadence to re-check interval, shared with promote/validate via lib/policy
+// (monthly/quarterly/annually use the spec'd 31/92/366-day windows). Null
+// means "never automatically due": per-term, per-document, and manual sources
+// are collected only when explicitly requested. Note event-driven sources are
+// auto-due per the shared policy (yearly window), unlike the old local map.
 export function cadenceDueDays(cadence: string): number | null {
-  return CADENCE_DAYS[cadence] ?? null;
+  if (!isTimeBasedCadence(cadence)) return null;
+  return cadenceWindowDays(cadence);
 }
 
 function lastCheckedAt(root: string, registryId: string): string | null {

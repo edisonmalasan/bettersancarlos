@@ -1,51 +1,137 @@
 {
-    "_status":  "verified",
-    "_source":  "research/news/26-09-news-current-events.md (PNA, Rappler/Comelec, official LGU announcements)",
-    "news":  [
-                 {
-                     "id":  "fire-old-public-market-2024",
-                     "title":  "Fire razes old public market in San Carlos City",
-                     "date":  "2024-08-22",
-                     "category":  "Advisory",
-                     "badge":  "danger",
-                     "summary":  "A structure fire razed the old public market in San Carlos City, Pangasinan. Vendors were relocated while the city assesses rebuilding plans (Philippine News Agency).",
-                     "url":  "https://www.pna.gov.ph/articles/1231749"
-                 },
-                 {
-                     "id":  "resuello-re-elected-2025",
-                     "title":  "Resuello, Resuello re-elected in 2025 local elections",
-                     "date":  "2025-05-12",
-                     "category":  "Election",
-                     "badge":  "info",
-                     "summary":  "Mayor Julier \"Ayoy\" Resuello and Vice Mayor Joseres \"Bogs\" Resuello were re-elected in the May 12, 2025 national and local elections along with 10 city councilors (Comelec media server via Rappler).",
-                     "url":  "https://ph.rappler.com/elections/2025/local-race/pangasinan/san-carlos-city"
-                 },
-                 {
-                     "id":  "sglg-award",
-                     "title":  "San Carlos City secures Seal of Good Local Governance",
-                     "date":  "2025-12-07",
-                     "category":  "Award",
-                     "badge":  "success",
-                     "summary":  "The city government announced securing the Seal of Good Local Governance (SGLG), citing excellence in governance standards (official LGU announcement, archived).",
-                     "url":  "https://web.archive.org/web/20251207010329/https://www.sancarlospangasinan.gov.ph/san-carlos-city-pangasinan-a-beacon-of-excellence-in-governance-securing-the-seal-of-good-local-governance-sglg-award"
-                 },
-                 {
-                     "id":  "cenpelco-mass-disconnection-2024",
-                     "title":  "CENPELCO announces mass disconnection drive",
-                     "date":  "2024-01-15",
-                     "category":  "Advisory",
-                     "badge":  "warning",
-                     "summary":  "The Central Pangasinan Electric Cooperative (CENPELCO) implemented a mass disconnection of delinquent accounts in San Carlos starting January 2024, citing the Magna Carta for Electricity Consumers (official LGU announcement, archived).",
-                     "url":  "https://web.archive.org/web/20251207004003/https://www.sancarlospangasinan.gov.ph/cenpelcos-implementation-of-mass-disconnection-in-san-carlos-pangasinan"
-                 },
-                 {
-                     "id":  "drug-cleared-barangays-2025",
-                     "title":  "2 more barangays declared drug-cleared",
-                     "date":  "2025-07-08",
-                     "category":  "Public Safety",
-                     "badge":  "success",
-                     "summary":  "The city announced two additional drug-cleared barangays as part of its anti-illegal drugs program (official LGU announcement, archived).",
-                     "url":  "https://web.archive.org/web/20250708072406/https://www.sancarlospangasinan.gov.ph/2-drug-cleared-barangays-in-the-city"
-                 }
-             ]
+    "_status": "verified",
+    "_source": "research/news/26-09-news-current-events.md (PNA, Rappler/Comelec, official LGU announcements)",
+    "_note": "recency: 'current' = recent or ongoing relevance; 'historical' = no longer current but meaningful context (archived old-site news, 2016-2023).",
+    "news": [
+        {
+            "id": "fire-old-public-market-2024",
+            "title": "Fire razes old public market in San Carlos City",
+            "date": "2024-08-22",
+            "category": "Advisory",
+            "badge": "danger",
+            "summary": "A structure fire razed the old public market in San Carlos City, Pangasinan. Vendors were relocated while the city assesses rebuilding plans (Philippine News Agency).",
+            "url": "https://www.pna.gov.ph/articles/1231749",
+            "recency": "current"
+        },
+        {
+            "id": "resuello-re-elected-2025",
+            "title": "Resuello, Resuello re-elected in 2025 local elections",
+            "date": "2025-05-12",
+            "category": "Election",
+            "badge": "info",
+            "summary": "Mayor Julier \"Ayoy\" Resuello and Vice Mayor Joseres \"Bogs\" Resuello were re-elected in the May 12, 2025 national and local elections along with 10 city councilors (Comelec media server via Rappler).",
+            "url": "https://ph.rappler.com/elections/2025/local-race/pangasinan/san-carlos-city",
+            "recency": "current"
+        },
+        {
+            "id": "sglg-award",
+            "title": "San Carlos City secures Seal of Good Local Governance",
+            "date": "2025-12-07",
+            "category": "Award",
+            "badge": "success",
+            "summary": "The city government announced securing the Seal of Good Local Governance (SGLG), citing excellence in governance standards (official LGU announcement, archived).",
+            "url": "https://web.archive.org/web/20251207010329/https://www.sancarlospangasinan.gov.ph/san-carlos-city-pangasinan-a-beacon-of-excellence-in-governance-securing-the-seal-of-good-local-governance-sglg-award",
+            "recency": "current"
+        },
+        {
+            "id": "cenpelco-mass-disconnection-2024",
+            "title": "CENPELCO announces mass disconnection drive",
+            "date": "2024-01-15",
+            "category": "Advisory",
+            "badge": "warning",
+            "summary": "The Central Pangasinan Electric Cooperative (CENPELCO) implemented a mass disconnection of delinquent accounts in San Carlos starting January 2024, citing the Magna Carta for Electricity Consumers (official LGU announcement, archived).",
+            "url": "https://web.archive.org/web/20251207004003/https://www.sancarlospangasinan.gov.ph/cenpelcos-implementation-of-mass-disconnection-in-san-carlos-pangasinan",
+            "recency": "current"
+        },
+        {
+            "id": "drug-cleared-barangays-2025",
+            "title": "2 more barangays declared drug-cleared",
+            "date": "2025-07-08",
+            "category": "Public Safety",
+            "badge": "success",
+            "summary": "The city announced two additional drug-cleared barangays as part of its anti-illegal drugs program (official LGU announcement, archived).",
+            "url": "https://web.archive.org/web/20250708072406/https://www.sancarlospangasinan.gov.ph/2-drug-cleared-barangays-in-the-city",
+            "recency": "current"
+        },
+        {
+            "id": "cdrrmo-earthquake-drill-2023",
+            "title": "CDRRMO holds earthquake drill at BJMP compound",
+            "date": "2023-03-15",
+            "category": "Disaster Preparedness",
+            "badge": "info",
+            "summary": "The City Disaster Risk Reduction and Management Office conducted an earthquake drill at the BJMP compound as part of the city's preparedness program (old official site, archived).",
+            "url": "https://web.archive.org/web/20230324085427/http://sancarloscitypangasinan.gov.ph/2023/03/15/cdrrmo-holds-earthquake-drill-in-bjmp-compound/",
+            "recency": "historical"
+        },
+        {
+            "id": "bfp-tree-planting-2023",
+            "title": "BFP San Carlos leads tree planting",
+            "date": "2023-03-15",
+            "category": "Environment",
+            "badge": "success",
+            "summary": "The Bureau of Fire Protection San Carlos led a tree-planting activity with city personnel (old official site, archived).",
+            "url": "https://web.archive.org/web/20230401225642/http://sancarloscitypangasinan.gov.ph/2023/03/15/bfp-san-carlos-leads-tree-planting/",
+            "recency": "historical"
+        },
+        {
+            "id": "babay-asf-program-2023",
+            "title": "City intensifies ASF disease control program (\"Babay ASF\")",
+            "date": "2023-03-15",
+            "category": "Agriculture",
+            "badge": "warning",
+            "summary": "The city government intensified its African Swine Fever disease-control program, \"Babay ASF\", to protect local hog raisers (old official site, archived).",
+            "url": "https://web.archive.org/web/20230324082943/http://sancarloscitypangasinan.gov.ph/2023/03/15/city-intensifies-asf-disease-control-program-and-babay-asf/",
+            "recency": "historical"
+        },
+        {
+            "id": "womens-month-2023",
+            "title": "National Women's Month celebrations",
+            "date": "2023-03-23",
+            "category": "Community",
+            "badge": "info",
+            "summary": "The city marked National Women's Month, including a City Environment Management Office engagement on plastic-use regulation (old official site, archived).",
+            "url": "https://web.archive.org/web/20230530220949/http://sancarloscitypangasinan.gov.ph/2023/03/23/national-womens-month/",
+            "recency": "historical"
+        },
+        {
+            "id": "sports-fests-2022",
+            "title": "City joins volleyball, football, taekwondo, and triathlon festivals",
+            "date": "2022-11-21",
+            "category": "Sports",
+            "badge": "info",
+            "summary": "San Carlos athletes took part in volleyball and football festivals, taekwondo meets, and a local triathlon as part of the city's sports-development push (old official site, archived).",
+            "url": "https://web.archive.org/web/20230401232656/http://sancarloscitypangasinan.gov.ph/2022/11/21/triathletes-from-all-over-the-philippines-competed-in-the-local-triathlon-event/",
+            "recency": "historical"
+        },
+        {
+            "id": "mr-ms-san-carlos-2018",
+            "title": "Mr. & Ms. San Carlos City 2018 pageant and sculpture unveiling",
+            "date": "2018-01-30",
+            "category": "Community",
+            "badge": "info",
+            "summary": "The Mr. & Ms. San Carlos City 2018 pageant was held alongside the unveiling of a life-size sculpture (old official site, archived).",
+            "url": "https://web.archive.org/web/20200216195924/http://sancarloscitypangasinan.gov.ph/index.php/2018/01/30/mr-miss-san-carlos-city-2018/",
+            "recency": "historical"
+        },
+        {
+            "id": "soca-first-100-days-2016",
+            "title": "State of the City Address - first 100 days of Mayor Joseres Resuello",
+            "date": "2016-10-18",
+            "category": "Governance",
+            "badge": "info",
+            "summary": "Mayor Joseres S. Resuello delivered his first State of the City Address covering his first 100 days in office (old official site, archived).",
+            "url": "https://web.archive.org/web/20170708091638/http://sancarloscitypangasinan.gov.ph/index.php/2016/10/18/statement-of-the-city-address-1st-100-days-hon-joseres-s-resuello/",
+            "recency": "historical"
+        },
+        {
+            "id": "drug-cleared-barangays-2022",
+            "title": "Two barangays declared drug-cleared",
+            "date": "2022-05-01",
+            "category": "Public Safety",
+            "badge": "success",
+            "summary": "The city announced two barangays declared drug-cleared under its anti-illegal drugs program (LGU site, archived).",
+            "url": "https://web.archive.org/web/20250708072406/https://www.sancarlospangasinan.gov.ph/2-drug-cleared-barangays-in-the-city",
+            "recency": "historical"
+        }
+    ]
 }

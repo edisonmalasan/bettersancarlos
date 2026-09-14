@@ -38,6 +38,7 @@ export default function Hero3DLogo() {
     let resizeObserver: ResizeObserver | null = null;
     let envTexture: ThreeTypes.Texture | null = null;
     let pmremGenerator: ThreeTypes.PMREMGenerator | null = null;
+    let timerRef: ThreeTypes.Timer | null = null;
 
     const start = (tick: () => void) => {
       if (!running && !reduced && !document.hidden) {
@@ -81,6 +82,8 @@ export default function Hero3DLogo() {
       }
       envTexture?.dispose();
       pmremGenerator?.dispose();
+      timerRef?.dispose();
+      timerRef = null;
       renderer?.dispose();
       renderer?.forceContextLoss();
       renderer = null;
@@ -117,6 +120,10 @@ export default function Hero3DLogo() {
         renderer.outputColorSpace = THREE.SRGBColorSpace;
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         renderer.toneMappingExposure = 1.12;
+        // Silence benign ANGLE/D3D driver info-log spam (e.g. X4122): three.js
+        // production guidance is to disable shader-error logging; programs
+        // compile identically and real failures still hit the PNG fallback below.
+        renderer.debug.checkShaderErrors = false;
 
         const scene = new THREE.Scene();
         pmremGenerator = new THREE.PMREMGenerator(renderer);
@@ -132,8 +139,9 @@ export default function Hero3DLogo() {
 
         const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
 
+        const loader = new GLTFLoader();
         const gltf = await new Promise<GLTF>((resolve, reject) => {
-          new GLTFLoader().load(MODEL_URL, resolve, undefined, reject);
+          loader.load(MODEL_URL, resolve, undefined, reject);
         });
         if (disposed) {
           cleanup(listeners, scene);
@@ -173,7 +181,8 @@ export default function Hero3DLogo() {
         const finePointerQuery = window.matchMedia('(pointer: fine)');
         reduced = reducedQuery.matches;
 
-        const clock = new THREE.Clock();
+        const timer = new THREE.Timer();
+        timerRef = timer;
         let tiltX = 0;
         let tiltY = 0;
         let targetTiltX = 0;
@@ -223,8 +232,9 @@ export default function Hero3DLogo() {
 
         const tick = () => {
           if (!running || !renderer) return;
-          const dt = clock.getDelta();
-          const t = clock.elapsedTime;
+          timer.update();
+          const dt = timer.getDelta();
+          const t = timer.getElapsed();
           const ease = 1 - Math.exp(-dt * EASE_FACTOR);
           tiltX += (targetTiltX - tiltX) * ease;
           tiltY += (targetTiltY - tiltY) * ease;

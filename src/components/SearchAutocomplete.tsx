@@ -585,15 +585,15 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
     // `search-suggestion-item` / `search-result-item` / `selected` names are
     // kept because keyboard navigation queries/toggles them via classList.
     const filterBtnCls = (isActive: boolean) =>
-      `shrink-0 cursor-pointer whitespace-nowrap rounded-full border px-3.5 py-1.5 text-xs font-medium transition-all duration-200 ${
+      `shrink-0 cursor-pointer whitespace-nowrap rounded-full border px-3.5 py-1.5 text-xs font-medium transition-[border-color,background-color,color] duration-200 ${
         isActive
           ? 'border-primary bg-gradient-to-br from-primary to-[#2f6136] text-white shadow-[0_2px_8px_rgba(58, 125, 68,0.3)]'
           : 'border-[rgba(58, 125, 68,0.15)] bg-white text-[#555] hover:border-primary hover:bg-[rgba(58, 125, 68,0.04)] hover:text-primary'
       }`;
     const suggestionItemCls =
-      'search-suggestion-item flex items-center border-l-[3px] border-l-transparent px-4 py-[11px] text-left text-sm text-[#333] no-underline transition-all duration-150 hover:border-l-primary hover:bg-gradient-to-r hover:from-[rgba(58, 125, 68,0.06)] hover:to-[rgba(58, 125, 68,0.02)] hover:text-primary hover:no-underline [&.selected]:border-l-primary [&.selected]:bg-gradient-to-r [&.selected]:from-[rgba(58, 125, 68,0.06)] [&.selected]:to-[rgba(58, 125, 68,0.02)] [&.selected]:text-primary [&_i]:mr-2.5 [&_i]:text-[0.8125rem] [&_i]:text-[#999] [&_i]:transition-colors hover:[&_i]:text-primary [&.selected]:[&_i]:text-primary';
+      'search-suggestion-item flex items-center border-l-[3px] border-l-transparent px-4 py-[11px] text-left text-sm text-foreground no-underline transition-[border-color,background-color,color] duration-200 hover:border-l-primary hover:bg-gradient-to-r hover:from-[rgba(58, 125, 68,0.06)] hover:to-[rgba(58, 125, 68,0.02)] hover:text-primary hover:no-underline [&.selected]:border-l-primary [&.selected]:bg-gradient-to-r [&.selected]:from-[rgba(58, 125, 68,0.06)] [&.selected]:to-[rgba(58, 125, 68,0.02)] [&.selected]:text-primary [&_i]:mr-2.5 [&_i]:text-[0.8125rem] [&_i]:text-[#999] [&_i]:transition-colors hover:[&_i]:text-primary [&.selected]:[&_i]:text-primary';
     const resultItemCls =
-      'search-result-item block border-b border-l-[3px] border-b-[rgba(58, 125, 68,0.06)] border-l-transparent px-4 py-[14px] text-left text-[#2f3e46] no-underline transition-all duration-150 last:border-b-0 hover:border-l-primary hover:bg-gradient-to-r hover:from-[rgba(58, 125, 68,0.06)] hover:to-[rgba(58, 125, 68,0.02)] hover:no-underline [&.selected]:border-l-primary [&.selected]:bg-gradient-to-r [&.selected]:from-[rgba(58, 125, 68,0.06)] [&.selected]:to-[rgba(58, 125, 68,0.02)]';
+      'search-result-item block border-b border-l-[3px] border-b-line-soft border-l-transparent px-4 py-[14px] text-left text-foreground no-underline transition-[border-color,background-color,color] duration-200 last:border-b-0 hover:border-l-primary hover:bg-gradient-to-r hover:from-[rgba(58, 125, 68,0.06)] hover:to-[rgba(58, 125, 68,0.02)] hover:no-underline [&.selected]:border-l-primary [&.selected]:bg-gradient-to-r [&.selected]:from-[rgba(58, 125, 68,0.06)] [&.selected]:to-[rgba(58, 125, 68,0.02)]';
     const sectionHeaderCls =
       'flex items-center justify-between px-4 pb-2 pt-3 text-[0.6875rem] font-semibold uppercase tracking-[0.5px] text-[#888] [&_i]:mr-[5px] [&_i]:text-primary';
 
@@ -607,7 +607,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
 
       return (
         <div
-          className="search-autocomplete absolute left-0 right-0 top-[calc(100%+6px)] z-[100] overflow-hidden rounded-[10px] border border-[rgba(58, 125, 68,0.12)] bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_6px_rgba(0,0,0,0.04)]"
+          className="search-autocomplete absolute left-0 right-0 top-[calc(100%+6px)] z-[100] overflow-hidden rounded-lg border border-[rgba(58, 125, 68,0.12)] bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08),0_2px_6px_rgba(0,0,0,0.04)]"
           role="listbox"
           aria-label="Search suggestions"
         >
@@ -636,7 +636,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
           )}
 
           {loading && (
-            <div className="flex items-center justify-center p-6 text-sm text-[#5c6b73]">
+            <div className="flex items-center justify-center p-6 text-sm text-muted-foreground">
               <span className="mr-2.5 h-5 w-5 animate-[searchSpin_0.8s_linear_infinite] rounded-full border-2 border-[rgba(58, 125, 68,0.2)] border-t-primary" aria-hidden="true"></span>
               <span>Loading services…</span>
             </div>
@@ -724,7 +724,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
           )}
 
           {!loading && results.length === 0 && query.trim().length >= 2 && (
-            <div className="px-6 py-8 text-center text-[#5c6b73]">
+            <div className="px-6 py-8 text-center text-muted-foreground">
               <i className="bi bi-search mb-3 block text-[2.5rem] text-[rgba(58, 125, 68,0.2)]"></i>
               <p className="m-0 mb-1.5 font-semibold text-[#333]">No services found</p>
               <small className="text-[0.8125rem] text-[#888]">Try different keywords or check spelling</small>
@@ -759,7 +759,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
                         )}
                     </div>
                     <div className="mb-1.5 flex flex-wrap gap-3 text-xs [&_i]:text-[0.6875rem] [&_i]:opacity-80 [&_span]:inline-flex [&_span]:items-center [&_span]:gap-[5px]">
-                      <span className="rounded bg-[rgba(0,0,0,0.04)] px-2 py-0.5 text-[#5c6b73]">
+                      <span className="rounded bg-[rgba(0,0,0,0.04)] px-2 py-0.5 text-muted-foreground">
                         <i className="bi bi-folder"></i> {result.category}
                       </span>
                       {result.fee && (
@@ -779,7 +779,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
                       </div>
                     )}
                     {result.description && (
-                      <div className="truncate text-[0.8125rem] leading-[1.4] text-[#5c6b73]">{result.description}</div>
+                      <div className="truncate text-[0.8125rem] leading-[1.4] text-muted-foreground">{result.description}</div>
                     )}
                   </a>
                 );
@@ -813,7 +813,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
           ref={inputRef}
           type="search"
           id="hero-search"
-          className="service-search-input w-full rounded-[10px] border-2 border-[#e2e8e0] bg-[#fafbfc] px-4 py-[14px] font-sans text-base text-foreground transition-all placeholder:text-[#9ca3af] hover:border-[#d0d5dd] hover:bg-white focus:border-primary focus:bg-white focus:outline-none focus:ring-4 focus:ring-[rgba(58, 125, 68,0.1)]"
+          className="service-search-input w-full rounded-lg border-2 border-line bg-[#fafbfc] px-4 py-[14px] font-sans text-base text-foreground transition-[border-color,background-color,box-shadow] duration-200 placeholder:text-[#9ca3af] hover:border-[#d0d5dd] hover:bg-white focus:border-primary focus:bg-white focus:outline-none focus:ring-4 focus:ring-[rgba(58, 125, 68,0.1)]"
           value={query}
           onChange={(e) => handleInput(e.target.value)}
           onFocus={handleFocus}

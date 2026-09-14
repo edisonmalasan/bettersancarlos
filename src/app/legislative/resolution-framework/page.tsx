@@ -24,8 +24,8 @@ export default function ResolutionFrameworkPage() {
     const previousYear = resolutions.filter((r) => r.sessionDate.startsWith('2025'));
 
     const renderTable = (items: Resolution[], year: string) => (
-        <div className="mb-6 overflow-hidden rounded-xl border border-black/[0.06] bg-white shadow-[0_2px_4px_rgba(0,0,0,0.05)]" key={year}>
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-black/[0.06] p-6 max-[767px]:p-4">
+        <div className="mb-6 overflow-hidden rounded-xl border border-line bg-white shadow-[0_2px_4px_rgba(0,0,0,0.05)]" key={year}>
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-line p-6 max-[767px]:p-4">
                 <div className="flex items-center gap-3">
                     <i className="bi bi-file-earmark-ruled-fill text-xl text-primary"></i>
                     <h2 className="m-0 text-[1.25rem] font-bold text-foreground">Resolutions {year}</h2>
@@ -86,7 +86,7 @@ export default function ResolutionFrameworkPage() {
                     {renderTable(currentYear, '2026')}
                     {renderTable(previousYear, '2025')}
 
-                    <div className="flex gap-4 rounded-xl border border-black/[0.06] bg-white p-6 shadow-[0_2px_4px_rgba(0,0,0,0.05)] max-[767px]:flex-col max-[767px]:p-4">
+                    <div className="flex gap-4 rounded-xl border border-line bg-white p-6 shadow-[0_2px_4px_rgba(0,0,0,0.05)] max-[767px]:flex-col max-[767px]:p-4">
                         <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary text-xl text-white"><i className="bi bi-info-circle-fill"></i></div>
                         <div className="min-w-0 flex-1">
                             <h3 className="mb-2 text-[1.125rem] font-bold text-foreground">About Sangguniang Bayan Resolutions</h3>
@@ -97,14 +97,14 @@ export default function ResolutionFrameworkPage() {
                                 for policies and programs affecting the City of San Carlos.
                             </p>
                             <div className="flex flex-wrap gap-3">
-                                <Link href="/legislative" className="inline-flex items-center gap-2 rounded-lg border-2 border-primary bg-white px-6 py-3 font-semibold text-primary no-underline transition-all duration-200 hover:bg-muted hover:no-underline focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)] max-[767px]:px-5 max-[767px]:py-2.5 max-[767px]:text-[0.9375rem]">
+                                <Link href="/legislative" className="inline-flex items-center gap-2 rounded-lg border-2 border-primary bg-white px-6 py-3 font-semibold text-primary no-underline transition-[background-color,box-shadow,transform] duration-200 hover:bg-muted hover:no-underline focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)] max-[767px]:px-5 max-[767px]:py-2.5 max-[767px]:text-[0.9375rem]">
                                     <i className="bi bi-arrow-left"></i> Back to Legislative
                                 </Link>
                                 <a
                                     href="https://www.officialgazette.gov.ph/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-lg border-2 border-primary bg-primary px-6 py-3 font-semibold text-white no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#2f6136] hover:no-underline hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)] max-[767px]:px-5 max-[767px]:py-2.5 max-[767px]:text-[0.9375rem]"
+                                    className="inline-flex items-center gap-2 rounded-lg border-2 border-primary bg-primary px-6 py-3 font-semibold text-white no-underline transition-[background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:bg-[#2f6136] hover:no-underline hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)] active:scale-[0.97] focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)] max-[767px]:px-5 max-[767px]:py-2.5 max-[767px]:text-[0.9375rem]"
                                 >
                                     <i className="bi bi-box-arrow-up-right"></i> Visit SB Website
                                 </a>

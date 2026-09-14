@@ -1,0 +1,46 @@
+{
+  "_schema_version": "1.0",
+  "_status": "partially-verified",
+  "_updated": "2026-09-04",
+  "_source": "research/utilities/26-09-public-utilities.md; research/utilities/26-09-cenpelco-contacts.md",
+  "_note": "Electricity provider is confirmed by an official LGU-issued notice and the CENPELCO website (cenpelco.com, accessed 2026-09-04). CENPELCO customer-service hotlines, email, and office addresses were NOT published and must be verified with CENPELCO/NEA. Water, telecom, cable, and sewage providers are not verified - do not invent or publish contacts.",
+  "electricity": {
+    "provider": "Central Pangasinan Electric Cooperative, Inc. (CENPELCO)",
+    "role": "Electric distribution cooperative serving San Carlos City and central Pangasinan",
+    "evidence": [
+      "Official City Government notice \"CENPELCO's Implementation of Mass Disconnection in San Carlos, Pangasinan\" (LGU site, archived 2025-12-07)",
+      "CENPELCO website confirms San Carlos City is served via its \"San Carlos City (Main)\" area office"
+    ],
+    "website": "https://cenpelco.com/",
+    "website_features": ["Rate information / Rate archives", "Online bill inquiry", "Main and area office listings", "Coverage area map", "Advisories"],
+    "branches": [
+      "San Carlos City (Main)",
+      "Mangaldan",
+      "Lingayen",
+      "Bugallon",
+      "Sual",
+      "Labrador",
+      "Bayambang",
+      "Malasiqui",
+      "Binmaley",
+      "Mangatarem",
+      "Aguilar",
+      "Basista",
+      "Urbiztondo",
+      "Alcala",
+      "Bautista"
+    ],
+    "contact_gaps": "Customer hotlines, email, main office street address, office hours, and the San Carlos City (Main) direct phone are unverified - obtain from CENPELCO/NEA.",
+    "magna_carta_note": "The LGU disconnection notice references the Magna Carta for Electricity Consumers, which provides a 48-hour grace period after a disconnection notice before power is cut."
+  },
+  "water": {
+    "status": "unverified",
+    "note": "The water district serving San Carlos City could not be authoritatively confirmed; a separate San Carlos City Water District may or may not exist. Confirmation needed with LWUA and the city. Do not publish any water utility contact without official confirmation."
+  },
+  "telecom": {
+    "status": "not researched",
+    "note": "Telco coverage (fixed line, mobile, broadband ISPs) has not been confirmed with operators. The eBPLS portal and the city website run online, indicating commercial broadband availability in the urban Poblacion."
+  },
+  "cable_tv": { "status": "not researched" },
+  "sewage": { "status": "not researched", "note": "Likely managed under city engineering/general services; no public data found." }
+}

@@ -11,12 +11,12 @@ function isMobileNav(): boolean {
 }
 
 const langBtnBase =
-  'inline-block cursor-pointer rounded-lg border-2 border-primary bg-white px-2.5 py-1.5 font-sans text-xs font-semibold text-primary opacity-70 transition-all duration-200 hover:border-primary hover:bg-primary hover:text-white hover:opacity-100 max-[1024px]:px-[9px] max-[1024px]:py-[5px] max-[1024px]:text-[0.6875rem] max-[767px]:px-2 max-[767px]:py-1';
+  'inline-block cursor-pointer rounded-lg border-2 border-primary bg-white px-2.5 py-1.5 font-sans text-xs font-semibold text-primary opacity-70 transition-[border-color,background-color,color,opacity] duration-200 hover:border-primary hover:bg-primary hover:text-white hover:opacity-100 max-[1024px]:px-[9px] max-[1024px]:py-[5px] max-[1024px]:text-[0.6875rem] max-[767px]:px-2 max-[767px]:py-1';
 
 const langBtnActive = 'border-primary bg-primary text-white opacity-100';
 
 const navLinkBase =
-  'font-medium text-[#2f3e46] select-none [-webkit-tap-highlight-color:transparent] hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:-outline-offset-2 max-[1024px]:block max-[1024px]:rounded-md max-[1024px]:px-4 max-[1024px]:py-3 max-[1024px]:hover:bg-[#faf9f6]';
+  'font-medium text-foreground select-none [-webkit-tap-highlight-color:transparent] hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:-outline-offset-2 max-[1024px]:block max-[1024px]:rounded-md max-[1024px]:px-4 max-[1024px]:py-3 max-[1024px]:hover:bg-muted';
 
 const caretBase =
   'after:ml-1.5 after:inline-block after:h-0 after:w-0 after:border-x-4 after:border-t-4 after:border-x-transparent after:align-middle after:transition-transform after:duration-200 max-[1024px]:flex max-[1024px]:items-center max-[1024px]:justify-between max-[1024px]:after:ml-auto max-[1024px]:after:shrink-0';
@@ -131,14 +131,14 @@ export default function Header() {
 
   const dropdownMenuCls = (open: boolean) =>
     cn(
-      'flex flex-col gap-0 rounded-none bg-transparent p-0 shadow-none transition-[max-height,opacity,padding,visibility] duration-300 max-[1024px]:overflow-hidden min-[1025px]:invisible min-[1025px]:absolute min-[1025px]:left-0 min-[1025px]:top-full min-[1025px]:z-[1001] min-[1025px]:min-w-[220px] min-[1025px]:translate-y-2.5 min-[1025px]:rounded-lg min-[1025px]:bg-white min-[1025px]:py-2 min-[1025px]:opacity-0 min-[1025px]:shadow-[0_4px_8px_rgba(0,0,0,0.1)] min-[1025px]:transition-all min-[1025px]:duration-200 min-[1025px]:group-hover:visible min-[1025px]:group-hover:translate-y-0 min-[1025px]:group-hover:opacity-100',
+      'flex flex-col gap-0 rounded-none bg-transparent p-0 shadow-none transition-[max-height,opacity,padding,visibility] duration-300 max-[1024px]:overflow-hidden min-[1025px]:invisible min-[1025px]:absolute min-[1025px]:left-0 min-[1025px]:top-full min-[1025px]:z-[1001] min-[1025px]:min-w-[220px] min-[1025px]:translate-y-2.5 min-[1025px]:rounded-lg min-[1025px]:bg-white min-[1025px]:py-2 min-[1025px]:opacity-0 min-[1025px]:shadow-[0_4px_8px_rgba(0,0,0,0.1)] min-[1025px]:transition-[visibility,opacity,transform] min-[1025px]:duration-200 min-[1025px]:group-hover:visible min-[1025px]:group-hover:translate-y-0 min-[1025px]:group-hover:opacity-100',
       open
         ? 'max-[1024px]:visible max-[1024px]:max-h-[500px] max-[1024px]:opacity-100 max-[1024px]:py-1 max-[1024px]:pl-4'
         : 'max-[1024px]:invisible max-[1024px]:max-h-0 max-[1024px]:opacity-0'
     );
 
   const dropdownItemCls =
-    'block whitespace-nowrap px-4 py-2 text-[#2f3e46] transition-colors hover:bg-[#faf9f6] hover:text-primary hover:no-underline max-[1024px]:whitespace-normal max-[1024px]:px-4 max-[1024px]:py-2.5 max-[1024px]:text-[0.9375rem] max-[1024px]:text-[#5c6b73]';
+    'block whitespace-nowrap px-4 py-2 text-foreground transition-colors hover:bg-muted hover:text-primary hover:no-underline max-[1024px]:whitespace-normal max-[1024px]:px-4 max-[1024px]:py-2.5 max-[1024px]:text-[0.9375rem] max-[1024px]:text-muted-foreground';
 
   return (
     <header className="site-header sticky top-0 z-[1000] bg-white py-2 shadow-[0_2px_4px_rgba(0,0,0,0.05)] max-[1024px]:py-2.5 max-[767px]:py-2 max-[480px]:py-1.5">
@@ -161,12 +161,12 @@ export default function Header() {
           ref={navRef}
           className={`max-[1024px]:order-4 max-[1024px]:w-full max-[1024px]:overflow-hidden max-[1024px]:transition-[max-height,opacity,padding,visibility] max-[1024px]:duration-300 ${
             mobileMenuOpen
-              ? 'max-[1024px]:visible max-[1024px]:max-h-[80vh] max-[1024px]:overflow-y-auto max-[1024px]:opacity-100 max-[1024px]:border-t max-[1024px]:border-[#faf9f6] max-[1024px]:pt-4 max-[1024px]:mt-4'
+              ? 'max-[1024px]:visible max-[1024px]:max-h-[80vh] max-[1024px]:overflow-y-auto max-[1024px]:opacity-100 max-[1024px]:border-t max-[1024px]:border-line-soft max-[1024px]:pt-4 max-[1024px]:mt-4'
               : 'max-[1024px]:invisible max-[1024px]:max-h-0 max-[1024px]:opacity-0 max-[1024px]:border-t max-[1024px]:border-transparent max-[1024px]:pt-0 max-[1024px]:mt-0'
           }`}
           aria-label="Main Navigation"
         >
-          <div className={mobileMenuOpen ? 'flex items-center gap-2 border-b border-[#faf9f6] px-4 pb-3 pt-2 lg:hidden' : 'hidden lg:hidden'}>
+          <div className={mobileMenuOpen ? 'flex items-center gap-2 border-b border-line-soft px-4 pb-3 pt-2 lg:hidden' : 'hidden lg:hidden'}>
             <button
               type="button"
               className={cn(langBtnBase, language === 'en' && langBtnActive)}

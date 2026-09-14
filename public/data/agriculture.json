@@ -1,0 +1,34 @@
+{
+  "_schema_version": "1.0",
+  "_status": "partially-verified",
+  "_updated": "2026-09-04",
+  "_source": "research/agriculture/26-09-agriculture.md (LGU/provincial sources; 2008-era statistics)",
+  "_note": "Production statistics are dated (2008) and must be refreshed from DA/PSA agricultural statistics before being treated as current. Volumes, hectarage, and farmer/cooperative registration counts are pending verification.",
+  "identity": {
+    "title": "Mango and Bamboo Capital",
+    "description": "San Carlos City is the provincial and national reference point for carabao mango and bamboo products - the \"Mango and Bamboo Capital of the Philippines\" / \"Mango-Bamboo Capital of the North\" - a major trading center for bamboo-based products and furniture and a top producer of carabao mangoes."
+  },
+  "mango": {
+    "trees_stat": 127000,
+    "trees_stat_year": 2008,
+    "trees_stat_note": "Over 127,000 fruit-bearing mango trees per the LGU tourism page (2008 report)",
+    "products": ["Carabao mango (famous cultivar)", "Other mango varieties", "Mango pie (city set the world's-largest record in 2011)"]
+  },
+  "bamboo": {
+    "products": ["Nipa huts", "Hand-woven baskets", "Furniture", "Cabinets", "Lamp shades", "Related bamboo craft"],
+    "note": "The Mango-Bamboo Festival doubles as a trade hub for producers and traders of bamboo and mango products."
+  },
+  "other_activities": [
+    { "name": "Crop production", "note": "Includes rice-growing areas historically" },
+    { "name": "Livestock raising", "note": "Active ASF disease-control program documented in 2023 city news" },
+    { "name": "Inland fishing", "note": "The city is landlocked - no marine fisheries" },
+    { "name": "Pottery", "note": "" },
+    { "name": "Food processing", "note": "" }
+  ],
+  "offices": [
+    { "name": "City Agriculture Office", "phone": "(075) 955-5826", "phone_status": "historical - re-verify", "head": "Nerissa T. Cabuay (City Agriculturist, 2024 archived LGU directory)" },
+    { "name": "City Veterinarian", "phone": null, "head": "Dr. Solomon T. Gabuyan (2024 archived LGU directory)", "note": "Animal bite/vaccination services" },
+    { "name": "City Cooperative, Entrepreneurship, Livelihood Development Office", "phone": "(075) 955-5852", "phone_status": "historical - re-verify", "head": "Arlaine M. De Vera (2024 archived LGU directory)" }
+  ],
+  "gap_note": "Current production volumes (trees, volumes, hectarage) not yet obtained from DA/PSA agricultural statistics; farmer/cooperative registration count not found; inland fisherfolk programs data not yet compiled."
+}

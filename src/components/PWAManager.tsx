@@ -85,7 +85,7 @@ export default function PWAManager() {
   return (
     <>
       {showInstall && (
-        <div className="fixed bottom-4 left-1/2 z-[10000] flex w-auto max-w-[calc(100%-32px)] -translate-x-1/2 animate-[swBannerIn_0.3s_ease] items-center gap-3 rounded-[10px] bg-primary px-4 py-3 text-sm text-white shadow-[0_4px_20px_rgba(0,0,0,0.25)] max-[767px]:bottom-0 max-[767px]:left-0 max-[767px]:right-0 max-[767px]:max-w-full max-[767px]:translate-x-0 max-[767px]:animate-[swBannerSlideUp_0.3s_ease] max-[767px]:rounded-none max-[767px]:px-4 max-[767px]:py-[14px]" role="alert" aria-live="polite">
+        <div className="fixed bottom-4 left-1/2 z-[10000] flex w-auto max-w-[calc(100%-32px)] -translate-x-1/2 animate-[swBannerIn_0.3s_ease] items-center gap-3 rounded-lg bg-primary px-4 py-3 text-sm text-white shadow-[0_4px_20px_rgba(0,0,0,0.25)] max-[767px]:bottom-0 max-[767px]:left-0 max-[767px]:right-0 max-[767px]:max-w-full max-[767px]:translate-x-0 max-[767px]:animate-[swBannerSlideUp_0.3s_ease] max-[767px]:rounded-none max-[767px]:px-4 max-[767px]:py-[14px]" role="alert" aria-live="polite">
           <div className="flex min-w-0 flex-1 items-center gap-2">
             <i className="bi bi-download shrink-0 text-[1.125rem]" aria-hidden="true"></i>
             <span>Install BetterSanCarlos for quick access to services.</span>

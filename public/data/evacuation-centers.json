@@ -1,0 +1,42 @@
+{
+  "_schema_version": "1.0",
+  "_status": "partially-verified",
+  "_updated": "2026-09-04",
+  "_source": "research/disaster-risk/26-09-disaster-preparedness.md (official LGU pages, archived 2017/2024)",
+  "_note": "Evacuation sites reflect the official city evacuation plan as archived in 2017. Re-verify current evacuation plans and site fit-for-purpose status with the CDRRMO before an emergency. Hazard maps (flood, landslide, liquefaction) are not yet obtained from MGB/DOST/NAMRIA.",
+  "cdrrmo": {
+    "name": "City Disaster Risk Reduction and Management Office (CDRRMO)",
+    "location": "City Hall, San Carlos City",
+    "officer": "Ruby DG. Ballesteros",
+    "officer_status": "City DRRM Officer per the 2024 archived LGU directory",
+    "phone": "(075) 955-5911",
+    "phone_status": "historical - re-verify (2017 archive)",
+    "plan_note": "The official LGU site lists a Disaster Risk Reduction Management Plan menu item (document body not extracted)."
+  },
+  "convergence_areas": [
+    { "name": "Barangay Talang Gym", "type": "Barangay facility" },
+    { "name": "Barangay Tandoc Elementary School", "type": "School" },
+    { "name": "Barangay Turac Elementary School", "type": "School" },
+    { "name": "City Gymnasium, Palaris Street", "type": "City facility" },
+    { "name": "Virgen Milagrosa University Foundation", "type": "University" }
+  ],
+  "high_rise_shelters": [
+    { "name": "Virgen Milagrosa University Foundation", "type": "University" },
+    { "name": "San Carlos College", "type": "HEI" },
+    { "name": "Clark Bible School", "type": "Private school" },
+    { "name": "Therese College Foundation", "type": "HEI" },
+    { "name": "Blessed Family Hospital", "type": "Hospital" },
+    { "name": "De Vera - Fernandez Building", "type": "Private building" },
+    { "name": "Marian College", "type": "HEI" },
+    { "name": "Pangasinan Provincial Hospital", "type": "Province-run hospital" },
+    { "name": "Pangasinan Doctors' Hospital", "type": "Private hospital" },
+    { "name": "San Carlos City Hall", "type": "Government building" }
+  ],
+  "evacuation_data_status": "2017 planning data - re-verify with the CDRRMO; capacities and contact persons unverified",
+  "hazards": [
+    { "name": "Flooding", "note": "Primary hazard: the city sits on the Agno River system and a low-lying plain (elevation ~10-12 m); Agno floodwaters and sustained monsoon/typhoon rainfall." },
+    { "name": "Typhoons", "note": "Pangasinan is typhoon-prone; the inland city is affected by seasonal typhoons." },
+    { "name": "Earthquakes", "note": "Near regional strands of the Philippine Fault System; the city conducts earthquake drills (e.g., BJMP compound, 2023). No local fault map verified." }
+  ],
+  "gap_note": "Official hazard maps (flood, landslide, liquefaction) not yet obtained from MGB Region 1 / DOST-PAGASA / NAMRIA-GeoRiskPH; evacuation center capacities and contacts unverified."
+}

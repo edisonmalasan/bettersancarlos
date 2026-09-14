@@ -1,48 +1,189 @@
 {
-    "_schema_version":  "1.0",
-    "_status":  "verified",
-    "_updated":  "2026-09-04",
-    "_source":  "research/city-profile/26-09-city-profile.md (PSA 2020 CPH via PhilAtlas; Province of Pangasinan; official LGU site)",
-    "official_name":  "City of San Carlos",
-    "local_names":  {
-                        "pangasinan":  "Siyudad na San Carlos",
-                        "ilocano":  "Siudad ti San Carlos",
-                        "filipino":  "Lungsod ng San Carlos"
-                    },
-    "type":  "Component city",
-    "income_class":  "3rd class city",
-    "province":  "Pangasinan",
-    "region":  "Ilocos Region (Region I)",
-    "legislative_district":  "Pangasinan 3rd District",
-    "coordinates":  {
-                        "lat":  15.928056,
-                        "lng":  120.348889
-                    },
-    "elevation_m":  10.8,
-    "land_area_km2":  169.03,
-    "barangays":  86,
-    "population":  {
-                       "total":  205424,
-                       "year":  2020,
-                       "source":  "PSA 2020 Census of Population and Housing"
-                   },
-    "postal_code":  "2420",
-    "area_code":  "075",
-    "founded":  "1578 (Wikipedia) / 1587 (LGU history) - conflicting, see research",
-    "cityhood":  "RA No. 4487 signed 19 June 1965; effective 1 January 1966",
-    "nicknames":  [
-                      "Heart of Pangasinan",
-                      "Mango and Bamboo Capital of the Philippines"
-                  ],
-    "mayor":  "Hon. Julier \"Ayoy\" C. Resuello",
-    "vice_mayor":  "Hon. Joseres \"Bogs\" S. Resuello",
-    "contact":  {
-                    "address":  "City Hall Building, Palaris Street, San Carlos City, Pangasinan 2420",
-                    "phone":  "(075) 600-1432",
-                    "email":  "CIO@sancarlospangasinan.com",
-                    "website":  "https://sancarlospangasinan.gov.ph",
-                    "facebook":  "https://www.facebook.com/sccp.cio"
-                },
-    "vision":  "San Carlos City is envisioned to be an environment-friendly Agro-Industrial, Education and Tourism Center of Pangasinan with upbeat and robust commercial activities structured on efficient services, harmonious relationship and peace towards sustainable development and improved quality of life of its people.",
-    "mission":  "To make San Carlos City the economic tiger of the North through highly disciplined and committed work force and improved agro-industrial, commercial, educational and tourism initiatives thus enhancing the quality of life of its people."
+  "_schema_version": "2.0",
+  "_status": "verified",
+  "_updated": "2026-09-04",
+  "_source": "research/city-profile/26-09-city-profile.md (PSA 2020 CPH via PhilAtlas; Province of Pangasinan; official LGU site); research/city-profile/26-09-geography.md; research/culture-history/26-09-history.md; research/culture-history/26-09-culture-heritage.md",
+  "_note": "Founding year conflict (1578 Wikipedia vs 1587 LGU history) is preserved as a documented footnote, not resolved. Founding friar is 'Fr. Francisco dela Lama' per the history research and 'dela Rama' in the city-profile research - conflict noted. Land area 169.03 km2 is the research-documented primary value (province site lists 17,087 ha - see research notes).",
+  "official_name": "City of San Carlos",
+  "local_names": {
+    "pangasinan": "Siyudad na San Carlos",
+    "ilocano": "Siudad ti San Carlos",
+    "filipino": "Lungsod ng San Carlos"
+  },
+  "type": "Component city",
+  "income_class": "3rd class city",
+  "province": "Pangasinan",
+  "region": "Ilocos Region (Region I)",
+  "legislative_district": "Pangasinan 3rd District",
+  "coordinates": {
+    "lat": 15.928056,
+    "lng": 120.348889
+  },
+  "elevation_m": 10.8,
+  "elevation_note": "PhilAtlas 10.8 m vs Wikidata 12 m - minor conflict, both indicate low-lying topography",
+  "land_area_km2": 169.03,
+  "barangays": 86,
+  "population": {
+    "total": 205424,
+    "year": 2020,
+    "source": "PSA 2020 Census of Population and Housing"
+  },
+  "postal_code": "2420",
+  "area_code": "075",
+  "founded": "1578 (Wikipedia) / 1587 (LGU history) - conflicting, see research",
+  "cityhood": "RA No. 4487 signed 19 June 1965; effective 1 January 1966",
+  "nicknames": [
+    "Heart of Pangasinan",
+    "Mango and Bamboo Capital of the Philippines"
+  ],
+  "languages": {
+    "primary": "Pangasinan",
+    "secondary": [
+      "Ilocano",
+      "Filipino",
+      "English"
+    ],
+    "source": "Wikipedia; Wikidata Q43165; research/city-profile/26-09-city-profile.md"
+  },
+  "geography": {
+    "position": "Landlocked component city in the center of Pangasinan (\"Heart of Pangasinan\")",
+    "rivers": [
+      "Agno River",
+      "San Juan River"
+    ],
+    "boundaries": [
+      { "direction": "North", "adjacent": "Binmaley, Calasiao" },
+      { "direction": "Northeast", "adjacent": "Santa Barbara" },
+      { "direction": "East", "adjacent": "Malasiqui" },
+      { "direction": "Southeast", "adjacent": "Basista" },
+      { "direction": "South", "adjacent": "Urbiztondo" },
+      { "direction": "Southwest", "adjacent": "Aguilar" },
+      { "direction": "West", "adjacent": "Bugallon" },
+      { "direction": "Northwest", "adjacent": "Lingayen (provincial capital)" }
+    ],
+    "distances": [
+      { "destination": "Dagupan City", "distance": "12.96 km", "direction": "N" },
+      { "destination": "Urdaneta City", "distance": "24.04 km", "direction": "SE-NE" },
+      { "destination": "Alaminos City", "distance": "46.90 km", "direction": "WNW" },
+      { "destination": "Tarlac City", "distance": "55.16 km", "direction": "SSE" },
+      { "destination": "Baguio City", "distance": "59.80 km", "direction": "NNE" },
+      { "destination": "Manila", "distance": "162.61 km", "direction": "SSE", "note": "national capital" },
+      { "destination": "Lingayen", "distance": "19 km", "direction": "NW", "note": "provincial capital, by road" }
+    ],
+    "nearest_municipalities": [
+      { "name": "Malasiqui", "distance": "7.07 km", "direction": "E" },
+      { "name": "Calasiao", "distance": "9.20 km", "direction": "N" },
+      { "name": "Basista", "distance": "9.94 km", "direction": "SE" },
+      { "name": "Santa Barbara", "distance": "10.16 km", "direction": "NE" },
+      { "name": "Urbiztondo", "distance": "11.58 km", "direction": "S" },
+      { "name": "Aguilar", "distance": "12.46 km", "direction": "WSW" }
+    ],
+    "source": "Wikipedia; PhilAtlas; Province of Pangasinan (research/city-profile/26-09-geography.md)"
+  },
+  "seal": {
+    "source": "Old official site - The Official Seal (archived 2017-10-16)",
+    "elements": [
+      { "name": "Wide orb", "meaning": "San Carlos at the center of Pangasinan Province; became a City in 1965" },
+      { "name": "Philippine sun", "meaning": "Hub of a wheel moving three triangles representing the city's three economic activities" },
+      { "name": "Agriculture (left flange)", "meaning": "Tractor for high-tech farming; the mango and bamboo industries" },
+      { "name": "Commerce & Industry (top flange)", "meaning": "Modern shopping centers, industrial parks, and high-rise buildings flanking City Hall" },
+      { "name": "Tourism (right flange)", "meaning": "Heritage and theme parks, represented by the centuries-old Saint Dominic Church and the City Plaza" },
+      { "name": "The Spirit of God", "meaning": "Hovers above the city; peace is key to progress" }
+    ]
+  },
+  "mayor": "Hon. Julier \"Ayoy\" C. Resuello",
+  "vice_mayor": "Hon. Joseres \"Bogs\" S. Resuello",
+  "contact": {
+    "address": "City Hall Building, Palaris Street, San Carlos City, Pangasinan 2420",
+    "phone": "(075) 600-1432",
+    "email": "CIO@sancarlospangasinan.com",
+    "website": "https://sancarlospangasinan.gov.ph",
+    "facebook": "https://www.facebook.com/sccp.cio"
+  },
+  "vision": "San Carlos City is envisioned to be an environment-friendly Agro-Industrial, Education and Tourism Center of Pangasinan with upbeat and robust commercial activities structured on efficient services, harmonious relationship and peace towards sustainable development and improved quality of life of its people.",
+  "mission": "To make San Carlos City the economic tiger of the North through highly disciplined and committed work force and improved agro-industrial, commercial, educational and tourism initiatives thus enhancing the quality of life of its people.",
+  "history_timeline": [
+    {
+      "year": "Pre-colonial",
+      "title": "Binalatongan",
+      "description": "The settlement began as Binalatongan, a riverside trading center (barter system) visited by Chinese, Japanese, and Indian traders; the name comes from balatong, the Pangasinan word for mung bean, which was abundant in the area. The Province of Pangasinan describes it as a capital of Caboloan."
+    },
+    {
+      "year": "1578",
+      "title": "Early founding (Wikipedia date)",
+      "description": "Wikipedia's infobox dates the founding to 1578. See the 1587 entry for the documented source conflict.",
+      "footnote": "Founding year conflict: Wikipedia says 1578; the LGU's archived history says 1587. Both lack a fully citable primary source."
+    },
+    {
+      "year": "1587",
+      "title": "Founding by Augustinian friar (LGU date)",
+      "description": "The LGU's archived history records the community's founding by Fr. Francisco dela Lama, an Augustinian friar, in 1587."
+    },
+    {
+      "year": "1588",
+      "title": "Binalatongan becomes a vicariate",
+      "description": "Padre Bernardo Navarro de Santa Catalina, O.P. became the first Vicar, with Fr. Juan de Castro, Fr. Marcos de San Antonio, and Bro. Juan Deza as assistants."
+    },
+    {
+      "year": "1660",
+      "title": "Malong revolt",
+      "description": "Andres Malong led a major revolt against Spanish colonial rule; he is regarded as a native hero of Binalatongan."
+    },
+    {
+      "year": "1718",
+      "title": "Poblacion relocated across the San Juan River",
+      "description": "After a minor uprising led by Juan Caragay in which the church and convent were set on fire, the Poblacion was relocated east of the San Juan River on November 4, 1718 (feast of St. Charles Borromeo), and the settlement was renamed San Carlos Binalatongan."
+    },
+    {
+      "year": "1762-1763",
+      "title": "Palaris revolt",
+      "description": "Juan dela Cruz Palaris (Pantaleon Perez) led a revolt against tribute and forced labor; his rebels held an independent government based in Binalatongan for about two years."
+    },
+    {
+      "year": "1763",
+      "title": "Renamed San Carlos by order of King Carlos III",
+      "description": "After the revolts were defeated, King Carlos III of Spain ordered the town razed and renamed it San Carlos in his honor; the site was moved to its present location."
+    },
+    {
+      "year": "1965",
+      "title": "Cityhood under RA 4487",
+      "description": "Republic Act No. 4487, signed June 19, 1965, converted the municipality into the City of San Carlos (the smaller zone became the Municipality of Basista under RA 4866). Cityhood took effect January 1, 1966 after local ratification."
+    },
+    {
+      "year": "1988",
+      "title": "NHCP historical marker",
+      "description": "The National Historical Commission of the Philippines installed the \"Lungsod ng San Carlos\" historical marker at the city plaza."
+    },
+    {
+      "year": "2001",
+      "title": "Mango-Bamboo Festival launched",
+      "description": "The city's signature festival promoting its mango and bamboo industries was launched; it is held in the last week of April."
+    },
+    {
+      "year": "2011",
+      "title": "World's largest mango pie",
+      "description": "On April 26, 2011, city residents and the bakers' association baked the world's largest mango pie (100 m2, 2 inches thick) for the Mango-Bamboo Festival, using 2,000 kg of mangoes at a total cost of about P400,000."
+    }
+  ],
+  "heritage": {
+    "basilica": {
+      "name": "Minor Basilica of Saint Dominic",
+      "description": "The parish church of St. Dominic de Guzman is the city's most significant religious heritage landmark. Its current site is the third location of the church.",
+      "built_1773": "A church was completed in 1773 but was destroyed by earthquakes several times.",
+      "rebuilt_1803": "Rebuilt in 1803, it measured 89 yards long and 22 yards wide (per old LGU text).",
+      "minor_basilica": "Declared a Minor Basilica by Pope Francis on July 6, 2022, and solemnly proclaimed on January 14, 2023.",
+      "dominican_presence": "Traces to 1587 in Binalatongan; the town's first church tradition dates from the late 16th century.",
+      "source": "LGU Tourism page (archived 2024-06-03); Wikipedia"
+    },
+    "landmarks": [
+      { "name": "Speaker Eugenio P. Perez Sr. Memorial Building", "description": "Named for the late Speaker; serves as the city museum (the NHCP 1988 marker is installed at the plaza)." },
+      { "name": "San Carlos City Plaza (City Park), Palaris Street", "description": "Public plaza used for festivals and public viewing; described as a heritage park." },
+      { "name": "Quadricentennial Arch (Bolingit)", "description": "Commemorative arch cited among the city's interesting spots." },
+      { "name": "Binalatongan Ruins (San Juan)", "description": "Ruins relating to the city's pre-San-Carlos history as Binalatongan." },
+      { "name": "San Carlos City Hall (Palaris Street)", "description": "Government heritage structure featured in city images." },
+      { "name": "Ancestral houses", "description": "Noted as a feature of the old city." }
+    ],
+    "legend": "The sunken church bell of the San Juan River: the great bell of the Binalatongan belfry - said to be the biggest and most sonorous in the province - was lost when the raft carrying it across the river collapsed; local legend says a mermaid guards it at the bottom of the river.",
+    "source": "research/culture-history/26-09-culture-heritage.md (LGU Tourism archived 2024-06-03; old official site; Wikipedia; Wikivoyage)"
+  }
 }

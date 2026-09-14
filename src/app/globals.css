@@ -19,6 +19,8 @@
     --color-text: #2f3e46;
     --color-text-light: #5c6b73;
     --color-white: #ffffff;
+    --color-line: #e2e8e0;
+    --color-line-soft: #eaece8;
 
     /* shadcn/ui semantic mapping to the San Carlos City palette */
     --color-background: #ffffff;
@@ -42,7 +44,7 @@
     --color-ring: #3a7d44;
     --radius: 0.5rem;
 
-    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -60,7 +62,7 @@
     --color-text: #2f3e46;
     --color-text-light: #5c6b73;
     --color-white: #ffffff;
-    --font-main: "Inter", sans-serif;
+    --font-main: var(--font-sans);
     --line-height-body: 1.6;
     --line-height-heading: 1.2;
     --spacing-xs: 8px;

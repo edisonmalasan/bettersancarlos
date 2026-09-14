@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { fetchCurrentWeather } from '@/lib/weather';
 
 const MONTHS = [
   'Jan',
@@ -78,15 +79,9 @@ export default function InfoBar() {
         // API/network failure: keep the placeholder rather than faking a value.
       });
 
-    fetch(
-      'https://api.open-meteo.com/v1/forecast?latitude=15.928&longitude=120.349&current_weather=true'
-    )
-      .then((r) => {
-        if (!r.ok) throw new Error(`weather request failed: ${r.status}`);
-        return r.json();
-      })
+    fetchCurrentWeather()
       .then((data) => {
-        const celsius = Number(data?.current_weather?.temperature);
+        const celsius = Number(data?.current_weather?.temperature ?? data?.current?.temperature_2m);
         if (mounted && Number.isFinite(celsius)) {
           setTemp(`${Math.round(celsius)}°C`);
         }
@@ -122,7 +117,7 @@ export default function InfoBar() {
     <>
       <div ref={sentinelRef} aria-hidden="true" className="h-0"></div>
       <div
-        className="flex items-center bg-[#275230] font-sans text-[0.6875rem] font-normal leading-none tracking-[0.01em] text-white transition-[max-height,opacity,padding] duration-300 ease-out overflow-hidden"
+        className="flex items-center bg-primary-deep font-sans text-[0.6875rem] font-normal leading-none tracking-[0.01em] text-white transition-[max-height,opacity,padding] duration-300 ease-out overflow-hidden"
         style={{
           maxHeight: collapsed ? 0 : 40,
           opacity: collapsed ? 0 : 1,
@@ -147,7 +142,7 @@ export default function InfoBar() {
                 aria-hidden="true"
               />
               <span className="inline-block min-w-[110px] text-left max-[767px]:min-w-0">
-                <span className="inline-block animate-[rateFadeIn_0.4s_ease-out] text-white">{rate}</span>
+                <span className="inline-block text-white">{rate}</span>
               </span>
             </div>
             <div

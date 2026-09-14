@@ -15,18 +15,66 @@
     "image": ""
   },
   "councilors": [
-    { "name": "Hon. Sam S. Baniqued", "title": "City Councilor", "image": "" },
-    { "name": "Hon. Elpidio 'Bido' R. Fermin Jr.", "title": "City Councilor", "image": "" },
-    { "name": "Hon. Rolando 'Nick' D. Cano", "title": "City Councilor", "image": "" },
-    { "name": "Hon. Christian Carlo A. Cancino", "title": "City Councilor", "image": "" },
-    { "name": "Hon. Eduardo 'Manoy' R. Garcia", "title": "City Councilor", "image": "" },
-    { "name": "Hon. Carmina D. Resuello", "title": "City Councilor", "image": "" },
-    { "name": "Hon. Orlando 'Jun' E. Banaag Jr.", "title": "City Councilor", "image": "" },
-    { "name": "Hon. Winston Manuel T. Millora", "title": "City Councilor", "image": "" },
-    { "name": "Hon. Caren Joyce G. Frias", "title": "City Councilor", "image": "" },
-    { "name": "Hon. George P. Calugay", "title": "City Councilor", "image": "" }
+    { "name": "Hon. Sam S. Baniqued", "title": "City Councilor", "image": "", "party": "NP", "votes": 54049 },
+    { "name": "Hon. Elpidio 'Bido' R. Fermin Jr.", "title": "City Councilor", "image": "", "party": "NP", "votes": 50954 },
+    { "name": "Hon. Rolando 'Nick' D. Cano", "title": "City Councilor", "image": "", "party": "NPC", "votes": 50218 },
+    { "name": "Hon. Christian Carlo A. Cancino", "title": "City Councilor", "image": "", "party": "NP", "votes": 49862 },
+    { "name": "Hon. Eduardo 'Manoy' R. Garcia", "title": "City Councilor", "image": "", "party": "NP", "votes": 49664 },
+    { "name": "Hon. Carmina D. Resuello", "title": "City Councilor", "image": "", "party": "NP", "votes": 48379 },
+    { "name": "Hon. Orlando 'Jun' E. Banaag Jr.", "title": "City Councilor", "image": "", "party": "NP", "votes": 47926 },
+    { "name": "Hon. Winston Manuel T. Millora", "title": "City Councilor", "image": "", "party": "NP", "votes": 45915 },
+    { "name": "Hon. Caren Joyce G. Frias", "title": "City Councilor", "image": "", "party": "NP", "votes": 45836 },
+    { "name": "Hon. George P. Calugay", "title": "City Councilor", "image": "", "party": "NP", "votes": 44750 }
+  ],
+  "registered_voters": {
+    "count": 126193,
+    "election": "2025",
+    "source": "Comelec via Rappler 2025 election summary"
+  },
+  "history": [
+    {
+      "term": "2022-2025",
+      "mayor": "Julier 'Ayoy' Resuello",
+      "vice_mayor": "Joseres 'Bogs' S. Resuello",
+      "councilors": [
+        "Sam Baniqued (NPC)",
+        "Lester Soriano (API)",
+        "Eduardo 'Manoy' Garcia (API)",
+        "Joshua Resuello (API)",
+        "Christian Cancino (API)",
+        "Winston Millora (API)",
+        "Alberto 'Bert' Castro (API)",
+        "Carmina Paningbatan (API)",
+        "Jun Banaag (API)",
+        "Caren Joyce Frias (NPC)"
+      ]
+    },
+    {
+      "term": "2019-2022",
+      "mayor": "Julier Resuello",
+      "vice_mayor": "Joseres Resuello",
+      "representative": "Rose Marie 'Baby' Arenas",
+      "councilors": [
+        "Ruby Ballesteros",
+        "Joshua Resuello",
+        "Christian Carlo Cancino",
+        "Elpidio Fermin",
+        "Jack Lester Soriano",
+        "Eduardo Garcia",
+        "Samuel Millora",
+        "Alberto Castro",
+        "Carmina Paningbatan",
+        "Generoso Tulagan"
+      ]
+    },
+    {
+      "term": "2016-2019",
+      "mayor": "Joseres 'Bogs' Resuello",
+      "note": "First mayoral term"
+    }
   ],
   "_term": "2025-2028",
-  "_source": "Comelec 2025 NLE via Rappler (100% precincts, unofficial until final canvass); City Information Office proclamation",
-  "_status": "partially-verified"
+  "_source": "Comelec 2025 NLE via Rappler (100% precincts, unofficial until final canvass); City Information Office proclamation; historical terms from research/government/26-09-city-officials.md",
+  "_status": "partially-verified",
+  "_votes_note": "2025 vote counts are partial/unofficial pending the official Comelec certificate of canvass. Party codes: NP = Nacionalista Party, NPC = Nationalist People's Coalition, API = Asenso Pangasinan Inc."
 }

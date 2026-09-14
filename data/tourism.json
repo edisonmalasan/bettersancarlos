@@ -1,0 +1,63 @@
+{
+  "_schema_version": "1.0",
+  "_status": "partially-verified",
+  "_updated": "2026-09-04",
+  "_source": "research/tourism/26-09-tourist-attractions.md; research/tourism/26-09-festivals.md",
+  "_note": "Attractions marked 'official-lgu' are named on the official city tourism page (archived 2017/2024); 'community' items come from Wikivoyage (community-edited) and need on-site confirmation. Hours and fees are contributor-provided. Festival dates for 2025/2026 are pending confirmation from the City Tourism Office / City Information Office.",
+  "attractions": [
+    { "name": "St. Dominic Church (Minor Basilica of Saint Dominic)", "description": "Centuries-old parish church (site completed 1773; rebuilt 1803); Minor Basilica since 2022/2023; historically among the largest churches in the Philippines.", "source": "official-lgu" },
+    { "name": "Speaker Eugenio Perez Memorial Building (Museum)", "description": "Memorial building and museum honoring the late Speaker of the House from San Carlos.", "source": "official-lgu" },
+    { "name": "City Plaza", "description": "Heritage park and public plaza in the Poblacion.", "source": "official-lgu" },
+    { "name": "Quadricentennial Arch (Brgy. Bolingit)", "description": "Commemorative arch.", "source": "official-lgu" },
+    { "name": "Binalatongan Ruins (Brgy. San Juan)", "description": "Pre-colonial and historical ruins site.", "source": "official-lgu" },
+    { "name": "Philippine Fruit Corporation (Brgy. Pagal)", "description": "Mango-related agri-industry site (historical reference).", "source": "official-lgu" },
+    { "name": "Shopping malls and supermarkets", "description": "Commercial tourism assets around the downtown (\"Las Bellas Carlenians\").", "source": "official-lgu" },
+    { "name": "San Carlos Plaza (City Park), Palaris Street", "description": "Open 24h, free (Wikivoyage).", "source": "community" },
+    { "name": "Mapita Falls", "description": "Outside the urban center; hike required. Phone listed +63 75 549 2005 - verify before visiting.", "source": "community" },
+    { "name": "Mount Zion Pilgrim Mountain", "description": "Mountain biking route with a Christian shrine and views.", "source": "community" },
+    { "name": "Kabaleyan Cove Resort", "description": "Resort with pool and slides (about US$40); +63 75 636 3621.", "source": "community" },
+    { "name": "Fairfields Resort & Playhouse Inn", "description": "Hotel-resort with public pool on Padilla St.", "source": "community" },
+    { "name": "Mendoza Travellers Hotel", "description": "On the San Carlos-Calasiao Road.", "source": "community" }
+  ],
+  "festival": {
+    "name": "Mango-Bamboo Festival",
+    "launched": 2001,
+    "schedule": "Last week of April, annually (often a week-long event)",
+    "purpose": "Promotes San Carlos as the major trading center for bamboo-based products and furniture, and a top producer of carabao mangoes; brands the city as the \"Mango-Bamboo Capital of the North\".",
+    "activities": [
+      "Float parade with mango and bamboo decorations",
+      "Street dancing competition among barangay contingents",
+      "Miss San Carlos City pageant",
+      "Culinary contests - mango pie showcase and mango-based dishes",
+      "Bamboo-craft competition",
+      "Variety shows and Laro ng Lahi (native sports)",
+      "Giant mango pie event"
+    ],
+    "activities_status": "historical programming from the archived LGU tourism page",
+    "dates_status": "pending verification - confirm current-year dates with the City Tourism Office or facebook.com/sccp.cio"
+  },
+  "mango_pie_record": {
+    "date": "2011-04-26",
+    "title": "World's largest mango pie",
+    "size_m2": 100,
+    "thickness": "2 inches",
+    "mangoes_kg": 2000,
+    "cost_php": 400000,
+    "made_by": "Residents of the 86 barangays with the San Carlos City Bakers Association",
+    "venue": "City plaza, as part of the Mango-Bamboo Festival"
+  },
+  "food_drink": [
+    { "name": "EatN'Run Pares Station", "location": "#116 Zamora Street" },
+    { "name": "Meggy's", "location": "Palaris corner Padilla" },
+    { "name": "Ground n' Pound Garage Grill", "location": "#109 Gomez" },
+    { "name": "Roberto's Backyard", "location": "Matagdem-Tarece Road" },
+    { "name": "PosiTEAbo", "location": "Rizal Ave" },
+    { "name": "Cafe Alberto", "location": "Mabini St" },
+    { "name": "Pisces Coffee Hub", "location": "Brgy. Ilang" },
+    { "name": "Bean Chill'n Cafe", "location": "Brgy. Taloy" },
+    { "name": "Bo's Coffee", "location": "Padilla St" },
+    { "name": "Mr. Boy SpecialTea", "location": "#5 Bonifacio St" },
+    { "name": "Vita Bella", "location": "San Pedro-Taloy" }
+  ],
+  "food_drink_status": "Wikivoyage community listings - verify before relying on details"
+}

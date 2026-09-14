@@ -56,7 +56,7 @@ from `data/civic` records. Legacy scripts stay untouched until their row says re
 |---|---|---|
 | `officials.json` | canonical | done (phase 2) |
 | `emergency-hotlines.json` | canonical | done (phase 2) |
-| `news.json` | manual + `scripts/sync-facebook.js` (direct write) | canonical (phase 4) |
+| `news.json` | canonical | done (phase 4) |
 | `demographics.json` | `scripts/gen-demographics.ps1` | canonical (phase 5) |
 | `city-profile.json` | manual (hand-extended; script output is stale — do not rerun `gen-profile-emergency.ps1`) | canonical (phase 5) |
 | `fiscal_transparency.json` | `scripts/gen-fiscal-cmci.ps1` | canonical (phase 5) |
@@ -85,7 +85,9 @@ by `scripts/gen-barangays.ps1` (phase 5 target: canonical).
   facts moved to canonical records; `data:generate` is the producer.
   The city-profile portion is stale relative to the hand-extended
   `data/city-profile.json` — do not rerun it; phase 5 replaces it.
-- `scripts/gen-news.ps1`: active until phase 4 parity is verified.
+- `scripts/gen-news.ps1` (phase 4): all facts moved to canonical news
+  records; `data:generate` is the producer. The script throws instead of
+  writing so it can never fork `news.json` again.
 - `scripts/gen-demographics.ps1`, `scripts/gen-fiscal-cmci.ps1`,
   `scripts/gen-legislative.ps1`, `scripts/gen-barangays.ps1`: active until
   their phase-5 parity is verified.

@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { loadRecords, loadSources, type CivicRecord, type SourceRecord } from './lib/civic';
+import { FB_MAX_ITEMS } from './lib/facebook';
 import { sha256FileHex, writeJsonAtomic } from './lib/json';
 
 interface EmitContext {
@@ -145,7 +146,68 @@ function emitEmergency(ctx: EmitContext): Record<string, unknown> {
 const EMITTERS: Record<string, { file: string; emit: (ctx: EmitContext) => Record<string, unknown> }> = {
   officials: { file: 'officials.json', emit: emitOfficials },
   emergency: { file: 'emergency-hotlines.json', emit: emitEmergency },
+  news: { file: 'news.json', emit: emitNews },
 };
+
+export function isFbNewsRecord(record: CivicRecord): boolean {
+  return record.domain === 'news' && (record.id.startsWith('news-fb-') || record.sourceIds.includes('lgu-facebook-cio'));
+}
+
+// Manual items keep their curated seed order (the /news page renders file
+// order, split into current/historical by recency); Facebook-reported items
+// follow newest-first capped, reusing the legacy feed-merge cap.
+function newsOrder(record: CivicRecord): number {
+  const order = (record.data as Record<string, unknown>).order;
+  return typeof order === 'number' ? order : Number.MAX_SAFE_INTEGER;
+}
+
+function toNewsItem(record: CivicRecord): Record<string, unknown> {
+  const data = record.data as Record<string, unknown>;
+  return {
+    id: record.id.replace(/^news-/, ''),
+    title: data.title,
+    date: data.date,
+    category: data.category,
+    badge: data.badge,
+    summary: data.summary,
+    url: data.url,
+    recency: data.recency ?? 'current',
+  };
+}
+
+export function buildNewsJson(records: CivicRecord[], sources: SourceRecord[]): Record<string, unknown> {
+  const ctx: EmitContext = {
+    records: new Map(records.map((r) => [r.id, r])),
+    sources: new Map(sources.map((s) => [s.id, s])),
+  };
+  return emitNews(ctx);
+}
+
+function emitNews(ctx: EmitContext): Record<string, unknown> {
+  const publishable = [...ctx.records.values()].filter(
+    (r) => r.domain === 'news' && (r.status === 'verified' || r.status === 'reported') && r.id !== 'news-publication-note',
+  );
+  const manual = publishable
+    .filter((r) => r.status === 'verified' && !isFbNewsRecord(r))
+    .sort((a, b) => newsOrder(a) - newsOrder(b));
+  // Facebook slice follows the legacy feed-merge rule (newest-first, capped
+  // so one noisy run cannot flood the feed); manual curated order is kept
+  // ahead of it because the /news page renders file order.
+  const fbDate = (r: CivicRecord): string => String((r.data as Record<string, unknown>).date ?? '');
+  const fb = publishable
+    .filter((r) => r.status === 'reported' && isFbNewsRecord(r))
+    .sort((a, b) => fbDate(b).localeCompare(fbDate(a)))
+    .slice(0, FB_MAX_ITEMS);
+  const factRecords = [...manual, ...fb];
+  const note = requiredRecord(ctx, 'news-publication-note');
+
+  return {
+    _status: aggregateFileStatus(factRecords, false),
+    _source: `Generated from canonical civic records; ${registryRefs(ctx, factRecords)}; research: research/news/26-09-news-current-events.md`,
+    _note: (note.data as Record<string, unknown>).note,
+    news: factRecords.map(toNewsItem),
+  };
+}
 
 function mirrorTargets(root: string, file: string): string[] {
   const targets = [path.join(root, 'data', file), path.join(root, 'public', 'data', file)];

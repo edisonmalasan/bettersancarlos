@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { createRun, writeCandidates } from './lib/runs';
+import { collectFacebook } from './collectors/facebook';
 import { promoteRun } from './promote';
 
 function fixtureRoot(): string {
@@ -212,6 +213,41 @@ test('news auto-path promotes as reported and refuses non-news', () => {
       () => promoteRun({ root, runId: run.runId, records: ['city-engineer-current'], autoNews: true }, '2026-09-14'),
       /auto-news applies only/,
     );
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('collector-produced official-page items take the auto-path as reported, never verified', () => {
+  const root = fixtureRoot();
+  try {
+    const collected = collectFacebook({
+      registryId: 'lgu-facebook-cio',
+      evidenceName: 'graph-fixture.json',
+      evidenceText: JSON.stringify({
+        data: [
+          {
+            id: '123_456',
+            message: 'Power interruption advisory for Barangay Talang tomorrow',
+            created_time: '2026-09-10T08:30:00+0000',
+            permalink_url: 'https://www.facebook.com/post/1',
+          },
+        ],
+      }),
+      runId: '2026-09-14',
+      collectedBy: 'sync-facebook',
+    });
+    assert.equal(collected.candidates.length, 1);
+    const run = createRun(root, { date: '2026-09-14', collectedBy: 'sync-facebook' });
+    writeCandidates(run.dir, collected.candidates);
+    const summary = promoteRun({ root, runId: run.runId, autoNews: true }, '2026-09-14');
+    assert.deepEqual(summary.promoted, ['news-fb-123-456']);
+    const file = JSON.parse(fs.readFileSync(path.join(root, 'data', 'civic', 'records.json'), 'utf8')) as {
+      records: Array<{ id: string; status: string; data: Record<string, unknown> }>;
+    };
+    const record = file.records.find((r) => r.id === 'news-fb-123-456');
+    assert.ok(String(record?.status) !== 'verified', 'auto-path must never verify');
+    assert.equal(record?.status, 'reported');
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
   }

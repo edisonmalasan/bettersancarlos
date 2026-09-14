@@ -100,3 +100,16 @@ by `scripts/gen-barangays.ps1` (phase 5 target: canonical).
 5. Promotion is a separate reviewer step (`bun run data:promote`); a collector
    must never accept its own high-risk candidates, and conflicts fail closed.
 6. After any accepted promotion: `bun run data:generate`, then `bun run verify`.
+
+## News auto-promotion (low-risk path only)
+
+Official-page news candidates (`domain: news`, sourced from the registered
+`lgu-facebook-cio` page) may be accepted without an independent reviewer via
+`bun run data:promote -- --auto-news`. Justification: news items are
+low-risk (informational, never emergency contacts / officials / fees /
+budgets), the source is the official LGU page itself, and every auto-accepted
+record keeps status `reported` — never `verified` — so the site labels it as
+reported, not independently confirmed. The gate refuses anything else:
+non-news domains, non-official sources, and updates to existing canonical
+records all require normal reviewer promotion. High-risk categories can never
+use this path.

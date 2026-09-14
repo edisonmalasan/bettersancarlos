@@ -30,7 +30,7 @@
 ## 4. Facebook ingestion re-route
 
 - [x] 4.1 Refactor `sync-facebook.js` reusable logic (categorize, deriveTitle, truncate, toDate, transformPost, isValidItem, merge logic) into the pipeline lib and re-target ingestion to produce research-run candidates for the news domain; preserve retry/backoff, fixture mode, dormant-without-token, atomic writes, and retain-on-failure behavior; verify with a Graph-API fixture producing a run + candidates and no direct `data/news.json` write
-- [ ] 4.2 Add the justified low-risk auto-path: official-page news candidates may be auto-promoted as `reported` (never `verified`, never high-risk categories); verify with `bun test` that a news auto-promotion keeps status `reported` and that non-news records cannot use it
+- [x] 4.2 Add the justified low-risk auto-path: official-page news candidates may be auto-promoted as `reported` (never `verified`, never high-risk categories); verify with `bun test` that a news auto-promotion keeps status `reported` and that non-news records cannot use it
 - [ ] 4.3 Implement the news generator emitter: `data/news.json` (exact shape incl. `recency`, manual+fb merge order) from canonical news records; seed existing manual entries as accepted records; verify before/after diff on unchanged content is empty, `/news` and `/admin/news-editor` still work against the generated file, and mirrors stay byte-identical
 - [ ] 4.4 Correct stale documentation in `sync-facebook.js` header (nonexistent `facebook-sync.yml` workflow and `assets/js/news.js` references) to describe the actual pipeline flow; retire `gen-news.ps1` after parity verification; verify grep shows no stale workflow/asset references remain
 

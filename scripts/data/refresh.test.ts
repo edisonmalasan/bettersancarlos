@@ -253,9 +253,9 @@ test('Test 4b: domain-scoped refresh with unavailable sources and zero candidate
   }
 });
 
-test('Test 5: domain-scoped success reports MISSING gaps and skips out-of-scope records', async () => {
+test('Test 5: covered-but-absent is MISSING; uncovered and out-of-scope are skipped', async () => {
   const root = fixtureRoot();
-  const ev = evidenceDir({ 'fix-site.html': SITE_HTML('(075) 600-1432') });
+  const ev = evidenceDir({ 'fix-site.html': '<html><body><div>Office hours apply.</div></body></html>' });
   try {
     const summary = await runRefresh({
       root,
@@ -265,6 +265,7 @@ test('Test 5: domain-scoped success reports MISSING gaps and skips out-of-scope 
       collectedBy: 'test-5',
       date: '2026-09-14',
     });
+    assert.equal(summary.candidates, 0);
     const { readCandidates, readManifest } = await import('./lib/runs');
     const manifest = readManifest(summary.run.dir);
     const [trunk] = loadRecords(root).records;
@@ -284,12 +285,235 @@ test('Test 5: domain-scoped success reports MISSING gaps and skips out-of-scope 
       '2026-09-14',
     );
     const byId = new Map(entries.map((e) => [e.recordId, e.outcome]));
-    assert.equal(byId.get('city-hall-trunk-line'), 'UNCHANGED');
-    assert.equal(byId.get('cdrmo-emergency-contact'), 'MISSING');
+    assert.equal(byId.get('city-hall-trunk-line'), 'MISSING');
+    assert.ok(!byId.has('cdrmo-emergency-contact'), 'shares the domain but no collector covers it');
     assert.ok(!byId.has('other-record'), 'health record is out of scope');
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
     fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+function wideFixtureRoot(): string {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'civic-wide-'));
+  fs.mkdirSync(path.join(root, 'data', 'civic'), { recursive: true });
+  fs.mkdirSync(path.join(root, 'research'), { recursive: true });
+  fs.writeFileSync(
+    path.join(root, 'data', 'civic', 'source-registry.yaml'),
+    'version: 1\n' +
+      'sources:\n' +
+      '  - id: fix-wide\n' +
+      '    publisher: Fixture\n' +
+      "    url: 'http://127.0.0.1:9/wide'\n" +
+      '    sourceType: website\n' +
+      '    collector: city-website\n' +
+      '    updateCadence: quarterly\n' +
+      "    evidenceRef: 'research/evidence.md'\n" +
+      '    domains:\n' +
+      '      - government\n' +
+      '      - emergency\n' +
+      '      - transparency\n',
+  );
+  fs.writeFileSync(path.join(root, 'research', 'evidence.md'), '# fixture\n');
+  fs.writeFileSync(path.join(root, 'data', 'civic', 'sources.json'), '{"sources": []}');
+  const rec = (id: string, domain: string, sid = 'fix-other') => ({
+    id,
+    domain,
+    type: 'contact',
+    label: id,
+    data: {},
+    claimSources: {},
+    sourceIds: [sid],
+    status: 'verified',
+    lastVerified: '2026-09-01',
+    acceptedBy: 'fixture',
+    acceptedAt: '2026-09-02',
+    nextReviewOn: '2099-01-01',
+    updateCadence: 'quarterly',
+  });
+  fs.writeFileSync(
+    path.join(root, 'data', 'civic', 'records.json'),
+    JSON.stringify({
+      records: [
+        {
+          id: 'city-hall-trunk-line',
+          domain: 'emergency',
+          type: 'contact',
+          label: 'City Hall (general trunk line)',
+          data: { service: 'City Hall (general trunk line)', number: '(075) 600-1432' },
+          claimSources: { number: ['fix-wide'] },
+          sourceIds: ['fix-wide'],
+          status: 'verified',
+          lastVerified: '2026-09-01',
+          acceptedBy: 'fixture',
+          acceptedAt: '2026-09-02',
+          nextReviewOn: '2099-01-01',
+          updateCadence: 'quarterly',
+        },
+        rec('gov-official', 'government'),
+        rec('transp-record', 'transparency'),
+        rec('health-record', 'health'),
+      ],
+    }),
+  );
+  return root;
+}
+
+async function diffRealRun(root: string, runDir: string, extraRecords: Array<Record<string, unknown>> = []) {
+  const { readCandidates, readManifest } = await import('./lib/runs');
+  return diffRun(
+    {
+      canonical: [...loadRecords(root).records, ...(extraRecords as never[])],
+      candidates: readCandidates(runDir),
+      manifest: readManifest(runDir),
+      sources: [],
+      registry: loadRegistry(root).sources,
+    },
+    '2026-09-14',
+  );
+}
+
+test('Test A: narrow coverage excludes unrelated multi-domain records', async () => {
+  const root = wideFixtureRoot();
+  const ev = evidenceDir({ 'fix-wide.html': SITE_HTML('(075) 600-1432') });
+  try {
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-wide'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'test-a',
+      date: '2026-09-14',
+    });
+    assert.equal(summary.candidates, 1);
+    const { readManifest } = await import('./lib/runs');
+    const manifest = readManifest(summary.run.dir);
+    assert.deepEqual(manifest.sources[0].coverage, ['city-hall-trunk-line']);
+    const entries = await diffRealRun(root, summary.run.dir);
+    const byId = new Map(entries.map((e) => [e.recordId, e.outcome]));
+    assert.equal(byId.get('city-hall-trunk-line'), 'UNCHANGED');
+    assert.ok(!byId.has('gov-official'), 'same-domain but uncovered record is excluded');
+    assert.ok(!byId.has('transp-record'), 'same-domain but uncovered record is excluded');
+    assert.ok(!byId.has('health-record'), 'out-of-scope record is excluded');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('Test D: parse failure yields scoped SOURCE_CHANGED, others excluded', async () => {
+  const root = wideFixtureRoot();
+  const ev = evidenceDir({ 'fix-wide.html': '' });
+  try {
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-wide'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'test-d',
+      date: '2026-09-14',
+    });
+    assert.equal(summary.candidates, 0);
+    assert.equal(summary.outcomes['fix-wide'], 'failed');
+    const { readManifest } = await import('./lib/runs');
+    const manifest = readManifest(summary.run.dir);
+    assert.ok((manifest.sources[0].error ?? '').startsWith('parse:'), 'parse-class failure recorded');
+    const entries = await diffRealRun(root, summary.run.dir);
+    const byId = new Map(entries.map((e) => [e.recordId, e.outcome]));
+    assert.equal(byId.get('city-hall-trunk-line'), 'SOURCE_CHANGED');
+    assert.ok(!byId.has('gov-official'));
+    assert.ok(!byId.has('transp-record'));
+    assert.ok(!byId.has('health-record'));
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('Test F: one source run leaves another collector record untouched, NEW still discovered', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'civic-multicol-'));
+  try {
+    fs.mkdirSync(path.join(root, 'data', 'civic'), { recursive: true });
+    fs.mkdirSync(path.join(root, 'research'), { recursive: true });
+    fs.writeFileSync(
+      path.join(root, 'data', 'civic', 'source-registry.yaml'),
+      'version: 1\n' +
+        'sources:\n' +
+        '  - id: fix-site\n' +
+        '    publisher: Fixture\n' +
+        "    url: 'http://127.0.0.1:9/fixture'\n" +
+        '    sourceType: website\n' +
+        '    collector: city-website\n' +
+        '    updateCadence: manual\n' +
+        "    evidenceRef: 'research/evidence.md'\n" +
+        '    domains:\n' +
+        '      - emergency\n' +
+        '  - id: fix-fb\n' +
+        '    publisher: Fixture\n' +
+        "    url: 'https://example.test/fb'\n" +
+        '    sourceType: facebook-page\n' +
+        '    collector: facebook\n' +
+        '    updateCadence: manual\n' +
+        "    evidenceRef: 'research/evidence.md'\n" +
+        '    domains:\n' +
+        '      - news\n',
+    );
+    fs.writeFileSync(path.join(root, 'research', 'evidence.md'), '# fixture\n');
+    fs.writeFileSync(path.join(root, 'data', 'civic', 'sources.json'), '{"sources": []}');
+    const trunk = {
+      id: 'city-hall-trunk-line',
+      domain: 'emergency',
+      type: 'contact',
+      label: 'City Hall (general trunk line)',
+      data: { service: 'City Hall (general trunk line)', number: '(075) 600-1432' },
+      claimSources: { number: ['fix-site'] },
+      sourceIds: ['fix-site'],
+      status: 'verified',
+      lastVerified: '2026-09-01',
+      acceptedBy: 'fixture',
+      acceptedAt: '2026-09-02',
+      nextReviewOn: '2099-01-01',
+      updateCadence: 'quarterly',
+    };
+    const staleNews = {
+      ...trunk,
+      id: 'news-fb-stale',
+      domain: 'news',
+      type: 'announcement',
+      label: 'Stale news',
+      data: { title: 'Stale news' },
+    };
+    fs.writeFileSync(path.join(root, 'data', 'civic', 'records.json'), JSON.stringify({ records: [trunk, staleNews] }));
+    const ev = evidenceDir({
+      'fix-site.html': SITE_HTML('(075) 600-1432'),
+      'fix-fb.json': JSON.stringify({
+        data: [
+          {
+            id: '999_111',
+            message: 'Join us for the festival!',
+            created_time: '2026-09-09T08:30:00+0000',
+            permalink_url: 'https://www.facebook.com/post/9',
+          },
+        ],
+      }),
+    });
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-site', 'fix-fb'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'test-f',
+      date: '2026-09-14',
+    });
+    assert.equal(summary.candidates, 2);
+    const entries = await diffRealRun(root, summary.run.dir);
+    const byId = new Map(entries.map((e) => [e.recordId, e.outcome]));
+    assert.equal(byId.get('city-hall-trunk-line'), 'UNCHANGED');
+    assert.equal(byId.get('news-fb-999-111'), 'NEW');
+    assert.ok(!byId.has('news-fb-stale'), 'aged-out feed item is churn, not MISSING');
+    fs.rmSync(ev, { recursive: true, force: true });
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
   }
 });
 

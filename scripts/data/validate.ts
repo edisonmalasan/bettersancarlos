@@ -10,6 +10,7 @@ import {
   type RunManifest,
 } from './lib/civic';
 import { readJsonFile, sha256FileHex } from './lib/json';
+import { readSourceInstances } from './lib/instances';
 import { civicDir, registryPath, runsDir } from './lib/paths';
 
 export interface ValidationResult {
@@ -17,8 +18,8 @@ export interface ValidationResult {
   warnings: string[];
 }
 
-const STATUSES = ['provisional', 'verified', 'reported', 'needs-reverification', 'blocked', 'retired'];
-const CADENCES = [
+export const STATUSES = ['provisional', 'verified', 'reported', 'needs-reverification', 'blocked', 'retired'];
+export const CADENCES = [
   'daily',
   'weekly',
   'monthly',
@@ -29,7 +30,7 @@ const CADENCES = [
   'manual',
   'event-driven',
 ];
-const RISK_TIERS = ['high', 'medium', 'low'];
+export const RISK_TIERS = ['high', 'medium', 'low'];
 const DOMAINS = [
   'government',
   'barangays',
@@ -53,7 +54,7 @@ const DOMAINS = [
   'official-presence',
   'city-profile',
 ];
-const RECORD_TYPES = [
+export const RECORD_TYPES = [
   'official',
   'contact',
   'statistic',
@@ -94,7 +95,7 @@ export function todayUtc(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
-function resolveClaimPath(data: Record<string, unknown>, dotted: string): boolean {
+export function resolveClaimPath(data: Record<string, unknown>, dotted: string): boolean {
   let node: unknown = data;
   for (const seg of dotted.split('.')) {
     if (Array.isArray(node)) {
@@ -513,6 +514,13 @@ function validateRuns(
       result.errors.push(`research run ${name} has unreadable candidates: ${(err as Error).message}`);
       continue;
     }
+    let instanceIds: Set<string> | null = null;
+    try {
+      instanceIds = new Set(readSourceInstances(runDir).map((i) => i.id));
+    } catch (err) {
+      result.errors.push(`research run ${name} has unreadable source-instances: ${(err as Error).message}`);
+      continue;
+    }
     for (const candidate of candidates.candidates ?? []) {
       const tag = `candidate ${candidate.id || '(missing id)'} in run ${name}`;
       if (candidate.status !== 'provisional') {
@@ -526,6 +534,11 @@ function validateRuns(
       }
       for (const sid of candidate.sourceIds ?? []) {
         if (!resolveSource(sid)) result.errors.push(`${tag} references unknown source id: ${sid}`);
+      }
+      for (const iid of candidate.sourceInstanceIds ?? []) {
+        if (!instanceIds.has(iid)) {
+          result.errors.push(`${tag} links unknown source instance: ${iid}`);
+        }
       }
     }
   }

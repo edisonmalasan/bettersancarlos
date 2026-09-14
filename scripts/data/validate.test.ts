@@ -339,3 +339,41 @@ test('fixture run leaves topic research files byte-identical', async () => {
     cleanup(fix);
   }
 });
+
+test('candidate linking an unknown source instance fails', () => {
+  const fix = writeTree();
+  try {
+    const runDir = path.join(fix.root, 'research', 'runs', '2026-09-14');
+    fs.mkdirSync(runDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'manifest.json'),
+      JSON.stringify({ runId: '2026-09-14', startedAt: '2026-09-14T00:00:00Z', parameters: {}, sources: [] }),
+    );
+    fs.writeFileSync(
+      path.join(runDir, 'candidates.json'),
+      JSON.stringify({
+        candidates: [
+          {
+            id: 'rec-one',
+            domain: 'government',
+            type: 'official',
+            label: 'Record One',
+            data: { name: 'Bob' },
+            sourceIds: ['src-doc'],
+            sourceInstanceIds: ['src-reg-site-2026-09-14-deadbeef'],
+            status: 'provisional',
+            collectedBy: 'agent',
+            runId: '2026-09-14',
+          },
+        ],
+      }),
+    );
+    const result = validateRoot(fix.root);
+    assert.ok(
+      result.errors.some((e) => e.includes('links unknown source instance')),
+      JSON.stringify(result.errors),
+    );
+  } finally {
+    cleanup(fix);
+  }
+});

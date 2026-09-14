@@ -88,9 +88,11 @@ jobs:
           BRANCH="chore/scheduled-refresh"
           git config user.name "bettersancarlos-refresh"
           git config user.email "bettersancarlos-refresh@users.noreply.github.com"
+          git fetch origin "$BRANCH" || true
           git checkout -B "$BRANCH"
           git add research/runs
           git commit -m "chore: scheduled civic-data refresh ($(date -u +%F))" || echo "nothing to commit"
+          git pull --rebase origin "$BRANCH" || true
           git push --set-upstream origin "$BRANCH"
           SUMMARY="$(bun run data:report | head -40)"
           if gh pr view "$BRANCH" --json number >/dev/null 2>&1; then

@@ -1,0 +1,218 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { createRun, writeCandidates } from './lib/runs';
+import { promoteRun } from './promote';
+
+function fixtureRoot(): string {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'civic-promote-'));
+  fs.mkdirSync(path.join(root, 'data', 'civic'), { recursive: true });
+  fs.mkdirSync(path.join(root, 'research'), { recursive: true });
+  fs.writeFileSync(
+    path.join(root, 'data', 'civic', 'source-registry.yaml'),
+    'version: 1\nsources:\n  - id: reg-site\n    publisher: Fixture\n    url: \'https://example.test/\'\n    sourceType: website\n    collector: null\n    updateCadence: manual\n    evidenceRef: \'research/evidence.md\'\n',
+  );
+  fs.writeFileSync(path.join(root, 'research', 'evidence.md'), '# fixture\n');
+  fs.writeFileSync(
+    path.join(root, 'data', 'civic', 'sources.json'),
+    JSON.stringify({
+      sources: [
+        {
+          id: 'src-dir',
+          title: 'Fixture doc',
+          publisher: 'Fixture',
+          url: 'https://example.test/doc',
+          documentType: 'webpage',
+          retrievedAt: '2026-09-04',
+          verifier: 'fixture',
+          sourceState: 'active',
+          registryId: 'reg-site',
+        },
+      ],
+    }),
+  );
+  fs.writeFileSync(
+    path.join(root, 'data', 'civic', 'records.json'),
+    JSON.stringify({
+      records: [
+        {
+          id: 'city-engineer-current',
+          domain: 'government',
+          type: 'official',
+          label: 'City Engineer',
+          data: { name: 'Juan Dela Cruz' },
+          claimSources: { name: ['src-dir'] },
+          sourceIds: ['src-dir'],
+          status: 'verified',
+          riskTier: 'high',
+          lastVerified: '2026-09-01',
+          acceptedBy: 'maintainer',
+          acceptedAt: '2026-09-02',
+          nextReviewOn: '2099-01-01',
+          updateCadence: 'quarterly',
+          history: [],
+        },
+      ],
+    }),
+  );
+  return root;
+}
+
+test('promotion accepts a changed candidate and preserves history (scenario F)', () => {
+  const root = fixtureRoot();
+  try {
+    const run = createRun(root, { date: '2026-09-14', collectedBy: 'agent' });
+    writeCandidates(run.dir, [
+      {
+        id: 'city-engineer-current',
+        domain: 'government',
+        type: 'official',
+        label: 'City Engineer',
+        data: { name: 'Maria Santos' },
+        sourceIds: ['src-dir'],
+        status: 'provisional',
+        collectedBy: 'agent',
+        runId: run.runId,
+      },
+    ]);
+    const summary = promoteRun(
+      { root, runId: run.runId, records: ['city-engineer-current'], reviewer: 'reviewer' },
+      '2026-09-14',
+    );
+    assert.deepEqual(summary.promoted, ['city-engineer-current']);
+    const file = JSON.parse(fs.readFileSync(path.join(root, 'data', 'civic', 'records.json'), 'utf8')) as {
+      records: Array<{
+        id: string;
+        data: unknown;
+        status: string;
+        acceptedBy: string;
+        acceptedAt: string;
+        lastVerified: string;
+        nextReviewOn: string;
+        history: Array<{ revision: number; data: unknown }>;
+      }>;
+    };
+    const record = file.records.find((r) => r.id === 'city-engineer-current');
+    assert.ok(record);
+    assert.deepEqual(record.data, { name: 'Maria Santos' });
+    assert.equal(record.status, 'verified');
+    assert.equal(record.acceptedBy, 'reviewer');
+    assert.equal(record.acceptedAt, '2026-09-14');
+    assert.equal(record.lastVerified, '2026-09-14');
+    // Quarterly cadence from 2026-09-14 recomputes the review date.
+    assert.equal(record.nextReviewOn, '2026-12-14');
+    assert.equal(record.history.length, 1);
+    assert.deepEqual(record.history[0].data, { name: 'Juan Dela Cruz' });
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('high-risk self-verification is refused', () => {
+  const root = fixtureRoot();
+  try {
+    const run = createRun(root, { date: '2026-09-14', collectedBy: 'agent' });
+    writeCandidates(run.dir, [
+      {
+        id: 'city-engineer-current',
+        domain: 'government',
+        type: 'official',
+        label: 'City Engineer',
+        data: { name: 'Maria Santos' },
+        sourceIds: ['src-dir'],
+        status: 'provisional',
+        collectedBy: 'agent',
+        runId: run.runId,
+      },
+    ]);
+    assert.throws(
+      () => promoteRun({ root, runId: run.runId, records: ['city-engineer-current'], reviewer: 'agent' }, '2026-09-14'),
+      /independent reviewer/,
+    );
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('conflicting candidates are refused promotion', () => {
+  const root = fixtureRoot();
+  try {
+    const run = createRun(root, { date: '2026-09-14', collectedBy: 'agent' });
+    writeCandidates(run.dir, [
+      {
+        id: 'city-engineer-current',
+        domain: 'government',
+        type: 'official',
+        label: 'City Engineer',
+        data: { name: 'A' },
+        sourceIds: ['src-dir'],
+        status: 'provisional',
+        collectedBy: 'agent',
+        runId: run.runId,
+      },
+      {
+        id: 'city-engineer-current',
+        domain: 'government',
+        type: 'official',
+        label: 'City Engineer',
+        data: { name: 'B' },
+        sourceIds: ['src-dir'],
+        status: 'provisional',
+        collectedBy: 'agent',
+        runId: run.runId,
+      },
+    ]);
+    assert.throws(
+      () =>
+        promoteRun({ root, runId: run.runId, records: ['city-engineer-current'], reviewer: 'reviewer' }, '2026-09-14'),
+      /conflicting candidates/,
+    );
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('news auto-path promotes as reported and refuses non-news', () => {
+  const root = fixtureRoot();
+  try {
+    const run = createRun(root, { date: '2026-09-14', collectedBy: 'agent' });
+    writeCandidates(run.dir, [
+      {
+        id: 'news-fb-123-456',
+        domain: 'news',
+        type: 'announcement',
+        label: 'Advisory',
+        data: { title: 'Advisory' },
+        sourceIds: ['lgu-facebook-cio'],
+        status: 'provisional',
+        collectedBy: 'agent',
+        runId: run.runId,
+      },
+      {
+        id: 'city-engineer-current',
+        domain: 'government',
+        type: 'official',
+        label: 'City Engineer',
+        data: { name: 'Maria Santos' },
+        sourceIds: ['src-dir'],
+        status: 'provisional',
+        collectedBy: 'agent',
+        runId: run.runId,
+      },
+    ]);
+    const summary = promoteRun({ root, runId: run.runId, records: ['news-fb-123-456'], autoNews: true }, '2026-09-14');
+    assert.deepEqual(summary.promoted, ['news-fb-123-456']);
+    const file = JSON.parse(fs.readFileSync(path.join(root, 'data', 'civic', 'records.json'), 'utf8')) as {
+      records: Array<{ id: string; status: string }>;
+    };
+    assert.equal(file.records.find((r) => r.id === 'news-fb-123-456')?.status, 'reported');
+    assert.throws(
+      () => promoteRun({ root, runId: run.runId, records: ['city-engineer-current'], autoNews: true }, '2026-09-14'),
+      /auto-news applies only/,
+    );
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});

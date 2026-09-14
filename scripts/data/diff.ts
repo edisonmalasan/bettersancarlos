@@ -12,6 +12,7 @@ import {
   type SourceRecord,
 } from './lib/civic';
 import { stableStringify } from './lib/json';
+import { isPublishedStatus, isTimeBasedCadence } from './lib/policy';
 import { readCandidates, readManifest } from './lib/runs';
 import { runsDir } from './lib/paths';
 import { todayUtc } from './validate';
@@ -51,9 +52,7 @@ function recordSourceIds(record: CivicRecord, sources: Map<string, SourceRecord>
 }
 
 function isStale(record: CivicRecord, today: string): boolean {
-  const published = record.status === 'verified' || record.status === 'reported';
-  const changing = record.updateCadence !== 'manual' && record.updateCadence !== 'per-document';
-  return published && changing && record.nextReviewOn < today;
+  return isPublishedStatus(record.status) && isTimeBasedCadence(record.updateCadence) && record.nextReviewOn < today;
 }
 
 /**

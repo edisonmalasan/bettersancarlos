@@ -4,6 +4,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { validateRoot } from './validate';
+import { loadRecords } from './lib/civic';
+import { isTimeBasedCadence } from './lib/policy';
 
 interface Fixture {
   root: string;
@@ -376,6 +378,18 @@ test('candidate linking an unknown source instance fails', () => {
     );
   } finally {
     cleanup(fix);
+  }
+});
+
+test('Test 9: shipped non-scheduled records keep the sentinel (no fake horizons)', () => {
+  const records = loadRecords().records.filter((r) => !isTimeBasedCadence(r.updateCadence));
+  assert.equal(records.length, 41);
+  for (const record of records) {
+    assert.equal(
+      record.nextReviewOn,
+      record.acceptedAt,
+      `${record.id} (${record.updateCadence}) must keep nextReviewOn == acceptedAt`,
+    );
   }
 });
 

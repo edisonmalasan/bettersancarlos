@@ -9,6 +9,7 @@ import {
   type RunManifest,
 } from './lib/civic';
 import { stableStringify } from './lib/json';
+import { isPublishedStatus, isTimeBasedCadence } from './lib/policy';
 import { readCandidates } from './lib/runs';
 import { runsDir } from './lib/paths';
 import { todayUtc } from './validate';
@@ -35,9 +36,7 @@ export interface HealthReport {
 }
 
 function isStale(record: CivicRecord, today: string): boolean {
-  const published = record.status === 'verified' || record.status === 'reported';
-  const changing = record.updateCadence !== 'manual' && record.updateCadence !== 'per-document';
-  return published && changing && record.nextReviewOn < today;
+  return isPublishedStatus(record.status) && isTimeBasedCadence(record.updateCadence) && record.nextReviewOn < today;
 }
 
 function listRunDirs(root: string): Array<{ name: string; dir: string }> {

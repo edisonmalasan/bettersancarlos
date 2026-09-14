@@ -21,7 +21,7 @@
 ## 4. Cadence and retry hardening
 
 - [x] 4.1 Switch due computation to last-successful-check semantics (`collected`/`unchanged` only; `skipped`/`unregistered` never count); verify Test 6 (monthly failure stays eligible at the next scheduled refresh) and that untouched-source runs are unchanged
-- [ ] 4.2 Enforce cadence windows plus the non-time-based sentinel rule in `validate.ts` via the shared policy; verify Test 7 (quarterly + 2099 fails) and update the existing valid fixture to a window-legal date
+- [x] 4.2 Enforce cadence windows plus the non-time-based sentinel rule in `validate.ts` via the shared policy; verify Test 7 (quarterly + 2099 fails) and update the existing valid fixture to a window-legal date
 - [ ] 4.3 Recompute promotion `nextReviewOn` from the shared policy and assert policy/validator agreement in tests; verify a promotion for every cadence yields a validation-clean record
 
 ## 5. Risk hardening

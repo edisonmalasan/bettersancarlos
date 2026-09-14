@@ -39,7 +39,7 @@ function baseRecord(): Record<string, unknown> {
     lastVerified: '2026-09-01',
     acceptedBy: 'reviewer',
     acceptedAt: '2026-09-02',
-    nextReviewOn: '2099-01-01',
+    nextReviewOn: '2026-12-01',
     updateCadence: 'quarterly',
   };
 }
@@ -417,6 +417,40 @@ test('canonical record citing a bare registry ID fails; candidates stay exempt',
       !result.errors.some((e) => e.includes('rec-two')),
       `candidates must stay exempt: ${JSON.stringify(result.errors)}`,
     );
+  } finally {
+    cleanup(fix);
+  }
+});
+
+test('Test 7: quarterly record with a stretched review horizon fails', () => {
+  expectError(
+    writeTree((fix) => {
+      fix.records[0].acceptedAt = '2026-09-15';
+      fix.records[0].lastVerified = '2026-09-15';
+      fix.records[0].nextReviewOn = '2099-01-01';
+    }),
+    'record rec-one nextReviewOn exceeds the quarterly window (92 days from acceptedAt)',
+  );
+});
+
+test('non-scheduled cadences must keep the nextReviewOn == acceptedAt sentinel', () => {
+  expectError(
+    writeTree((fix) => {
+      fix.records[0].updateCadence = 'manual';
+      fix.records[0].acceptedAt = '2026-09-02';
+      fix.records[0].lastVerified = '2026-09-02';
+      fix.records[0].nextReviewOn = '2027-09-02';
+    }),
+    'non-scheduled cadence manual',
+  );
+  const fix = writeTree((fix2) => {
+    fix2.records[0].updateCadence = 'per-document';
+    fix2.records[0].acceptedAt = '2026-09-02';
+    fix2.records[0].lastVerified = '2026-09-02';
+    fix2.records[0].nextReviewOn = '2026-09-02';
+  });
+  try {
+    assert.deepEqual(validateRoot(fix.root).errors, []);
   } finally {
     cleanup(fix);
   }

@@ -10,6 +10,7 @@ import {
   type RunManifest,
 } from './lib/civic';
 import { readJsonFile, sha256FileHex } from './lib/json';
+import { isPublishedStatus, isTimeBasedCadence, cadenceWindowDays } from './lib/policy';
 import { readSourceInstances } from './lib/instances';
 import { civicDir, registryPath, runsDir } from './lib/paths';
 
@@ -376,10 +377,27 @@ export function validateRoot(root: string): ValidationResult {
       if (record.nextReviewOn < record.acceptedAt) {
         result.errors.push(`${tag} nextReviewOn is before acceptedAt`);
       }
-      const published = record.status === 'verified' || record.status === 'reported';
-      const changing = record.updateCadence !== 'manual' && record.updateCadence !== 'per-document';
+      const published = isPublishedStatus(record.status);
+      const changing = isTimeBasedCadence(record.updateCadence);
       if (published && changing && record.nextReviewOn < today) {
         result.errors.push(`${tag} is ${record.status} but past nextReviewOn (${record.nextReviewOn})`);
+      }
+      // Shared cadence windows (lib/policy): a review deadline may not exceed
+      // its cadence's maximum window. Non-time-based cadences (manual,
+      // per-document) carry no scheduled horizon: nextReviewOn must equal
+      // acceptedAt as an explicit "no scheduled review" sentinel.
+      const window = cadenceWindowDays(record.updateCadence);
+      if (window !== null) {
+        const span = Math.round((Date.parse(record.nextReviewOn) - Date.parse(record.acceptedAt)) / 86400000);
+        if (changing && span > window) {
+          result.errors.push(
+            `${tag} nextReviewOn exceeds the ${record.updateCadence} window (${window} days from acceptedAt)`,
+          );
+        } else if (!changing && record.nextReviewOn !== record.acceptedAt) {
+          result.errors.push(
+            `${tag} uses non-scheduled cadence ${record.updateCadence} but nextReviewOn != acceptedAt; keep the sentinel instead of a fake horizon`,
+          );
+        }
       }
     }
     if (record.status === 'needs-reverification' || record.status === 'blocked' || record.status === 'provisional') {

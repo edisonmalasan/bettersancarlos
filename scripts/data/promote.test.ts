@@ -72,7 +72,7 @@ function fixtureRoot(): string {
           registryId: 'reg-site',
         },
       ],
-    }),
+    }, null, 2) + '\n',
   );
   fs.writeFileSync(
     path.join(root, 'data', 'civic', 'records.json'),
@@ -96,7 +96,7 @@ function fixtureRoot(): string {
           history: [],
         },
       ],
-    }),
+    }, null, 2) + '\n',
   );
   return root;
 }
@@ -436,6 +436,74 @@ test('byte-identical re-collection reuses the accepted instance (dedupe)', () =>
     assert.equal(countSources(), 2, 'no duplicate source record for identical evidence');
     assert.deepEqual(two.promotedSources, [REG_INSTANCE_ID]);
     assert.deepEqual(one.promotedSources, [REG_INSTANCE_ID]);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('Test 10: identical evidence and identical fact promote nothing new', () => {
+  const root = fixtureRoot();
+  try {
+    // Pre-accept the exact evidence so re-collection dedupes to zero appends.
+    const sourcesPath = path.join(root, 'data', 'civic', 'sources.json');
+    const sourcesFile = JSON.parse(fs.readFileSync(sourcesPath, 'utf8')) as { sources: Array<Record<string, unknown>> };
+    sourcesFile.sources.push({
+      id: 'src-reg-site-2026-09-14-b2c3d4e5',
+      title: 'Fixture evidence',
+      publisher: 'Fixture',
+      url: 'https://example.test/',
+      documentType: 'webpage',
+      retrievedAt: '2026-09-14',
+      verifier: 'reviewer',
+      sourceState: 'active',
+      evidencePath: 'research/runs/2026-09-14/evidence/page.html',
+      sha256: `${'b2c3d4e5'}${'0'.repeat(56)}`,
+      registryId: 'reg-site',
+    });
+    fs.writeFileSync(sourcesPath, JSON.stringify(sourcesFile, null, 2) + '\n');
+    const run = createRun(root, { date: '2026-09-14', collectedBy: 'agent' });
+    writeCandidates(run.dir, [
+      {
+        id: 'city-engineer-current',
+        domain: 'government',
+        type: 'official',
+        label: 'City Engineer',
+        data: { name: 'Juan Dela Cruz' },
+        sourceIds: ['src-dir'],
+        sourceInstanceIds: ['src-reg-site-2026-09-14-b2c3d4e5'],
+        status: 'provisional',
+        collectedBy: 'agent',
+        runId: run.runId,
+      },
+    ]);
+    writeSourceInstances(run.dir, [
+      {
+        id: 'src-reg-site-2026-09-14-b2c3d4e5',
+        registryId: 'reg-site',
+        title: 'Fixture evidence',
+        publisher: 'Fixture',
+        url: 'https://example.test/',
+        documentType: 'webpage',
+        retrievedAt: '2026-09-14',
+        sourceState: 'active',
+        evidencePath: `research/runs/${run.runId}/evidence/page.html`,
+        sha256: `${'b2c3d4e5'}${'0'.repeat(56)}`,
+        collectedBy: 'agent',
+        runId: run.runId,
+      },
+    ]);
+    const before = snapshotCivic(root);
+    const summary = promoteRun(
+      { root, runId: run.runId, records: ['city-engineer-current'], reviewer: 'reviewer' },
+      '2026-09-14',
+    );
+    assert.deepEqual(summary.promoted, []);
+    assert.deepEqual(summary.unchanged, ['city-engineer-current']);
+    assert.deepEqual(snapshotCivic(root), before);
+    const file = JSON.parse(fs.readFileSync(path.join(root, 'data', 'civic', 'records.json'), 'utf8')) as {
+      records: Array<{ id: string; history: unknown[] }>;
+    };
+    assert.deepEqual(file.records.find((r) => r.id === 'city-engineer-current')?.history, []);
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
   }

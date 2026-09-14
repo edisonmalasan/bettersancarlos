@@ -25,6 +25,8 @@ export interface PromoteSummary {
   promoted: string[];
   /** Accepted canonical source IDs (deduped), in promotion order. */
   promotedSources: string[];
+  /** Wanted records skipped because identical evidence confirmed an identical fact (no new revision). */
+  unchanged: string[];
   reviewer: string;
 }
 
@@ -48,7 +50,7 @@ function acceptCandidateSources(
   registryIds: Set<string>,
   reviewer: string,
   runId: string,
-): { sourceIds: string[]; claimSources: Record<string, string[]> | undefined; appended: string[] } {
+): { sourceIds: string[]; claimSources: Record<string, string[]> | undefined; appended: SourceRecord[] } {
   const links = candidate.sourceInstanceIds ?? [];
   if (links.length === 0) {
     throw new Error(
@@ -57,24 +59,23 @@ function acceptCandidateSources(
   }
   const acceptedByRegistry = new Map<string, string>();
   const acceptedByInstance = new Map<string, string>();
-  const appended: string[] = [];
+  const appended: SourceRecord[] = [];
+  const known = (id: string): SourceRecord | undefined =>
+    sources.get(id) ?? appended.find((s) => s.id === id);
   for (const iid of links) {
     const instance = runInstances.get(iid);
     if (!instance) {
       throw new Error(`promote: candidate ${candidate.id} links unknown source instance: ${iid}`);
     }
-    const reused = findSourceByContent([...sources.values()], instance.registryId, instance.sha256);
+    const reused =
+      findSourceByContent([...sources.values(), ...appended], instance.registryId, instance.sha256) ??
+      known(instance.id);
     if (reused) {
       acceptedByRegistry.set(instance.registryId, reused.id);
       acceptedByInstance.set(iid, reused.id);
       continue;
     }
-    if (sources.has(instance.id)) {
-      acceptedByRegistry.set(instance.registryId, instance.id);
-      acceptedByInstance.set(iid, instance.id);
-      continue;
-    }
-    sources.set(instance.id, {
+    const record: SourceRecord = {
       id: instance.id,
       title: instance.title,
       publisher: instance.publisher,
@@ -90,8 +91,8 @@ function acceptCandidateSources(
       ...(instance.evidencePath ? { evidencePath: instance.evidencePath } : {}),
       registryId: instance.registryId,
       notes: `Collected by ${instance.collectedBy} in run ${runId}; accepted by ${reviewer}.${instance.notes ? ` ${instance.notes}` : ''}`,
-    });
-    appended.push(instance.id);
+    };
+    appended.push(record);
     acceptedByRegistry.set(instance.registryId, instance.id);
     acceptedByInstance.set(iid, instance.id);
   }
@@ -242,10 +243,14 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
   const wanted = options.all || (autoNews && (options.records?.length ?? 0) === 0) ? [...byId.keys()] : (options.records ?? []);
   const promoted: string[] = [];
   const promotedSources: string[] = [];
+  const unchanged: string[] = [];
   const touchedRecords = new Set<string>();
   const touchedSources = new Set<string>();
-  const trackSources = (accepted: { sourceIds: string[]; appended: string[] }): string[] => {
-    for (const sid of accepted.appended) touchedSources.add(sid);
+  const trackSources = (accepted: { sourceIds: string[]; appended: SourceRecord[] }): string[] => {
+    for (const source of accepted.appended) {
+      sources.set(source.id, source);
+      touchedSources.add(source.id);
+    }
     for (const sid of accepted.sourceIds) {
       if (!promotedSources.includes(sid)) promotedSources.push(sid);
     }
@@ -307,9 +312,22 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
       );
     }
     const accepted = acceptCandidateSources(candidate, runInstances, sources, registryIds, reviewer, runId);
-    const acceptedIds = trackSources(accepted);
 
     if (existing) {
+      // Identical evidence confirming an identical fact is already canonical:
+      // skip without a meaningless history revision (Test 10). Any new
+      // evidence, data change, or claim re-attribution still promotes. The
+      // skip happens before merging, so unaccepted evidence never orphans
+      // into sources.json.
+      const sameData = stableStringify(candidate.data) === stableStringify(existing.data);
+      const sameClaims =
+        candidate.claimSources === undefined ||
+        stableStringify(accepted.claimSources ?? {}) === stableStringify(existing.claimSources ?? {});
+      if (sameData && sameClaims && accepted.appended.length === 0) {
+        unchanged.push(id);
+        continue;
+      }
+      const acceptedIds = trackSources(accepted);
       const history = existing.history ?? [];
       const revision = {
         revision: history.length + 1,
@@ -334,6 +352,7 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
     } else {
       const cadence = options.cadence ?? 'quarterly';
       if (!(cadence in CADENCE_POLICY)) throw new Error(`promote: unknown cadence: ${cadence}`);
+      const acceptedIds = trackSources(accepted);
       records.set(id, {
         id: candidate.id,
         domain: candidate.domain,
@@ -363,7 +382,7 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
   validateProposedState(records, sources, registryIds, touchedRecords, touchedSources);
   writeJsonAtomic(recordsPath(root), { records: [...records.values()] });
   writeJsonAtomic(sourcesPath(root), { sources: [...sources.values()] });
-  return { runId, promoted, promotedSources, reviewer };
+  return { runId, promoted, promotedSources, unchanged, reviewer };
 }
 
 function parseArgs(argv: string[]): PromoteOptions & { root: string } {
@@ -400,6 +419,9 @@ if (invokedDirectly) {
     const { root, ...options } = parseArgs(argv);
     const summary = promoteRun({ ...options, root });
     console.log(`promote: run ${summary.runId} accepted by ${summary.reviewer}: ${summary.promoted.join(', ')}`);
+    if (summary.unchanged.length > 0) {
+      console.log(`promote: unchanged (already canonical, no new revision): ${summary.unchanged.join(', ')}`);
+    }
     console.log('promote: run `bun run data:generate` and `bun run verify` next');
   } catch (err) {
     console.error((err as Error).message);

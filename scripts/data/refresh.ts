@@ -260,7 +260,13 @@ export async function runRefresh(options: RefreshOptions): Promise<RefreshSummar
         collectedBy,
       });
       outcomes[entry.id] = outcome;
-      recordSource(run.dir, { sourceId: entry.id, checkedAt, outcome, evidenceSha256: sha });
+      recordSource(run.dir, {
+        sourceId: entry.id,
+        checkedAt,
+        outcome,
+        evidenceSha256: sha,
+        ...(result.coverage ? { coverage: result.coverage.expectedRecordIds } : {}),
+      });
       allCandidates.push(...result.candidates);
       allInstances.push(...result.sourceInstances);
       findingLines.push(`- ${entry.id}: ${outcome.toUpperCase()} (${result.candidates.length} candidate(s))`);

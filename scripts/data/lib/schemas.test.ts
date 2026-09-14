@@ -40,6 +40,11 @@ test('manifest schema versions backwards-compatibly (absent means v1 legacy)', (
   assert.ok(!requiredKeys(schema).includes('schemaVersion'), 'schemaVersion must stay optional');
   const props = schema.properties as Record<string, Record<string, unknown>>;
   assert.ok(props.schemaVersion, 'manifest schema must define schemaVersion');
+  const sources = props.sources as unknown as Record<string, unknown>;
+  const itemProps = ((sources.items ?? {}) as Record<string, unknown>).properties as Record<string, unknown>;
+  assert.ok(itemProps.coverage, 'manifest source entries must define optional coverage');
+  const itemRequired = (((sources.items ?? {}) as Record<string, unknown>).required ?? []) as string[];
+  assert.ok(!itemRequired.includes('coverage'), 'coverage must stay optional');
 });
 
 test('candidate schema links instances optionally (existing fixtures stay valid)', () => {

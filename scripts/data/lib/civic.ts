@@ -159,6 +159,12 @@ export interface RunSourceEntry {
   outcome: RunSourceOutcome;
   error?: string;
   evidenceSha256?: string;
+  /**
+   * Fact-level coverage: existing canonical record IDs the collector
+   * attempted to extract from this source in this run. Absent means unknown
+   * coverage (pre-coverage runs); the diff then reports no MISSING for it.
+   */
+  coverage?: string[];
 }
 
 export interface RunManifest {

@@ -4,6 +4,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { validateRoot } from './validate';
+import { loadRecords } from './lib/civic';
+import { isTimeBasedCadence } from './lib/policy';
 
 interface Fixture {
   root: string;
@@ -36,10 +38,11 @@ function baseRecord(): Record<string, unknown> {
     claimSources: { name: ['src-doc'] },
     sourceIds: ['src-doc'],
     status: 'verified',
+    riskTier: 'high',
     lastVerified: '2026-09-01',
     acceptedBy: 'reviewer',
     acceptedAt: '2026-09-02',
-    nextReviewOn: '2099-01-01',
+    nextReviewOn: '2026-12-01',
     updateCadence: 'quarterly',
   };
 }
@@ -335,6 +338,151 @@ test('fixture run leaves topic research files byte-identical', async () => {
     assert.equal(fs.readFileSync(topicFile, 'utf8'), before);
     const result = validateRoot(fix.root);
     assert.deepEqual(result.errors, []);
+  } finally {
+    cleanup(fix);
+  }
+});
+
+test('candidate linking an unknown source instance fails', () => {
+  const fix = writeTree();
+  try {
+    const runDir = path.join(fix.root, 'research', 'runs', '2026-09-14');
+    fs.mkdirSync(runDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'manifest.json'),
+      JSON.stringify({ runId: '2026-09-14', startedAt: '2026-09-14T00:00:00Z', parameters: {}, sources: [] }),
+    );
+    fs.writeFileSync(
+      path.join(runDir, 'candidates.json'),
+      JSON.stringify({
+        candidates: [
+          {
+            id: 'rec-one',
+            domain: 'government',
+            type: 'official',
+            label: 'Record One',
+            data: { name: 'Bob' },
+            sourceIds: ['src-doc'],
+            sourceInstanceIds: ['src-reg-site-2026-09-14-deadbeef'],
+            status: 'provisional',
+            collectedBy: 'agent',
+            runId: '2026-09-14',
+          },
+        ],
+      }),
+    );
+    const result = validateRoot(fix.root);
+    assert.ok(
+      result.errors.some((e) => e.includes('links unknown source instance')),
+      JSON.stringify(result.errors),
+    );
+  } finally {
+    cleanup(fix);
+  }
+});
+
+test('Test 9: shipped non-scheduled records keep the sentinel (no fake horizons)', () => {
+  const records = loadRecords().records.filter((r) => !isTimeBasedCadence(r.updateCadence));
+  assert.equal(records.length, 41);
+  for (const record of records) {
+    assert.equal(
+      record.nextReviewOn,
+      record.acceptedAt,
+      `${record.id} (${record.updateCadence}) must keep nextReviewOn == acceptedAt`,
+    );
+  }
+});
+
+test('canonical record citing a bare registry ID fails; candidates stay exempt', () => {
+  const fix = writeTree((fix2) => {
+    fix2.records[0].sourceIds = ['reg-site'];
+    fix2.records[0].claimSources = {};
+  });
+  try {
+    const runDir = path.join(fix.root, 'research', 'runs', '2026-09-14');
+    fs.mkdirSync(runDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'manifest.json'),
+      JSON.stringify({ runId: '2026-09-14', startedAt: '2026-09-14T00:00:00Z', parameters: {}, sources: [] }),
+    );
+    fs.writeFileSync(
+      path.join(runDir, 'candidates.json'),
+      JSON.stringify({
+        candidates: [
+          {
+            id: 'rec-two',
+            domain: 'government',
+            type: 'official',
+            label: 'Record Two',
+            data: { name: 'Zed' },
+            sourceIds: ['reg-site'],
+            status: 'provisional',
+            collectedBy: 'agent',
+            runId: '2026-09-14',
+          },
+        ],
+      }),
+    );
+    const result = validateRoot(fix.root);
+    assert.ok(
+      result.errors.some((e) => e.includes('record rec-one cites registry reg-site without an exact sources.json record')),
+      JSON.stringify(result.errors),
+    );
+    assert.ok(
+      !result.errors.some((e) => e.includes('rec-two')),
+      `candidates must stay exempt: ${JSON.stringify(result.errors)}`,
+    );
+  } finally {
+    cleanup(fix);
+  }
+});
+
+test('Test 7: quarterly record with a stretched review horizon fails', () => {
+  expectError(
+    writeTree((fix) => {
+      fix.records[0].acceptedAt = '2026-09-15';
+      fix.records[0].lastVerified = '2026-09-15';
+      fix.records[0].nextReviewOn = '2099-01-01';
+    }),
+    'record rec-one nextReviewOn exceeds the quarterly window (92 days from acceptedAt)',
+  );
+});
+
+test('non-scheduled cadences must keep the nextReviewOn == acceptedAt sentinel', () => {
+  expectError(
+    writeTree((fix) => {
+      fix.records[0].updateCadence = 'manual';
+      fix.records[0].acceptedAt = '2026-09-02';
+      fix.records[0].lastVerified = '2026-09-02';
+      fix.records[0].nextReviewOn = '2027-09-02';
+    }),
+    'non-scheduled cadence manual',
+  );
+  const fix = writeTree((fix2) => {
+    fix2.records[0].updateCadence = 'per-document';
+    fix2.records[0].acceptedAt = '2026-09-02';
+    fix2.records[0].lastVerified = '2026-09-02';
+    fix2.records[0].nextReviewOn = '2026-09-02';
+  });
+  try {
+    assert.deepEqual(validateRoot(fix.root).errors, []);
+  } finally {
+    cleanup(fix);
+  }
+});
+
+test('canonical record without riskTier fails (explicit tiers required)', () => {
+  const fix = writeTree();
+  try {
+    const recordsPath = path.join(fix.root, 'data', 'civic', 'records.json');
+    const file = JSON.parse(fs.readFileSync(recordsPath, 'utf8')) as { records: Array<Record<string, unknown>> };
+    delete file.records[0].riskTier;
+    fs.writeFileSync(recordsPath, JSON.stringify(file));
+    const result = validateRoot(fix.root);
+    assert.ok(
+      result.errors.some((e) => e.includes('record rec-one is missing riskTier')),
+      JSON.stringify(result.errors),
+    );
   } finally {
     cleanup(fix);
   }

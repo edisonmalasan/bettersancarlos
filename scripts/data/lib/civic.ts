@@ -42,7 +42,8 @@ export interface CivicRecord {
   claimSources?: Record<string, string[]>;
   sourceIds: string[];
   status: CivicStatus;
-  riskTier?: RiskTier;
+  /** Required: explicit impact tier. Absent tiers never silently default away high-impact facts (see lib/policy isHighRisk). */
+  riskTier: RiskTier;
   lastVerified: string;
   acceptedBy: string;
   acceptedAt: string;
@@ -111,10 +112,37 @@ export interface Candidate {
   data: Record<string, unknown>;
   claimSources?: Record<string, string[]>;
   sourceIds: string[];
+  /** Exact evidence instances backing this candidate (source-instances.json). Optional for backwards compatibility; required for promotion of new evidence. */
+  sourceInstanceIds?: string[];
   status: 'provisional';
   collectedBy: string;
   runId: string;
   notes?: string;
+}
+
+/** Exact retrieved-evidence instance produced by a refresh run. Unaccepted instances never reach canonical sources.json. */
+export interface SourceInstance {
+  id: string;
+  registryId: string;
+  title: string;
+  publisher: string;
+  url?: string;
+  discovery?: string;
+  documentType: string;
+  publishedAt?: string | null;
+  effectivePeriod?: { from?: string | null; to?: string | null } | null;
+  retrievedAt: string;
+  sourceState: 'active' | 'archived' | 'unavailable' | 'moved';
+  evidencePath?: string;
+  sha256?: string;
+  collectedBy: string;
+  runId: string;
+  notes?: string;
+}
+
+export interface SourceInstancesFile {
+  version: 1;
+  instances: SourceInstance[];
 }
 
 export type RunSourceOutcome =
@@ -137,6 +165,8 @@ export interface RunManifest {
   runId: string;
   startedAt: string;
   endedAt?: string | null;
+  /** Manifest format version. Absent means v1 legacy (still readable). */
+  schemaVersion?: number;
   parameters: Record<string, unknown>;
   sources: RunSourceEntry[];
   candidatesProduced?: number;

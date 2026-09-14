@@ -3,8 +3,36 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { buildCityProfileJson, buildCmciJson, buildDemographicsJson, buildDomainJson, buildFiscalJson, buildNewsJson, isFbNewsRecord } from './generate';
-import { loadRecords, loadSources, type CivicRecord } from './lib/civic';
+import { loadRecords, loadSources, type CivicRecord, type SourceRecord } from './lib/civic';
 import { FB_MAX_ITEMS } from './lib/facebook';
+
+function srcDoc(): SourceRecord {
+  return {
+    id: 'src-doc',
+    title: 'Fixture doc',
+    publisher: 'Fixture',
+    url: 'https://example.test/doc',
+    documentType: 'webpage',
+    retrievedAt: '2026-09-04',
+    verifier: 'fixture',
+    sourceState: 'active',
+  };
+}
+
+function fbSource(): SourceRecord {
+  return {
+    id: 'src-fb-fixture-1',
+    title: 'Fixture Graph response',
+    publisher: 'City Information Office',
+    url: 'https://www.facebook.com/sccp.cio',
+    documentType: 'json',
+    retrievedAt: '2026-09-14',
+    verifier: 'fixture',
+    sourceState: 'active',
+    sha256: '0'.repeat(64),
+    registryId: 'lgu-facebook-cio',
+  };
+}
 
 function newsRecord(overrides: Partial<CivicRecord> & { id: string }): CivicRecord {
   return {
@@ -51,11 +79,11 @@ function fixtureTree(): { records: CivicRecord[]; sources: ReturnType<typeof loa
         url: 'https://www.facebook.com/post',
         recency: 'current',
       },
-      sourceIds: ['lgu-facebook-cio'],
+      sourceIds: ['src-fb-fixture-1'],
     });
   return {
     records: [note, manual('news-old-manual', 1, '2024-01-01'), manual('news-new-manual', 0, '2025-01-01'), fb('news-fb-a', '2026-09-10'), fb('news-fb-b', '2026-09-11')],
-    sources: [],
+    sources: [srcDoc(), fbSource()],
   };
 }
 
@@ -104,13 +132,27 @@ test('fb slice is capped so one noisy run cannot flood the feed', () => {
           url: null,
           recency: 'current',
         },
-        sourceIds: ['lgu-facebook-cio'],
+        sourceIds: ['src-fb-fixture-1'],
       }),
     );
   }
   const out = buildNewsJson(many, sources) as { news: Array<{ id: string }> };
   // 2 manual + capped fb slice.
   assert.equal(out.news.length, 2 + FB_MAX_ITEMS);
+});
+
+test('generation fails loudly on unresolvable source references', () => {
+  const { records, sources } = fixtureTree();
+  const dangling = newsRecord({
+    id: 'news-dangling',
+    label: 'dangling',
+    data: { title: 'dangling', date: '2026-09-12', category: 'Announcement', badge: 'info', summary: 'x', url: null, recency: 'current', order: 9 },
+    sourceIds: ['src-missing'],
+  });
+  assert.throws(
+    () => buildNewsJson([...records, dangling], sources),
+    /generate: record news-dangling cites unresolvable source: src-missing/,
+  );
 });
 
 test('seeded canonical news reproduces the shipped news.json items exactly', () => {

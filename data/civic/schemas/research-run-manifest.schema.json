@@ -6,7 +6,11 @@
   "type": "object",
   "required": ["runId", "startedAt", "parameters", "sources"],
   "properties": {
-    "runId": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(-[0-9]+)?$" },
+    "schemaVersion": {
+      "type": "integer",
+      "description": "Manifest format version. Absent means v1 legacy (still readable).",
+      "minimum": 1
+    },    "runId": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(-[0-9]+)?$" },
     "startedAt": { "type": "string", "format": "date-time" },
     "endedAt": { "type": ["string", "null"], "format": "date-time" },
     "parameters": {

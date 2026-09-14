@@ -72,6 +72,9 @@ research-run requirements, promotion/conflict rules) is the
 
 Refresh order: `bun run data:refresh [-- --source=<id>] [-- --domain=<d>]` →
 inspect `research/runs/<date>/` → `bun run data:diff` → STOP.
+Candidates must link exact evidence instances (`source-instances.json`);
+canonical `sourceIds` never cite bare registry IDs. Only successful checks
+satisfy cadence; failures retry sooner and skipped sources never count.
 Promotion is a separate reviewer step
 (`bun run data:promote -- --run=<id> --record=<id> --reviewer=<name>`);
 never accept your own high-risk candidates; conflicts fail closed.

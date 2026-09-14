@@ -1,11 +1,14 @@
 import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
-import { loadRecords, type Candidate, type CivicRecord } from './lib/civic';
+import { loadRecords, loadRegistry, loadSources, type Candidate, type CivicRecord, type SourceInstance, type SourceRecord } from './lib/civic';
 import { writeJsonAtomic, stableStringify } from './lib/json';
-import { recordsPath, runsDir } from './lib/paths';
+import { findSourceByContent } from './lib/instances';
+import { CADENCE_POLICY, cadenceWindowDays, isHighRisk, isTimeBasedCadence, nextReviewDate, policyDefaultRiskTier } from './lib/policy';
+import { recordsPath, sourcesPath, runsDir } from './lib/paths';
 import { readCandidates } from './lib/runs';
-import { todayUtc } from './validate';
+import { readSourceInstances } from './lib/instances';
+import { CADENCES, RECORD_TYPES, RISK_TIERS, STATUSES, isValidDate, resolveClaimPath, todayUtc } from './validate';
 
 export interface PromoteOptions {
   root: string;
@@ -20,33 +23,171 @@ export interface PromoteOptions {
 export interface PromoteSummary {
   runId: string;
   promoted: string[];
+  /** Accepted canonical source IDs (deduped), in promotion order. */
+  promotedSources: string[];
+  /** Wanted records skipped because identical evidence confirmed an identical fact (no new revision). */
+  unchanged: string[];
   reviewer: string;
 }
 
-// Cadence to review-horizon mapping used when promotion recomputes
-// nextReviewOn. `manual` means review is due immediately (today).
-const CADENCE_INTERVAL_DAYS: Record<string, number> = {
-  daily: 1,
-  weekly: 7,
-  monthly: 30,
-  quarterly: 91,
-  annually: 365,
-  'per-term': 1096,
-  'per-document': 365,
-  manual: 0,
-  'event-driven': 91,
-};
-
-// Domains whose NEW records always require an independent reviewer.
-const HIGH_RISK_DOMAINS = new Set(['government', 'emergency', 'health', 'transparency', 'legislation']);
+// High-risk classification lives in lib/policy.ts isHighRisk (single rule over
+// record tier, domain, and type); nothing here duplicates it.
 
 export const NEWS_AUTO_PRINCIPAL = 'news-auto-path';
 const NEWS_AUTO_REGISTRY = 'lgu-facebook-cio';
 
-function addDays(date: string, days: number): string {
-  const dt = new Date(date + 'T00:00:00Z');
-  dt.setUTCDate(dt.getUTCDate() + days);
-  return dt.toISOString().slice(0, 10);
+/**
+ * Accept a candidate's source-instance links against the run's instances.
+ * Returns the accepted canonical source ID per cited ID (registry IDs and
+ * instance IDs both resolve here). New instances are appended to `sources`
+ * (deduplicated on registry + evidence hash); anything unresolvable throws —
+ * promotion never accepts a claim it cannot trace to exact evidence.
+ */
+function acceptCandidateSources(
+  candidate: Candidate,
+  runInstances: Map<string, SourceInstance>,
+  sources: Map<string, SourceRecord>,
+  registryIds: Set<string>,
+  reviewer: string,
+  runId: string,
+): { sourceIds: string[]; claimSources: Record<string, string[]> | undefined; appended: SourceRecord[] } {
+  const links = candidate.sourceInstanceIds ?? [];
+  if (links.length === 0) {
+    throw new Error(
+      `promote: candidate ${candidate.id} links no source instances; re-collect with instance metadata`,
+    );
+  }
+  const acceptedByRegistry = new Map<string, string>();
+  const acceptedByInstance = new Map<string, string>();
+  const appended: SourceRecord[] = [];
+  const known = (id: string): SourceRecord | undefined =>
+    sources.get(id) ?? appended.find((s) => s.id === id);
+  for (const iid of links) {
+    const instance = runInstances.get(iid);
+    if (!instance) {
+      throw new Error(`promote: candidate ${candidate.id} links unknown source instance: ${iid}`);
+    }
+    const reused =
+      findSourceByContent([...sources.values(), ...appended], instance.registryId, instance.sha256) ??
+      known(instance.id);
+    if (reused) {
+      acceptedByRegistry.set(instance.registryId, reused.id);
+      acceptedByInstance.set(iid, reused.id);
+      continue;
+    }
+    const record: SourceRecord = {
+      id: instance.id,
+      title: instance.title,
+      publisher: instance.publisher,
+      ...(instance.url ? { url: instance.url } : {}),
+      ...(instance.discovery ? { discovery: instance.discovery } : {}),
+      documentType: instance.documentType,
+      ...(instance.publishedAt !== undefined ? { publishedAt: instance.publishedAt } : {}),
+      ...(instance.effectivePeriod !== undefined ? { effectivePeriod: instance.effectivePeriod } : {}),
+      retrievedAt: instance.retrievedAt,
+      verifier: reviewer,
+      sourceState: instance.sourceState,
+      ...(instance.sha256 ? { sha256: instance.sha256 } : {}),
+      ...(instance.evidencePath ? { evidencePath: instance.evidencePath } : {}),
+      registryId: instance.registryId,
+      notes: `Collected by ${instance.collectedBy} in run ${runId}; accepted by ${reviewer}.${instance.notes ? ` ${instance.notes}` : ''}`,
+    };
+    appended.push(record);
+    acceptedByRegistry.set(instance.registryId, instance.id);
+    acceptedByInstance.set(iid, instance.id);
+  }
+  const resolveClaim = (sid: string, field: string): string => {
+    if (acceptedByRegistry.has(sid)) return acceptedByRegistry.get(sid) as string;
+    if (acceptedByInstance.has(sid)) return acceptedByInstance.get(sid) as string;
+    if (sources.has(sid)) return sid;
+    if (registryIds.has(sid)) {
+      throw new Error(
+        `promote: candidate ${candidate.id} cites registry ${sid} with no run evidence for it`,
+      );
+    }
+    throw new Error(`promote: candidate ${candidate.id} claim "${field}" cites unknown source: ${sid}`);
+  };
+  // The accepted instances ARE the record's provenance: the current revision
+  // references exactly the evidence behind this candidacy (Test 2: current
+  // points at B while history preserves A). Pre-existing exact IDs survive
+  // only inside per-claim attributions, never as bare registry pointers.
+  const sourceIds = [...new Set(links.map((iid) => acceptedByInstance.get(iid) as string))];
+  let claimSources: Record<string, string[]> | undefined;
+  if (candidate.claimSources) {
+    claimSources = Object.fromEntries(
+      Object.entries(candidate.claimSources).map(([field, sids]) => [
+        field,
+        [...new Set((sids ?? []).map((sid) => resolveClaim(sid, field)))],
+      ]),
+    );
+  }
+  return { sourceIds, claimSources, appended };
+}
+
+/**
+ * Pre-write gate over the proposed in-memory state: every touched record and
+ * every appended source must already satisfy the contract, so a logic error
+ * can never reach disk. Only touched records are checked (untouched canonical
+ * records keep their grandfathered state until their own migration task).
+ */
+function validateProposedState(
+  records: Map<string, CivicRecord>,
+  sources: Map<string, SourceRecord>,
+  registryIds: Set<string>,
+  touchedRecords: Set<string>,
+  touchedSources: Set<string>,
+): void {
+  const fail = (message: string): never => {
+    throw new Error(`promote: proposed state invalid: ${message}`);
+  };
+  for (const sid of touchedSources) {
+    const source = sources.get(sid);
+    if (!source) fail(`missing appended source: ${sid}`);
+    else {
+      if (!source.title || !source.publisher) fail(`source ${sid} is missing title/publisher`);
+      if (!isValidDate(source.retrievedAt)) fail(`source ${sid} has invalid retrievedAt: ${source.retrievedAt}`);
+      if (source.registryId !== undefined && !registryIds.has(source.registryId)) {
+        fail(`source ${sid} cites unknown registry: ${source.registryId}`);
+      }
+    }
+  }
+  for (const id of touchedRecords) {
+    const record = records.get(id);
+    if (!record) fail(`missing touched record: ${id}`);
+    else {
+      if (!STATUSES.includes(record.status)) fail(`record ${id} has unknown status: ${record.status}`);
+      if (!CADENCES.includes(record.updateCadence)) fail(`record ${id} has unknown cadence: ${record.updateCadence}`);
+      if (!RECORD_TYPES.includes(record.type)) fail(`record ${id} has unknown type: ${record.type}`);
+      if (!RISK_TIERS.includes(record.riskTier)) fail(`record ${id} is missing riskTier`);
+      if (!Array.isArray(record.sourceIds) || record.sourceIds.length === 0) fail(`record ${id} has no sourceIds`);
+      else {
+        for (const sid of record.sourceIds) {
+          if (!sources.has(sid)) fail(`record ${id} cites non-exact source: ${sid}`);
+        }
+      }
+      if (record.claimSources) {
+        for (const [claimPath, sids] of Object.entries(record.claimSources)) {
+          if (!resolveClaimPath(record.data ?? {}, claimPath)) {
+            fail(`record ${id} claimSources path does not exist in data: ${claimPath}`);
+          }
+          for (const sid of sids ?? []) {
+            if (!sources.has(sid)) fail(`record ${id} claim "${claimPath}" cites non-exact source: ${sid}`);
+          }
+        }
+      }
+      for (const field of ['lastVerified', 'acceptedAt', 'nextReviewOn'] as const) {
+        if (!isValidDate(record[field])) fail(`record ${id} has invalid ${field}: ${record[field]}`);
+      }
+      if (record.nextReviewOn < record.acceptedAt) fail(`record ${id} nextReviewOn is before acceptedAt`);
+      if (isTimeBasedCadence(record.updateCadence)) {
+        const span = Math.round((Date.parse(record.nextReviewOn) - Date.parse(record.acceptedAt)) / 86400000);
+        const max = cadenceWindowDays(record.updateCadence) ?? 0;
+        if (span > max) fail(`record ${id} nextReviewOn exceeds the ${record.updateCadence} window`);
+      } else if (record.nextReviewOn !== record.acceptedAt) {
+        fail(`record ${id} uses a non-scheduled cadence but nextReviewOn != acceptedAt`);
+      }
+    }
+  }
 }
 
 function resolveReviewer(explicit?: string): string {
@@ -84,6 +225,9 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
 
   const file = loadRecords(root);
   const records = new Map(file.records.map((r) => [r.id, r]));
+  const sources = new Map(loadSources(root).sources.map((s) => [s.id, s]));
+  const registryIds = new Set(loadRegistry(root).sources.map((s) => s.id));
+  const runInstances = new Map(readSourceInstances(runDir).map((i) => [i.id, i]));
   const byId = new Map<string, Candidate[]>();
   for (const candidate of candidates) {
     const list = byId.get(candidate.id) ?? [];
@@ -98,6 +242,20 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
   // with no partial writes.
   const wanted = options.all || (autoNews && (options.records?.length ?? 0) === 0) ? [...byId.keys()] : (options.records ?? []);
   const promoted: string[] = [];
+  const promotedSources: string[] = [];
+  const unchanged: string[] = [];
+  const touchedRecords = new Set<string>();
+  const touchedSources = new Set<string>();
+  const trackSources = (accepted: { sourceIds: string[]; appended: SourceRecord[] }): string[] => {
+    for (const source of accepted.appended) {
+      sources.set(source.id, source);
+      touchedSources.add(source.id);
+    }
+    for (const sid of accepted.sourceIds) {
+      if (!promotedSources.includes(sid)) promotedSources.push(sid);
+    }
+    return accepted.sourceIds;
+  };
 
   for (const id of wanted) {
     const list = byId.get(id);
@@ -118,38 +276,58 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
       if (existing) {
         throw new Error(`promote: --auto-news creates new records only (${id} already canonical)`);
       }
+      const accepted = acceptCandidateSources(candidate, runInstances, sources, registryIds, NEWS_AUTO_PRINCIPAL, runId);
       records.set(id, {
         id: candidate.id,
         domain: candidate.domain,
         type: candidate.type,
         label: candidate.label,
         data: candidate.data,
-        claimSources: candidate.claimSources,
-        sourceIds: candidate.sourceIds,
+        claimSources: accepted.claimSources,
+        sourceIds: trackSources(accepted),
         status: 'reported',
         lastVerified: today,
         acceptedBy: NEWS_AUTO_PRINCIPAL,
         acceptedAt: today,
-        nextReviewOn: addDays(today, CADENCE_INTERVAL_DAYS['weekly']),
+        nextReviewOn: nextReviewDate('weekly', today),
         updateCadence: 'weekly',
+        riskTier: policyDefaultRiskTier(candidate.domain, candidate.type),
         collectedBy: candidate.collectedBy,
         notes: candidate.notes,
         history: [],
       });
+      touchedRecords.add(id);
       promoted.push(id);
       continue;
     }
 
-    const highRisk = existing
-      ? (existing.riskTier ?? 'medium') === 'high'
-      : HIGH_RISK_DOMAINS.has(candidate.domain);
+    const highRisk = isHighRisk({
+      riskTier: existing?.riskTier,
+      domain: (existing ?? candidate).domain,
+      type: (existing ?? candidate).type,
+    });
     if (highRisk && candidate.collectedBy === reviewer) {
       throw new Error(
         `promote: high-risk ${id} was collected by ${reviewer}; an independent reviewer must accept it`,
       );
     }
+    const accepted = acceptCandidateSources(candidate, runInstances, sources, registryIds, reviewer, runId);
 
     if (existing) {
+      // Identical evidence confirming an identical fact is already canonical:
+      // skip without a meaningless history revision (Test 10). Any new
+      // evidence, data change, or claim re-attribution still promotes. The
+      // skip happens before merging, so unaccepted evidence never orphans
+      // into sources.json.
+      const sameData = stableStringify(candidate.data) === stableStringify(existing.data);
+      const sameClaims =
+        candidate.claimSources === undefined ||
+        stableStringify(accepted.claimSources ?? {}) === stableStringify(existing.claimSources ?? {});
+      if (sameData && sameClaims && accepted.appended.length === 0) {
+        unchanged.push(id);
+        continue;
+      }
+      const acceptedIds = trackSources(accepted);
       const history = existing.history ?? [];
       const revision = {
         revision: history.length + 1,
@@ -158,47 +336,53 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
         acceptedAt: existing.acceptedAt,
         sourceIds: existing.sourceIds,
       };
-      const interval = CADENCE_INTERVAL_DAYS[existing.updateCadence] ?? 91;
       records.set(id, {
         ...existing,
         data: candidate.data,
-        claimSources: candidate.claimSources ?? existing.claimSources,
-        sourceIds: candidate.sourceIds,
+        claimSources: accepted.claimSources ?? existing.claimSources,
+        sourceIds: acceptedIds,
         status: 'verified',
         lastVerified: today,
         acceptedBy: reviewer,
         acceptedAt: today,
-        nextReviewOn: addDays(today, interval),
+        nextReviewOn: nextReviewDate(existing.updateCadence, today),
         collectedBy: candidate.collectedBy,
         history: [...history, revision],
       });
     } else {
       const cadence = options.cadence ?? 'quarterly';
-      if (!(cadence in CADENCE_INTERVAL_DAYS)) throw new Error(`promote: unknown cadence: ${cadence}`);
+      if (!(cadence in CADENCE_POLICY)) throw new Error(`promote: unknown cadence: ${cadence}`);
+      const acceptedIds = trackSources(accepted);
       records.set(id, {
         id: candidate.id,
         domain: candidate.domain,
         type: candidate.type,
         label: candidate.label,
         data: candidate.data,
-        claimSources: candidate.claimSources,
-        sourceIds: candidate.sourceIds,
+        claimSources: accepted.claimSources,
+        sourceIds: acceptedIds,
         status: 'verified',
         lastVerified: today,
         acceptedBy: reviewer,
         acceptedAt: today,
-        nextReviewOn: addDays(today, CADENCE_INTERVAL_DAYS[cadence]),
+        nextReviewOn: nextReviewDate(cadence as CivicRecord['updateCadence'], today),
         updateCadence: cadence as CivicRecord['updateCadence'],
+        riskTier: policyDefaultRiskTier(candidate.domain, candidate.type),
         collectedBy: candidate.collectedBy,
         notes: candidate.notes,
         history: [],
       });
     }
+    touchedRecords.add(id);
     promoted.push(id);
   }
 
+  // Validate the complete proposed state in memory before touching disk:
+  // a logic error aborts with both files byte-identical to before.
+  validateProposedState(records, sources, registryIds, touchedRecords, touchedSources);
   writeJsonAtomic(recordsPath(root), { records: [...records.values()] });
-  return { runId, promoted, reviewer };
+  writeJsonAtomic(sourcesPath(root), { sources: [...sources.values()] });
+  return { runId, promoted, promotedSources, unchanged, reviewer };
 }
 
 function parseArgs(argv: string[]): PromoteOptions & { root: string } {
@@ -235,6 +419,9 @@ if (invokedDirectly) {
     const { root, ...options } = parseArgs(argv);
     const summary = promoteRun({ ...options, root });
     console.log(`promote: run ${summary.runId} accepted by ${summary.reviewer}: ${summary.promoted.join(', ')}`);
+    if (summary.unchanged.length > 0) {
+      console.log(`promote: unchanged (already canonical, no new revision): ${summary.unchanged.join(', ')}`);
+    }
     console.log('promote: run `bun run data:generate` and `bun run verify` next');
   } catch (err) {
     console.error((err as Error).message);

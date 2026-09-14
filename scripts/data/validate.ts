@@ -10,6 +10,8 @@ import {
   type RunManifest,
 } from './lib/civic';
 import { readJsonFile, sha256FileHex } from './lib/json';
+import { isPublishedStatus, isTimeBasedCadence, cadenceWindowDays } from './lib/policy';
+import { readSourceInstances } from './lib/instances';
 import { civicDir, registryPath, runsDir } from './lib/paths';
 
 export interface ValidationResult {
@@ -17,8 +19,8 @@ export interface ValidationResult {
   warnings: string[];
 }
 
-const STATUSES = ['provisional', 'verified', 'reported', 'needs-reverification', 'blocked', 'retired'];
-const CADENCES = [
+export const STATUSES = ['provisional', 'verified', 'reported', 'needs-reverification', 'blocked', 'retired'];
+export const CADENCES = [
   'daily',
   'weekly',
   'monthly',
@@ -29,7 +31,7 @@ const CADENCES = [
   'manual',
   'event-driven',
 ];
-const RISK_TIERS = ['high', 'medium', 'low'];
+export const RISK_TIERS = ['high', 'medium', 'low'];
 const DOMAINS = [
   'government',
   'barangays',
@@ -53,7 +55,7 @@ const DOMAINS = [
   'official-presence',
   'city-profile',
 ];
-const RECORD_TYPES = [
+export const RECORD_TYPES = [
   'official',
   'contact',
   'statistic',
@@ -94,7 +96,7 @@ export function todayUtc(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
-function resolveClaimPath(data: Record<string, unknown>, dotted: string): boolean {
+export function resolveClaimPath(data: Record<string, unknown>, dotted: string): boolean {
   let node: unknown = data;
   for (const seg of dotted.split('.')) {
     if (Array.isArray(node)) {
@@ -311,7 +313,9 @@ export function validateRoot(root: string): ValidationResult {
     if (!CADENCES.includes(record.updateCadence)) {
       result.errors.push(`${tag} has unknown updateCadence: ${record.updateCadence}`);
     }
-    if (record.riskTier && !RISK_TIERS.includes(record.riskTier)) {
+    if (!record.riskTier) {
+      result.errors.push(`${tag} is missing riskTier`);
+    } else if (!RISK_TIERS.includes(record.riskTier)) {
       result.errors.push(`${tag} has unknown riskTier: ${record.riskTier}`);
     }
     if (!Array.isArray(record.sourceIds) || record.sourceIds.length === 0) {
@@ -319,6 +323,11 @@ export function validateRoot(root: string): ValidationResult {
     } else {
       for (const sid of record.sourceIds) {
         if (!resolveSource(sid)) result.errors.push(`${tag} references unknown source id: ${sid}`);
+        else if (!sourceById.has(sid)) {
+          result.errors.push(
+            `${tag} cites registry ${sid} without an exact sources.json record; canonical claims require evidence instances`,
+          );
+        }
         const cited = sourceById.get(sid);
         if (
           cited &&
@@ -339,6 +348,11 @@ export function validateRoot(root: string): ValidationResult {
         }
         for (const sid of sids ?? []) {
           if (!resolveSource(sid)) result.errors.push(`${tag} claim "${claimPath}" references unknown source: ${sid}`);
+          else if (!sourceById.has(sid)) {
+            result.errors.push(
+              `${tag} claim "${claimPath}" cites registry ${sid} without an exact sources.json record`,
+            );
+          }
         }
       }
     }
@@ -365,10 +379,27 @@ export function validateRoot(root: string): ValidationResult {
       if (record.nextReviewOn < record.acceptedAt) {
         result.errors.push(`${tag} nextReviewOn is before acceptedAt`);
       }
-      const published = record.status === 'verified' || record.status === 'reported';
-      const changing = record.updateCadence !== 'manual' && record.updateCadence !== 'per-document';
+      const published = isPublishedStatus(record.status);
+      const changing = isTimeBasedCadence(record.updateCadence);
       if (published && changing && record.nextReviewOn < today) {
         result.errors.push(`${tag} is ${record.status} but past nextReviewOn (${record.nextReviewOn})`);
+      }
+      // Shared cadence windows (lib/policy): a review deadline may not exceed
+      // its cadence's maximum window. Non-time-based cadences (manual,
+      // per-document) carry no scheduled horizon: nextReviewOn must equal
+      // acceptedAt as an explicit "no scheduled review" sentinel.
+      const window = cadenceWindowDays(record.updateCadence);
+      if (window !== null) {
+        const span = Math.round((Date.parse(record.nextReviewOn) - Date.parse(record.acceptedAt)) / 86400000);
+        if (changing && span > window) {
+          result.errors.push(
+            `${tag} nextReviewOn exceeds the ${record.updateCadence} window (${window} days from acceptedAt)`,
+          );
+        } else if (!changing && record.nextReviewOn !== record.acceptedAt) {
+          result.errors.push(
+            `${tag} uses non-scheduled cadence ${record.updateCadence} but nextReviewOn != acceptedAt; keep the sentinel instead of a fake horizon`,
+          );
+        }
       }
     }
     if (record.status === 'needs-reverification' || record.status === 'blocked' || record.status === 'provisional') {
@@ -513,6 +544,13 @@ function validateRuns(
       result.errors.push(`research run ${name} has unreadable candidates: ${(err as Error).message}`);
       continue;
     }
+    let instanceIds: Set<string> | null = null;
+    try {
+      instanceIds = new Set(readSourceInstances(runDir).map((i) => i.id));
+    } catch (err) {
+      result.errors.push(`research run ${name} has unreadable source-instances: ${(err as Error).message}`);
+      continue;
+    }
     for (const candidate of candidates.candidates ?? []) {
       const tag = `candidate ${candidate.id || '(missing id)'} in run ${name}`;
       if (candidate.status !== 'provisional') {
@@ -526,6 +564,11 @@ function validateRuns(
       }
       for (const sid of candidate.sourceIds ?? []) {
         if (!resolveSource(sid)) result.errors.push(`${tag} references unknown source id: ${sid}`);
+      }
+      for (const iid of candidate.sourceInstanceIds ?? []) {
+        if (!instanceIds.has(iid)) {
+          result.errors.push(`${tag} links unknown source instance: ${iid}`);
+        }
       }
     }
   }

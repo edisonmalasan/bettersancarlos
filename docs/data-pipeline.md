@@ -5,9 +5,9 @@ How civic facts flow from public sources to the website without blind overwrites
 ```text
 public / government sources
         -> source-specific collectors (scripts/data/collectors)
-        -> research run (research/runs/<date>: manifest, evidence, candidates, conflicts)
+        -> research run (research/runs/<date>: manifest, evidence, source-instances, candidates, conflicts)
         -> diff (candidates vs canonical records -> review report)
-        -> independent review -> promote (canonical records in data/civic)
+        -> independent review -> promote (atomic: canonical records + sources in data/civic)
         -> validate (bun run data:validate)
         -> generate (canonical records -> data/*.json compatibility outputs)
         -> Next.js website (unchanged imports/fetches)
@@ -25,12 +25,13 @@ overwrite canonical records or frontend JSON directly.
 | `bun run data:validate` | Offline contract validation (runs in CI) |
 | `bun run data:generate [-- --domain=<name>]` | Regenerate compatibility `data/*.json` + mirrors from canonical records |
 | `bun run data:report` | Data-health summary (staleness, conflicts, coverage) |
+| `bun run data:test` | Offline civic pipeline unit/integration suite (runs in CI) |
 | `bun run verify` | Typecheck + data validation + production build |
 
 ## Canonical layer (data/civic)
 
 - `records.json` — accepted civic records keyed by stable ID (value may change, ID persists).
-- `sources.json` — retrieved evidence instances backing the records.
+- `sources.json` — exact retrieved-evidence instances backing the records (one per accepted retrieval, deduplicated on registry + evidence hash).
 - `source-registry.yaml` — known collectable sources. Every entry cites an
   existing `research/` file in `evidenceRef`; no invented URLs.
 - `schemas/` — JSON Schema contracts for records, sources, registry, candidates, run manifests.
@@ -43,6 +44,18 @@ overwrite canonical records or frontend JSON directly.
   (used for `needs-reverification` seeds and `manual`-cadence records).
 - `manual` and `per-document` cadences are exempt from staleness failures;
   every other published (`verified`/`reported`) record must have a future `nextReviewOn`.
+- Every cadence has a maximum review window in the shared policy
+  (`scripts/data/lib/policy.ts` — e.g. quarterly 92 days); `nextReviewOn` may
+  not exceed it, and non-time-based cadences (`manual`, `per-document`) must
+  keep the `nextReviewOn == acceptedAt` sentinel instead of a fake horizon.
+- Canonical `sourceIds` must resolve to exact `sources.json` entries — a bare
+  registry ID never satisfies canonical provenance (candidates may still cite
+  registry IDs alongside their instance links).
+- `riskTier` is required on canonical records. High-risk is decided centrally
+  (explicit tier, high-impact domain, or `official` type) and an existing high
+  tier is never downgraded by promotion.
+- Only `collected` / `unchanged` outcomes satisfy a source's normal cadence;
+  failures retry sooner per policy and `skipped` sources never count as checks.
 - Statuses `needs-reverification`, `blocked`, and `provisional` are flagged as
   warnings by validation and must never be presented as current fact.
 - History inside a record is append-only; superseded values stay retrievable.
@@ -125,9 +138,12 @@ command below is safe to run (collection never modifies canonical data).
      (`sourceId`, `checkedAt`, outcome, error if failed, evidence SHA-256),
      candidate/conflict counts, `collectedBy`.
    - `evidence/`: raw retrieved bytes (hash recorded in the manifest).
+   - `source-instances.json`: exact evidence identity per retrieval
+     (`src-<registry>-<date>-<hash8>`, registry link, hash, dates, collector).
    - `candidates.json`: record-shaped candidates, all `provisional`, each with
-     `collectedBy` + `runId`, and NO reviewer fields (`acceptedBy`/`acceptedAt`
-     on a candidate fails validation).
+     `collectedBy` + `runId`, linking its evidence via `sourceInstanceIds`,
+     and NO reviewer fields (`acceptedBy`/`acceptedAt` on a candidate fails
+     validation).
    - `findings.md` (what changed/failed) and `conflicts.md` (disagreements).
 4. Diff: `bun run data:diff [-- --run=<id>]` and read the review report in the
    run directory (`OLD` / `CANDIDATE` / `SOURCE` / `RESULT` / `ACTION` per
@@ -148,12 +164,20 @@ command below is safe to run (collection never modifies canonical data).
 - Empty results, zero valid items, or unreachable sources leave canonical data
   and compatibility outputs byte-identical. A failed source never deletes data
   or extends a review deadline. An interrupted run leaves everything untouched.
+- Promotion writes `records.json` and `sources.json` atomically after
+  validating the proposed state in memory; a torn state fails the next
+  `data:validate` with record-identifying errors (recover via re-promotion or
+  git). Identical evidence plus an identical fact promotes nothing new
+  (no meaningless history revision).
 
 ### Promotion rules (reviewer step, separate from collection)
 
 - `bun run data:promote -- --run=<id> (--record=<id> ... | --all) --reviewer=<name>`
   appends a history revision, sets `acceptedBy`/`acceptedAt`/`lastVerified`,
   recomputes `nextReviewOn` from cadence, and flips `provisional` → `verified`.
+- Promotion accepts source instances alongside records: new evidence is
+  appended to `sources.json` (deduplicated on registry + hash) and the record
+  points at the exact instance IDs. Registry IDs alone are refused.
 - A collector must never accept its own high-risk candidates: promotion refuses
   when `--reviewer` equals the candidate's `collectedBy` on high-risk records
   (emergency contacts, officials, fees, budgets, legislation, procurement).
@@ -187,7 +211,6 @@ via `bun test scripts/data/refresh.test.ts`. If any command above fails on a
 clean tree, the runbook — not your intuition — is what needs fixing.
 
 ## News auto-promotion (low-risk path only)
-
 Official-page news candidates (`domain: news`, sourced from the registered
 `lgu-facebook-cio` page) may be accepted without an independent reviewer via
 `bun run data:promote -- --auto-news`. Justification: news items are
@@ -198,3 +221,42 @@ reported, not independently confirmed. The gate refuses anything else:
 non-news domains, non-official sources, and updates to existing canonical
 records all require normal reviewer promotion. High-risk categories can never
 use this path.
+
+## Collector roadmap (future changes, prioritized)
+
+Already automated: `lgu-website` (city-website), `lgu-facebook-cio`
+(facebook), `lgu-old-site-archive` (city-website, historical only). Each item
+below ships as its own scoped OpenSpec change reusing the
+source-instance/candidate contract; ordered by data value × volatility ×
+source stability × structuredness. No collectors are implemented here.
+
+1. `psa-census-philatlas` — structured portal tables; highest reuse
+   (demographics, barangays); per-document releases.
+2. `comelec-results` — Rappler mirror is structured HTML; high value at
+   election/vacancy events (per-term cadence).
+3. `dilg-fdpp` — high-value transparency documents; probe portal access
+   first (unreachable at research time).
+4. `coa-audit` — annual audit reports; start manual, automate once the
+   extraction path is repeatable.
+5. `blgf` — fiscal series; was HTTP 403, follow the extraction path in
+   `research/transparency/26-09-blgf-budget.md` before automating.
+6. `dpwh-projects` — portal URL unverified; inquiry path (City Engineering
+   Office / BAC) until verified, then automate.
+7. `deped-schools` — school directory; verify IDs via the School Info
+   System, then automate the list pull.
+8. `doh-hfsrb` — facility list was 404 and OLRS is login-only; manual
+   first, automate only if a public endpoint appears.
+9. `cenpelco` — simple website, quarterly contact volatility; automate the
+   branch/contact pull after one manual verification.
+10. `province-pangasinan` — stable annual profile page; low volatility,
+    automate opportunistically.
+
+Parked (no automation until the stated condition clears):
+
+- `psgc` — HTTP 403 at research time; re-attempt direct access first.
+- `dti-cmci` — portal 404; Internet-Archive recovery only.
+- `pnp-national`, `dilg-911` — static national numbers; annual manual
+  re-check is sufficient, automation adds nothing.
+- `dilg-pro1-inquiry` — human verification channel by nature; manual forever.
+- `lwua`, `nea`, `official-gazette` — blocked or manual-only at research
+  time; manual follow-up before any automation talk.

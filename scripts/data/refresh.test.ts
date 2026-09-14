@@ -5,7 +5,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { diffRun } from './diff';
-import { loadRecords } from './lib/civic';
+import { loadRecords, loadRegistry } from './lib/civic';
+import { readSourceInstances } from './lib/instances';
 import { sha256FileHex } from './lib/json';
 import { runRefresh } from './refresh';
 
@@ -121,7 +122,7 @@ test('scenario A: unchanged source yields UNCHANGED and canonical is byte-identi
     const canonical = loadRecords(root).records;
     const { readCandidates } = await import('./lib/runs');
     const candidates = readCandidates(summary.run.dir);
-    const entries = diffRun({ canonical, candidates, manifest: null, sources: [] }, '2026-09-14');
+    const entries = diffRun({ canonical, candidates, manifest: null, sources: [], registry: [] }, '2026-09-14');
     assert.equal(entries.length, 1);
     assert.equal(entries[0].outcome, 'UNCHANGED');
   } finally {
@@ -147,7 +148,7 @@ test('scenario B: changed number yields CHANGED and canonical is untouched', asy
     const canonical = loadRecords(root).records;
     const { readCandidates } = await import('./lib/runs');
     const candidates = readCandidates(summary.run.dir);
-    const entries = diffRun({ canonical, candidates, manifest: null, sources: [] }, '2026-09-14');
+    const entries = diffRun({ canonical, candidates, manifest: null, sources: [], registry: [] }, '2026-09-14');
     assert.equal(entries[0].outcome, 'CHANGED');
     assert.deepEqual(entries[0].candidateData, {
       service: 'City Hall (general trunk line)',
@@ -191,8 +192,101 @@ test('scenario D: two disagreeing evidences yield CONFLICT', async () => {
     const { readCandidates } = await import('./lib/runs');
     const candidates = readCandidates(summary.run.dir);
     assert.equal(candidates.length, 2);
-    const entries = diffRun({ canonical, candidates, manifest: null, sources: [] }, '2026-09-14');
+    const entries = diffRun({ canonical, candidates, manifest: null, sources: [], registry: [] }, '2026-09-14');
     assert.equal(entries[0].outcome, 'CONFLICT');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('Test 4a: source-scoped refresh with unavailable source reports SOURCE_UNAVAILABLE (real manifest)', async () => {
+  const root = fixtureRoot();
+  try {
+    const summary = await runRefresh({ root, sources: ['fix-site'], collectedBy: 'test-4a', date: '2026-09-14' });
+    assert.equal(summary.outcomes['fix-site'], 'unavailable');
+    assert.equal(summary.candidates, 0);
+    const { readCandidates, readManifest } = await import('./lib/runs');
+    const manifest = readManifest(summary.run.dir);
+    const params = manifest.parameters as Record<string, unknown>;
+    assert.ok(params.domains === null || Array.isArray(params.domains), 'manifest scope uses plural arrays');
+    const entries = diffRun(
+      {
+        canonical: loadRecords(root).records,
+        candidates: readCandidates(summary.run.dir),
+        manifest,
+        sources: [],
+        registry: loadRegistry(root).sources,
+      },
+      '2026-09-14',
+    );
+    assert.equal(entries.length, 1);
+    assert.equal(entries[0].recordId, 'city-hall-trunk-line');
+    assert.equal(entries[0].outcome, 'SOURCE_UNAVAILABLE');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('Test 4b: domain-scoped refresh with unavailable sources and zero candidates still reports scope', { timeout: 30000 }, async () => {
+  const root = fixtureRoot();
+  try {
+    const summary = await runRefresh({ root, domains: ['emergency'], collectedBy: 'test-4b', date: '2026-09-14' });
+    assert.equal(summary.candidates, 0);
+    const { readCandidates, readManifest } = await import('./lib/runs');
+    const manifest = readManifest(summary.run.dir);
+    assert.deepEqual((manifest.parameters as Record<string, unknown>).domains, ['emergency']);
+    const entries = diffRun(
+      {
+        canonical: loadRecords(root).records,
+        candidates: readCandidates(summary.run.dir),
+        manifest,
+        sources: [],
+        registry: loadRegistry(root).sources,
+      },
+      '2026-09-14',
+    );
+    const byId = new Map(entries.map((e) => [e.recordId, e.outcome]));
+    assert.equal(byId.get('city-hall-trunk-line'), 'SOURCE_UNAVAILABLE');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('Test 5: domain-scoped success reports MISSING gaps and skips out-of-scope records', async () => {
+  const root = fixtureRoot();
+  const ev = evidenceDir({ 'fix-site.html': SITE_HTML('(075) 600-1432') });
+  try {
+    const summary = await runRefresh({
+      root,
+      domains: ['emergency'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'test-5',
+      date: '2026-09-14',
+    });
+    const { readCandidates, readManifest } = await import('./lib/runs');
+    const manifest = readManifest(summary.run.dir);
+    const [trunk] = loadRecords(root).records;
+    const canonical = [
+      ...loadRecords(root).records,
+      { ...trunk, id: 'cdrmo-emergency-contact', label: 'CDRRMO', data: {} },
+      { ...trunk, id: 'other-record', domain: 'health', label: 'Other' },
+    ];
+    const entries = diffRun(
+      {
+        canonical,
+        candidates: readCandidates(summary.run.dir),
+        manifest,
+        sources: [],
+        registry: loadRegistry(root).sources,
+      },
+      '2026-09-14',
+    );
+    const byId = new Map(entries.map((e) => [e.recordId, e.outcome]));
+    assert.equal(byId.get('city-hall-trunk-line'), 'UNCHANGED');
+    assert.equal(byId.get('cdrmo-emergency-contact'), 'MISSING');
+    assert.ok(!byId.has('other-record'), 'health record is out of scope');
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
     fs.rmSync(ev, { recursive: true, force: true });
@@ -278,5 +372,140 @@ test('CLI: bun run data:refresh -- --source works against a fixture tree', () =>
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
     fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('refresh writes source-instances.json with every candidate link resolving', async () => {
+  const root = fixtureRoot();
+  const ev = evidenceDir({ 'fix-site.html': SITE_HTML('(075) 600-1432') });
+  try {
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-site'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'scenario-instances',
+      date: '2026-09-14',
+    });
+    assert.ok(summary.candidates > 0);
+    const instances = readSourceInstances(summary.run.dir);
+    assert.equal(instances.length, 1);
+    assert.match(instances[0].id, /^src-fix-site-2026-09-14-[0-9a-f]{8}$/);
+    const { readCandidates } = await import('./lib/runs');
+    const candidates = readCandidates(summary.run.dir);
+    assert.ok(candidates.length > 0);
+    const known = new Set(instances.map((i) => i.id));
+    for (const candidate of candidates) {
+      assert.ok((candidate.sourceInstanceIds ?? []).length > 0, `${candidate.id} must link an instance`);
+      for (const iid of candidate.sourceInstanceIds ?? []) {
+        assert.ok(known.has(iid), `unknown instance link: ${iid}`);
+      }
+    }
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+function dueFixtureRoot(): string {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'civic-due-'));
+  fs.mkdirSync(path.join(root, 'data', 'civic'), { recursive: true });
+  fs.mkdirSync(path.join(root, 'research'), { recursive: true });
+  fs.writeFileSync(
+    path.join(root, 'data', 'civic', 'source-registry.yaml'),
+    'version: 1\n' +
+      'sources:\n' +
+      '  - id: fix-monthly\n' +
+      '    publisher: Fixture\n' +
+      "    url: 'http://127.0.0.1:9/fixture'\n" +
+      '    sourceType: website\n' +
+      '    collector: city-website\n' +
+      '    updateCadence: monthly\n' +
+      "    evidenceRef: 'research/evidence.md'\n" +
+      '    domains:\n' +
+      '      - emergency\n' +
+      '  - id: fix-manual-only\n' +
+      '    publisher: Fixture\n' +
+      "    discovery: 'Manual inquiry'\n" +
+      '    sourceType: inquiry\n' +
+      '    collector: null\n' +
+      '    updateCadence: quarterly\n' +
+      "    evidenceRef: 'research/evidence.md'\n" +
+      '    domains:\n' +
+      '      - emergency\n',
+  );
+  fs.writeFileSync(path.join(root, 'research', 'evidence.md'), '# fixture\n');
+  fs.writeFileSync(path.join(root, 'data', 'civic', 'sources.json'), '{"sources": []}');
+  fs.writeFileSync(path.join(root, 'data', 'civic', 'records.json'), '{"records": []}');
+  return root;
+}
+
+function daysAgoIso(days: number): string {
+  return new Date(Date.now() - days * 24 * 60 * 60 * 1000).toISOString();
+}
+
+function writeHistoryManifest(root: string, runId: string, entries: Array<Record<string, unknown>>): void {
+  const dir = path.join(root, 'research', 'runs', runId);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(
+    path.join(dir, 'manifest.json'),
+    JSON.stringify({ runId, startedAt: daysAgoIso(9), parameters: {}, sources: entries }),
+  );
+}
+
+test('Test 6: failed attempts do not satisfy cadence; retry applies, skips never count', async () => {
+  // Failed 8 days ago on a monthly source: eligible via the 7-day retry,
+  // where the old any-outcome rule would have waited out the full month.
+  {
+    const root = dueFixtureRoot();
+    try {
+      writeHistoryManifest(root, '2026-09-01', [
+        { sourceId: 'fix-monthly', checkedAt: daysAgoIso(8), outcome: 'failed', error: 'fetch: refused' },
+      ]);
+      const summary = await runRefresh({ root, due: true, offline: true, collectedBy: 'test-6a', date: '2026-09-14' });
+      assert.ok('fix-monthly' in summary.outcomes, 'failed source stays eligible via retry');
+      assert.ok(!('fix-manual-only' in summary.outcomes), 'collector-less source never auto-runs');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  }
+  // Failed 1 day ago: retry not yet elapsed, source stays out.
+  {
+    const root = dueFixtureRoot();
+    try {
+      writeHistoryManifest(root, '2026-09-01', [
+        { sourceId: 'fix-monthly', checkedAt: daysAgoIso(1), outcome: 'unavailable', error: 'fetch: refused' },
+      ]);
+      const summary = await runRefresh({ root, due: true, offline: true, collectedBy: 'test-6b', date: '2026-09-14' });
+      assert.ok(!('fix-monthly' in summary.outcomes), 'recent failure waits out the retry window');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  }
+  // Successful check 40 days ago on monthly: due via the normal window (unchanged behavior).
+  {
+    const root = dueFixtureRoot();
+    try {
+      writeHistoryManifest(root, '2026-09-01', [
+        { sourceId: 'fix-monthly', checkedAt: daysAgoIso(40), outcome: 'collected' },
+      ]);
+      const summary = await runRefresh({ root, due: true, offline: true, collectedBy: 'test-6c', date: '2026-09-14' });
+      assert.ok('fix-monthly' in summary.outcomes, 'stale success still drives normal cadence');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  }
+  // Skipped 8 days ago with no success: still due (skips never count), like a fresh source.
+  {
+    const root = dueFixtureRoot();
+    try {
+      writeHistoryManifest(root, '2026-09-01', [
+        { sourceId: 'fix-monthly', checkedAt: daysAgoIso(8), outcome: 'skipped', error: 'offline' },
+      ]);
+      const summary = await runRefresh({ root, due: true, offline: true, collectedBy: 'test-6d', date: '2026-09-14' });
+      assert.ok('fix-monthly' in summary.outcomes, 'skipped attempts never satisfy cadence');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   }
 });

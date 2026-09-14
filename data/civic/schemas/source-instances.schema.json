@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://lgu.bettergov.ph/schemas/source-instances.schema.json",
+  "title": "Research-run source instances",
+  "description": "Exact retrieved-evidence instances produced by one refresh run (research/runs/<run-id>/source-instances.json). Civic candidates reference these instance IDs; unaccepted instances never reach canonical sources.json.",
+  "type": "object",
+  "required": ["version", "instances"],
+  "properties": {
+    "version": { "const": 1 },
+    "instances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "registryId", "title", "publisher", "documentType", "retrievedAt", "sourceState", "collectedBy", "runId"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^src-[a-z0-9-]+-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9a-f]{8}$" },
+          "registryId": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "publisher": { "type": "string", "minLength": 1 },
+          "url": { "type": "string" },
+          "discovery": { "type": "string" },
+          "documentType": { "type": "string" },
+          "publishedAt": { "type": ["string", "null"] },
+          "effectivePeriod": {
+            "type": ["object", "null"],
+            "properties": {
+              "from": { "type": ["string", "null"] },
+              "to": { "type": ["string", "null"] }
+            },
+            "additionalProperties": false
+          },
+          "retrievedAt": { "type": "string", "format": "date-time" },
+          "sourceState": { "type": "string", "enum": ["active", "archived", "unavailable", "moved"] },
+          "evidencePath": { "type": "string" },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "collectedBy": { "type": "string", "minLength": 1 },
+          "runId": { "type": "string", "minLength": 1 },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

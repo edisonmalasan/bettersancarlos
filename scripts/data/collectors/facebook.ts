@@ -7,6 +7,7 @@
 // candidates.
 import { parseJsonEvidence } from '../parsers/json';
 import { isValidFbItem, transformFbPost, type FbRawPost } from '../lib/facebook';
+import { buildSourceInstance } from '../lib/instances';
 import type { Collector, CollectorArgs } from './types';
 
 function sanitizeId(raw: string): string {
@@ -20,6 +21,16 @@ export function collectFacebook(args: CollectorArgs): ReturnType<Collector> {
   }
   const posts = envelope.data as FbRawPost[];
   const notes: string[] = [`${posts.length} post(s) in evidence`];
+  const instance = buildSourceInstance({
+    registry: args.registry,
+    evidenceName: args.evidenceName,
+    evidenceBytes: args.evidenceText,
+    runId: args.runId,
+    collectedBy: args.collectedBy,
+    documentType: 'json',
+    title: `${args.registry.publisher} posts (${args.evidenceName})`,
+    notes: `Graph API response envelope with ${posts.length} post(s).`,
+  });
   const candidates: ReturnType<Collector>['candidates'] = [];
   let dropped = 0;
   for (const raw of posts) {
@@ -56,6 +67,7 @@ export function collectFacebook(args: CollectorArgs): ReturnType<Collector> {
         recency: [args.registryId],
       },
       sourceIds: [args.registryId],
+      sourceInstanceIds: [instance.id],
       status: 'provisional',
       collectedBy: args.collectedBy,
       runId: args.runId,
@@ -64,5 +76,5 @@ export function collectFacebook(args: CollectorArgs): ReturnType<Collector> {
   }
   if (dropped > 0) notes.push(`dropped ${dropped} invalid item(s) after validation`);
   candidates.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
-  return { candidates, notes };
+  return { candidates, sourceInstances: [instance], notes };
 }

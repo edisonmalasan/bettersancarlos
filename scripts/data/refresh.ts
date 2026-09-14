@@ -12,8 +12,10 @@ import {
   writeMarkdown,
   type RunHandle,
 } from './lib/runs';
+import { writeSourceInstances } from './lib/instances';
+import { isTimeBasedCadence, cadenceWindowDays, isSuccessfulCollectionOutcome, retryDueDays } from './lib/policy';
 import { runsDir } from './lib/paths';
-import type { Candidate } from './lib/civic';
+import type { Candidate, SourceInstance } from './lib/civic';
 
 export interface RefreshOptions {
   root: string;
@@ -26,57 +28,72 @@ export interface RefreshOptions {
   date?: string;
 }
 
-// Cadence to re-check interval. Null means "never automatically due":
-// per-term, per-document, manual, and event-driven sources are collected
-// only when explicitly requested.
-const CADENCE_DAYS: Record<string, number | null> = {
-  daily: 1,
-  weekly: 7,
-  monthly: 30,
-  quarterly: 91,
-  annually: 365,
-  'per-term': null,
-  'per-document': null,
-  manual: null,
-  'event-driven': null,
-};
-
+// Cadence to re-check interval, shared with promote/validate via lib/policy
+// (monthly/quarterly/annually use the spec'd 31/92/366-day windows). Null
+// means "never automatically due": per-term, per-document, and manual sources
+// are collected only when explicitly requested. Note event-driven sources are
+// auto-due per the shared policy (yearly window), unlike the old local map.
 export function cadenceDueDays(cadence: string): number | null {
-  return CADENCE_DAYS[cadence] ?? null;
+  if (!isTimeBasedCadence(cadence)) return null;
+  return cadenceWindowDays(cadence);
 }
 
-function lastCheckedAt(root: string, registryId: string): string | null {
-  let latest: string | null = null;
+export interface SourceCheckTimes {
+  /** Most recent successful check (collected/unchanged), if any. */
+  success: string | null;
+  /** Most recent failed check (failed/unavailable), if any. Skipped and unregistered sources never count. */
+  failure: string | null;
+}
+
+function lastCheckTimes(root: string, registryId: string): SourceCheckTimes {
+  const times: SourceCheckTimes = { success: null, failure: null };
   let names: string[] = [];
   try {
     names = fs.readdirSync(runsDir(root));
   } catch {
-    return null;
+    return times;
   }
   for (const name of names) {
     const manifestPath = path.join(runsDir(root), name, 'manifest.json');
     if (!fs.existsSync(manifestPath)) continue;
     try {
       const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8')) as {
-        sources?: Array<{ sourceId?: string; checkedAt?: string }>;
+        sources?: Array<{ sourceId?: string; checkedAt?: string; outcome?: string }>;
       };
       for (const entry of manifest.sources ?? []) {
-        if (entry.sourceId === registryId && entry.checkedAt) {
-          if (!latest || entry.checkedAt > latest) latest = entry.checkedAt;
+        if (entry.sourceId !== registryId || !entry.checkedAt) continue;
+        const slot = isSuccessfulCollectionOutcome(entry.outcome ?? '') ? 'success' : null;
+        if (slot) {
+          if (!times.success || entry.checkedAt > times.success) times.success = entry.checkedAt;
+        } else if (entry.outcome === 'failed' || entry.outcome === 'unavailable') {
+          if (!times.failure || entry.checkedAt > times.failure) times.failure = entry.checkedAt;
         }
+        // skipped/unregistered: recorded but never count as checks.
       }
     } catch {
       // A corrupt manifest never blocks refresh; validation reports it.
     }
   }
-  return latest;
+  return times;
 }
 
-function isDue(registry: RegistryEntry, lastChecked: string | null, nowMs: number): boolean {
-  if (!lastChecked) return true;
+function isDue(registry: RegistryEntry, times: SourceCheckTimes, nowMs: number): boolean {
   const days = cadenceDueDays(registry.updateCadence);
   if (days === null) return false;
-  return nowMs - Date.parse(lastChecked) >= days * 24 * 60 * 60 * 1000;
+  if (!times.success) {
+    // Never successfully checked: due unless a recent failure is still in retry.
+    if (!times.failure) return true;
+    const retry = retryDueDays(registry.updateCadence) ?? days;
+    return nowMs - Date.parse(times.failure) >= retry * 24 * 60 * 60 * 1000;
+  }
+  if (nowMs - Date.parse(times.success) >= days * 24 * 60 * 60 * 1000) return true;
+  // A failure after the last success recovers on the retry policy, not the
+  // normal cadence — a failed fetch never postpones review, it hastens retry.
+  if (times.failure && times.failure > times.success) {
+    const retry = retryDueDays(registry.updateCadence) ?? days;
+    return nowMs - Date.parse(times.failure) >= retry * 24 * 60 * 60 * 1000;
+  }
+  return false;
 }
 
 function findEvidenceFile(evidenceDir: string, registryId: string): string | null {
@@ -120,8 +137,12 @@ export async function runRefresh(options: RefreshOptions): Promise<RefreshSummar
       if (options.domains && options.domains.length > 0) {
         if (!entry.domains || !entry.domains.some((d) => options.domains?.includes(d))) continue;
       } else if (options.due || !options.domains) {
-        // Default (and --due): only sources whose review date is due.
-        if (!isDue(entry, lastCheckedAt(root, entry.id), nowMs)) continue;
+        // Default (and --due): only due sources with a collector. A source
+        // with no collector can never be collected automatically; it runs
+        // only via explicit --source/--domain and never clutters due runs
+        // with skip entries.
+        if (!entry.collector) continue;
+        if (!isDue(entry, lastCheckTimes(root, entry.id), nowMs)) continue;
       }
       selected.push(entry);
     }
@@ -140,6 +161,7 @@ export async function runRefresh(options: RefreshOptions): Promise<RefreshSummar
 
   const outcomes: Record<string, string> = {};
   const allCandidates: Candidate[] = [];
+  const allInstances: SourceInstance[] = [];
   const findingLines = [
     `# Refresh findings — run ${run.runId}`,
     '',
@@ -230,6 +252,7 @@ export async function runRefresh(options: RefreshOptions): Promise<RefreshSummar
     try {
       const result = collector({
         registryId: entry.id,
+        registry: entry,
         evidenceName: evidence.name,
         evidenceText: evidence.bytes.toString('utf8'),
         sourceUrl: entry.url,
@@ -239,6 +262,7 @@ export async function runRefresh(options: RefreshOptions): Promise<RefreshSummar
       outcomes[entry.id] = outcome;
       recordSource(run.dir, { sourceId: entry.id, checkedAt, outcome, evidenceSha256: sha });
       allCandidates.push(...result.candidates);
+      allInstances.push(...result.sourceInstances);
       findingLines.push(`- ${entry.id}: ${outcome.toUpperCase()} (${result.candidates.length} candidate(s))`);
       for (const note of result.notes) findingLines.push(`  - ${note}`);
     } catch (err) {
@@ -255,7 +279,17 @@ export async function runRefresh(options: RefreshOptions): Promise<RefreshSummar
   }
 
   // Candidates are provisional by construction; the writer enforces it.
+  // Every candidate instance link must resolve to a collected instance.
+  const instanceIds = new Set(allInstances.map((i) => i.id));
+  for (const candidate of allCandidates) {
+    for (const iid of candidate.sourceInstanceIds ?? []) {
+      if (!instanceIds.has(iid)) {
+        throw new Error(`refresh: candidate ${candidate.id} links unknown source instance: ${iid}`);
+      }
+    }
+  }
   writeCandidates(run.dir, allCandidates);
+  writeSourceInstances(run.dir, allInstances);
   writeMarkdown(run.dir, 'findings.md', findingLines.join('\n'));
   writeMarkdown(
     run.dir,

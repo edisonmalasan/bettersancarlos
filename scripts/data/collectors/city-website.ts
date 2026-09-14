@@ -5,6 +5,7 @@
 // in notes (for findings), never synthesized into candidate records.
 // Deterministic: the same HTML always produces the same candidates.
 import { extractPhones, htmlToText } from '../parsers/html';
+import { buildSourceInstance } from '../lib/instances';
 import type { Collector, CollectorArgs } from './types';
 
 interface WatchedContact {
@@ -25,6 +26,16 @@ const WATCHED_CONTACTS: WatchedContact[] = [
 export function collectCityWebsite(args: CollectorArgs): ReturnType<Collector> {
   const text = htmlToText(args.evidenceText, args.evidenceName);
   const observed = extractPhones(text);
+  const instance = buildSourceInstance({
+    registry: args.registry,
+    evidenceName: args.evidenceName,
+    evidenceBytes: args.evidenceText,
+    runId: args.runId,
+    collectedBy: args.collectedBy,
+    documentType: 'webpage',
+    title: `${args.registry.publisher} snapshot (${args.evidenceName})`,
+    notes: `${observed.length} phone-like value(s) observed in evidence.`,
+  });
   const candidates: ReturnType<Collector>['candidates'] = [];
   const notes: string[] = [`${observed.length} phone-like value(s) observed in evidence`];
   const claimed = new Set<number>();
@@ -46,6 +57,7 @@ export function collectCityWebsite(args: CollectorArgs): ReturnType<Collector> {
       label: watched.service,
       data: { service: watched.service, number: hit.number },
       sourceIds: [args.registryId],
+      sourceInstanceIds: [instance.id],
       status: 'provisional',
       collectedBy: args.collectedBy,
       runId: args.runId,
@@ -56,5 +68,5 @@ export function collectCityWebsite(args: CollectorArgs): ReturnType<Collector> {
   for (let i = 0; i < observed.length; i++) {
     if (!claimed.has(i)) notes.push(`unmapped number ${observed[i].number} (${observed[i].context})`);
   }
-  return { candidates, notes };
+  return { candidates, sourceInstances: [instance], notes };
 }

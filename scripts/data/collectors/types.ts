@@ -1,7 +1,9 @@
-import type { Candidate } from '../lib/civic';
+import type { Candidate, RegistryEntry, SourceInstance } from '../lib/civic';
 
 export interface CollectorArgs {
   registryId: string;
+  /** Registry entry for the source (publisher/URL/discovery for instance identity). */
+  registry: RegistryEntry;
   evidenceName: string;
   evidenceText: string;
   sourceUrl?: string;
@@ -11,6 +13,8 @@ export interface CollectorArgs {
 
 export interface CollectorOutput {
   candidates: Candidate[];
+  /** Exact evidence instances backing the candidates (one per evidence blob). */
+  sourceInstances: SourceInstance[];
   notes: string[];
 }
 

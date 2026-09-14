@@ -109,8 +109,9 @@ jobs:
           git pull --rebase origin "$BRANCH" || true
           git push --set-upstream origin "$BRANCH"
           SUMMARY="$(bun run data:report | head -40)"
-          if gh pr view "$BRANCH" --json number >/dev/null 2>&1; then
-            echo "Review PR already open; pushed new run artifacts."
+          OPEN_PR="$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number')"
+          if [ -n "$OPEN_PR" ]; then
+            echo "Review PR already open (#$OPEN_PR); pushed new run artifacts."
           else
             gh pr create \
               --base main \

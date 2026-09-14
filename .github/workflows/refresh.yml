@@ -60,6 +60,14 @@ jobs:
           ARGS="-- --due --collected-by=scheduled-refresh"
           if [ -n "${{ inputs.source }}" ]; then ARGS="$ARGS --source=${{ inputs.source }}"; fi
           if [ -n "${{ inputs.domain }}" ]; then ARGS="$ARGS --domain=${{ inputs.domain }}"; fi
+          # Pick a run id free both locally and on the update branch, so
+          # same-day reruns never collide with previously pushed runs.
+          git fetch origin chore/scheduled-refresh || true
+          BASE="$(date -u +%F)"
+          TAKEN="$(git ls-tree -r --name-only origin/chore/scheduled-refresh -- research/runs/ 2>/dev/null | cut -d/ -f3 | sort -u)"
+          SUFFIX=""; N=2
+          while [ -d "research/runs/${BASE}${SUFFIX}" ] || printf '%s\n' "$TAKEN" | grep -qx "${BASE}${SUFFIX}"; do SUFFIX="-$N"; N=$((N + 1)); done
+          ARGS="$ARGS --date=${BASE}${SUFFIX}"
           # shellcheck disable=SC2086
           bun run data:refresh $ARGS
 

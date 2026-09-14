@@ -6,7 +6,7 @@
 
 ## 2. Exact provenance
 
-- [ ] 2.1 Implement the source-instance read/write helpers (stable `src-<registry>-<date>-<hash8>` IDs, evidence saving with SHA-256) and `source-instances.json` run-artifact I/O; verify a fixture round-trip plus byte-identical re-collection reusing the same content key
+- [x] 2.1 Implement the source-instance read/write helpers (stable `src-<registry>-<date>-<hash8>` IDs, evidence saving with SHA-256) and `source-instances.json` run-artifact I/O; verify a fixture round-trip plus byte-identical re-collection reusing the same content key
 - [ ] 2.2 Extend collectors to emit source-instance candidates alongside civic candidates referencing instance IDs; verify with recorded Graph/HTML fixtures that output is deterministic and civic candidates no longer need bare registry IDs
 - [ ] 2.3 Rework `promote.ts` to accept source instances atomically with records (validate-then-write-twice, history preserves old source refs, dedupe on registry+hash); verify Test 3 (forced mid-promotion error leaves both files byte-identical) and Test 2 (supersession history)
 - [ ] 2.4 Migrate the two registry-only note records to exact source instances and tighten `validate.ts` to reject bare registry IDs in canonical records (candidates exempt); verify `data:validate` passes on the migrated corpus and fails on a deliberately registry-cited copy

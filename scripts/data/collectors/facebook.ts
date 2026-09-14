@@ -76,5 +76,9 @@ export function collectFacebook(args: CollectorArgs): ReturnType<Collector> {
   }
   if (dropped > 0) notes.push(`dropped ${dropped} invalid item(s) after validation`);
   candidates.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
-  return { candidates, sourceInstances: [instance], notes };
+  // A feed discovers IDs dynamically: coverage is exactly what this run
+  // observed. A post aging out of the feed window is churn, not a deletion,
+  // so previously seen IDs are never claimed here.
+  const coverage = { expectedRecordIds: candidates.map((c) => c.id) };
+  return { candidates, sourceInstances: [instance], coverage, notes };
 }

@@ -1,7 +1,7 @@
 ## 1. Explicit collector coverage contract
 
 - [x] 1.1 Add `coverage: { expectedRecordIds: string[] }` to the collector result contract plus manifest per-source coverage metadata and schema updates; verify with unit tests that coverage survives a write/read round-trip and absent coverage stays absent (backwards compatible)
-- [ ] 1.2 Declare fact coverage in the city-website collector (currently `city-hall-trunk-line`) and the Facebook collector (news items it can emit); verify with recorded fixtures that coverage output is deterministic alongside candidates
+- [x] 1.2 Declare fact coverage in the city-website collector (currently `city-hall-trunk-line`) and the Facebook collector (news items it can emit); verify with recorded fixtures that coverage output is deterministic alongside candidates
 - [ ] 1.3 Gate MISSING on declared coverage in `diff.ts` (covered + successful source + no candidate; domain-only sharing no longer suffices) while keeping provenance-based SOURCE_UNAVAILABLE/SOURCE_CHANGED working with zero candidates; verify the full existing diff suite still passes
 - [ ] 1.4 Add integration tests A–F: narrow coverage excludes unrelated records; covered-but-absent record is MISSING; failed fetch yields SOURCE_UNAVAILABLE with zero candidates; parse failure yields scoped SOURCE_CHANGED; undiscovered ID yields NEW; second collector's record is untouched by the first source's run; verify each passes offline
 

@@ -7,6 +7,8 @@ name: Scheduled civic-data refresh
 #
 # - data:refresh exits 0 even when sources are unreachable (outcomes are
 #   recorded as unavailable/skipped); canonical data stays untouched.
+# - Runs include source-instances.json linking every candidate to its exact
+#   retrieved evidence (see docs/data-pipeline.md).
 # - data:validate runs before any PR step, so an invalid run never ships.
 # - A guard step fails the job if anything outside research/runs/ changed.
 # - GITHUB_TOKEN is used only for git push / gh PR operations, never written

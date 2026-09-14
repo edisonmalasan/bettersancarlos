@@ -300,3 +300,42 @@ test('candidate with reviewer fields fails', () => {
     cleanup(fix);
   }
 });
+
+test('pipeline artifact outside research/runs fails', () => {
+  const fix = writeTree();
+  try {
+    const strayDir = path.join(fix.root, 'research', 'government');
+    fs.mkdirSync(strayDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(strayDir, 'candidates.json'),
+      JSON.stringify({ candidates: [] }),
+    );
+    const result = validateRoot(fix.root);
+    assert.ok(
+      result.errors.some((e) => e.includes('pipeline artifact outside research/runs')),
+      JSON.stringify(result.errors),
+    );
+  } finally {
+    cleanup(fix);
+  }
+});
+
+test('fixture run leaves topic research files byte-identical', async () => {
+  const fix = writeTree();
+  try {
+    const topicDir = path.join(fix.root, 'research', 'government');
+    fs.mkdirSync(topicDir, { recursive: true });
+    const topicFile = path.join(topicDir, 'notes.md');
+    fs.writeFileSync(topicFile, '# topic notes\n\nDo not touch.\n');
+    const before = fs.readFileSync(topicFile, 'utf8');
+    const { createRun, finishRun, writeCandidates } = await import('./lib/runs');
+    const run = createRun(fix.root, { date: '2026-09-14', collectedBy: 'agent' });
+    writeCandidates(run.dir, []);
+    finishRun(run.dir, { candidatesProduced: 0, conflictsFound: 0 });
+    assert.equal(fs.readFileSync(topicFile, 'utf8'), before);
+    const result = validateRoot(fix.root);
+    assert.deepEqual(result.errors, []);
+  } finally {
+    cleanup(fix);
+  }
+});

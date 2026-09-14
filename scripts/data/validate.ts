@@ -384,6 +384,8 @@ export function validateRoot(root: string): ValidationResult {
 
   validateRuns(root, result, resolveSource);
 
+  validateResearchConfinement(root, result);
+
   scanTextFiles(root, [civicDir(root), runsDir(root)], result);
 
   return result;
@@ -393,6 +395,75 @@ function countDuplicates(ids: Array<string | number>): Map<string | number, numb
   const counts = new Map<string | number, number>();
   for (const id of ids) counts.set(id, (counts.get(id) ?? 0) + 1);
   return counts;
+}
+
+// Pipeline automation may only write under research/runs/. A pipeline
+// artifact (manifest, candidates, review report, findings, conflicts, or
+// collected evidence) anywhere else under research/ means a command escaped
+// its confinement and touched topic-organized research.
+const PIPELINE_ARTIFACT_NAMES = new Set([
+  'manifest.json',
+  'candidates.json',
+  'review-report.md',
+  'findings.md',
+  'conflicts.md',
+]);
+
+function validateResearchConfinement(root: string, result: ValidationResult): void {
+  const researchDir = path.join(root, 'research');
+  const runsRoot = runsDir(root);
+  let top: string[];
+  try {
+    top = fs.readdirSync(researchDir);
+  } catch {
+    return; // No research dir in a minimal fixture; nothing to confine.
+  }
+  const visit = (dir: string): void => {
+    let entries: string[];
+    try {
+      entries = fs.readdirSync(dir);
+    } catch {
+      return;
+    }
+    for (const name of entries) {
+      const full = path.join(dir, name);
+      let stat: fs.Stats;
+      try {
+        stat = fs.statSync(full);
+      } catch {
+        continue;
+      }
+      if (stat.isDirectory()) {
+        if (full === runsRoot) continue; // Research runs are the allowed write area.
+        if (name === 'evidence') {
+          result.errors.push(
+            `pipeline artifact outside research/runs: ${path.relative(root, full)} (evidence belongs under research/runs/<run>/evidence)`,
+          );
+          continue;
+        }
+        visit(full);
+        continue;
+      }
+      if (PIPELINE_ARTIFACT_NAMES.has(name)) {
+        result.errors.push(`pipeline artifact outside research/runs: ${path.relative(root, full)}`);
+      }
+    }
+  };
+  // Walk each top-level entry except runs/ so a missing runs/ dir is fine.
+  for (const name of top) {
+    if (path.join(researchDir, name) === runsRoot) continue;
+    const full = path.join(researchDir, name);
+    let stat: fs.Stats;
+    try {
+      stat = fs.statSync(full);
+    } catch {
+      continue;
+    }
+    if (stat.isDirectory()) visit(full);
+    else if (PIPELINE_ARTIFACT_NAMES.has(name)) {
+      result.errors.push(`pipeline artifact outside research/runs: ${path.relative(root, full)}`);
+    }
+  }
 }
 
 function validateRuns(

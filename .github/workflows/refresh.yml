@@ -1,13 +1,108 @@
 name: Scheduled civic-data refresh
 
+# Periodic due-source refresh that NEVER publishes on its own: it collects
+# evidence into a research run, diffs against canonical records, and opens (or
+# updates) a pull request containing only research/runs artifacts for human
+# review. No auto-merge, no canonical writes, no secrets in data.
+#
+# - data:refresh exits 0 even when sources are unreachable (outcomes are
+#   recorded as unavailable/skipped); canonical data stays untouched.
+# - data:validate runs before any PR step, so an invalid run never ships.
+# - A guard step fails the job if anything outside research/runs/ changed.
+# - GITHUB_TOKEN is used only for git push / gh PR operations, never written
+#   to files. FB_ACCESS_TOKEN is intentionally NOT configured here: without it
+#   the Facebook path stays dormant (see docs/facebook-sync.md).
+
 on:
   schedule:
+    # Weekly, Monday 03:00 UTC.
     - cron: '0 3 * * 1'
   workflow_dispatch:
+    inputs:
+      source:
+        description: 'Limit refresh to one registry source id (optional)'
+        required: false
+        default: ''
+      domain:
+        description: 'Limit refresh to one domain (optional)'
+        required: false
+        default: ''
+
+concurrency:
+  group: scheduled-refresh
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo
-        run: echo probe
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Refresh due sources into a research run
+        run: |
+          ARGS="-- --due --collected-by=scheduled-refresh"
+          if [ -n "${{ inputs.source }}" ]; then ARGS="$ARGS --source=${{ inputs.source }}"; fi
+          if [ -n "${{ inputs.domain }}" ]; then ARGS="$ARGS --domain=${{ inputs.domain }}"; fi
+          # shellcheck disable=SC2086
+          bun run data:refresh $ARGS
+
+      - name: Diff candidates against canonical records
+        run: bun run data:diff
+
+      - name: Validate (runs + canonical data, offline)
+        run: bun run data:validate
+
+      - name: Guard — only research/runs may have changed
+        run: |
+          CHANGED="$(git status --porcelain | awk '{print $2}')"
+          echo "$CHANGED"
+          OUTSIDE="$(echo "$CHANGED" | grep -v '^research/runs/' || true)"
+          if [ -n "$OUTSIDE" ]; then
+            echo "Refusing: files outside research/runs/ changed:"
+            echo "$OUTSIDE"
+            exit 1
+          fi
+          if [ -z "$CHANGED" ]; then
+            echo "No new research artifacts; nothing to propose."
+            echo "EMPTY=true" >> "$GITHUB_ENV"
+          fi
+
+      - name: Open or update the review PR
+        if: env.EMPTY != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="chore/scheduled-refresh"
+          git config user.name "bettersancarlos-refresh"
+          git config user.email "bettersancarlos-refresh@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add research/runs
+          git commit -m "chore: scheduled civic-data refresh ($(date -u +%F))" || echo "nothing to commit"
+          git push --set-upstream origin "$BRANCH"
+          SUMMARY="$(bun run data:report | head -40)"
+          if gh pr view "$BRANCH" --json number >/dev/null 2>&1; then
+            echo "Review PR already open; pushed new run artifacts."
+          else
+            gh pr create \
+              --base main \
+              --head "$BRANCH" \
+              --title "chore: scheduled civic-data refresh ($(date -u +%F))" \
+              --body "Scheduled refresh run. No canonical data changed — review the research run, then promote explicitly if warranted.
+
+${SUMMARY}
+
+Never auto-merge: promotion stays a separate reviewer step (see docs/data-pipeline.md)."
+          fi

@@ -149,6 +149,8 @@ const EMITTERS: Record<string, { file: string; emit: (ctx: EmitContext) => Recor
   news: { file: 'news.json', emit: emitNews },
   demographics: { file: 'demographics.json', emit: emitDemographics },
   cityProfile: { file: 'city-profile.json', emit: emitCityProfile },
+  fiscal: { file: 'fiscal_transparency.json', emit: emitFiscal },
+  cmci: { file: 'competitive-index.json', emit: emitCmci },
 };
 
 export function isFbNewsRecord(record: CivicRecord): boolean {
@@ -199,6 +201,64 @@ export function buildCityProfileJson(records: CivicRecord[], sources: SourceReco
     sources: new Map(sources.map((s) => [s.id, s])),
   };
   return emitCityProfile(ctx);
+}
+
+function emitFiscal(ctx: EmitContext): Record<string, unknown> {
+  const income = requiredRecord(ctx, 'fiscal-annual-income');
+  const core = requiredRecord(ctx, 'fiscal-core');
+  const note = requiredRecord(ctx, 'fiscal-publication-note');
+  const factRecords = [income, core];
+  const coreData = core.data as Record<string, unknown>;
+
+  return {
+    _schema_version: '1.1',
+    _status: aggregateFileStatus(factRecords, false),
+    _source: `Generated from canonical civic records; ${registryRefs(ctx, factRecords)}; research: research/transparency/26-09-budget.md`,
+    _note: (note.data as Record<string, unknown>).note,
+    municipality: coreData.municipality,
+    province: coreData.province,
+    fiscal_years: (income.data as Record<string, unknown>).entries,
+  };
+}
+
+function emitCmci(ctx: EmitContext): Record<string, unknown> {
+  const series = requiredRecord(ctx, 'cmci-series');
+  const note = requiredRecord(ctx, 'cmci-publication-note');
+  const factRecords = [series];
+  const data = series.data as Record<string, unknown>;
+
+  return {
+    _schema_version: '1.0',
+    // File-level standing, not the record vocabulary: the series is a frozen
+    // historical capture (last data update 2019), preserved verbatim.
+    _status: 'historical',
+    _updated: maxAcceptedAt(factRecords),
+    _source: `Generated from canonical civic records; ${registryRefs(ctx, factRecords)}; research: research/competitiveness/26-09-cmci-index.md`,
+    _note: (note.data as Record<string, unknown>).note,
+    title: data.title,
+    description: data.description,
+    source: data.source,
+    category: data.category,
+    years: data.years,
+    overall: data.overall,
+    pillars: data.pillars,
+  };
+}
+
+export function buildFiscalJson(records: CivicRecord[], sources: SourceRecord[]): Record<string, unknown> {
+  const ctx: EmitContext = {
+    records: new Map(records.map((r) => [r.id, r])),
+    sources: new Map(sources.map((s) => [s.id, s])),
+  };
+  return emitFiscal(ctx);
+}
+
+export function buildCmciJson(records: CivicRecord[], sources: SourceRecord[]): Record<string, unknown> {
+  const ctx: EmitContext = {
+    records: new Map(records.map((r) => [r.id, r])),
+    sources: new Map(sources.map((s) => [s.id, s])),
+  };
+  return emitCmci(ctx);
 }
 
 function emitNews(ctx: EmitContext): Record<string, unknown> {

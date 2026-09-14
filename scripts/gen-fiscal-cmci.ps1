@@ -1,3 +1,9 @@
+# RETIRED (civic-data-pipeline phase 5): data/fiscal_transparency.json and
+# data/competitive-index.json are now generated from canonical civic records via
+# `bun run data:generate` (see docs/data-pipeline.md). All facts below moved to
+# data/civic/records.json. This script throws instead of writing so it can never
+# fork either file again.
+throw 'scripts/gen-fiscal-cmci.ps1 is retired; run `bun run data:generate` instead (see docs/data-pipeline.md).'
 # Generator: fiscal_transparency.json + competitive-index.json
 $ErrorActionPreference = 'Stop'
 $enc = New-Object System.Text.UTF8Encoding($false)

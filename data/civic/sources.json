@@ -377,6 +377,30 @@
       "verifier": "research-2026-09-04",
       "sourceState": "active",
       "notes": "Languages, heritage corroboration, elevation cross-check; research: research/city-profile/26-09-city-profile.md."
+    },
+    {
+      "id": "src-blgf-income-philatlas",
+      "title": "Annual Regular Income series (BLGF via PhilAtlas)",
+      "publisher": "Bureau of Local Government Finance (via PhilAtlas)",
+      "url": "https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html",
+      "documentType": "webpage",
+      "retrievedAt": "2026-09-04",
+      "verifier": "research-2026-09-04",
+      "sourceState": "active",
+      "registryId": "blgf",
+      "notes": "FY2009-2016 annual regular income; research: research/transparency/26-09-budget.md."
+    },
+    {
+      "id": "src-cmci-archive-2019",
+      "title": "DTI CMCI San Carlos profile (Internet Archive capture 2019-12-11)",
+      "publisher": "Department of Trade and Industry - CMCI (via Internet Archive)",
+      "url": "https://web.archive.org/web/20191211063050/https://cmci.dti.gov.ph/pages/profile/?lgu=San%20Carlos%20(PS)",
+      "documentType": "webpage",
+      "retrievedAt": "2026-09-04",
+      "verifier": "research-2026-09-04",
+      "sourceState": "archived",
+      "registryId": "dti-cmci",
+      "notes": "2016-2019 ranks/scores; live portal returned 404 at research time; research: research/competitiveness/26-09-cmci-index.md."
     }
   ]
 }

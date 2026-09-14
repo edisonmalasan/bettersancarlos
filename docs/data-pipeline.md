@@ -59,8 +59,8 @@ from `data/civic` records. Legacy scripts stay untouched until their row says re
 | `news.json` | canonical | done (phase 4) |
 | `demographics.json` | canonical | done (phase 5) |
 | `city-profile.json` | canonical | done (phase 5) |
-| `fiscal_transparency.json` | `scripts/gen-fiscal-cmci.ps1` | canonical (phase 5) |
-| `competitive-index.json` | `scripts/gen-fiscal-cmci.ps1` | canonical (phase 5) |
+| `fiscal_transparency.json` | canonical | done (phase 5) |
+| `competitive-index.json` | canonical | done (phase 5) |
 | `ordinances.json` | `scripts/gen-legislative.ps1` | canonical (phase 5) |
 | `resolutions.json` | `scripts/gen-legislative.ps1` | canonical (phase 5) |
 | `dpwh-projects.json` | `scripts/gen-legislative.ps1` | canonical (phase 5) |
@@ -88,6 +88,9 @@ by `scripts/gen-barangays.ps1` (phase 5 target: canonical).
 - `scripts/gen-demographics.ps1` (phase 5): all facts moved to canonical
   demographics records; `data:generate -- --domain=demographics` is the
   producer. The script throws instead of writing.
+- `scripts/gen-fiscal-cmci.ps1` (phase 5): fiscal + CMCI facts moved to
+  canonical records; `data:generate` is the producer for both files.
+  The script throws instead of writing.
 - `scripts/gen-news.ps1` (phase 4): all facts moved to canonical news
   records; `data:generate` is the producer. The script throws instead of
   writing so it can never fork `news.json` again.

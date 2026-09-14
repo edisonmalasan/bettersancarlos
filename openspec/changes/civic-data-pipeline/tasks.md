@@ -37,7 +37,7 @@
 ## 5. Remaining legacy script domains
 
 - [x] 5.1 Seed canonical records + sources for the demographics domain (census history, barangay populations, households, profile facts) from `gen-demographics.ps1` facts with research-cited sources; emit `demographics.json` + `city-profile.json` via generate; verify parity diff vs pre-migration files and mirror integrity, then retire the demographics/profile responsibility of `gen-profile-emergency.ps1`/`gen-demographics.ps1` per the map
-- [ ] 5.2 Repeat seeding + generation + verified retirement for fiscal/CMCI (`gen-fiscal-cmci.ps1` → `fiscal_transparency.json`, `competitive-index.json`) with per-document cadence and research-documented source records; verify parity diff and validation
+- [x] 5.2 Repeat seeding + generation + verified retirement for fiscal/CMCI (`gen-fiscal-cmci.ps1` → `fiscal_transparency.json`, `competitive-index.json`) with per-document cadence and research-documented source records; verify parity diff and validation
 - [ ] 5.3 Repeat seeding + generation + verified retirement for legislative (`gen-legislative.ps1` → `ordinances.json`, `resolutions.json`) and barangay (`gen-barangays.ps1` → barangay data inputs used by `src/data/`) with quarterly + post-BSKE event-driven cadences; verify parity diff and that all `gen-*.ps1` producers are retired or documented as intentionally retained
 - [ ] 5.4 Verify every remaining manually-maintained file (services, schools, tourism, etc.) is documented in the migration map with its state and (where applicable) a follow-up note; verify `bun run verify` passes and the full frontend spot-check renders correctly
 

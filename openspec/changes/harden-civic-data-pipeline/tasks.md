@@ -32,7 +32,7 @@
 ## 6. Freshness semantics
 
 - [x] 6.1 Pin `manual`/`per-document`/`event-driven` behavior (sentinel rule, no new fields) across validate/promote/report; verify Test 9 (legitimate per-document record passes with no fake horizon) and that all 41 existing non-scheduled records still validate
-- [ ] 6.2 Group `data:report` output by review class (scheduled, event-driven, manual, document-triggered); verify each class appears correctly on a mixed fixture and `bun run data:report` stays offline
+- [x] 6.2 Group `data:report` output by review class (scheduled, event-driven, manual, document-triggered); verify each class appears correctly on a mixed fixture and `bun run data:report` stays offline
 
 ## 7. CI and runbook
 

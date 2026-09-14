@@ -9,7 +9,7 @@ import {
   type RunManifest,
 } from './lib/civic';
 import { stableStringify } from './lib/json';
-import { isPublishedStatus, isTimeBasedCadence } from './lib/policy';
+import { isPublishedStatus, isTimeBasedCadence, reviewClass } from './lib/policy';
 import { readCandidates } from './lib/runs';
 import { runsDir } from './lib/paths';
 import { todayUtc } from './validate';
@@ -26,12 +26,15 @@ export interface SourceHealthItem {
   lastOutcome: string | null;
 }
 
+export type ReviewClass = 'scheduled' | 'event-driven' | 'manual' | 'document';
+
 export interface HealthReport {
   today: string;
   stale: CivicRecord[];
   conflicts: ConflictItem[];
   uncoveredSources: RegistryEntry[];
   sourceHealth: SourceHealthItem[];
+  reviewClasses: Record<ReviewClass, { total: number; pastDue: number }>;
   markdown: string;
 }
 
@@ -122,6 +125,18 @@ export function buildReport(root: string, today: string = todayUtc()): HealthRep
   const sourceHealth = [...health.values()].sort((a, b) =>
     a.registryId < b.registryId ? -1 : 1,
   );
+  const staleIds = new Set(stale.map((r) => r.id));
+  const reviewClasses: HealthReport['reviewClasses'] = {
+    scheduled: { total: 0, pastDue: 0 },
+    'event-driven': { total: 0, pastDue: 0 },
+    manual: { total: 0, pastDue: 0 },
+    document: { total: 0, pastDue: 0 },
+  };
+  for (const record of records) {
+    const bucket = reviewClasses[reviewClass(record.updateCadence)];
+    bucket.total += 1;
+    if (staleIds.has(record.id)) bucket.pastDue += 1;
+  }
 
   const lines = [
     '# Civic-data health report',
@@ -141,6 +156,18 @@ export function buildReport(root: string, today: string = todayUtc()): HealthRep
     }
     lines.push('');
   }
+  lines.push('## Review classes', '');
+  const classNote: Record<ReviewClass, string> = {
+    scheduled: 'review on a fixed horizon',
+    'event-driven': 'review after triggering events, with a horizon fallback',
+    manual: 'review on demand (no scheduled horizon)',
+    document: 'review on new document release (no scheduled horizon)',
+  };
+  for (const name of ['scheduled', 'event-driven', 'manual', 'document'] as const) {
+    const bucket = reviewClasses[name];
+    lines.push(`- ${name}: ${bucket.total} record(s), ${bucket.pastDue} past due — ${classNote[name]}`);
+  }
+  lines.push('');
   lines.push('## Conflicts', '');
   if (conflicts.length === 0) {
     lines.push('No conflicting candidates found in research runs.', '');
@@ -176,9 +203,9 @@ export function buildReport(root: string, today: string = todayUtc()): HealthRep
     .map((r) => r.id);
   if (dangling.length > 0) {
     lines.push('## Notes', '');
-    lines.push(`- ${dangling.length} record(s) reference registry-only sources: ${dangling.join(', ')}`, '');
+    lines.push(`- ${dangling.length} record(s) reference unresolvable sources: ${dangling.join(', ')}`, '');
   }
-  return { today, stale, conflicts, uncoveredSources, sourceHealth, markdown: lines.join('\n') };
+  return { today, stale, conflicts, uncoveredSources, sourceHealth, reviewClasses, markdown: lines.join('\n') };
 }
 
 function main(): number {

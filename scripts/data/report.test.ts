@@ -136,3 +136,49 @@ test('CLI: bun run data:report runs offline against a fixture tree', () => {
     fs.rmSync(root, { recursive: true, force: true });
   }
 });
+
+test('report groups records by review class without fake horizons', () => {
+  const root = fixtureRoot();
+  try {
+    const rec = (
+      id: string,
+      updateCadence: string,
+      acceptedAt: string,
+      nextReviewOn: string,
+    ): Record<string, unknown> => ({
+      id,
+      domain: 'government',
+      type: 'official',
+      label: id,
+      data: { name: id },
+      sourceIds: ['reg-site'],
+      status: 'verified',
+      lastVerified: acceptedAt,
+      acceptedBy: 'fixture',
+      acceptedAt,
+      nextReviewOn,
+      updateCadence,
+    });
+    fs.writeFileSync(
+      path.join(root, 'data', 'civic', 'records.json'),
+      JSON.stringify({
+        records: [
+          rec('sched-past-due', 'quarterly', '2020-01-02', '2020-04-01'),
+          rec('event-past-due', 'event-driven', '2020-01-02', '2020-04-01'),
+          rec('manual-sentinel', 'manual', '2026-09-02', '2026-09-02'),
+          rec('doc-sentinel', 'per-document', '2026-09-02', '2026-09-02'),
+        ],
+      }),
+    );
+    const report = buildReport(root, '2026-09-14');
+    assert.deepEqual(report.reviewClasses.scheduled, { total: 1, pastDue: 1 });
+    assert.deepEqual(report.reviewClasses['event-driven'], { total: 1, pastDue: 1 });
+    assert.deepEqual(report.reviewClasses.manual, { total: 1, pastDue: 0 });
+    assert.deepEqual(report.reviewClasses.document, { total: 1, pastDue: 0 });
+    assert.ok(report.markdown.includes('## Review classes'));
+    assert.ok(report.markdown.includes('- scheduled: 1 record(s), 1 past due'));
+    assert.ok(report.markdown.includes('- manual: 1 record(s), 0 past due — review on demand (no scheduled horizon)'));
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});

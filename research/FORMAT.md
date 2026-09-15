@@ -62,6 +62,8 @@ jurisdiction:           # omit entirely when the default applies
 
 Omit sections that add no value unless required above. Product and UI ideas do not belong here — they live in `docs/product-ideas.md`.
 
+Envelope and type-minimum heading names are exact case-sensitive strings (`## Scope`, `### Directory`, `### Missing documents`, …): the validator matches them literally and names the expected string on failure.
+
 ## Type minima (Findings)
 
 - `dataset`: `### Summary`, `### Dataset` (table or declared sidecar), `### Methodology` notes where values are derived.
@@ -90,6 +92,7 @@ When items differ in confidence or freshness, each item carries Verification, Te
 
 - IDs are exactly `S1`, `S2`, … (1-based, no leading zeros, unique per document). They are document-local — never canonical `sources.json` IDs.
 - Reference IDs only in (1) table cells under a column headed exactly `Sources` (`S1`, or lists as `S1, S3`), and (2) prose inline code spans (`` `S1` ``). Bare IDs in plain prose are not parsed and need no registration.
+- A `Sources` cell with no source stays empty or `—`, but its row must still carry an honest Verification status (e.g. an unconfirmed number is `unverified`, never blank-by-omission).
 
 ## Sidecars
 

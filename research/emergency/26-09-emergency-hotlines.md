@@ -1,67 +1,91 @@
+---
+schema: research.v2
+id: emergency-hotlines
+title: Emergency Hotlines and Public Safety
+category: emergency
+research_type: directory
+verification_status: partial
+temporal_status: mixed
+risk: high
+researched_at: 2026-09-04
+last_checked: 2026-09-04
+canonical_domains:
+  - emergency
+---
+
 # San Carlos City, Pangasinan — Emergency Hotlines and Public Safety
 
-**Category:** emergency
-**Verification status:** Partially Verified — national hotlines are widely documented; city-level numbers are from the old official city site (2017 archive) and must be re-verified with the current LGU before publication. **Currently unverified city lines are clearly flagged.**
-**Research date:** 2026-09-04
+## Scope
 
-## National Emergency Hotlines (Philippines-wide)
+National Philippines-wide emergency numbers plus city-level emergency contacts (current and historical) and related public-safety offices for San Carlos City, Pangasinan. Hospital emergency capacity details live in `health/26-09-health-facilities.md`.
 
-| Service | Number | Notes |
-|---|---|---|
-| National Emergency Hotline | **911** | DILG-managed nationwide emergency number |
-| PNP (Police) Hotline | 117 | Philippine National Police emergency line |
-| Philippine Red Cross | 143 | Red Cross hotline |
-| DOH / Emergencies | 1555 | DOH public hotline (unverified in this research — confirm) |
-| Gov't. complaints (Office of the President) | 8888 | Citizens' Complaint Center SMS: 8888 |
+## Summary
 
-**Verification note:** PNP, Red Cross, and 911 numbers are widely published by DILG/PNP; the DOH 1555 line should be confirmed with DOH. Treat as "widely documented national numbers" — [DILG/911](https://911.gov.ph/) and [PNP](https://pnp.gov.ph/) are the canonical references.
+National hotlines (911, 117, 143, 8888) are widely documented (`S1`, `S2`); the DOH 1555 line is unconfirmed. The only current city line is the City Hall trunk line (`S3`); CDRRMO, police, and fire numbers come from the 2017 archive (`S4`) and must be re-verified before publication.
 
-## City-Level Emergency Contacts
+## Findings
 
-### Official/current (from the official LGU website, accessed 2026-09-04)
-| Service | Contact | Source |
-|---|---|---|
-| City Hall general line | (075) 600-1432 | [Official LGU site](https://sancarlospangasinan.gov.ph/) |
+### Directory
 
-### Historical city emergency lines (old official site, archived 2017-03-22)
-| Service | Number | Source |
-|---|---|---|
-| City Disaster Risk Reduction & Management Office (CDRRMO) | (075) 955-5911 | [Old official site — Contact (archived)](https://web.archive.org/web/20170322095041/http://sancarloscitypangasinan.gov.ph/index.php/contact-us/) |
-| Police Station (PNP) | (075) 532-9896 | [Old official site — Contact (archived)](https://web.archive.org/web/20170322095041/http://sancarloscitypangasinan.gov.ph/index.php/contact-us/) |
-| Fire Station (BFP) | (075) 544-2887 | [Old official site — Contact (archived)](https://web.archive.org/web/20170322095041/http://sancarloscitypangasinan.gov.ph/index.php/contact-us/) |
+| ID | Entity | Contact | Verification | Temporal | As of | Sources |
+|---|---|---|---|---|---|---|
+| national-911 | National Emergency Hotline | 911 | verified | current | 2026-09-04 | S1 |
+| national-pnp-117 | PNP (Police) Hotline | 117 | verified | current | 2026-09-04 | S2 |
+| national-redcross-143 | Philippine Red Cross | 143 | verified | current | 2026-09-04 | S1, S2 |
+| national-doh-1555 | DOH / Emergencies | 1555 | unverified | current | 2026-09-04 | — |
+| national-complaint-8888 | Gov't. complaints (Office of the President; SMS 8888) | 8888 | verified | current | 2026-09-04 | S1, S2 |
+| city-hall-trunk-line | City Hall general line | (075) 600-1432 | verified | current | 2026-09-04 | S3 |
+| cdrmo-emergency-contact | City Disaster Risk Reduction & Management Office (CDRRMO) | (075) 955-5911 | unverified | historical | 2017-03-22 | S4 |
+| pnp-sancarlos-contact | Police Station (PNP) | (075) 532-9896 | unverified | historical | 2017-03-22 | S4 |
+| bfp-sancarlos-contact | Fire Station (BFP) | (075) 544-2887 | unverified | historical | 2017-03-22 | S4 |
 
-> ⚠️ **2017 numbers are likely outdated.** As of 2026 the city uses (075) 600-1432 as its main trunk line. These three offices (CDRRMO/PNP/BFP) must be re-dialed and re-verified before publishing on the live Better San Carlos site.
+### Roles and Offices
 
-## Related Emergency Profiles (known officials — 2024 archived LGU directory)
+| ID | Entity | Detail | Verification | Temporal | As of | Sources |
+|---|---|---|---|---|---|---|
+| role-chief-pnp | Chief of Police, PNP San Carlos City | PLTCOL Eleazar C. Edolmo | partial | historical | 2024-06-03 | S5 |
+| role-fire-marshal | Acting City Fire Marshal (BFP) | FCINSP Ronaldo M. Perez | partial | historical | 2024-06-03 | S5 |
+| role-cdrrmo-officer | City DRRM Officer | Ruby DG. Ballesteros | partial | historical | 2024-06-03 | S5 |
+| role-jail-warden | City Jail Warden (BJMP) | JCINSP Reynaldo C. Ocreto | partial | historical | 2024-06-03 | S5 |
 
-| Role | Name | Source |
-|---|---|---|
-| Chief of Police, PNP San Carlos City | PLTCOL Eleazar C. Edolmo | [LGU Departments/Offices (archived 2024)](https://web.archive.org/web/20240603225001/https://www.sancarlospangasinan.gov.ph/departmentsoffices) |
-| Acting City Fire Marshal (BFP) | FCINSP Ronaldo M. Perez | [LGU Departments/Offices (archived 2024)](https://web.archive.org/web/20240603225001/https://www.sancarlospangasinan.gov.ph/departmentsoffices) |
-| City DRRM Officer | Ruby DG. Ballesteros | [LGU Departments/Offices (archived 2024)](https://web.archive.org/web/20240603225001/https://www.sancarlospangasinan.gov.ph/departmentsoffices) |
-| City Jail Warden (BJMP) | JCINSP Reynaldo C. Ocreto | [LGU Departments/Offices (archived 2024)](https://web.archive.org/web/20240603225001/https://www.sancarlospangasinan.gov.ph/departmentsoffices) |
-
-## Hospitals with Emergency Capacity (refer to health/26-09-health-facilities.md)
+### Hospitals with Emergency Capacity
 
 - **Pangasinan Provincial Hospital** (San Carlos) — listed as a high-rise evacuation building and a known hospital facility (old official site). Details in health file.
 - **Pangasinan Doctors' Hospital** — named as a high-rise building in the city's evacuation plan (old official site, 2017). Details in health file.
 
-## Potential Better San Carlos Features
+## Verification & Uncertainty
 
-- **Emergency Hotline Directory (top feature)** — tabular card grid with call buttons; "report outdated number" feedback.
-- **Emergency button** on app home linking to 911 and city DRRM.
-- **Who to call for what** flow (flood, fire, crime, medical, animal rescue).
-
-## Notes / Gaps
-
-- **Ambulance / rescue hotlines** (private services, City Health EMS) were not found in accessible official sources; needs manual verification.
-- **Traffic hotline** not found; City Engineering / PNP traffic unit exists (per old site office list) but no separate hotline found.
+- National numbers are "widely documented national numbers": PNP, Red Cross, and 911 numbers are widely published by DILG/PNP, which are the canonical references. | `S1`, `S2`
+- The DOH 1555 line should be confirmed with DOH.
+- 2017 city numbers are likely outdated: the city uses (075) 600-1432 as its main trunk line, and the CDRRMO/PNP/BFP offices must be re-dialed and re-verified before publishing on the live site.
+- Ambulance / rescue hotlines (private services, City Health EMS) were not found in accessible official sources; needs manual verification.
+- Traffic hotline not found; City Engineering / PNP traffic unit exists (per old site office list) but no separate hotline found.
 - Addresses for the San Carlos PNP station and BFP station were not authoritatively captured; verify with DILG/PRO1.
+
+## Conflicts
+
+None identified.
+
+## Gaps
+
+- Current CDRRMO direct line.
+- Current BFP direct line.
+- Current PNP direct line.
+- Ambulance / rescue hotlines.
+- Traffic hotline.
+- PNP and BFP station addresses.
+
+## Research Attempts
+
+- National numbers checked against the DILG 911 portal and PNP site on 2026-09-04. | `S1`, `S2`
+- City lines taken from the 2017 archived Contact page; live re-dial verification not yet performed. | `S4`
 
 ## Sources
 
-1. DILG National Emergency Hotline 911: https://911.gov.ph/
-2. PNP official site: https://pnp.gov.ph/
-3. Official LGU website (contact block): https://sancarlospangasinan.gov.ph/
-4. Old official site — *Contact Us* (archived 2017-03-22): http://sancarloscitypangasinan.gov.ph/index.php/contact-us/
-5. LGU — *Departments/Offices* (archived 2024-06-03): https://web.archive.org/web/20240603225001/https://www.sancarlospangasinan.gov.ph/departmentsoffices
+| ID | Publisher | Document | Published | Accessed | Type | URL |
+|---|---|---|---|---|---|---|
+| S1 | DILG | National Emergency Hotline 911 | — | 2026-09-04 | official | https://911.gov.ph/ |
+| S2 | Philippine National Police | Official site | — | 2026-09-04 | official | https://pnp.gov.ph/ |
+| S3 | City Government of San Carlos | Official website (contact block) | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/ |
+| S4 | City Government of San Carlos | Contact Us (archived) | 2017-03-22 | 2026-09-04 | archived-official | http://sancarloscitypangasinan.gov.ph/index.php/contact-us/ |
+| S5 | City Government of San Carlos | Departments/Offices (archived) | 2024-06-03 | 2026-09-04 | archived-official | https://web.archive.org/web/20240603225001/https://www.sancarlospangasinan.gov.ph/departmentsoffices |

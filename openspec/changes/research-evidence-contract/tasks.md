@@ -12,8 +12,8 @@
 
 ## 3. Representative migrations
 
-- [ ] 3.1 Migrate one file per type (dataset: demographics; directory: emergency-hotlines; profile: geography; timeline: history; document-index: legislation-archive; gap-report: water-district) preserving all facts/gaps/conflicts, and verify `research:validate` passes and rendered facts diff clean against pre-migration versions.
-- [ ] 3.2 Refine FORMAT.md and the validator from phase 3 lessons, and verify the six migrated files still pass without per-file exceptions.
+- [x] 3.1 Migrate one file per type (dataset: demographics; directory: emergency-hotlines; profile: geography; timeline: history; document-index: legislation-archive; gap-report: water-district) preserving all facts/gaps/conflicts, and verify `research:validate` passes and rendered facts diff clean against pre-migration versions.
+- [x] 3.2 Refine FORMAT.md and the validator from phase 3 lessons, and verify the six migrated files still pass without per-file exceptions.
 
 ## 4. Structured dataset migration
 

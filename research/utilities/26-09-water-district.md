@@ -4,7 +4,7 @@ id: water-district
 title: Water District
 category: utilities
 research_type: gap-report
-verification_status: unverified
+verification_status: blocked
 temporal_status: unknown
 risk: medium
 researched_at: 2026-09-04

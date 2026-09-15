@@ -4,7 +4,7 @@ id: blgf-budget
 title: BLGF Budget & Fiscal Data (FY2017–FY2025)
 category: transparency
 research_type: gap-report
-verification_status: unverified
+verification_status: blocked
 temporal_status: current
 risk: high
 researched_at: 2026-09-04

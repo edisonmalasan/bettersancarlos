@@ -34,7 +34,7 @@ The table below is generated from document frontmatter (`bun run research:index`
 | culture-history | History | timeline | partial | historical | low | 2026-09-04 |
 | demographics | Demographics and Statistics | dataset | verified | mixed | medium | 2026-09-04 |
 | disaster-risk | Disaster Risk Reduction and Preparedness | profile | partial | mixed | high | 2026-09-04 |
-| disaster-risk | Hazard Maps & Disaster Risk | gap-report | unverified | current | medium | 2026-09-04 |
+| disaster-risk | Hazard Maps & Disaster Risk | gap-report | blocked | current | medium | 2026-09-04 |
 | economy | Local Economy | profile | partial | mixed | medium | 2026-09-04 |
 | education | Schools and Education | directory | partial | current | medium | 2026-09-04 |
 | emergency | Emergency Hotlines and Public Safety | directory | partial | mixed | high | 2026-09-04 |
@@ -50,20 +50,20 @@ The table below is generated from document frontmatter (`bun run research:index`
 | official-presence | Official Online Presence | directory | verified | current | low | 2026-09-04 |
 | tourism | Festivals | timeline | verified | mixed | low | 2026-09-04 |
 | tourism | Tourist Attractions and Accommodation | directory | partial | mixed | low | 2026-09-04 |
-| transparency | BLGF Budget & Fiscal Data (FY2017–FY2025) | gap-report | unverified | current | high | 2026-09-04 |
+| transparency | BLGF Budget & Fiscal Data (FY2017–FY2025) | gap-report | blocked | current | high | 2026-09-04 |
 | transparency | Budget and Fiscal Data | dataset | partial | mixed | high | 2026-09-04 |
 | transparency | Full Disclosure, Transparency Seal & Citizen's Charter | document-index | partial | mixed | high | 2026-09-04 |
 | transportation | Public Transport and Mobility | profile | partial | historical | low | 2026-09-04 |
 | utilities | CENPELCO (Electric Cooperative) Contacts | directory | partial | current | medium | 2026-09-04 |
 | utilities | Public Utilities | profile | partial | mixed | medium | 2026-09-04 |
-| utilities | Water District | gap-report | unverified | unknown | medium | 2026-09-04 |
+| utilities | Water District | gap-report | blocked | unknown | medium | 2026-09-04 |
 <!-- research:index:end:inventory -->
 
 ## Status Summary
 
 <!-- research:index:start:summary -->
 - Research documents: 33
-- Verified: 5 · Partial: 24 · Unverified: 4 · Blocked: 0
+- Verified: 5 · Partial: 24 · Unverified: 1 · Blocked: 3
 - High-risk: 13
 - Last research update: 2026-09-04
 <!-- research:index:end:summary -->

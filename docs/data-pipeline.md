@@ -140,7 +140,9 @@ command below is safe to run (collection never modifies canonical data).
    unregistered source is refused, never scraped. API-backed sources use
    their dedicated acquisition path; the generic page fetcher never feeds them.
 2. Refresh: `bun run data:refresh` (narrow with `-- --source=<id>` and/or
-   `-- --domain=<d>`; add `-- --due` for due sources only). This creates
+   `-- --domain=<d>`; add `-- --due` for due sources only — time-based
+   cadences are eligible for `--due`, while `manual`-cadence sources run only
+   on explicit invocation). This creates
    `research/runs/<YYYY-MM-DD[-n]>/` and nothing else.
 3. Inspect the new run directory (requirements — every run must contain):
    - `manifest.json`: run id, start/end, parameters, per-source entries
@@ -235,7 +237,9 @@ clean tree, the runbook — not your intuition — is what needs fixing.
 ## News auto-promotion (low-risk path only)
 Official-page news candidates (`domain: news`, sourced from the registered
 `lgu-facebook-cio` page) may be accepted without an independent reviewer via
-`bun run data:promote -- --auto-news`. Justification: news items are
+`bun run data:promote -- --auto-news`. Facebook collection itself is manual
+(see `docs/facebook-sync.md`); this path governs promotion of explicitly
+collected candidates only. Justification: news items are
 low-risk (informational, never emergency contacts / officials / fees /
 budgets), the source is the official LGU page itself, and every auto-accepted
 record keeps status `reported` — never `verified` — so the site labels it as
@@ -246,8 +250,11 @@ use this path.
 
 ## Collector roadmap (future changes, prioritized)
 
-Already automated: `lgu-website` (city-website), `lgu-facebook-cio`
-(facebook), `lgu-old-site-archive` (city-website, historical only). Each item
+Already automated: `lgu-website` (city-website),
+`lgu-old-site-archive` (city-website, historical only). `lgu-facebook-cio`
+(facebook) is implemented but manual/dormant by default (see
+`docs/facebook-sync.md`) — collector capability without automatic schedule
+eligibility. Each item
 below ships as its own scoped OpenSpec change reusing the
 source-instance/candidate contract; ordered by data value × volatility ×
 source stability × structuredness. No collectors are implemented here.

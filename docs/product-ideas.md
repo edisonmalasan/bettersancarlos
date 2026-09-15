@@ -89,3 +89,34 @@ are backlog inputs, not commitments.
 - **Business directory / MSME directory** (needs data from City Treasurer/BPLO).
 - **Permit guide** (eBPLS walkthrough) + fee schedule (not yet obtained).
 - **Investment profile** page (land, population, strategic location).
+
+## schools
+
+- **School directory** with filter (public/private, level) → powers `data/schools.json`.
+- **Enrollment/resources** info page for parents.
+- **DepEd materials** scatter map (school locations) — requires GPS data from DepEd/OSM.
+
+## environmental-programs
+
+- **Waste collection schedule** page (needs city GLOLocal data).
+- **Recycling centers / e-waste drop-off** list (needs data).
+- **Climate/environment news** feed and DRRM notices.
+- **Tree-planting/reforestation tracker** (if the city publishes data).
+
+## city-officials
+
+- **Elected Officials page** (term 2025–2028) — powers the `data/officials.json` in the project.
+- **Election history timeline/dashboard** (2016→2025 results).
+- Verify and add contact form/office hours for each elected official.
+
+## government-directory
+
+- **Government Directory page** — the core of `data/services.json`/`officials.json`.
+- Call-to-action "report wrong number" to keep directory accurate (crowdsourced verification).
+- Map of city hall + office locations.
+
+## lgu-structure
+
+- Government directory (department cards with head, contact, hours) — feeds `data/officials.json` and `data/services.json`.
+- Org-chart view of the LGU.
+- Change-tracking of department heads across terms (historical).

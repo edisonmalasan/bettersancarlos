@@ -209,6 +209,16 @@ function checkTypeMinima(doc: ResearchDocument, errors: string[]): void {
         errors.push(`${doc.relPath}: gap-report is missing "## ${need}"`);
       }
     }
+    const conclusion = sectionContent(doc, 2, 'Current Conclusion') ?? '';
+    const firstLine = conclusion
+      .split(/\r?\n/)
+      .map((l) => l.trim())
+      .find((l) => l !== '');
+    if (firstLine !== undefined && firstLine.startsWith('BLOCKED') && doc.meta.verification_status !== 'blocked') {
+      errors.push(
+        `${doc.relPath}: Current Conclusion declares BLOCKED but verification_status is "${doc.meta.verification_status}"`,
+      );
+    }
     return;
   }
   const findings = sectionContent(doc, 2, 'Findings');

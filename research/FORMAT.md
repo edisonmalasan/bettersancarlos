@@ -75,7 +75,7 @@ Envelope and type-minimum heading names are exact case-sensitive strings (`## Sc
 - `profile`: at least one thematic `###` subsection.
 - `timeline`: `### Timeline` table with Date/period, Event, Verification, and Sources columns; context prose may follow.
 - `document-index`: `### Document inventory` table with Document ID, Title, Date, Availability, Verification, and Sources columns, plus Missing documents.
-- `gap-report`: `## Research Question`, `## Current Conclusion` (e.g. `BLOCKED — …`), target-information table, `## Research Attempts` (`| Date | Source | Result | Notes |`), blockers, and recommended next actions. No Findings section.
+- `gap-report`: `## Research Question`, `## Current Conclusion` (e.g. `BLOCKED — …`), target-information table, `## Research Attempts` (`| Date | Source | Result | Notes |`), blockers, and recommended next actions. No Findings section. If Current Conclusion opens with the canonical `BLOCKED` marker, `verification_status` must be `blocked` (enforced by the validator).
 
 Nothing beyond these minima is required.
 

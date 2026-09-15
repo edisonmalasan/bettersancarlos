@@ -300,10 +300,24 @@ test('missing Directory minimum fails', () => {
   assert.ok(errorsOf(withDoc({}, bad)).some((e) => e.includes('no table with an ID column')));
 });
 
-test('gap-report with Findings fails', () => {
-  const bad = `${GAP_BODY}\n## Findings\n\nStray.\n`;
+test('gap-report with Findings fails', () => {  const bad = `${GAP_BODY}\n## Findings\n\nStray.\n`;
   const meta = { id: 'fix-gap', research_type: 'gap-report', verification_status: 'blocked', temporal_status: 'unknown' };
   assert.ok(errorsOf(withDoc(meta, bad, '26-09-fix-gap.md')).some((e) => e.includes('must not carry a Findings section')));
+});
+
+test('BLOCKED conclusion requires blocked status', () => {
+  const meta = { id: 'fix-gap', research_type: 'gap-report', verification_status: 'unverified', temporal_status: 'unknown' };
+  assert.ok(
+    errorsOf(withDoc(meta, GAP_BODY, '26-09-fix-gap.md')).some((e) =>
+      e.includes('declares BLOCKED but verification_status'),
+    ),
+  );
+  const partialBody = GAP_BODY.replace(
+    'BLOCKED — do not publish.',
+    'Partially answered — names known, licenses unknown.',
+  );
+  const partialMeta = { id: 'fix-gap', research_type: 'gap-report', verification_status: 'partial', temporal_status: 'current' };
+  assert.deepEqual(errorsOf(withDoc(partialMeta, partialBody, '26-09-fix-gap.md')), []);
 });
 
 test('research runs are excluded', () => {

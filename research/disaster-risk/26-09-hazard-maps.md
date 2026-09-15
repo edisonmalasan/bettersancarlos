@@ -4,7 +4,7 @@ id: hazard-maps
 title: Hazard Maps & Disaster Risk
 category: disaster-risk
 research_type: gap-report
-verification_status: unverified
+verification_status: blocked
 temporal_status: current
 risk: medium
 researched_at: 2026-09-04

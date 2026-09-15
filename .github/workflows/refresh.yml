@@ -17,8 +17,9 @@ name: Scheduled civic-data refresh
 # - data:validate runs before any PR step, so an invalid run never ships.
 # - A guard step fails the job if anything outside research/runs/ changed.
 # - GITHUB_TOKEN is used only for git push / gh PR operations, never written
-#   to files. FB_ACCESS_TOKEN is intentionally NOT configured here: without it
-#   the Facebook path stays dormant (see docs/facebook-sync.md).
+#   to files. FB_ACCESS_TOKEN is intentionally NOT configured here:
+#   lgu-facebook-cio is manual cadence so --due never selects it; an explicit
+#   run without a token stays dormant (see docs/facebook-sync.md).
 
 on:
   schedule:

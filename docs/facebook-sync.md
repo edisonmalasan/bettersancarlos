@@ -1,4 +1,14 @@
-# Automated Facebook → News Ingestion
+# Optional Facebook → News Ingestion (manual by default)
+
+Facebook collection is optional and manual by default.
+
+BetterSanCarlos is an independent community civic-data project and does not
+assume administrative or task access to official LGU Facebook Pages.
+
+The Graph API integration remains available for authorized use, fixture
+testing, or future cooperation with the Page owner.
+
+Normal scheduled civic-data refreshes do not require Facebook credentials.
 
 Pulls the latest posts from the official LGU San Carlos Facebook Page, categorizes
 them, and records them as provisional news candidates in a research run under
@@ -13,24 +23,33 @@ canonical records by `bun run data:generate`. No step overwrites verified data d
   `scripts/data/lib/acquire.ts`). The registry entry `lgu-facebook-cio` sets
   `acquisition: facebook-graph`, so `bun run data:refresh` routes it to the
   same Graph path — never the generic page fetcher.
-- Scheduler: the pipeline's `refresh.yml` includes Facebook through that path;
-  without credentials it records a dormant skip and continues with other
-  sources. Until a token exists the manual engine likewise logs "staying
-  dormant" and creates **no run**.
+- Scheduler: the registry entry `lgu-facebook-cio` uses `updateCadence: manual`,
+  so the scheduled workflow (`data:refresh -- --due`) never selects it on
+  elapsed time and requires no Facebook credentials. Facebook runs only when
+  explicitly requested (`bun run data:refresh -- --source=lgu-facebook-cio` or
+  `bun run data:ingest-facebook`); without credentials that explicit path
+  records a dormant skip and continues with other sources. The manual engine
+  likewise logs "staying dormant" and creates **no run**.
 - Renderer: the Next.js **News** page (`src/app/news/page.tsx`) and the homepage feed
   widget (`assets/js/fb-feed.js`) read the generated `data/news.json` unchanged.
 - Token safety: the access token travels in memory only and is redacted from
   every log line, error, and manifest entry; it never lands in evidence,
   candidates, source instances, or git.
 
-## The one prerequisite (activation gate)
+## Optional future activation (not part of normal setup)
+
+A Page access token is not expected as part of normal project setup, and no
+contributor is expected to obtain LGU Page administration privileges. The
+project operates fully without Facebook credentials. Only if authorized Page
+access is voluntarily provided in the future do these technical steps apply.
 
 Facebook only returns a page's posts to a caller holding a **Page access token**,
 and that token requires a **role on the page**. No code can bypass this.
 
-1. **Get an Editor role on the page.** Ask the LGU San Carlos page admin (via Meta
-   Business Suite → Settings → People) to add the BetterSanCarlos account/app as an
-   **Editor**. Editor is enough for read access; full Admin is not required.
+1. **Page role (only if the Page owner volunteers it).** The Page owner would add
+   the BetterSanCarlos account/app as an **Editor** via Meta Business Suite →
+   Settings → People. Editor is enough for read access; full Admin is not
+   required. Never request this as a routine setup step.
 2. **Create a Meta app** at developers.facebook.com → add the **Facebook Login**
    / **Pages** products, request `pages_read_engagement`.
 3. **Generate a long-lived Page access token.** Use Graph API Explorer to get a
@@ -42,17 +61,20 @@ and that token requires a **role on the page**. No code can bypass this.
    `/me/accounts`.
 
 Until step 3 is done, the engine logs "staying dormant" and creates **no run**:
-the curated `data/news.json` keeps serving the site in the meantime, and posts
-flow in automatically once the token is added.
+the curated `data/news.json` keeps serving the site in the meantime. Missing
+Facebook credentials are normal operation — never a broken deployment.
 
-## Configure the repository
+## Configure the repository (future authorized use only)
 
-In **GitHub → Settings → Secrets and variables → Actions** (when scheduling):
+Only when scheduling with voluntarily provided authorized access:
 
 | Name              | Type         | Value                                              |
 | ----------------- | ------------ | -------------------------------------------------- |
 | `FB_PAGE_ID`      | **Variable** | The page's numeric ID (public, safe as a variable) |
 | `FB_ACCESS_TOKEN` | **Secret**   | The Page / System User access token                |
+
+The scheduled civic-data workflow does not configure these and must never
+require them.
 
 ## How it behaves (reliability guarantees)
 

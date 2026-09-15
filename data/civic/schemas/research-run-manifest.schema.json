@@ -31,7 +31,12 @@
             "enum": ["collected", "unchanged", "unavailable", "failed", "skipped", "unregistered"]
           },
           "error": { "type": "string" },
-          "evidenceSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+          "evidenceSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "coverage": {
+            "type": "array",
+            "description": "Existing canonical record IDs the collector attempted to extract. Absent means unknown coverage; the diff then reports no MISSING for this entry.",
+            "items": { "type": "string" }
+          }
         },
         "additionalProperties": false
       }

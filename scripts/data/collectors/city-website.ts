@@ -68,5 +68,8 @@ export function collectCityWebsite(args: CollectorArgs): ReturnType<Collector> {
   for (let i = 0; i < observed.length; i++) {
     if (!claimed.has(i)) notes.push(`unmapped number ${observed[i].number} (${observed[i].context})`);
   }
-  return { candidates, sourceInstances: [instance], notes };
+  // Fact-level coverage is the watched table itself: absence of a watched
+  // record in parsed evidence is signal (MISSING), not just missing data.
+  const coverage = { expectedRecordIds: WATCHED_CONTACTS.map((w) => w.recordId) };
+  return { candidates, sourceInstances: [instance], coverage, notes };
 }

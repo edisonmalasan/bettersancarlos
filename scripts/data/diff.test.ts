@@ -168,7 +168,7 @@ test('scenario D: disagreeing candidates are CONFLICT', () => {
   assert.equal(entries[0].outcome, 'CONFLICT');
 });
 
-test('unknown id is NEW; uncovered in-scope record is MISSING; out-of-scope skipped', () => {
+test('unknown id is NEW; out-of-scope records skipped', () => {
   const entries = diffRun(
     {
       canonical: [record(), record({ id: 'other-record', domain: 'health' })],
@@ -185,12 +185,21 @@ test('unknown id is NEW; uncovered in-scope record is MISSING; out-of-scope skip
   assert.ok(!byId.has('other-record'));
 });
 
-test('in-scope uncovered record is MISSING', () => {
+test('covered-but-absent record is MISSING', () => {
   const entries = diffRun(
     {
       canonical: [record(), record({ id: 'city-mayor-current', label: 'Mayor', data: {} })],
       candidates: [candidate()],
-      manifest: manifest(),
+      manifest: manifest({
+        sources: [
+          {
+            sourceId: 'reg-site',
+            checkedAt: '2026-09-14T01:00:00Z',
+            outcome: 'collected',
+            coverage: ['city-engineer-current', 'city-mayor-current'],
+          },
+        ],
+      }),
       sources: SOURCES, registry: REGISTRY,
     },
     TODAY,

@@ -487,3 +487,17 @@ test('canonical record without riskTier fails (explicit tiers required)', () => 
     cleanup(fix);
   }
 });
+
+test('torn transaction artifacts fail validation loudly', () => {
+  const fix = writeTree();
+  try {
+    fs.writeFileSync(path.join(fix.root, 'data', 'civic', 'records.json.next-999'), '{"records": []}');
+    const result = validateRoot(fix.root);
+    assert.ok(
+      result.errors.some((e) => e.includes('torn canonical transaction artifact: records.json.next-999')),
+      JSON.stringify(result.errors),
+    );
+  } finally {
+    cleanup(fix);
+  }
+});

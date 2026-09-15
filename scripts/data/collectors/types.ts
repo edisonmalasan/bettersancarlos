@@ -15,6 +15,14 @@ export interface CollectorOutput {
   candidates: Candidate[];
   /** Exact evidence instances backing the candidates (one per evidence blob). */
   sourceInstances: SourceInstance[];
+  /**
+   * Fact-level coverage: existing canonical record IDs this run attempted to
+   * extract. Optional for backwards compatibility; absent means unknown
+   * coverage, and the diff conservatively reports no MISSING for it.
+   */
+  coverage?: {
+    expectedRecordIds: string[];
+  };
   notes: string[];
 }
 

@@ -31,6 +31,11 @@
             "type": ["string", "null"],
             "description": "Collector module under scripts/data/collectors (without extension), or null for manual-only sources."
           },
+          "acquisition": {
+            "type": "string",
+            "enum": ["http", "facebook-graph"],
+            "description": "Evidence fetch mechanism. Absent means http. facebook-graph uses the Graph API path with credentials; the generic page fetcher must never feed it."
+          },
           "updateCadence": {
             "type": "string",
             "enum": [

@@ -23,6 +23,7 @@ sources:
     url: 'https://www.facebook.com/sccp.cio'
     sourceType: facebook-page
     collector: facebook
+    acquisition: facebook-graph
     updateCadence: weekly
     riskTier: medium
     accessNotes: 'Official page posts feed news/advisory candidates; Graph API token required for automation.'

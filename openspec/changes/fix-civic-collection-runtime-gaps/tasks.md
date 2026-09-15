@@ -15,7 +15,7 @@
 ## 3. Promotion transaction
 
 - [x] 3.1 Implement the stage/commit/rollback/recovery helper for the records+sources pair (temp staging, live backups, atomic renames, success cleanup, torn-state detection); verify unit tests for the helper in isolation
-- [ ] 3.2 Rewire `promote.ts` through the transaction helper and add torn-state detection/recovery to `data:validate` (loud, record-identifying) plus promote startup; verify failure-injection tests A–H: pre-staging failure, post-stage failure, forced mid-commit failure with recovery, success path, artifact cleanup, simulated interruption handling, existing provenance tests green, identical-evidence no-op preserved
+- [x] 3.2 Rewire `promote.ts` through the transaction helper and add torn-state detection/recovery to `data:validate` (loud, record-identifying) plus promote startup; verify failure-injection tests A–H: pre-staging failure, post-stage failure, forced mid-commit failure with recovery, success path, artifact cleanup, simulated interruption handling, existing provenance tests green, identical-evidence no-op preserved
 
 ## 4. Scheduled branch/history fix
 

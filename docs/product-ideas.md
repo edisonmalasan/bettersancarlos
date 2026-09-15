@@ -120,3 +120,21 @@ are backlog inputs, not commitments.
 - Government directory (department cards with head, contact, hours) — feeds `data/officials.json` and `data/services.json`.
 - Org-chart view of the LGU.
 - Change-tracking of department heads across terms (historical).
+
+## doh-facilities
+
+- **Health facility finder** with DOH license status, bed capacity, PhilHealth accreditation, and services (once verified).
+- **Emergency room / hospital locator map**.
+- **City Health Office contact card** with current phone and hours.
+
+## health-facilities
+
+- **Health facility finder** with DOH accreditation status (needs DOH facility list enrichment).
+- **Emergency room wait/call** info (needs facility cooperation).
+- **PhilHealth-accredited facilities** list for the city (needs DOH/PhilHealth data).
+
+## city-projects
+
+- **Project Tracker** — status board (proposed → ongoing → completed) per project with budget and contractor.
+- **Infrastructure map** — roads, bridges, flood control, health building projects.
+- **Bids & awards feed** — invite → results (from RA 9184 pages).

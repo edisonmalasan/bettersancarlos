@@ -39,7 +39,7 @@
 
 ## 9. CI
 
-- [ ] 9.1 Add `research:validate` plus the index-sync check to `.github/workflows/ci.yml` after civic validation, and verify the pipeline fails on invalid research and on a stale generated index while staying offline.
+- [x] 9.1 Add `research:validate` plus the index-sync check to `.github/workflows/ci.yml` after civic validation, and verify the pipeline fails on invalid research and on a stale generated index while staying offline.
 
 ## 10. Full verification
 

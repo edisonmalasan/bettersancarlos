@@ -37,6 +37,15 @@ jobs:
       - name: Civic data validation
         run: bun run data:validate
 
+      - name: Research validation
+        run: bun run research:validate
+
+      - name: Research tests
+        run: bun run research:test
+
+      - name: Research index sync
+        run: bun run research:index:check
+
       - name: Civic pipeline tests
         run: bun run data:test
 

@@ -6,9 +6,9 @@
 
 ## 2. Tooling
 
-- [ ] 2.1 Implement the shared frontmatter reader (`scripts/research/lib/`: discovery of governed files, `---` split, scalar/list parsing, deterministic category-then-id ordering, zero new dependencies) and verify unit tests cover malformed frontmatter, unknown schema, and ordering.
-- [ ] 2.2 Implement `bun run research:validate` (all spec checks: schema/id uniqueness, closed vocabularies incl. source types, ISO dates with last_checked ordering and no exceptions, jurisdiction completeness + Scope naming for overrides, `S<n>` syntax in the two parsed contexts with bare prose unparsed, sidecar existence/parse/ownership, source uniqueness/resolvability, secrets/local-path rejection, per-type section minima, duplicate entity IDs; runs/ excluded; offline) and verify suggested tests 1–23 pass, including positive fixtures for valid dataset, directory, and gap-report documents alongside all negative cases.
-- [ ] 2.3 Implement `bun run research:index` (regenerates marked README regions: per-category table plus status summary; byte-identical reruns) and verify determinism tests 18–19 pass, deferring `research:report` unless a gap is demonstrated.
+- [x] 2.1 Implement the shared frontmatter reader (`scripts/research/lib/`: discovery of governed files, `---` split, scalar/list parsing, deterministic category-then-id ordering, zero new dependencies) and verify unit tests cover malformed frontmatter, unknown schema, and ordering.
+- [x] 2.2 Implement `bun run research:validate` (all spec checks: schema/id uniqueness, closed vocabularies incl. source types, ISO dates with last_checked ordering and no exceptions, jurisdiction completeness + Scope naming for overrides, `S<n>` syntax in the two parsed contexts with bare prose unparsed, sidecar existence/parse/ownership, source uniqueness/resolvability, secrets/local-path rejection, per-type section minima, duplicate entity IDs; runs/ excluded; offline) and verify suggested tests 1–23 pass, including positive fixtures for valid dataset, directory, and gap-report documents alongside all negative cases.
+- [x] 2.3 Implement `bun run research:index` (regenerates marked README regions: per-category table plus status summary; byte-identical reruns) and verify determinism tests 18–19 pass, deferring `research:report` unless a gap is demonstrated.
 
 ## 3. Representative migrations
 

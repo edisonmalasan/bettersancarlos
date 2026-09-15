@@ -232,19 +232,23 @@ function checkTypeMinima(doc: ResearchDocument, errors: string[]): void {
       const h = t.headers.map((c) => c.trim().toLowerCase());
       return h.some((c) => WORD_ID.test(c));
     });
-    if (!table) {
-      errors.push(`${doc.relPath}: "### Directory" has no table with an ID column`);
-      return;
-    }
-    const heads = table.headers.map((c) => c.trim().toLowerCase());
-    if (!heads.some((c) => WORD_ENTITY.test(c))) {
-      errors.push(`${doc.relPath}: Directory table is missing an Entity column`);
-    }
-    if (!heads.some((c) => STATUS_OR_VERIFICATION.test(c))) {
-      errors.push(`${doc.relPath}: Directory table is missing a Status/Verification column`);
-    }
-    if (!table.headers.some((c) => c === 'Sources')) {
-      errors.push(`${doc.relPath}: Directory table is missing an exact "Sources" column`);
+    if (table) {
+      checkDirectoryColumns(doc, table.headers, errors);
+    } else {
+      // No inline table: a declared sidecar CSV may carry the Directory table
+      // instead (never duplicated). Unparseable sidecars already error on
+      // their own, so only flag the missing minimum when a parsed sidecar
+      // still lacks the columns.
+      const parsed = doc.meta.data_files
+        .map((entry) => tryParseSidecar(doc, entry))
+        .filter((rows): rows is string[][] => rows !== null);
+      if (doc.meta.data_files.length === 0) {
+        errors.push(`${doc.relPath}: "### Directory" has no table with an ID column`);
+      } else if (parsed.length > 0 && !parsed.some(sidecarMeetsDirectoryMinima)) {
+        errors.push(
+          `${doc.relPath}: "### Directory" has no inline table and no declared sidecar carries ID/Entity/Status/Sources columns`,
+        );
+      }
     }
   } else if (type === 'profile') {
     const subs = h3Under(doc.body, 'Findings');
@@ -356,6 +360,56 @@ function resolveSidecar(doc: ResearchDocument, entry: string, errors: string[]):
   return full;
 }
 
+function checkDirectoryColumns(doc: ResearchDocument, headers: string[], errors: string[]): void {
+  const heads = headers.map((c) => c.trim().toLowerCase());
+  if (!heads.some((c) => WORD_ENTITY.test(c))) {
+    errors.push(`${doc.relPath}: Directory table is missing an Entity column`);
+  }
+  if (!heads.some((c) => STATUS_OR_VERIFICATION.test(c))) {
+    errors.push(`${doc.relPath}: Directory table is missing a Status/Verification column`);
+  }
+  if (!headers.some((c) => c === 'Sources')) {
+    errors.push(`${doc.relPath}: Directory table is missing an exact "Sources" column`);
+  }
+}
+
+/** A parsed sidecar meets the Directory minimum when its header carries the same columns. */
+function sidecarMeetsDirectoryMinima(rows: string[][]): boolean {
+  if (rows.length === 0) return false;
+  const heads = rows[0].map((c) => c.trim().toLowerCase());
+  return (
+    heads.some((c) => WORD_ID.test(c)) &&
+    heads.some((c) => WORD_ENTITY.test(c)) &&
+    heads.some((c) => STATUS_OR_VERIFICATION.test(c)) &&
+    heads.includes('sources')
+  );
+}
+
+/** Best-effort sidecar parse for minima checks; real errors surface via resolveSidecar. */
+function tryParseSidecar(doc: ResearchDocument, entry: string): string[][] | null {
+  if (path.isAbsolute(entry) || entry.split(/[\\/]/).includes('..')) return null;
+  const docDir = path.join(doc.root, 'research', doc.category);
+  const full = path.normalize(path.join(docDir, entry));
+  if (!full.startsWith(path.normalize(docDir + path.sep))) return null;
+  let text: string;
+  try {
+    text = fs.readFileSync(full, 'utf8');
+  } catch {
+    return null;
+  }
+  const ext = path.extname(full).toLowerCase();
+  try {
+    if (ext === '.csv') return parseCsv(text, entry);
+    if (ext === '.json') {
+      JSON.parse(text);
+      return null; // JSON sidecars carry nested data, not directory tables.
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 function checkDuplicateEntityIds(doc: ResearchDocument, errors: string[]): void {
   const seen = new Set<string>();
   const consider = (value: string) => {
@@ -375,6 +429,56 @@ function checkDuplicateEntityIds(doc: ResearchDocument, errors: string[]): void 
   }
 }
 
+function checkSidecarEntityIds(
+  doc: ResearchDocument,
+  full: string,
+  registerIds: Set<string> | null,
+  errors: string[],
+): void {
+  if (path.extname(full).toLowerCase() !== '.csv') return;
+  let rows: string[][];
+  try {
+    rows = parseCsv(fs.readFileSync(full, 'utf8'), full);
+  } catch {
+    return; // Parse failure already reported by resolveSidecar.
+  }
+  if (rows.length === 0) return;
+  const base = path.basename(full);
+  const heads = rows[0].map((c) => c.trim().toLowerCase());
+  const idCol = heads.findIndex((c) => WORD_ID.test(c));
+  if (idCol >= 0) {
+    const seen = new Set<string>();
+    for (const row of rows.slice(1)) {
+      const key = (row[idCol] ?? '').trim();
+      if (key === '') continue;
+      if (seen.has(key)) {
+        errors.push(`${doc.relPath}: duplicate entity ID "${key}" in sidecar ${base}`);
+      } else {
+        seen.add(key);
+      }
+    }
+  }
+  // A sidecar carrying the Directory table resolves its Sources cells too.
+  const srcCol = heads.findIndex((c) => c === 'sources');
+  if (srcCol >= 0 && registerIds) {
+    for (const row of rows.slice(1)) {
+      const cell = (row[srcCol] ?? '').trim();
+      if (cell === '' || cell === '—' || cell === '-') continue;
+      for (const token of cell
+        .replace(/`/g, '')
+        .split(',')
+        .map((t) => t.trim())
+        .filter((t) => t !== '')) {
+        if (!isSourceId(token)) {
+          errors.push(`${doc.relPath}: malformed source reference "${token}" in sidecar ${base}`);
+        } else if (!registerIds.has(token)) {
+          errors.push(`${doc.relPath}: unknown source reference "${token}" in sidecar ${base}`);
+        }
+      }
+    }
+  }
+}
+
 function checkSecretsAndPaths(
   relPath: string,
   text: string,
@@ -386,8 +490,7 @@ function checkSecretsAndPaths(
   if (local) errors.push(`${relPath}: machine-local absolute path "${local}"`);
 }
 
-function checkDocument(doc: ResearchDocument, errors: string[]): string[] {
-  const before = errors.length;
+function checkDocument(doc: ResearchDocument, errors: string[]): Set<string> | null {
   const meta = doc.meta;
   if (meta.category !== doc.category) {
     errors.push(`${doc.relPath}: category "${meta.category}" does not match directory "${doc.category}"`);
@@ -406,7 +509,7 @@ function checkDocument(doc: ResearchDocument, errors: string[]): string[] {
   }
   if (!(RESEARCH_TYPES as readonly string[]).includes(meta.research_type)) {
     errors.push(`${doc.relPath}: unknown research_type "${meta.research_type}"`);
-    return errors.slice(before);
+    return null;
   }
   if (!isRealDate(meta.researched_at)) {
     errors.push(`${doc.relPath}: researched_at "${meta.researched_at}" is not a valid ISO date`);
@@ -424,13 +527,15 @@ function checkDocument(doc: ResearchDocument, errors: string[]): string[] {
   checkTypeMinima(doc, errors);
   checkJurisdiction(doc, errors);
   const register = checkRegister(doc, errors);
+  let registerIds: Set<string> | null = null;
   if (register) {
+    registerIds = register.ids;
     checkTableRefs(doc, register, errors);
     checkCodeSpanRefs(doc, register, errors);
   }
   checkDuplicateEntityIds(doc, errors);
   checkSecretsAndPaths(doc.relPath, doc.body, errors);
-  return errors.slice(before);
+  return registerIds;
 }
 
 export function validateResearchRoot(root: string = repoRoot()): ResearchValidationResult {
@@ -456,10 +561,13 @@ export function validateResearchRoot(root: string = repoRoot()): ResearchValidat
     docs.push(doc);
   }
   for (const doc of docs) {
-    checkDocument(doc, errors);
+    const registerIds = checkDocument(doc, errors);
     for (const entry of doc.meta.data_files) {
       const full = resolveSidecar(doc, entry, errors);
-      if (full) declaredSidecars.add(full);
+      if (full) {
+        declaredSidecars.add(full);
+        checkSidecarEntityIds(doc, full, registerIds, errors);
+      }
     }
   }
   // Orphan sidecars: anything under <category>/data/ without a declaring owner.

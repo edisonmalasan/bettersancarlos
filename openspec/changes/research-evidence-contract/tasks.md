@@ -17,8 +17,8 @@
 
 ## 4. Structured dataset migration
 
-- [ ] 4.1 Migrate the barangay directory to `barangay-directory.md` + `data/barangays.csv` (all 86 rows + Total reassembled, stable IDs, sources resolvable, prose no longer interleaved) and verify tests 21–22 pass.
-- [ ] 4.2 Add sidecars only where justified (demographics series and other large tables per inventory), and verify each parses and is declared owned with no orphans.
+- [x] 4.1 Migrate the barangay directory to `barangay-directory.md` + `data/barangays.csv` (all 86 rows + Total reassembled, stable IDs, sources resolvable, prose no longer interleaved) and verify tests 21–22 pass.
+- [x] 4.2 Add sidecars only where justified (demographics series and other large tables per inventory), and verify each parses and is declared owned with no orphans.
 
 ## 5. Remaining research migration
 

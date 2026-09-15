@@ -284,6 +284,17 @@ test('malformed S reference fails, bare prose passes', () => {
   assert.deepEqual(errorsOf(withDoc({}, prose)), []);
 });
 
+test('directory backed by sidecar csv passes without inline table', () => {
+  const nodup = DIRECTORY_BODY.replace(
+    '### Directory\n| ID | Entity | Status | Sources |\n|---|---|---|---|',
+    '### Directory\nThe full table lives in the declared sidecar below.',
+  );
+  const files = withDoc({ id: 'fix-csvdir' }, nodup);
+  files['research/fixcat/26-09-fix.md'] = `---\n${fm({ id: 'fix-csvdir' }, 'data_files:\n  - data/dir.csv')}\n---\n\n${nodup}`;
+  files['research/fixcat/data/dir.csv'] = 'id,entity,status,sources\nfix-a,Thing A,verified,S1\nfix-b,Thing B,partial,S2\n';
+  assert.deepEqual(errorsOf(files), []);
+});
+
 test('missing Directory minimum fails', () => {
   const bad = DIRECTORY_BODY.replace('### Directory\n| ID | Entity | Status | Sources |', '### Directory\nNo table here.');
   assert.ok(errorsOf(withDoc({}, bad)).some((e) => e.includes('no table with an ID column')));

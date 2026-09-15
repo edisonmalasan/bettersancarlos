@@ -67,7 +67,7 @@ Envelope and type-minimum heading names are exact case-sensitive strings (`## Sc
 ## Type minima (Findings)
 
 - `dataset`: `### Summary`, `### Dataset` (table or declared sidecar), `### Methodology` notes where values are derived.
-- `directory`: `### Directory` table with ID, Entity, Status, and Sources columns; optional Historical/superseded entries.
+- `directory`: `### Directory` table with ID, Entity, Status, and Sources columns (inline, or a declared sidecar CSV carrying those columns instead — never duplicated); optional Historical/superseded entries.
 - `profile`: at least one thematic `###` subsection.
 - `timeline`: `### Timeline` table with Date/period, Event, Verification, and Sources columns; context prose may follow.
 - `document-index`: `### Document inventory` table with Document ID, Title, Date, Availability, Verification, and Sources columns, plus Missing documents.

@@ -10,7 +10,7 @@
 - [x] 2.1 Extract the Graph fetcher into a shared acquisition module with the retry/auth taxonomy and token redaction on every log/error/manifest path; verify existing ingest tests pass unchanged against the extracted module
 - [x] 2.2 Route `refresh.ts` acquisition per source (HTTP fetcher by default, Graph path for Facebook-backed entries, registry `acquisition` field with schema/docs); verify normal HTTP sources behave identically and Facebook registry entries never reach the generic page fetcher
 - [x] 2.3 Convert `data:ingest-facebook` into a thin wrapper over shared acquisition + `runRefresh` preserving its CLI/env/fixture/dormant contract; verify no duplicated fetch logic remains and no canonical writes occur
-- [ ] 2.4 Add acquisition tests A–G: HTTP path unchanged; HTML-into-Graph-collector refused; Graph fixture yields evidence + instance + candidates + correct outcome; missing credentials skip dormant without touching canonical data; expired token fails visibly with no leakage; retries stay bounded; scheduled-shape refresh mixes HTTP + Graph runs without competing formats; verify all pass offline except mocked-fetch cases
+- [x] 2.4 Add acquisition tests A–G: HTTP path unchanged; HTML-into-Graph-collector refused; Graph fixture yields evidence + instance + candidates + correct outcome; missing credentials skip dormant without touching canonical data; expired token fails visibly with no leakage; retries stay bounded; scheduled-shape refresh mixes HTTP + Graph runs without competing formats; verify all pass offline except mocked-fetch cases
 
 ## 3. Promotion transaction
 

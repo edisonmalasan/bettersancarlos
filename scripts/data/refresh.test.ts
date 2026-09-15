@@ -448,12 +448,13 @@ test('Test F: one source run leaves another collector record untouched, NEW stil
         "    evidenceRef: 'research/evidence.md'\n" +
         '    domains:\n' +
         '      - emergency\n' +
-        '  - id: fix-fb\n' +
-        '    publisher: Fixture\n' +
-        "    url: 'https://example.test/fb'\n" +
-        '    sourceType: facebook-page\n' +
-        '    collector: facebook\n' +
-        '    updateCadence: manual\n' +
+      '  - id: fix-fb\n' +
+      '    publisher: Fixture\n' +
+      "    url: 'https://example.test/fb'\n" +
+      '    sourceType: facebook-page\n' +
+      '    collector: facebook\n' +
+      '    acquisition: facebook-graph\n' +
+      '    updateCadence: manual\n' +
         "    evidenceRef: 'research/evidence.md'\n" +
         '    domains:\n' +
         '      - news\n',
@@ -506,6 +507,17 @@ test('Test F: one source run leaves another collector record untouched, NEW stil
       date: '2026-09-14',
     });
     assert.equal(summary.candidates, 2);
+    assert.equal(summary.outcomes['fix-site'], 'collected');
+    assert.equal(summary.outcomes['fix-fb'], 'collected');
+    const { readManifest: readManifestF } = await import('./lib/runs');
+    const manifestF = readManifestF(summary.run.dir);
+    assert.deepEqual(
+      manifestF.sources.map((s) => [s.sourceId, s.outcome]),
+      [
+        ['fix-site', 'collected'],
+        ['fix-fb', 'collected'],
+      ],
+    );
     const entries = await diffRealRun(root, summary.run.dir);
     const byId = new Map(entries.map((e) => [e.recordId, e.outcome]));
     assert.equal(byId.get('city-hall-trunk-line'), 'UNCHANGED');
@@ -734,29 +746,34 @@ test('Test 6: failed attempts do not satisfy cadence; retry applies, skips never
   }
 });
 
-test('facebook-graph registry entries collect Graph evidence end to end', async () => {
+function fbFixtureRoot(): string {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'civic-fbrefresh-'));
+  fs.mkdirSync(path.join(root, 'data', 'civic'), { recursive: true });
+  fs.mkdirSync(path.join(root, 'research'), { recursive: true });
+  fs.writeFileSync(
+    path.join(root, 'data', 'civic', 'source-registry.yaml'),
+    'version: 1\n' +
+      'sources:\n' +
+      '  - id: fix-fb\n' +
+      '    publisher: Fixture CIO\n' +
+      "    url: 'https://example.test/fb'\n" +
+      '    sourceType: facebook-page\n' +
+      '    collector: facebook\n' +
+      '    acquisition: facebook-graph\n' +
+      '    updateCadence: weekly\n' +
+      "    evidenceRef: 'research/evidence.md'\n" +
+      '    domains:\n' +
+      '      - news\n',
+  );
+  fs.writeFileSync(path.join(root, 'research', 'evidence.md'), '# fixture\n');
+  fs.writeFileSync(path.join(root, 'data', 'civic', 'sources.json'), '{"sources": []}');
+  fs.writeFileSync(path.join(root, 'data', 'civic', 'records.json'), '{"records": []}');
+  return root;
+}
+
+test('facebook-graph registry entries collect Graph evidence end to end', async () => {
+  const root = fbFixtureRoot();
   try {
-    fs.mkdirSync(path.join(root, 'data', 'civic'), { recursive: true });
-    fs.mkdirSync(path.join(root, 'research'), { recursive: true });
-    fs.writeFileSync(
-      path.join(root, 'data', 'civic', 'source-registry.yaml'),
-      'version: 1\n' +
-        'sources:\n' +
-        '  - id: fix-fb\n' +
-        '    publisher: Fixture CIO\n' +
-        "    url: 'https://example.test/fb'\n" +
-        '    sourceType: facebook-page\n' +
-        '    collector: facebook\n' +
-        '    acquisition: facebook-graph\n' +
-        '    updateCadence: weekly\n' +
-        "    evidenceRef: 'research/evidence.md'\n" +
-        '    domains:\n' +
-        '      - news\n',
-    );
-    fs.writeFileSync(path.join(root, 'research', 'evidence.md'), '# fixture\n');
-    fs.writeFileSync(path.join(root, 'data', 'civic', 'sources.json'), '{"sources": []}');
-    fs.writeFileSync(path.join(root, 'data', 'civic', 'records.json'), '{"records": []}');
     const ev = evidenceDir({
       'fix-fb.json': JSON.stringify({
         data: [
@@ -787,6 +804,35 @@ test('facebook-graph registry entries collect Graph evidence end to end', async 
       const instances = readSourceInstances(summary.run.dir);
       assert.equal(instances.length, 1);
       assert.equal(instances[0].registryId, 'fix-fb');
+    } finally {
+      fs.rmSync(ev, { recursive: true, force: true });
+    }
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('HTML evidence never reaches the Graph collector (parse-class failure)', async () => {
+  const root = fbFixtureRoot();
+  try {
+    const ev = evidenceDir({
+      'fix-fb.html': '<html><body><p>A normal webpage, not a Graph envelope.</p></body></html>',
+    });
+    try {
+      const summary = await runRefresh({
+        root,
+        sources: ['fix-fb'],
+        offline: true,
+        evidenceDir: ev,
+        collectedBy: 'test-fb-html',
+        date: '2026-09-14',
+      });
+      assert.equal(summary.outcomes['fix-fb'], 'failed');
+      assert.equal(summary.candidates, 0);
+      const { readManifest } = await import('./lib/runs');
+      const manifest = readManifest(summary.run.dir);
+      assert.ok((manifest.sources[0].error ?? '').startsWith('parse:'), 'collector rejected non-envelope evidence');
+      assert.ok(manifest.sources[0].evidenceSha256, 'failed evidence hash still recorded');
     } finally {
       fs.rmSync(ev, { recursive: true, force: true });
     }

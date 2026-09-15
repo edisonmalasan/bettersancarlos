@@ -1,0 +1,24 @@
+{
+  "candidates": [
+    {
+      "id": "city-hall-trunk-line",
+      "domain": "emergency",
+      "type": "contact",
+      "label": "City Hall (general trunk line)",
+      "data": {
+        "service": "City Hall (general trunk line)",
+        "number": "(075) 600-1432"
+      },
+      "sourceIds": [
+        "lgu-website"
+      ],
+      "sourceInstanceIds": [
+        "src-lgu-website-2026-09-15-d42e8231"
+      ],
+      "status": "provisional",
+      "collectedBy": "scheduled-refresh",
+      "runId": "2026-09-15-2",
+      "notes": "Observed in lgu-website evidence lgu-website.html: \"Hall Building, Palaris Street San, Carlos City, Pangasinan 2420 Telephone Nos. (075) 600-1432 Email: CIO@sancarlo\""
+    }
+  ]
+}

@@ -1,65 +1,86 @@
+---
+schema: research.v2
+id: city-profile
+title: City Profile
+category: city-profile
+research_type: profile
+verification_status: verified
+temporal_status: mixed
+risk: medium
+researched_at: 2026-09-04
+last_checked: 2026-09-04
+canonical_domains:
+  - city-profile
+---
+
 # San Carlos City, Pangasinan — City Profile
 
-**Category:** city-profile
-**Verification status:** Verified (multi-source, official + authoritative)
-**Research date:** 2026-09-04
+## Scope
 
-## Basic Facts
+Core identity facts of San Carlos City, Pangasinan: official name and classification, motto, contact summary, language, and seal symbolism, with documented conflicts. Geographic detail lives in `city-profile/26-09-geography.md`.
 
-| Attribute | Value | Source |
+## Summary
+
+Multi-source verified profile (official + authoritative): component city, 3rd class, 86 barangays, 205,424 people (2020). Five documented conflicts/pending items qualify the record (land area, elevation, charter text, founding date, 2024 population estimate).
+
+## Findings
+
+### Basic Facts
+
+| Attribute | Value | Sources |
 |---|---|---|
-| **Official name** | City of San Carlos (Pangasinan: *Siyudad na San Carlos*; Ilocano: *Siudad ti San Carlos*; Filipino: *Lungsod ng San Carlos*) | [Wikipedia — San Carlos, Pangasinan](https://en.wikipedia.org/wiki/San_Carlos,_Pangasinan) |
-| **Settlement type** | Component city | [PhilAtlas](https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html); [Province of Pangasinan](https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/); [Rappler 2025 elections](https://ph.rappler.com/elections/2025/local-race/pangasinan/san-carlos-city) |
-| **Income classification** | 3rd class city | [Province of Pangasinan](https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/); [Rappler](https://ph.rappler.com/elections/2025/local-race/pangasinan/san-carlos-city); [LGU Demography page (archived)](https://web.archive.org/web/20240603225002/https://www.sancarlospangasinan.gov.ph/demography) |
-| **Province** | Pangasinan | [PhilAtlas](https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html); [Province of Pangasinan](https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/) |
-| **Region** | Ilocos Region (Region I) | [PhilAtlas](https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html) |
-| **Legislative district** | Pangasinan 3rd Congressional District | [Wikipedia](https://en.wikipedia.org/wiki/San_Carlos,_Pangasinan); [Province of Pangasinan](https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/) |
-| **Coordinates** | 15°55′41″N 120°20′56″E (15.928056, 120.348889); city center approx. 15.9277, 120.3478 | [Wikipedia](https://en.wikipedia.org/wiki/San_Carlos,_Pangasinan); [PhilAtlas](https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html) |
-| **Elevation** | ~10.8 m (PhilAtlas) / 12 m (Wikidata) — minor conflict, see Notes | [PhilAtlas](https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html); Wikidata item [Q43165](https://www.wikidata.org/wiki/Q43165) |
-| **Land area** | 169.03 km² (16,903 ha) — see land-area conflict in Notes | [PhilAtlas](https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html); [LGU City Profile (archived)](https://web.archive.org/web/20240603225004/https://www.sancarlospangasinan.gov.ph/city-profile) |
-| **Barangays** | 86 (30 urban / 56 rural) | [PhilAtlas](https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html); [LGU Demography (archived)](https://web.archive.org/web/20240603225002/https://www.sancarlospangasinan.gov.ph/demography) |
-| **Population (2020 Census)** | 205,424 | [PSA 2020 CPH via PhilAtlas](https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html); [LGU City Profile (archived)](https://web.archive.org/web/20240603225004/https://www.sancarlospangasinan.gov.ph/city-profile) |
-| **Population (2015 Census)** | 188,571 | [PSA via PhilAtlas](https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html) |
-| **Population density (2020)** | 1,215/km² | [PhilAtlas](https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html) |
-| **Postal/ZIP code** | 2420 | [Philippine Postal Corp. via PhilAtlas](https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html); official LGU pages |
-| **Telephone area code** | 075 | Wikidata item [Q43165](https://www.wikidata.org/wiki/Q43165) |
-| **Founded** | 1578 (Wikipedia) / 1587 (LGU history: founded by Fr. Francisco dela Rama) — conflict, see History file | [Wikipedia](https://en.wikipedia.org/wiki/San_Carlos,_Pangasinan); [LGU History (archived)](https://web.archive.org/web/20240603224959/https://www.sancarlospangasinan.gov.ph/history) |
-| **Cityhood** | RA No. 4487 signed 19 June 1965; effective 1 January 1966 after local ratification | [Province of Pangasinan](https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/); [Old official site — History (archived)](https://web.archive.org/web/20171017022422/http://sancarloscitypangasinan.gov.ph/index.php/history/) |
-| **Geonames ID** | 1690202 | [Wikidata Q43165](https://www.wikidata.org/wiki/Q43165) |
-## Nicknames / Titles
+| **Official name** | City of San Carlos (Pangasinan: *Siyudad na San Carlos*; Ilocano: *Siudad ti San Carlos*; Filipino: *Lungsod ng San Carlos*) | S1 |
+| **Settlement type** | Component city | S2, S3, S11 |
+| **Income classification** | 3rd class city | S3, S11, S6 |
+| **Province** | Pangasinan | S2, S3 |
+| **Region** | Ilocos Region (Region I) | S2 |
+| **Legislative district** | Pangasinan 3rd Congressional District | S1, S3 |
+| **Coordinates** | 15°55′41″N 120°20′56″E (15.928056, 120.348889); city center approx. 15.9277, 120.3478 | S1, S2 |
+| **Elevation** | ~10.8 m (PhilAtlas) / 12 m (Wikidata) — minor conflict, see Conflicts | S2, S10 |
+| **Land area** | 169.03 km² (16,903 ha) — see land-area conflict in Conflicts | S2, S5 |
+| **Barangays** | 86 (30 urban / 56 rural) | S2, S6 |
+| **Population (2020 Census)** | 205,424 | S2, S5 |
+| **Population (2015 Census)** | 188,571 | S2 |
+| **Population density (2020)** | 1,215/km² | S2 |
+| **Postal/ZIP code** | 2420 | S2, S4 |
+| **Telephone area code** | 075 | S10 |
+| **Founded** | 1578 (Wikipedia) / 1587 (LGU history: founded by Fr. Francisco dela Rama) — conflict, see History file | S1, S7 |
+| **Cityhood** | RA No. 4487 signed 19 June 1965; effective 1 January 1966 after local ratification | S3, S8 |
+| **Geonames ID** | 1690202 | S10 |
 
-- **"Heart of Pangasinan"** — Wikipedia: https://en.wikipedia.org/wiki/San_Carlos,_Pangasinan
-- **"Mango and Bamboo Capital of the Philippines"** — old official site header (archived): https://web.archive.org/web/20170322021550/http://sancarloscitypangasinan.gov.ph/
-- **"Mango-Bamboo Capital of the North"** — Province of Pangasinan: https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/
-- **Most populous city in Pangasinan** (per Wikipedia) — no independent official confirmation; verify with PSA.
+### Nicknames / Titles
 
-## Official Motto / Tagline / Vision-Mission
+- **"Heart of Pangasinan"** | `S1`
+- **"Mango and Bamboo Capital of the Philippines"** (old official site header, archived) | `S13`
+- **"Mango-Bamboo Capital of the North"** (Province of Pangasinan) | `S3`
+- **Most populous city in Pangasinan** (per Wikipedia) — no independent official confirmation; verify with PSA. | `S1`
 
-| Statement | Text | Source |
+### Official Motto / Tagline / Vision-Mission
+
+| Statement | Text | Sources |
 |---|---|---|
-| Site tagline | "San Carlos, Maunlad at Maayos!" | [Official LGU site](https://sancarlospangasinan.gov.ph/) |
-| Mission | "To make San Carlos City the economic tiger of the North through highly disciplined and committed work force and improved agro-industrial, commercial, educational and tourism initiatives thus enhancing the quality of life of its people." | [Official LGU site](https://sancarlospangasinan.gov.ph/) |
-| Vision | "San Carlos City is envisioned to be an environment-friendly Agro-Industrial, Education and Tourism Center of Pangasinan with upbeat and robust commercial activities structured on efficient services, harmonious relationship and peace towards sustainable development and improved quality of life of its people." | [Official LGU site](https://sancarlospangasinan.gov.ph/) |
+| Site tagline | "San Carlos, Maunlad at Maayos!" | S4 |
+| Mission | "To make San Carlos City the economic tiger of the North through highly disciplined and committed work force and improved agro-industrial, commercial, educational and tourism initiatives thus enhancing the quality of life of its people." | S4 |
+| Vision | "San Carlos City is envisioned to be an environment-friendly Agro-Industrial, Education and Tourism Center of Pangasinan with upbeat and robust commercial activities structured on efficient services, harmonious relationship and peace towards sustainable development and improved quality of life of its people." | S4 |
 
-## Official City Contact Summary
+### Official City Contact Summary
 
-| Item | Value | Source |
+| Item | Value | Sources |
 |---|---|---|
-| City Hall address | City Hall Building, Palaris Street, San Carlos City, Pangasinan 2420 | [Official LGU site](https://sancarlospangasinan.gov.ph/) |
-| Telephone (listed on official site) | (075) 600-1432 | [Official LGU site](https://sancarlospangasinan.gov.ph/) |
-| Official emails | CIO@sancarlospangasinan.com ; CMO@sancarlospangasinan.com | [Official LGU site](https://sancarlospangasinan.gov.ph/) |
-| Official website (current) | https://sancarlospangasinan.gov.ph | [Official LGU site](https://sancarlospangasinan.gov.ph/) |
-| Official website (historical, decommissioned) | http://sancarloscitypangasinan.gov.ph (WordPress; archived 2017–2020) | Internet Archive CDX, accessed 2026-09-04 |
-| Official Facebook | https://www.facebook.com/sccp.cio (City Information Office) | [Official LGU site](https://sancarlospangasinan.gov.ph/) |
+| City Hall address | City Hall Building, Palaris Street, San Carlos City, Pangasinan 2420 | S4 |
+| Telephone (listed on official site) | (075) 600-1432 | S4 |
+| Official emails | CIO@sancarlospangasinan.com ; CMO@sancarlospangasinan.com | S4 |
+| Official website (current) | https://sancarlospangasinan.gov.ph | S4 |
+| Official website (historical, decommissioned) | http://sancarloscitypangasinan.gov.ph (WordPress; archived 2017–2020) | S12 |
+| Official Facebook | https://www.facebook.com/sccp.cio (City Information Office) | S4 |
 
 **Note:** The old contact directory with per-office phone numbers (2017 archive) is preserved in `government/26-09-government-directory.md`.
 
-## Language
+### Language
 
-- **Primary language:** Pangasinan (main language of the city). Secondary: Ilocano, Filipino, English.
-- Sources: [Wikipedia](https://en.wikipedia.org/wiki/San_Carlos,_Pangasinan); Wikidata item [Q43165](https://www.wikidata.org/wiki/Q43165) (languages: Pangasinan, Ilocano, Filipino).
+- **Primary language:** Pangasinan (main language of the city). Secondary: Ilocano, Filipino, English. | `S1`, `S10`
 
-## City Seal — Official Symbolism
+### City Seal — Official Symbolism
 
 The old official site (archived 2017-10-16) described the seal as follows (summarized):
 
@@ -68,32 +89,41 @@ The old official site (archived 2017-10-16) described the seal as follows (summa
 - Agriculture: tractor = high-tech farming; mango and bamboo industries described as "high-tech".
 - Commerce & Industry: modern shopping centers, industrial parks, high-rise buildings flanking City Hall.
 - Tourism: heritage parks and theme parks, represented by the centuries-old Saint Dominic Church and the City Plaza.
-- The Spirit of God hovers above the city; peace is key to progress.
+- The Spirit of God hovers above the city; peace is key to progress. | `S9`
 
-Source: [Old official site — The Official Seal (archived)](https://web.archive.org/web/20171016204316/http://sancarloscitypangasinan.gov.ph/index.php/the-official-seal/)
-## Potential Better San Carlos Features
+## Verification & Uncertainty
 
-- **City profile / About page** with authoritative infobox facts.
-- **Fact-checked stat cards** (population, area, barangays, income class).
+- "Most populous city in Pangasinan" has no independent official confirmation; verify with PSA.
+- 2024 population figure (208,330) appears in Wikidata (likely projected/estimated) — source and method unverified; do not use without confirming with PSA. | `S1`, `S10`
 
-## Notes / Conflicts
+## Conflicts
 
-1. **Land area conflict:** PSA/PhilAtlas/LGU archived profile = **169.03 km² (16,903 ha)**; Province of Pangasinan site = **17,087 hectares**. The LGU's own archived demography page uses 16,903 ha for density computation. Recommend official reconciliation with the Land Management Bureau.
-2. **Elevation conflict:** PhilAtlas = 10.8 m; Wikidata = 12 m. Minor; both indicate low-lying topography.
-3. **City charter law:** All accessible official sources (Provincial site, old LGU site) cite **RA 4487** (signed 19 June 1965, effective 1 Jan 1966). The Official Gazette page returned HTTP 403 during research; the exact law text was not directly retrieved. See `legislation/26-09-legislation-archive.md`.
-4. **Founding date conflict:** Wikipedia infobox = 1578; LGU old-site history = 1587 (Fr. Francisco dela Rama). Both are plausible dates of early mission activity; see `culture-history/26-09-history.md`.
-5. **2024 population figure (208,330)** appears in Wikidata (likely a projected/estimated figure) — source and method unverified; do not use without confirming with PSA.
+1. **Land area conflict:** PSA/PhilAtlas/LGU archived profile = **169.03 km² (16,903 ha)**; Province of Pangasinan site = **17,087 hectares**. The LGU's own archived demography page uses 16,903 ha for density computation. Recommend official reconciliation with the Land Management Bureau. | `S2`, `S3`, `S6`
+2. **Elevation conflict:** PhilAtlas = 10.8 m; Wikidata = 12 m. Minor; both indicate low-lying topography. | `S2`, `S10`
+3. **City charter law:** All accessible official sources (Provincial site, old LGU site) cite **RA 4487** (signed 19 June 1965, effective 1 Jan 1966). The Official Gazette page returned HTTP 403 during research; the exact law text was not directly retrieved. See `legislation/26-09-legislation-archive.md`. | `S3`, `S8`
+4. **Founding date conflict:** Wikipedia infobox = 1578; LGU old-site history = 1587 (Fr. Francisco dela Rama). Both are plausible dates of early mission activity; see `culture-history/26-09-history.md`. | `S1`, `S8`
+
+## Gaps
+
+- Official land-area reconciliation (Land Management Bureau).
+- Exact RA 4487 text (Official Gazette 403 at research time).
+- Primary source for the founding date.
+- PSA confirmation of the "most populous city" claim.
 
 ## Sources
 
-1. Wikipedia — *San Carlos, Pangasinan*: https://en.wikipedia.org/wiki/San_Carlos,_Pangasinan
-2. PhilAtlas — *San Carlos City, Pangasinan Profile*: https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html
-3. Province of Pangasinan — *San Carlos City*: https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/
-4. City Government of San Carlos — official website: https://sancarlospangasinan.gov.ph/
-5. City Government of San Carlos — *City Profile* (archived 2024-06-03): https://web.archive.org/web/20240603225004/https://www.sancarlospangasinan.gov.ph/city-profile
-6. City Government of San Carlos — *Demography* (archived 2024-06-03): https://web.archive.org/web/20240603225002/https://www.sancarlospangasinan.gov.ph/demography
-7. City Government of San Carlos — *History* (archived 2024-06-03): https://web.archive.org/web/20240603224959/https://www.sancarlospangasinan.gov.ph/history
-8. Old official site — *History* (archived 2017-10-17): http://sancarloscitypangasinan.gov.ph/index.php/history/
-9. Old official site — *The Official Seal* (archived 2017-10-16): http://sancarloscitypangasinan.gov.ph/index.php/the-official-seal/
-10. Wikidata item Q43165 (San Carlos, Pangasinan): https://www.wikidata.org/wiki/Q43165
-11. Rappler 2025 — *RESULTS: San Carlos City, Pangasinan election 2025*: https://ph.rappler.com/elections/2025/local-race/pangasinan/san-carlos-city
+| ID | Publisher | Document | Published | Accessed | Type | URL |
+|---|---|---|---|---|---|---|
+| S1 | Wikipedia | San Carlos, Pangasinan | — | 2026-09-04 | secondary | https://en.wikipedia.org/wiki/San_Carlos,_Pangasinan |
+| S2 | PSA via PhilAtlas | San Carlos City, Pangasinan Profile | — | 2026-09-04 | authoritative-secondary | https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html |
+| S3 | Province of Pangasinan | San Carlos City | — | 2026-09-04 | official | https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/ |
+| S4 | City Government of San Carlos | Official website | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/ |
+| S5 | City Government of San Carlos | City Profile (archived) | 2024-06-03 | 2026-09-04 | archived-official | https://web.archive.org/web/20240603225004/https://www.sancarlospangasinan.gov.ph/city-profile |
+| S6 | City Government of San Carlos | Demography (archived) | 2024-06-03 | 2026-09-04 | archived-official | https://web.archive.org/web/20240603225002/https://www.sancarlospangasinan.gov.ph/demography |
+| S7 | City Government of San Carlos | History (archived) | 2024-06-03 | 2026-09-04 | archived-official | https://web.archive.org/web/20240603224959/https://www.sancarlospangasinan.gov.ph/history |
+| S8 | City Government of San Carlos | History (archived, old site) | 2017-10-17 | 2026-09-04 | archived-official | https://web.archive.org/web/20171017022422/http://sancarloscitypangasinan.gov.ph/index.php/history/ |
+| S9 | City Government of San Carlos | The Official Seal (archived, old site) | 2017-10-16 | 2026-09-04 | archived-official | https://web.archive.org/web/20171016204316/http://sancarloscitypangasinan.gov.ph/index.php/the-official-seal/ |
+| S10 | Wikidata | Item Q43165 (San Carlos, Pangasinan) | — | 2026-09-04 | secondary | https://www.wikidata.org/wiki/Q43165 |
+| S11 | Rappler (Comelec data) | 2025 election results, San Carlos City | 2025 | 2026-09-04 | authoritative-secondary | https://ph.rappler.com/elections/2025/local-race/pangasinan/san-carlos-city |
+| S12 | Internet Archive | CDX index of the old official domain | — | 2026-09-04 | other | http://web.archive.org/cdx/search/cdx?url=sancarloscitypangasinan.gov.ph/* |
+| S13 | City Government of San Carlos | Site homepage (archived, old site) | 2017-03-22 | 2026-09-04 | archived-official | https://web.archive.org/web/20170322021550/http://sancarloscitypangasinan.gov.ph/ |

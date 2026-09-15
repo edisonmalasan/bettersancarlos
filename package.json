@@ -18,6 +18,10 @@
     "data:ingest-facebook": "bun run scripts/data/ingest-facebook.ts",
     "data:report": "bun run scripts/data/report.ts",
     "data:test": "bun test scripts/data scripts/sync-facebook.test.js",
+    "research:validate": "bun run scripts/research/validate.ts",
+    "research:index": "bun run scripts/research/index.ts",
+    "research:index:check": "bun run scripts/research/index.ts --check",
+    "research:test": "bun test scripts/research",
     "verify": "tsc --noEmit && bun run data:validate && bun run build"
   },
   "dependencies": {

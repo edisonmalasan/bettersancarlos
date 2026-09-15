@@ -1,35 +1,56 @@
+---
+schema: research.v2
+id: lgu-structure
+title: LGU Structure and Department Heads
+category: government
+research_type: directory
+verification_status: partial
+temporal_status: historical
+risk: high
+researched_at: 2026-09-04
+last_checked: 2026-09-04
+canonical_domains:
+  - government
+---
+
 # San Carlos City, Pangasinan — LGU Structure and Department Heads
 
-**Category:** government
-**Verification status:** Historical / Partially Verified — the department directory is from the **archived official LGU "Departments / Offices" page dated 2024-06-03** (Ayoy Resuello administration). Names/roles may have changed after the July 2025 oath-taking. Some name↔office pairings from the page could not be fully machine-verified and are flagged.
-**Research date:** 2026-09-04
+## Scope
 
-## About the Structure
+LGU department/office structure and heads from the archived official directory (2024-06-03, Resuello administration). Names/roles may have changed after the July 2025 oath-taking; all entries need confirmation with the City HRM Office for the 2025–2028 term.
 
-Per the Local Government Code, San Carlos City (a component city) is headed by a **Mayor** (local chief executive) and a **Vice Mayor** (presiding officer of the Sangguniang Panlungsod / city council). The city government is organized into departments/offices typical of a Philippine component city, plus attached national agencies (PNP, BFP, BJMP, COMELEC, PAO, judiciary).
+## Summary
 
-## Department Heads — Archived Official Directory (2024)
+Per the Local Government Code, the component city is headed by a Mayor and Vice Mayor with departments/offices plus attached national agencies. The 2024 directory yields confident and unconfirmed name↔office pairings, both preserved below with their reliability split.
 
-Source: [City Government of San Carlos — Departments/Offices (archived 2024-06-03)](https://web.archive.org/web/20240603225001/https://www.sancarlospangasinan.gov.ph/departmentsoffices)
+## Findings
+
+### Directory
+
+Source: archived official Departments/Offices page (2024-06-03). | `S1`
 
 > **Note on reliability:** This page renders inside a site builder (Zyro); the archived copy lists department head names but the visual pairing of some names to offices is ambiguous without the original layout. Entries below are grouped as (a) confident pairings and (b) unconfirmed pairings. Treat all entries as needing confirmation with the City HRM Office for the **current (2025–2028) term**.
 
-### Confident pairings (office = name)
-| Office | Name (as listed) |
-|---|---|
-| Chief of Police, PNP San Carlos City | PLTCOL ELEAZAR C. EDOLMO |
-| Acting City Fire Marshall (BFP) | FCINSP RONALDO M. PEREZ |
-| San Carlos City Jail Warden (BJMP) | JCINSP REYNALDO C. OCRETO |
-| Secretary to the Mayor / City Information Officer | MARIA LORCELI A. ESTRADA |
-| City Disaster Risk Reduction Management Officer (CDRRMO) | RUBY DG. BALLESTEROS |
-| City Social Welfare & Development Officer | ALEJANDRO R. FERMIN, III |
-| OIC – City Librarian | MS. MARISSA M. SYQUICO |
-| City Election Officer (COMELEC) | ROWENA B. ROSARIO |
-| City Cooperative, Entrepreneurship, Livelihood Development Officer | ARLAINE M. DE VERA |
-| Secretary to the Sangguniang Panlungsod | JHULIANO G. NAZARENO |
-| Public Attorney III / OIC-DPA (PAO) | ATTY. TEOFILO J. ROYULADA, JR. |
+#### Confident Pairings
 
-### Names/offices listed on the page — pairing NOT fully confirmed (verify with HRM)
+| ID | Entity | Detail | Verification | Temporal | As of | Sources |
+|---|---|---|---|---|---|---|
+| struct-chief-pnp-2024 | Chief of Police, PNP San Carlos City | PLTCOL ELEAZAR C. EDOLMO | partial | historical | 2024-06-03 | S1 |
+| struct-fire-marshal-2024 | Acting City Fire Marshall (BFP) | FCINSP RONALDO M. PEREZ | partial | historical | 2024-06-03 | S1 |
+| struct-jail-warden-2024 | San Carlos City Jail Warden (BJMP) | JCINSP REYNALDO C. OCRETO | partial | historical | 2024-06-03 | S1 |
+| struct-mayor-secretary-2024 | Secretary to the Mayor / City Information Officer | MARIA LORCELI A. ESTRADA | partial | historical | 2024-06-03 | S1 |
+| struct-cdrrmo-2024 | City Disaster Risk Reduction Management Officer (CDRRMO) | RUBY DG. BALLESTEROS | partial | historical | 2024-06-03 | S1 |
+| struct-cswdo-2024 | City Social Welfare & Development Officer | ALEJANDRO R. FERMIN, III | partial | historical | 2024-06-03 | S1 |
+| struct-librarian-2024 | OIC – City Librarian | MS. MARISSA M. SYQUICO | partial | historical | 2024-06-03 | S1 |
+| struct-comelec-2024 | City Election Officer (COMELEC) | ROWENA B. ROSARIO | partial | historical | 2024-06-03 | S1 |
+| struct-coop-2024 | City Cooperative, Entrepreneurship, Livelihood Development Officer | ARLAINE M. DE VERA | partial | historical | 2024-06-03 | S1 |
+| struct-sp-secretary-2024 | Secretary to the Sangguniang Panlungsod | JHULIANO G. NAZARENO | partial | historical | 2024-06-03 | S1 |
+| struct-pao-2024 | Public Attorney III / OIC-DPA (PAO) | ATTY. TEOFILO J. ROYULADA, JR. | partial | historical | 2024-06-03 | S1 |
+
+#### Unconfirmed Pairings
+
+Names/offices listed on the page — pairing NOT fully confirmed (verify with HRM):
+
 - City Administrator (ENGR. ALRE G. ABALOS is the most likely entry on the page)
 - City Local Civil Registrar (likely ATTY. JENNIFER C. BALARBAR)
 - City Health Officer (likely DR. EDWIN DV. GUINTO; DRA. LUISA F. CAYABYAB also appears)
@@ -46,25 +67,34 @@ Source: [City Government of San Carlos — Departments/Offices (archived 2024-06
 - Revenue Collection Officer (VOLTAIRE ENRICO R. CABUAY)
 - City Planning & Development Office ("In Charge of Office" — name not confidently identified)
 - Executive/Presiding Judge (judiciary; HON. GERALDINE NAVATA-FRANCISCO likely this role)
-- Other names present on the page: MARITES Q. CASTRO, LOURDES R. PINTO, BERNABE S. BACANI, JR., "City Local Government Operations Officer" (DILG)
+- Other names present on the page: MARITES Q. CASTRO, LOURDES R. PINTO, BERNABE S. BACANI, JR., "City Local Government Operations Officer" (DILG) | `S1`
 
-## Offices Mentioned in the City Contact/Structure (from old official site 2017)
+### Offices in the 2017 Contact Directory
 
-The 2017 "Contact Us" directory (see `government/26-09-government-directory.md`) shows the city maintained these offices: Office of the City Mayor, Office of the City Vice Mayor, Sangguniang Panlungsod Office, Accounting Office, City Information Office, Engineering Office, City Treasurer's Office, City Health Office, Local Civil Registry, City Population Office, City Human Resources Management Office, General Service Office, City Planning & Development Office, City Assessors Office, City Social Welfare Development Office, City Agriculture Office, CDRRMO, City Library, City Cooperative Office, City Cemetery Office, Liga ng mga Barangay, and PESO.
+The 2017 "Contact Us" directory (see `government/26-09-government-directory.md`) shows the city maintained these offices: Office of the City Mayor, Office of the City Vice Mayor, Sangguniang Panlungsod Office, Accounting Office, City Information Office, Engineering Office, City Treasurer's Office, City Health Office, Local Civil Registry, City Population Office, City Human Resources Management Office, General Service Office, City Planning & Development Office, City Assessors Office, City Social Welfare Development Office, City Agriculture Office, CDRRMO, City Library, City Cooperative Office, City Cemetery Office, Liga ng mga Barangay, and PESO. | `S2`
 
-## Potential Better San Carlos Features
+## Verification & Uncertainty
 
-- Government directory (department cards with head, contact, hours) — feeds `data/officials.json` and `data/services.json`.
-- Org-chart view of the LGU.
-- Change-tracking of department heads across terms (historical).
-
-## Notes
-
+- Name↔office pairings from the Zyro-rendered page split into confident vs unconfirmed above; the DILG operations officer (national agency) and judiciary names are separate from LGU offices.
 - This directory reflects the **2024 administration**; re-verify all holders for the 2025–2028 term.
-- The DILG Local Government Operations Officer (national agency) also appears on the page; names for juduiciary (Executive/Presiding Judge) are separate from LGU offices.
+
+## Conflicts
+
+None identified.
+
+## Gaps
+
+- 2025–2028 holder confirmation (City HRM Office).
+- City Planning & Development head name.
+
+## Research Attempts
+
+- Transcribed the 2024 archived directory with pairing-confidence split on 2026-09-04; HRM confirmation not yet sought. | `S1`
 
 ## Sources
 
-1. City Government of San Carlos — *Departments/Offices* (archived 2024-06-03): https://web.archive.org/web/20240603225001/https://www.sancarlospangasinan.gov.ph/departmentsoffices
-2. Old official site — *Contact Us* (archived 2017-03-22): http://sancarloscitypangasinan.gov.ph/index.php/contact-us/
-3. City Government of San Carlos — *Sangguniang Panlungsod* context: https://sancarlospangasinan.gov.ph/
+| ID | Publisher | Document | Published | Accessed | Type | URL |
+|---|---|---|---|---|---|---|
+| S1 | City Government of San Carlos | Departments/Offices (archived) | 2024-06-03 | 2026-09-04 | archived-official | https://web.archive.org/web/20240603225001/https://www.sancarlospangasinan.gov.ph/departmentsoffices |
+| S2 | City Government of San Carlos | Contact Us (archived, old site) | 2017-03-22 | 2026-09-04 | archived-official | https://web.archive.org/web/20170322095041/http://sancarloscitypangasinan.gov.ph/index.php/contact-us/ |
+| S3 | City Government of San Carlos | Sangguniang Panlungsod context | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/ |

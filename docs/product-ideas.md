@@ -138,3 +138,27 @@ are backlog inputs, not commitments.
 - **Project Tracker** — status board (proposed → ongoing → completed) per project with budget and contractor.
 - **Infrastructure map** — roads, bridges, flood control, health building projects.
 - **Bids & awards feed** — invite → results (from RA 9184 pages).
+
+## news-current-events
+
+- **News & announcements board** (curated from official LGU site + PNA + provincial).
+- **City events calendar**.
+- **Project/announcement archive** (old news is valuable historical data).
+
+## official-online-presence
+
+- **Official source registry** — track official LGU channels vs community/unofficial pages (important for data provenance).
+- **Watchdog/archive** — "official site changed" notifications.
+- **Scraper target list** (Facebook, sitemap, eBPLS) for automated sync (see `docs/facebook-sync.md` in the project).
+
+## tourist-attractions
+
+- **Discover San Carlos** — attractions page with map, hours, fees, photos.
+- **Food & accommodation directory**.
+- **Festival event calendar**.
+
+## full-disclosure
+
+- **Transparency dashboard** — consolidated FDP reports, budgets, SGLG status.
+- **Citizen's Charter service cards** (requirements, fees, processing times) — currently only office names, not step-by-step procedures.
+- **Procurement tracker** — bid invitations/results (the current site has a "BIDS and AWARDS" section).

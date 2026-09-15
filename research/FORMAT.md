@@ -32,6 +32,7 @@ jurisdiction:           # omit entirely when the default applies
 ```
 
 - `id` is the stable identity (kebab-case, unique tree-wide). It survives retitles, refreshes, renames, and status changes. Never derive identity from the filename.
+- The frontmatter parser accepts only a small YAML subset: quote any scalar containing `,`, `[`, `]`, `{`, or `}` with single quotes, doubling internal single quotes (`title: 'Full Disclosure, Transparency Seal & Citizen''s Charter'`).
 - `category` matches the containing directory.
 - `last_checked` is descriptive only: it records when a human last evaluated the file and MUST NOT feed any staleness computation. Old check dates are information, not failure.
 - `jurisdiction`: omit for the default (San Carlos City, Pangasinan, PH). When present, all three fields are required; a non-default `locality` MUST also be named in `## Scope` (wrong-city protection: district, provincial, and national context stays explicit).

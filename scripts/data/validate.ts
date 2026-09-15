@@ -214,6 +214,9 @@ function checkRegistry(registry: RegistryFile, root: string, result: ValidationR
     if (entry.riskTier && !RISK_TIERS.includes(entry.riskTier)) {
       result.errors.push(`registry entry ${entry.id} has unknown riskTier: ${entry.riskTier}`);
     }
+    if (entry.acquisition !== undefined && entry.acquisition !== 'http' && entry.acquisition !== 'facebook-graph') {
+      result.errors.push(`registry entry ${entry.id} has unknown acquisition: ${entry.acquisition}`);
+    }
     if (!entry.evidenceRef || !fs.existsSync(path.join(root, entry.evidenceRef))) {
       result.errors.push(`registry entry ${entry.id} cites missing evidenceRef: ${entry.evidenceRef}`);
     }

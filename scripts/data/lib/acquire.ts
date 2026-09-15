@@ -98,9 +98,20 @@ async function acquireFacebookGraph(
 ): Promise<AcquireResult> {
   const env = opts.env ?? process.env;
   const fetchImpl = opts.fetchImpl ?? fetch;
-  const fixture = env.FB_FIXTURE ?? '';
-  if (fixture) {
-    return { kind: 'evidence', name: `${entry.id}.json`, bytes: fs.readFileSync(fixture) };
+  // Staged evidence (fixtures, dry runs, and ingest-facebook staging) always
+  // wins: it is already Graph JSON by construction. FB_FIXTURE stays the
+  // ingest-facebook CLI's concern (it stages bytes, then calls refresh).
+  if (opts.evidenceDir) {
+    const staged = findEvidenceFile(opts.evidenceDir, entry.id);
+    if (staged) {
+      return { kind: 'evidence', name: path.basename(staged), bytes: fs.readFileSync(staged) };
+    }
+    if (opts.offline) {
+      return { kind: 'skipped', reason: 'no evidence file and no live fetch (offline)' };
+    }
+  }
+  if (opts.offline) {
+    return { kind: 'skipped', reason: 'offline mode: no live fetch without supplied evidence' };
   }
   const pageId = env.FB_PAGE_ID ?? '';
   const token = env.FB_ACCESS_TOKEN ?? '';

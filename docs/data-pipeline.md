@@ -127,9 +127,11 @@ Follow these steps in order. You need no other context: the source registry
 (`data/civic/source-registry.yaml`) tells you what can be collected, and every
 command below is safe to run (collection never modifies canonical data).
 
-1. Read the registry entry for your target: `id`, `collector`, `updateCadence`,
+1. Read the registry entry for your target: `id`, `collector`, `acquisition`
+   (fetch mechanism; absent means plain HTTP), `updateCadence`,
    `domains`, `accessNotes`. Collectors run registry sources only — an
-   unregistered source is refused, never scraped.
+   unregistered source is refused, never scraped. API-backed sources use
+   their dedicated acquisition path; the generic page fetcher never feeds them.
 2. Refresh: `bun run data:refresh` (narrow with `-- --source=<id>` and/or
    `-- --domain=<d>`; add `-- --due` for due sources only). This creates
    `research/runs/<YYYY-MM-DD[-n]>/` and nothing else.

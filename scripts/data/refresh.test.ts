@@ -733,3 +733,64 @@ test('Test 6: failed attempts do not satisfy cadence; retry applies, skips never
     }
   }
 });
+
+test('facebook-graph registry entries collect Graph evidence end to end', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'civic-fbrefresh-'));
+  try {
+    fs.mkdirSync(path.join(root, 'data', 'civic'), { recursive: true });
+    fs.mkdirSync(path.join(root, 'research'), { recursive: true });
+    fs.writeFileSync(
+      path.join(root, 'data', 'civic', 'source-registry.yaml'),
+      'version: 1\n' +
+        'sources:\n' +
+        '  - id: fix-fb\n' +
+        '    publisher: Fixture CIO\n' +
+        "    url: 'https://example.test/fb'\n" +
+        '    sourceType: facebook-page\n' +
+        '    collector: facebook\n' +
+        '    acquisition: facebook-graph\n' +
+        '    updateCadence: weekly\n' +
+        "    evidenceRef: 'research/evidence.md'\n" +
+        '    domains:\n' +
+        '      - news\n',
+    );
+    fs.writeFileSync(path.join(root, 'research', 'evidence.md'), '# fixture\n');
+    fs.writeFileSync(path.join(root, 'data', 'civic', 'sources.json'), '{"sources": []}');
+    fs.writeFileSync(path.join(root, 'data', 'civic', 'records.json'), '{"records": []}');
+    const ev = evidenceDir({
+      'fix-fb.json': JSON.stringify({
+        data: [
+          {
+            id: '123_456',
+            message: 'Power interruption advisory for Barangay Talang tomorrow',
+            created_time: '2026-09-10T08:30:00+0000',
+            permalink_url: 'https://www.facebook.com/post/1',
+          },
+        ],
+      }),
+    });
+    try {
+      const summary = await runRefresh({
+        root,
+        sources: ['fix-fb'],
+        offline: true,
+        evidenceDir: ev,
+        collectedBy: 'test-fb-route',
+        date: '2026-09-14',
+      });
+      assert.equal(summary.outcomes['fix-fb'], 'collected');
+      assert.equal(summary.candidates, 1);
+      const { readCandidates } = await import('./lib/runs');
+      const candidates = readCandidates(summary.run.dir);
+      assert.equal(candidates[0].domain, 'news');
+      assert.equal(candidates[0].status, 'provisional');
+      const instances = readSourceInstances(summary.run.dir);
+      assert.equal(instances.length, 1);
+      assert.equal(instances[0].registryId, 'fix-fb');
+    } finally {
+      fs.rmSync(ev, { recursive: true, force: true });
+    }
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});

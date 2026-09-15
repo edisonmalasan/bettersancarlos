@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { loadRegistry, type RegistryEntry } from './lib/civic';
 import { resolveCollector } from './collectors/index';
-import { fetchText } from './lib/fetch';
+import { acquireEvidence } from './lib/acquire';
 import {
   createRun,
   finishRun,
@@ -96,17 +96,6 @@ function isDue(registry: RegistryEntry, times: SourceCheckTimes, nowMs: number):
   return false;
 }
 
-function findEvidenceFile(evidenceDir: string, registryId: string): string | null {
-  let names: string[] = [];
-  try {
-    names = fs.readdirSync(evidenceDir);
-  } catch {
-    return null;
-  }
-  const hit = names.filter((n) => n === registryId || n.startsWith(registryId + '.')).sort()[0];
-  return hit ? path.join(evidenceDir, hit) : null;
-}
-
 export interface RefreshSummary {
   run: RunHandle;
   outcomes: Record<string, string>;
@@ -189,63 +178,33 @@ export async function runRefresh(options: RefreshOptions): Promise<RefreshSummar
       findingLines.push(`- ${entry.id}: SKIPPED (manual-only source, no collector)`);
       continue;
     }
-    let evidence: { name: string; bytes: Buffer } | null = null;
-    if (evidenceDir) {
-      const fixture = findEvidenceFile(evidenceDir, entry.id);
-      if (!fixture) {
-        if (offline || !entry.url) {
-          outcomes[entry.id] = 'skipped';
-          recordSource(run.dir, {
-            sourceId: entry.id,
-            checkedAt,
-            outcome: 'skipped',
-            error: 'no evidence file and no live fetch (offline)',
-          });
-          findingLines.push(`- ${entry.id}: SKIPPED (no evidence file, offline)`);
-          continue;
-        }
-      } else {
-        evidence = { name: path.basename(fixture), bytes: fs.readFileSync(fixture) };
-      }
+    // Acquisition is routed per source (shared HTTP fetcher by default,
+    // dedicated Graph path for API-backed entries): the collector below only
+    // ever parses evidence matching its expected format.
+    const acquired = await acquireEvidence(entry, { offline, evidenceDir });
+    if (acquired.kind === 'skipped') {
+      outcomes[entry.id] = 'skipped';
+      recordSource(run.dir, {
+        sourceId: entry.id,
+        checkedAt,
+        outcome: 'skipped',
+        error: acquired.reason,
+      });
+      findingLines.push(`- ${entry.id}: SKIPPED (${acquired.reason})`);
+      continue;
     }
-    if (!evidence) {
-      if (offline) {
-        outcomes[entry.id] = 'skipped';
-        recordSource(run.dir, {
-          sourceId: entry.id,
-          checkedAt,
-          outcome: 'skipped',
-          error: 'offline mode: no live fetch without supplied evidence',
-        });
-        findingLines.push(`- ${entry.id}: SKIPPED (offline, no evidence supplied)`);
-        continue;
-      }
-      if (!entry.url) {
-        outcomes[entry.id] = 'skipped';
-        recordSource(run.dir, {
-          sourceId: entry.id,
-          checkedAt,
-          outcome: 'skipped',
-          error: 'source has no URL and no evidence file',
-        });
-        findingLines.push(`- ${entry.id}: SKIPPED (no URL, no evidence)`);
-        continue;
-      }
-      try {
-        const text = await fetchText(entry.url);
-        evidence = { name: `${entry.id}.html`, bytes: Buffer.from(text, 'utf8') };
-      } catch (err) {
-        outcomes[entry.id] = 'unavailable';
-        recordSource(run.dir, {
-          sourceId: entry.id,
-          checkedAt,
-          outcome: 'unavailable',
-          error: (err as Error).message,
-        });
-        findingLines.push(`- ${entry.id}: UNAVAILABLE (${(err as Error).message})`);
-        continue;
-      }
+    if (acquired.kind === 'failed') {
+      outcomes[entry.id] = 'unavailable';
+      recordSource(run.dir, {
+        sourceId: entry.id,
+        checkedAt,
+        outcome: 'unavailable',
+        error: acquired.error,
+      });
+      findingLines.push(`- ${entry.id}: UNAVAILABLE (${acquired.error})`);
+      continue;
     }
+    const evidence = { name: acquired.name, bytes: acquired.bytes };
     const sha = saveEvidence(run.dir, evidence.name, evidence.bytes);
     const previous = lastCheckedEvidenceSha(root, entry.id, run.runId);
     const outcome = previous === sha ? 'unchanged' : 'collected';

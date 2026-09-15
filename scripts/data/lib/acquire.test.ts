@@ -61,16 +61,16 @@ test('redactSecrets strips tokens and leaves clean text alone', () => {
   assert.equal(redactSecrets('fetch: HTTP 500 for https://example.test/'), 'fetch: HTTP 500 for https://example.test/');
 });
 
-test('fixture mode returns file bytes without touching the network', async () => {
+test('staged evidence wins without touching the network', async () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'civic-acq-'));
   try {
-    const fixture = path.join(dir, 'graph.json');
-    fs.writeFileSync(fixture, JSON.stringify(graphBody));
+    const staged = path.join(dir, 'lgu-facebook-cio.json');
+    fs.writeFileSync(staged, JSON.stringify(graphBody));
     const seen: string[] = [];
     const result = await acquireEvidence(fbEntry(), {
-      offline: false,
-      evidenceDir: null,
-      env: { FB_FIXTURE: fixture },
+      offline: true,
+      evidenceDir: dir,
+      env: {},
       fetchImpl: (async (url: string) => {
         seen.push(url);
         throw new Error('network must not be used');

@@ -1,8 +1,8 @@
 ## 1. Audit and contract
 
-- [ ] 1.1 Produce the migration inventory (every topic file: path, category, proposed stable id, research_type, verification/temporal/risk, sidecar candidate, rename candidate, product-idea section, active path references) and verify it covers all 33 files across the 21 category dirs.
-- [ ] 1.2 Write `research/FORMAT.md` (frontmatter incl. optional jurisdiction; vocabularies incl. seven source types with meanings; six research types with minimum Findings each; envelope sections with gap-report Current-Conclusion exception; item-level verification with canonical-ID naming preference; source register with exact `S<n>` syntax and the two parsed contexts; sidecar rules; last_checked-descriptive rule; filename rules; jurisdiction default; runs/canonical boundaries; agent rules; dataset + gap-report examples) and verify a fresh agent can author a valid file from it alone.
-- [ ] 1.3 Record the reference inventory (generate.ts provenance strings, generate.test.ts asserts, src/ user-visible labels, surfacing-spec prefix reference, archive references) and verify filenames stay `26-09-*.md` in this change with renames deferred to a follow-up.
+- [x] 1.1 Produce the migration inventory (every topic file: path, category, proposed stable id, research_type, verification/temporal/risk, sidecar candidate, rename candidate, product-idea section, active path references) and verify it covers all 33 files across the 21 category dirs.
+- [x] 1.2 Write `research/FORMAT.md` (frontmatter incl. optional jurisdiction; vocabularies incl. seven source types with meanings; six research types with minimum Findings each; envelope sections with gap-report Current-Conclusion exception; item-level verification with canonical-ID naming preference; source register with exact `S<n>` syntax and the two parsed contexts; sidecar rules; last_checked-descriptive rule; filename rules; jurisdiction default; runs/canonical boundaries; agent rules; dataset + gap-report examples) and verify a fresh agent can author a valid file from it alone.
+- [x] 1.3 Record the reference inventory (generate.ts provenance strings, generate.test.ts asserts, src/ user-visible labels, surfacing-spec prefix reference, archive references) and verify filenames stay `26-09-*.md` in this change with renames deferred to a follow-up.
 
 ## 2. Tooling
 

@@ -19,7 +19,7 @@
 
 ## 4. Scheduled branch/history fix
 
-- [ ] 4.1 Rework `refresh.yml` to checkout latest `main`, import only `research/runs/` from the open refresh branch, compute collision-free run IDs across both histories, and push via fast-forward-or-merge to a single PR; verify the workflow file parses and each step's logic is reviewed
+- [x] 4.1 Rework `refresh.yml` to checkout latest `main`, import only `research/runs/` from the open refresh branch, compute collision-free run IDs across both histories, and push via fast-forward-or-merge to a single PR; verify the workflow file parses and each step's logic is reviewed
 - [ ] 4.2 Verify workflow behavior A–F with a manual dispatch on a fixture source plus a local git-harness simulation of pending-branch history, main-code updates, same-day reruns, and existing-PR updates; verify due calculation sees pending runs, latest code executes, suffixes stay unique, one PR updates, and canonical files never change
 
 ## 5. Documentation and validation

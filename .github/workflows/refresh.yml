@@ -5,6 +5,11 @@ name: Scheduled civic-data refresh
 # updates) a pull request containing only research/runs artifacts for human
 # review. No auto-merge, no canonical writes, no secrets in data.
 #
+# Branch strategy: the job always executes the triggering ref's code, but due
+# calculation and run history include pending runs imported from the open
+# refresh branch (data paths only — the branch is never checked out, so newer
+# implementation code always wins). One branch/PR is updated per run.
+#
 # - data:refresh exits 0 even when sources are unreachable (outcomes are
 #   recorded as unavailable/skipped); canonical data stays untouched.
 # - Runs include source-instances.json linking every candidate to its exact
@@ -57,6 +62,21 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Import pending research history
+        run: |
+          BRANCH="chore/scheduled-refresh"
+          git fetch origin "$BRANCH" || true
+          if git rev-parse --verify "origin/$BRANCH" >/dev/null 2>&1; then
+            if git ls-tree -r --name-only "origin/$BRANCH" -- research/runs/ | grep -q .; then
+              git archive "origin/$BRANCH" research/runs | tar -x -C .
+              echo "Imported pending research history from $BRANCH (data paths only; code stays on this ref)."
+            else
+              echo "Refresh branch has no research runs yet."
+            fi
+          else
+            echo "No open refresh branch; starting fresh."
+          fi
+
       - name: Refresh due sources into a research run
         run: |
           ARGS="-- --due --collected-by=scheduled-refresh"
@@ -70,6 +90,7 @@ jobs:
           SUFFIX=""; N=2
           while [ -d "research/runs/${BASE}${SUFFIX}" ] || printf '%s\n' "$TAKEN" | grep -qx "${BASE}${SUFFIX}"; do SUFFIX="-$N"; N=$((N + 1)); done
           ARGS="$ARGS --date=${BASE}${SUFFIX}"
+          echo "RUN_ID=${BASE}${SUFFIX}" >> "$GITHUB_ENV"
           # shellcheck disable=SC2086
           bun run data:refresh $ARGS
 
@@ -104,9 +125,11 @@ jobs:
           git config user.email "bettersancarlos-refresh@users.noreply.github.com"
           git fetch origin "$BRANCH" || true
           git checkout -B "$BRANCH"
-          git add research/runs
+          git add "research/runs/${RUN_ID:?}"
           git commit -m "chore: scheduled civic-data refresh ($(date -u +%F))" || echo "nothing to commit"
-          git pull --rebase origin "$BRANCH" || true
+          if git rev-parse --verify "origin/$BRANCH" >/dev/null 2>&1; then
+            git pull --rebase origin "$BRANCH"
+          fi
           git push --set-upstream origin "$BRANCH"
           SUMMARY="$(bun run data:report | head -40)"
           OPEN_PR="$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number')"

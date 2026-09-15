@@ -9,12 +9,19 @@ canonical records by `bun run data:generate`. No step overwrites verified data d
 
 - Engine: [`scripts/sync-facebook.js`](../scripts/sync-facebook.js) (launcher) →
   `bun run data:ingest-facebook` (`scripts/data/ingest-facebook.ts`, shared transform
-  in `scripts/data/lib/facebook.ts`)
-- Scheduler: none yet — runs manually or on demand. Until a token exists the engine
-  stays dormant (see below); scheduled refresh arrives with the pipeline's `refresh.yml`
-  (phase 6).
+  in `scripts/data/lib/facebook.ts`, shared Graph acquisition in
+  `scripts/data/lib/acquire.ts`). The registry entry `lgu-facebook-cio` sets
+  `acquisition: facebook-graph`, so `bun run data:refresh` routes it to the
+  same Graph path — never the generic page fetcher.
+- Scheduler: the pipeline's `refresh.yml` includes Facebook through that path;
+  without credentials it records a dormant skip and continues with other
+  sources. Until a token exists the manual engine likewise logs "staying
+  dormant" and creates **no run**.
 - Renderer: the Next.js **News** page (`src/app/news/page.tsx`) and the homepage feed
   widget (`assets/js/fb-feed.js`) read the generated `data/news.json` unchanged.
+- Token safety: the access token travels in memory only and is redacted from
+  every log line, error, and manifest entry; it never lands in evidence,
+  candidates, source instances, or git.
 
 ## The one prerequisite (activation gate)
 

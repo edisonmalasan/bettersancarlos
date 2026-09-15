@@ -12,7 +12,7 @@ import {
   type SourceRecord,
 } from './lib/civic';
 import { stableStringify } from './lib/json';
-import { isPublishedStatus, isTimeBasedCadence } from './lib/policy';
+import { isPublishedStatus, isSuccessfulCollectionOutcome, isTimeBasedCadence } from './lib/policy';
 import { readCandidates, readManifest } from './lib/runs';
 import { runsDir } from './lib/paths';
 import { todayUtc } from './validate';
@@ -108,6 +108,15 @@ export function diffRun(input: DiffInput, today: string = todayUtc()): DiffEntry
     }
   }
 
+  // Fact-level coverage: canonical IDs collectors attempted in successful
+  // sources this run. MISSING requires an explicit claim — sharing a registry
+  // domain never suffices, and absent coverage metadata means unknown (skip).
+  const coveredIds = new Set<string>();
+  for (const entry of manifest?.sources ?? []) {
+    if (!isSuccessfulCollectionOutcome(entry.outcome ?? '')) continue;
+    for (const id of entry.coverage ?? []) coveredIds.add(id);
+  }
+
   const entries: DiffEntry[] = [];
   for (const candidate of candidates) {
     if (canonicalIds.has(candidate.id)) continue;
@@ -184,6 +193,10 @@ export function diffRun(input: DiffInput, today: string = todayUtc()): DiffEntry
       });
       continue;
     }
+    // Fact-level gate: only records a collector explicitly covered can go
+    // MISSING. Domain-sharing records outside every coverage claim are
+    // excluded from fact-level comparison entirely.
+    if (!coveredIds.has(record.id)) continue;
     entries.push({
       recordId: record.id,
       label: record.label,
@@ -192,7 +205,7 @@ export function diffRun(input: DiffInput, today: string = todayUtc()): DiffEntry
       sourceIds: sids,
       sourceTitles: titles,
       stale,
-      detail: 'No candidate covered this record in a run scoped to its domain; coverage gap, not a deletion.',
+      detail: 'A covering collector succeeded but emitted no candidate for this record; coverage gap, not a deletion.',
     });
   }
   return entries.sort((a, b) => (a.recordId < b.recordId ? -1 : a.recordId > b.recordId ? 1 : 0));

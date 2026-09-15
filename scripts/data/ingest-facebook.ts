@@ -1,18 +1,17 @@
-// Facebook ingestion for the civic-data pipeline.
+// Facebook ingestion for the civic-data pipeline (thin manual entry point).
 //
-// Fetches the latest posts from the official LGU San Carlos Facebook Page
-// (live Graph API or a saved FB_FIXTURE response) and feeds them through
-// runRefresh, producing a research run with provisional news candidates.
-// It never writes canonical records or data/news.json: refresh only adds
-// files under research/runs/, and acceptance happens later via
+// All acquisition logic lives in the shared module (./lib/acquire): Graph API
+// fetching with retry/backoff, auth/permission taxonomy, fixture handling,
+// dormant-without-credentials behavior, and token redaction. This file only
+// preserves the long-standing CLI/env contract, stages evidence, and feeds it
+// through runRefresh, producing a research run with provisional news
+// candidates. It never writes canonical records or data/news.json: refresh
+// only adds files under research/runs/, and acceptance happens later via
 // data:diff + data:promote (low-risk official-page items may use the
 // --auto-news path, which promotes as `reported`, never `verified`).
 //
-// Preserved sync-facebook.js behavior:
-// - retry with backoff on rate-limit/network failures; auth/permission
-//   errors fail loudly (exit 1) so token expiry is visible
-// - fixture mode bypasses the network (local testing / dry runs)
-// - dormant without token and without fixture: log + exit 0, no run created
+// Preserved behavior:
+// - dormant without token/fixture: log + exit 0, no run created
 // - fetch failure: exit 1 with no run, so canonical data is untouched
 // - an empty post list still records a run (0 candidates) as audit evidence;
 //   canonical records are byte-identical either way
@@ -24,67 +23,36 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { CIVIC_USER_AGENT } from './lib/fetch';
+import { acquireEvidence } from './lib/acquire';
+import { loadRegistry } from './lib/civic';
 import { runRefresh } from './refresh';
 
-const GRAPH_FIELDS = 'id,message,story,created_time,permalink_url,full_picture,status_type';
 const INGEST_COLLECTED_BY = 'sync-facebook';
 const INGEST_REGISTRY_ID = 'lgu-facebook-cio';
 
-async function fetchGraphWithRetry(url: string, retries = 3): Promise<unknown> {
-  let lastErr: unknown = null;
-  for (let attempt = 0; attempt <= retries; attempt++) {
-    try {
-      const res = await fetch(url, {
-        headers: { 'user-agent': CIVIC_USER_AGENT, accept: 'application/json' },
-      });
-      const body = (await res.json()) as { error?: { code?: number; message?: string }; data?: unknown };
-      if (body && body.error) {
-        const code = body.error.code;
-        // 190 = expired/invalid token; 10/200 = permission — all unrecoverable.
-        if (code === 190 || code === 10 || code === 200) {
-          throw new Error(`FB auth/permission error (code ${code}): ${body.error.message}`);
-        }
-        // 4/17/32/613 = rate limited — retryable.
-        if (code === 4 || code === 17 || code === 32 || code === 613) {
-          throw Object.assign(new Error(`rate limited (code ${code})`), { retryable: true });
-        }
-        throw new Error(`FB API error: ${body.error.message}`);
-      }
-      if (!res.ok) {
-        throw Object.assign(new Error(`HTTP ${res.status}`), { retryable: res.status >= 500 });
-      }
-      return body;
-    } catch (err) {
-      lastErr = err;
-      const retryable = (err as { retryable?: boolean }).retryable || (err as Error).name === 'TypeError';
-      if (!retryable || attempt === retries) break;
-      const delay = Math.min(1000 * 2 ** attempt, 8000);
-      console.warn(`  retry ${attempt + 1}/${retries} after ${delay}ms (${(err as Error).message})`);
-      await new Promise((r) => setTimeout(r, delay));
-    }
-  }
-  throw lastErr;
+function facebookRegistry() {
+  const entry = loadRegistry().sources.find((s) => s.id === INGEST_REGISTRY_ID);
+  if (!entry) throw new Error(`ingest: registry entry missing: ${INGEST_REGISTRY_ID}`);
+  return entry;
 }
 
-async function loadEvidence(): Promise<{ name: string; bytes: Buffer; fixture: boolean }> {
+async function loadEvidence(): Promise<{ name: string; bytes: Buffer } | null> {
   const fixture = process.env.FB_FIXTURE ?? '';
   if (fixture) {
     console.log(`Using fixture: ${fixture}`);
-    return { name: `${INGEST_REGISTRY_ID}.json`, bytes: fs.readFileSync(fixture), fixture: true };
+    return { name: `${INGEST_REGISTRY_ID}.json`, bytes: fs.readFileSync(fixture) };
   }
   const pageId = process.env.FB_PAGE_ID ?? '';
   const token = process.env.FB_ACCESS_TOKEN ?? '';
-  if (!token || !pageId) return { name: '', bytes: Buffer.alloc(0), fixture: false };
-  const apiVersion = process.env.FB_API_VERSION || 'v21.0';
-  const limit = parseInt(process.env.FB_LIMIT || '25', 10);
-  const url =
-    `https://graph.facebook.com/${apiVersion}/${encodeURIComponent(pageId)}/posts` +
-    `?fields=${encodeURIComponent(GRAPH_FIELDS)}&limit=${limit}` +
-    `&access_token=${encodeURIComponent(token)}`;
-  console.log('Fetching posts from Facebook…');
-  const body = await fetchGraphWithRetry(url);
-  return { name: `${INGEST_REGISTRY_ID}.json`, bytes: Buffer.from(JSON.stringify(body), 'utf8'), fixture: false };
+  if (!token || !pageId) return null;
+  const acquired = await acquireEvidence(facebookRegistry(), {
+    offline: false,
+    evidenceDir: null,
+    env: process.env,
+  });
+  if (acquired.kind === 'skipped') return null;
+  if (acquired.kind === 'failed') throw new Error(acquired.error);
+  return { name: acquired.name, bytes: acquired.bytes };
 }
 
 async function main(): Promise<number> {
@@ -97,7 +65,7 @@ async function main(): Promise<number> {
   }
   const date = argv.find((a) => a.startsWith('--date='))?.slice('--date='.length);
 
-  let evidence: { name: string; bytes: Buffer; fixture: boolean };
+  let evidence: { name: string; bytes: Buffer } | null;
   try {
     evidence = await loadEvidence();
   } catch (err) {
@@ -105,7 +73,7 @@ async function main(): Promise<number> {
     console.error(`ingest failed: ${(err as Error).message}`);
     return 1;
   }
-  if (!evidence.name) {
+  if (!evidence) {
     console.log('FB_ACCESS_TOKEN / FB_PAGE_ID not set — staying dormant. No changes made.');
     return 0;
   }

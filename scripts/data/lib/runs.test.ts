@@ -148,3 +148,27 @@ test('writer refuses non-provisional candidates', () => {
     fs.rmSync(root, { recursive: true, force: true });
   }
 });
+
+test('per-source coverage survives a manifest round-trip; absent stays absent', () => {
+  const root = fixtureRoot();
+  try {
+    const run = createRun(root, { date: '2026-09-14' });
+    recordSource(run.dir, {
+      sourceId: 'reg-site',
+      checkedAt: '2026-09-14T01:00:00Z',
+      outcome: 'collected',
+      coverage: ['rec-one', 'rec-two'],
+    });
+    recordSource(run.dir, {
+      sourceId: 'reg-other',
+      checkedAt: '2026-09-14T02:00:00Z',
+      outcome: 'skipped',
+    });
+    const manifest = readManifest(run.dir);
+    assert.deepEqual(manifest.sources[0].coverage, ['rec-one', 'rec-two']);
+    assert.ok(!('coverage' in manifest.sources[1]), 'absent coverage must stay absent');
+    assert.deepEqual(validateRoot(root).errors, []);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});

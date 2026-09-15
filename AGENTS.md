@@ -75,6 +75,11 @@ inspect `research/runs/<date>/` → `bun run data:diff` → STOP.
 Candidates must link exact evidence instances (`source-instances.json`);
 canonical `sourceIds` never cite bare registry IDs. Only successful checks
 satisfy cadence; failures retry sooner and skipped sources never count.
+Collectors declare the exact record IDs they attempted; MISSING fires only
+for covered-but-absent records, never for domain sharing. Promotion commits
+`records.json` + `sources.json` as one transaction (torn states fail
+validation loudly). Facebook sources use Graph acquisition; tokens never
+persist anywhere.
 Promotion is a separate reviewer step
 (`bun run data:promote -- --run=<id> --record=<id> --reviewer=<name>`);
 never accept your own high-risk candidates; conflicts fail closed.

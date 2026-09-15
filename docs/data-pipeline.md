@@ -4,11 +4,12 @@ How civic facts flow from public sources to the website without blind overwrites
 
 ```text
 public / government sources
-        -> source-specific collectors (scripts/data/collectors)
+        -> source-specific acquisition (HTTP fetcher, or Graph API path per registry)
+        -> source-specific collectors + declared fact coverage (scripts/data/collectors)
         -> research run (research/runs/<date>: manifest, evidence, source-instances, candidates, conflicts)
-        -> diff (candidates vs canonical records -> review report)
-        -> independent review -> promote (atomic: canonical records + sources in data/civic)
-        -> validate (bun run data:validate)
+        -> diff (coverage-gated outcomes -> review report)
+        -> independent review -> promote (transaction: canonical records + sources in data/civic)
+        -> validate (bun run data:validate, incl. torn-transaction detection)
         -> generate (canonical records -> data/*.json compatibility outputs)
         -> Next.js website (unchanged imports/fetches)
 ```
@@ -56,6 +57,12 @@ overwrite canonical records or frontend JSON directly.
   tier is never downgraded by promotion.
 - Only `collected` / `unchanged` outcomes satisfy a source's normal cadence;
   failures retry sooner per policy and `skipped` sources never count as checks.
+- Collectors declare the exact canonical IDs they attempted (`coverage`); the
+  diff reports MISSING only for covered-but-absent records — domain sharing
+  alone never suffices, and dynamically discovered IDs still surface as NEW.
+- Promotion commits `records.json` + `sources.json` as one transaction with
+  rollback; leftover stage/backup artifacts fail validation loudly and the
+  next promotion recovers deterministically.
 - Statuses `needs-reverification`, `blocked`, and `provisional` are flagged as
   warnings by validation and must never be presented as current fact.
 - History inside a record is append-only; superseded values stay retrievable.
@@ -127,16 +134,19 @@ Follow these steps in order. You need no other context: the source registry
 (`data/civic/source-registry.yaml`) tells you what can be collected, and every
 command below is safe to run (collection never modifies canonical data).
 
-1. Read the registry entry for your target: `id`, `collector`, `updateCadence`,
+1. Read the registry entry for your target: `id`, `collector`, `acquisition`
+   (fetch mechanism; absent means plain HTTP), `updateCadence`,
    `domains`, `accessNotes`. Collectors run registry sources only — an
-   unregistered source is refused, never scraped.
+   unregistered source is refused, never scraped. API-backed sources use
+   their dedicated acquisition path; the generic page fetcher never feeds them.
 2. Refresh: `bun run data:refresh` (narrow with `-- --source=<id>` and/or
    `-- --domain=<d>`; add `-- --due` for due sources only). This creates
    `research/runs/<YYYY-MM-DD[-n]>/` and nothing else.
 3. Inspect the new run directory (requirements — every run must contain):
    - `manifest.json`: run id, start/end, parameters, per-source entries
-     (`sourceId`, `checkedAt`, outcome, error if failed, evidence SHA-256),
-     candidate/conflict counts, `collectedBy`.
+     (`sourceId`, `checkedAt`, outcome, error if failed, evidence SHA-256,
+     fact `coverage` for successful collections), candidate/conflict counts,
+     `collectedBy`.
    - `evidence/`: raw retrieved bytes (hash recorded in the manifest).
    - `source-instances.json`: exact evidence identity per retrieval
      (`src-<registry>-<date>-<hash8>`, registry link, hash, dates, collector).
@@ -148,9 +158,11 @@ command below is safe to run (collection never modifies canonical data).
 4. Diff: `bun run data:diff [-- --run=<id>]` and read the review report in the
    run directory (`OLD` / `CANDIDATE` / `SOURCE` / `RESULT` / `ACTION` per
    record). Outcomes: `UNCHANGED` (no action), `NEW` / `CHANGED` (review),
-   `MISSING` (coverage gap — never a deletion), `STALE` (past `nextReviewOn`),
+   `MISSING` (covered by a collector that succeeded, but no candidate —
+   never a deletion), `STALE` (past `nextReviewOn`),
    `CONFLICT` (blocked), `SOURCE_UNAVAILABLE` / `SOURCE_CHANGED` (keep existing
-   data, deadlines unchanged).
+   data, deadlines unchanged). Records outside every collector's declared
+   coverage produce no entry at all.
 5. Stop. Do NOT edit `data/civic/records.json`, `data/civic/sources.json`,
    or any `data/*.json` directly.
 
@@ -192,6 +204,16 @@ command below is safe to run (collection never modifies canonical data).
 2. Re-check the sources (a new refresh run often resolves stale disagreements).
 3. A reviewer decides based on authoritative evidence; the losing side stays in
    run history, never deleted. No pipeline step silently resolves a conflict.
+
+### Scheduled refresh branch strategy
+
+- The workflow executes the triggering ref's code but imports pending
+  `research/runs/` history from the open `chore/scheduled-refresh` branch
+  (data paths only — the branch is never checked out, so newer code always
+  wins). Due calculation therefore sees pending successes and failures.
+- Each run commits only its own new run directory; pushes rebase-or-merge
+  onto the same branch, and one review PR is updated (never auto-merged).
+- Run IDs stay collision-free across both histories (`YYYY-MM-DD`, `-2`, …).
 
 ### Scenario H self-test (fixture refresh with no other context)
 

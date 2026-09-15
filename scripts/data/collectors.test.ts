@@ -91,6 +91,7 @@ test('facebook collector is deterministic and provisional', () => {
   }
   assert.equal(first.candidates[0].data.category, 'Advisory');
   assert.equal(first.candidates[1].data.category, 'Event');
+  assert.deepEqual(first.coverage, { expectedRecordIds: ['news-fb-123-456', 'news-fb-123-789'] });
 });
 
 test('facebook collector emits one exact instance linked from every candidate', () => {
@@ -123,6 +124,7 @@ test('city-website collector observes the trunk line deterministically', () => {
   assert.equal(first.sourceInstances.length, 1);
   assert.match(first.sourceInstances[0].id, /^src-lgu-website-2026-09-14-[0-9a-f]{8}$/);
   assert.deepEqual(first.candidates[0].sourceInstanceIds, [first.sourceInstances[0].id]);
+  assert.deepEqual(first.coverage, { expectedRecordIds: ['city-hall-trunk-line'] });
 });
 
 test('city-website collector surfaces a changed number as a new candidate value', () => {
@@ -134,6 +136,7 @@ test('city-website collector emits nothing when the line is absent', () => {
   const result = collectCityWebsite(siteArgs('<html><body><p>No contacts here.</p></body></html>'));
   assert.deepEqual(result.candidates, []);
   assert.ok(result.notes.some((n) => n.includes('city-hall-trunk-line not observed')));
+  assert.deepEqual(result.coverage, { expectedRecordIds: ['city-hall-trunk-line'] });
 });
 
 test('resolveCollector refuses unknown or null collectors', () => {

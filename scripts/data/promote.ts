@@ -2,10 +2,11 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { loadRecords, loadRegistry, loadSources, type Candidate, type CivicRecord, type SourceInstance, type SourceRecord } from './lib/civic';
-import { writeJsonAtomic, stableStringify } from './lib/json';
+import { stableStringify } from './lib/json';
 import { findSourceByContent } from './lib/instances';
+import { commitAtomicPair, recoverAtomicPair } from './lib/atomic';
 import { CADENCE_POLICY, cadenceWindowDays, isHighRisk, isTimeBasedCadence, nextReviewDate, policyDefaultRiskTier } from './lib/policy';
-import { recordsPath, sourcesPath, runsDir } from './lib/paths';
+import { runsDir, civicDir } from './lib/paths';
 import { readCandidates } from './lib/runs';
 import { readSourceInstances } from './lib/instances';
 import { CADENCES, RECORD_TYPES, RISK_TIERS, STATUSES, isValidDate, resolveClaimPath, todayUtc } from './validate';
@@ -18,6 +19,8 @@ export interface PromoteOptions {
   reviewer?: string;
   cadence?: string;
   autoNews?: boolean;
+  /** Test-only fault injection: throw between the two canonical renames. Never set from CLI. */
+  faultAfterFirstRename?: boolean;
 }
 
 export interface PromoteSummary {
@@ -218,6 +221,13 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
   if ((options.records?.length ?? 0) === 0 && !options.all && !options.autoNews) {
     throw new Error('promote: select candidates with --record=<id>, --all, or --auto-news');
   }
+  // Recover any interrupted transaction first, so this run never builds on
+  // a torn canonical pair. Deterministic: completes valid staged pairs,
+  // restores from backups, or cleans orphans (git remains the backstop).
+  const recovered = recoverAtomicPair(civicDir(root), ['records.json', 'sources.json']);
+  if (recovered !== 'clean') {
+    console.log(`promote: recovered interrupted transaction (${recovered}) before proceeding`);
+  }
   const runId = options.runId ?? latestRunId(root);
   const runDir = path.join(runsDir(root), runId);
   const candidates = readCandidates(runDir);
@@ -377,11 +387,18 @@ export function promoteRun(options: PromoteOptions, today: string = todayUtc()):
     promoted.push(id);
   }
 
-  // Validate the complete proposed state in memory before touching disk:
-  // a logic error aborts with both files byte-identical to before.
+  // Validate the complete proposed state in memory before touching disk,
+  // then commit both files as one transaction: a logic error aborts with
+  // both files byte-identical to before, and a mid-commit failure rolls back.
   validateProposedState(records, sources, registryIds, touchedRecords, touchedSources);
-  writeJsonAtomic(recordsPath(root), { records: [...records.values()] });
-  writeJsonAtomic(sourcesPath(root), { sources: [...sources.values()] });
+  commitAtomicPair(
+    civicDir(root),
+    {
+      'records.json': { records: [...records.values()] },
+      'sources.json': { sources: [...sources.values()] },
+    },
+    options.faultAfterFirstRename ? { faultAfterFirstRename: true } : {},
+  );
   return { runId, promoted, promotedSources, unchanged, reviewer };
 }
 

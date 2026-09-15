@@ -649,3 +649,132 @@ test('Test 8: high-risk review cannot be bypassed by the collecting identity', (
     fs.rmSync(root, { recursive: true, force: true });
   }
 });
+
+test('proposed-state validation failure writes nothing (pre-commit abort)', () => {
+  const root = fixtureRoot();
+  try {
+    const run = createRun(root, { date: '2026-09-14', collectedBy: 'agent' });
+    writeCandidates(run.dir, [
+      {
+        id: 'city-engineer-current',
+        domain: 'government',
+        type: 'official',
+        label: 'City Engineer',
+        data: { name: 'Maria Santos' },
+        claimSources: { nope: [REG_INSTANCE_ID] },
+        sourceIds: ['src-dir'],
+        sourceInstanceIds: [REG_INSTANCE_ID],
+        status: 'provisional',
+        collectedBy: 'agent',
+        runId: run.runId,
+      },
+    ]);
+    writeSourceInstances(run.dir, [regSiteInstance(run.runId)]);
+    const before = snapshotCivic(root);
+    assert.throws(
+      () => promoteRun({ root, runId: run.runId, records: ['city-engineer-current'], reviewer: 'reviewer' }, '2026-09-14'),
+      /claimSources path does not exist/,
+    );
+    assert.deepEqual(snapshotCivic(root), before);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('forced mid-commit failure rolls back both files with no artifacts', () => {
+  const root = fixtureRoot();
+  try {
+    const run = createRun(root, { date: '2026-09-14', collectedBy: 'agent' });
+    writeCandidates(run.dir, [
+      {
+        id: 'city-engineer-current',
+        domain: 'government',
+        type: 'official',
+        label: 'City Engineer',
+        data: { name: 'Maria Santos' },
+        sourceIds: ['src-dir'],
+        sourceInstanceIds: [REG_INSTANCE_ID],
+        status: 'provisional',
+        collectedBy: 'agent',
+        runId: run.runId,
+      },
+    ]);
+    writeSourceInstances(run.dir, [regSiteInstance(run.runId)]);
+    const before = snapshotCivic(root);
+    assert.throws(
+      () =>
+        promoteRun(
+          { root, runId: run.runId, records: ['city-engineer-current'], reviewer: 'reviewer', faultAfterFirstRename: true },
+          '2026-09-14',
+        ),
+      /injected fault/,
+    );
+    assert.deepEqual(snapshotCivic(root), before);
+    const leftovers = fs
+      .readdirSync(path.join(root, 'data', 'civic'))
+      .filter((f) => f.includes('.next-') || f.includes('.prev-') || f.includes('.tmp-'));
+    assert.deepEqual(leftovers, []);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('successful promotion leaves no transaction artifacts', () => {
+  const root = fixtureRoot();
+  try {
+    const run = createRun(root, { date: '2026-09-14', collectedBy: 'agent' });
+    writeCandidates(run.dir, [
+      {
+        id: 'city-engineer-current',
+        domain: 'government',
+        type: 'official',
+        label: 'City Engineer',
+        data: { name: 'Maria Santos' },
+        sourceIds: ['src-dir'],
+        sourceInstanceIds: [REG_INSTANCE_ID],
+        status: 'provisional',
+        collectedBy: 'agent',
+        runId: run.runId,
+      },
+    ]);
+    writeSourceInstances(run.dir, [regSiteInstance(run.runId)]);
+    const summary = promoteRun(
+      { root, runId: run.runId, records: ['city-engineer-current'], reviewer: 'reviewer' },
+      '2026-09-14',
+    );
+    assert.deepEqual(summary.promoted, ['city-engineer-current']);
+    const leftovers = fs
+      .readdirSync(path.join(root, 'data', 'civic'))
+      .filter((f) => f.includes('.next-') || f.includes('.prev-') || f.includes('.tmp-'));
+    assert.deepEqual(leftovers, []);
+    const file = JSON.parse(fs.readFileSync(path.join(root, 'data', 'civic', 'records.json'), 'utf8')) as {
+      records: Array<{ id: string; data: unknown }>;
+    };
+    assert.deepEqual(file.records.find((r) => r.id === 'city-engineer-current')?.data, { name: 'Maria Santos' });
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('interrupted transaction is recovered at promote startup', () => {
+  const root = fixtureRoot();
+  try {
+    const civic = path.join(root, 'data', 'civic');
+    const stagedRecords = { records: [{ id: 'recovered-record' }] };
+    const stagedSources = { sources: [{ id: 'recovered-source' }] };
+    fs.writeFileSync(path.join(civic, 'records.json.next-999'), JSON.stringify(stagedRecords));
+    fs.writeFileSync(path.join(civic, 'sources.json.next-999'), JSON.stringify(stagedSources));
+    assert.throws(
+      () => promoteRun({ root, runId: '2026-09-14', records: ['nothing-here'], reviewer: 'reviewer' }, '2026-09-14'),
+      /has no candidates/,
+    );
+    assert.deepEqual(JSON.parse(fs.readFileSync(path.join(civic, 'records.json'), 'utf8')), stagedRecords);
+    assert.deepEqual(JSON.parse(fs.readFileSync(path.join(civic, 'sources.json'), 'utf8')), stagedSources);
+    const leftovers = fs
+      .readdirSync(civic)
+      .filter((f) => f.includes('.next-') || f.includes('.prev-') || f.includes('.tmp-'));
+    assert.deepEqual(leftovers, []);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});

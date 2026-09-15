@@ -10,6 +10,7 @@ import {
   type RunManifest,
 } from './lib/civic';
 import { readJsonFile, sha256FileHex } from './lib/json';
+import { detectTornPair } from './lib/atomic';
 import { isPublishedStatus, isTimeBasedCadence, cadenceWindowDays } from './lib/policy';
 import { readSourceInstances } from './lib/instances';
 import { civicDir, registryPath, runsDir } from './lib/paths';
@@ -214,6 +215,9 @@ function checkRegistry(registry: RegistryFile, root: string, result: ValidationR
     if (entry.riskTier && !RISK_TIERS.includes(entry.riskTier)) {
       result.errors.push(`registry entry ${entry.id} has unknown riskTier: ${entry.riskTier}`);
     }
+    if (entry.acquisition !== undefined && entry.acquisition !== 'http' && entry.acquisition !== 'facebook-graph') {
+      result.errors.push(`registry entry ${entry.id} has unknown acquisition: ${entry.acquisition}`);
+    }
     if (!entry.evidenceRef || !fs.existsSync(path.join(root, entry.evidenceRef))) {
       result.errors.push(`registry entry ${entry.id} cites missing evidenceRef: ${entry.evidenceRef}`);
     }
@@ -233,6 +237,12 @@ export function validateRoot(root: string): ValidationResult {
   }
   checkRegistry(registry, root, result);
   const registryIds = new Set(registry.sources.map((s) => s.id));
+
+  for (const artifact of detectTornPair(civicDir(root), ['records.json', 'sources.json'])) {
+    result.errors.push(
+      `torn canonical transaction artifact: ${artifact} (finish or roll back promotion, then re-validate)`,
+    );
+  }
 
   let records: CivicRecord[];
   try {

@@ -82,6 +82,6 @@ None identified.
 
 | ID | Publisher | Document | Published | Accessed | Type | URL |
 |---|---|---|---|---|---|---|
-| S1 | City Government of San Carlos | Tourism (archived, old site) | 2017 | 2026-09-04 | archived-official | http://sancarloscitypangasinan.gov.ph/index.php/tourism/ |
+| S1 | City Government of San Carlos | Tourism (archived, old site) | 2017 | 2026-09-04 | archived-official | https://web.archive.org/web/20170326022209/http://sancarloscitypangasinan.gov.ph/index.php/tourism/ |
 | S2 | Wikivoyage | San Carlos (Pangasinan) | — | 2026-09-04 | secondary | https://en.wikivoyage.org/wiki/San_Carlos_(Pangasinan) |
 | S3 | City Government of San Carlos | Facts and Figures (archived, old site) | 2017 | 2026-09-04 | archived-official | https://web.archive.org/web/20170708092007/http://sancarloscitypangasinan.gov.ph/index.php/facts-and-figures/ |

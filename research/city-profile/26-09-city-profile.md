@@ -51,7 +51,7 @@ Multi-source verified profile (official + authoritative): component city, 3rd cl
 ### Nicknames / Titles
 
 - **"Heart of Pangasinan"** | `S1`
-- **"Mango and Bamboo Capital of the Philippines"** (old official site header, archived) | `S8`
+- **"Mango and Bamboo Capital of the Philippines"** (old official site header, archived) | `S13`
 - **"Mango-Bamboo Capital of the North"** (Province of Pangasinan) | `S3`
 - **Most populous city in Pangasinan** (per Wikipedia) — no independent official confirmation; verify with PSA. | `S1`
 
@@ -121,8 +121,9 @@ The old official site (archived 2017-10-16) described the seal as follows (summa
 | S5 | City Government of San Carlos | City Profile (archived) | 2024-06-03 | 2026-09-04 | archived-official | https://web.archive.org/web/20240603225004/https://www.sancarlospangasinan.gov.ph/city-profile |
 | S6 | City Government of San Carlos | Demography (archived) | 2024-06-03 | 2026-09-04 | archived-official | https://web.archive.org/web/20240603225002/https://www.sancarlospangasinan.gov.ph/demography |
 | S7 | City Government of San Carlos | History (archived) | 2024-06-03 | 2026-09-04 | archived-official | https://web.archive.org/web/20240603224959/https://www.sancarlospangasinan.gov.ph/history |
-| S8 | City Government of San Carlos | History (archived, old site) | 2017-10-17 | 2026-09-04 | archived-official | http://sancarloscitypangasinan.gov.ph/index.php/history/ |
+| S8 | City Government of San Carlos | History (archived, old site) | 2017-10-17 | 2026-09-04 | archived-official | https://web.archive.org/web/20171017022422/http://sancarloscitypangasinan.gov.ph/index.php/history/ |
 | S9 | City Government of San Carlos | The Official Seal (archived, old site) | 2017-10-16 | 2026-09-04 | archived-official | https://web.archive.org/web/20171016204316/http://sancarloscitypangasinan.gov.ph/index.php/the-official-seal/ |
 | S10 | Wikidata | Item Q43165 (San Carlos, Pangasinan) | — | 2026-09-04 | secondary | https://www.wikidata.org/wiki/Q43165 |
 | S11 | Rappler (Comelec data) | 2025 election results, San Carlos City | 2025 | 2026-09-04 | authoritative-secondary | https://ph.rappler.com/elections/2025/local-race/pangasinan/san-carlos-city |
 | S12 | Internet Archive | CDX index of the old official domain | — | 2026-09-04 | other | http://web.archive.org/cdx/search/cdx?url=sancarloscitypangasinan.gov.ph/* |
+| S13 | City Government of San Carlos | Site homepage (archived, old site) | 2017-03-22 | 2026-09-04 | archived-official | https://web.archive.org/web/20170322021550/http://sancarloscitypangasinan.gov.ph/ |

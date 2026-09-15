@@ -168,5 +168,5 @@ None identified.
 | ID | Publisher | Document | Published | Accessed | Type | URL |
 |---|---|---|---|---|---|---|
 | S1 | Wikipedia | San Carlos, Pangasinan (Education section) | — | 2026-09-04 | secondary | https://en.wikipedia.org/wiki/San_Carlos,_Pangasinan |
-| S2 | City Government of San Carlos | Contact Us (archived, old site; city library) | 2017-03-22 | 2026-09-04 | archived-official | http://sancarloscitypangasinan.gov.ph/index.php/contact-us/ |
+| S2 | City Government of San Carlos | Contact Us (archived, old site; city library) | 2017-03-22 | 2026-09-04 | archived-official | https://web.archive.org/web/20170322095041/http://sancarloscitypangasinan.gov.ph/index.php/contact-us/ |
 | S3 | DepEd | School Info System (to verify IDs) | — | 2026-09-04 | government-dataset | https://www.deped.gov.ph/ |

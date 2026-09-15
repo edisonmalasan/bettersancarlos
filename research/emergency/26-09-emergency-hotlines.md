@@ -87,5 +87,5 @@ None identified.
 | S1 | DILG | National Emergency Hotline 911 | — | 2026-09-04 | official | https://911.gov.ph/ |
 | S2 | Philippine National Police | Official site | — | 2026-09-04 | official | https://pnp.gov.ph/ |
 | S3 | City Government of San Carlos | Official website (contact block) | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/ |
-| S4 | City Government of San Carlos | Contact Us (archived) | 2017-03-22 | 2026-09-04 | archived-official | http://sancarloscitypangasinan.gov.ph/index.php/contact-us/ |
+| S4 | City Government of San Carlos | Contact Us (archived) | 2017-03-22 | 2026-09-04 | archived-official | https://web.archive.org/web/20170322095041/http://sancarloscitypangasinan.gov.ph/index.php/contact-us/ |
 | S5 | City Government of San Carlos | Departments/Offices (archived) | 2024-06-03 | 2026-09-04 | archived-official | https://web.archive.org/web/20240603225001/https://www.sancarlospangasinan.gov.ph/departmentsoffices |

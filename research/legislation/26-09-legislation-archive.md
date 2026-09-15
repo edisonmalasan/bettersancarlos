@@ -39,7 +39,7 @@ The council legislation subdomain was unreachable during research and most ordin
 |---|---|---|---|---|---|
 | ra-4487 | RA No. 4487 — City charter (An Act creating the City of San Carlos; signed 19 June 1965; effective 1 Jan 1966) | 1965 | text not retrieved; described by Province and old-site History | unverified | S3, S5 |
 | ra-4866 | RA No. 4866 — Created the Municipality of Basista out of San Carlos (1965) | 1965 | text not retrieved | unverified | S6 |
-| ra-9184 | RA 9184 — Referenced in the current LGU site menu (Bids and Awards Committee); national procurement law, not a local ordinance; full text/use not verified in this research | — | menu reference only | unverified | S1 |
+| ra-9184 | RA 9184 — Referenced in the current LGU site menu (Bids and Awards Committee); national procurement law, not a local ordinance; full text/use not verified in this research | — | menu reference only | unverified | S1, S9 |
 | ord-2016-04-15 | EO/Ordinance No. 04-15 (2016) — only ordinance heading recovered from the old site's Legislative page | 2016 | heading only | unverified | S2 |
 | eo-2021-series-excluded | 2021 Executive Orders series on `sancarloscity.gov.ph` — the OTHER San Carlos City (Negros Occidental); NOT Pangasinan material, excluded | 2021 | excluded | unverified | S7 |
 | fdp-docs-ref | Full Disclosure Policy / Citizen's Charter / Transparency Seal documents — see `transparency/26-09-full-disclosure.md` | — | cross-reference | unverified | S8 |
@@ -78,10 +78,11 @@ None identified.
 | ID | Publisher | Document | Published | Accessed | Type | URL |
 |---|---|---|---|---|---|---|
 | S1 | City Government of San Carlos | Sangguniang Bayan / RA 9184 / Bids & Awards pages | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/ |
-| S2 | City Government of San Carlos | Legislative (archived, old site) | 2017 | 2026-09-04 | archived-official | http://sancarloscitypangasinan.gov.ph/index.php/legislative/ |
+| S2 | City Government of San Carlos | Legislative (archived, old site) | 2017 | 2026-09-04 | archived-official | https://web.archive.org/web/20170326024610/http://sancarloscitypangasinan.gov.ph/index.php/legislative/ |
 | S3 | Province of Pangasinan | San Carlos City (charter/RA 4487) | — | 2026-09-04 | official | https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/ |
 | S4 | Official Gazette | National acts texts | — | 2026-09-04 | government-dataset | https://www.officialgazette.gov.ph/ |
-| S5 | City Government of San Carlos | History (archived, old site) | 2017-10-17 | 2026-09-04 | archived-official | http://sancarloscitypangasinan.gov.ph/index.php/history/ |
+| S5 | City Government of San Carlos | History (archived, old site) | 2017-10-17 | 2026-09-04 | archived-official | https://web.archive.org/web/20171017022422/http://sancarloscitypangasinan.gov.ph/index.php/history/ |
 | S6 | Wikipedia | San Carlos, Pangasinan / Basista | — | 2026-09-04 | secondary | https://en.wikipedia.org/wiki/San_Carlos,_Pangasinan |
 | S7 | Internet Archive | Captures of both San Carlos domains | — | 2026-09-04 | archived-official | http://web.archive.org/cdx/search/cdx?url=sancarloscitypangasinan.gov.ph/* |
 | S8 | City Government of San Carlos | Transparency Seal (archived) | 2024-06-03 | 2026-09-04 | archived-official | https://web.archive.org/web/20240603225003/https://www.sancarlospangasinan.gov.ph/transparency-seal |
+| S9 | City Government of San Carlos | RA 9184 page (live menu reference) | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/ra-9184 |

@@ -67,7 +67,7 @@ None identified.
 
 | ID | Publisher | Document | Published | Accessed | Type | URL |
 |---|---|---|---|---|---|---|
-| S1 | City Government of San Carlos | BFP tree planting news (archived, old site) | 2023-03-15 | 2026-09-04 | archived-official | http://sancarloscitypangasinan.gov.ph/2023/03/15/bfp-san-carlos-leads-tree-planting/ |
-| S2 | City Government of San Carlos | World Wildlife Day news (archived, old site) | 2023-03-10 | 2026-09-04 | archived-official | http://sancarloscitypangasinan.gov.ph/2023/03/10/city-observes-world-wildlife-day/ |
+| S1 | City Government of San Carlos | BFP tree planting news (archived, old site) | 2023-03-15 | 2026-09-04 | archived-official | https://web.archive.org/web/20230401225642/http://sancarloscitypangasinan.gov.ph/2023/03/15/bfp-san-carlos-leads-tree-planting/ |
+| S2 | City Government of San Carlos | World Wildlife Day news (archived, old site) | 2023-03-10 | 2026-09-04 | archived-official | https://web.archive.org/web/20230402001206/http://sancarloscitypangasinan.gov.ph/2023/03/10/city-observes-world-wildlife-day/ |
 | S3 | City Government of San Carlos | Plastic-use implementation news (archived, old site) | 2023-03-20 | 2026-09-04 | archived-official | https://web.archive.org/web/20230530215658/http://sancarloscitypangasinan.gov.ph/2023/03/20/cemo-helps-la-carlota-city-with-regulated-plastic-use-implementation/ |
 | S4 | City Government of San Carlos | Official website (programs menus) | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/ |

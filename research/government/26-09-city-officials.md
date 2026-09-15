@@ -96,5 +96,5 @@ None identified.
 | S4 | Peoplaid | San Carlos City Mayor, Vice Mayor, Councilors (2023) | 2023-04-12 | 2026-09-04 | secondary | https://peoplaid.com/2023/04/12/san-carlos-city-pangasinan-mayor-vice-mayor-councilors/ |
 | S5 | Wikipedia (citing COMELEC 2019 NLE) | San Carlos, Pangasinan | — | 2026-09-04 | secondary | https://en.wikipedia.org/wiki/San_Carlos,_Pangasinan |
 | S6 | COMELEC | 2019 NLE elected candidates PDF | 2019 | 2026-09-04 | government-dataset | https://comelec.gov.ph/php-tpls-attachments/2019NLE/ElectionResults/2019NLE_LIst_of_Elected_CityMun_Candidates.pdf |
-| S7 | City Government of San Carlos | City Mayor profile (archived, old site) | 2017 | 2026-09-04 | archived-official | http://sancarloscitypangasinan.gov.ph/index.php/city-mayor/ |
+| S7 | City Government of San Carlos | City Mayor profile (archived, old site) | 2017 | 2026-09-04 | archived-official | https://web.archive.org/web/20171016205444/http://sancarloscitypangasinan.gov.ph/index.php/city-mayor/ |
 | S8 | City Government of San Carlos | State of the City Address news (archived, old site) | 2016-10-18 | 2026-09-04 | archived-official | https://web.archive.org/web/20170708091638/http://sancarloscitypangasinan.gov.ph/index.php/2016/10/18/statement-of-the-city-address-1st-100-days-hon-joseres-s-resuello/ |

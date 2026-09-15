@@ -50,7 +50,7 @@ Participation in FDP/Transparency Seal and the SGLG award is documented from arc
 ### Citizen's Charter
 
 - The old official site (WordPress, archived 2017) had a **Citizen's Charter** page listing service offices: City Mayor's Office (Business One-Stop Shop), City Assessor's Office, City Treasurer's Office, City Health Office, City Engineer's Office, City Civil Registry Office, City Planning & Development Office, City Social Welfare Development Office, City Population Office.
-- The current official site has a **Citizens Charter** menu item (page is one-page shell; actual service tables not extracted). | `S2`, `S5`
+- The current official site has a **Citizens Charter** menu item (page is one-page shell; actual service tables not extracted). | `S2`, `S5`, `S7`
 
 ### Full Disclosure Policy Board (FDP)
 
@@ -89,8 +89,9 @@ None identified.
 | ID | Publisher | Document | Published | Accessed | Type | URL |
 |---|---|---|---|---|---|---|
 | S1 | City Government of San Carlos | Transparency Seal (archived) | 2024-06-03 | 2026-09-04 | archived-official | https://web.archive.org/web/20240603225003/https://www.sancarlospangasinan.gov.ph/transparency-seal |
-| S2 | City Government of San Carlos | Citizen's Charter (archived, old site) | 2017 | 2026-09-04 | archived-official | http://sancarloscitypangasinan.gov.ph/index.php/citizens-charter/ |
-| S3 | City Government of San Carlos | Full Disclosure Policy Board (archived, old site) | 2017 | 2026-09-04 | archived-official | http://sancarloscitypangasinan.gov.ph/index.php/full-disclosure-policy-board/ |
+| S2 | City Government of San Carlos | Citizen's Charter (archived, old site) | 2017 | 2026-09-04 | archived-official | https://web.archive.org/web/20170708091942/http://sancarloscitypangasinan.gov.ph/index.php/citizens-charter/ |
+| S3 | City Government of San Carlos | Full Disclosure Policy Board (archived, old site) | 2017 | 2026-09-04 | archived-official | https://web.archive.org/web/20170326024515/http://sancarloscitypangasinan.gov.ph/index.php/full-disclosure-policy-board/ |
 | S4 | City Government of San Carlos | SGLG article (archived) | 2025-12-07 | 2026-09-04 | archived-official | https://web.archive.org/web/20251207010329/https://www.sancarlospangasinan.gov.ph/san-carlos-city-pangasinan-a-beacon-of-excellence-in-governance-securing-the-seal-of-good-local-governance-sglg-award |
 | S5 | City Government of San Carlos | Official website | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/ |
 | S6 | City Government of San Carlos | E-services (archived, old site) | 2017-03-22 | 2026-09-04 | archived-official | https://web.archive.org/web/20170322021550/http://sancarloscitypangasinan.gov.ph/index.php/e-services/ |
+| S7 | City Government of San Carlos | Citizens Charter page (live menu reference) | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/citizens-charter |

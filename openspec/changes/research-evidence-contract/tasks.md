@@ -22,11 +22,11 @@
 
 ## 5. Remaining research migration
 
-- [ ] 5.1 Convert all remaining governed topic files to the contract without altering factual meaning, and verify `research:validate` passes on the whole tree and fact diffs show structure-only changes (test 23).
+- [x] 5.1 Convert all remaining governed topic files to the contract without altering factual meaning, and verify `research:validate` passes on the whole tree and fact diffs show structure-only changes (test 23).
 
 ## 6. Product-idea separation
 
-- [ ] 6.1 Relocate all 33 `Potential Better San Carlos Features` sections to `docs/product-ideas.md` (preserved, attributed per topic) and verify no evidence document retains product-planning content.
+- [x] 6.1 Relocate all 33 `Potential Better San Carlos Features` sections to `docs/product-ideas.md` (preserved, attributed per topic) and verify no evidence document retains product-planning content.
 
 ## 7. README generation
 

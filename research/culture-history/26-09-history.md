@@ -66,7 +66,7 @@ Founded as the trading port of Binalatongan, renamed San Carlos after the Palari
 ### Philippine Independence Era / Cityhood
 
 - **1965**: The Municipality of San Carlos was divided; the smaller zone became the **Municipality of Basista** (created under **RA 4866**). The larger portion became the **City of San Carlos**.
-- **Cityhood law:** **Republic Act No. 4487**, signed **June 19, 1965** (sponsored by Congressman Angel B. Fernandez per the old official site), ratified by residents, with cityhood effective **January 1, 1966**. | `S2`, `S5`, `S6`
+- **Cityhood law:** **Republic Act No. 4487**, signed **June 19, 1965** (sponsored by Congressman Angel B. Fernandez per the old official site), ratified by residents, with cityhood effective **January 1, 1966**. | `S2`, `S5`, `S6`, `S7`
 
 ### Significant Recent Historical Moments
 
@@ -102,3 +102,4 @@ Founded as the trading port of Binalatongan, renamed San Carlos after the Palari
 | S4 | City Government of San Carlos | Tourism (archived) | 2024-06-03 | 2026-09-04 | archived-official | https://web.archive.org/web/20240603225004/https://www.sancarlospangasinan.gov.ph/tourism |
 | S5 | City Government of San Carlos | History (archived, old site) | 2017-10-17 | 2026-09-04 | archived-official | https://web.archive.org/web/20171017022422/http://sancarloscitypangasinan.gov.ph/index.php/history/ |
 | S6 | City Government of San Carlos | Facts and Figures (archived, old site) | — | 2026-09-04 | archived-official | https://web.archive.org/web/20170708092007/http://sancarloscitypangasinan.gov.ph/index.php/facts-and-figures/ |
+| S7 | City Government of San Carlos | City Profile (archived, old site) | — | 2026-09-04 | archived-official | https://web.archive.org/web/20170708090517/http://sancarloscitypangasinan.gov.ph/index.php/cityprofile/ |

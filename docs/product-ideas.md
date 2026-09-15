@@ -162,3 +162,45 @@ are backlog inputs, not commitments.
 - **Transparency dashboard** — consolidated FDP reports, budgets, SGLG status.
 - **Citizen's Charter service cards** (requirements, fees, processing times) — currently only office names, not step-by-step procedures.
 - **Procurement tracker** — bid invitations/results (the current site has a "BIDS and AWARDS" section).
+
+## blgf-budget
+
+- **Budget dashboard** with time-series charts of revenue vs. expenditure (FY2017–FY2025 once sourced).
+- **Revenue breakdown pie chart** (locally sourced vs. IRA vs. other shares).
+- **Downloadable SRE / AIP documents** linked from the Transparency page.
+
+## budget
+
+- **Budget dashboard** — annual income/expenditure charts from BLGF/COA data.
+- **Transparency center** — Citizen's Charter, GAD plan, DRRM plan, PPAS repository.
+- **Procurement tracker** — Invitation to Bid → Bid Results timeline (feeds `data/procurement`).
+
+## public-transport
+
+- **Mobility guide** (routes, terminals, fares) — requires field research.
+- **Intercity bus info** — carriers and terminals with schedules.
+- **Parking & jeepney route map** — needs official collectible data.
+
+## public-utilities
+
+- **Utilities contact page** (power/water/ISP) with outage hotlines — requires verified provider contacts.
+- **Power outage reporting + status** (needs CENPELCO cooperation / their API).
+- **Water billing/appointment info** — needs water district official data.
+
+## cenpelco-contacts
+
+- **Power Outage Reporting** page with CENPELCO hotlines (once verified).
+- **Rate calculator** linked to CENPELCO rate archives.
+- **Area office locator map** with addresses and hours.
+
+## festivals
+
+- **Events calendar** with Mango-Bamboo Festival countdown and schedule.
+- **Festival gallery** (crowdsourced or CC-licensed photos).
+- "Know before you go" (dates, road closures, where to stay).
+
+## barangay-directory
+
+- **Barangay Directory** — searchable/sortable list with captains, contacts, and populations (powers potential `barangays.json`).
+- **Barangay map** with population choropleth.
+- **Find my barangay** lookup by address.

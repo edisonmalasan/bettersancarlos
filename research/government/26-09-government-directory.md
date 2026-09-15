@@ -98,5 +98,5 @@ None identified.
 | ID | Publisher | Document | Published | Accessed | Type | URL |
 |---|---|---|---|---|---|---|
 | S1 | City Government of San Carlos | Official website (contact block) | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/ |
-| S2 | City Government of San Carlos | Contact Us (archived, old site) | 2017-03-22 | 2026-09-04 | archived-official | http://sancarloscitypangasinan.gov.ph/index.php/contact-us/ |
+| S2 | City Government of San Carlos | Contact Us (archived, old site) | 2017-03-22 | 2026-09-04 | archived-official | https://web.archive.org/web/20170322095041/http://sancarloscitypangasinan.gov.ph/index.php/contact-us/ |
 | S3 | eBPLS | City online business one-stop shop | — | 2026-09-04 | official | https://prod4.ebpls.com/sancarlospangasinan/index.php |

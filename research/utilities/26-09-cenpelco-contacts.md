@@ -1,51 +1,84 @@
+---
+schema: research.v2
+id: cenpelco-contacts
+title: CENPELCO (Electric Cooperative) Contacts
+category: utilities
+research_type: directory
+verification_status: partial
+temporal_status: current
+risk: medium
+researched_at: 2026-09-04
+last_checked: 2026-09-04
+canonical_domains:
+  - utilities
+---
+
 # San Carlos City, Pangasinan — CENPELCO (Electric Cooperative) Contacts
 
-**Category:** utilities
-**Verification status:** Partially Verified — branch/area-office list confirmed from the live CENPELCO website (cenpelco.com, accessed 2026-09-04). Specific phone numbers, email addresses, and the General Manager name were NOT found on the public website; these require direct contact or a Freedom of Information request.
-**Research date:** 2026-09-04
+## Scope
 
-## What Was Found
+What the CENPELCO public website confirms about service to San Carlos City (branch/area offices, online services) and what it does not (phones, emails, GM, hours).
 
-### Confirmed Service Area
-[CENPELCO (Central Pangasinan Electric Cooperative)](https://cenpelco.com/) is the electricity distribution utility serving San Carlos City, Pangasinan. The cooperative's website (cenpelco.com) confirms San Carlos City is served via its **"San Carlos City (Main)"** area office.
+## Summary
 
-### Confirmed Branch / Area Office List
-From the CENPELCO website homepage branch gallery (accessed 2026-09-04), the cooperative operates area offices in:
-Mangaldan, Lingayen, Bugallon, Sual, Labrador, Bayambang, Malasiqui, Binmaley, Mangatarem, Aguilar, Basista, Urbiztondo, Alcala, Bautista, and **San Carlos City (Main)**.
+Branch/area-office list confirmed from the live CENPELCO website, including "San Carlos City (Main)"; phone numbers, emails, GM name, hours, and the Main office address are not on the public site and remain unverified.
 
-### Website Features (no login required)
+## Findings
+
+### Directory
+
+| ID | Entity | Detail | Verification | Temporal | As of | Sources |
+|---|---|---|---|---|---|---|
+| branch-mangaldan | Mangaldan area office | CENPELCO branch gallery listing | verified | current | 2026-09-04 | S1 |
+| branch-lingayen | Lingayen area office | CENPELCO branch gallery listing | verified | current | 2026-09-04 | S1 |
+| branch-bugallon | Bugallon area office | CENPELCO branch gallery listing | verified | current | 2026-09-04 | S1 |
+| branch-sual | Sual area office | CENPELCO branch gallery listing | verified | current | 2026-09-04 | S1 |
+| branch-labrador | Labrador area office | CENPELCO branch gallery listing | verified | current | 2026-09-04 | S1 |
+| branch-bayambang | Bayambang area office | CENPELCO branch gallery listing | verified | current | 2026-09-04 | S1 |
+| branch-malasiqui | Malasiqui area office | CENPELCO branch gallery listing | verified | current | 2026-09-04 | S1 |
+| branch-binmaley | Binmaley area office | CENPELCO branch gallery listing | verified | current | 2026-09-04 | S1 |
+| branch-mangatarem | Mangatarem area office | CENPELCO branch gallery listing | verified | current | 2026-09-04 | S1 |
+| branch-aguilar | Aguilar area office | CENPELCO branch gallery listing | verified | current | 2026-09-04 | S1 |
+| branch-basista | Basista area office | CENPELCO branch gallery listing | verified | current | 2026-09-04 | S1 |
+| branch-urbiztondo | Urbiztondo area office | CENPELCO branch gallery listing | verified | current | 2026-09-04 | S1 |
+| branch-alcala | Alcala area office | CENPELCO branch gallery listing | verified | current | 2026-09-04 | S1 |
+| branch-bautista | Bautista area office | CENPELCO branch gallery listing | verified | current | 2026-09-04 | S1 |
+| branch-san-carlos-main | San Carlos City (Main) area office | Serving San Carlos City, Pangasinan | verified | current | 2026-09-04 | S1 |
+
+### Website Features (No Login Required)
+
 - Rate information / Rate Archives
 - Online Bill Inquiry
 - Main Office and Area Office listings
 - List of Departments
 - Map of Coverage Area
-- General Assembly info, Barangay Meetings, Advisories
+- General Assembly info, Barangay Meetings, Advisories | `S1`
 
-## What Was NOT Found (Information Gaps)
+## Verification & Uncertainty
 
-The following were NOT available on the CENPELCO public website and remain unverified:
-- Main office street address
-- Customer service phone hotlines / telephone numbers
-- Email address
-- General Manager name
-- Office hours
-- San Carlos City (Main) area office address and direct phone
-- Facebook page URL (the live Facebook page facebook.com/cenpelco returned minimal public content during research)
+- Main office street address, customer service phone hotlines, email address, General Manager name, office hours, San Carlos City (Main) area office address and direct phone, and Facebook page content were NOT available on the public website and remain unverified.
 
-## Recommended Next Steps
+## Conflicts
 
-1. **Call the DTI / NEA** (National Electrification Administration) for the CENPELCO franchise contact directory.
-2. **File a request** via the CENPELCO website inquiry form or visit the San Carlos City (Main) office in person.
-3. **Check the ERC (Energy Regulatory Commission)** franchise records for CENPELCO contact details.
-4. **San Carlos City Hall** — the LGU may have the current CENPELCO liaison / contact on file.
+None identified.
 
-## Potential Better San Carlos Features
+## Gaps
 
-- **Power Outage Reporting** page with CENPELCO hotlines (once verified).
-- **Rate calculator** linked to CENPELCO rate archives.
-- **Area office locator map** with addresses and hours.
+- Main office street address.
+- Customer service phone hotlines / telephone numbers.
+- Email address.
+- General Manager name.
+- Office hours.
+- San Carlos City (Main) area office address and direct phone.
+- Facebook page content (facebook.com/cenpelco returned minimal public content during research).
+
+## Research Attempts
+
+- Read the branch gallery and service pages on the live CENPELCO website on 2026-09-04; contact details absent from all public pages. | `S1`
 
 ## Sources
 
-1. CENPELCO official website: https://cenpelco.com/ (accessed 2026-09-04) — branch list and services confirmed
-2. CENPELCO Facebook: https://www.facebook.com/cenpelco — minimal public content during research
+| ID | Publisher | Document | Published | Accessed | Type | URL |
+|---|---|---|---|---|---|---|
+| S1 | CENPELCO | Official website (branch list and services confirmed) | — | 2026-09-04 | official | https://cenpelco.com/ |
+| S2 | CENPELCO | Facebook page (minimal public content during research) | — | 2026-09-04 | official | https://www.facebook.com/cenpelco |

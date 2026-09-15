@@ -77,4 +77,4 @@ San Carlos City, being a 3rd-class component city with a 2025 population of 205,
 |---|---|---|---|---|---|---|
 | S1 | LWUA | Water Districts directory | — | 2026-09-04 | official | https://lwua.gov.ph/water-districts/ |
 | S2 | LWUA | Water District Locations / Information / Data Bank | — | 2026-09-04 | official | https://lwua.gov.ph/water-district-locations |
-| S3 | Internet Archive | Wayback captures of LWUA water-district pages (2024–2025) | — | 2026-09-04 | archived-official | https://web.archive.org/web/2024/https://lwua.gov.ph/water-districts/ |
+| S3 | Internet Archive | Wayback Machine (captures consulted 2024–2025) | — | 2026-09-04 | other | https://web.archive.org/ |

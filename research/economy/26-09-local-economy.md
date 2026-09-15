@@ -32,7 +32,7 @@ Agro-industrial city ("Mango and Bamboo Capital"), 3rd class, with a verified BL
 
 ### Income Class
 
-- **3rd class city** (income classification). | `S3`, `S4`
+- **3rd class city** (income classification). | `S7`, `S8`
 
 ### Annual Regular Income (BLGF via PhilAtlas)
 
@@ -51,7 +51,7 @@ Note: Annual Regular Income = locally sourced revenue + IRA (current year) + oth
 
 ### Competitiveness Index (CMCI)
 
-- The **Cities and Municipalities Competitiveness Index** (cmci.dti.gov.ph) ranks Philippine LGUs on **Economic Dynamism, Government Efficiency, Infrastructure, Resiliency, and Innovation**. | `S3`
+- The **Cities and Municipalities Competitiveness Index** (cmci.dti.gov.ph) ranks Philippine LGUs on **Economic Dynamism, Government Efficiency, Infrastructure, Resiliency, and Innovation**. | `S3`, `S9`
 - San Carlos City's current-year CMCI profile/rank was **not resolved** in this research session (data portal requires deeper retrieval). Archived 2016–2019 figures live in `competitiveness/26-09-cmci-index.md`; canonical CMCI data is generated from those records.
 
 ### Shopping / Commercial Centers
@@ -98,3 +98,6 @@ None identified.
 | S4 | Wikivoyage | San Carlos (Pangasinan) | — | 2026-09-04 | secondary | https://en.wikivoyage.org/wiki/San_Carlos_(Pangasinan) |
 | S5 | City Government of San Carlos | Official website (eBPLS link + vision) | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/ |
 | S6 | City Government of San Carlos | E-services (archived, old site) | 2017-03-22 | 2026-09-04 | archived-official | https://web.archive.org/web/20170322021550/http://sancarloscitypangasinan.gov.ph/index.php/e-services/ |
+| S7 | Province of Pangasinan | San Carlos City | — | 2026-09-04 | official | https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/ |
+| S8 | Rappler (Comelec data) | 2025 elections, San Carlos City | 2025 | 2026-09-04 | authoritative-secondary | https://ph.rappler.com/elections/2025/local-race/pangasinan/san-carlos-city |
+| S9 | DTI CMCI | About the CMCI framework | — | 2026-09-04 | government-dataset | https://cmci.dti.gov.ph/pages/about |

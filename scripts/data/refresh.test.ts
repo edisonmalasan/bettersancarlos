@@ -812,6 +812,90 @@ test('facebook-graph registry entries collect Graph evidence end to end', async 
   }
 });
 
+test('manual-cadence facebook source is excluded from due refresh but runs on explicit request', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'civic-fbmanual-'));
+  fs.mkdirSync(path.join(root, 'data', 'civic'), { recursive: true });
+  fs.mkdirSync(path.join(root, 'research'), { recursive: true });
+  fs.writeFileSync(
+    path.join(root, 'data', 'civic', 'source-registry.yaml'),
+    'version: 1\n' +
+      'sources:\n' +
+      '  - id: fix-fb-manual\n' +
+      '    publisher: Fixture CIO\n' +
+      "    url: 'https://example.test/fb'\n" +
+      '    sourceType: facebook-page\n' +
+      '    collector: facebook\n' +
+      '    acquisition: facebook-graph\n' +
+      '    updateCadence: manual\n' +
+      "    evidenceRef: 'research/evidence.md'\n" +
+      '    domains:\n' +
+      '      - news\n' +
+      '  - id: fix-monthly\n' +
+      '    publisher: Fixture\n' +
+      "    url: 'http://127.0.0.1:9/fixture'\n" +
+      '    sourceType: website\n' +
+      '    collector: city-website\n' +
+      '    updateCadence: monthly\n' +
+      "    evidenceRef: 'research/evidence.md'\n" +
+      '    domains:\n' +
+      '      - emergency\n',
+  );
+  fs.writeFileSync(path.join(root, 'research', 'evidence.md'), '# fixture\n');
+  fs.writeFileSync(path.join(root, 'data', 'civic', 'sources.json'), '{"sources": []}');
+  fs.writeFileSync(path.join(root, 'data', 'civic', 'records.json'), '{"records": []}');
+  try {
+    // Due refresh: elapsed time alone must not select the manual source,
+    // while the due time-based source is still selected normally.
+    const due = await runRefresh({ root, due: true, offline: true, collectedBy: 'test-fbmanual', date: '2026-09-14' });
+    assert.ok(!('fix-fb-manual' in due.outcomes), 'manual source never selected by --due');
+    assert.ok('fix-monthly' in due.outcomes, 'due time-based source still selected');
+    // Explicit invocation still routes through the Graph acquisition path.
+    const ev = evidenceDir({
+      'fix-fb-manual.json': JSON.stringify({
+        data: [
+          {
+            id: '123_456',
+            message: 'Power interruption advisory for Barangay Talang tomorrow',
+            created_time: '2026-09-10T08:30:00+0000',
+            permalink_url: 'https://www.facebook.com/post/1',
+          },
+        ],
+      }),
+    });
+    try {
+      const explicit = await runRefresh({
+        root,
+        sources: ['fix-fb-manual'],
+        offline: true,
+        evidenceDir: ev,
+        collectedBy: 'test-fbmanual',
+        date: '2026-09-14-2',
+      });
+      assert.equal(explicit.outcomes['fix-fb-manual'], 'collected');
+      assert.equal(explicit.candidates, 1);
+      const { readCandidates } = await import('./lib/runs');
+      const candidates = readCandidates(explicit.run.dir);
+      assert.equal(candidates[0].status, 'provisional');
+      const instances = readSourceInstances(explicit.run.dir);
+      assert.equal(instances.length, 1);
+      assert.equal(instances[0].registryId, 'fix-fb-manual');
+    } finally {
+      fs.rmSync(ev, { recursive: true, force: true });
+    }
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('lgu-facebook-cio registry entry is manual cadence with the facebook collector', () => {
+  const registry = loadRegistry(process.cwd());
+  const entry = registry.sources.find((s) => s.id === 'lgu-facebook-cio');
+  assert.ok(entry, 'lgu-facebook-cio is registered');
+  assert.equal(entry.updateCadence, 'manual');
+  assert.equal(entry.collector, 'facebook');
+  assert.equal(entry.acquisition, 'facebook-graph');
+});
+
 test('HTML evidence never reaches the Graph collector (parse-class failure)', async () => {
   const root = fbFixtureRoot();
   try {

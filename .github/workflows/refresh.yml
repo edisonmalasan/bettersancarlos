@@ -65,7 +65,13 @@ jobs:
       - name: Import pending research history
         run: |
           BRANCH="chore/scheduled-refresh"
+          git config user.name "bettersancarlos-refresh"
+          git config user.email "bettersancarlos-refresh@users.noreply.github.com"
           git fetch origin "$BRANCH" || true
+          # Switch branches BEFORE importing: main carries no research runs,
+          # so this is always clean; importing first would leave untracked
+          # files blocking the later checkout.
+          git checkout -B "$BRANCH"
           if git rev-parse --verify "origin/$BRANCH" >/dev/null 2>&1; then
             if git ls-tree -r --name-only "origin/$BRANCH" -- research/runs/ | grep -q .; then
               git archive "origin/$BRANCH" research/runs | tar -x -C .
@@ -121,10 +127,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           BRANCH="chore/scheduled-refresh"
-          git config user.name "bettersancarlos-refresh"
-          git config user.email "bettersancarlos-refresh@users.noreply.github.com"
           git fetch origin "$BRANCH" || true
-          git checkout -B "$BRANCH"
           git add "research/runs/${RUN_ID:?}"
           git commit -m "chore: scheduled civic-data refresh ($(date -u +%F))" || echo "nothing to commit"
           if git rev-parse --verify "origin/$BRANCH" >/dev/null 2>&1; then

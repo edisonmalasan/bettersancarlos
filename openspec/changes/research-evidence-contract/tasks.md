@@ -30,12 +30,12 @@
 
 ## 7. README generation
 
-- [ ] 7.1 Convert `research/README.md` to purpose/principles + generated index/summary regions, regenerate via `research:index`, and verify the derived tables match frontmatter state and stale hand-maintained listings are gone.
+- [x] 7.1 Convert `research/README.md` to purpose/principles + generated index/summary regions, regenerate via `research:index`, and verify the derived tables match frontmatter state and stale hand-maintained listings are gone.
 
 ## 8. Filenames and AGENTS.md
 
-- [ ] 8.1 Confirm all files keep existing names, document the stable-name rule for new files in FORMAT.md, and verify no active reference broke.
-- [ ] 8.2 Add the concise AGENTS.md research pointer (read FORMAT.md, choose research_type, keep verification/temporal separate, trace sources, sidecars for large datasets, run validate+index, never publish canonical from research, leave runs/ alone) and verify it links rather than duplicates.
+- [x] 8.1 Confirm all files keep existing names, document the stable-name rule for new files in FORMAT.md, and verify no active reference broke.
+- [x] 8.2 Add the concise AGENTS.md research pointer (read FORMAT.md, choose research_type, keep verification/temporal separate, trace sources, sidecars for large datasets, run validate+index, never publish canonical from research, leave runs/ alone) and verify it links rather than duplicates.
 
 ## 9. CI
 

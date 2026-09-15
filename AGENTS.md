@@ -86,6 +86,10 @@ never accept your own high-risk candidates; conflicts fail closed.
 Official-page news may use `--auto-news` (promotes as `reported` only).
 After any promotion: `bun run data:generate`, then `bun run verify`.
 
+## Research evidence
+
+Topic research under `research/<category>/` follows `research/FORMAT.md` (read it before creating or editing research): pick the right `research_type`, keep verification and temporal status separate, trace claims through the file's local source register, use `data/*.csv` sidecars for large structured datasets, and run `bun run research:validate` + `bun run research:index` after changes. Research Markdown never publishes canonical facts; leave `research/runs/` alone.
+
 ---
 
 ## Boundaries — do not touch

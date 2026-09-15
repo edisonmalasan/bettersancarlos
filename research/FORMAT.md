@@ -22,9 +22,11 @@ researched_at: 2026-09-04
 last_checked: 2026-09-04
 canonical_domains:
   - emergency
+# Only include data_files when a sidecar exists.
 data_files:
-  - data/contacts.csv   # only when a sidecar exists
-jurisdiction:           # omit entirely when the default applies
+  - data/contacts.csv
+# Omit jurisdiction entirely when the default applies.
+jurisdiction:
   country: PH
   province: Pangasinan
   locality: San Carlos City
@@ -37,6 +39,7 @@ jurisdiction:           # omit entirely when the default applies
 - `last_checked` is descriptive only: it records when a human last evaluated the file and MUST NOT feed any staleness computation. Old check dates are information, not failure.
 - `jurisdiction`: omit for the default (San Carlos City, Pangasinan, PH). When present, all three fields are required; a non-default `locality` MUST also be named in `## Scope` (wrong-city protection: district, provincial, and national context stays explicit).
 - New files use stable topic names (`emergency-hotlines.md`); existing `26-09-*.md` names are retained until a dedicated rename follow-up. Never encode verification status in a filename.
+- Every ```yaml block in this file is a complete valid frontmatter example (enforced by test): the parser accepts full-line comments only, never trailing inline comments.
 
 ## Vocabularies
 

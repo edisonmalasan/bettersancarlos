@@ -34,6 +34,7 @@ The directory is `data/barangays.csv` (87 records: 86 barangays in numeric order
 
 | Column | Meaning |
 |---|---|
+| `num` | Original directory number (1–86, the authoritative order); empty for the totals row |
 | `id` | Stable row ID: barangay name lowercased, dots and parentheses dropped, spaces collapsed to hyphens (e.g. `bugallon-posadas-st-poblacion`); `total` for the sums row |
 | `entity` | Barangay name as published |
 | `captain` | Barangay Captain (2024 LGU list) |

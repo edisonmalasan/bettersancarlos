@@ -68,17 +68,14 @@ jobs:
           git config user.name "bettersancarlos-refresh"
           git config user.email "bettersancarlos-refresh@users.noreply.github.com"
           git fetch origin "$BRANCH" || true
-          # Switch branches BEFORE importing: main carries no research runs,
-          # so this is always clean; importing first would leave untracked
-          # files blocking the later checkout.
           git checkout -B "$BRANCH"
+          # Merge (never rebase, never force-push): pending runs arrive as
+          # tracked files, so later branch operations cannot collide with
+          # untracked leftovers. Code stays on this ref; only research/runs
+          # history joins. Any merge conflict fails loudly for a human.
           if git rev-parse --verify "origin/$BRANCH" >/dev/null 2>&1; then
-            if git ls-tree -r --name-only "origin/$BRANCH" -- research/runs/ | grep -q .; then
-              git archive "origin/$BRANCH" research/runs | tar -x -C .
-              echo "Imported pending research history from $BRANCH (data paths only; code stays on this ref)."
-            else
-              echo "Refresh branch has no research runs yet."
-            fi
+            git merge "origin/$BRANCH" -m "chore: merge pending scheduled runs" --no-edit
+            echo "Merged pending research history; code stays on this ref, runs retained."
           else
             echo "No open refresh branch; starting fresh."
           fi
@@ -130,9 +127,9 @@ jobs:
           git fetch origin "$BRANCH" || true
           git add "research/runs/${RUN_ID:?}"
           git commit -m "chore: scheduled civic-data refresh ($(date -u +%F))" || echo "nothing to commit"
-          if git rev-parse --verify "origin/$BRANCH" >/dev/null 2>&1; then
-            git pull --rebase origin "$BRANCH"
-          fi
+          # History was already merged up front; a non-fast-forward push here
+          # means a concurrent run won the race — fail loudly, the next
+          # scheduled run self-heals by re-collecting.
           git push --set-upstream origin "$BRANCH"
           SUMMARY="$(bun run data:report | head -40)"
           OPEN_PR="$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number')"

@@ -1,13 +1,13 @@
 ## 1. Audit and contract
 
 - [ ] 1.1 Produce the migration inventory (every topic file: path, category, proposed stable id, research_type, verification/temporal/risk, sidecar candidate, rename candidate, product-idea section, active path references) and verify it covers all 33 files across the 21 category dirs.
-- [ ] 1.2 Write `research/FORMAT.md` (frontmatter, vocabularies, six research types, envelope sections, item-level verification, source register + syntax, sidecar rules, filename rules, jurisdiction default, runs/canonical boundaries, agent rules, dataset + gap-report examples) and verify a fresh agent can author a valid file from it alone.
+- [ ] 1.2 Write `research/FORMAT.md` (frontmatter incl. optional jurisdiction; vocabularies incl. seven source types with meanings; six research types with minimum Findings each; envelope sections with gap-report Current-Conclusion exception; item-level verification with canonical-ID naming preference; source register with exact `S<n>` syntax and the two parsed contexts; sidecar rules; last_checked-descriptive rule; filename rules; jurisdiction default; runs/canonical boundaries; agent rules; dataset + gap-report examples) and verify a fresh agent can author a valid file from it alone.
 - [ ] 1.3 Record the reference inventory (generate.ts provenance strings, generate.test.ts asserts, src/ user-visible labels, surfacing-spec prefix reference, archive references) and verify filenames stay `26-09-*.md` in this change with renames deferred to a follow-up.
 
 ## 2. Tooling
 
 - [ ] 2.1 Implement the shared frontmatter reader (`scripts/research/lib/`: discovery of governed files, `---` split, scalar/list parsing, deterministic category-then-id ordering, zero new dependencies) and verify unit tests cover malformed frontmatter, unknown schema, and ordering.
-- [ ] 2.2 Implement `bun run research:validate` (all §10 spec checks: schema/id uniqueness, closed vocabularies, ISO dates, sidecar existence/parse/ownership, source uniqueness/resolvability, secrets/local-path rejection, required type sections, duplicate entity IDs; runs/ excluded; offline) and verify each suggested test 4–17 passes.
+- [ ] 2.2 Implement `bun run research:validate` (all spec checks: schema/id uniqueness, closed vocabularies incl. source types, ISO dates with last_checked ordering and no exceptions, jurisdiction completeness + Scope naming for overrides, `S<n>` syntax in the two parsed contexts with bare prose unparsed, sidecar existence/parse/ownership, source uniqueness/resolvability, secrets/local-path rejection, per-type section minima, duplicate entity IDs; runs/ excluded; offline) and verify suggested tests 1–23 pass, including positive fixtures for valid dataset, directory, and gap-report documents alongside all negative cases.
 - [ ] 2.3 Implement `bun run research:index` (regenerates marked README regions: per-category table plus status summary; byte-identical reruns) and verify determinism tests 18–19 pass, deferring `research:report` unless a gap is demonstrated.
 
 ## 3. Representative migrations

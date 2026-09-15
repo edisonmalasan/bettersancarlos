@@ -24,9 +24,9 @@ sources:
     sourceType: facebook-page
     collector: facebook
     acquisition: facebook-graph
-    updateCadence: weekly
+    updateCadence: manual
     riskTier: medium
-    accessNotes: 'Official page posts feed news/advisory candidates; Graph API token required for automation.'
+    accessNotes: 'Facebook Graph collection requires Page-authorized access not available to this independent community project. Manual/dormant by default; Graph collector kept for fixture testing and possible future authorized access.'
     evidenceRef: 'research/government/26-09-government-directory.md'
     domains:
       - news

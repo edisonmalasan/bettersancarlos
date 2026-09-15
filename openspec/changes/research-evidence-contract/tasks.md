@@ -43,4 +43,4 @@
 
 ## 10. Full verification
 
-- [ ] 10.1 Run `bun run research:validate`, `bun run research:index` (determinism re-check), `bun run data:validate`, `bun run data:test`, and `bun run verify`, and verify all green with canonical records, generated frontend JSON, and `research/runs/` byte-identical and no network use.
+- [x] 10.1 Run `bun run research:validate`, `bun run research:index` (determinism re-check), `bun run data:validate`, `bun run data:test`, and `bun run verify`, and verify all green with canonical records, generated frontend JSON, and `research/runs/` byte-identical and no network use.

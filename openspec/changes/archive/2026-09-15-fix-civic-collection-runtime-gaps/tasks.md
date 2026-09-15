@@ -25,8 +25,8 @@
 ## 5. Documentation and validation
 
 - [x] 5.1 Update `AGENTS.md`, `docs/data-pipeline.md`, `docs/facebook-sync.md`, and schemas for the coverage model, acquisition routing, transaction/recovery rules, and branch strategy; verify a fresh-agent Scenario-H dry run following only the runbook
-- [ ] 5.2 Sync the accepted spec delta into `openspec/specs/civic-data-pipeline/spec.md` before archiving (no other capability changes); verify `openspec validate --specs` passes
+- [x] 5.2 Sync the accepted spec delta into `openspec/specs/civic-data-pipeline/spec.md` before archiving (no other capability changes); verify `openspec validate --specs` passes
 
 ## 6. Full verification
 
-- [ ] 6.1 Run `bun run data:validate`, `bun run data:test`, `bun run verify` (tsc + validate + production build) and the frontend spot-check; verify generated compatibility JSON is byte-identical and the site renders identically
+- [x] 6.1 Run `bun run data:validate`, `bun run data:test`, `bun run verify` (tsc + validate + production build) and the frontend spot-check; verify generated compatibility JSON is byte-identical and the site renders identically

@@ -13,4 +13,4 @@
 ## 3. Tests and final verification
 
 - [x] 3.1 Add focused locks only for uncovered behavior (registry manual assertion, `--due` exclusion, explicit invocation, dormant skip without credentials failing nothing else, fixture collection producing evidence/instances/provisional candidates), reusing existing `acquire`/`collectors`/`refresh` coverage where present, and verify `bun run data:test` passes.
-- [ ] 3.2 Run `bun run data:validate`, `bun run data:test`, and `bun run verify`, confirm `data/civic/records.json` and `data/civic/sources.json` are byte-identical and no scraper/auth-bypass code was introduced, and verify all three commands exit green.
+- [x] 3.2 Run `bun run data:validate`, `bun run data:test`, and `bun run verify`, confirm `data/civic/records.json` and `data/civic/sources.json` are byte-identical and no scraper/auth-bypass code was introduced, and verify all three commands exit green.

@@ -64,3 +64,28 @@ are backlog inputs, not commitments.
 - **Competitive Index dashboard** — time-series charts of the 5 CMCI pillars (2016–2019 historical + current when available).
 - **Pillar drill-down cards** — per-indicator ranks and scores with year-over-year comparison.
 - Link to the official CMCI profile page for the latest data.
+
+## culture-heritage
+
+- Heritage trail / landmark map with opening details.
+- Basilica and plaza "Did you know?" content.
+- Community folklore section (name-origin stories of barangays).
+
+## disaster-preparedness
+
+- **Evacuation center map** (with contact & capacity).
+- **Hazard map overlay** (flood/earthquake) once official MGB/DOST/NAMRIA layers are sourced.
+- **Emergency alerts/notices** board aggregated from CDRRMO Facebook/sms.
+- DRRM plan document repository.
+
+## hazard-maps
+
+- **Hazard map viewer** (flood/landslide/earthquake) — requires authoritative static map files or an embedded interactive map widget (once sourced from MGB/NOAH).
+- **Evacuation center locator** — the official convergence sites are already catalogued in research/disaster-risk/26-09-disaster-preparedness.md (from archived LGU data).
+- **Early warning / alert feed** — link to PAGASA advisories and CDRRMO social media.
+
+## local-economy
+
+- **Business directory / MSME directory** (needs data from City Treasurer/BPLO).
+- **Permit guide** (eBPLS walkthrough) + fee schedule (not yet obtained).
+- **Investment profile** page (land, population, strategic location).

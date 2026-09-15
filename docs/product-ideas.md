@@ -39,3 +39,28 @@ are backlog inputs, not commitments.
 - **Water service contact page** (once verified) with hotline, office hours, and service area.
 - **Water billing / inquiry info** linked to the district's online system (if any).
 - **Service interruption advisories** feed.
+
+## agriculture
+
+- **Agriculture dashboard** (mango/bamboo production data once DA/PSA figures obtained).
+- **Farmers & fisherfolk programs guide** (requirements for DA/city aid).
+- **Bamboo/mango directory** for local MSMEs.
+
+## city-profile
+
+- **City profile / About page** with authoritative infobox facts.
+- **Fact-checked stat cards** (population, area, barangays, income class).
+
+## gis-data
+
+- **Interactive city map** with barangay boundaries (choropleth of population).
+- **Facility map** (hospitals, schools, gov offices, markets, police, fire).
+- **Evacuation center map** (from `disaster-risk/26-09-disaster-preparedness.md`).
+- **Hazard overlay** once MGB/DOST data obtained.
+- **Address geocoding** for directory entries (geocode barangay centroids).
+
+## cmci-index
+
+- **Competitive Index dashboard** — time-series charts of the 5 CMCI pillars (2016–2019 historical + current when available).
+- **Pillar drill-down cards** — per-indicator ranks and scores with year-over-year comparison.
+- Link to the official CMCI profile page for the latest data.

@@ -1,0 +1,27 @@
+{
+  "runId": "2026-09-15",
+  "startedAt": "2026-09-15T00:14:17.576Z",
+  "endedAt": "2026-09-15T00:14:18.793Z",
+  "parameters": {
+    "sources": [
+      "lgu-website"
+    ],
+    "domains": null,
+    "due": true,
+    "offline": false
+  },
+  "sources": [
+    {
+      "sourceId": "lgu-website",
+      "checkedAt": "2026-09-15T00:14:17.576Z",
+      "outcome": "collected",
+      "evidenceSha256": "d42e823170b8a342c3e29c2356485c454bfa1b28a50afffab27439c1d50d8dfb",
+      "coverage": [
+        "city-hall-trunk-line"
+      ]
+    }
+  ],
+  "candidatesProduced": 1,
+  "conflictsFound": 0,
+  "collectedBy": "scheduled-refresh"
+}

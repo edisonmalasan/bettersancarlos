@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "instances": [
+    {
+      "id": "src-lgu-website-2026-09-15-d42e8231",
+      "registryId": "lgu-website",
+      "title": "City Government of San Carlos snapshot (lgu-website.html)",
+      "publisher": "City Government of San Carlos",
+      "url": "https://sancarlospangasinan.gov.ph/",
+      "documentType": "webpage",
+      "retrievedAt": "2026-09-15",
+      "sourceState": "active",
+      "evidencePath": "research/runs/2026-09-15/evidence/lgu-website.html",
+      "sha256": "d42e823170b8a342c3e29c2356485c454bfa1b28a50afffab27439c1d50d8dfb",
+      "collectedBy": "scheduled-refresh",
+      "runId": "2026-09-15",
+      "notes": "1 phone-like value(s) observed in evidence."
+    }
+  ]
+}

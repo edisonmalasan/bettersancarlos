@@ -1,0 +1,5 @@
+# Pipeline evidence bytes must survive checkout unmodified: canonical
+# sources pin them by SHA-256 and `bun run data:validate` recomputes the
+# hash from the working tree. Without this, text-convicting checkouts
+# (core.autocrlf) would rewrite staged HTML evidence and break validation.
+research/runs/**/evidence/* binary

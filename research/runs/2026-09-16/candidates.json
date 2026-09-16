@@ -1,0 +1,633 @@
+{
+  "candidates": [
+    {
+      "id": "health-facility-pangasinan-provincial",
+      "domain": "health",
+      "type": "facility",
+      "label": "Pangasinan Provincial Hospital (PhilHealth-accredited)",
+      "data": {
+        "name": "Pangasinan Provincial Hospital",
+        "address": "Brgy. Bolingit, San Carlos City, Pangasinan",
+        "level": "Level 2",
+        "ownership": "government",
+        "category": "hospital",
+        "accreditation": {
+          "accredited_by": "PhilHealth",
+          "accredited_beds": 250,
+          "accreditation_expiry": "12/31/2026"
+        }
+      },
+      "claimSources": {
+        "name": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "address": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "level": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "accreditation": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ]
+      },
+      "sourceIds": [
+        "philhealth-accredited-facilities"
+      ],
+      "sourceInstanceIds": [
+        "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+      ],
+      "status": "provisional",
+      "collectedBy": "followup-evidence-staging",
+      "runId": "2026-09-16",
+      "notes": "PhilHealth CY2026 accreditation evidence only; no DOH license fields exist for this facility."
+    },
+    {
+      "id": "health-facility-virgen-milagrosa",
+      "domain": "health",
+      "type": "facility",
+      "label": "Virgen Milagrosa Medical Center (PhilHealth-accredited)",
+      "data": {
+        "name": "Virgen Milagrosa Medical Center",
+        "address": "Martin P. Posadas Ave., San Carlos City, Pangasinan",
+        "level": "Level 2",
+        "category": "hospital",
+        "accreditation": {
+          "accredited_by": "PhilHealth",
+          "accredited_beds": 50,
+          "accreditation_expiry": "12/31/2026"
+        }
+      },
+      "claimSources": {
+        "name": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "address": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "level": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "accreditation": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ]
+      },
+      "sourceIds": [
+        "philhealth-accredited-facilities"
+      ],
+      "sourceInstanceIds": [
+        "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+      ],
+      "status": "provisional",
+      "collectedBy": "followup-evidence-staging",
+      "runId": "2026-09-16",
+      "notes": "PhilHealth CY2026 accreditation evidence only; no DOH license fields exist for this facility."
+    },
+    {
+      "id": "health-facility-pangasinan-doctors",
+      "domain": "health",
+      "type": "facility",
+      "label": "Pangasinan Doctors Hospital (PhilHealth-accredited)",
+      "data": {
+        "name": "Pangasinan Doctors Hospital",
+        "address": "307 Rizal Avenue, San Carlos City, Pangasinan",
+        "level": "Level 2",
+        "category": "hospital",
+        "accreditation": {
+          "accredited_by": "PhilHealth",
+          "accredited_beds": 37,
+          "accreditation_expiry": "12/31/2026"
+        }
+      },
+      "claimSources": {
+        "name": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "address": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "level": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "accreditation": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ]
+      },
+      "sourceIds": [
+        "philhealth-accredited-facilities"
+      ],
+      "sourceInstanceIds": [
+        "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+      ],
+      "status": "provisional",
+      "collectedBy": "followup-evidence-staging",
+      "runId": "2026-09-16",
+      "notes": "PhilHealth CY2026 accreditation evidence only; no DOH license fields exist for this facility."
+    },
+    {
+      "id": "health-facility-blessed-family",
+      "domain": "health",
+      "type": "facility",
+      "label": "Blessed Family Doctors General Hospital, Inc. (PhilHealth-accredited)",
+      "data": {
+        "name": "Blessed Family Doctors General Hospital, Inc.",
+        "address": "Ilang, San Carlos City, Pangasinan",
+        "level": "Level 2",
+        "category": "hospital",
+        "accreditation": {
+          "accredited_by": "PhilHealth",
+          "accredited_beds": 75,
+          "accreditation_expiry": "12/31/2026"
+        }
+      },
+      "claimSources": {
+        "name": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "address": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "level": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "accreditation": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ]
+      },
+      "sourceIds": [
+        "philhealth-accredited-facilities"
+      ],
+      "sourceInstanceIds": [
+        "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+      ],
+      "status": "provisional",
+      "collectedBy": "followup-evidence-staging",
+      "runId": "2026-09-16",
+      "notes": "PhilHealth CY2026 accreditation evidence only; no DOH license fields exist for this facility."
+    },
+    {
+      "id": "health-facility-elguira",
+      "domain": "health",
+      "type": "facility",
+      "label": "Elguira General Hospital (PhilHealth-accredited)",
+      "data": {
+        "name": "Elguira General Hospital",
+        "address": "259 Rizal Ave., San Carlos City, Pangasinan",
+        "level": "Level 2",
+        "category": "hospital",
+        "accreditation": {
+          "accredited_by": "PhilHealth",
+          "accredited_beds": 30,
+          "accreditation_expiry": "12/31/2026"
+        }
+      },
+      "claimSources": {
+        "name": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "address": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "level": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "accreditation": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ]
+      },
+      "sourceIds": [
+        "philhealth-accredited-facilities"
+      ],
+      "sourceInstanceIds": [
+        "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+      ],
+      "status": "provisional",
+      "collectedBy": "followup-evidence-staging",
+      "runId": "2026-09-16",
+      "notes": "PhilHealth CY2026 accreditation evidence only; no DOH license fields exist for this facility."
+    },
+    {
+      "id": "health-facility-christ-bearer",
+      "domain": "health",
+      "type": "facility",
+      "label": "Christ-Bearer Infirmary (PhilHealth-accredited)",
+      "data": {
+        "name": "Christ-Bearer Infirmary",
+        "address": "Binoalan, Pagal, San Carlos City, Pangasinan",
+        "level": "INF/DISP",
+        "category": "infirmary",
+        "accreditation": {
+          "accredited_by": "PhilHealth",
+          "accredited_beds": 18,
+          "accreditation_expiry": "12/31/2026"
+        }
+      },
+      "claimSources": {
+        "name": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "address": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "level": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ],
+        "accreditation": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ]
+      },
+      "sourceIds": [
+        "philhealth-accredited-facilities"
+      ],
+      "sourceInstanceIds": [
+        "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+      ],
+      "status": "provisional",
+      "collectedBy": "followup-evidence-staging",
+      "runId": "2026-09-16",
+      "notes": "PhilHealth CY2026 accreditation evidence only; no DOH license fields exist for this facility."
+    },
+    {
+      "id": "city-health-office",
+      "domain": "health",
+      "type": "directory",
+      "label": "City Health Office (officer + historical contact)",
+      "data": {
+        "office": "City Health Office",
+        "city": "San Carlos City",
+        "province": "Pangasinan",
+        "officers": [
+          {
+            "name": "Dr. Edwin DV. Guinto",
+            "role": "City Health Officer"
+          },
+          {
+            "name": "Dra. Luisa F. Cayabyab",
+            "role": "City Population Officer"
+          }
+        ],
+        "phone": {
+          "number": "(075) 955-5917",
+          "status": "historical - re-verify",
+          "source": "old official site (archived 2017-03-22)"
+        }
+      },
+      "claimSources": {
+        "office": [
+          "src-lgu-website-2026-09-16-ed6db3b1"
+        ],
+        "officers": [
+          "src-lgu-website-2026-09-16-ed6db3b1"
+        ],
+        "phone": [
+          "src-lgu-old-site-archive-2026-09-16-21f6ff2c"
+        ]
+      },
+      "sourceIds": [
+        "lgu-website",
+        "lgu-old-site-archive"
+      ],
+      "sourceInstanceIds": [
+        "src-lgu-website-2026-09-16-ed6db3b1",
+        "src-lgu-old-site-archive-2026-09-16-21f6ff2c"
+      ],
+      "status": "provisional",
+      "collectedBy": "followup-evidence-staging",
+      "runId": "2026-09-16",
+      "notes": "Officer mapping resolved by the live 2026-09-16 LGU directory; phone is 2017-vintage, never current."
+    },
+    {
+      "id": "utility-water-provider-sccwd",
+      "domain": "utilities",
+      "type": "service",
+      "label": "San Carlos City Water District (provider identity)",
+      "data": {
+        "provider": "San Carlos City Water District",
+        "abbreviation": "SCCWD",
+        "establishment": {
+          "basis": "Sangguniang Panlungsod Resolution No. 42 (March 1977)",
+          "certificate": "LWUA Conditional Certificate of Conformance awarded July 28, 1977"
+        },
+        "website": {
+          "url": "https://www.sccwd.gov.ph/",
+          "note": "Official site verified live; content vintage circa 2017"
+        },
+        "joint_venture": {
+          "partner": "Primewater Infrastructure Corporation",
+          "date": "2014-10-15",
+          "purpose": "financing, development, rehabilitation, improvement, expansion, and maintenance",
+          "operator_status": "unresolved",
+          "note": "Day-to-day customer-service responsibility is not established; PrimeWater is not claimed as the operator"
+        },
+        "contacts": {
+          "status": "withheld-historical",
+          "note": "Address, telephone, leadership, and service-area figures are known only from 2017-vintage district pages and 2015 operational data; withheld from current facts pending re-verification"
+        }
+      },
+      "claimSources": {
+        "provider": [
+          "src-sccwd-official-2026-09-16-08a7d142"
+        ],
+        "establishment": [
+          "src-sccwd-official-2026-09-16-08a7d142"
+        ],
+        "website": [
+          "src-sccwd-official-2026-09-16-76e44ae5"
+        ],
+        "joint_venture": [
+          "src-sccwd-official-2026-09-16-08a7d142"
+        ]
+      },
+      "sourceIds": [
+        "sccwd-official"
+      ],
+      "sourceInstanceIds": [
+        "src-sccwd-official-2026-09-16-08a7d142",
+        "src-sccwd-official-2026-09-16-76e44ae5"
+      ],
+      "status": "provisional",
+      "collectedBy": "followup-evidence-staging",
+      "runId": "2026-09-16",
+      "notes": "Current-only identity core; all vintage operational detail stays research-only."
+    },
+    {
+      "id": "dpwh-projects-summary",
+      "domain": "infrastructure",
+      "type": "project",
+      "label": "DPWH reported project observations (partial coverage)",
+      "data": {
+        "summary": {
+          "totalProjects": 4,
+          "totalCost_millions": 147.87,
+          "completedProjects": 4,
+          "ongoingProjects": 0,
+          "implementingAgency": "DPWH Pangasinan 4th District Engineering Office",
+          "coverage": "Reported project observations from official DPWH narratives; not a complete project registry — stable project IDs, contractors, and completion dates were not retrievable"
+        },
+        "entries": [
+          {
+            "title": "Agno River slope protection, 355.47 m",
+            "location": "Brgy. Bogaoan",
+            "implementing_office": "DPWH Pangasinan 4th DEO",
+            "amount_millions": 48.99,
+            "funding": "GAA 2024",
+            "status": "reported-complete",
+            "status_note": "Reported complete Aug 2024 per official DPWH narrative; no stable project ID"
+          },
+          {
+            "title": "Flood mitigation revetment, 287 m",
+            "location": "Brgy. Guelew",
+            "implementing_office": "DPWH Pangasinan 4th DEO",
+            "amount_millions": 47.78,
+            "funding": "GAA 2024",
+            "status": "reported-complete",
+            "status_note": "Reported complete Aug 2024 per official DPWH narrative; no stable project ID"
+          },
+          {
+            "title": "Villasis-Malasiqui-San Carlos Road asphalt overlay, 703 m",
+            "location": "Brgy. Coliling",
+            "implementing_office": "DPWH Pangasinan 4th DEO",
+            "amount_millions": 9.9,
+            "funding": "GAA 2024",
+            "status": "reported-complete",
+            "status_note": "Reported complete 2024 per official DPWH narrative; no stable project ID"
+          },
+          {
+            "title": "Coliling drainage + road widening, ~1.03 km",
+            "location": "Brgy. Coliling (Villasis-Malasiqui-San Carlos Rd)",
+            "implementing_office": "DPWH (Ilocos Region report)",
+            "amount_millions": 41.2,
+            "funding": "reported",
+            "status": "reported-complete",
+            "status_note": "Reported complete per official DPWH narrative (travel-time improvement claimed therein); no stable project ID"
+          }
+        ]
+      },
+      "claimSources": {
+        "summary": [
+          "src-dpwh-projects-2026-09-16-833a4134"
+        ],
+        "entries": [
+          "src-dpwh-projects-2026-09-16-833a4134",
+          "src-dpwh-projects-2026-09-16-056e6e0a"
+        ],
+        "entries.0": [
+          "src-dpwh-projects-2026-09-16-833a4134"
+        ],
+        "entries.1": [
+          "src-dpwh-projects-2026-09-16-833a4134"
+        ],
+        "entries.2": [
+          "src-dpwh-projects-2026-09-16-056e6e0a"
+        ],
+        "entries.3": [
+          "src-dpwh-projects-2026-09-16-056e6e0a"
+        ]
+      },
+      "sourceIds": [
+        "dpwh-projects"
+      ],
+      "sourceInstanceIds": [
+        "src-dpwh-projects-2026-09-16-833a4134",
+        "src-dpwh-projects-2026-09-16-056e6e0a"
+      ],
+      "status": "provisional",
+      "collectedBy": "followup-evidence-staging",
+      "runId": "2026-09-16",
+      "notes": "Tender-aggregator notices (26Aj0046/26A00037/26AJ0050, secondary) and Provincial Government Gemma Road stay out; BAC follow-up noted."
+    },
+    {
+      "id": "dpwh-projects-note",
+      "domain": "infrastructure",
+      "type": "document",
+      "label": "DPWH projects publication note",
+      "data": {
+        "note": "Four project observations (Bogaoan slope, Guelew revetment, Coliling overlay, Coliling drainage/widening) are verified from official DPWH narratives with reported 2024 completion; amounts, offices, and locations are as reported. No stable project IDs, contractors, or completion dates were retrievable, and the list is reported observations, not a complete registry. Three procurement notices seen via a secondary tender aggregator (26Aj0046 access road to Minor Basilica, 26A00037 San Carlos City Bypass Road SIPAG, 26AJ0050 local roads) are procurement-stage only — confirm status with PhilGEPS/BAC. The 596 m Gemma Road (Mabalbalino) is a Provincial Government project, not DPWH."
+      },
+      "claimSources": {
+        "note": [
+          "src-dpwh-projects-2026-09-16-833a4134",
+          "src-dpwh-projects-2026-09-16-056e6e0a"
+        ]
+      },
+      "sourceIds": [
+        "dpwh-projects"
+      ],
+      "sourceInstanceIds": [
+        "src-dpwh-projects-2026-09-16-833a4134",
+        "src-dpwh-projects-2026-09-16-056e6e0a"
+      ],
+      "status": "provisional",
+      "collectedBy": "followup-evidence-staging",
+      "runId": "2026-09-16",
+      "notes": "File-level coverage note carried into generated dpwh-projects.json as _note."
+    },
+    {
+      "id": "transparency-doc-province-appropriation-2023",
+      "domain": "transparency",
+      "type": "document",
+      "label": "Province Resolution 287-2023 — San Carlos City CY2023 annual budget review",
+      "data": {
+        "title": "Resolution No. 287-2023 — Annual budget for CY2023, City of San Carlos (appropriation review)",
+        "fiscal_year": 2023,
+        "issuing_authority": "Sangguniang Panlalawigan, Province of Pangasinan",
+        "document_type": "budget-review resolution",
+        "resolution_no": "287-2023",
+        "jurisdiction": "Province of Pangasinan",
+        "city_subject": "City of San Carlos",
+        "relation_to_city_fiscal_series": "Budget authorization review; not BLGF Statement of Receipts and Expenditures actuals",
+        "review_date": "2023-03-20",
+        "url": "https://www.pangasinan.gov.ph/wp-content/uploads/2025/02/287-2023.pdf"
+      },
+      "claimSources": {
+        "title": [
+          "src-province-pangasinan-2026-09-16-f7b90989"
+        ],
+        "fiscal_year": [
+          "src-province-pangasinan-2026-09-16-f7b90989"
+        ],
+        "issuing_authority": [
+          "src-province-pangasinan-2026-09-16-f7b90989"
+        ],
+        "document_type": [
+          "src-province-pangasinan-2026-09-16-f7b90989"
+        ],
+        "resolution_no": [
+          "src-province-pangasinan-2026-09-16-f7b90989"
+        ]
+      },
+      "sourceIds": [
+        "province-pangasinan"
+      ],
+      "sourceInstanceIds": [
+        "src-province-pangasinan-2026-09-16-f7b90989"
+      ],
+      "status": "provisional",
+      "collectedBy": "followup-evidence-staging",
+      "runId": "2026-09-16",
+      "notes": "Metadata only; no budget figures modeled."
+    },
+    {
+      "id": "transparency-doc-province-appropriation-2024",
+      "domain": "transparency",
+      "type": "document",
+      "label": "Province Resolution 375-2024 — San Carlos City CY2024 annual budget review",
+      "data": {
+        "title": "Resolution No. 375-2024 — Annual budget for CY2024, City of San Carlos (appropriation review)",
+        "fiscal_year": 2024,
+        "issuing_authority": "Sangguniang Panlalawigan, Province of Pangasinan",
+        "document_type": "budget-review resolution",
+        "resolution_no": "375-2024",
+        "jurisdiction": "Province of Pangasinan",
+        "city_subject": "City of San Carlos",
+        "relation_to_city_fiscal_series": "Budget authorization review; not BLGF Statement of Receipts and Expenditures actuals",
+        "ordinance_no": "23-49",
+        "ordinance_date": "2023-10-31",
+        "url": "https://www.pangasinan.gov.ph/wp-content/uploads/2024/11/375-2024-RES.pdf"
+      },
+      "claimSources": {
+        "title": [
+          "src-province-pangasinan-2026-09-16-723a3d6e"
+        ],
+        "fiscal_year": [
+          "src-province-pangasinan-2026-09-16-723a3d6e"
+        ],
+        "issuing_authority": [
+          "src-province-pangasinan-2026-09-16-723a3d6e"
+        ],
+        "document_type": [
+          "src-province-pangasinan-2026-09-16-723a3d6e"
+        ],
+        "resolution_no": [
+          "src-province-pangasinan-2026-09-16-723a3d6e"
+        ]
+      },
+      "sourceIds": [
+        "province-pangasinan"
+      ],
+      "sourceInstanceIds": [
+        "src-province-pangasinan-2026-09-16-723a3d6e"
+      ],
+      "status": "provisional",
+      "collectedBy": "followup-evidence-staging",
+      "runId": "2026-09-16",
+      "notes": "Metadata only; ordinance pairing rests on PR #105 verification."
+    },
+    {
+      "id": "transparency-doc-province-appropriation-2025",
+      "domain": "transparency",
+      "type": "document",
+      "label": "Province Resolution 304-2025 — San Carlos City CY2025 annual budget review",
+      "data": {
+        "title": "Resolution No. 304-2025 — Annual budget for CY2025, City of San Carlos (appropriation review)",
+        "fiscal_year": 2025,
+        "issuing_authority": "Sangguniang Panlalawigan, Province of Pangasinan",
+        "document_type": "budget-review resolution",
+        "resolution_no": "304-2025",
+        "jurisdiction": "Province of Pangasinan",
+        "city_subject": "City of San Carlos",
+        "relation_to_city_fiscal_series": "Budget authorization review; not BLGF Statement of Receipts and Expenditures actuals",
+        "review_date": "2025-03-03",
+        "url": "https://www.pangasinan.gov.ph/wp-content/uploads/2025/03/304-2025-RES.pdf"
+      },
+      "claimSources": {
+        "title": [
+          "src-province-pangasinan-2026-09-16-b119c706"
+        ],
+        "fiscal_year": [
+          "src-province-pangasinan-2026-09-16-b119c706"
+        ],
+        "issuing_authority": [
+          "src-province-pangasinan-2026-09-16-b119c706"
+        ],
+        "document_type": [
+          "src-province-pangasinan-2026-09-16-b119c706"
+        ],
+        "resolution_no": [
+          "src-province-pangasinan-2026-09-16-b119c706"
+        ]
+      },
+      "sourceIds": [
+        "province-pangasinan"
+      ],
+      "sourceInstanceIds": [
+        "src-province-pangasinan-2026-09-16-b119c706"
+      ],
+      "status": "provisional",
+      "collectedBy": "followup-evidence-staging",
+      "runId": "2026-09-16",
+      "notes": "Metadata only."
+    },
+    {
+      "id": "health-publication-note",
+      "domain": "health",
+      "type": "document",
+      "label": "Health facilities publication note",
+      "data": {
+        "note": "Facility accreditation facts (level, accredited beds, accreditation expiry, addresses) are PhilHealth CY2026 accreditation data for San Carlos City, Pangasinan. They are not DOH licensure facts: no DOH license numbers, LTO statuses, or license expiries are published for any facility.",
+        "gap_note": "DOH license-to-operate data remains unverified (HFSRB list 404, OLRS login-only) and is deliberately absent. Facility phone/email contacts were not transcribed from the accreditation package and are not published. RHU/barangay health stations, pharmacies, labs, and clinics were not compiled."
+      },
+      "claimSources": {
+        "note": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09",
+          "src-lgu-website-2026-09-16-ed6db3b1"
+        ],
+        "gap_note": [
+          "src-philhealth-accredited-facilities-2026-09-16-54351c09"
+        ]
+      },
+      "sourceIds": [
+        "philhealth-accredited-facilities",
+        "lgu-website"
+      ],
+      "sourceInstanceIds": [
+        "src-philhealth-accredited-facilities-2026-09-16-54351c09",
+        "src-lgu-website-2026-09-16-ed6db3b1"
+      ],
+      "status": "provisional",
+      "collectedBy": "followup-evidence-staging",
+      "runId": "2026-09-16",
+      "notes": "File-level notes carried into generated health-facilities.json as _note/_status context and gap_note."
+    }
+  ]
+}

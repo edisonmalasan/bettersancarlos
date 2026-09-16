@@ -90,6 +90,34 @@ The **City Health Office (CHO)** operates under the San Carlos City government (
 3. **Contact the Pangasinan Provincial Health Office** — for the Pangasinan Provincial Hospital license details.
 4. **Verify directly with each facility** — request current license-to-operate and bed-capacity data from VMUF Medical Center, Blessed Family Hospital, and San Carlos Doctors Hospital.
 
+## Recommended Inquiry: HFSRB License Data (Follow-Up 2026-09-16)
+
+Agency: Department of Health — Health Facilities and Services Regulatory Bureau (HFSRB)
+
+Subject: License-to-Operate records for health facilities in San Carlos City, Pangasinan
+
+Requested records per facility: LTO number, LTO status, authorized bed capacity (if different from PhilHealth figures), license validity dates, DOH facility classification/level
+
+Facilities (names as published; do not merge variants without confirmation):
+- Pangasinan Provincial Hospital — Brgy. Bolingit (PhilHealth: 250 beds, Level 2, government)
+- Virgen Milagrosa Medical Center — Martin P. Posadas Ave. (PhilHealth: 50 beds, Level 2)
+- Pangasinan Doctors Hospital — 307 Rizal Avenue (PhilHealth: 37 beds, Level 2)
+- Blessed Family Doctors General Hospital, Inc. — Ilang (PhilHealth: 75 beds, Level 2)
+- Elguira General Hospital — 259 Rizal Ave. (PhilHealth: 30 beds, Level 2)
+- Christ-Bearer Infirmary — Binoalan, Pagal (PhilHealth: 18 beds, INF/DISP)
+
+Jurisdiction: San Carlos City, Pangasinan (scope PhilHealth rows to the Region I section; similarly named Negros entries must not be mixed in)
+
+Period: current licenses (CY2026)
+
+Preferred response format: CSV/XLS/PDF where applicable
+
+Reason: public civic-data verification (HFSRB list unreachable, OLRS has no public path; PhilHealth establishes accreditation only, not licensure)
+
+Contact/request channel: official DOH HFSRB channels only (to be confirmed at request time; do not send automatically)
+
+Naming-variant caution: research previously recorded both "Pangasinan Doctors' Hospital" (evacuation plan) and "San Carlos Doctors Hospital" (Wikivoyage); PhilHealth lists "PANGASINAN DOCTORS HOSPITAL, 307 RIZAL AVENUE" and separately "ELGUIRA GENERAL HOSPITAL, 259 RIZAL AVE." Treat San Carlos Doctors / Pangasinan Doctors / Elguira as distinct until an authoritative source merges them.
+
 ## Sources
 
 | ID | Publisher | Document | Published | Accessed | Type | URL |

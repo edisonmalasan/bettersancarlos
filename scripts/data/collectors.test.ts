@@ -14,6 +14,12 @@ import {
   parsePsaPhilatlas,
   PSA_COVERAGE,
 } from './collectors/psa-philatlas';
+import {
+  CENPELCO_COVERAGE,
+  collectCenpelco,
+  parseCenpelco,
+  SAN_CARLOS_MAIN_OFFICE,
+} from './collectors/cenpelco';
 import { resolveCollector } from './collectors/index';
 import type { RegistryEntry } from './lib/civic';
 
@@ -151,6 +157,7 @@ test('resolveCollector refuses unknown or null collectors', () => {
   assert.equal(typeof resolveCollector('facebook'), 'function');
   assert.equal(typeof resolveCollector('city-website'), 'function');
   assert.equal(typeof resolveCollector('psa-philatlas'), 'function');
+  assert.equal(typeof resolveCollector('cenpelco'), 'function');
   assert.equal(resolveCollector('universal-scraper'), null);
   assert.equal(resolveCollector(null), null);
 });
@@ -378,4 +385,185 @@ test('normalizeBarangayName only folds safe presentation differences', () => {
   assert.equal(normalizeBarangayName('Bugallon-Posadas Street (Poblacion)'), 'Bugallon-Posadas Street (Poblacion)');
   assert.equal(normalizeBarangayName('M. Soriano'), 'M. Soriano');
   assert.equal(normalizeBarangayName('BURGOS PADLAN').toLowerCase(), 'burgos padlan');
+});
+
+// ---- cenpelco collector (CENPELCO branch gallery) ----
+
+const CENPELCO_FIXTURE = fileURLToPath(
+  new URL('./fixtures/cenpelco-branch-gallery-2026-09-16.html', import.meta.url),
+);
+
+function cenpelcoHtml(): string {
+  return fs.readFileSync(CENPELCO_FIXTURE, 'utf8');
+}
+
+function cenpelcoRegistry(): RegistryEntry {
+  return {
+    id: 'cenpelco',
+    publisher: 'Central Pangasinan Electric Cooperative',
+    url: 'https://cenpelco.com/',
+    sourceType: 'website',
+    collector: 'cenpelco',
+    updateCadence: 'quarterly',
+    evidenceRef: 'research/utilities/26-09-cenpelco-contacts.md',
+    domains: ['utilities'],
+  };
+}
+
+function cenpelcoArgs(evidenceText?: string) {
+  return {
+    registryId: 'cenpelco',
+    registry: cenpelcoRegistry(),
+    evidenceName: 'cenpelco.html',
+    evidenceText: evidenceText ?? cenpelcoHtml(),
+    runId: '2026-09-16',
+    collectedBy: 'fixture-agent',
+  };
+}
+
+function cenpelcoSwap(html: string, from: string, to: string, minExpected = 1): string {
+  const count = html.split(from).length - 1;
+  assert.ok(count >= minExpected, `expected ${minExpected}+ occurrence(s) of ${from}, found ${count}`);
+  return html.split(from).join(to);
+}
+
+const CENPELCO_SLUGS = [
+  'mangaldan', 'lingayen', 'bugallon', 'sual', 'labrador', 'bayambang', 'malasiqui',
+  'binmaley', 'mangatarem', 'aguilar', 'basista', 'urbiztondo', 'alcala', 'bautista', 'sancarlos',
+];
+
+test('cenpelco parses the current fixture with the full office gallery', () => {
+  const obs = parseCenpelco(cenpelcoHtml(), 'cenpelco.html');
+  assert.equal(obs.providerShort, 'CENPELCO');
+  assert.equal(obs.providerFull, 'Central Pangasinan Electric Cooperative');
+  assert.equal(obs.sanCarlosOffice, SAN_CARLOS_MAIN_OFFICE);
+  assert.deepEqual(
+    obs.offices.map((o) => o.id),
+    CENPELCO_SLUGS,
+  );
+  assert.equal(obs.offices.find((o) => o.id === 'sancarlos')?.name, 'San Carlos City (Main)');
+});
+
+test('cenpelco collector is deterministic, provisional, and exactly linked', () => {
+  const first = collectCenpelco(cenpelcoArgs());
+  const second = collectCenpelco(cenpelcoArgs());
+  assert.deepEqual(first, second);
+  assert.equal(first.candidates.length, 2);
+  assert.deepEqual(
+    first.candidates.map((c) => c.id).sort(),
+    [...CENPELCO_COVERAGE].sort(),
+  );
+  assert.equal(first.sourceInstances.length, 1);
+  const [instance] = first.sourceInstances;
+  assert.match(instance.id, /^src-cenpelco-2026-09-16-[0-9a-f]{8}$/);
+  assert.equal(instance.registryId, 'cenpelco');
+  assert.equal(instance.documentType, 'webpage');
+  const provider = first.candidates.find((c) => c.id === 'utility-electricity-provider');
+  const offices = first.candidates.find((c) => c.id === 'cenpelco-area-offices');
+  assert.deepEqual(Object.keys(provider?.data ?? {}).sort(), [
+    'provider_full',
+    'provider_short',
+    'san_carlos_office',
+    'serves_san_carlos_city',
+  ]);
+  assert.deepEqual(provider?.data.serves_san_carlos_city, true);
+  assert.deepEqual(Object.keys(offices?.data ?? {}), ['offices']);
+  assert.deepEqual(
+    (offices?.data as { offices: Array<{ id: string }> }).offices.map((o) => o.id),
+    [...CENPELCO_SLUGS].sort(),
+  );
+  for (const candidate of first.candidates) {
+    assert.equal(candidate.status, 'provisional');
+    assert.ok(!('acceptedBy' in candidate), `${candidate.id} must not carry reviewer fields`);
+    assert.ok(!('acceptedAt' in candidate), `${candidate.id} must not carry reviewer fields`);
+    assert.deepEqual(candidate.sourceIds, ['cenpelco']);
+    assert.deepEqual(candidate.sourceInstanceIds, [instance.id]);
+  }
+  assert.deepEqual(first.coverage, { expectedRecordIds: [...CENPELCO_COVERAGE] });
+});
+
+test('cenpelco ignores stray numbers and out-of-gallery links', () => {
+  const pristine = collectCenpelco(cenpelcoArgs());
+  const withPhone = cenpelcoHtml().replace('</body>', '<p>Call 532-2222 now! GM office.</p></body>');
+  assert.deepEqual(
+    collectCenpelco(cenpelcoArgs(withPhone)).candidates.map((c) => c.data),
+    pristine.candidates.map((c) => c.data),
+    'stray contact text must not enter candidate data',
+  );
+  // A well-formed branch link between the heading row and the gallery list
+  // (outside the <ul> the parser scopes to) must not be picked up.
+  const html = cenpelcoHtml();
+  const headingAt = html.lastIndexOf('CENPELCO Gallery of Branches');
+  assert.ok(headingAt > 0, 'gallery heading present in body');
+  const withRogueLink =
+    html.slice(0, headingAt) +
+    'CENPELCO Gallery of Branches</td></tr><tr><td><a href="../branches/fakeville/fakeville.jsp">Fakeville</a></td></tr><tr><td>' +
+    html.slice(headingAt + 'CENPELCO Gallery of Branches'.length);
+  assert.deepEqual(
+    collectCenpelco(cenpelcoArgs(withRogueLink)).candidates.map((c) => c.data),
+    pristine.candidates.map((c) => c.data),
+    'out-of-gallery links must not become office records',
+  );
+});
+
+test('cenpelco gallery reorder alone yields identical candidate data', () => {
+  const html = cenpelcoHtml();
+  const ulOpen = html.indexOf('<ul>');
+  const ulClose = html.indexOf('</ul>', ulOpen);
+  const items = [...html.slice(ulOpen, ulClose).matchAll(/<li>[\s\S]*?<\/li>/g)].map((m) => m[0]);
+  assert.equal(items.length, 15);
+  const reordered = html.slice(0, ulOpen) + '<ul>' + [...items].reverse().join('') + html.slice(ulClose);
+  const pristine = collectCenpelco(cenpelcoArgs());
+  assert.deepEqual(
+    collectCenpelco(cenpelcoArgs(reordered)).candidates.map((c) => c.data),
+    pristine.candidates.map((c) => c.data),
+  );
+});
+
+test('cenpelco fails closed on drift, duplicates, and malformed rows', () => {
+  const html = cenpelcoHtml();
+  assert.throws(() => parseCenpelco('', 'empty.html'), /parse: empty evidence/);
+  assert.throws(
+    () => parseCenpelco(cenpelcoSwap(html, 'CENPELCO Gallery of Branches', 'Our Branches'), 'renamed.html'),
+    /parse: office gallery anchor not found/,
+  );
+  const sanCarlosLi = '<li><a href="../branches/sancarlos/sancarlos.jsp" target="frame1">San Carlos City (Main)</a></li>';
+  assert.ok(html.includes(sanCarlosLi), 'san carlos row present in fixture');
+  assert.throws(
+    () => parseCenpelco(html.replace(sanCarlosLi, `${sanCarlosLi}${sanCarlosLi}`), 'dup-office.html'),
+    /parse: duplicate office identity/,
+  );
+  assert.throws(
+    () =>
+      parseCenpelco(
+        cenpelcoSwap(html, '../branches/sancarlos/sancarlos.jsp', '../offices/sancarlos.jsp'),
+        'bad-href.html',
+      ),
+    /parse: malformed office link/,
+  );
+  assert.throws(
+    () =>
+      parseCenpelco(
+        cenpelcoSwap(html, '>Bugallon</a>', '></a>'),
+        'blank-name.html',
+      ),
+    /parse: blank office name/,
+  );
+  assert.throws(
+    () => parseCenpelco(cenpelcoSwap(html, 'CENPELCO Central Pangasinan', 'XYZ Power'), 'bad-title.html'),
+    /parse: cooperative identity not found/,
+  );
+});
+
+test('cenpelco San Carlos guard requires the exact Main qualifier', () => {
+  const html = cenpelcoHtml();
+  assert.throws(
+    () => parseCenpelco(cenpelcoSwap(html, 'San Carlos City (Main)', 'San Carlos City'), 'bare.html'),
+    /parse: San Carlos City \(Main\) not found/,
+  );
+  const ambiguous = html.replace(
+    '</ul>',
+    '<li><a href="../branches/sancarlos-north/sancarlos-north.jsp">San Carlos City (North)</a></li></ul>',
+  );
+  assert.throws(() => parseCenpelco(ambiguous, 'ambiguous.html'), /parse: ambiguous San Carlos office identity/);
 });

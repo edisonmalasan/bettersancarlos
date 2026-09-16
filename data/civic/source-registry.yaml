@@ -208,10 +208,10 @@ sources:
     publisher: Central Pangasinan Electric Cooperative
     url: 'https://cenpelco.com/'
     sourceType: website
-    collector: null
+    collector: cenpelco
     updateCadence: quarterly
     riskTier: medium
-    accessNotes: 'Branch list confirmed; hotlines, email, and GM name remain unverified.'
+    accessNotes: 'Public website collector watches provider presence and the published area-office list incl. San Carlos City (Main). Customer-service phone/email/addresses, office hours, and GM identity remain outside coverage until officially published and verified.'
     evidenceRef: 'research/utilities/26-09-cenpelco-contacts.md'
     domains:
       - utilities

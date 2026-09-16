@@ -16,6 +16,7 @@
 // never false MISSING). Deterministic: same evidence + same run metadata in,
 // same output out. No network here; acquisition already happened upstream.
 import { buildSourceInstance } from '../lib/instances';
+import { cellText, cleanText } from '../parsers/html';
 import type { Collector, CollectorArgs } from './types';
 
 export const PSA_PHILATLAS_REGISTRY_ID = 'psa-census-philatlas';
@@ -30,29 +31,8 @@ export const PSA_COVERAGE = [
 // ---------------------------------------------------------------------------
 // Low-level HTML helpers (tolerant of the source's real-world markup, strict
 // about values). Pure string operations, no dependencies.
+// Shared text helpers (cleanText/cellText) live in ../parsers/html.
 // ---------------------------------------------------------------------------
-
-/** Decode the entities this source actually emits, then collapse whitespace. */
-export function cleanText(raw: string): string {
-  return raw
-    .replace(/&#0*160;/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&#0*39;/g, "'")
-    .replace(/&quot;/gi, '"')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&#0*8211;/g, '\u2013')
-    .replace(/&#0*8212;/g, '\u2014')
-    .replace(/&#0*8209;/g, '\u2011')
-    .replace(/[\s ]+/g, ' ')
-    .trim();
-}
-
-/** Visible text of an HTML fragment: strip tags, decode, collapse. */
-export function cellText(fragment: string): string {
-  return cleanText(fragment.replace(/<[^>]+>/g, ' '));
-}
 
 /** Strict non-negative integer: thousands commas allowed, nothing else (anything else fails closed). */
 export function parseStrictInt(raw: string, what: string, evidenceName: string): number {

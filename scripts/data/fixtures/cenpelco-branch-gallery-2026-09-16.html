@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CENPELCO Central Pangasinan Electric Cooperative</title>
+</head>
+<body>
+<!--
+  Fixture: CENPELCO public website branch gallery (homepage shell).
+  Source: https://cenpelco.com/
+  Captured: 2026-09-16 (live probe: HTTP 200, 9403 bytes, plain GET, no auth).
+  Probe anchors at capture: "CENPELCO Gallery of Branches" x1,
+    branches/sancarlos/sancarlos.jsp x1, "San Carlos City (Main)" x1,
+    cooperative title x1, branches/<slug>/<slug>.jsp links x15.
+  Purpose: offline parser/collector tests for the cenpelco collector
+    (OpenSpec change add-cenpelco-collector). No network in tests.
+  Sanitization: kept title, gallery heading row, and the 15-link gallery list
+    with real slugs, texts, and targets. Stripped site nav, scripts, styles,
+    iframes, ads, and unrelated sections. Deliberately EXCLUDED: contactUs.jsp
+    (trunk/extension numbers, first seen 2026-09-16), GeneralManager.jsp
+    (GM name, first seen 2026-09-16), and area/ListOfArea.jsp (Areas I-XI
+    grouping with San Carlos North/South split, which differs from the gallery
+    representation) - all deferred/out of v1 scope. No values were altered.
+-->
+<h1>CENPELCO Central Pangasinan Electric Cooperative</h1>
+<table>
+<tr>
+		<td id="submenu">
+			&nbsp;&nbsp;&nbsp;CENPELCO Gallery of Branches
+		</td>
+	</tr>
+<tr><td><ul>
+				<li><a href="../branches/mangaldan/mangaldan.jsp" target="frame1">Mangaldan</a></li>
+				<li><a href="../branches/lingayen/lingayen.jsp" target="frame1">Lingayen</a></li>
+				<li><a href="../branches/bugallon/bugallon.jsp" target="frame1">Bugallon</a></li>
+				<li><a href="../branches/sual/sual.jsp" target="frame1">Sual</a></li>
+				<li><a href="../branches/labrador/labrador.jsp" target="frame1">Labrador</a></li>
+				<li><a href="../branches/bayambang/bayambang.jsp" target="frame1">Bayambang</a></li>
+				<li><a href="../branches/malasiqui/malasiqui.jsp" target="frame1">Malasiqui</a></li>
+				<li><a href="../branches/binmaley/binmaley.jsp" target="frame1">Binmaley</a></li>
+				<li><a href="../branches/mangatarem/mangatarem.jsp" target="frame1">Mangatarem</a></li>
+				<li><a href="../branches/aguilar/aguilar.jsp" target="frame1">Aguilar</a></li>
+				<li><a href="../branches/basista/basista.jsp" target="frame1">Basista</a></li>
+				<li><a href="../branches/urbiztondo/urbiztondo.jsp" target="frame1">Urbiztondo</a></li>
+				<li><a href="../branches/alcala/alcala.jsp" target="frame1">Alcala</a></li>
+				<li><a href="../branches/bautista/bautista.jsp" target="frame1">Bautista</a></li>
+				<li><a href="../branches/sancarlos/sancarlos.jsp" target="frame1">San Carlos City (Main)</a></li>
+			</ul></td></tr>
+</table>
+</body>
+</html>

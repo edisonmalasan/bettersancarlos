@@ -252,7 +252,8 @@ use this path.
 
 Already automated: `lgu-website` (city-website),
 `lgu-old-site-archive` (city-website, historical only),
-`psa-census-philatlas` (`psa-philatlas`, explicit per-document refresh only).
+`psa-census-philatlas` (`psa-philatlas`, explicit per-document refresh only),
+`cenpelco` (`cenpelco`, quarterly branch/presence watch).
 `lgu-facebook-cio`
 (facebook) is implemented but manual/dormant by default (see
 `docs/facebook-sync.md`) — collector capability without automatic schedule
@@ -276,6 +277,22 @@ as `SOURCE_CHANGED` — never partial candidates, never false MISSING.
 Candidates are provisional only and promote through normal independent review
 (no auto-promotion, no trusted-source bypass).
 
+### Implemented: `cenpelco` (`cenpelco`)
+
+Provider presence and the published area-office list from the public CENPELCO
+homepage shell (single-page evidence: cooperative title + `CENPELCO Gallery of
+Branches` links). Covers exactly `utility-electricity-provider` and
+`cenpelco-area-offices` (15 offices as stable slug ids with verbatim names,
+order-normalized by slug) with fact-level coverage. Customer-service
+phone/email/addresses, office hours, and GM identity remain explicitly
+unverified and outside coverage even though the contact/GM subpages now show
+some of them (first seen 2026-09-16; no stability history) — a separately
+scoped follow-up. `quarterly` cadence: `--due` collects it when due
+(research-only, stops before promotion); failures retry per policy without
+satisfying cadence. Gallery drift, duplicate offices, and ambiguous San Carlos
+identity fail closed as `SOURCE_CHANGED`. `data/utilities.json` stays manual;
+no generator output changes in this capability.
+
 1. `comelec-results` — Rappler mirror is structured HTML; high value at
    election/vacancy events (per-term cadence).
 2. `dilg-fdpp` — high-value transparency documents; probe portal access
@@ -290,9 +307,7 @@ Candidates are provisional only and promote through normal independent review
    System, then automate the list pull.
 7. `doh-hfsrb` — facility list was 404 and OLRS is login-only; manual
    first, automate only if a public endpoint appears.
-8. `cenpelco` — simple website, quarterly contact volatility; automate the
-   branch/contact pull after one manual verification.
-9. `province-pangasinan` — stable annual profile page; low volatility,
+8. `province-pangasinan` — stable annual profile page; low volatility,
    automate opportunistically.
 
 Parked (no automation until the stated condition clears):

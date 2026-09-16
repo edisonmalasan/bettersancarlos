@@ -309,3 +309,177 @@ test('end-to-end PSA provenance: refresh to promotion to generate', async () => 
     fs.rmSync(root, { recursive: true, force: true });
   }
 });
+
+// Test 3 — CENPELCO end to end on an isolated fixture tree (collector-only
+// flow: no canonical utilities records exist yet, so seeds carry matching
+// data except one stale office list missing a single office):
+// staged homepage-shell evidence -> refresh (instance + 2 provisional
+// candidates) -> diff -> independent reviewed promotion -> canonical records
+// point at the exact new source instance. Production data stays untouched.
+// (No generate step: utilities.json remains manual by design in this change.)
+test('end-to-end CENPELCO provenance: refresh to promotion', async () => {
+  const prodRecords = path.join(process.cwd(), 'data', 'civic', 'records.json');
+  const prodSources = path.join(process.cwd(), 'data', 'civic', 'sources.json');
+  const prodBefore = { records: sha256FileHex(prodRecords), sources: sha256FileHex(prodSources) };
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'civic-cen-e2e-'));
+  try {
+    fs.mkdirSync(path.join(root, 'data', 'civic'), { recursive: true });
+    fs.mkdirSync(path.join(root, 'research'), { recursive: true });
+    fs.writeFileSync(
+      path.join(root, 'data', 'civic', 'source-registry.yaml'),
+      'version: 1\n' +
+        'sources:\n' +
+        '  - id: fix-cen\n' +
+        '    publisher: Central Pangasinan Electric Cooperative\n' +
+        "    url: 'https://cenpelco.com/'\n" +
+        '    sourceType: website\n' +
+        '    collector: cenpelco\n' +
+        '    updateCadence: quarterly\n' +
+        '    riskTier: medium\n' +
+        "    evidenceRef: 'research/utilities/26-09-cenpelco-contacts.md'\n" +
+        '    domains:\n' +
+        '      - utilities\n',
+    );
+    fs.writeFileSync(path.join(root, 'research', 'evidence.md'), '# fixture\n');
+    fs.writeFileSync(
+      path.join(root, 'data', 'civic', 'sources.json'),
+      JSON.stringify({
+        sources: [
+          {
+            id: 'src-cen-seed',
+            title: 'Seed source',
+            publisher: 'Central Pangasinan Electric Cooperative',
+            url: 'https://cenpelco.com/',
+            documentType: 'webpage',
+            retrievedAt: '2026-09-04',
+            verifier: 'fixture',
+            sourceState: 'active',
+            registryId: 'fix-cen',
+          },
+        ],
+      }),
+    );
+    const claim = (keys: string[]): Record<string, string[]> =>
+      Object.fromEntries(keys.map((k) => [k, ['src-cen-seed']]));
+    const seeds: CivicRecord[] = [
+      {
+        id: 'utility-electricity-provider',
+        domain: 'utilities',
+        type: 'service',
+        label: 'Electricity distribution provider (CENPELCO)',
+        data: {
+          provider_short: 'CENPELCO',
+          provider_full: 'Central Pangasinan Electric Cooperative',
+          serves_san_carlos_city: true,
+          san_carlos_office: 'San Carlos City (Main)',
+        },
+        claimSources: claim(['provider_short', 'provider_full', 'serves_san_carlos_city', 'san_carlos_office']),
+        sourceIds: ['src-cen-seed'],
+        status: 'verified',
+        riskTier: 'medium',
+        lastVerified: '2026-06-16',
+        acceptedBy: 'fixture',
+        acceptedAt: '2026-06-16',
+        nextReviewOn: '2026-09-16',
+        updateCadence: 'quarterly',
+      },
+      {
+        id: 'cenpelco-area-offices',
+        domain: 'utilities',
+        type: 'directory',
+        label: 'CENPELCO area offices',
+        data: {
+          // Stale by exactly one office (Sual): promotion must restore it.
+          offices: [
+            { id: 'aguilar', name: 'Aguilar' },
+            { id: 'sancarlos', name: 'San Carlos City (Main)' },
+          ],
+        },
+        claimSources: claim(['offices']),
+        sourceIds: ['src-cen-seed'],
+        status: 'verified',
+        riskTier: 'medium',
+        lastVerified: '2026-06-16',
+        acceptedBy: 'fixture',
+        acceptedAt: '2026-06-16',
+        nextReviewOn: '2026-09-16',
+        updateCadence: 'quarterly',
+      },
+    ];
+    fs.writeFileSync(path.join(root, 'data', 'civic', 'records.json'), JSON.stringify({ records: seeds }));
+
+    const evDir = fs.mkdtempSync(path.join(os.tmpdir(), 'civic-cen-e2e-evidence-'));
+    try {
+      const fixtureBytes = fs.readFileSync(
+        fileURLToPath(new URL('./fixtures/cenpelco-branch-gallery-2026-09-16.html', import.meta.url)),
+        'utf8',
+      );
+      fs.writeFileSync(path.join(evDir, 'fix-cen.html'), fixtureBytes);
+
+      const summary = await runRefresh({
+        root,
+        sources: ['fix-cen'],
+        offline: true,
+        evidenceDir: evDir,
+        collectedBy: 'e2e-collector',
+        date: '2026-09-16',
+      });
+      assert.equal(summary.outcomes['fix-cen'], 'collected');
+      assert.equal(summary.candidates, 2);
+
+      const instances = readSourceInstances(summary.run.dir);
+      assert.equal(instances.length, 1);
+      assert.equal(instances[0].registryId, 'fix-cen');
+      assert.equal(instances[0].sha256, sha256Hex(fixtureBytes));
+
+      const { readCandidates, readManifest } = await import('./lib/runs');
+      const entries = diffRun(
+        {
+          canonical: loadRecords(root).records,
+          candidates: readCandidates(summary.run.dir),
+          manifest: readManifest(summary.run.dir),
+          sources: loadSources(root).sources,
+          registry: loadRegistry(root).sources,
+        },
+        '2026-09-16',
+      );
+      const byId = new Map(entries.map((e) => [e.recordId, e.outcome]));
+      assert.equal(byId.get('utility-electricity-provider'), 'UNCHANGED');
+      assert.equal(byId.get('cenpelco-area-offices'), 'CHANGED');
+
+      const promoted = promoteRun(
+        { root, runId: summary.run.runId, all: true, reviewer: 'e2e-reviewer' },
+        '2026-09-16',
+      );
+      assert.deepEqual([...promoted.promoted].sort(), ['cenpelco-area-offices', 'utility-electricity-provider']);
+      assert.equal(promoted.promotedSources.length, 1);
+      const [instanceId] = promoted.promotedSources;
+      assert.match(instanceId, /^src-fix-cen-2026-09-16-[0-9a-f]{8}$/);
+      assert.equal(instanceId, instances[0].id, 'canonical instance is the exact run instance');
+
+      const sources = loadSources(root).sources;
+      const instance = sources.find((s) => s.id === instanceId);
+      assert.ok(instance, 'instance must be appended to sources.json');
+      assert.equal(instance.registryId, 'fix-cen');
+      assert.equal(instance.sha256, sha256Hex(fixtureBytes));
+      assert.equal(instance.evidencePath ?? '', `research/runs/${summary.run.runId}/evidence/fix-cen.html`);
+
+      const records = loadRecords(root).records;
+      const offices = records.find((r) => r.id === 'cenpelco-area-offices');
+      assert.ok(offices);
+      assert.equal((offices.data as { offices: unknown[] }).offices.length, 15);
+      assert.deepEqual(offices.sourceIds, [instanceId]);
+      assert.deepEqual(offices.claimSources?.offices, [instanceId]);
+      assert.equal(offices.nextReviewOn, '2026-12-17', 'quarterly window recomputed on promotion');
+    } finally {
+      fs.rmSync(evDir, { recursive: true, force: true });
+    }
+    assert.deepEqual(
+      { records: sha256FileHex(prodRecords), sources: sha256FileHex(prodSources) },
+      prodBefore,
+      'production canonical data untouched',
+    );
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});

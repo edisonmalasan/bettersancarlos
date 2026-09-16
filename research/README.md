@@ -44,7 +44,7 @@ The table below is generated from document frontmatter (`bun run research:index`
 | government | LGU Structure and Department Heads | directory | partial | historical | high | 2026-09-04 |
 | health | Health Facilities (DOH-Licensed) | gap-report | partial | current | high | 2026-09-16 |
 | health | Health Facilities | directory | partial | mixed | high | 2026-09-16 |
-| infrastructure | City Projects and Infrastructure | profile | partial | historical | high | 2026-09-04 |
+| infrastructure | City Projects and Infrastructure | profile | partial | historical | high | 2026-09-16 |
 | legislation | Legislation Archive (Ordinances & Resolutions) | document-index | unverified | historical | high | 2026-09-04 |
 | news | News and Current Events | timeline | partial | mixed | low | 2026-09-04 |
 | official-presence | Official Online Presence | directory | verified | current | low | 2026-09-04 |
@@ -55,15 +55,15 @@ The table below is generated from document frontmatter (`bun run research:index`
 | transparency | Full Disclosure, Transparency Seal & Citizen's Charter | document-index | partial | mixed | high | 2026-09-16 |
 | transportation | Public Transport and Mobility | profile | partial | historical | low | 2026-09-04 |
 | utilities | CENPELCO (Electric Cooperative) Contacts | directory | partial | current | medium | 2026-09-04 |
-| utilities | Public Utilities | profile | partial | mixed | medium | 2026-09-04 |
-| utilities | Water District | gap-report | blocked | unknown | medium | 2026-09-04 |
+| utilities | Public Utilities | profile | partial | mixed | medium | 2026-09-16 |
+| utilities | Water District | gap-report | partial | mixed | medium | 2026-09-16 |
 <!-- research:index:end:inventory -->
 
 ## Status Summary
 
 <!-- research:index:start:summary -->
 - Research documents: 33
-- Verified: 5 · Partial: 24 · Unverified: 1 · Blocked: 3
+- Verified: 5 · Partial: 25 · Unverified: 1 · Blocked: 2
 - High-risk: 13
 - Last research update: 2026-09-16
 <!-- research:index:end:summary -->

@@ -61,6 +61,9 @@ For each fiscal year FY2017–FY2025, the following should be collected:
 | 2026-09-16 | FDPP re-check (`S2`) | failed | portal unreachable; no city submissions retrievable |
 | 2026-09-16 | COA audit-report path re-check (`S3`) | failed | HTTP 403 Forbidden; no San Carlos City annual audit report retrieved |
 | 2026-09-16 | Live LGU Transparency Seal page (`S4`) | failed | symbolism quote only; no compliance budget PDFs downloadable |
+| 2026-09-16 | FDPP deep probe: old `fdpp.gov.ph` DNS + successor `fdpp.dilg.gov.ph` | failed | old domain does not resolve (decommissioned); successor is a sign-in SPA landing page — `/reports` 403, `/login|documents|portal|guest|public|home` 404; no public San Carlos retrieval path; SPA-internal APIs out of bounds |
+| 2026-09-16 | COA deep probe: https + http roots | failed | HTTP 403 Forbidden on both schemes; no audit index reachable |
+| 2026-09-16 | BLGF deep probe: TLS + http + data.gov.ph | failed | TLS handshake fails (https and http); national open-data portal is now a JS SPA with no CKAN API — no official downloadable SRE dataset located |
 
 ## Gaps
 
@@ -70,7 +73,7 @@ For each fiscal year FY2017–FY2025, the following should be collected:
 ## Recommended Next Actions
 
 1. **BLGF Direct Request** — contact the BLGF Regional Office 1 (Ilocos Region) for the San Carlos City SRE and Annual Regular Income series, FY2017–FY2025.
-2. **Full Disclosure Policy Portal** — manually browse http://www.fdpp.gov.ph/ for San Carlos City's annually posted budget documents, SRE, and Annual Investment Program (AIP).
+2. **Full Disclosure Policy Portal (successor)** — the old `fdpp.gov.ph` domain is decommissioned (DNS-dead); the official successor at `https://fdpp.dilg.gov.ph/` currently exposes no public report-retrieval path, so FDP documents still require manual inquiry until a documented public path appears.
 3. **City Budget Office** — request the published Executive Budget, SRE, and AIP directly from San Carlos City's Budget Officer / City Accountant.
 4. **COA Audit Reports** — the Commission on Audit publishes annual audit reports for each LGU containing audited financial statements (revenue, expenditure, assets, liabilities). | `S3`
 

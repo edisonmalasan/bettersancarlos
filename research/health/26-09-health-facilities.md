@@ -67,7 +67,8 @@ The city's online forms historically included health-office-related permit forms
 |---|---|---|---|
 | 2026-09-16 | Live LGU Departments/Offices directory (`S6`) | partial | officer names resolved; no facility licensing/contacts |
 | 2026-09-16 | VMUF official site (`S7`) | partial | university presence confirmed; hospital licensing absent |
-| 2026-09-16 | DOH HFSRB / OLRS / PhilHealth paths | failed | 404 / login-only / 404; licensing still unverified |
+| 2026-09-16 | DOH HFSRB / OLRS / PhilHealth old accredited-provider path | failed | 403 / 403 / 404; licensing still unverified |
+| 2026-09-16 | PhilHealth accredited-hospitals list (`S8`) | partial | six SAN CARLOS CITY rows (Region I) with beds, level, contacts, addresses, expiry 12/31/2026; no license numbers |
 
 ## Sources
 
@@ -80,3 +81,4 @@ The city's online forms historically included health-office-related permit forms
 | S5 | Wikivoyage | San Carlos (Pangasinan) | — | 2026-09-04 | secondary | https://en.wikivoyage.org/wiki/San_Carlos_(Pangasinan) |
 | S6 | City Government of San Carlos | Departments/Offices (live; officer names) | — | 2026-09-16 | official | https://www.sancarlospangasinan.gov.ph/departmentsoffices |
 | S7 | Virgen Milagrosa University Foundation | Official university site (existence context; no hospital licensing data) | — | 2026-09-16 | official | https://vmuf.edu.ph/ |
+| S8 | PhilHealth | Accredited Hospitals and Infirmaries CY 2026 (beds, level, contacts, expiry; no license numbers) | 2026-07-31 | 2026-09-16 | government-dataset | https://www.philhealth.gov.ph/partners/providers/facilities/accredited/ |

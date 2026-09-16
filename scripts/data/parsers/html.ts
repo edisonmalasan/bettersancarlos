@@ -53,3 +53,29 @@ export function extractLinks(html: string): Array<{ href: string; text: string }
   }
   return out;
 }
+
+/**
+ * Decode the entities government portal pages actually emit
+ * (`&nbsp;`, numeric `&#160;`/`&#8209;`/`&#8211;`/`&#8212;`), then collapse
+ * whitespace. Shared by source-specific collectors; pure string operations.
+ */
+export function cleanText(raw: string): string {
+  return raw
+    .replace(/&#0*160;/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&#0*39;/g, "'")
+    .replace(/&quot;/gi, '"')
+    .replace(/&amp;/gi, '&')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&#0*8211;/g, '–')
+    .replace(/&#0*8212;/g, '—')
+    .replace(/&#0*8209;/g, '‑')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** Visible text of an HTML fragment: strip tags, decode, collapse. */
+export function cellText(fragment: string): string {
+  return cleanText(fragment.replace(/<[^>]+>/g, ' '));
+}

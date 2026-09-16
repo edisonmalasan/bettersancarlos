@@ -8,7 +8,7 @@ verification_status: partial
 temporal_status: current
 risk: high
 researched_at: 2026-09-04
-last_checked: 2026-09-04
+last_checked: 2026-09-16
 canonical_domains:
   - health
 ---
@@ -21,7 +21,7 @@ Whether San Carlos City health facilities carry verifiable DOH licenses, bed cap
 
 ## Summary
 
-Facility names are corroborated by the official LGU evacuation plan and gallery, but DOH license numbers, bed capacities, and accreditation status were not obtainable: the HFSRB list returned 404 and OLRS is login-only.
+Facility names are corroborated by the official LGU evacuation plan and gallery; VMUF existence in the city is additionally corroborated by its official university site (`S8`). DOH license numbers, bed capacities, and accreditation status remain unverified: the HFSRB list still returns 404 and OLRS remains login-only on re-check 2026-09-16.
 
 ## Research Question
 
@@ -29,7 +29,7 @@ Which health facilities in San Carlos City are DOH-licensed, with what bed capac
 
 ## Current Conclusion
 
-Partially answered: four facility names are corroborated as operating in the city; no license, bed, classification, or accreditation data is verified. Do not publish license numbers or capacities.
+Partially answered: four facility names are corroborated as operating in the city; no license, bed, classification, or accreditation data is verified. Do not publish license numbers or capacities. Re-checked 2026-09-16: HFSRB list still 404; OLRS login-only with Region I-adjacent implementation deferred per Department Circular 2023-0375; PhilHealth accredited-provider path returned 404; no new licensing evidence.
 
 ## Corroborated Facility Names
 
@@ -37,8 +37,8 @@ The following facilities are named in the City Government of San Carlos's offici
 
 | Facility | Type | Evidence | Sources |
 |---|---|---|---|
-| Pangasinan Provincial Hospital (San Carlos) | Government / Provincial Hospital | Named in official LGU evacuation plan + Wikipedia city gallery; operated by the Province of Pangasinan | S1, S6 |
-| Virgen Milagrosa University Foundation (VMUF) Medical Center | Private / University Hospital | Named in official LGU evacuation plan; VMUF is a major university in the city | S1 |
+| Pangasinan Provincial Hospital (San Carlos) | Government / Provincial Hospital | Named in official LGU evacuation plan + Wikipedia city gallery; operated by the Province of Pangasinan. Province city page confirms San Carlos City, Pangasinan context (86 barangays, 2020 census 205,424) but publishes no hospital contacts. | S1, S6 |
+| Virgen Milagrosa University Foundation (VMUF) Medical Center | Private / University Hospital | Named in official LGU evacuation plan; VMUF official university site confirms the university operates in San Carlos City context (official site active 2026; hospital license/contact not published there) | S1, S8 |
 | Blessed Family Hospital | Private Hospital | Named in official LGU evacuation plan | S1 |
 | San Carlos Doctors Hospital | Private Hospital | Named in Wikivoyage / general references as a high-rise building in the city | S7 |
 
@@ -65,6 +65,11 @@ The **City Health Office (CHO)** operates under the San Carlos City government (
 | 2026-09-04 | DOH OLRS portal (`S5`) | failed | login-only; no public facility search; Region I implementation deferred per Department Circular 2023-0375 |
 | 2026-09-04 | HFSRB search by city | failed | no public parameterized search endpoint found |
 | 2026-09-04 | Direct web searches for facility license numbers | failed | no authoritative source returned results |
+| 2026-09-16 | DOH HFSRB list re-check (`S4`) | failed | HTTP 404 again; no public list |
+| 2026-09-16 | DOH OLRS portal re-check (`S5`) | failed | login-only applicant portal; no public facility search; deferment notice still displayed |
+| 2026-09-16 | PhilHealth accredited-provider path | failed | HTTP 404; no San Carlos facility accreditation evidence retrieved |
+| 2026-09-16 | VMUF official site (`S8`) | partial | confirms university operates in city context; publishes no hospital license, bed, or accreditation data |
+| 2026-09-16 | Province of Pangasinan city page | partial | confirms San Carlos City, Pangasinan jurisdiction context; publishes no hospital licensing data |
 
 ## Gaps
 
@@ -89,3 +94,4 @@ The **City Health Office (CHO)** operates under the San Carlos City government (
 | S5 | DOH OLRS | Online Licensing and Regulatory System (login-only) | — | 2026-09-04 | government-dataset | https://olrs.doh.gov.ph/ |
 | S6 | Wikipedia | San Carlos, Pangasinan (gallery) | — | 2026-09-04 | secondary | https://en.wikipedia.org/wiki/San_Carlos,_Pangasinan |
 | S7 | Wikivoyage | San Carlos (Pangasinan) | — | 2026-09-04 | secondary | https://en.wikivoyage.org/wiki/San_Carlos_(Pangasinan) |
+| S8 | Virgen Milagrosa University Foundation | Official university site (existence context; no hospital licensing data) | — | 2026-09-16 | official | https://vmuf.edu.ph/ |

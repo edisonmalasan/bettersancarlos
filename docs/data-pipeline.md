@@ -251,34 +251,49 @@ use this path.
 ## Collector roadmap (future changes, prioritized)
 
 Already automated: `lgu-website` (city-website),
-`lgu-old-site-archive` (city-website, historical only). `lgu-facebook-cio`
+`lgu-old-site-archive` (city-website, historical only),
+`psa-census-philatlas` (`psa-philatlas`, explicit per-document refresh only).
+`lgu-facebook-cio`
 (facebook) is implemented but manual/dormant by default (see
 `docs/facebook-sync.md`) — collector capability without automatic schedule
 eligibility. Each item
 below ships as its own scoped OpenSpec change reusing the
 source-instance/candidate contract; ordered by data value × volatility ×
-source stability × structuredness. No collectors are implemented here.
+source stability × structuredness.
 
-1. `psa-census-philatlas` — structured portal tables; highest reuse
-   (demographics, barangays); per-document releases.
-2. `comelec-results` — Rappler mirror is structured HTML; high value at
+### Implemented: `psa-census-philatlas` (`psa-philatlas`)
+
+PSA 2020/2015 census figures via the public PhilAtlas mirror — evidence is
+PSA-via-PhilAtlas, never a direct PSA endpoint. Covers exactly
+`population-total-2020`, `demographics-census-history`,
+`demographics-households`, and `demographics-barangay-populations` with
+fact-level coverage (unrelated demographics/barangay records never go MISSING
+from its runs). `per-document` cadence: collect explicitly with
+`bun run data:refresh -- --source=psa-census-philatlas`; `--due` never selects
+it and the scheduled workflow was not changed for it. Layout drift,
+wrong-jurisdiction evidence, duplicate rows, and malformed values fail closed
+as `SOURCE_CHANGED` — never partial candidates, never false MISSING.
+Candidates are provisional only and promote through normal independent review
+(no auto-promotion, no trusted-source bypass).
+
+1. `comelec-results` — Rappler mirror is structured HTML; high value at
    election/vacancy events (per-term cadence).
-3. `dilg-fdpp` — high-value transparency documents; probe portal access
+2. `dilg-fdpp` — high-value transparency documents; probe portal access
    first (unreachable at research time).
-4. `coa-audit` — annual audit reports; start manual, automate once the
+3. `coa-audit` — annual audit reports; start manual, automate once the
    extraction path is repeatable.
-5. `blgf` — fiscal series; was HTTP 403, follow the extraction path in
+4. `blgf` — fiscal series; was HTTP 403, follow the extraction path in
    `research/transparency/26-09-blgf-budget.md` before automating.
-6. `dpwh-projects` — portal URL unverified; inquiry path (City Engineering
+5. `dpwh-projects` — portal URL unverified; inquiry path (City Engineering
    Office / BAC) until verified, then automate.
-7. `deped-schools` — school directory; verify IDs via the School Info
+6. `deped-schools` — school directory; verify IDs via the School Info
    System, then automate the list pull.
-8. `doh-hfsrb` — facility list was 404 and OLRS is login-only; manual
+7. `doh-hfsrb` — facility list was 404 and OLRS is login-only; manual
    first, automate only if a public endpoint appears.
-9. `cenpelco` — simple website, quarterly contact volatility; automate the
+8. `cenpelco` — simple website, quarterly contact volatility; automate the
    branch/contact pull after one manual verification.
-10. `province-pangasinan` — stable annual profile page; low volatility,
-    automate opportunistically.
+9. `province-pangasinan` — stable annual profile page; low volatility,
+   automate opportunistically.
 
 Parked (no automation until the stated condition clears):
 

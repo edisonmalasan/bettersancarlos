@@ -1,11 +1,19 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import http from 'node:http';
+import { fileURLToPath } from 'node:url';
 import { fetchText } from './lib/fetch';
 import { parseJsonEvidence } from './parsers/json';
 import { extractPhones, htmlToText } from './parsers/html';
 import { collectCityWebsite } from './collectors/city-website';
 import { collectFacebook } from './collectors/facebook';
+import {
+  collectPsaPhilatlas,
+  normalizeBarangayName,
+  parsePsaPhilatlas,
+  PSA_COVERAGE,
+} from './collectors/psa-philatlas';
 import { resolveCollector } from './collectors/index';
 import type { RegistryEntry } from './lib/civic';
 
@@ -142,6 +150,7 @@ test('city-website collector emits nothing when the line is absent', () => {
 test('resolveCollector refuses unknown or null collectors', () => {
   assert.equal(typeof resolveCollector('facebook'), 'function');
   assert.equal(typeof resolveCollector('city-website'), 'function');
+  assert.equal(typeof resolveCollector('psa-philatlas'), 'function');
   assert.equal(resolveCollector('universal-scraper'), null);
   assert.equal(resolveCollector(null), null);
 });
@@ -173,4 +182,200 @@ test('fetchText fetches from a local server and refuses dead endpoints fast', as
     server.close();
   }
   await assert.rejects(fetchText('http://127.0.0.1:9/unreachable', { retries: 0, timeoutMs: 2000 }), /fetch: /);
+});
+
+// ---- psa-philatlas collector (PSA census figures via PhilAtlas) ----
+
+const PSA_FIXTURE = fileURLToPath(
+  new URL('./fixtures/psa-philatlas-san-carlos-2026-09-16.html', import.meta.url),
+);
+
+function psaHtml(): string {
+  return fs.readFileSync(PSA_FIXTURE, 'utf8');
+}
+
+function psaRegistry(): RegistryEntry {
+  return {
+    id: 'psa-census-philatlas',
+    publisher: 'Philippine Statistics Authority (via PhilAtlas)',
+    url: 'https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html',
+    sourceType: 'portal',
+    collector: 'psa-philatlas',
+    updateCadence: 'per-document',
+    evidenceRef: 'research/demographics/26-09-demographics.md',
+    domains: ['demographics', 'barangays'],
+  };
+}
+
+function psaArgs(evidenceText?: string) {
+  return {
+    registryId: 'psa-census-philatlas',
+    registry: psaRegistry(),
+    evidenceName: 'psa-census-philatlas.html',
+    evidenceText: evidenceText ?? psaHtml(),
+    runId: '2026-09-16',
+    collectedBy: 'fixture-agent',
+  };
+}
+
+/** Replace all occurrences, asserting the anchor exists (guards silently stale variants). */
+function swapAll(html: string, from: string, to: string, minExpected = 1): string {
+  const count = html.split(from).length - 1;
+  assert.ok(count >= minExpected, `expected ${minExpected}+ occurrence(s) of ${from}, found ${count}`);
+  return html.split(from).join(to);
+}
+
+test('psa-philatlas parses the current fixture with exact canonical values', () => {
+  const obs = parsePsaPhilatlas(psaHtml(), 'psa-census-philatlas.html');
+  assert.equal(obs.total2020, 205424);
+  assert.equal(obs.history.length, 15);
+  assert.deepEqual(obs.history[0], { year: 1903, population: 27166 });
+  assert.deepEqual(obs.history[obs.history.length - 1], { year: 2020, population: 205424 });
+  assert.deepEqual(obs.households2015, { count: 42049, year: 2015, averageSize: 4.48 });
+  assert.equal(obs.barangays.length, 86);
+  assert.deepEqual(obs.barangays[0], { name: 'Abanon', population2020: 1974, population2015: 1877 });
+  assert.deepEqual(obs.barangays[obs.barangays.length - 1], {
+    name: 'Turac',
+    population2020: 6919,
+    population2015: 5702,
+  });
+  assert.equal(
+    obs.barangays.reduce((n, b) => n + b.population2020, 0),
+    205424,
+  );
+  assert.equal(
+    obs.barangays.reduce((n, b) => n + b.population2015, 0),
+    188571,
+  );
+});
+
+test('psa-philatlas collector is deterministic, provisional, and exactly linked', () => {
+  const first = collectPsaPhilatlas(psaArgs());
+  const second = collectPsaPhilatlas(psaArgs());
+  assert.deepEqual(first, second);
+  assert.equal(first.candidates.length, 4);
+  assert.deepEqual(
+    first.candidates.map((c) => c.id).sort(),
+    [...PSA_COVERAGE].sort(),
+  );
+  assert.equal(first.sourceInstances.length, 1);
+  const [instance] = first.sourceInstances;
+  assert.match(instance.id, /^src-psa-census-philatlas-2026-09-16-[0-9a-f]{8}$/);
+  assert.equal(instance.registryId, 'psa-census-philatlas');
+  assert.equal(instance.documentType, 'webpage');
+  assert.ok(instance.publisher.includes('via PhilAtlas'), 'provenance stays honestly PSA-via-PhilAtlas');
+  for (const candidate of first.candidates) {
+    assert.equal(candidate.status, 'provisional');
+    assert.ok(!('acceptedBy' in candidate), `${candidate.id} must not carry reviewer fields`);
+    assert.ok(!('acceptedAt' in candidate), `${candidate.id} must not carry reviewer fields`);
+    assert.deepEqual(candidate.sourceIds, ['psa-census-philatlas']);
+    assert.deepEqual(candidate.sourceInstanceIds, [instance.id]);
+    assert.ok(candidate.claimSources && Object.keys(candidate.claimSources).length > 0);
+  }
+  assert.deepEqual(first.coverage, {
+    expectedRecordIds: [...PSA_COVERAGE],
+  });
+});
+
+test('psa-philatlas emits source-verbatim barangay names without fuzzy mapping', () => {
+  const { candidates } = collectPsaPhilatlas(psaArgs());
+  const names = (
+    candidates.find((c) => c.id === 'demographics-barangay-populations')?.data as {
+      barangays: Array<{ name: string }>;
+    }
+  ).barangays.map((b) => b.name);
+  for (const verbatim of [
+    'Bugallon-Posadas Street',
+    'Burgos Padlan',
+    'M. Soriano',
+    'Rizal',
+    'Nilentap',
+    'Malacañang',
+  ]) {
+    assert.ok(names.includes(verbatim), `source name preserved verbatim: ${verbatim}`);
+  }
+  assert.ok(!names.includes('Rizal Avenue'), 'LGUs long form must not be substituted in');
+  assert.ok(!names.includes('Nelintap'), 'canonical spelling must not be substituted in');
+  const malacanang = names.find((n) => n.startsWith('Malaca')) ?? '';
+  assert.ok(malacanang.includes('ñ'), 'real ñ (U+00F1), never an escape sequence');
+  assert.ok(!malacanang.includes('\\'), 'no literal backslash escapes in names');
+});
+
+test('psa-philatlas values flow from evidence, not hardcoded constants', () => {
+  let html = psaHtml();
+  html = swapAll(html, '205,424', '205,425', 4);
+  html = swapAll(html, '188,571', '188,572', 3);
+  // Keep parts consistent with the new totals (one row each).
+  html = swapAll(
+    html,
+    '>Abanon</a></th><td>0.96%</td><td>1,974</td><td>1,877</td>',
+    '>Abanon</a></th><td>0.96%</td><td>1,975</td><td>1,878</td>',
+  );
+  const obs = parsePsaPhilatlas(html, 'psa-shifted.html');
+  assert.equal(obs.total2020, 205425);
+  assert.deepEqual(obs.history[obs.history.length - 1], { year: 2020, population: 205425 });
+  assert.equal(
+    obs.barangays.reduce((n, b) => n + b.population2020, 0),
+    205425,
+  );
+  assert.equal(
+    obs.barangays.reduce((n, b) => n + b.population2015, 0),
+    188572,
+  );
+});
+
+test('psa-philatlas fails closed on layout drift, duplicates, and malformed values', () => {
+  const html = psaHtml();
+  assert.throws(() => parsePsaPhilatlas('', 'empty.html'), /parse: empty evidence/);
+  assert.throws(
+    () => parsePsaPhilatlas(swapAll(html, 'Annualized Growth Rate', 'Annual Growth'), 'renamed.html'),
+    /parse: table histPop headers changed/,
+  );
+  assert.throws(
+    () => parsePsaPhilatlas(swapAll(html, "id='histPop'", "id='histPopX'"), 'missing-table.html'),
+    /parse: required table histPop not found/,
+  );
+  const row2020 = html.match(/<tr><th scope='row'><time datetime='2020-05-01'>[\s\S]*?<\/tr\s*>/i)?.[0];
+  assert.ok(row2020, '2020 census row present in fixture');
+  assert.throws(
+    () => parsePsaPhilatlas(html.replace(row2020, `${row2020}${row2020}`), 'dup-year.html'),
+    /parse: duplicate census year/,
+  );
+  const abanonRow = html.match(/<tr><th scope='row'><a[^>]*>Abanon<\/a><\/th>[\s\S]*?<\/tr\s*>/i)?.[0];
+  assert.ok(abanonRow, 'Abanon row present in fixture');
+  assert.throws(
+    () => parsePsaPhilatlas(html.replace(abanonRow, `${abanonRow}${abanonRow}`), 'dup-barangay.html'),
+    /parse: duplicate barangay identity/,
+  );
+  assert.throws(
+    () => parsePsaPhilatlas(swapAll(html, "<td id='pop2020'>205,424</td>", "<td id='pop2020'>205,4X4</td>"), 'bad-int.html'),
+    /parse: .* not a valid integer/,
+  );
+  assert.throws(
+    () => parsePsaPhilatlas(swapAll(html, '<td>42,049</td><td>4.48</td>', '<td>42,049</td><td>large</td>'), 'bad-dec.html'),
+    /parse: .* not a valid decimal/,
+  );
+});
+
+test('psa-philatlas rejects wrong-jurisdiction and ambiguous evidence', () => {
+  const html = psaHtml();
+  assert.throws(
+    () =>
+      parsePsaPhilatlas(
+        swapAll(html, 'San Carlos City, Pangasinan', 'San Carlos City, Negros Occidental'),
+        'wrong-city.html',
+      ),
+    /parse: .*Negros/,
+  );
+  let ambiguous = html.replace(/<nav[^>]*breadcrumb[\s\S]*?<\/nav\s*>/i, '');
+  ambiguous = ambiguous.split('<h1>')[0];
+  ambiguous = swapAll(ambiguous, 'San Carlos City, Pangasinan', 'San Carlos City Profile');
+  assert.throws(() => parsePsaPhilatlas(ambiguous, 'ambiguous.html'), /parse: ambiguous jurisdiction/);
+});
+
+test('normalizeBarangayName only folds safe presentation differences', () => {
+  assert.equal(normalizeBarangayName('  Balite   Sur '), 'Balite Sur');
+  assert.equal(normalizeBarangayName('Bugallon-Posadas Street (Poblacion)'), 'Bugallon-Posadas Street (Poblacion)');
+  assert.equal(normalizeBarangayName('M. Soriano'), 'M. Soriano');
+  assert.equal(normalizeBarangayName('BURGOS PADLAN').toLowerCase(), 'burgos padlan');
 });

@@ -50,10 +50,10 @@ sources:
     publisher: Philippine Statistics Authority (via PhilAtlas)
     url: 'https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html'
     sourceType: portal
-    collector: null
+    collector: psa-philatlas
     updateCadence: per-document
     riskTier: medium
-    accessNotes: 'PSA census figures mirrored by PhilAtlas; automated collector planned (phase 4).'
+    accessNotes: 'PSA census figures mirrored by PhilAtlas; psa-philatlas collector implemented (explicit per-document refresh only).'
     evidenceRef: 'research/demographics/26-09-demographics.md'
     domains:
       - demographics

@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { diffRun } from './diff';
 import { loadRecords, loadRegistry } from './lib/civic';
 import { readSourceInstances } from './lib/instances';
@@ -922,5 +923,431 @@ test('HTML evidence never reaches the Graph collector (parse-class failure)', as
     }
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// ---- psa-philatlas pipeline tests (PSA census figures via PhilAtlas) ----
+
+const PSA_IDS = [
+  'population-total-2020',
+  'demographics-census-history',
+  'demographics-households',
+  'demographics-barangay-populations',
+] as const;
+
+const PSA_FIXTURE_FILE = fileURLToPath(
+  new URL('./fixtures/psa-philatlas-san-carlos-2026-09-16.html', import.meta.url),
+);
+
+function psaFixtureHtml(): string {
+  return fs.readFileSync(PSA_FIXTURE_FILE, 'utf8');
+}
+
+function psaSwap(html: string, from: string, to: string, minExpected = 1): string {
+  const count = html.split(from).length - 1;
+  assert.ok(count >= minExpected, `expected ${minExpected}+ occurrence(s) of ${from}, found ${count}`);
+  return html.split(from).join(to);
+}
+
+// Seeds mirror the current canonical shapes (read live so the test pins the
+// last-known-good contract deliberately: a legitimate canonical or source move
+// fails loudly here for a human to re-baseline, never silently).
+function psaSeedRecords(): Array<Record<string, unknown>> {
+  const file = JSON.parse(
+    fs.readFileSync(path.join(process.cwd(), 'data', 'civic', 'records.json'), 'utf8'),
+  ) as { records: Array<Record<string, unknown>> };
+  const prod = file.records;
+  const wanted = new Set<string>([...PSA_IDS]);
+  return prod
+    .filter((r) => wanted.has(r.id as string))
+    .map((r) => {
+      const clone = JSON.parse(JSON.stringify(r)) as Record<string, unknown>;
+      clone.sourceIds = ['fix-psa'];
+      const claims = clone.claimSources as Record<string, string[]>;
+      for (const key of Object.keys(claims ?? {})) claims[key] = ['fix-psa'];
+      return clone;
+    });
+}
+
+function psaFixtureRoot(extraRecords: Array<Record<string, unknown>> = []): string {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'civic-psa-'));
+  fs.mkdirSync(path.join(root, 'data', 'civic'), { recursive: true });
+  fs.mkdirSync(path.join(root, 'research'), { recursive: true });
+  fs.writeFileSync(
+    path.join(root, 'data', 'civic', 'source-registry.yaml'),
+    'version: 1\n' +
+      'sources:\n' +
+      '  - id: fix-psa\n' +
+      '    publisher: Philippine Statistics Authority (via PhilAtlas)\n' +
+      "    url: 'https://www.philatlas.com/luzon/r01/pangasinan/san-carlos.html'\n" +
+      '    sourceType: portal\n' +
+      '    collector: psa-philatlas\n' +
+      '    updateCadence: per-document\n' +
+      '    riskTier: medium\n' +
+      "    evidenceRef: 'research/demographics/26-09-demographics.md'\n" +
+      '    domains:\n' +
+      '      - demographics\n' +
+      '      - barangays\n',
+  );
+  fs.writeFileSync(path.join(root, 'research', 'evidence.md'), '# fixture\n');
+  fs.writeFileSync(path.join(root, 'data', 'civic', 'sources.json'), '{"sources": []}');
+  fs.writeFileSync(
+    path.join(root, 'data', 'civic', 'records.json'),
+    JSON.stringify({ records: [...psaSeedRecords(), ...extraRecords] }),
+  );
+  return root;
+}
+
+async function diffPsaRun(root: string, runDir: string, extraRecords: Array<Record<string, unknown>> = []) {
+  const { readCandidates, readManifest } = await import('./lib/runs');
+  return diffRun(
+    {
+      canonical: [...loadRecords(root).records, ...(extraRecords as never[])],
+      candidates: readCandidates(runDir),
+      manifest: readManifest(runDir),
+      sources: [],
+      registry: loadRegistry(root).sources,
+    },
+    '2026-09-16',
+  );
+}
+
+interface PsaBarangay {
+  name: string;
+  population_2020: number;
+  population_2015: number;
+}
+
+test('psa: current fixture matches three records; barangay names surface source-faithful', async () => {
+  const root = psaFixtureRoot();
+  const ev = evidenceDir({ 'fix-psa.html': psaFixtureHtml() });
+  try {
+    const before = snapshotCanonical(root);
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-psa'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'psa-unchanged',
+      date: '2026-09-16',
+    });
+    assert.equal(summary.outcomes['fix-psa'], 'collected');
+    assert.equal(summary.candidates, 4);
+    assert.deepEqual(snapshotCanonical(root), before);
+    const entries = await diffPsaRun(root, summary.run.dir);
+    const byId = new Map(entries.map((e) => [e.recordId, e]));
+    assert.equal(byId.get('population-total-2020')?.outcome, 'UNCHANGED');
+    assert.equal(byId.get('demographics-census-history')?.outcome, 'UNCHANGED');
+    assert.equal(byId.get('demographics-households')?.outcome, 'UNCHANGED');
+    // The live source spells six barangay names differently than the current
+    // canonical record (short PhilAtlas forms vs LGU long forms, plus a
+    // literal-escape bug in the canonical Malaca name). The collector reports
+    // them verbatim per the non-fuzzy rule, so the diff is a name-only CHANGED
+    // for review — values must be untouched at every index.
+    const brgy = byId.get('demographics-barangay-populations');
+    assert.equal(brgy?.outcome, 'CHANGED');
+    const oldList = (brgy?.oldData as { barangays: PsaBarangay[] }).barangays;
+    const newList = (brgy?.candidateData as { barangays: PsaBarangay[] }).barangays;
+    assert.equal(oldList.length, 86);
+    assert.equal(newList.length, 86);
+    // Canonical order is alphabetical while the source is numeric, so join on
+    // the (2020, 2015) population pair (unique across all 86 rows): every
+    // candidate pair must resolve to exactly one canonical row with identical
+    // values, and only the six documented names may differ.
+    const canonByPair = new Map(oldList.map((b) => [`${b.population_2020}/${b.population_2015}`, b.name]));
+    assert.equal(canonByPair.size, 86, 'canonical population pairs are unique join keys');
+    const nameDiffs: Array<[string, string]> = [];
+    for (const nb of newList) {
+      const oldName = canonByPair.get(`${nb.population_2020}/${nb.population_2015}`);
+      assert.ok(oldName !== undefined, `candidate pair has no canonical match: ${nb.name}`);
+      if (oldName !== nb.name) nameDiffs.push([oldName, nb.name]);
+    }
+    assert.deepEqual(
+      nameDiffs.sort(),
+      [
+        ['Bugallon-Posadas St.', 'Bugallon-Posadas Street'],
+        ['Burgos-Padlan', 'Burgos Padlan'],
+        ['M. Soriano St.', 'M. Soriano'],
+        ['Malaca\\u00f1ang', 'Malacañang'],
+        ['Nelintap', 'Nilentap'],
+        ['Rizal Avenue', 'Rizal'],
+      ].sort(),
+    );
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('psa: changed 2020 total surfaces CHANGED on population-total-2020 only', async () => {
+  const root = psaFixtureRoot();
+  const html = psaSwap(psaFixtureHtml(), "<td class='iboxVal'>205,424</td>", "<td class='iboxVal'>205,425</td>");
+  const ev = evidenceDir({ 'fix-psa.html': html });
+  try {
+    const before = snapshotCanonical(root);
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-psa'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'psa-changed-total',
+      date: '2026-09-16',
+    });
+    assert.deepEqual(snapshotCanonical(root), before);
+    const entries = await diffPsaRun(root, summary.run.dir);
+    const byId = new Map(entries.map((e) => [e.recordId, e]));
+    assert.equal(byId.get('population-total-2020')?.outcome, 'CHANGED');
+    assert.deepEqual((byId.get('population-total-2020')?.candidateData as { total: number }).total, 205425);
+    assert.equal(byId.get('demographics-census-history')?.outcome, 'UNCHANGED');
+    assert.equal(byId.get('demographics-households')?.outcome, 'UNCHANGED');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('psa: changed census/household/barangay values surface on the intended record only', async () => {
+  // Census history 2020 row changes: history CHANGED, total and households UNCHANGED.
+  {
+    const root = psaFixtureRoot();
+    const html = psaSwap(psaFixtureHtml(), "<td id='pop2020'>205,424</td>", "<td id='pop2020'>205,425</td>");
+    const ev = evidenceDir({ 'fix-psa.html': html });
+    try {
+      const summary = await runRefresh({
+        root,
+        sources: ['fix-psa'],
+        offline: true,
+        evidenceDir: ev,
+        collectedBy: 'psa-changed-history',
+        date: '2026-09-16',
+      });
+      const byId = new Map((await diffPsaRun(root, summary.run.dir)).map((e) => [e.recordId, e]));
+      assert.equal(byId.get('demographics-census-history')?.outcome, 'CHANGED');
+      assert.equal(byId.get('population-total-2020')?.outcome, 'UNCHANGED');
+      assert.equal(byId.get('demographics-households')?.outcome, 'UNCHANGED');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      fs.rmSync(ev, { recursive: true, force: true });
+    }
+  }
+  // Household 2015 count changes: households CHANGED, total and history UNCHANGED.
+  {
+    const root = psaFixtureRoot();
+    const html = psaSwap(psaFixtureHtml(), '<td>42,049</td><td>4.48</td>', '<td>42,050</td><td>4.48</td>');
+    const ev = evidenceDir({ 'fix-psa.html': html });
+    try {
+      const summary = await runRefresh({
+        root,
+        sources: ['fix-psa'],
+        offline: true,
+        evidenceDir: ev,
+        collectedBy: 'psa-changed-households',
+        date: '2026-09-16',
+      });
+      const byId = new Map((await diffPsaRun(root, summary.run.dir)).map((e) => [e.recordId, e]));
+      assert.equal(byId.get('demographics-households')?.outcome, 'CHANGED');
+      assert.equal(byId.get('population-total-2020')?.outcome, 'UNCHANGED');
+      assert.equal(byId.get('demographics-census-history')?.outcome, 'UNCHANGED');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      fs.rmSync(ev, { recursive: true, force: true });
+    }
+  }
+  // One barangay value changes (footer total moves with it): barangays CHANGED,
+  // total/history/households UNCHANGED.
+  {
+    const root = psaFixtureRoot();
+    let html = psaSwap(
+      psaFixtureHtml(),
+      '>Abanon</a></th><td>0.96%</td><td>1,974</td><td>1,877</td>',
+      '>Abanon</a></th><td>0.96%</td><td>1,975</td><td>1,877</td>',
+    );
+    html = psaSwap(html, "<td id='curPop'>205,424</td>", "<td id='curPop'>205,425</td>");
+    const ev = evidenceDir({ 'fix-psa.html': html });
+    try {
+      const summary = await runRefresh({
+        root,
+        sources: ['fix-psa'],
+        offline: true,
+        evidenceDir: ev,
+        collectedBy: 'psa-changed-barangay',
+        date: '2026-09-16',
+      });
+      const byId = new Map((await diffPsaRun(root, summary.run.dir)).map((e) => [e.recordId, e]));
+      assert.equal(byId.get('demographics-barangay-populations')?.outcome, 'CHANGED');
+      assert.equal(byId.get('population-total-2020')?.outcome, 'UNCHANGED');
+      assert.equal(byId.get('demographics-census-history')?.outcome, 'UNCHANGED');
+      assert.equal(byId.get('demographics-households')?.outcome, 'UNCHANGED');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      fs.rmSync(ev, { recursive: true, force: true });
+    }
+  }
+});
+
+test('psa: renamed table header fails closed as scoped SOURCE_CHANGED', async () => {
+  const root = psaFixtureRoot();
+  const html = psaSwap(psaFixtureHtml(), 'Population percentage</abbr> (2020)', 'Share</abbr> (2020)');
+  const ev = evidenceDir({ 'fix-psa.html': html });
+  const unrelated = {
+    id: 'demographics-unrelated',
+    domain: 'demographics',
+    type: 'statistic',
+    label: 'Unrelated',
+    data: {},
+    claimSources: {},
+    sourceIds: ['fix-other'],
+    status: 'verified',
+    lastVerified: '2026-09-01',
+    acceptedBy: 'fixture',
+    acceptedAt: '2026-09-02',
+    nextReviewOn: '2026-09-02',
+    updateCadence: 'per-document',
+  };
+  try {
+    const before = snapshotCanonical(root);
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-psa'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'psa-drift',
+      date: '2026-09-16',
+    });
+    assert.equal(summary.outcomes['fix-psa'], 'failed');
+    assert.equal(summary.candidates, 0);
+    assert.deepEqual(snapshotCanonical(root), before);
+    const { readManifest } = await import('./lib/runs');
+    const manifest = readManifest(summary.run.dir);
+    assert.ok((manifest.sources[0].error ?? '').startsWith('parse:'), 'parse-class failure recorded');
+    const entries = await diffPsaRun(root, summary.run.dir, [unrelated]);
+    const byId = new Map(entries.map((e) => [e.recordId, e.outcome]));
+    for (const id of PSA_IDS) assert.equal(byId.get(id), 'SOURCE_CHANGED', `${id} fails closed`);
+    assert.ok(!byId.has('demographics-unrelated'), 'uncovered record is excluded, not MISSING');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('psa: wrong-city evidence fails the refresh without candidates', async () => {
+  const root = psaFixtureRoot();
+  const html = psaSwap(
+    psaFixtureHtml(),
+    'San Carlos City, Pangasinan',
+    'San Carlos City, Negros Occidental',
+  );
+  const ev = evidenceDir({ 'fix-psa.html': html });
+  try {
+    const before = snapshotCanonical(root);
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-psa'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'psa-wrong-city',
+      date: '2026-09-16',
+    });
+    assert.equal(summary.outcomes['fix-psa'], 'failed');
+    assert.equal(summary.candidates, 0);
+    assert.deepEqual(snapshotCanonical(root), before);
+    const { readManifest } = await import('./lib/runs');
+    assert.match(readManifest(summary.run.dir).sources[0].error ?? '', /Negros/);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('psa: exact coverage, per-document due exclusion, confinement, and determinism', async () => {
+  const root = psaFixtureRoot();
+  const ev = evidenceDir({ 'fix-psa.html': psaFixtureHtml() });
+  try {
+    const before = snapshotCanonical(root);
+    const beforeTree = listTree(root);
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-psa'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'psa-explicit',
+      date: '2026-09-16',
+    });
+    assert.equal(summary.outcomes['fix-psa'], 'collected');
+    assert.equal(summary.candidates, 4);
+    const { readCandidates, readManifest } = await import('./lib/runs');
+    const manifest = readManifest(summary.run.dir);
+    assert.deepEqual(manifest.sources[0].coverage, [...PSA_IDS]);
+    const instances = readSourceInstances(summary.run.dir);
+    assert.equal(instances.length, 1);
+    assert.equal(instances[0].registryId, 'fix-psa');
+    const candidates = readCandidates(summary.run.dir);
+    for (const candidate of candidates) {
+      assert.deepEqual(candidate.sourceInstanceIds, [instances[0].id]);
+      assert.equal(candidate.status, 'provisional');
+    }
+    // Per-document sources never join --due runs, no matter the elapsed time.
+    const due = await runRefresh({ root, due: true, offline: true, collectedBy: 'psa-due', date: '2026-09-17' });
+    assert.ok(!('fix-psa' in due.outcomes), 'per-document source excluded from --due');
+    // Confinement + immutability: only research/runs grows; canonical identical.
+    assert.deepEqual(snapshotCanonical(root), before);
+    for (const file of listTree(root).filter((f) => !beforeTree.includes(f))) {
+      assert.ok(file.startsWith(`research${path.sep}runs${path.sep}`), `unexpected write: ${file}`);
+    }
+    // Determinism: a second run over identical evidence yields identical data.
+    const ev2 = evidenceDir({ 'fix-psa.html': psaFixtureHtml() });
+    try {
+      const again = await runRefresh({
+        root,
+        sources: ['fix-psa'],
+        offline: true,
+        evidenceDir: ev2,
+        collectedBy: 'psa-explicit',
+        date: '2026-09-18',
+      });
+      const first = readCandidates(summary.run.dir).map((c) => JSON.stringify(c.data)).sort();
+      const second = readCandidates(again.run.dir).map((c) => JSON.stringify(c.data)).sort();
+      assert.deepEqual(second, first);
+    } finally {
+      fs.rmSync(ev2, { recursive: true, force: true });
+    }
+    // No secrets, tokens, cookies, tracking IDs, or machine-local paths leak
+    // into any artifact of the run.
+    const dump: string[] = [];
+    const visit = (dir: string): void => {
+      for (const name of fs.readdirSync(dir)) {
+        const full = path.join(dir, name);
+        if (fs.statSync(full).isDirectory()) visit(full);
+        else dump.push(fs.readFileSync(full, 'utf8'));
+      }
+    };
+    visit(summary.run.dir);
+    const blob = dump.join('\n');
+    assert.ok(!blob.includes(os.tmpdir()), 'machine-local path leaked into run');
+    assert.ok(!/token|cookie/i.test(blob), 'credential-like material in run');
+    assert.ok(!blob.includes('ca-pub'), 'tracking ID leaked into run');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('psa: CLI explicit refresh works against a fixture tree', () => {
+  const root = psaFixtureRoot();
+  const ev = evidenceDir({ 'fix-psa.html': psaFixtureHtml() });
+  try {
+    const out = execFileSync('bun', ['run', 'data:refresh', '--', '--source=fix-psa', '--offline', `--evidence-dir=${ev}`, '--collected-by=cli', '--date=2026-09-16'], {
+      cwd: process.cwd(),
+      env: { ...process.env, CIVIC_ROOT: root },
+      encoding: 'utf8',
+    });
+    assert.ok(out.includes('2026-09-16'), out);
+    assert.ok(out.includes('fix-psa'), out);
+    assert.ok(out.includes('4 candidate(s)'), out);
+    const runs = fs.readdirSync(path.join(root, 'research', 'runs'));
+    assert.deepEqual(runs, ['2026-09-16']);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
   }
 });

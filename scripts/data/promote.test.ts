@@ -516,19 +516,23 @@ test('promotion agrees with validation windows for every cadence', async () => {
   const { validateRoot } = await import('./validate');
   const root = fixtureRoot();
   try {
+    // Date-independent: promoting "today" keeps even the daily probe inside
+    // its validation window no matter when the suite runs. A fixed past date
+    // would rot (daily nextReviewOn falls behind the real clock).
+    const today = new Date().toISOString().slice(0, 10);
     const cadences = ['daily', 'weekly', 'monthly', 'quarterly', 'annually', 'per-term', 'per-document', 'manual', 'event-driven'];
-    const run = createRun(root, { date: '2026-09-14', collectedBy: 'agent' });
+    const run = createRun(root, { date: today, collectedBy: 'agent' });
     const instances = cadences.map((cadence) => {
       const name = `probe-${cadence}.html`;
       const sha = saveEvidence(run.dir, name, `<html>${cadence} evidence</html>`);
       return {
-        id: makeSourceInstanceId('reg-site', '2026-09-14', sha),
+        id: makeSourceInstanceId('reg-site', today, sha),
         registryId: 'reg-site',
         title: `Probe evidence (${cadence})`,
         publisher: 'Fixture',
         url: 'https://example.test/',
         documentType: 'webpage',
-        retrievedAt: '2026-09-14',
+        retrievedAt: today,
         sourceState: 'active' as const,
         evidencePath: `research/runs/${run.runId}/evidence/${name}`,
         sha256: sha,
@@ -555,7 +559,7 @@ test('promotion agrees with validation windows for every cadence', async () => {
     for (let i = 0; i < cadences.length; i++) {
       promoteRun(
         { root, runId: run.runId, records: [`cadence-probe-${cadences[i]}`], reviewer: 'reviewer', cadence: cadences[i] },
-        '2026-09-14',
+        today,
       );
     }
     const file = JSON.parse(fs.readFileSync(path.join(root, 'data', 'civic', 'records.json'), 'utf8')) as {
@@ -564,7 +568,7 @@ test('promotion agrees with validation windows for every cadence', async () => {
     for (const cadence of cadences) {
       const record = file.records.find((r) => r.id === `cadence-probe-${cadence}`);
       assert.ok(record, `missing promoted record for ${cadence}`);
-      assert.equal(record.nextReviewOn, nextReviewDate(cadence as 'quarterly', '2026-09-14'));
+      assert.equal(record.nextReviewOn, nextReviewDate(cadence as 'quarterly', today));
     }
     const manual = file.records.find((r) => r.id === 'cadence-probe-manual');
     assert.equal(manual?.nextReviewOn, manual?.acceptedAt);

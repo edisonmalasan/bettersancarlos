@@ -8,7 +8,7 @@ verification_status: partial
 temporal_status: mixed
 risk: medium
 researched_at: 2026-09-04
-last_checked: 2026-09-04
+last_checked: 2026-09-16
 canonical_domains:
   - utilities
 ---
@@ -38,9 +38,8 @@ CENPELCO confirmed as the electricity distributor via an official LGU notice; wa
 
 ### Water
 
-- **Unverified.** The water district serving San Carlos City could not be authoritatively confirmed. Web searches and candidate domains returned no official result during research.
-- The city historically lists a water/sanitation function under its General Services/City Engineer functions (inference from old office lists). A separate San Carlos City Water District may or may not exist — **needs manual confirmation with LWUA** (Local Water Utilities Administration) and the city.
-- **Do not publish any water utility contact without official confirmation.** See `utilities/26-09-water-district.md`.
+- **Provider confirmed: San Carlos City Water District (SCCWD)** — LWUA Conditional Certificate of Conformance awarded July 28, 1977 (SP Resolution No. 42, March 1977), per the district's official site verified live 2026-09-16 (`S5`); address Burgos–Padlan Street, San Carlos City, Pangasinan. District site content is 2017-vintage (8,461 connections as of 2015) and a 2014 PrimeWater joint venture leaves current operations unclear.
+- **Do not publish SCCWD address, phones, emails, or leadership as verified** — re-verify currency first; the LWUA directory itself remains HTTP 403. See `utilities/26-09-water-district.md`.
 
 ### Telecommunications & Internet
 
@@ -71,13 +70,14 @@ None identified.
 ## Gaps
 
 - **CENPELCO hotlines and office locations** — verify via NEA/CENPELCO.
-- **Water utility** — unresolved gap; document for manual follow-up.
+- **Water utility contacts/operations currency** — provider confirmed (SCCWD); re-verify 2017-vintage address/phones and PrimeWater operating role.
 - **Internet/telecom** — no coverage data obtained (consider DICT/open data).
 - Cable, sewage, garbage-collection details.
 
 ## Research Attempts
 
 - Checked LGU notices (disconnection, NGCP advisory) and the NEA/LWUA portals (both blocked) on 2026-09-04; telco operators not contacted. | `S1`, `S2`, `S3`, `S4`
+- 2026-09-16: LWUA directory still HTTP 403; SCCWD official site verified live — provider identity (LWUA CCC 1977), Burgos–Padlan address, 2017-vintage phones/emails, PrimeWater JV noted; contacts need re-verification. | `S4`, `S5`
 
 ## Sources
 
@@ -86,4 +86,5 @@ None identified.
 | S1 | City Government of San Carlos | CENPELCO disconnection notice (archived) | 2025-12-07 | 2026-09-04 | archived-official | https://web.archive.org/web/20251207004003/https://www.sancarlospangasinan.gov.ph/cenpelcos-implementation-of-mass-disconnection-in-san-carlos-pangasinan |
 | S2 | City Government of San Carlos | NGCP Power Advisory (archived) | 2025 | 2026-09-04 | archived-official | https://web.archive.org/web/20250708090415/https://www.sancarlospangasinan.gov.ph/ngcp-power-advisory |
 | S3 | NEA | Electric cooperatives portal (blocked; manual follow-up) | — | 2026-09-04 | government-dataset | https://www.nea.gov.ph/ |
-| S4 | LWUA | Water districts portal (blocked; manual follow-up) | — | 2026-09-04 | government-dataset | https://lwua.gov.ph/ |
+| S4 | LWUA | Water districts portal (blocked; re-checked 2026-09-16) | — | 2026-09-16 | government-dataset | https://lwua.gov.ph/ |
+| S5 | San Carlos City Water District | Official site (provider identity, LWUA CCC 1977, 2017-vintage contacts) | — | 2026-09-16 | official | https://www.sccwd.gov.ph/ |

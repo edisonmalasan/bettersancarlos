@@ -57,6 +57,12 @@ Participation in FDP/Transparency Seal and the SGLG award is documented from arc
 - The old official site had a **Full Disclosure Policy Board** page listing the standard FDP financial reports: Statement of Cash Flows, Statement of Receipts and Expenditures, Local DRRM Fund Utilization, Special Education Fund (SEF) Utilization Report, Statement of Financial Operations, 20% IRA Utilization.
 - Files themselves were not captured (likely linked as PDFs that were not preserved). | `S3`
 
+### FDP Portal Migration (2026-09-16)
+
+- The legacy portal host is decommissioned: `fdpp.gov.ph` (and `www`) no longer resolves in DNS.
+- The official successor is **`https://fdpp.dilg.gov.ph/`** (linked as the Full Disclosure Policy Portal from the DILG homepage): a sign-in application landing page advertising public financial-report browsing and compliance tracking, but no public San Carlos City retrieval path — `/reports` returns 403 and `/login`, `/documents`, `/portal`, `/guest`, `/public`, `/home` return 404. SPA-internal data endpoints were not touched (undocumented private APIs are out of bounds). | `S9`
+- Until the successor exposes a documented public reports path, FDP submissions for the city remain retrievable only by manual inquiry.
+
 ### Seal of Good Local Governance (SGLG)
 
 - The city was recognized with the **Seal of Good Local Governance (SGLG)** — an archived article on the official LGU site titled *"San Carlos City, Pangasinan: A Beacon of Excellence in Governance – Securing the Seal of Good Local Governance (SGLG) Award"* (archived 2025-12-07).
@@ -91,6 +97,8 @@ None identified.
 | 2026-09-16 | Live Citizens Charter path | failed | single-page shell; no service tables extracted |
 | 2026-09-16 | Live DRRM Plan page | failed | menu shell; no plan document published |
 | 2026-09-16 | SGLG portal | failed | unreachable; award year still unconfirmed |
+| 2026-09-16 | Legacy FDPP host (`fdpp.gov.ph`) | failed | DNS does not resolve; host decommissioned |
+| 2026-09-16 | Successor FDP portal (`S9`) | failed | sign-in landing only; no public report retrieval path |
 
 ## Sources
 
@@ -104,3 +112,4 @@ None identified.
 | S6 | City Government of San Carlos | E-services (archived, old site) | 2017-03-22 | 2026-09-04 | archived-official | https://web.archive.org/web/20170322021550/http://sancarloscitypangasinan.gov.ph/index.php/e-services/ |
 | S7 | City Government of San Carlos | Citizens Charter page (live menu reference) | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/citizens-charter |
 | S8 | City Government of San Carlos | Transparency Seal (live; symbolism only, no PDFs; re-checked 2026-09-16) | — | 2026-09-16 | official | https://www.sancarlospangasinan.gov.ph/transparency-seal |
+| S9 | DILG | Full Disclosure Policy Portal, successor host (sign-in landing; no public report path) | — | 2026-09-16 | official | https://fdpp.dilg.gov.ph/ |

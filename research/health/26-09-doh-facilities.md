@@ -21,7 +21,7 @@ Whether San Carlos City health facilities carry verifiable DOH licenses, bed cap
 
 ## Summary
 
-Facility names are corroborated by the official LGU evacuation plan and gallery; VMUF existence in the city is additionally corroborated by its official university site (`S8`). DOH license numbers, bed capacities, and accreditation status remain unverified: the HFSRB list still returns 404 and OLRS remains login-only on re-check 2026-09-16.
+Facility names are corroborated by the official LGU evacuation plan and gallery; VMUF existence in the city is additionally corroborated by its official university site (`S8`). Beds, level, contacts, addresses, and accreditation expiry for six facilities are established from the PhilHealth accredited-hospitals list (`S9`). DOH license-to-operate numbers remain unverified: the HFSRB list is unreachable and OLRS has no public path on re-check 2026-09-16.
 
 ## Research Question
 
@@ -29,7 +29,7 @@ Which health facilities in San Carlos City are DOH-licensed, with what bed capac
 
 ## Current Conclusion
 
-Partially answered: four facility names are corroborated as operating in the city; no license, bed, classification, or accreditation data is verified. Do not publish license numbers or capacities. Re-checked 2026-09-16: HFSRB list still 404; OLRS login-only with Region I-adjacent implementation deferred per Department Circular 2023-0375; PhilHealth accredited-provider path returned 404; no new licensing evidence.
+Partially answered: six facility names are corroborated as operating in the city, with beds, level, contacts, addresses, and accreditation expiry from the PhilHealth list (`S9`); no DOH license-to-operate numbers are verified. Do not publish license numbers. Re-checked 2026-09-16: HFSRB host 403s; OLRS 403s; PhilHealth old accredited-provider path 404 but per-package accreditation PDFs (incl. hospitals) are publicly downloadable.
 
 ## Corroborated Facility Names
 
@@ -41,6 +41,12 @@ The following facilities are named in the City Government of San Carlos's offici
 | Virgen Milagrosa University Foundation (VMUF) Medical Center | Private / University Hospital | Named in official LGU evacuation plan; VMUF official university site confirms the university operates in San Carlos City context (official site active 2026; hospital license/contact not published there) | S1, S8 |
 | Blessed Family Hospital | Private Hospital | Named in official LGU evacuation plan | S1 |
 | San Carlos Doctors Hospital | Private Hospital | Named in Wikivoyage / general references as a high-rise building in the city | S7 |
+| Elguira General Hospital | Private Hospital (PhilHealth: 30 beds, Level 2, exp 12/31/2026) | PhilHealth accredited-hospitals list, Region I, SAN CARLOS CITY row (259 Rizal Ave.) — not previously in the evacuation-plan names | S9 |
+| Christ-Bearer Infirmary | Private Infirmary/Dispensary (PhilHealth: 18 beds, INF/DISP, exp 12/31/2026) | PhilHealth accredited-hospitals list, Region I, SAN CARLOS CITY row (Binoalan, Pagal) — not previously in the evacuation-plan names | S9 |
+
+### PhilHealth Accreditation Rows (2026-09-16)
+
+The PhilHealth accredited Hospitals and Infirmaries list for CY 2026 (updated July 31, 2026, `S9`) carries Region I rows with municipality SAN CARLOS CITY for six facilities: Pangasinan Provincial Hospital (250 beds, Level 2, government), Virgen Milagrosa Medical Center (50 beds, Level 2), Pangasinan Doctors Hospital (37 beds, Level 2, 307 Rizal Avenue), Blessed Family Doctors General Hospital (75 beds, Level 2, Ilang), Elguira General Hospital (30 beds, Level 2, 259 Rizal Ave.), and Christ-Bearer Infirmary (18 beds, INF/DISP, Binoalan/Pagal) — each with phone, email, street, and accreditation expiry 12/31/2026. These establish **accreditation status, bed capacity, level, contacts, and addresses**; they do NOT establish DOH license-to-operate numbers, which remain unverified. Region scoping (Region I section) distinguishes these rows from any same-named Negros entries.
 
 ### City Health Office
 
@@ -50,10 +56,10 @@ The **City Health Office (CHO)** operates under the San Carlos City government (
 
 | Field | Status | Notes |
 |---|---|---|
-| DOH License to Operate numbers | unknown | HFSRB list 404; OLRS login-only |
-| Bed capacity / authorized bed count | unknown | — |
-| Facility classification / level (Level 1 / 2 / 3) | unknown | — |
-| Accreditation status | unknown | — |
+| DOH License to Operate numbers | unknown | HFSRB unreachable; OLRS has no public path |
+| Bed capacity / authorized bed count | partial | PhilHealth HOSP list rows for six city facilities — `S9` |
+| Facility classification / level (Level 1 / 2 / 3) | partial | PhilHealth HOSP list rows — `S9` |
+| Accreditation status | partial | PhilHealth accreditation expiry 12/31/2026 for the six rows — `S9` |
 | Services offered (e.g., PhilHealth accreditation, emergency services) | unknown | — |
 | License validity / expiration dates | unknown | — |
 
@@ -70,6 +76,7 @@ The **City Health Office (CHO)** operates under the San Carlos City government (
 | 2026-09-16 | PhilHealth accredited-provider path | failed | HTTP 404; no San Carlos facility accreditation evidence retrieved |
 | 2026-09-16 | VMUF official site (`S8`) | partial | confirms university operates in city context; publishes no hospital license, bed, or accreditation data |
 | 2026-09-16 | Province of Pangasinan city page | partial | confirms San Carlos City, Pangasinan jurisdiction context; publishes no hospital licensing data |
+| 2026-09-16 | PhilHealth accredited-hospitals list CY 2026 (`S9`) | partial | six SAN CARLOS CITY rows in Region I with beds, level, contacts, addresses, expiry 12/31/2026; no DOH license numbers |
 
 ## Gaps
 
@@ -95,3 +102,4 @@ The **City Health Office (CHO)** operates under the San Carlos City government (
 | S6 | Wikipedia | San Carlos, Pangasinan (gallery) | — | 2026-09-04 | secondary | https://en.wikipedia.org/wiki/San_Carlos,_Pangasinan |
 | S7 | Wikivoyage | San Carlos (Pangasinan) | — | 2026-09-04 | secondary | https://en.wikivoyage.org/wiki/San_Carlos_(Pangasinan) |
 | S8 | Virgen Milagrosa University Foundation | Official university site (existence context; no hospital licensing data) | — | 2026-09-16 | official | https://vmuf.edu.ph/ |
+| S9 | PhilHealth | Accredited Hospitals and Infirmaries CY 2026 (beds, level, contacts, expiry; no license numbers) | 2026-07-31 | 2026-09-16 | government-dataset | https://www.philhealth.gov.ph/partners/providers/facilities/accredited/ |

@@ -1,12 +1,50 @@
 {
   "_status": "unverified",
-  "_note": "No verified DPWH infrastructure project list for San Carlos City, Pangasinan was available during research (2026-09-04); the previous contents referenced barangays of a different San Carlos (Nueva Vizcaya) and have been removed. Pull official data from the DPWH Transparency Portal.",
+  "_note": "Four project observations (Bogaoan slope, Guelew revetment, Coliling overlay, Coliling drainage/widening) are verified from official DPWH narratives with reported 2024 completion; amounts, offices, and locations are as reported. No stable project IDs, contractors, or completion dates were retrievable, and the list is reported observations, not a complete registry. Three procurement notices seen via a secondary tender aggregator (26Aj0046 access road to Minor Basilica, 26A00037 San Carlos City Bypass Road SIPAG, 26AJ0050 local roads) are procurement-stage only — confirm status with PhilGEPS/BAC. The 596 m Gemma Road (Mabalbalino) is a Provincial Government project, not DPWH.",
   "summary": {
-    "totalProjects": 0,
-    "totalCost": 0,
-    "completedProjects": 0,
+    "totalProjects": 4,
+    "totalCost_millions": 147.87,
+    "completedProjects": 4,
     "ongoingProjects": 0,
-    "implementingAgency": "DPWH Pangasinan District Engineering Office (pending verification)"
+    "implementingAgency": "DPWH Pangasinan 4th District Engineering Office",
+    "coverage": "Reported project observations from official DPWH narratives; not a complete project registry — stable project IDs, contractors, and completion dates were not retrievable"
   },
-  "projects": []
+  "projects": [
+    {
+      "title": "Agno River slope protection, 355.47 m",
+      "location": "Brgy. Bogaoan",
+      "implementing_office": "DPWH Pangasinan 4th DEO",
+      "amount_millions": 48.99,
+      "funding": "GAA 2024",
+      "status": "reported-complete",
+      "status_note": "Reported complete Aug 2024 per official DPWH narrative; no stable project ID"
+    },
+    {
+      "title": "Flood mitigation revetment, 287 m",
+      "location": "Brgy. Guelew",
+      "implementing_office": "DPWH Pangasinan 4th DEO",
+      "amount_millions": 47.78,
+      "funding": "GAA 2024",
+      "status": "reported-complete",
+      "status_note": "Reported complete Aug 2024 per official DPWH narrative; no stable project ID"
+    },
+    {
+      "title": "Villasis-Malasiqui-San Carlos Road asphalt overlay, 703 m",
+      "location": "Brgy. Coliling",
+      "implementing_office": "DPWH Pangasinan 4th DEO",
+      "amount_millions": 9.9,
+      "funding": "GAA 2024",
+      "status": "reported-complete",
+      "status_note": "Reported complete 2024 per official DPWH narrative; no stable project ID"
+    },
+    {
+      "title": "Coliling drainage + road widening, ~1.03 km",
+      "location": "Brgy. Coliling (Villasis-Malasiqui-San Carlos Rd)",
+      "implementing_office": "DPWH (Ilocos Region report)",
+      "amount_millions": 41.2,
+      "funding": "reported",
+      "status": "reported-complete",
+      "status_note": "Reported complete per official DPWH narrative (travel-time improvement claimed therein); no stable project ID"
+    }
+  ]
 }

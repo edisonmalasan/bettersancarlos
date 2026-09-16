@@ -1,6 +1,7 @@
 import { collectCityWebsite } from './city-website';
 import { collectFacebook } from './facebook';
 import { collectCenpelco } from './cenpelco';
+import { collectProvincePangasinan } from './province-pangasinan';
 import { collectPsaPhilatlas } from './psa-philatlas';
 import type { Collector } from './types';
 
@@ -11,6 +12,7 @@ export const COLLECTORS: Record<string, Collector> = {
   'city-website': collectCityWebsite,
   'psa-philatlas': collectPsaPhilatlas,
   cenpelco: collectCenpelco,
+  'province-pangasinan': collectProvincePangasinan,
 };
 
 export function resolveCollector(name: string | null): Collector | null {

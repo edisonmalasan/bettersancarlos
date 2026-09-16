@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { diffRun } from './diff';
-import { loadRecords, loadRegistry } from './lib/civic';
+import { loadRecords, loadRegistry, loadSources } from './lib/civic';
 import { readSourceInstances } from './lib/instances';
 import { sha256FileHex } from './lib/json';
 import { runRefresh } from './refresh';
@@ -1885,6 +1885,381 @@ test('cen: CLI explicit refresh works against a fixture tree', () => {
     assert.ok(out.includes('2026-09-16'), out);
     assert.ok(out.includes('fix-cen'), out);
     assert.ok(out.includes('2 candidate(s)'), out);
+    const runs = fs.readdirSync(path.join(root, 'research', 'runs'));
+    assert.deepEqual(runs, ['2026-09-16']);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+// ---- province-pangasinan pipeline tests (structure monitor, empty coverage) ----
+
+const PROVINCE_FIXTURE_FILE = fileURLToPath(
+  new URL('./fixtures/province-pangasinan-san-carlos-2026-09-16.html', import.meta.url),
+);
+
+function provinceFixtureHtml(): string {
+  return fs.readFileSync(PROVINCE_FIXTURE_FILE, 'utf8');
+}
+
+function provinceSwap(html: string, from: string, to: string, minExpected = 1): string {
+  const count = html.split(from).length - 1;
+  assert.ok(count >= minExpected, `expected ${minExpected}+ occurrence(s) of ${from}, found ${count}`);
+  return html.split(from).join(to);
+}
+
+function provinceFixtureRoot(): string {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'civic-province-'));
+  fs.mkdirSync(path.join(root, 'data', 'civic'), { recursive: true });
+  fs.mkdirSync(path.join(root, 'research'), { recursive: true });
+  fs.writeFileSync(
+    path.join(root, 'data', 'civic', 'source-registry.yaml'),
+    'version: 1\n' +
+      'sources:\n' +
+      '  - id: fix-province\n' +
+      '    publisher: Province of Pangasinan\n' +
+      "    url: 'https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/'\n" +
+      '    sourceType: website\n' +
+      '    collector: province-pangasinan\n' +
+      '    updateCadence: annually\n' +
+      '    riskTier: medium\n' +
+      "    evidenceRef: 'research/city-profile/26-09-geography.md'\n" +
+      '    domains:\n' +
+      '      - city-profile\n' +
+      '      - legislation\n',
+  );
+  fs.writeFileSync(path.join(root, 'research', 'evidence.md'), '# fixture\n');
+  // A historical-like exact source plus one dependent record: the run must
+  // leave both byte-identical (no promotion path exists with zero candidates).
+  fs.writeFileSync(
+    path.join(root, 'data', 'civic', 'sources.json'),
+    JSON.stringify({
+      sources: [
+        {
+          id: 'src-province-seed',
+          title: 'Seed source',
+          publisher: 'Province of Pangasinan',
+          url: 'https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/',
+          documentType: 'webpage',
+          retrievedAt: '2026-09-04',
+          verifier: 'fixture',
+          sourceState: 'active',
+          registryId: 'fix-province',
+        },
+      ],
+    }),
+  );
+  fs.writeFileSync(
+    path.join(root, 'data', 'civic', 'records.json'),
+    JSON.stringify({
+      records: [
+        {
+          id: 'city-profile-admin',
+          domain: 'city-profile',
+          type: 'document',
+          label: 'City administrative facts',
+          data: { legislative_district: 'Pangasinan 3rd District' },
+          claimSources: { legislative_district: ['src-province-seed'] },
+          sourceIds: ['src-province-seed'],
+          status: 'verified',
+          riskTier: 'low',
+          lastVerified: '2026-09-04',
+          acceptedBy: 'fixture',
+          acceptedAt: '2026-09-04',
+          nextReviewOn: '2026-09-04',
+          updateCadence: 'per-document',
+        },
+      ],
+    }),
+  );
+  return root;
+}
+
+async function diffProvinceRun(root: string, runDir: string) {
+  const { readCandidates, readManifest } = await import('./lib/runs');
+  return diffRun(
+    {
+      canonical: loadRecords(root).records,
+      candidates: readCandidates(runDir),
+      manifest: readManifest(runDir),
+      sources: loadSources(root).sources,
+      registry: loadRegistry(root).sources,
+    },
+    '2026-09-16',
+  );
+}
+
+function readFindingsNotes(runDir: string): string[] {
+  return fs
+    .readFileSync(path.join(runDir, 'findings.md'), 'utf8')
+    .split('\n')
+    .filter((line) => line.startsWith('  - '));
+}
+
+test('prov: current fixture runs clean with zero candidates and hectare note', async () => {
+  const root = provinceFixtureRoot();
+  const ev = evidenceDir({ 'fix-province.html': provinceFixtureHtml() });
+  try {
+    const before = snapshotCanonical(root);
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-province'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'prov-clean',
+      date: '2026-09-16',
+    });
+    assert.equal(summary.outcomes['fix-province'], 'collected');
+    assert.equal(summary.candidates, 0);
+    assert.deepEqual(snapshotCanonical(root), before);
+    const { readCandidates, readManifest } = await import('./lib/runs');
+    assert.deepEqual(readCandidates(summary.run.dir), []);
+    assert.deepEqual(readManifest(summary.run.dir).sources[0].coverage, []);
+    const instances = readSourceInstances(summary.run.dir);
+    assert.equal(instances.length, 1);
+    assert.equal(instances[0].registryId, 'fix-province');
+    assert.match(instances[0].id, /^src-fix-province-2026-09-16-[0-9a-f]{8}$/);
+    // Empty coverage means no diff entries at all (never MISSING by design).
+    assert.deepEqual(await diffProvinceRun(root, summary.run.dir), []);
+    const notes = readFindingsNotes(summary.run.dir).join('\n');
+    assert.ok(notes.includes('17,087 hectares'), 'hectare conflict observation recorded');
+    assert.ok(notes.includes('barangay count observed: 86'));
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('prov: changed profile value re-notes with still zero candidates', async () => {
+  const root = provinceFixtureRoot();
+  const html = provinceSwap(provinceFixtureHtml(), 'Number of Barangay:  86', 'Number of Barangay:  87');
+  const ev = evidenceDir({ 'fix-province.html': html });
+  try {
+    const before = snapshotCanonical(root);
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-province'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'prov-changed',
+      date: '2026-09-16',
+    });
+    assert.equal(summary.outcomes['fix-province'], 'collected');
+    assert.equal(summary.candidates, 0);
+    assert.deepEqual(snapshotCanonical(root), before);
+    assert.deepEqual(await diffProvinceRun(root, summary.run.dir), []);
+    const notes = readFindingsNotes(summary.run.dir).join('\n');
+    assert.ok(notes.includes('barangay count observed: 87'), 'new value observed, not hardcoded');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('prov: missing structure fails closed as SOURCE_CHANGED for dependent records', async () => {
+  const root = provinceFixtureRoot();
+  const html = provinceSwap(
+    provinceFixtureHtml(),
+    '<h1 class="elementor-heading-title elementor-size-default">San Carlos City</h1>',
+    '<h1 class="elementor-heading-title elementor-size-default"></h1>',
+  );
+  const ev = evidenceDir({ 'fix-province.html': html });
+  try {
+    const before = snapshotCanonical(root);
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-province'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'prov-drift',
+      date: '2026-09-16',
+    });
+    assert.equal(summary.outcomes['fix-province'], 'failed');
+    assert.equal(summary.candidates, 0);
+    assert.deepEqual(snapshotCanonical(root), before);
+    const { readManifest } = await import('./lib/runs');
+    assert.ok((readManifest(summary.run.dir).sources[0].error ?? '').startsWith('parse:'));
+    // The seeded record cites the failed source, so the failed attempt is
+    // reported as SOURCE_CHANGED rather than vanishing or going MISSING.
+    const entries = await diffProvinceRun(root, summary.run.dir);
+    assert.equal(entries.length, 1);
+    assert.equal(entries[0].recordId, 'city-profile-admin');
+    assert.equal(entries[0].outcome, 'SOURCE_CHANGED');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('prov: wrong-city and conflicting values fail without output', async () => {
+  // Other-city H1: failure, zero candidates.
+  {
+    const root = provinceFixtureRoot();
+    const html = provinceSwap(provinceFixtureHtml(), '>San Carlos City</h1>', '>Dagupan City</h1>');
+    const ev = evidenceDir({ 'fix-province.html': html });
+    try {
+      const before = snapshotCanonical(root);
+      const summary = await runRefresh({
+        root,
+        sources: ['fix-province'],
+        offline: true,
+        evidenceDir: ev,
+        collectedBy: 'prov-wrong-city',
+        date: '2026-09-16',
+      });
+      assert.equal(summary.outcomes['fix-province'], 'failed');
+      assert.equal(summary.candidates, 0);
+      assert.deepEqual(snapshotCanonical(root), before);
+      const { readManifest } = await import('./lib/runs');
+      assert.match(readManifest(summary.run.dir).sources[0].error ?? '', /ambiguous jurisdiction/);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      fs.rmSync(ev, { recursive: true, force: true });
+    }
+  }
+  // Conflicting duplicate values: failure, zero candidates.
+  {
+    const root = provinceFixtureRoot();
+    const html = provinceFixtureHtml().replace(
+      'Number of Barangay:  86',
+      'Number of Barangay:  86 (urban 30) / Number of Barangay:  87',
+    );
+    const ev = evidenceDir({ 'fix-province.html': html });
+    try {
+      const summary = await runRefresh({
+        root,
+        sources: ['fix-province'],
+        offline: true,
+        evidenceDir: ev,
+        collectedBy: 'prov-conflict',
+        date: '2026-09-16',
+      });
+      assert.equal(summary.outcomes['fix-province'], 'failed');
+      assert.equal(summary.candidates, 0);
+      const { readManifest } = await import('./lib/runs');
+      assert.match(readManifest(summary.run.dir).sources[0].error ?? '', /conflicting barangay count/);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      fs.rmSync(ev, { recursive: true, force: true });
+    }
+  }
+  // Hectare regression: 17,087 ha stays notes-only (no candidate, no coverage,
+  // canonical land area untouched by construction of the empty coverage).
+  {
+    const root = provinceFixtureRoot();
+    const ev = evidenceDir({ 'fix-province.html': provinceFixtureHtml() });
+    try {
+      const summary = await runRefresh({
+        root,
+        sources: ['fix-province'],
+        offline: true,
+        evidenceDir: ev,
+        collectedBy: 'prov-hectare',
+        date: '2026-09-16',
+      });
+      assert.equal(summary.candidates, 0);
+      const notes = readFindingsNotes(summary.run.dir).join('\n');
+      assert.ok(notes.includes('17,087 hectares'));
+      assert.ok(!notes.includes('169.03'), 'canonical values never enter parser output');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+      fs.rmSync(ev, { recursive: true, force: true });
+    }
+  }
+});
+
+test('prov: annual due selects when due, skips when fresh; runs stay confined', async () => {
+  const root = provinceFixtureRoot();
+  const ev = evidenceDir({ 'fix-province.html': provinceFixtureHtml() });
+  try {
+    const before = snapshotCanonical(root);
+    const beforeTree = listTree(root);
+    const summary = await runRefresh({
+      root,
+      sources: ['fix-province'],
+      offline: true,
+      evidenceDir: ev,
+      collectedBy: 'prov-explicit',
+      date: '2026-09-16',
+    });
+    assert.equal(summary.outcomes['fix-province'], 'collected');
+    assert.equal(summary.candidates, 0);
+    const { readCandidates, readManifest } = await import('./lib/runs');
+    assert.deepEqual(readCandidates(summary.run.dir), []);
+    assert.deepEqual(readManifest(summary.run.dir).sources[0].coverage, []);
+    const instances = readSourceInstances(summary.run.dir);
+    assert.equal(instances.length, 1);
+    assert.equal(instances[0].registryId, 'fix-province');
+    // Annual source with a recent successful check is not due again yet.
+    writeHistoryManifest(root, '2026-09-07', [
+      { sourceId: 'fix-province', checkedAt: daysAgoIso(9), outcome: 'collected' },
+    ]);
+    const fresh = await runRefresh({ root, due: true, offline: true, collectedBy: 'prov-due-fresh', date: '2026-09-17' });
+    assert.ok(!('fix-province' in fresh.outcomes), 'recently collected annual source is not due');
+    // Annual source with an old failure retries instead of waiting out the year.
+    const root2 = provinceFixtureRoot();
+    try {
+      writeHistoryManifest(root2, '2026-09-07', [
+        { sourceId: 'fix-province', checkedAt: daysAgoIso(40), outcome: 'failed', error: 'fetch: refused' },
+      ]);
+      const retry = await runRefresh({ root: root2, due: true, offline: true, collectedBy: 'prov-due-retry', date: '2026-09-17' });
+      assert.ok('fix-province' in retry.outcomes, 'failed annual source retries via policy');
+    } finally {
+      fs.rmSync(root2, { recursive: true, force: true });
+    }
+    // Confinement + immutability (canonical records and historical sources).
+    assert.deepEqual(snapshotCanonical(root), before);
+    for (const file of listTree(root).filter((f) => !beforeTree.includes(f))) {
+      assert.ok(file.startsWith(`research${path.sep}runs${path.sep}`), `unexpected write: ${file}`);
+    }
+    // Determinism: identical collector notes across runs over identical evidence.
+    const ev2 = evidenceDir({ 'fix-province.html': provinceFixtureHtml() });
+    try {
+      const again = await runRefresh({
+        root,
+        sources: ['fix-province'],
+        offline: true,
+        evidenceDir: ev2,
+        collectedBy: 'prov-explicit',
+        date: '2026-09-18',
+      });
+      assert.deepEqual(readFindingsNotes(again.run.dir), readFindingsNotes(summary.run.dir));
+    } finally {
+      fs.rmSync(ev2, { recursive: true, force: true });
+    }
+    // No secrets or machine-local paths leak into run artifacts.
+    const dump: string[] = [];
+    const visit = (dir: string): void => {
+      for (const name of fs.readdirSync(dir)) {
+        const full = path.join(dir, name);
+        if (fs.statSync(full).isDirectory()) visit(full);
+        else dump.push(fs.readFileSync(full, 'utf8'));
+      }
+    };
+    visit(summary.run.dir);
+    const blob = dump.join('\n');
+    assert.ok(!blob.includes(os.tmpdir()), 'machine-local path leaked into run');
+    assert.ok(!/token|cookie/i.test(blob), 'credential-like material in run');
+    assert.ok(!blob.includes('ca-pub'), 'tracking ID leaked into run');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(ev, { recursive: true, force: true });
+  }
+});
+
+test('prov: CLI explicit refresh works against a fixture tree', () => {
+  const root = provinceFixtureRoot();
+  const ev = evidenceDir({ 'fix-province.html': provinceFixtureHtml() });
+  try {
+    const out = execFileSync('bun', ['run', 'data:refresh', '--', '--source=fix-province', '--offline', `--evidence-dir=${ev}`, '--collected-by=cli', '--date=2026-09-16'], {
+      cwd: process.cwd(),
+      env: { ...process.env, CIVIC_ROOT: root },
+      encoding: 'utf8',
+    });
+    assert.ok(out.includes('2026-09-16'), out);
+    assert.ok(out.includes('fix-province'), out);
+    assert.ok(out.includes('0 candidate(s)'), out);
     const runs = fs.readdirSync(path.join(root, 'research', 'runs'));
     assert.deepEqual(runs, ['2026-09-16']);
   } finally {

@@ -20,6 +20,12 @@ import {
   parseCenpelco,
   SAN_CARLOS_MAIN_OFFICE,
 } from './collectors/cenpelco';
+import {
+  collectProvincePangasinan,
+  parseProvinceProfile,
+  PROVINCE_COVERAGE,
+  PROVINCE_REGISTRY_ID,
+} from './collectors/province-pangasinan';
 import { resolveCollector } from './collectors/index';
 import type { RegistryEntry } from './lib/civic';
 
@@ -158,6 +164,7 @@ test('resolveCollector refuses unknown or null collectors', () => {
   assert.equal(typeof resolveCollector('city-website'), 'function');
   assert.equal(typeof resolveCollector('psa-philatlas'), 'function');
   assert.equal(typeof resolveCollector('cenpelco'), 'function');
+  assert.equal(typeof resolveCollector('province-pangasinan'), 'function');
   assert.equal(resolveCollector('universal-scraper'), null);
   assert.equal(resolveCollector(null), null);
 });
@@ -566,4 +573,134 @@ test('cenpelco San Carlos guard requires the exact Main qualifier', () => {
     '<li><a href="../branches/sancarlos-north/sancarlos-north.jsp">San Carlos City (North)</a></li></ul>',
   );
   assert.throws(() => parseCenpelco(ambiguous, 'ambiguous.html'), /parse: ambiguous San Carlos office identity/);
+});
+
+// ---- province-pangasinan collector (structure monitor, empty coverage) ----
+
+const PROVINCE_FIXTURE = fileURLToPath(
+  new URL('./fixtures/province-pangasinan-san-carlos-2026-09-16.html', import.meta.url),
+);
+
+function provinceHtml(): string {
+  return fs.readFileSync(PROVINCE_FIXTURE, 'utf8');
+}
+
+function provinceRegistry(): RegistryEntry {
+  return {
+    id: 'province-pangasinan',
+    publisher: 'Province of Pangasinan',
+    url: 'https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/',
+    sourceType: 'website',
+    collector: 'province-pangasinan',
+    updateCadence: 'annually',
+    evidenceRef: 'research/city-profile/26-09-geography.md',
+    domains: ['city-profile', 'legislation'],
+  };
+}
+
+function provinceArgs(evidenceText?: string) {
+  return {
+    registryId: PROVINCE_REGISTRY_ID,
+    registry: provinceRegistry(),
+    evidenceName: 'province-pangasinan.html',
+    evidenceText: evidenceText ?? provinceHtml(),
+    runId: '2026-09-16',
+    collectedBy: 'fixture-agent',
+  };
+}
+
+function provinceSwap(html: string, from: string, to: string, minExpected = 1): string {
+  const count = html.split(from).length - 1;
+  assert.ok(count >= minExpected, `expected ${minExpected}+ occurrence(s) of ${from}, found ${count}`);
+  return html.split(from).join(to);
+}
+
+test('province-pangasinan parses the current fixture into scoped notes', () => {
+  const obs = parseProvinceProfile(provinceHtml(), 'province-pangasinan.html');
+  const blob = obs.notes.join('\n');
+  for (const expected of [
+    'classification observed: 3rd Class City',
+    'barangay count observed: 86',
+    'congressional district observed: third congressional district',
+    'Republic Act No. 4487 signed June 19, 1965',
+    'Basista separation RA 4866',
+    'distance observed: 19 kilometers from Lingayen',
+    'land area observed: 17,087 hectares',
+    'census population observed: 205,424 (2020',
+  ]) {
+    assert.ok(blob.includes(expected), `note present: ${expected}`);
+  }
+  assert.ok(!blob.includes('169.03'), 'canonical values never enter parser output');
+});
+
+test('province-pangasinan collector is deterministic with empty coverage', () => {
+  const first = collectProvincePangasinan(provinceArgs());
+  const second = collectProvincePangasinan(provinceArgs());
+  assert.deepEqual(first, second);
+  assert.deepEqual(first.candidates, []);
+  assert.deepEqual(first.coverage, { expectedRecordIds: [] });
+  assert.equal(first.sourceInstances.length, 1);
+  const [instance] = first.sourceInstances;
+  assert.match(instance.id, /^src-province-pangasinan-2026-09-16-[0-9a-f]{8}$/);
+  assert.equal(instance.registryId, PROVINCE_REGISTRY_ID);
+  assert.equal(instance.documentType, 'webpage');
+});
+
+test('province-pangasinan rejects wrong-jurisdiction evidence', () => {
+  const html = provinceHtml();
+  assert.throws(() => parseProvinceProfile('', 'empty.html'), /parse: empty evidence/);
+  assert.throws(
+    () => parseProvinceProfile(provinceSwap(html, '>San Carlos City</h1>', '>Dagupan City</h1>'), 'other-city.html'),
+    /parse: ambiguous jurisdiction/,
+  );
+  assert.throws(
+    () => parseProvinceProfile(`${html}<p>Negros Occidental</p>`, 'negros.html'),
+    /parse: .*Negros/,
+  );
+  const generic = provinceSwap(html, 'San Carlos City | The Official Website of the Province of Pangasinan', 'Province of Pangasinan | Official Website')
+    .replace(/<h1\b[^>]*>[\s\S]*?<\/h1\s*>/i, '<h1>Province Home</h1>');
+  assert.throws(() => parseProvinceProfile(generic, 'generic.html'), /parse: ambiguous jurisdiction/);
+});
+
+test('province-pangasinan fails closed on drift and conflicting values', () => {
+  const html = provinceHtml();
+  assert.throws(
+    () => parseProvinceProfile(provinceSwap(html, 'Number of Barangay:', 'Barangay Count:'), 'renamed.html'),
+    /parse: barangay count label not found/,
+  );
+  assert.throws(
+    () => parseProvinceProfile(provinceSwap(html, '<h4>Officials</h4>', '<h4>People</h4>'), 'no-boundary.html'),
+    /parse: Officials boundary not found/,
+  );
+  const doubled = html.replace(
+    'Number of Barangay:  86',
+    'Number of Barangay:  86 (urban 30) / Number of Barangay:  87',
+  );
+  assert.ok(doubled.includes('87'));
+  assert.throws(() => parseProvinceProfile(doubled, 'conflict.html'), /parse: conflicting barangay count values/);
+  assert.throws(
+    () => parseProvinceProfile(provinceSwap(html, '17,087 hectares', 'seventeen thousand hectares'), 'bad-area.html'),
+    /parse: land area label not found/,
+  );
+});
+
+test('province-pangasinan ignores officials-only and tourism-only changes', () => {
+  const pristine = parseProvinceProfile(provinceHtml(), 'province-pangasinan.html');
+  const officialsChanged = provinceSwap(provinceHtml(), 'Julier Resuello', 'Someone Else') ;
+  assert.deepEqual(parseProvinceProfile(officialsChanged, 'officials.html'), pristine);
+  const tourismChanged = provinceSwap(provinceHtml(), 'Mango-Bamboo Festival', 'Mango-Bamboo Grand Festival');
+  assert.deepEqual(parseProvinceProfile(tourismChanged, 'tourism.html'), pristine);
+});
+
+test('province-pangasinan value changes re-note without candidacy or hardcoding', () => {
+  const html = provinceHtml();
+  const changed = provinceSwap(html, '17,087 hectares', '18,000 hectares');
+  const obs = parseProvinceProfile(changed, 'changed-area.html');
+  assert.ok(obs.notes.some((n) => n.includes('land area observed: 18,000 hectares')));
+  const out = collectProvincePangasinan(provinceArgs(changed));
+  assert.deepEqual(out.candidates, []);
+  assert.deepEqual(out.coverage, { expectedRecordIds: [] });
+  const barangays = provinceSwap(html, 'Number of Barangay:  86', 'Number of Barangay:  87');
+  const obs2 = parseProvinceProfile(barangays, 'changed-count.html');
+  assert.ok(obs2.notes.some((n) => n.includes('barangay count observed: 87')));
 });

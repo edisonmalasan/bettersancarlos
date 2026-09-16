@@ -110,6 +110,8 @@ None identified.
 | 2026-09-16 | Province releases (Gemma Road, budget resolutions) | partial | provincially implemented access road documented; annual budget/AIP figures in transparency research |
 | 2026-09-16 | PhilGEPS Bulletin Board (`S6`) | partial | public bid-search UI exists; locality filtering untested; procurements only, not project status |
 
+Staging note 2026-09-16 (canonical integration, research run 2026-09-16): all four narrative works above were promoted into `dpwh-projects-summary` entries. The Coliling overlay and drainage observations rest on the official DPWH Ilocos Region narratives indexed here; their direct article URLs were not transcribed, so they are instanced by discovery with exact-URL recovery as a City Engineering/BAC follow-up.
+
 ## Sources
 
 | ID | Publisher | Document | Published | Accessed | Type | URL |
@@ -118,5 +120,5 @@ None identified.
 | S2 | City Government of San Carlos | Construction of Slope Protection Works (archived) | 2025-07-08 | 2026-09-04 | archived-official | https://web.archive.org/web/20250708073503/https://www.sancarlospangasinan.gov.ph/construction-of-slope-protection-works |
 | S3 | City Government of San Carlos | Bid invitations (archived; e.g., classroom/backhoe) | 2025-12-08 | 2026-09-04 | archived-official | https://web.archive.org/web/20251208103032/https://www.sancarlospangasinan.gov.ph/bidinvitechildplayground |
 | S4 | City Government of San Carlos | News (archived, old site; 2016–2018) | 2016 | 2026-09-04 | archived-official | http://sancarloscitypangasinan.gov.ph/ |
-| S5 | DPWH | Flood-control narratives (Bogaoan/Guelew slope protection, Pangasinan 4th DEO) | 2024 | 2026-09-16 | official | https://www.dpwh.gov.ph/dpwh/news/35148 |
+| S5 | DPWH | Flood-control narratives (Bogaoan/Guelew slope protection, Pangasinan 4th DEO; transcribed article covers Bogaoan/Guelew only — Coliling narrative URLs not transcribed, see staging note) | 2024 | 2026-09-16 | official | https://www.dpwh.gov.ph/dpwh/news/35148 |
 | S6 | PhilGEPS | Electronic Bulletin Board (public bid-notice search UI; locality filtering untested) | — | 2026-09-16 | government-dataset | https://philgeps.gov.ph/Indexes/index |

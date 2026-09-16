@@ -90,13 +90,13 @@ from `data/civic` records. Legacy scripts stay untouched until their row says re
 | `city-projects.json` | manual (partially-verified) | verify buckets against DPWH/FDPP project lists |
 | `evacuation-centers.json` | manual (partially-verified) | re-verify shelters with CDRRMO |
 | `government-directory.json` | manual (partially-verified) | reconcile office-holder names with canonical officials records when migrated |
-| `health-facilities.json` | manual (partially-verified) | verify facilities against the DOH HFDB list |
+| `health-facilities.json` (`data/` home + `public/data/` + `src/data/` mirrors) | canonical | done (followup-evidence integration; PhilHealth CY2026 accreditation, DOH licensure still pending) |
 | `schools.json` | manual (partially-verified) | verify institution lists against the DepEd school directory |
 | `services.json` | manual (57-service hand directory, no provenance block) | add per-service research provenance before migration |
 | `tourism.json` | manual (partially-verified) | — |
 | `transparency-docs.json` | manual (partially-verified) | refresh FDP links on the DILG posting cycle |
 | `transportation.json` | manual (historical) | re-verify routes/fares (2017-era sources) |
-| `utilities.json` | manual (partially-verified) | re-verify CENPELCO contacts |
+| `utilities.json` | manual (partially-verified) | re-verify CENPELCO contacts; water provider identity backed by canonical `utility-water-provider-sccwd` (contacts/leadership/operations pending re-verification) |
 
 `src/data/barangays.json` and `src/data/barangay-officials.json` are generated
 from canonical barangay records by `bun run data:generate`, with `data/*.json`

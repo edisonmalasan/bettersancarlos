@@ -253,7 +253,8 @@ use this path.
 Already automated: `lgu-website` (city-website),
 `lgu-old-site-archive` (city-website, historical only),
 `psa-census-philatlas` (`psa-philatlas`, explicit per-document refresh only),
-`cenpelco` (`cenpelco`, quarterly branch/presence watch).
+`cenpelco` (`cenpelco`, quarterly branch/presence watch),
+`province-pangasinan` (`province-pangasinan`, annual structure monitor).
 `lgu-facebook-cio`
 (facebook) is implemented but manual/dormant by default (see
 `docs/facebook-sync.md`) — collector capability without automatic schedule
@@ -293,6 +294,23 @@ satisfying cadence. Gallery drift, duplicate offices, and ambiguous San Carlos
 identity fail closed as `SOURCE_CHANGED`. `data/utilities.json` stays manual;
 no generator output changes in this capability.
 
+### Implemented: `province-pangasinan` (`province-pangasinan`)
+
+Jurisdiction-verifying structure monitor over the single official Province
+San Carlos City profile page (H1, breadcrumb, title, labeled profile facts,
+narrative sentences). Declares explicitly empty fact coverage by design: every
+mappable page fact sits inside a composite canonical record that promotion
+replaces wholesale, so v1 emits zero candidates and can never produce
+`MISSING`. Scoped observations (classification, barangay count, district,
+cityhood/RA refs, distance, verbatim 17,087-hectare land area, census presence)
+land in run notes; the land-area conflict stays preserved evidence and is
+never resolved by collection. Current elected officials, tourism content, and
+provincial issuances are outside coverage (`legislation` stays on the registry
+for charter context only). `annual` cadence: `--due` collects it when due
+(research-only, stops before promotion); failures retry per policy without
+satisfying cadence. Missing structure, wrong jurisdiction, and conflicting
+values fail closed as `SOURCE_CHANGED`.
+
 1. `comelec-results` — Rappler mirror is structured HTML; high value at
    election/vacancy events (per-term cadence).
 2. `dilg-fdpp` — high-value transparency documents; probe portal access
@@ -307,8 +325,6 @@ no generator output changes in this capability.
    System, then automate the list pull.
 7. `doh-hfsrb` — facility list was 404 and OLRS is login-only; manual
    first, automate only if a public endpoint appears.
-8. `province-pangasinan` — stable annual profile page; low volatility,
-   automate opportunistically.
 
 Parked (no automation until the stated condition clears):
 

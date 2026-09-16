@@ -483,3 +483,181 @@ test('end-to-end CENPELCO provenance: refresh to promotion', async () => {
     fs.rmSync(root, { recursive: true, force: true });
   }
 });
+
+// Test 4 — Province profile end to end on an isolated fixture tree (empty
+// coverage by explicit design): staged profile evidence -> refresh (exact
+// instance, zero candidates) -> diff (no entries) -> promotion plumbing
+// no-ops safely (nothing to promote) -> city-profile compatibility JSON still
+// generates from the seeded records. Production data stays untouched.
+const PROVINCE_E2E_IDS = [
+  'population-total-2020',
+  'city-geo-core',
+  'city-hall-contact',
+  'city-hall-trunk-line',
+  'city-profile-identity',
+  'city-profile-admin',
+  'city-profile-geo-detail',
+  'city-profile-seal',
+  'city-profile-leadership',
+  'city-profile-history',
+  'city-profile-culture',
+  'city-profile-vision-mission',
+  'city-profile-publication-note',
+];
+
+test('end-to-end Province provenance: refresh to generate with zero candidates', async () => {
+  const prodRoot = process.cwd();
+  const prodFiles = [
+    'data/civic/records.json',
+    'data/civic/sources.json',
+    'data/city-profile.json',
+    'src/data/city-profile.json',
+    'public/data/city-profile.json',
+  ];
+  const prodBefore: Record<string, string> = Object.fromEntries(
+    prodFiles.map((f) => [f, sha256FileHex(path.join(prodRoot, f))]),
+  );
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'civic-province-e2e-'));
+  try {
+    fs.mkdirSync(path.join(root, 'data', 'civic'), { recursive: true });
+    fs.mkdirSync(path.join(root, 'research'), { recursive: true });
+    fs.writeFileSync(
+      path.join(root, 'data', 'civic', 'source-registry.yaml'),
+      'version: 1\n' +
+        'sources:\n' +
+        '  - id: fix-province\n' +
+        '    publisher: Province of Pangasinan\n' +
+        "    url: 'https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/'\n" +
+        '    sourceType: website\n' +
+        '    collector: province-pangasinan\n' +
+        '    updateCadence: annually\n' +
+        '    riskTier: medium\n' +
+        "    evidenceRef: 'research/city-profile/26-09-geography.md'\n" +
+        '    domains:\n' +
+        '      - city-profile\n' +
+        '      - legislation\n',
+    );
+    fs.writeFileSync(path.join(root, 'research', 'evidence.md'), '# fixture\n');
+    fs.writeFileSync(
+      path.join(root, 'data', 'civic', 'sources.json'),
+      JSON.stringify(
+        {
+          sources: [
+            {
+              id: 'src-province-seed',
+              title: 'Seed source',
+              publisher: 'Province of Pangasinan',
+              url: 'https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/',
+              documentType: 'webpage',
+              retrievedAt: '2026-09-04',
+              verifier: 'fixture',
+              sourceState: 'active',
+              registryId: 'fix-province',
+            },
+          ],
+        },
+        null,
+        2,
+      ) + '\n',
+    );
+    // Seed the full city-profile domain from production shapes so generation
+    // has its required records; all provenance rewired to the tree seed.
+    const prod = JSON.parse(
+      fs.readFileSync(path.join(prodRoot, 'data', 'civic', 'records.json'), 'utf8'),
+    ) as { records: CivicRecord[] };
+    const wanted = new Set(PROVINCE_E2E_IDS);
+    const seeds = prod.records
+      .filter((r) => wanted.has(r.id))
+      .map((r) => {
+        const clone = JSON.parse(JSON.stringify(r)) as CivicRecord;
+        clone.sourceIds = ['src-province-seed'];
+        for (const key of Object.keys(clone.claimSources ?? {})) {
+          (clone.claimSources as Record<string, string[]>)[key] = ['src-province-seed'];
+        }
+        return clone;
+      });
+    assert.equal(seeds.length, PROVINCE_E2E_IDS.length, 'all city-profile domain records seeded');
+    // Seed with the pipeline's own 2-space serializer so the promotion
+    // no-op assertion below measures content stability, not formatting.
+    fs.writeFileSync(
+      path.join(root, 'data', 'civic', 'records.json'),
+      JSON.stringify({ records: seeds }, null, 2) + '\n',
+    );
+
+    const evDir = fs.mkdtempSync(path.join(os.tmpdir(), 'civic-province-e2e-evidence-'));
+    try {
+      const fixtureBytes = fs.readFileSync(
+        fileURLToPath(new URL('./fixtures/province-pangasinan-san-carlos-2026-09-16.html', import.meta.url)),
+        'utf8',
+      );
+      fs.writeFileSync(path.join(evDir, 'fix-province.html'), fixtureBytes);
+
+      const summary = await runRefresh({
+        root,
+        sources: ['fix-province'],
+        offline: true,
+        evidenceDir: evDir,
+        collectedBy: 'e2e-collector',
+        date: '2026-09-16',
+      });
+      assert.equal(summary.outcomes['fix-province'], 'collected');
+      assert.equal(summary.candidates, 0);
+
+      const instances = readSourceInstances(summary.run.dir);
+      assert.equal(instances.length, 1);
+      assert.equal(instances[0].registryId, 'fix-province');
+      assert.equal(instances[0].sha256, sha256Hex(fixtureBytes));
+
+      const { readCandidates, readManifest } = await import('./lib/runs');
+      assert.deepEqual(readCandidates(summary.run.dir), []);
+      const entries = diffRun(
+        {
+          canonical: loadRecords(root).records,
+          candidates: [],
+          manifest: readManifest(summary.run.dir),
+          sources: loadSources(root).sources,
+          registry: loadRegistry(root).sources,
+        },
+        '2026-09-16',
+      );
+      assert.deepEqual(entries, [], 'empty coverage yields no diff entries by design');
+
+      // Promotion plumbing with zero candidates refuses loudly without
+      // touching either canonical file (nothing to promote, nothing written).
+      const treeBefore = {
+        records: sha256FileHex(path.join(root, 'data', 'civic', 'records.json')),
+        sources: sha256FileHex(path.join(root, 'data', 'civic', 'sources.json')),
+      };
+      assert.throws(
+        () => promoteRun({ root, runId: summary.run.runId, all: true, reviewer: 'e2e-reviewer' }, '2026-09-16'),
+        /has no candidates/,
+      );
+      assert.deepEqual(
+        {
+          records: sha256FileHex(path.join(root, 'data', 'civic', 'records.json')),
+          sources: sha256FileHex(path.join(root, 'data', 'civic', 'sources.json')),
+        },
+        treeBefore,
+      );
+      assert.equal(loadSources(root).sources.length, 1, 'historical seed instance untouched');
+
+      // Compatibility generation for the domain still succeeds from seeds.
+      const out = buildDomainJson('cityProfile', loadRecords(root).records, loadSources(root).sources) as {
+        official_name: string;
+        land_area_km2: number;
+        population: { total: number };
+      };
+      assert.equal(out.official_name, 'City of San Carlos');
+      assert.equal(out.land_area_km2, 169.03);
+      assert.equal(out.population.total, 205424);
+    } finally {
+      fs.rmSync(evDir, { recursive: true, force: true });
+    }
+    const prodAfter: Record<string, string> = Object.fromEntries(
+      prodFiles.map((f) => [f, sha256FileHex(path.join(prodRoot, f))]),
+      );
+    assert.deepEqual(prodAfter, prodBefore, 'production canonical and generated data untouched');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+});

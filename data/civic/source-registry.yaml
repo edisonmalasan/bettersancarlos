@@ -219,10 +219,10 @@ sources:
     publisher: Province of Pangasinan
     url: 'https://www.pangasinan.gov.ph/city-municipalities/san-carlos-city/'
     sourceType: website
-    collector: null
+    collector: province-pangasinan
     updateCadence: annually
     riskTier: medium
-    accessNotes: 'Charter and cityhood context; reconcile the land-area conflict against PSA before use.'
+    accessNotes: 'Single profile-page structure monitor (jurisdiction + labeled profile facts, notes-only land-area conflict). Current elected officials, tourism/issuances, and duplicate census facts are outside coverage; the 17,087 ha vs PSA 169.03 km2 conflict remains unresolved.'
     evidenceRef: 'research/legislation/26-09-legislation-archive.md'
     domains:
       - city-profile

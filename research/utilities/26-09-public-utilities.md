@@ -40,6 +40,7 @@ CENPELCO confirmed as the electricity distributor via an official LGU notice; wa
 
 - **Provider confirmed: San Carlos City Water District (SCCWD)** — LWUA Conditional Certificate of Conformance awarded July 28, 1977 (SP Resolution No. 42, March 1977), per the district's official site verified live 2026-09-16 (`S5`); address Burgos–Padlan Street, San Carlos City, Pangasinan. District site content is 2017-vintage (8,461 connections as of 2015) and a 2014 PrimeWater joint venture leaves current operations unclear.
 - **Do not publish SCCWD address, phones, emails, or leadership as verified** — re-verify currency first; the LWUA directory itself remains HTTP 403. See `utilities/26-09-water-district.md`.
+- Management as published (2017-vintage, currency unconfirmed): General Manager Mr. Jose Jovares A. Resuello II with a five-member board; October 2014 joint venture with Primewater Infrastructure Corporation — current customer-service operator NOT established. | `S5`
 
 ### Telecommunications & Internet
 

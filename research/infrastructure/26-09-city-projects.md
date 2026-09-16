@@ -53,6 +53,37 @@ Official LGU site Projects/Programs menu. | `S1`
 - **Documented city works (narratives only, via search-indexed official articles):** 355.47 m Bogaoan + 287 m Guelew slope protection along the Agno River (₱48.99M + ₱47.78M, GAA 2024); 703 m Villasis–Malasiqui–San Carlos Road asphalt overlay at Coliling (₱9.9M); ₱41.2M Coliling drainage/road-widening (1.03 km, completed Aug 15). These carry no stable project IDs and cannot seed a collector. | `S5`
 - **Adjacent manual route — PhilGEPS Bulletin Board** (`S6`): the public bid-notice search UI (title/agency/date filters) lists DPWH Region I / Pangasinan 4th DEO tenders (e.g., San Carlos bypass road, local roads), but San Carlos filterability requires executing its JS search flow (untested) and it covers procurements, not project status. Manual BAC follow-up only; not a project-status collector path.
 
+### San Carlos Project Inventory (Manual, Follow-Up 2026-09-16)
+
+Assembled from official narratives (DPWH news, PNA, Province releases) and tender-aggregator discovery of PhilGEPS-origin notices (secondary; confirm against PhilGEPS/BAC before canonical use). Missing fields are unknown — not inferred.
+
+| Project | Location | Implementing office | Amount | Funding/status | Sources |
+|---|---|---|---|---|---|
+| Agno River slope protection, 355.47 m | Brgy. Bogaoan | DPWH Pangasinan 4th DEO | ₱48.99M | GAA 2024; reported complete (Aug 2024) | S5 |
+| Flood mitigation revetment, 287 m | Brgy. Guelew | DPWH Pangasinan 4th DEO | ₱47.78M | GAA 2024; reported complete (Aug 2024) | S5 |
+| Villasis–Malasiqui–San Carlos Road asphalt overlay, 703 m | Brgy. Coliling | DPWH Pangasinan 4th DEO | ₱9.9M | 2024 GAA; reported complete | S5 |
+| Coliling drainage + road widening, ~1.03 km | Brgy. Coliling (Villasis–Malasiqui–San Carlos Rd) | DPWH (Ilocos Region report) | ₱41.2M | reported complete; travel time cut 20–25 min → 5–15 min | S5 |
+| Access road to Minor Basilica, Sta. 1+110–2+348 | San Carlos City | DPWH Region I (tender 26Aj0046) | ₱60,581,170 ABC | bid closed Jul 16, 2026 (procurement stage) | S6 |
+| San Carlos City Bypass Road SIPAG (Palamig–Pagal–Manzon–Magtaking–Mamarlao) | San Carlos City | DPWH Region I (tender 26A00037) | — | bids closed Sep 2, 2026 (procurement stage) | S6 |
+| Local roads, 3 sections Sta. 0+000–0+500 | City of San Carlos | DPWH Pangasinan 4th DEO (tender 26AJ0050) | — | bids closed Aug 20, 2026 (procurement stage) | S6 |
+| Gemma Road access road, 596 m (Sitio Doña Maria–Sitio Gulisan) | Brgy. Mabalbalino | Provincial Government of Pangasinan (NOT DPWH) | — | completed Apr–Jun 2026 (64 days) | S5 |
+
+## Recommended Inquiry: Project Status Corpus
+
+Agency: DPWH Pangasinan 4th District Engineering Office (confirmed responsible office for city works); City Engineering Office / BAC, City of San Carlos (for city-funded and bid-document detail)
+
+Subject: implemented/ongoing DPWH and city infrastructure projects in San Carlos City with project IDs, locations, contractors, contract amounts, funding years, start/completion dates, and status
+
+Jurisdiction: San Carlos City, Pangasinan
+
+Period: CY2022–present
+
+Preferred response format: project list (CSV/XLS) + key contract pages where applicable
+
+Reason: public civic-data verification (no public structured project endpoint; dpwh.gov.ph returns a bot-manager stub to plain HTTP)
+
+Contact/request channel: official DEO / City Engineering / BAC channels only (to be confirmed at request time; do not send automatically)
+
 ## Verification & Uncertainty
 
 - Specific project budgets, contractors, and completion dates were not retrievable online.
@@ -75,6 +106,8 @@ None identified.
 |---|---|---|---|
 | 2026-09-16 | dpwh.gov.ph root + news paths | failed | bot-manager stub (JS challenge); no content without executing it — do not circumvent |
 | 2026-09-16 | Official DPWH news narratives (via search) | partial | Bogaoan/Guelew/Coliling works with costs confirmed; no stable project IDs |
+| 2026-09-16 | Tender-aggregator discovery of PhilGEPS-origin notices | partial | 26Aj0046 / 26A00037 / 26AJ0050 with ABCs/deadlines; secondary — confirm against PhilGEPS/BAC |
+| 2026-09-16 | Province releases (Gemma Road, budget resolutions) | partial | provincially implemented access road documented; annual budget/AIP figures in transparency research |
 | 2026-09-16 | PhilGEPS Bulletin Board (`S6`) | partial | public bid-search UI exists; locality filtering untested; procurements only, not project status |
 
 ## Sources

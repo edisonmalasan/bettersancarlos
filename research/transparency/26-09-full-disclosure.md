@@ -63,6 +63,12 @@ Participation in FDP/Transparency Seal and the SGLG award is documented from arc
 - The official successor is **`https://fdpp.dilg.gov.ph/`** (linked as the Full Disclosure Policy Portal from the DILG homepage): a sign-in application landing page advertising public financial-report browsing and compliance tracking, but no public San Carlos City retrieval path — `/reports` returns 403 and `/login`, `/documents`, `/portal`, `/guest`, `/public`, `/home` return 404. SPA-internal data endpoints were not touched (undocumented private APIs are out of bounds). | `S9`
 - Until the successor exposes a documented public reports path, FDP submissions for the city remain retrievable only by manual inquiry.
 
+### FDP Legal Framework and Posting Surfaces (Follow-Up 2026-09-16)
+
+- The FDP rests on DILG Memorandum Circular No. 2010-083 (as amended), MC 2011-134, MC 2013-140 (implementing guidelines), and MC 2019-149 (latest cited), under RA 7160 §352 and the annual GAA posting mandate. Posting modalities per issuance: three conspicuous places, print media, the LGU website, and the FDP portal (14 Excel forms per posting period). | `S10`, `S11`
+- Some LGUs run their own FDPP deployments (e.g., Bongabong, Oriental Mindoro); no San Carlos City–specific FDPP host was found — do not assume one exists. | `S10`
+- **Alternate disclosure surface found**: the Province of Pangasinan `/issuances/` collection publishes the provincial review resolutions for San Carlos City budgets (annual appropriations, AIPs, supplementals) as stable downloadable PDFs — see `transparency/26-09-blgf-budget.md` for the document inventory. These are provincial review acts, not FDP submissions or SREs; do not conflate them.
+
 ### Seal of Good Local Governance (SGLG)
 
 - The city was recognized with the **Seal of Good Local Governance (SGLG)** — an archived article on the official LGU site titled *"San Carlos City, Pangasinan: A Beacon of Excellence in Governance – Securing the Seal of Good Local Governance (SGLG) Award"* (archived 2025-12-07).
@@ -99,6 +105,7 @@ None identified.
 | 2026-09-16 | SGLG portal | failed | unreachable; award year still unconfirmed |
 | 2026-09-16 | Legacy FDPP host (`fdpp.gov.ph`) | failed | DNS does not resolve; host decommissioned |
 | 2026-09-16 | Successor FDP portal (`S9`) | failed | sign-in landing only; no public report retrieval path |
+| 2026-09-16 | DILG FDP legal framework + LGU-hosted pattern (`S10`, `S11`) | partial | MCs/modalities documented; no San Carlos FDPP host found; Province issuances identified as alternate disclosure surface |
 
 ## Sources
 
@@ -113,3 +120,5 @@ None identified.
 | S7 | City Government of San Carlos | Citizens Charter page (live menu reference) | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/citizens-charter |
 | S8 | City Government of San Carlos | Transparency Seal (live; symbolism only, no PDFs; re-checked 2026-09-16) | — | 2026-09-16 | official | https://www.sancarlospangasinan.gov.ph/transparency-seal |
 | S9 | DILG | Full Disclosure Policy Portal, successor host (sign-in landing; no public report path) | — | 2026-09-16 | official | https://fdpp.dilg.gov.ph/ |
+| S10 | DILG Region XII / DILG Aklan | FDP program pages (legal basis, posting modalities, report calendar) | — | 2026-09-16 | official | https://region12.dilg.gov.ph/programs-projects/full-disclosure-policy-fdp |
+| S11 | Municipality of Bongabong | LGU-hosted FDPP deployment (pattern reference; not San Carlos) | — | 2026-09-16 | official | https://fdpp.bongabong.gov.ph/ |

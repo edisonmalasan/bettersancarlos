@@ -37,22 +37,22 @@ The table below is generated from document frontmatter (`bun run research:index`
 | disaster-risk | Hazard Maps & Disaster Risk | gap-report | blocked | current | medium | 2026-09-04 |
 | economy | Local Economy | profile | partial | mixed | medium | 2026-09-04 |
 | education | Schools and Education | directory | partial | current | medium | 2026-09-04 |
-| emergency | Emergency Hotlines and Public Safety | directory | partial | mixed | high | 2026-09-04 |
+| emergency | Emergency Hotlines and Public Safety | directory | partial | mixed | high | 2026-09-16 |
 | environment | Environmental Programs and Waste Management | profile | partial | historical | low | 2026-09-04 |
 | government | Elected Officials (2025–2028) | directory | partial | mixed | high | 2026-09-04 |
 | government | Government Contact Directory | directory | partial | mixed | high | 2026-09-04 |
 | government | LGU Structure and Department Heads | directory | partial | historical | high | 2026-09-04 |
-| health | Health Facilities (DOH-Licensed) | gap-report | partial | current | high | 2026-09-04 |
-| health | Health Facilities | directory | partial | mixed | high | 2026-09-04 |
+| health | Health Facilities (DOH-Licensed) | gap-report | partial | current | high | 2026-09-16 |
+| health | Health Facilities | directory | partial | mixed | high | 2026-09-16 |
 | infrastructure | City Projects and Infrastructure | profile | partial | historical | high | 2026-09-04 |
 | legislation | Legislation Archive (Ordinances & Resolutions) | document-index | unverified | historical | high | 2026-09-04 |
 | news | News and Current Events | timeline | partial | mixed | low | 2026-09-04 |
 | official-presence | Official Online Presence | directory | verified | current | low | 2026-09-04 |
 | tourism | Festivals | timeline | verified | mixed | low | 2026-09-04 |
 | tourism | Tourist Attractions and Accommodation | directory | partial | mixed | low | 2026-09-04 |
-| transparency | BLGF Budget & Fiscal Data (FY2017–FY2025) | gap-report | blocked | current | high | 2026-09-04 |
-| transparency | Budget and Fiscal Data | dataset | partial | mixed | high | 2026-09-04 |
-| transparency | Full Disclosure, Transparency Seal & Citizen's Charter | document-index | partial | mixed | high | 2026-09-04 |
+| transparency | BLGF Budget & Fiscal Data (FY2017–FY2025) | gap-report | blocked | current | high | 2026-09-16 |
+| transparency | Budget and Fiscal Data | dataset | partial | mixed | high | 2026-09-16 |
+| transparency | Full Disclosure, Transparency Seal & Citizen's Charter | document-index | partial | mixed | high | 2026-09-16 |
 | transportation | Public Transport and Mobility | profile | partial | historical | low | 2026-09-04 |
 | utilities | CENPELCO (Electric Cooperative) Contacts | directory | partial | current | medium | 2026-09-04 |
 | utilities | Public Utilities | profile | partial | mixed | medium | 2026-09-04 |
@@ -65,7 +65,7 @@ The table below is generated from document frontmatter (`bun run research:index`
 - Research documents: 33
 - Verified: 5 · Partial: 24 · Unverified: 1 · Blocked: 3
 - High-risk: 13
-- Last research update: 2026-09-04
+- Last research update: 2026-09-16
 <!-- research:index:end:summary -->
 
 ## Cross-Cutting Notes

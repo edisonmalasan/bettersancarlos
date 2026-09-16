@@ -8,7 +8,7 @@ verification_status: blocked
 temporal_status: current
 risk: high
 researched_at: 2026-09-04
-last_checked: 2026-09-04
+last_checked: 2026-09-16
 canonical_domains:
   - transparency
 ---
@@ -21,7 +21,7 @@ FY2017–FY2025 fiscal data for San Carlos City, Pangasinan (regular income, sou
 
 ## Summary
 
-No machine-readable fiscal dataset for FY2017–FY2025 could be extracted: BLGF portals returned 403 and the repository's verified series still ends at FY2016.
+No machine-readable fiscal dataset for FY2017–FY2025 could be extracted: BLGF portals still return 403 on re-check 2026-09-16 and the repository's verified series still ends at FY2016.
 
 ## Research Question
 
@@ -57,6 +57,10 @@ For each fiscal year FY2017–FY2025, the following should be collected:
 | 2026-09-04 | BLGF web tools / data portals | failed | no public parameterized LGU-level SRE search without login |
 | 2026-09-04 | Full Disclosure Policy Portal (`S2`) | failed | aggregates LGU transparency documents; city FY2017–FY2025 submissions not retrievable |
 | 2026-09-04 | Wayback Machine BLGF captures (2024–2025) | failed | page shells loaded; financial tables not captured in searchable form |
+| 2026-09-16 | BLGF official site re-check (`S1`) | failed | HTTP 403 Forbidden again; no SRE extraction path |
+| 2026-09-16 | FDPP re-check (`S2`) | failed | portal unreachable; no city submissions retrievable |
+| 2026-09-16 | COA audit-report path re-check (`S3`) | failed | HTTP 403 Forbidden; no San Carlos City annual audit report retrieved |
+| 2026-09-16 | Live LGU Transparency Seal page (`S4`) | failed | symbolism quote only; no compliance budget PDFs downloadable |
 
 ## Gaps
 
@@ -74,6 +78,7 @@ For each fiscal year FY2017–FY2025, the following should be collected:
 
 | ID | Publisher | Document | Published | Accessed | Type | URL |
 |---|---|---|---|---|---|---|
-| S1 | BLGF | Official site (returned 403) | — | 2026-09-04 | government-dataset | https://blgf.gov.ph/ |
-| S2 | DILG | Full Disclosure Policy Portal (not retrieved) | — | 2026-09-04 | government-dataset | http://www.fdpp.gov.ph/ |
-| S3 | COA | LGU audit reports (not retrieved) | — | 2026-09-04 | government-dataset | https://www.coa.gov.ph/ |
+| S1 | BLGF | Official site (returned 403; re-checked 2026-09-16) | — | 2026-09-16 | government-dataset | https://blgf.gov.ph/ |
+| S2 | DILG | Full Disclosure Policy Portal (not retrieved; re-checked 2026-09-16) | — | 2026-09-16 | government-dataset | http://www.fdpp.gov.ph/ |
+| S3 | COA | LGU audit reports (not retrieved; re-checked 2026-09-16) | — | 2026-09-16 | government-dataset | https://www.coa.gov.ph/ |
+| S4 | City Government of San Carlos | Transparency Seal (live; symbolism only, no PDFs) | — | 2026-09-16 | official | https://www.sancarlospangasinan.gov.ph/transparency-seal |

@@ -8,7 +8,7 @@ verification_status: partial
 temporal_status: mixed
 risk: high
 researched_at: 2026-09-04
-last_checked: 2026-09-04
+last_checked: 2026-09-16
 canonical_domains:
   - transparency
 ---
@@ -98,6 +98,12 @@ None identified.
 ## Research Attempts
 
 - Income series, Wikidata export, and LGU menus compiled on 2026-09-04; BLGF/COA deep extraction not done. | `S1`, `S2`, `S4`
+- 2026-09-16 re-check: live LGU Transparency Seal page carries symbolism only (no compliance PDFs); Citizens Charter path serves the single-page shell; PhilAtlas profile still corroborates FY2009–FY2016 BLGF-derived context; BLGF/COA/FDPP re-checks failed (403/unreachable). Detailed FY2017–FY2025 extraction remains in `transparency/26-09-blgf-budget.md`. | `S1`, `S4`
+
+| Date | Source | Result | Notes |
+|---|---|---|---|
+| 2026-09-16 | Live LGU Transparency Seal page | failed | no budget PDFs downloadable |
+| 2026-09-16 | BLGF / COA / FDPP paths | failed | 403 / 403 / unreachable; see BLGF gap-report |
 
 ## Sources
 

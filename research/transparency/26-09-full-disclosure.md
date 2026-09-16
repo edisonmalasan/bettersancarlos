@@ -8,7 +8,7 @@ verification_status: partial
 temporal_status: mixed
 risk: high
 researched_at: 2026-09-04
-last_checked: 2026-09-04
+last_checked: 2026-09-16
 canonical_domains:
   - transparency
 ---
@@ -21,7 +21,7 @@ Transparency artifacts of San Carlos City, Pangasinan: Transparency Seal, Citize
 
 ## Summary
 
-Participation in FDP/Transparency Seal and the SGLG award is documented from archived official pages, but the underlying document files (PDFs) were not retrievable on the live one-page site.
+Participation in FDP/Transparency Seal and the SGLG award is documented from archived official pages, but the underlying document files (PDFs) were not retrievable on the live one-page site. Re-checked 2026-09-16 (`S8`): the live Transparency Seal page still carries only the national symbolism quote; no compliance documents are downloadable. SGLG award year remains unconfirmed (SGLG portal unreachable on re-check).
 
 ## Findings
 
@@ -83,6 +83,14 @@ None identified.
 ## Research Attempts
 
 - Checked the live and archived seal, charter, and FDP pages on 2026-09-04; PDFs not downloadable from the one-page shell. | `S1`, `S2`, `S3`
+- 2026-09-16 re-check: live Transparency Seal page (`S8`) still symbolism-only; Citizens Charter path serves the single-page shell with no service tables; live DRRM Plan page is a menu shell with no plan document; SGLG portal unreachable for award-year confirmation. | `S8`
+
+| Date | Source | Result | Notes |
+|---|---|---|---|
+| 2026-09-16 | Live Transparency Seal page (`S8`) | failed | no compliance PDFs downloadable |
+| 2026-09-16 | Live Citizens Charter path | failed | single-page shell; no service tables extracted |
+| 2026-09-16 | Live DRRM Plan page | failed | menu shell; no plan document published |
+| 2026-09-16 | SGLG portal | failed | unreachable; award year still unconfirmed |
 
 ## Sources
 
@@ -95,3 +103,4 @@ None identified.
 | S5 | City Government of San Carlos | Official website | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/ |
 | S6 | City Government of San Carlos | E-services (archived, old site) | 2017-03-22 | 2026-09-04 | archived-official | https://web.archive.org/web/20170322021550/http://sancarloscitypangasinan.gov.ph/index.php/e-services/ |
 | S7 | City Government of San Carlos | Citizens Charter page (live menu reference) | — | 2026-09-04 | official | https://sancarlospangasinan.gov.ph/citizens-charter |
+| S8 | City Government of San Carlos | Transparency Seal (live; symbolism only, no PDFs; re-checked 2026-09-16) | — | 2026-09-16 | official | https://www.sancarlospangasinan.gov.ph/transparency-seal |

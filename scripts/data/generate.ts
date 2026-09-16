@@ -158,6 +158,7 @@ const EMITTERS: Record<string, { file: string; emit: (ctx: EmitContext) => Recor
   ordinances: { file: 'ordinances.json', emit: emitOrdinances },
   resolutions: { file: 'resolutions.json', emit: emitResolutions },
   dpwh: { file: 'dpwh-projects.json', emit: emitDpwh },
+  health: { file: 'health-facilities.json', emit: emitHealth },
   barangays: { file: 'barangays.json', emit: emitBarangays },
   barangayOfficials: { file: 'barangay-officials.json', emit: emitBarangayOfficials },
 };
@@ -262,6 +263,14 @@ export function buildFiscalJson(records: CivicRecord[], sources: SourceRecord[])
   return emitFiscal(ctx);
 }
 
+export function buildHealthJson(records: CivicRecord[], sources: SourceRecord[]): Record<string, unknown> {
+  const ctx: EmitContext = {
+    records: new Map(records.map((r) => [r.id, r])),
+    sources: new Map(sources.map((s) => [s.id, s])),
+  };
+  return emitHealth(ctx);
+}
+
 export function buildCmciJson(records: CivicRecord[], sources: SourceRecord[]): Record<string, unknown> {
   const ctx: EmitContext = {
     records: new Map(records.map((r) => [r.id, r])),
@@ -309,12 +318,73 @@ function emitDpwh(ctx: EmitContext): Record<string, unknown> {
   const note = requiredRecord(ctx, 'dpwh-projects-note');
   const data = summary.data as Record<string, unknown>;
   return {
-    // The summary record is `blocked` (insufficient evidence): this file is an
-    // explicitly labeled gap notice, never presented as a current project list.
+    // File-level standing stays conservative: the records hold verified
+    // reported observations, but coverage is explicitly partial (no project
+    // IDs/contractors/dates retrievable), so this file is never presented as
+    // a complete current project registry. See the carried _note.
     _status: 'unverified',
     _note: (note.data as Record<string, unknown>).note,
     summary: data.summary,
     projects: data.entries,
+  };
+}
+
+function healthFacilityRecords(ctx: EmitContext): CivicRecord[] {
+  return [...ctx.records.values()]
+    .filter((r) => r.id.startsWith('health-facility-') && r.status !== 'retired')
+    .sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+}
+
+function emitHealth(ctx: EmitContext): Record<string, unknown> {
+  const facilities = healthFacilityRecords(ctx);
+  if (facilities.length === 0) throw new Error('generate: no canonical health-facility-* records');
+  const cho = requiredRecord(ctx, 'city-health-office');
+  const note = requiredRecord(ctx, 'health-publication-note');
+  const factRecords = [...facilities, cho, note];
+  const choData = cho.data as Record<string, unknown>;
+  const phone = choData.phone as Record<string, unknown>;
+  const noteData = note.data as Record<string, unknown>;
+  const dirSource = recordSources(ctx, cho).find((s) => s.registryId === 'lgu-website');
+  if (!dirSource) throw new Error('generate: city-health-office has no resolvable lgu-website source');
+  const entry = (record: CivicRecord): Record<string, unknown> => {
+    const data = record.data as Record<string, unknown>;
+    const accreditation = data.accreditation as Record<string, unknown>;
+    const item: Record<string, unknown> = {
+      name: data.name,
+      type: data.category === 'infirmary' ? 'Infirmary' : 'Hospital',
+      verification: 'philhealth-accredited',
+      accreditation: {
+        accredited_by: 'PhilHealth',
+        level: data.level,
+        accredited_beds: accreditation.accredited_beds,
+        accreditation_expiry: accreditation.accreditation_expiry,
+      },
+      address: data.address,
+      license_status: 'pending-verification',
+      evidence:
+        'PhilHealth Accredited Hospitals and Infirmaries CY 2026 (beds, level, contacts, expiry; no license numbers)',
+    };
+    if (data.ownership !== undefined) item.ownership = data.ownership;
+    return item;
+  };
+
+  return {
+    _schema_version: '1.0',
+    // Qualification note present (DOH licensure still pending): never 'verified'.
+    _status: aggregateFileStatus(factRecords, true),
+    _updated: maxAcceptedAt(factRecords),
+    _source: `Generated from canonical civic records; ${registryRefs(ctx, factRecords)}; research: research/health/26-09-health-facilities.md; research/health/26-09-doh-facilities.md`,
+    _note: noteData.note,
+    city_health_office: {
+      name: choData.office,
+      phone: phone.number,
+      phone_status: phone.status,
+      phone_source: phone.source,
+      officers: choData.officers,
+      officers_source: `LGU Departments/Offices directory (live ${dirSource.retrievedAt})`,
+    },
+    facilities: facilities.map(entry),
+    gap_note: noteData.gap_note,
   };
 }
 

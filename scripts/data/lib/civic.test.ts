@@ -5,10 +5,10 @@ import os from 'node:os';
 import path from 'node:path';
 import { loadRecords, loadRegistry, loadSources } from './civic';
 
-test('loads the real registry: 21 entries, known fields, url-or-discovery', () => {
+test('loads the real registry: 23 entries, known fields, url-or-discovery', () => {
   const registry = loadRegistry();
   assert.equal(registry.version, 1);
-  assert.equal(registry.sources.length, 21);
+  assert.equal(registry.sources.length, 23);
   const ids = registry.sources.map((s) => s.id);
   assert.equal(new Set(ids).size, ids.length);
   for (const entry of registry.sources) {

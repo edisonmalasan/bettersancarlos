@@ -30,9 +30,9 @@ export default function HealthPage() {
                 <i className="bi bi-hourglass-split"></i> Verification pending
               </span>
               <span>
-                Facility names below are verified from official city sources; DOH license, bed capacity, accreditation,
-                address, and contact data are not yet verified and are deliberately not shown. For medical emergencies,
-                call 911 or the City Hall trunk line (075) 600-1432.
+                Facility accreditation details below are PhilHealth CY2026 data (level, accredited beds, accreditation
+                expiry, address). DOH license numbers and contact details are not yet verified and are deliberately
+                not shown. For medical emergencies, call 911 or the City Hall trunk line (075) 600-1432.
               </span>
             </p>
           </div>
@@ -66,7 +66,8 @@ export default function HealthPage() {
                   </span>
                 </p>
                 <p className="m-0 text-[0.8125rem] text-muted-foreground">
-                  City Health Officer (2024 LGU directory, likely): {hf.city_health_office.officers.map((o) => o.name).join(' / ')}
+                  {hf.city_health_office.officers_source}:{' '}
+                  {hf.city_health_office.officers.map((o) => `${o.name} — ${o.role}`).join(' · ')}
                 </p>
               </div>
             </div>
@@ -74,7 +75,7 @@ export default function HealthPage() {
         </div>
       </section>
 
-      {/* Hospitals (name-only) */}
+      {/* Hospitals (PhilHealth-accredited, DOH license pending) */}
       <section className={`${sectionCls} bg-muted`}>
         <div className={containerCls}>
           <div className="mb-8 text-center">
@@ -82,7 +83,7 @@ export default function HealthPage() {
               Hospitals
             </h2>
             <p className="m-0 text-[1rem] text-muted-foreground">
-              Names verified from the official city evacuation plan (archived 2017)
+              PhilHealth-accredited facilities (CY2026); DOH licensure pending verification
             </p>
           </div>
           <div className="grid grid-cols-2 gap-5 max-[991px]:grid-cols-1">
@@ -98,10 +99,15 @@ export default function HealthPage() {
                   <div className="min-w-0 flex-1">
                     <h3 className="m-0 mb-1 text-[1.0625rem] font-bold leading-[1.3] text-foreground">{f.name}</h3>
                     <p className="m-0 text-[0.875rem] text-muted-foreground">{f.type}</p>
+                    <p className="m-0 mt-1 text-[0.8125rem] text-muted-foreground">{f.address}</p>
+                    <p className="m-0 mt-1 text-[0.8125rem] text-foreground">
+                      <i className="bi bi-patch-check text-primary"></i> PhilHealth accreditation: {f.accreditation.level},{' '}
+                      {f.accreditation.accredited_beds} beds, expiry {f.accreditation.accreditation_expiry}
+                    </p>
                   </div>
                 </div>
                 <span className={pendingBadgeCls}>
-                  <i className="bi bi-hourglass-split"></i> Name verified — DOH data pending
+                  <i className="bi bi-hourglass-split"></i> PhilHealth-accredited — DOH license pending
                 </span>
               </div>
             ))}

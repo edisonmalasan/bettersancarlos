@@ -1,45 +1,112 @@
 {
   "_schema_version": "1.0",
   "_status": "partially-verified",
-  "_updated": "2026-09-04",
-  "_source": "research/health/26-09-health-facilities.md; research/health/26-09-doh-facilities.md",
-  "_note": "Facility names are corroborated by the official LGU evacuation-plan page (archived 2017) and the Wikipedia city gallery. DOH license numbers, bed capacities, and accreditation status were NOT obtainable (DOH HFSRB list and OLRS portal unreachable) and are deliberately NOT published. Addresses and contact numbers are likewise unverified.",
+  "_updated": "2026-09-16",
+  "_source": "Generated from canonical civic records; registry: lgu-old-site-archive, lgu-website, philhealth-accredited-facilities; research: research/health/26-09-health-facilities.md; research/health/26-09-doh-facilities.md",
+  "_note": "Facility accreditation facts (level, accredited beds, accreditation expiry, addresses) are PhilHealth CY2026 accreditation data for San Carlos City, Pangasinan. They are not DOH licensure facts: no DOH license numbers, LTO statuses, or license expiries are published for any facility.",
   "city_health_office": {
     "name": "City Health Office",
     "phone": "(075) 955-5917",
     "phone_status": "historical - re-verify",
     "phone_source": "old official site (archived 2017-03-22)",
     "officers": [
-      { "name": "Dr. Edwin DV. Guinto", "confidence": "likely" },
-      { "name": "Dra. Luisa F. Cayabyab", "confidence": "likely" }
+      {
+        "name": "Dr. Edwin DV. Guinto",
+        "role": "City Health Officer"
+      },
+      {
+        "name": "Dra. Luisa F. Cayabyab",
+        "role": "City Population Officer"
+      }
     ],
-    "officers_source": "LGU Departments/Offices directory (archived 2024-06-03)"
+    "officers_source": "LGU Departments/Offices directory (live 2026-09-16)"
   },
   "facilities": [
     {
+      "name": "Blessed Family Doctors General Hospital, Inc.",
+      "type": "Hospital",
+      "verification": "philhealth-accredited",
+      "accreditation": {
+        "accredited_by": "PhilHealth",
+        "level": "Level 2",
+        "accredited_beds": 75,
+        "accreditation_expiry": "12/31/2026"
+      },
+      "address": "Ilang, San Carlos City, Pangasinan",
+      "license_status": "pending-verification",
+      "evidence": "PhilHealth Accredited Hospitals and Infirmaries CY 2026 (beds, level, contacts, expiry; no license numbers)"
+    },
+    {
+      "name": "Christ-Bearer Infirmary",
+      "type": "Infirmary",
+      "verification": "philhealth-accredited",
+      "accreditation": {
+        "accredited_by": "PhilHealth",
+        "level": "INF/DISP",
+        "accredited_beds": 18,
+        "accreditation_expiry": "12/31/2026"
+      },
+      "address": "Binoalan, Pagal, San Carlos City, Pangasinan",
+      "license_status": "pending-verification",
+      "evidence": "PhilHealth Accredited Hospitals and Infirmaries CY 2026 (beds, level, contacts, expiry; no license numbers)"
+    },
+    {
+      "name": "Elguira General Hospital",
+      "type": "Hospital",
+      "verification": "philhealth-accredited",
+      "accreditation": {
+        "accredited_by": "PhilHealth",
+        "level": "Level 2",
+        "accredited_beds": 30,
+        "accreditation_expiry": "12/31/2026"
+      },
+      "address": "259 Rizal Ave., San Carlos City, Pangasinan",
+      "license_status": "pending-verification",
+      "evidence": "PhilHealth Accredited Hospitals and Infirmaries CY 2026 (beds, level, contacts, expiry; no license numbers)"
+    },
+    {
+      "name": "Pangasinan Doctors Hospital",
+      "type": "Hospital",
+      "verification": "philhealth-accredited",
+      "accreditation": {
+        "accredited_by": "PhilHealth",
+        "level": "Level 2",
+        "accredited_beds": 37,
+        "accreditation_expiry": "12/31/2026"
+      },
+      "address": "307 Rizal Avenue, San Carlos City, Pangasinan",
+      "license_status": "pending-verification",
+      "evidence": "PhilHealth Accredited Hospitals and Infirmaries CY 2026 (beds, level, contacts, expiry; no license numbers)"
+    },
+    {
       "name": "Pangasinan Provincial Hospital",
       "type": "Hospital",
-      "verification": "name-only",
-      "evidence": "Named in the official city evacuation plan as a high-rise safe building (archived 2017); photographed in the Wikipedia city gallery"
+      "verification": "philhealth-accredited",
+      "accreditation": {
+        "accredited_by": "PhilHealth",
+        "level": "Level 2",
+        "accredited_beds": 250,
+        "accreditation_expiry": "12/31/2026"
+      },
+      "address": "Brgy. Bolingit, San Carlos City, Pangasinan",
+      "license_status": "pending-verification",
+      "evidence": "PhilHealth Accredited Hospitals and Infirmaries CY 2026 (beds, level, contacts, expiry; no license numbers)",
+      "ownership": "government"
     },
     {
-      "name": "Pangasinan Doctors' Hospital",
+      "name": "Virgen Milagrosa Medical Center",
       "type": "Hospital",
-      "verification": "name-only",
-      "evidence": "Named in the official city evacuation plan as a high-rise safe building (archived 2017)"
-    },
-    {
-      "name": "Blessed Family Hospital",
-      "type": "Hospital",
-      "verification": "name-only",
-      "evidence": "Named in the official city evacuation plan as a high-rise safe building (archived 2017)"
-    },
-    {
-      "name": "Virgen Milagrosa University Foundation (VMUF) Hospital",
-      "type": "University hospital",
-      "verification": "name-only",
-      "evidence": "Named in the official city evacuation plan as a convergence/high-rise area (archived 2017); hospital is regionally known per Wikivoyage; hospital details unverified"
+      "verification": "philhealth-accredited",
+      "accreditation": {
+        "accredited_by": "PhilHealth",
+        "level": "Level 2",
+        "accredited_beds": 50,
+        "accreditation_expiry": "12/31/2026"
+      },
+      "address": "Martin P. Posadas Ave., San Carlos City, Pangasinan",
+      "license_status": "pending-verification",
+      "evidence": "PhilHealth Accredited Hospitals and Infirmaries CY 2026 (beds, level, contacts, expiry; no license numbers)"
     }
   ],
-  "gap_note": "DOH facility masterlist data (hospital level/classification, bed count, accreditation) was not resolved during research and must not be published until verified with DOH HFSRB. RHU/barangay health stations, pharmacies, labs, and clinics were not compiled."
+  "gap_note": "DOH license-to-operate data remains unverified (HFSRB list 404, OLRS login-only) and is deliberately absent. Facility phone/email contacts were not transcribed from the accreditation package and are not published. RHU/barangay health stations, pharmacies, labs, and clinics were not compiled."
 }

@@ -383,7 +383,7 @@ test('candidate linking an unknown source instance fails', () => {
 
 test('Test 9: shipped non-scheduled records keep the sentinel (no fake horizons)', () => {
   const records = loadRecords().records.filter((r) => !isTimeBasedCadence(r.updateCadence));
-  assert.equal(records.length, 41);
+  assert.equal(records.length, 47);
   for (const record of records) {
     assert.equal(
       record.nextReviewOn,

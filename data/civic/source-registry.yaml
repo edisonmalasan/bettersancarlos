@@ -149,6 +149,17 @@ sources:
     evidenceRef: 'research/health/26-09-doh-facilities.md'
     domains:
       - health
+  - id: philhealth-accredited-facilities
+    publisher: Philippine Health Insurance Corporation (PhilHealth)
+    url: 'https://www.philhealth.gov.ph/partners/providers/facilities/accredited/'
+    sourceType: portal
+    collector: null
+    updateCadence: annually
+    riskTier: high
+    accessNotes: 'Accredited Hospitals and Infirmaries CY2026 package (HOSP_073126.pdf): accredited beds, level, contacts, expiry. Carries no DOH license numbers; never cite for licensure.'
+    evidenceRef: 'research/health/26-09-doh-facilities.md'
+    domains:
+      - health
   - id: deped-schools
     publisher: Department of Education
     url: 'https://www.deped.gov.ph/'
@@ -201,6 +212,17 @@ sources:
     updateCadence: manual
     riskTier: medium
     accessNotes: 'Returned HTTP 403 during research; water district identity still unverified.'
+    evidenceRef: 'research/utilities/26-09-water-district.md'
+    domains:
+      - utilities
+  - id: sccwd-official
+    publisher: San Carlos City Water District
+    url: 'https://www.sccwd.gov.ph/'
+    sourceType: website
+    collector: null
+    updateCadence: manual
+    riskTier: medium
+    accessNotes: 'Live site content is vintage circa 2017; address, phones, leadership, and service-area figures must be re-verified before canonical use as current facts.'
     evidenceRef: 'research/utilities/26-09-water-district.md'
     domains:
       - utilities

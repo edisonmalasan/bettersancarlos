@@ -1,0 +1,51 @@
+{
+  "runId": "2026-09-16",
+  "startedAt": "2026-09-16T10:30:00.753Z",
+  "endedAt": "2026-09-16T10:31:08.475Z",
+  "parameters": {
+    "mode": "manual-evidence-staging",
+    "change": "integrate-followup-civic-evidence",
+    "domains": [
+      "health",
+      "utilities",
+      "infrastructure",
+      "transparency"
+    ],
+    "basis": "PR #105 difficult-source follow-up (merged 2026-09-16); facts verified there, bytes staged here"
+  },
+  "sources": [
+    {
+      "sourceId": "philhealth-accredited-facilities",
+      "checkedAt": "2026-09-16T10:30:00.757Z",
+      "outcome": "collected"
+    },
+    {
+      "sourceId": "sccwd-official",
+      "checkedAt": "2026-09-16T10:30:00.757Z",
+      "outcome": "collected"
+    },
+    {
+      "sourceId": "lgu-website",
+      "checkedAt": "2026-09-16T10:30:00.757Z",
+      "outcome": "collected"
+    },
+    {
+      "sourceId": "lgu-old-site-archive",
+      "checkedAt": "2026-09-16T10:30:00.757Z",
+      "outcome": "collected"
+    },
+    {
+      "sourceId": "dpwh-projects",
+      "checkedAt": "2026-09-16T10:30:00.757Z",
+      "outcome": "collected"
+    },
+    {
+      "sourceId": "province-pangasinan",
+      "checkedAt": "2026-09-16T10:30:00.757Z",
+      "outcome": "collected"
+    }
+  ],
+  "candidatesProduced": 14,
+  "conflictsFound": 0,
+  "collectedBy": "followup-evidence-staging"
+}

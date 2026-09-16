@@ -97,11 +97,11 @@ export default function HealthPage() {
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
           <div className="rounded-xl border border-line bg-white p-6 text-center">
             <span className="mb-3 inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-3 py-1.5 text-[0.8125rem] font-semibold text-[#8a5a00]">
-              <i className="bi bi-hourglass-split"></i> Facility statistics pending verification
+              <i className="bi bi-hourglass-split"></i> Accreditation verified — DOH license pending
             </span>
             <p className="m-0 text-[0.9375rem] leading-[1.6] text-muted-foreground">
-              Previously displayed facility counts could not be verified for San Carlos City, Pangasinan and have been
-              withheld. Verified hospital and health-office information is available on the{' '}
+              PhilHealth CY2026 accreditation details (level, beds, expiry, address) are now shown for San Carlos City
+              facilities. Verified hospital and health-office information is available on the{' '}
               <Link href="/health" className="text-primary hover:underline">
                 Health Facilities page
               </Link>
@@ -111,7 +111,7 @@ export default function HealthPage() {
         </div>
       </section>
 
-      {/* Hospitals Directory (verified names only) */}
+      {/* Hospitals Directory (PhilHealth-accredited, DOH license pending) */}
       <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6 bg-muted">
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
           <h2 className="mb-6 flex items-center gap-2 text-[1.375rem] font-semibold leading-[1.2] text-foreground">
@@ -130,18 +130,21 @@ export default function HealthPage() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="m-0 mb-0.5 text-[0.9375rem] font-semibold leading-[1.3] text-foreground">{f.name}</h3>
-                    <p className="m-0 text-[0.8125rem] text-muted-foreground">{f.type}</p>
+                    <p className="m-0 text-[0.8125rem] text-muted-foreground">
+                      {f.type} · {f.address} · {f.accreditation.level}, {f.accreditation.accredited_beds} beds
+                      (PhilHealth, expiry {f.accreditation.accreditation_expiry})
+                    </p>
                   </div>
                 </div>
                 <span className="inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]">
-                  <i className="bi bi-hourglass-split"></i> Name verified — DOH data pending
+                  <i className="bi bi-hourglass-split"></i> PhilHealth-accredited — DOH license pending
                 </span>
               </div>
             ))}
           </div>
           <p className="mt-4 mb-0 text-[0.8125rem] text-muted-foreground">
-            <i className="bi bi-info-circle mr-1"></i> Facility names are verified from the official city evacuation plan
-            (archived 2017). DOH license, bed capacity, and contact data are not verified and are not shown. See{' '}
+            <i className="bi bi-info-circle mr-1"></i> Facilities are PhilHealth-accredited (CY2026). DOH license and
+            contact data are not verified and are not shown. See{' '}
             <Link href="/health" className="text-primary hover:underline">
               /health
             </Link>{' '}

@@ -39,6 +39,8 @@ The repository's `data/fiscal_transparency.json` contains verified BLGF Annual R
 
 The Province of Pangasinan `/issuances/` collection publishes the Sangguniang Panlalawigan review resolutions for San Carlos City budgets as stable downloadable PDFs (verified: direct PDF download works without login, e.g. Resolution 521-2026). These yield an **annual appropriations series** — budget authorizations enacted by ordinance, distinct from BLGF Annual Regular Income and from SRE actuals. Do not conflate the three concepts.
 
+Staging correction 2026-09-16 (canonical integration, research run 2026-09-16): the downloadable file `521-2026-RES.pdf` was byte-verified to contain a Malasiqui ordinance review, not the San Carlos City FY2026 appropriation review — FY2026 (and FY2020–FY2022, not locatable via the WP media API) have no exact staged instance and stay research-only. Byte-verified San Carlos PDFs staged as canonical provenance are Res 287-2023, 375-2024, and 304-2025 only.
+
 | Fiscal year | Annual appropriation (₱) | Provincial resolution | Appropriation ordinance | Sources |
 |---|---|---|---|---|
 | 2020 | 905,962,511.23 | 404-2020 | 19-24 (Dec 16, 2019) | S5 |

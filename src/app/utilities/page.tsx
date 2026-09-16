@@ -97,14 +97,14 @@ export default function UtilitiesPage() {
         </div>
       </section>
 
-      {/* Water (unverified) */}
+      {/* Water (identity verified, contacts pending) */}
       <section className={sectionCls}>
         <div className={containerCls}>
           <div className="mb-8 text-center">
             <h2 className="m-0 mb-2 text-[1.75rem] font-bold leading-[1.2] text-foreground max-[575px]:text-[1.5rem]">
               Water
             </h2>
-            <p className="m-0 text-[1rem] text-muted-foreground">Provider identity not yet confirmed</p>
+            <p className="m-0 text-[1rem] text-muted-foreground">Provider identity verified — contacts pending re-verification</p>
           </div>
           <div className="mx-auto max-w-[760px] rounded-xl border border-line bg-white p-6">
             <div className="mb-3 flex items-start gap-4">
@@ -112,12 +112,21 @@ export default function UtilitiesPage() {
                 <i className="bi bi-droplet"></i>
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="m-0 mb-2 text-[1.0625rem] font-bold text-foreground">Water service provider — unverified</h3>
+                <h3 className="m-0 mb-2 text-[1.0625rem] font-bold text-foreground">{ut.water.provider}</h3>
+                <p className="m-0 mb-2 text-[0.875rem] text-muted-foreground">{ut.water.established}</p>
+                <p className="m-0 mb-2 text-[0.875rem] text-muted-foreground">
+                  <i className="bi bi-globe text-primary"></i>{' '}
+                  <a href={ut.water.website} target="_blank" rel="noreferrer" className="text-primary hover:underline">
+                    {ut.water.website}
+                  </a>{' '}
+                  — {ut.water.website_note}
+                </p>
                 <p className="m-0 text-[0.9375rem] leading-[1.6] text-muted-foreground">{ut.water.note}</p>
+                <p className="m-0 mt-2 text-[0.875rem] leading-[1.6] text-muted-foreground">{ut.water.primewater_note}</p>
               </div>
             </div>
             <span className={pendingBadgeCls}>
-              <i className="bi bi-hourglass-split"></i> Pending LWUA / city confirmation — no contact published
+              <i className="bi bi-hourglass-split"></i> Identity verified — current contacts pending re-verification
             </span>
           </div>
         </div>
@@ -169,8 +178,8 @@ export default function UtilitiesPage() {
           />
 
           <p className="mt-6 mb-0 text-center text-[0.8125rem] text-muted-foreground">
-            <i className="bi bi-info-circle mr-1"></i> Source: research/utilities/26-09-public-utilities.md and{' '}
-            research/utilities/26-09-cenpelco-contacts.md
+            <i className="bi bi-info-circle mr-1"></i> Source: research/utilities/26-09-public-utilities.md,{' '}
+            research/utilities/26-09-cenpelco-contacts.md and research/utilities/26-09-water-district.md
           </p>
         </div>
       </section>

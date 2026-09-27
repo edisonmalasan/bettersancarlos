@@ -1,8 +1,8 @@
 {
   "_schema_version": "1.0",
   "_status": "partially-verified",
-  "_updated": "2026-09-04",
-  "_source": "research/transparency/26-09-full-disclosure.md (official LGU pages, archived 2017/2024/2025)",
+  "_updated": "2026-09-28",
+  "_source": "research/transparency/26-09-full-disclosure.md (official LGU pages, archived 2017/2024/2025); province budget reviews from canonical transparency-doc-province-appropriation-2023/2024/2025 records (pangasinan.gov.ph, verified 2026-09-16)",
   "_note": "The city participates in the Full Disclosure Policy / Transparency Seal and holds SGLG recognition, but the underlying PDF documents were not retrievable during research (the live site serves a one-page shell). Document files must be collected from city hall / BLGF before they can be published here.",
   "transparency_seal": {
     "status": "maintained on the official LGU site (menu: TRANSPARENCY > Transparency Seal)",
@@ -51,5 +51,35 @@
       "status": "historical - re-verify availability",
       "note": "Business permit application/termination, electrical/sanitary/occupancy permits, peddler's permit, assessor's forms (FAAS building/land/machinery), building depreciation/floor-area worksheets"
     }
-  ]
+  ],
+  "province_budget_reviews": {
+    "status": "verified - official Province of Pangasinan releases",
+    "note": "City annual budgets are reviewed and authorized by the Sangguniang Panlalawigan. These review resolutions are the most recent official budget documents retrievable for the city; they are appropriation reviews, not BLGF Statement of Receipts and Expenditures actuals.",
+    "documents": [
+      {
+        "fiscal_year": 2023,
+        "title": "Resolution No. 287-2023 — Annual budget for CY2023 (appropriation review)",
+        "issuing_authority": "Sangguniang Panlalawigan, Province of Pangasinan",
+        "date_note": "Provincial review dated 2023-03-20",
+        "url": "https://www.pangasinan.gov.ph/wp-content/uploads/2025/02/287-2023.pdf",
+        "canonical_record": "transparency-doc-province-appropriation-2023"
+      },
+      {
+        "fiscal_year": 2024,
+        "title": "Resolution No. 375-2024 — Annual budget for CY2024 (appropriation review)",
+        "issuing_authority": "Sangguniang Panlalawigan, Province of Pangasinan",
+        "date_note": "Related city ordinance: No. 23-49 (2023-10-31)",
+        "url": "https://www.pangasinan.gov.ph/wp-content/uploads/2024/11/375-2024-RES.pdf",
+        "canonical_record": "transparency-doc-province-appropriation-2024"
+      },
+      {
+        "fiscal_year": 2025,
+        "title": "Resolution No. 304-2025 — Annual budget for CY2025 (appropriation review)",
+        "issuing_authority": "Sangguniang Panlalawigan, Province of Pangasinan",
+        "date_note": "Provincial review dated 2025-03-03",
+        "url": "https://www.pangasinan.gov.ph/wp-content/uploads/2025/03/304-2025-RES.pdf",
+        "canonical_record": "transparency-doc-province-appropriation-2025"
+      }
+    ]
+  }
 }

@@ -13,7 +13,7 @@ export default function GeneralServicesPage() {
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/services' },
-          { label: 'Government Services', href: '/services/government' },
+          { label: 'Government', href: '/government' },
           { label: 'Municipal General Services Office' },
         ]}
       />
@@ -28,8 +28,8 @@ export default function GeneralServicesPage() {
               <span className="flex items-center gap-1"><strong className="text-foreground">Processing:</strong> Varies</span>
             </div>
             <p className="mb-4" style={{ marginTop: '1.5rem' }}>
-              <Link href="/services/government" className="inline-block rounded-lg border-2 border-primary bg-white px-6 py-3 text-center font-semibold text-primary no-underline transition-[background-color,box-shadow,transform] duration-200 focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)] hover:bg-muted hover:no-underline max-[767px]:px-5 max-[767px]:py-2.5 max-[767px]:text-[0.9375rem]">
-                <i className="bi bi-arrow-left"></i> Back to Government Services
+              <Link href="/government" className="inline-block rounded-lg border-2 border-primary bg-white px-6 py-3 text-center font-semibold text-primary no-underline transition-[background-color,box-shadow,transform] duration-200 focus-visible:outline-none focus-visible:shadow-[0_0_0_3px_rgba(232, 153, 10,0.5)] hover:bg-muted hover:no-underline max-[767px]:px-5 max-[767px]:py-2.5 max-[767px]:text-[0.9375rem]">
+                <i className="bi bi-arrow-left"></i> Back to Government
               </Link>
             </p>
           </div>

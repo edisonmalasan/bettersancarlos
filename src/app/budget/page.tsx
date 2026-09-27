@@ -7,6 +7,29 @@ import Chart from 'chart.js/auto';
 import fiscalData from '@/data/fiscal_transparency.json';
 import transparencyDocs from '@/data/transparency-docs.json';
 import cityProjects from '@/data/city-projects.json';
+import dpwhData from '@/data/dpwh-projects.json';
+
+interface DpwhProject {
+    title: string;
+    location: string;
+    implementing_office: string;
+    amount_millions: number;
+    funding: string;
+    status: string;
+    status_note: string;
+}
+
+interface DpwhSummary {
+    totalProjects: number;
+    totalCost_millions: number;
+    completedProjects: number;
+    ongoingProjects: number;
+    implementingAgency: string;
+    coverage: string;
+}
+
+const dpwhProjects = dpwhData.projects as DpwhProject[];
+const dpwhSummary = dpwhData.summary as DpwhSummary;
 
 interface FiscalYear {
     year: number;
@@ -205,6 +228,35 @@ export default function BudgetPage() {
                             once they are confirmed from the BLGF Statement of Receipts and Expenditures.
                         </p>
                     </div>
+
+                    <div className="mx-auto mt-6 max-w-[760px] rounded-2xl border border-line bg-white p-8 text-left shadow-[0_1px_3px_rgba(0,0,0,0.06)] max-[575px]:p-5">
+                        <h3 className="mb-1 flex flex-wrap items-center gap-2 text-[1.125rem] font-bold text-foreground [&_i]:text-primary">
+                            <i className="bi bi-journal-check"></i> Recent annual budget documents (Province of Pangasinan)
+                        </h3>
+                        <p className="m-0 mb-5 text-[0.9375rem] leading-[1.6] text-muted-foreground">
+                            {transparencyDocs.province_budget_reviews.note}
+                        </p>
+                        <ul className="m-0 mb-4 flex list-none flex-col gap-3 pl-0" role="list">
+                            {transparencyDocs.province_budget_reviews.documents.map((doc) => (
+                                <li key={doc.canonical_record}>
+                                    <a
+                                        href={doc.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex flex-wrap items-baseline gap-x-2 gap-y-1 rounded-lg border border-line-soft p-3 text-inherit no-underline transition-[border-color,box-shadow] duration-200 hover:border-primary hover:no-underline"
+                                    >
+                                        <span className="text-[0.9375rem] font-semibold text-foreground">FY{doc.fiscal_year}</span>
+                                        <span className="text-[0.9375rem] text-foreground">{doc.title}</span>
+                                        <span className="text-[0.8125rem] text-muted-foreground">{doc.date_note}</span>
+                                        <i className="bi bi-box-arrow-up-right ml-auto self-center text-[0.75rem] text-primary"></i>
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                        <p className="m-0 text-center text-[0.75rem] text-muted-foreground">
+                            {transparencyDocs.province_budget_reviews.status}
+                        </p>
+                    </div>
                 </div>
             </section>
 
@@ -339,8 +391,40 @@ export default function BudgetPage() {
                         </ul>
                     </div>
 
+                    <div className="mt-6 rounded-xl border border-line bg-white p-6">
+                        <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+                            <h3 className="m-0 flex items-center gap-2 text-[1rem] font-semibold text-foreground [&_i]:text-primary">
+                                <i className="bi bi-road"></i> DPWH national infrastructure projects (reported)
+                            </h3>
+                            <span className="inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]">
+                                <i className="bi bi-exclamation-triangle"></i> Unverified — reported observations
+                            </span>
+                        </div>
+                        <p className="m-0 mb-1 text-[0.8125rem] leading-[1.5] text-muted-foreground">{dpwhSummary.coverage}</p>
+                        <p className="m-0 mb-4 text-[0.8125rem] font-medium text-foreground">
+                            {dpwhSummary.totalProjects} projects · ₱{dpwhSummary.totalCost_millions}M reported combined ·{' '}
+                            {dpwhSummary.implementingAgency}
+                        </p>
+                        <ul className="m-0 flex list-none flex-col gap-3 pl-0" role="list">
+                            {dpwhProjects.map((p) => (
+                                <li key={p.title} className="flex flex-col gap-1 rounded-lg border border-line-soft p-3">
+                                    <div className="flex flex-wrap items-baseline gap-2">
+                                        <span className="text-[0.9375rem] font-semibold text-foreground">{p.title}</span>
+                                        <span className="text-[0.8125rem] text-muted-foreground">— {p.location}</span>
+                                    </div>
+                                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-[0.8125rem] text-muted-foreground">
+                                        <span><strong className="text-foreground">Amount:</strong> ₱{p.amount_millions}M</span>
+                                        <span><strong className="text-foreground">Funding:</strong> {p.funding}</span>
+                                        <span><strong className="text-foreground">Implementing office:</strong> {p.implementing_office}</span>
+                                    </div>
+                                    <p className="m-0 text-[0.75rem] text-muted-foreground">{p.status_note}</p>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
                     <p className="mt-6 mb-0 text-center text-[0.8125rem] text-muted-foreground">
-                        <i className="bi bi-info-circle mr-1"></i> Project budgets and contractors are not verifiable online
+                        <i className="bi bi-info-circle mr-1"></i> City project budgets and contractors are not verifiable online
                         and must come from the City Engineering Office / BAC. See also{' '}
                         <Link href="/disaster-preparedness" className="text-primary hover:underline">
                             /disaster-preparedness

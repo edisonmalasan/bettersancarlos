@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
@@ -11,6 +11,41 @@ import WeatherWidget from '@/components/WeatherWidget';
 import officialsData from '@/data/officials.json';
 import cityProfile from '@/data/city-profile.json';
 import demographics from '@/data/demographics.json';
+
+interface NewsItem {
+  id: string;
+  title: string;
+  date: string;
+  category: string;
+  badge: string;
+  summary: string;
+  url: string | null;
+  recency?: string;
+}
+
+const NEWS_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// Fixed month-name map over the ISO string: identical output on server and
+// client, so the statically rendered markup never mismatches on hydration.
+function formatNewsDate(iso: string): string {
+  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso);
+  return match ? `${NEWS_MONTHS[Number(match[2]) - 1]} ${Number(match[3])}, ${match[1]}` : iso;
+}
+
+function newsBadgeClass(badge: string): string {
+  const base = 'inline-block rounded-full px-2.5 py-1 text-xs font-semibold';
+  switch (badge) {
+    case 'success':
+      return `${base} bg-[#e6f4ea] text-success`;
+    case 'warning':
+      return `${base} bg-[#fff4e5] text-accent`;
+    case 'danger':
+      return `${base} bg-[#fee2e2] text-[#dc2626]`;
+    case 'info':
+    default:
+      return `${base} bg-[#e8f0fe] text-info`;
+  }
+}
 
 const containerCls =
   'mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2';
@@ -41,6 +76,19 @@ export default function HomePage() {
   const { t } = useLanguage();
   const router = useRouter();
   const searchRef = useRef<SearchAutocompleteHandle>(null);
+  const [news, setNews] = useState<NewsItem[] | null>(null);
+
+  useEffect(() => {
+    fetch('/data/news.json')
+      .then((res) => res.json())
+      .then((data) => setNews(data.news || []))
+      .catch(() => setNews([]));
+  }, []);
+
+  const latestNews = (news ?? [])
+    .filter((item) => item.recency !== 'historical')
+    .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
+    .slice(0, 3);
 
   function handleSearchSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -407,52 +455,47 @@ export default function HomePage() {
               <span>{t('btn-view-all')}</span> <i className="bi bi-arrow-right"></i>
             </Link>
           </div>
-          <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-2 max-[768px]:grid-cols-1">
-            <article className="rounded-xl border border-line bg-white p-6">
-              <div className="mb-4 flex items-center gap-4">
-                <span className="rounded-full bg-[#e0f2fe] px-2.5 py-1 text-xs font-semibold text-[#0369a1]">
-                  {t('news-announcement')}
-                </span>
-                <span className="text-[0.8125rem] text-muted-foreground">Nov 28, 2025</span>
-              </div>
-              <h3 className="m-0 mb-2 text-base">
-                <Link href="/news" className="text-foreground hover:text-primary">
-                  {t('news-business-permit-title')}
-                </Link>
-              </h3>
-              <p className="m-0 text-sm leading-[1.5] text-muted-foreground">
-                {t('news-business-permit-desc')}
-              </p>
-            </article>
-            <article className="rounded-xl border border-line bg-white p-6">
-              <div className="mb-4 flex items-center gap-4">
-                <span className="rounded-full bg-[#dcfce7] px-2.5 py-1 text-xs font-semibold text-[#15803d]">
-                  {t('news-project')}
-                </span>
-                <span className="text-[0.8125rem] text-muted-foreground">Nov 15, 2025</span>
-              </div>
-              <h3 className="m-0 mb-2 text-base">
-                <Link href="/news" className="text-foreground hover:text-primary">
-                  {t('news-market-title')}
-                </Link>
-              </h3>
-              <p className="m-0 text-sm leading-[1.5] text-muted-foreground">{t('news-market-desc')}</p>
-            </article>
-            <article className="rounded-xl border border-line bg-white p-6">
-              <div className="mb-4 flex items-center gap-4">
-                <span className="rounded-full bg-[#fef3c7] px-2.5 py-1 text-xs font-semibold text-[#b45309]">
-                  {t('news-advisory')}
-                </span>
-                <span className="text-[0.8125rem] text-muted-foreground">Nov 10, 2025</span>
-              </div>
-              <h3 className="m-0 mb-2 text-base">
-                <Link href="/news" className="text-foreground hover:text-primary">
-                  {t('news-power-title')}
-                </Link>
-              </h3>
-              <p className="m-0 text-sm leading-[1.5] text-muted-foreground">{t('news-power-desc')}</p>
-            </article>
-          </div>
+          {news === null && (
+            <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-2 max-[768px]:grid-cols-1">
+              {[0, 1, 2].map((i) => (
+                <div
+                  key={i}
+                  className="flex flex-col gap-3 rounded-xl border border-line bg-white p-6 animate-pulse"
+                  aria-busy="true"
+                  aria-label="Loading latest updates"
+                >
+                  <div className="h-5 w-24 rounded bg-line-soft"></div>
+                  <div className="h-4 w-3/4 rounded bg-line-soft"></div>
+                  <div className="h-3 w-full rounded bg-line-soft"></div>
+                  <div className="h-3 w-2/3 rounded bg-line-soft"></div>
+                </div>
+              ))}
+            </div>
+          )}
+          {news !== null && latestNews.length > 0 && (
+            <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-2 max-[768px]:grid-cols-1">
+              {latestNews.map((item) => (
+                <article key={item.id} className="rounded-xl border border-line bg-white p-6">
+                  <div className="mb-4 flex items-center justify-between gap-3">
+                    <span className={newsBadgeClass(item.badge)}>{item.category}</span>
+                    <span className="whitespace-nowrap text-[0.8125rem] text-muted-foreground">
+                      {formatNewsDate(item.date)}
+                    </span>
+                  </div>
+                  <h3 className="m-0 mb-2 text-base">
+                    <a
+                      href={item.url || '/news'}
+                      {...(item.url ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      className="text-foreground hover:text-primary"
+                    >
+                      {item.title}
+                    </a>
+                  </h3>
+                  <p className="m-0 text-sm leading-[1.5] text-muted-foreground">{item.summary}</p>
+                </article>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

@@ -55,7 +55,7 @@ export default function TermsPage() {
                                     and keep information accurate, no system can be guaranteed to be perfectly secure,
                                     error-free, or completely up-to-date at all times.
                                 </p>
-                                <div className="my-5 flex items-center gap-3 rounded-l-none rounded-r-lg border-l-4 border-success bg-[linear-gradient(135deg,rgba(58, 125, 68,0.1)_0%,rgba(58, 125, 68,0.05)_100%)] px-5 py-4">
+                                <div className="my-5 flex items-center gap-3 rounded-lg border-l-4 border-success bg-[rgba(58, 125, 68,0.06)] px-5 py-4">
                                     <i className="bi bi-heart-fill text-[1.25rem] text-success"></i>
                                     <span className="text-[0.9375rem] text-foreground">
                                         This platform is provided <strong>free of charge</strong> as a public

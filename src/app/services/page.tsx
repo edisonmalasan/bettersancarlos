@@ -1,7 +1,7 @@
 'use client';
 
 import PageHeader from '@/components/layout/PageHeader';
-import ServiceEntry from '@/components/ServiceEntry';
+import ServiceEntry from '@/components/layout/ServiceEntry';
 import { Section, Container } from '@/components/layout/Container';
 
 const CATEGORIES = [

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import PageHeader from '@/components/layout/PageHeader';
+import { sectionClass } from '@/components/layout/Container';
 
 const HistoryQuiz = dynamic(() => import('@/components/quiz/HistoryQuiz'));
 
@@ -21,7 +22,7 @@ export default function QuizPage() {
           { label: 'Quiz' },
         ]}
       />
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      <section className={sectionClass}>
         <HistoryQuiz />
       </section>
     </>

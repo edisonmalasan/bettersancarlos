@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 interface Ordinance {
     ordinanceNo: string;
@@ -33,8 +34,8 @@ export default function OrdinanceFrameworkPage() {
                 ]}
             />
 
-            <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={sectionClass}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-6 overflow-hidden rounded-xl border border-line bg-white shadow-[0_2px_4px_rgba(0,0,0,0.05)]">
                         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-line p-6 max-[767px]:p-4">
                             <div className="flex items-center gap-3">

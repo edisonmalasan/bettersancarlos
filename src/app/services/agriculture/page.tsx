@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import DirectoryLinkCard from '@/components/DirectoryLinkCard';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 const pendingBadgeCls =
   'inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]';
@@ -22,8 +23,8 @@ export default function AgriculturePage() {
       />
 
       {/* Identity */}
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={sectionClass}>
+        <div className={containerClass}>
           <div className="rounded-xl border border-line bg-white p-6 sm:p-8">
             <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
               <i className="bi bi-award"></i> Mango and Bamboo Capital

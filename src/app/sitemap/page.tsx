@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 export default function SitemapPage() {
     return (
@@ -16,8 +17,8 @@ export default function SitemapPage() {
                 ]}
             />
 
-            <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={sectionClass}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 last:mb-0">
                         <div className="mb-6 flex items-center gap-3 border-b-2 border-muted pb-4">
                             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-[#275230] max-[768px]:h-8 max-[768px]:w-8"><i className="bi bi-house-door text-base text-white max-[768px]:text-sm"></i></span>

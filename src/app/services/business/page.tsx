@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import DirectoryLinkCard from '@/components/DirectoryLinkCard';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 export default function BusinessPage() {
   return (
@@ -18,8 +19,8 @@ export default function BusinessPage() {
         ]}
       />
 
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={sectionClass}>
+        <div className={containerClass}>
           {/* eBPLS verified link card */}
           <a
             href="https://prod4.ebpls.com/sancarlospangasinan/index.php"

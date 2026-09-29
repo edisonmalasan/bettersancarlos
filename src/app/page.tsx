@@ -11,6 +11,7 @@ import WeatherWidget from '@/components/WeatherWidget';
 import officialsData from '@/data/officials.json';
 import cityProfile from '@/data/city-profile.json';
 import demographics from '@/data/demographics.json';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 interface NewsItem {
   id: string;
@@ -48,8 +49,8 @@ function newsBadgeClass(badge: string): string {
 }
 
 const containerCls =
-  'mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2';
-const sectionCls = 'py-16 max-[1024px]:py-8 max-[767px]:py-6';
+  `${containerClass} max-[767px]:px-4 max-[480px]:px-2`;
+const sectionCls = `${sectionClass}`;
 const sectionHeaderCls =
   'mb-8 flex flex-wrap items-center justify-between gap-4 max-[768px]:flex-col max-[768px]:text-center';
 const sectionLinkCls =
@@ -260,7 +261,7 @@ export default function HomePage() {
       </section>
 
       {/* Quick Stats */}
-      <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      <section className={`bg-muted ${sectionClass}`}>
         <div className={containerCls}>
           <div className="mb-8 flex items-center justify-between max-[576px]:flex-col max-[576px]:gap-4 max-[576px]:text-center">
             <h2 className="m-0 text-2xl">{t('stats-at-a-glance')}</h2>
@@ -338,7 +339,7 @@ export default function HomePage() {
       </section>
 
       {/* Weather & Map */}
-      <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      <section className={`bg-muted ${sectionClass}`}>
         <div className={containerCls}>
           <div className="mb-8 flex items-center justify-between">
             <h2 className="m-0 text-2xl">{t('weather-map-title')}</h2>
@@ -377,7 +378,7 @@ export default function HomePage() {
       </section>
 
       {/* Brief History of San Carlos */}
-      <section className="bg-[linear-gradient(180deg,#faf9f6_0%,#ffffff_100%)] py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      <section className={`bg-[linear-gradient(180deg,#faf9f6_0%,#ffffff_100%)] ${sectionClass}`}>
         <div className={containerCls}>
           <div className="mb-8 flex items-center justify-between">
             <h2 className="m-0 flex items-center gap-2.5 text-2xl [&_i]:text-primary">
@@ -500,7 +501,7 @@ export default function HomePage() {
       </section>
 
       {/* City Leadership */}
-      <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      <section className={`bg-muted ${sectionClass}`}>
         <div className={containerCls}>
           <div className={sectionHeaderCls}>
             <h2 className="m-0 text-2xl">{t('section-leadership')}</h2>

@@ -1,6 +1,7 @@
 'use client';
 
 import PageHeader from '@/components/layout/PageHeader';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 export default function TermsPage() {
     return (
@@ -15,8 +16,8 @@ export default function TermsPage() {
                 ]}
             />
 
-            <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={sectionClass}>
+                <div className={containerClass}>
                     <div className="grid grid-cols-[240px_1fr] items-start gap-12 max-[991px]:grid-cols-1 max-[991px]:gap-8">
                         <aside className="sticky top-[100px] rounded-xl border border-line bg-white p-5 shadow-[0_2px_12px_rgba(0,0,0,0.04)] max-[991px]:static max-[991px]:hidden">
                             <h4 className="mb-4 flex items-center gap-2 border-b border-line pb-3 text-[0.875rem] font-bold text-foreground">

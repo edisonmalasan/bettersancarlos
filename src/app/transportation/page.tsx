@@ -1,10 +1,11 @@
 import PageHeader from '@/components/layout/PageHeader';
 import DirectoryLinkCard from '@/components/DirectoryLinkCard';
 import transportationData from '@/data/transportation.json';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 const containerCls =
-  'mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2';
-const sectionCls = 'py-16 max-[1024px]:py-8 max-[767px]:py-6';
+  `${containerClass} max-[767px]:px-4 max-[480px]:px-2`;
+const sectionCls = `${sectionClass}`;
 const pendingBadgeCls =
   'inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]';
 

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import DirectoryLinkCard from '@/components/DirectoryLinkCard';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 
 export default function PublicSafetyPage() {
@@ -18,8 +19,8 @@ export default function PublicSafetyPage() {
           { label: 'Public Safety Services' },
         ]}
       />
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={sectionClass}>
+        <div className={containerClass}>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 min-[1200px]:grid-cols-3 max-[1024px]:grid-cols-2 max-[767px]:grid-cols-1">
             <Link href="/contact" className="rounded-xl border border-line bg-white p-6 text-inherit no-underline duration-200 hover:border-primary hover:no-underline transition-colors">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
@@ -50,8 +51,8 @@ export default function PublicSafetyPage() {
       </section>
 
       {/* Disaster preparedness directory cross-link */}
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6" aria-label="Disaster preparedness directory">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={sectionClass} aria-label="Disaster preparedness directory">
+        <div className={containerClass}>
           <DirectoryLinkCard
             href="/disaster-preparedness"
             icon="bi bi-shield-fill-check"

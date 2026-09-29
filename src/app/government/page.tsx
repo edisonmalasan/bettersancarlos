@@ -5,6 +5,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import officialsData from '@/data/officials.json';
 import barangaysData from '@/data/barangays.json';
 import { slugify } from '@/lib/slug';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 const barangays = barangaysData.barangays;
 
@@ -35,8 +36,8 @@ export default function GovernmentPage() {
             />
 
             {/* Executive Branch */}
-            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={`bg-muted ${sectionClass}`}>
+                <div className={containerClass}>
                     <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
                         <SectionBadge
                             icon="bi bi-star-fill"
@@ -97,8 +98,8 @@ export default function GovernmentPage() {
             </section>
 
             {/* City Council */}
-            <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={sectionClass}>
+                <div className={containerClass}>
                     <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
                         <SectionBadge
                             icon="bi bi-people-fill"
@@ -132,8 +133,8 @@ export default function GovernmentPage() {
             </section>
 
             {/* Historical Terms */}
-            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={`bg-muted ${sectionClass}`}>
+                <div className={containerClass}>
                     <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
                         <SectionBadge
                             icon="bi bi-clock-history"
@@ -184,8 +185,8 @@ export default function GovernmentPage() {
             </section>
 
             {/* Barangays */}
-            <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={sectionClass}>
+                <div className={containerClass}>
                     <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
                         <SectionBadge
                             icon="bi bi-geo-alt-fill"

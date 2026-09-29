@@ -1,6 +1,7 @@
 'use client';
 
 import PageHeader from '@/components/layout/PageHeader';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 export default function AccessibilityPage() {
     return (
@@ -15,8 +16,8 @@ export default function AccessibilityPage() {
                 ]}
             />
 
-            <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={sectionClass}>
+                <div className={containerClass}>
                     <div className="mx-auto w-full max-w-[800px]">
                         <div className="mb-12 flex justify-center">
                             <div className="inline-flex items-center gap-3 rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#2f6136_100%)] px-6 py-4 text-white">

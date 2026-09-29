@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 interface NewsItem {
     id: string;
@@ -60,8 +61,8 @@ export default function NewsPage() {
                 ]}
             />
 
-            <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={sectionClass}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     {!loading && current.length > 0 && (
                         <h2 className="mb-6 flex items-center gap-2 text-[1.25rem] font-bold text-foreground">
                             <i className="bi bi-broadcast text-primary"></i> Current Updates
@@ -129,8 +130,8 @@ export default function NewsPage() {
             </section>
 
             {historical.length > 0 && (
-                <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                    <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                <section className={`bg-muted ${sectionClass}`}>
+                    <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                         <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
                             <h2 className="m-0 flex items-center gap-2 text-[1.25rem] font-bold text-foreground">
                                 <i className="bi bi-archive text-primary"></i> Historical Archive
@@ -177,8 +178,8 @@ export default function NewsPage() {
                 </section>
             )}
 
-            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`bg-muted ${sectionClass}`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-6 text-center">
                         <h2 className="m-0 mb-1.5">From our Facebook Page</h2>
                         <p className="m-0 text-muted-foreground">The latest posts published by the Official LGU San Carlos Facebook Page.</p>

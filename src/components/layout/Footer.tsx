@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { containerClass } from '@/components/layout/Container';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,7 +20,7 @@ export default function Footer() {
 
   return (
     <footer className="site-footer bg-[#2f3e46] text-white">
-      <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+      <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
         <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 border-b border-white/[0.08] py-[60px] pb-10 max-[991px]:grid-cols-2 max-[991px]:gap-10 max-[575px]:grid-cols-1 max-[575px]:gap-8 max-[575px]:py-10 max-[575px]:pb-8">
           <div className="max-w-[320px] max-[991px]:col-[1/-1] max-[991px]:max-w-full max-[991px]:text-left max-[575px]:flex max-[575px]:flex-col max-[575px]:items-center max-[575px]:text-center">
             <img

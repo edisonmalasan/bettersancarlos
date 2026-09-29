@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import { cn } from '@/lib/utils';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 export default function LegislativePage() {
     const [activeTab, setActiveTab] = useState<'ordinances' | 'resolutions'>('ordinances');
@@ -50,8 +51,8 @@ export default function LegislativePage() {
                 ]}
             />
 
-            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`bg-muted ${sectionClass}`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mx-auto grid max-w-[900px] grid-cols-2 gap-6 max-[768px]:grid-cols-1 max-[768px]:gap-4">
                         <Link href="/legislative/ordinance-framework" className="group relative flex flex-col items-center overflow-hidden rounded-xl border border-line bg-white p-8 text-center text-foreground no-underline duration-200 before:absolute before:inset-x-0 before:top-0 before:h-1 before:origin-left before:scale-x-0 before:bg-primary before:transition-transform before:duration-300 before:content-[''] hover:border-primary hover:no-underline hover:before:scale-x-100 max-[768px]:p-6 max-[575px]:p-5 transition-colors">
                             <div className="mb-6 flex h-[72px] w-[72px] items-center justify-center rounded-xl bg-primary/10 text-[2rem] text-primary transition-transform duration-300 group-hover:scale-110 max-[768px]:mb-4 max-[768px]:h-[60px] max-[768px]:w-[60px] max-[768px]:text-[1.5rem] max-[575px]:mb-3 max-[575px]:h-[52px] max-[575px]:w-[52px] max-[575px]:text-[1.25rem]"><i className="bi bi-journal-bookmark-fill"></i></div>
@@ -73,8 +74,8 @@ export default function LegislativePage() {
                 </div>
             </section>
 
-            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`bg-muted ${sectionClass}`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-8 text-center">
                         <span className="mb-2.5 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-3 py-[5px] text-xs font-semibold text-primary"><i className="bi bi-diagram-3-fill"></i> Process Flow</span>
                         <h2 className="mb-1.5 text-[1.5rem] text-foreground max-[575px]:text-[1.25rem]">Flowchart for Legislative Proposal</h2>
@@ -150,8 +151,8 @@ export default function LegislativePage() {
                 </div>
             </section>
 
-            <section className="bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`bg-white ${sectionClass}`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mx-auto max-w-full">
                         <div className="mb-8 text-center">
                             <span className="mb-2.5 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-3 py-[5px] text-xs font-semibold text-primary"><i className="bi bi-info-circle-fill"></i> About</span>

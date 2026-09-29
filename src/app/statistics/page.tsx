@@ -7,6 +7,7 @@ import demographicsData from '@/data/demographics.json';
 import cityProfile from '@/data/city-profile.json';
 import competitiveIndex from '@/data/competitive-index.json';
 import fiscalData from '@/data/fiscal_transparency.json';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 const COLORS = {
     primary: '#3a7d44',
@@ -642,7 +643,7 @@ export default function StatisticsPage() {
             />
 
             <section className="relative z-[2] mt-10 pb-[60px]">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="grid grid-cols-4 gap-5 max-[991px]:grid-cols-2 max-[575px]:grid-cols-1 max-[575px]:gap-3">
                         <div className="metric-card animate-on-scroll rounded-2xl border border-line bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-[opacity,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100 hover:border-primary" data-delay="0">
                             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-[1.5rem] text-primary"><i className="bi bi-people-fill"></i></div>
@@ -672,8 +673,8 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`animate-on-scroll bg-white ${sectionClass} opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-cash-stack"></i> <span>Finance</span>
@@ -720,8 +721,8 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`animate-on-scroll bg-muted ${sectionClass} opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-graph-up"></i> <span>Growth</span>
@@ -760,8 +761,8 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`animate-on-scroll bg-white ${sectionClass} opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-pie-chart-fill"></i>
@@ -821,8 +822,8 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`animate-on-scroll bg-muted ${sectionClass} opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-briefcase-fill"></i>
@@ -897,8 +898,8 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`animate-on-scroll bg-white ${sectionClass} opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-graph-down-arrow"></i>
@@ -927,8 +928,8 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100" id="competitive-index">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`animate-on-scroll bg-muted ${sectionClass} opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100`} id="competitive-index">
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-trophy-fill"></i>
@@ -1077,8 +1078,8 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`animate-on-scroll bg-white ${sectionClass} opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-bar-chart-fill"></i>

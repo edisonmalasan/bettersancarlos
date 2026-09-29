@@ -8,6 +8,7 @@ import fiscalData from '@/data/fiscal_transparency.json';
 import transparencyDocs from '@/data/transparency-docs.json';
 import cityProjects from '@/data/city-projects.json';
 import dpwhData from '@/data/dpwh-projects.json';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 interface DpwhProject {
     title: string;
@@ -121,8 +122,8 @@ export default function BudgetPage() {
                 ]}
             />
 
-            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={`bg-muted ${sectionClass}`}>
+                <div className={containerClass}>
                     <div className="mb-8 flex flex-wrap items-start justify-between gap-6 max-[991px]:flex-col">
                         <div className="min-w-[280px] flex-1">
                             <h2 className="mb-1! text-2xl! font-bold text-foreground max-[575px]:text-[1.25rem]!">Annual Regular Income</h2>
@@ -214,8 +215,8 @@ export default function BudgetPage() {
                 </div>
             </section>
 
-            <section className="bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={`bg-white ${sectionClass}`}>
+                <div className={containerClass}>
                     <div className="mx-auto max-w-[760px] rounded-2xl border border-line bg-white p-8 text-center shadow-[0_1px_3px_rgba(0,0,0,0.06)] max-[575px]:p-5">
                         <span className="mb-4 inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-3 py-1.5 text-[0.8125rem] font-semibold text-[#8a5a00]">
                             <i className="bi bi-hourglass-split"></i> FY2017–2025 pending verification
@@ -261,8 +262,8 @@ export default function BudgetPage() {
             </section>
 
             {/* Transparency & Full Disclosure */}
-            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={`bg-muted ${sectionClass}`}>
+                <div className={containerClass}>
                     <div className="mb-8 text-center">
                         <h2 className="mb-1! text-2xl! font-bold text-foreground max-[767px]:text-[1.375rem]! max-[575px]:text-[1.25rem]!">Transparency &amp; Full Disclosure</h2>
                         <p className="m-0! text-[0.9375rem] text-muted-foreground">Transparency Seal, Citizen&apos;s Charter, FDP reports, and e-services</p>
@@ -349,8 +350,8 @@ export default function BudgetPage() {
             </section>
 
             {/* City Projects & Programs */}
-            <section className="bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={`bg-white ${sectionClass}`}>
+                <div className={containerClass}>
                     <div className="mb-8 text-center">
                         <h2 className="mb-1! text-2xl! font-bold text-foreground max-[767px]:text-[1.375rem]! max-[575px]:text-[1.25rem]!">City Projects &amp; Programs</h2>
                         <p className="m-0! text-[0.9375rem] text-muted-foreground">Program areas tracked by the city government</p>

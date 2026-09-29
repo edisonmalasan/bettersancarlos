@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import cityProjects from '@/data/city-projects.json';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 const pendingBadgeCls =
   'inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]';
@@ -21,8 +22,8 @@ export default function InfrastructurePage() {
         ]}
       />
 
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={sectionClass}>
+        <div className={containerClass}>
           {/* Program buckets */}
           <div className="mb-6 rounded-xl border border-line bg-white p-5 text-center">
             <span className={pendingBadgeCls}>

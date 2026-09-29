@@ -1,6 +1,7 @@
 'use client';
 
 import PageHeader from '@/components/layout/PageHeader';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 const pendingBadgeCls =
   'inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]';
@@ -19,8 +20,8 @@ export default function EnvironmentPage() {
         ]}
       />
 
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={sectionClass}>
+        <div className={containerClass}>
           {/* Verified 2023 programs */}
           <div className="mb-8 grid grid-cols-3 gap-5 max-[991px]:grid-cols-1">
             <div className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors">

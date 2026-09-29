@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
 import barangayOfficials from '@/data/barangay-officials.json';
 import { slugify } from '@/lib/slug';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 interface Position {
     position: string;
@@ -79,7 +80,7 @@ export default async function BarangayDetailPage({
             {/* Barangay profile stats */}
             {(barangay.population_2020 !== undefined || barangay.poblacion) && (
                 <section className="relative z-[2] mt-10 pb-[40px]">
-                    <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                    <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                         <div className="grid grid-cols-3 gap-4 max-[767px]:grid-cols-1">
                             {barangay.population_2020 !== undefined && (
                                 <div className="rounded-xl border border-line bg-white p-5 text-center">
@@ -117,8 +118,8 @@ export default async function BarangayDetailPage({
 
             {/* Punong Barangay */}
             {punong && (
-                <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6" style={{ background: 'var(--color-bg-alt)' }}>
-                    <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+                <section className={sectionClass} style={{ background: 'var(--color-bg-alt)' }}>
+                    <div className={containerClass}>
                         <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
                             <h3 className="font-bold leading-[1.2] text-foreground" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
                                 Punong Barangay
@@ -150,8 +151,8 @@ export default async function BarangayDetailPage({
             )}
 
             {/* Remaining positions */}
-            <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={sectionClass}>
+                <div className={containerClass}>
                     {otherPositions.map((pos) => (
                         <div key={pos.position} style={{ marginBottom: 'var(--spacing-xl)' }}>
                             <div

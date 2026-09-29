@@ -98,8 +98,10 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative flex min-h-[520px] items-center overflow-hidden bg-primary bg-cover bg-center py-20 max-[767px]:min-h-0 max-[767px]:py-14 bg-[url('/assets/videos/hero-poster.jpg')]">
+      {/* Restrained hero band: shorter than a full marketing viewport, with the
+          Find a Service search flush inside it (no floating inset card) and the
+          spec'd 3D logo and background video preserved (hero-media, D7). */}
+      <section className="relative flex min-h-[460px] items-center overflow-hidden bg-primary bg-cover bg-center py-16 max-[767px]:min-h-0 max-[767px]:py-12 bg-[url('/assets/videos/hero-poster.jpg')]">
         <video
           className="hero-video absolute inset-0 h-full w-full object-cover max-[767px]:hidden"
           src="/assets/videos/hero-bettersc.mp4"
@@ -119,7 +121,7 @@ export default function HomePage() {
           aria-hidden="true"
         ></div>
         <div className={containerCls + ' relative z-[1]'}>
-          <div className="grid grid-cols-[1fr_1.1fr] items-center gap-24 max-[1280px]:gap-16 max-[992px]:grid-cols-1 max-[992px]:gap-8">
+          <div className="grid grid-cols-[1fr_1.1fr] items-center gap-20 max-[1280px]:gap-14 max-[992px]:grid-cols-1 max-[992px]:gap-8">
             <div className="max-[992px]:text-center">
               <h1 className="m-0 mb-4 text-[2.5rem] leading-[1.2] text-white max-[768px]:text-[2rem]">
                 {t('hero-welcome')}
@@ -146,8 +148,8 @@ export default function HomePage() {
                     </button>
                   </div>
                 </form>
-                <div className="mt-4 flex flex-wrap items-center gap-2 text-[0.8125rem]">
-                  <span className="font-medium text-muted-foreground">{t('hero-popular')}</span>
+                <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.8125rem]">
+                  <span className="font-medium text-white/80">{t('hero-popular')}</span>
                   <Link
                     href="/service-details/birth-certificate"
                     className="font-medium text-white underline decoration-white/50 underline-offset-4 transition-colors duration-200 hover:decoration-white hover:no-underline"

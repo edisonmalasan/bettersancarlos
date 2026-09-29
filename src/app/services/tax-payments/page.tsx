@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import { containerClass, sectionClass } from '@/components/layout/Container';
+import ServiceEntry from '@/components/layout/ServiceEntry';
 
 export default function TaxPaymentsPage() {
   return (
@@ -21,102 +22,45 @@ export default function TaxPaymentsPage() {
       <section className={sectionClass}>
         <div className={containerClass}>
           {/* Service links */}
-          <div className="grid grid-cols-3 gap-5 max-[991px]:grid-cols-1">
-            <Link
+          <ul className="m-0 list-none border-t border-line p-0">
+            <ServiceEntry
               href="/service-details/municipal-treasurer"
-              className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
-            >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary">
-                <i className="bi bi-cash-stack"></i>
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="mb-1 block text-base font-semibold text-foreground">Municipal Treasurer&apos;s Office</span>
-                <span className="block text-[0.8125rem] text-muted-foreground">
-                  Tax collection, cedula, clearances, and payment services
-                </span>
-              </span>
-              <i className="bi bi-arrow-right text-muted-foreground opacity-0 transition-[opacity,transform] duration-200 group-hover:translate-x-1 group-hover:opacity-100"></i>
-            </Link>
-            <Link
+              title="Municipal Treasurer's Office"
+              description="Tax collection, cedula, clearances, and payment services"
+            />
+            <ServiceEntry
               href="/service-details/municipal-assessor"
-              className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
-            >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary">
-                <i className="bi bi-clipboard-data"></i>
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="mb-1 block text-base font-semibold text-foreground">Municipal Assessor&apos;s Office</span>
-                <span className="block text-[0.8125rem] text-muted-foreground">
-                  Property assessment, tax declaration, and land records
-                </span>
-              </span>
-              <i className="bi bi-arrow-right text-muted-foreground opacity-0 transition-[opacity,transform] duration-200 group-hover:translate-x-1 group-hover:opacity-100"></i>
-            </Link>
-            <Link
+              title="Municipal Assessor's Office"
+              description="Property assessment, tax declaration, and land records"
+            />
+            <ServiceEntry
               href="/service-details/property-declaration"
-              className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
-            >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary">
-                <i className="bi bi-house-add"></i>
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="mb-1 block text-base font-semibold text-foreground">Property Declaration</span>
-                <span className="block text-[0.8125rem] text-muted-foreground">
-                  Declaration of land, building, and machineries for tax assessment
-                </span>
-              </span>
-              <i className="bi bi-arrow-right text-muted-foreground opacity-0 transition-[opacity,transform] duration-200 group-hover:translate-x-1 group-hover:opacity-100"></i>
-            </Link>
-          </div>
+              title="Property Declaration"
+              description="Declaration of land, building, and machineries for tax assessment"
+            />
+          </ul>
 
           {/* eBPLS + forms */}
-          <div className="mt-6 grid grid-cols-2 gap-6 max-[991px]:grid-cols-1">
-            <a
+          <ul className="mt-6 m-0 list-none border-t border-line p-0">
+            <ServiceEntry
+              external
               href="https://prod4.ebpls.com/sancarlospangasinan/index.php"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
-            >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[rgba(34,197,94,0.1)] text-xl text-primary">
-                <i className="bi bi-globe"></i>
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="mb-1 flex flex-wrap items-center gap-2 text-base font-semibold text-foreground">
-                  eBPLS Online Portal
-                  <span className="inline-flex items-center gap-1 rounded-md bg-[rgba(34,197,94,0.1)] px-2 py-[2px] text-[0.6875rem] font-semibold text-[#16a34a]">
-                    <i className="bi bi-patch-check-fill"></i> Verified
-                  </span>
-                </span>
-                <span className="block text-[0.8125rem] text-muted-foreground">
-                  The city&apos;s Electronic Business Permit &amp; Licensing System — the verified online transactions
-                  portal on the official LGU website.
-                </span>
-              </span>
-              <i className="bi bi-box-arrow-up-right text-muted-foreground opacity-0 transition-[opacity,transform] duration-200 group-hover:translate-x-1 group-hover:opacity-100"></i>
-            </a>
-            <Link
+              title="eBPLS Online Portal"
+              status="Verified"
+              description="The city's Electronic Business Permit & Licensing System — the verified online transactions portal on the official LGU website."
+            />
+            <ServiceEntry
               href="/budget"
-              className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
-            >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary">
-                <i className="bi bi-file-earmark-text"></i>
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="mb-1 block text-base font-semibold text-foreground">Forms &amp; Citizen&apos;s Charter</span>
-                <span className="block text-[0.8125rem] text-muted-foreground">
-                  Assessor&apos;s forms (FAAS building/land/machinery) and permit forms are listed under the city&apos;s
-                  transparency pages; per-service fees and requirements are in the Citizen&apos;s Charter offices list.
-                </span>
-              </span>
-              <i className="bi bi-arrow-right text-muted-foreground opacity-0 transition-[opacity,transform] duration-200 group-hover:translate-x-1 group-hover:opacity-100"></i>
-            </Link>
-          </div>
+              title="Forms & Citizen's Charter"
+              description="Assessor's forms (FAAS building/land/machinery) and permit forms are listed under the city's transparency pages; per-service fees and requirements are in the Citizen's Charter offices list."
+            />
+          </ul>
 
           {/* No-online-payment note */}
-          <div className="mt-6 rounded-xl border border-line bg-white p-6 text-center">
-            <span className="mb-3 inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-3 py-1.5 text-[0.8125rem] font-semibold text-[#8a5a00]">
-              <i className="bi bi-credit-card-2-front"></i> No online tax payment yet
-            </span>
+          <div className="mt-6 border-t border-line pt-6">
+            <h3 className="m-0 mb-2 text-base font-semibold text-foreground">
+              No online tax payment yet
+            </h3>
             <p className="m-0 text-[0.9375rem] leading-[1.6] text-muted-foreground">
               The city has no verified online tax-payment portal — the only verified online transactions channel is the
               eBPLS business-permit system above. Taxes and fees are paid at the Treasurer&apos;s Office; call the

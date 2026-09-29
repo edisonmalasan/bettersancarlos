@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
+import ServiceEntry from '@/components/layout/ServiceEntry';
 import { containerClass, sectionClass } from '@/components/layout/Container';
 
 
@@ -20,44 +20,38 @@ export default function CertificatesPage() {
       />
       <section className={sectionClass}>
         <div className={containerClass}>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 min-[1200px]:grid-cols-3 max-[1024px]:grid-cols-2 max-[767px]:grid-cols-1">
-            <Link href="/government" className="rounded-xl border border-line bg-white p-6 text-inherit no-underline duration-200 hover:border-primary hover:no-underline transition-colors">
-              <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
-                <i className="bi bi-file-earmark-text text-primary"></i>
-                <span>Barangay Clearance</span>
-              </h3>
-              <p className="m-0 mb-3 text-[0.875rem] text-muted-foreground">Certificate of residence from your barangay</p>
-              <div className="flex flex-wrap gap-x-6 gap-y-1 border-t border-line-soft pt-3 text-[0.8125rem] text-muted-foreground">
-                <span className="flex items-center gap-1"><strong className="text-foreground">Office:</strong> Barangay Hall</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Fee:</strong> ₱50-100</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Time:</strong> Same day</span>
-              </div>
-            </Link>
-            <Link href="/government" className="rounded-xl border border-line bg-white p-6 text-inherit no-underline duration-200 hover:border-primary hover:no-underline transition-colors">
-              <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
-                <i className="bi bi-file-earmark-text text-primary"></i>
-                <span>Barangay ID</span>
-              </h3>
-              <p className="m-0 mb-3 text-[0.875rem] text-muted-foreground">Official barangay identification card</p>
-              <div className="flex flex-wrap gap-x-6 gap-y-1 border-t border-line-soft pt-3 text-[0.8125rem] text-muted-foreground">
-                <span className="flex items-center gap-1"><strong className="text-foreground">Office:</strong> Barangay Hall</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Fee:</strong> Free</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Time:</strong> 1-2 days</span>
-              </div>
-            </Link>
-            <Link href="/contact" className="rounded-xl border border-line bg-white p-6 text-inherit no-underline duration-200 hover:border-primary hover:no-underline transition-colors">
-              <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
-                <i className="bi bi-file-earmark-text text-primary"></i>
-                <span>Police Clearance</span>
-              </h3>
-              <p className="m-0 mb-3 text-[0.875rem] text-muted-foreground">Police clearance coordination through municipal office</p>
-              <div className="flex flex-wrap gap-x-6 gap-y-1 border-t border-line-soft pt-3 text-[0.8125rem] text-muted-foreground">
-                <span className="flex items-center gap-1"><strong className="text-foreground">Office:</strong> PNP San Carlos</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Fee:</strong> Varies</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Time:</strong> 3-5 days</span>
-              </div>
-            </Link>
-          </div>
+          <ul className="m-0 list-none p-0">
+            <ServiceEntry
+              href="/government"
+              title="Barangay Clearance"
+              description="Certificate of residence from your barangay"
+              meta={[
+                { label: 'Office', value: 'Barangay Hall' },
+                { label: 'Fee', value: '₱50-100' },
+                { label: 'Time', value: 'Same day' },
+              ]}
+            />
+            <ServiceEntry
+              href="/government"
+              title="Barangay ID"
+              description="Official barangay identification card"
+              meta={[
+                { label: 'Office', value: 'Barangay Hall' },
+                { label: 'Fee', value: 'Free' },
+                { label: 'Time', value: '1-2 days' },
+              ]}
+            />
+            <ServiceEntry
+              href="/contact"
+              title="Police Clearance"
+              description="Police clearance coordination through municipal office"
+              meta={[
+                { label: 'Office', value: 'PNP San Carlos' },
+                { label: 'Fee', value: 'Varies' },
+                { label: 'Time', value: '3-5 days' },
+              ]}
+            />
+          </ul>
         </div>
       </section>
     </>

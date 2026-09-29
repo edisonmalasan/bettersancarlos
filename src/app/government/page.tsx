@@ -11,14 +11,11 @@ const barangays = barangaysData.barangays;
 
 const councilors = officialsData.councilors;
 
-function SectionBadge({ icon, label }: { icon: string; label: string }) {
+function SectionLabel({ label }: { label: string }) {
     return (
-        <span
-            className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary/10 px-5 py-2 text-[0.875rem] font-medium text-primary"
-        >
-            <i className={icon}></i>
-            <span>{label}</span>
-        </span>
+        <p className="mb-2 text-[0.8125rem] font-semibold uppercase tracking-[0.08em] text-primary">
+            {label}
+        </p>
     );
 }
 
@@ -38,23 +35,22 @@ export default function GovernmentPage() {
             {/* Executive Branch */}
             <section className={`bg-muted ${sectionClass}`}>
                 <div className={containerClass}>
-                    <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
-                        <SectionBadge
-                            icon="bi bi-star-fill"
-                            label="Executive Branch"
-                        />
-                        <h3 className="font-bold leading-[1.2] text-foreground" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
+                    <div className="mb-8">
+                        <SectionLabel label="Executive Branch" />
+                        <h3 className="mt-0 mb-2 text-[1.75rem] font-bold leading-[1.2] text-foreground">
                             City Leadership
                         </h3>
-                        <p className="mb-4" style={{ color: 'var(--color-text-light)' }}>
+                        <p className="m-0 text-muted-foreground">
                             The executive officials leading San Carlos&apos;s governance
                         </p>
                     </div>
 
                     <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 min-[1200px]:grid-cols-2 min-[1200px]:gap-8 max-[767px]:grid-cols-1" style={{ gap: 'var(--spacing-lg)' }}>
-                        <div className="overflow-hidden rounded-xl border border-line bg-white duration-200 hover:border-primary transition-colors">
-                            <div className="px-8 py-6 text-center bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)]">
-                                <span className="mb-2 inline-block rounded-full bg-[rgba(255,255,255,0.2)] px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.5px] text-white">City Mayor</span>
+                        <div className="overflow-hidden rounded-xl border border-line bg-white transition-colors duration-200 hover:border-primary">
+                            <div className="bg-[#3a7d44] px-8 py-6 text-center">
+                                <p className="m-0 mb-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-white/85">
+                                    City Mayor
+                                </p>
                                 <h4 className="m-0 text-[1.25rem] font-semibold text-white">{officialsData.mayor.name}</h4>
                             </div>
                             <div className="px-8 py-6">
@@ -73,9 +69,11 @@ export default function GovernmentPage() {
                             </div>
                         </div>
 
-                        <div className="overflow-hidden rounded-xl border border-line bg-white duration-200 hover:border-primary transition-colors">
-                            <div className="px-8 py-6 text-center bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)]">
-                                <span className="mb-2 inline-block rounded-full bg-[rgba(255,255,255,0.2)] px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.5px] text-white">City Vice Mayor</span>
+                        <div className="overflow-hidden rounded-xl border border-line bg-white transition-colors duration-200 hover:border-primary">
+                            <div className="bg-[#3a7d44] px-8 py-6 text-center">
+                                <p className="m-0 mb-1 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-white/85">
+                                    City Vice Mayor
+                                </p>
                                 <h4 className="m-0 text-[1.25rem] font-semibold text-white">{officialsData.vice_mayor.name}</h4>
                             </div>
                             <div className="px-8 py-6">
@@ -100,11 +98,7 @@ export default function GovernmentPage() {
             {/* City Council */}
             <section className={sectionClass}>
                 <div className={containerClass}>
-                    <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
-                        <SectionBadge
-                            icon="bi bi-people-fill"
-                            label="Legislative Branch"
-                        />
+                    <div className="mb-6">
                         <h3 className="font-bold leading-[1.2] text-foreground" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
                             Sangguniang Panlungsod Members
                         </h3>
@@ -117,7 +111,7 @@ export default function GovernmentPage() {
                         {councilors.map((c) => (
                             <div
                                 key={c.name}
-                                className="rounded-lg border border-line border-l-[3px] border-l-primary bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary max-[767px]:p-4"
+                                className="rounded-lg border border-line border-l-[3px] border-l-primary bg-white p-6 transition-colors duration-200 hover:border-primary max-[767px]:p-4"
                             >
                                 <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold leading-[1.2] text-foreground">{c.name}</h4>
                                 {c.party && c.votes !== undefined ? (
@@ -125,7 +119,7 @@ export default function GovernmentPage() {
                                         {c.party} · {c.votes.toLocaleString('en-PH')} votes
                                     </p>
                                 ) : null}
-                                <span className="mb-2.5 inline-block rounded-full bg-primary px-2.5 py-0.5 text-[0.6875rem] font-semibold text-white">SB Member</span>
+                                <p className="m-0 text-[0.75rem] font-medium text-muted-foreground">SB Member</p>
                             </div>
                         ))}
                     </div>
@@ -135,11 +129,7 @@ export default function GovernmentPage() {
             {/* Historical Terms */}
             <section className={`bg-muted ${sectionClass}`}>
                 <div className={containerClass}>
-                    <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
-                        <SectionBadge
-                            icon="bi bi-clock-history"
-                            label="Historical Terms"
-                        />
+                    <div className="mb-6">
                         <h3 className="font-bold leading-[1.2] text-foreground" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
                             Previous City Leadership
                         </h3>
@@ -152,7 +142,7 @@ export default function GovernmentPage() {
                     </div>
                     <div className="grid gap-6 min-[1024px]:grid-cols-3 max-[1023px]:grid-cols-1">
                         {officialsData.history.map((h) => (
-                            <div key={h.term} className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary">
+                            <div key={h.term} className="rounded-xl border border-line bg-white p-6 transition-colors duration-200 hover:border-primary">
                                 <div className="mb-3 flex items-center justify-between">
                                     <span className="rounded-full bg-primary px-3 py-1 text-[0.75rem] font-bold text-white">{h.term}</span>
                                     {h.note ? <span className="text-[0.6875rem] text-muted-foreground">{h.note}</span> : null}
@@ -187,11 +177,7 @@ export default function GovernmentPage() {
             {/* Barangays */}
             <section className={sectionClass}>
                 <div className={containerClass}>
-                    <div className="text-center" style={{ marginBottom: 'var(--spacing-xl)' }}>
-                        <SectionBadge
-                            icon="bi bi-geo-alt-fill"
-                            label="Barangay Units"
-                        />
+                    <div className="mb-6">
                         <h3 className="font-bold leading-[1.2] text-foreground" style={{ fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>
                             Barangays of San Carlos
                         </h3>

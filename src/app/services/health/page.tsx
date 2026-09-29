@@ -123,7 +123,7 @@ export default function HealthPage() {
             {healthFacilities.facilities.map((f) => (
               <div
                 key={f.name}
-                className="rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow] duration-200 hover:border-primary"
+                className="rounded-xl border border-line bg-white p-5 transition-colors duration-200 hover:border-primary"
               >
                 <div className="mb-2 flex items-start gap-3">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -231,7 +231,7 @@ export default function HealthPage() {
             </div>
             <a
               href="https://hivcareph.org/"
-              className="mt-2 inline-flex items-center gap-2.5 rounded-lg bg-[#b02e2e] px-9 py-4 text-[1rem] font-semibold text-white no-underline shadow-[0_4px_16px_rgba(176, 46, 46,0.25)] transition-[box-shadow,transform,background-color] duration-200 hover:bg-[#8f2424] hover:text-white hover:no-underline hover:shadow-[0_6px_20px_rgba(176, 46, 46,0.4)] active:scale-[0.97] max-[575px]:w-full max-[575px]:justify-center max-[575px]:px-6 max-[575px]:py-3.5"
+              className="mt-2 inline-flex items-center gap-2.5 rounded-lg bg-[#b02e2e] px-9 py-4 text-[1rem] font-semibold text-white no-underline shadow-[0_4px_16px_rgba(176, 46, 46,0.25)] transition-colors duration-200 hover:bg-[#8f2424] hover:text-white hover:no-underline active:scale-[0.97] max-[575px]:w-full max-[575px]:justify-center max-[575px]:px-6 max-[575px]:py-3.5"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -692,7 +692,7 @@ export default function StatisticsPage() {
                             <div className="mb-1 text-[1.75rem] font-bold text-white">₱{(latestFiscal.annual_regular_income / 1_000_000).toFixed(2)}M</div>
                             <div className="text-[0.8125rem] text-white">FY{latestFiscal.year} — latest verified BLGF figure</div>
                         </div>
-                        <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary">
+                        <div className="rounded-xl border border-line bg-white p-6 transition-colors duration-200 hover:border-primary">
                             <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-muted-foreground">
                                 <i className="bi bi-house-door-fill text-[1rem]"></i>
                                 <span>Households</span>
@@ -700,7 +700,7 @@ export default function StatisticsPage() {
                             <div className="mb-1 text-[1.75rem] font-bold text-foreground">{formatNumber(demographicsData.households.count)}</div>
                             <div className="text-[0.8125rem] text-muted-foreground">{demographicsData.households.year} Census (PSA)</div>
                         </div>
-                        <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary">
+                        <div className="rounded-xl border border-line bg-white p-6 transition-colors duration-200 hover:border-primary">
                             <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-muted-foreground">
                                 <i className="bi bi-people-fill text-[1rem]"></i>
                                 <span>Average Household Size</span>
@@ -778,7 +778,7 @@ export default function StatisticsPage() {
                         </div>
                         <div className="flex flex-col gap-2">
                             {top10.map((b) => (
-                                <div className={`grid items-center gap-3 rounded-lg border bg-white px-4 py-[10px] transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)] max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2 ${b.pop === maxPop ? 'grid-cols-[40px_120px_1fr_70px] border-l-[3px] border-line border-l-[#ffd700] max-[575px]:grid-cols-[32px_90px_1fr_60px]' : 'grid-cols-[40px_120px_1fr_70px] border-line max-[575px]:grid-cols-[32px_90px_1fr_60px]'}`} data-rank={b.pop === maxPop ? 1 : undefined} key={b.name}>
+                                <div className={`grid items-center gap-3 rounded-lg border bg-white px-4 py-[10px] transition-colors duration-200 hover:border-primary hover:bg-muted max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2 ${b.pop === maxPop ? 'grid-cols-[40px_120px_1fr_70px] border-l-[3px] border-line border-l-[#ffd700] max-[575px]:grid-cols-[32px_90px_1fr_60px]' : 'grid-cols-[40px_120px_1fr_70px] border-line max-[575px]:grid-cols-[32px_90px_1fr_60px]'}`} data-rank={b.pop === maxPop ? 1 : undefined} key={b.name}>
                                     <span className="text-[0.75rem] font-semibold text-muted-foreground">#{rankedBarangays.findIndex((r) => r.name === b.name) + 1}</span>
                                     <span className="text-[0.875rem] font-medium text-foreground max-[575px]:text-[0.8125rem]">{b.name}</span>
                                     <div className="bar-wrap h-2 overflow-hidden rounded bg-muted">
@@ -797,7 +797,7 @@ export default function StatisticsPage() {
                         <summary className="cursor-pointer p-3 text-center font-medium text-primary">View all {rankedBarangays.length} barangays</summary>
                         <div className="mt-4 flex flex-col gap-2">
                             {remaining.map((b) => (
-                                <div className="grid grid-cols-[40px_120px_1fr_70px] items-center gap-3 rounded-lg border border-line bg-white px-4 py-[10px] transition-[border-color,box-shadow] duration-200 hover:border-primary max-[575px]:grid-cols-[32px_90px_1fr_60px] max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2" key={b.name}>
+                                <div className="grid grid-cols-[40px_120px_1fr_70px] items-center gap-3 rounded-lg border border-line bg-white px-4 py-[10px] transition-colors duration-200 hover:border-primary max-[575px]:grid-cols-[32px_90px_1fr_60px] max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2" key={b.name}>
                                     <span className="text-[0.75rem] font-semibold text-muted-foreground">#{rankedBarangays.findIndex((r) => r.name === b.name) + 1}</span>
                                     <span className="text-[0.875rem] font-medium text-foreground max-[575px]:text-[0.8125rem]">{b.name}</span>
                                     <div className="bar-wrap h-2 overflow-hidden rounded bg-muted">
@@ -834,7 +834,7 @@ export default function StatisticsPage() {
                     </div>
 
                     <div className="mb-10 grid grid-cols-3 gap-5 max-[991px]:grid-cols-1">
-                        <div className="economy-card flex items-start gap-4 rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary">
+                        <div className="economy-card flex items-start gap-4 rounded-xl border border-line bg-white p-6 transition-colors duration-200 hover:border-primary">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary"><i className="bi bi-tree-fill"></i></div>
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-foreground">MANGO &amp; BAMBOO</div>
@@ -842,7 +842,7 @@ export default function StatisticsPage() {
                                 <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(58, 125, 68,0.1)] px-[10px] py-1 text-[0.75rem] text-primary">&quot;Mango-Bamboo Capital of the Philippines&quot;</div>
                             </div>
                         </div>
-                        <div className="economy-card flex items-start gap-4 rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary">
+                        <div className="economy-card flex items-start gap-4 rounded-xl border border-line bg-white p-6 transition-colors duration-200 hover:border-primary">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary"><i className="bi bi-geo-fill"></i></div>
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-foreground">AGRO-INDUSTRIAL</div>
@@ -850,7 +850,7 @@ export default function StatisticsPage() {
                                 <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(58, 125, 68,0.1)] px-[10px] py-1 text-[0.75rem] text-primary">Agriculture, commerce &amp; industry</div>
                             </div>
                         </div>
-                        <div className="economy-card flex items-start gap-4 rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary">
+                        <div className="economy-card flex items-start gap-4 rounded-xl border border-line bg-white p-6 transition-colors duration-200 hover:border-primary">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary"><i className="bi bi-house-door-fill"></i></div>
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-foreground" data-count={demographicsData.households.count}>0</div>

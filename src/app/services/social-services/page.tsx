@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
+import ServiceEntry from '@/components/layout/ServiceEntry';
 import { containerClass, sectionClass } from '@/components/layout/Container';
 
 
@@ -20,68 +20,58 @@ export default function SocialServicesPage() {
       />
       <section className={sectionClass}>
         <div className={containerClass}>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 min-[1200px]:grid-cols-3 max-[1024px]:grid-cols-2 max-[767px]:grid-cols-1">
-            <Link href="/service-details/mswdo-services" className="rounded-xl border border-line bg-white p-6 text-inherit no-underline duration-200 hover:border-primary hover:no-underline transition-colors">
-              <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
-                <i className="bi bi-file-earmark-text text-primary"></i>
-                <span>Senior Citizen ID</span>
-              </h3>
-              <p className="m-0 mb-3 text-[0.875rem] text-muted-foreground">ID card and benefits for citizens 60 years and above</p>
-              <div className="flex flex-wrap gap-x-6 gap-y-1 border-t border-line-soft pt-3 text-[0.8125rem] text-muted-foreground">
-                <span className="flex items-center gap-1"><strong className="text-foreground">Office:</strong> MSWDO / OSCA</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Fee:</strong> Free</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Time:</strong> 1-2 weeks</span>
-              </div>
-            </Link>
-            <Link href="/service-details/mswdo-services" className="rounded-xl border border-line bg-white p-6 text-inherit no-underline duration-200 hover:border-primary hover:no-underline transition-colors">
-              <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
-                <i className="bi bi-file-earmark-text text-primary"></i>
-                <span>PWD ID & Services</span>
-              </h3>
-              <p className="m-0 mb-3 text-[0.875rem] text-muted-foreground">ID and benefits for persons with disabilities</p>
-              <div className="flex flex-wrap gap-x-6 gap-y-1 border-t border-line-soft pt-3 text-[0.8125rem] text-muted-foreground">
-                <span className="flex items-center gap-1"><strong className="text-foreground">Office:</strong> MSWDO</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Fee:</strong> Free</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Time:</strong> 1-2 weeks</span>
-              </div>
-            </Link>
-            <Link href="/service-details/mswdo-services" className="rounded-xl border border-line bg-white p-6 text-inherit no-underline duration-200 hover:border-primary hover:no-underline transition-colors">
-              <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
-                <i className="bi bi-file-earmark-text text-primary"></i>
-                <span>Financial Assistance</span>
-              </h3>
-              <p className="m-0 mb-3 text-[0.875rem] text-muted-foreground">Emergency financial aid for qualified residents</p>
-              <div className="flex flex-wrap gap-x-6 gap-y-1 border-t border-line-soft pt-3 text-[0.8125rem] text-muted-foreground">
-                <span className="flex items-center gap-1"><strong className="text-foreground">Office:</strong> MSWDO</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Fee:</strong> Free</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Time:</strong> Varies</span>
-              </div>
-            </Link>
-            <Link href="/service-details/mswdo-services" className="rounded-xl border border-line bg-white p-6 text-inherit no-underline duration-200 hover:border-primary hover:no-underline transition-colors">
-              <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
-                <i className="bi bi-file-earmark-text text-primary"></i>
-                <span>Burial Assistance</span>
-              </h3>
-              <p className="m-0 mb-3 text-[0.875rem] text-muted-foreground">Financial assistance for burial expenses</p>
-              <div className="flex flex-wrap gap-x-6 gap-y-1 border-t border-line-soft pt-3 text-[0.8125rem] text-muted-foreground">
-                <span className="flex items-center gap-1"><strong className="text-foreground">Office:</strong> MSWDO</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Fee:</strong> Free</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Time:</strong> 1-3 days</span>
-              </div>
-            </Link>
-            <Link href="/service-details/mswdo-services" className="rounded-xl border border-line bg-white p-6 text-inherit no-underline duration-200 hover:border-primary hover:no-underline transition-colors">
-              <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
-                <i className="bi bi-file-earmark-text text-primary"></i>
-                <span>Solo Parent ID</span>
-              </h3>
-              <p className="m-0 mb-3 text-[0.875rem] text-muted-foreground">ID and benefits for solo parents</p>
-              <div className="flex flex-wrap gap-x-6 gap-y-1 border-t border-line-soft pt-3 text-[0.8125rem] text-muted-foreground">
-                <span className="flex items-center gap-1"><strong className="text-foreground">Office:</strong> MSWDO</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Fee:</strong> Free</span>
-                <span className="flex items-center gap-1"><strong className="text-foreground">Time:</strong> 1-2 weeks</span>
-              </div>
-            </Link>
-          </div>
+          <ul className="m-0 list-none p-0">
+            <ServiceEntry
+              href="/service-details/mswdo-services"
+              title="Senior Citizen ID"
+              description="ID card and benefits for citizens 60 years and above"
+              meta={[
+                { label: 'Office', value: 'MSWDO / OSCA' },
+                { label: 'Fee', value: 'Free' },
+                { label: 'Time', value: '1-2 weeks' },
+              ]}
+            />
+            <ServiceEntry
+              href="/service-details/mswdo-services"
+              title="PWD ID & Services"
+              description="ID and benefits for persons with disabilities"
+              meta={[
+                { label: 'Office', value: 'MSWDO' },
+                { label: 'Fee', value: 'Free' },
+                { label: 'Time', value: '1-2 weeks' },
+              ]}
+            />
+            <ServiceEntry
+              href="/service-details/mswdo-services"
+              title="Financial Assistance"
+              description="Emergency financial aid for qualified residents"
+              meta={[
+                { label: 'Office', value: 'MSWDO' },
+                { label: 'Fee', value: 'Free' },
+                { label: 'Time', value: 'Varies' },
+              ]}
+            />
+            <ServiceEntry
+              href="/service-details/mswdo-services"
+              title="Burial Assistance"
+              description="Financial assistance for burial expenses"
+              meta={[
+                { label: 'Office', value: 'MSWDO' },
+                { label: 'Fee', value: 'Free' },
+                { label: 'Time', value: '1-3 days' },
+              ]}
+            />
+            <ServiceEntry
+              href="/service-details/mswdo-services"
+              title="Solo Parent ID"
+              description="ID and benefits for solo parents"
+              meta={[
+                { label: 'Office', value: 'MSWDO' },
+                { label: 'Fee', value: 'Free' },
+                { label: 'Time', value: '1-2 weeks' },
+              ]}
+            />
+          </ul>
         </div>
       </section>
     </>

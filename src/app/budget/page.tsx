@@ -244,7 +244,7 @@ export default function BudgetPage() {
                                         href={doc.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex flex-wrap items-baseline gap-x-2 gap-y-1 rounded-lg border border-line-soft p-3 text-inherit no-underline transition-[border-color,box-shadow] duration-200 hover:border-primary hover:no-underline"
+                                        className="flex flex-wrap items-baseline gap-x-2 gap-y-1 rounded-lg border border-line-soft p-3 text-inherit no-underline transition-colors duration-200 hover:border-primary hover:no-underline"
                                     >
                                         <span className="text-[0.9375rem] font-semibold text-foreground">FY{doc.fiscal_year}</span>
                                         <span className="text-[0.9375rem] text-foreground">{doc.title}</span>

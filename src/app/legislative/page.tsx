@@ -114,7 +114,7 @@ export default function LegislativePage() {
                             {ordinanceSteps.map((step, index) => (
                                 <div className="flex" key={step.number}>
                                     <div className={cn(
-                                        'relative flex flex-1 flex-col rounded-lg border bg-white px-[14px] pb-[14px] pt-4 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[768px]:px-3 max-[768px]:pb-3 max-[768px]:pt-[14px] max-[575px]:flex-row max-[575px]:items-start max-[575px]:gap-3 max-[575px]:p-3',
+                                        'relative flex flex-1 flex-col rounded-lg border bg-white px-[14px] pb-[14px] pt-4 transition-colors duration-200 hover:border-primary hover:bg-muted max-[768px]:px-3 max-[768px]:pb-3 max-[768px]:pt-[14px] max-[575px]:flex-row max-[575px]:items-start max-[575px]:gap-3 max-[575px]:p-3',
                                         index === ordinanceSteps.length - 1 ? 'border-[rgba(16,185,129,0.3)] bg-[rgba(16,185,129,0.03)] hover:border-success' : 'border-line'
                                     )}>
                                         <div className={cn('mb-2.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-[0.6875rem] font-bold text-white max-[575px]:mb-0 max-[575px]:mt-0.5', index === ordinanceSteps.length - 1 ? 'bg-success' : 'bg-primary')}>{step.number}</div>
@@ -134,7 +134,7 @@ export default function LegislativePage() {
                             {resolutionSteps.map((step, index) => (
                                 <div className="flex" key={step.number}>
                                     <div className={cn(
-                                        'relative flex flex-1 flex-col rounded-lg border bg-white px-[14px] pb-[14px] pt-4 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[768px]:px-3 max-[768px]:pb-3 max-[768px]:pt-[14px] max-[575px]:flex-row max-[575px]:items-start max-[575px]:gap-3 max-[575px]:p-3',
+                                        'relative flex flex-1 flex-col rounded-lg border bg-white px-[14px] pb-[14px] pt-4 transition-colors duration-200 hover:border-primary hover:bg-muted max-[768px]:px-3 max-[768px]:pb-3 max-[768px]:pt-[14px] max-[575px]:flex-row max-[575px]:items-start max-[575px]:gap-3 max-[575px]:p-3',
                                         index === resolutionSteps.length - 1 ? 'border-[rgba(16,185,129,0.3)] bg-[rgba(16,185,129,0.03)] hover:border-success' : 'border-line'
                                     )}>
                                         <div className={cn('mb-2.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-[0.6875rem] font-bold text-white max-[575px]:mb-0 max-[575px]:mt-0.5', index === resolutionSteps.length - 1 ? 'bg-success' : 'bg-primary')}>{step.number}</div>
@@ -161,7 +161,7 @@ export default function LegislativePage() {
                         </div>
                         <div className="grid grid-cols-4 gap-3 max-[1024px]:grid-cols-2 max-[768px]:grid-cols-2 max-[768px]:gap-2.5 max-[575px]:grid-cols-1">
                             {infoCards.map((card) => (
-                                <div className="flex flex-col rounded-lg border border-line bg-white p-4 text-left transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[768px]:p-[14px] max-[575px]:flex-row max-[575px]:items-start max-[575px]:gap-3 max-[575px]:p-3" key={card.title}>
+                                <div className="flex flex-col rounded-lg border border-line bg-white p-4 text-left transition-colors duration-200 hover:border-primary hover:bg-muted max-[768px]:p-[14px] max-[575px]:flex-row max-[575px]:items-start max-[575px]:gap-3 max-[575px]:p-3" key={card.title}>
                                     <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-base text-white max-[768px]:mb-2.5 max-[768px]:h-8 max-[768px]:w-8 max-[768px]:text-sm max-[575px]:mb-0 max-[575px]:shrink-0"><i className={card.icon}></i></div>
                                     <div className="min-w-0 flex-1">
                                         <h3 className="mb-1.5 text-sm font-semibold text-foreground max-[768px]:text-[0.8125rem]">{card.title}</h3>

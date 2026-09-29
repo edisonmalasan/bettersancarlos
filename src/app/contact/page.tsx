@@ -195,7 +195,7 @@ export default function ContactPage() {
                     </div>
 
                     <div className="mb-6 grid grid-cols-2 gap-4 max-[991px]:grid-cols-1">
-                        <a href={`tel:${govDir.current_verified.phone}`} className="flex items-center gap-4 rounded-xl border border-line bg-white px-5 py-4 no-underline transition-[border-color,box-shadow] duration-200 hover:border-primary">
+                        <a href={`tel:${govDir.current_verified.phone}`} className="flex items-center gap-4 rounded-xl border border-line bg-white px-5 py-4 no-underline transition-colors duration-200 hover:border-primary">
                             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[rgba(34,197,94,0.1)] text-primary"><i className="bi bi-telephone-fill"></i></span>
                             <span className="min-w-0 flex-1">
                                 <span className="block text-[0.9375rem] font-bold text-foreground">{govDir.current_verified.phone} — City Hall trunk line</span>

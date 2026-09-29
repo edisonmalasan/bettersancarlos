@@ -117,7 +117,7 @@ export default function EducationPage() {
             {sc.secondary.map((s) => (
               <div
                 key={s.name}
-                className="flex items-center justify-between gap-3 rounded-lg border border-line bg-white px-4 py-[10px] transition-[border-color,box-shadow] duration-200 hover:border-primary"
+                className="flex items-center justify-between gap-3 rounded-lg border border-line bg-white px-4 py-[10px] transition-colors duration-200 hover:border-primary"
               >
                 <span className="text-[0.875rem] font-medium text-foreground">{s.name}</span>
                 <span

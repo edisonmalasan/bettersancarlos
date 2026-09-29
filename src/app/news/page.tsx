@@ -192,7 +192,7 @@ export default function NewsPage() {
                             href="https://www.facebook.com/sccp.cio"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white no-underline transition-[box-shadow,transform,background-color] duration-200 hover:bg-primary-dark hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.3)] active:scale-[0.97]"
+                            className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white no-underline transition-colors duration-200 hover:bg-primary-dark active:scale-[0.97]"
                         >
                             <i className="bi bi-facebook" aria-hidden="true"></i>
                             Visit the Official LGU San Carlos Facebook Page

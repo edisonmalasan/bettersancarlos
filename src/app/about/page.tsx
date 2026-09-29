@@ -198,7 +198,7 @@ export default function AboutPage() {
               {cp.history_timeline.map((item) => (
                 <div key={item.year + item.title} className="group relative pb-5 last:pb-0">
                   <div className="absolute -left-7 top-1 z-[1] h-3.5 w-3.5 rounded-full border-[3px] border-primary bg-white transition-transform duration-200 group-hover:scale-125 group-hover:bg-primary group-hover:shadow-[0_0_0_4px_rgba(58, 125, 68,0.15)]"></div>
-                  <div className="rounded-lg border border-line bg-white px-[18px] py-4 duration-200 group-hover:translate-x-1 group-hover:border-primary group-hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] transition-colors">
+                  <div className="rounded-lg border border-line bg-white px-[18px] py-4 transition-colors duration-200 group-hover:border-primary group-hover:bg-muted">
                     <span className="mb-2 inline-block rounded-full bg-primary px-2.5 py-[3px] text-xs font-bold text-white">
                       {item.year}
                     </span>
@@ -232,7 +232,7 @@ export default function AboutPage() {
             <p className="m-0 text-[1rem] text-muted-foreground">Religious and civic heritage of the city</p>
           </div>
 
-          <div className="mb-8 rounded-xl border border-line bg-white p-8 transition-[border-color,box-shadow] duration-200 hover:border-primary max-[575px]:p-5">
+          <div className="mb-8 rounded-xl border border-line bg-white p-8 transition-colors duration-200 hover:border-primary max-[575px]:p-5">
             <div className="mb-4 flex flex-wrap items-center gap-3">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-[0.75rem] font-bold text-white">
                 <i className="bi bi-church"></i> Minor Basilica

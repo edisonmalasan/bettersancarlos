@@ -1,12 +1,13 @@
 import PageHeader from '@/components/layout/PageHeader';
 import DirectoryLinkCard from '@/components/DirectoryLinkCard';
 import cityProfile from '@/data/city-profile.json';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 const containerCls =
-  'mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2';
-const sectionCls = 'py-16 max-[1024px]:py-8 max-[767px]:py-6';
+  `${containerClass} max-[767px]:px-4 max-[480px]:px-2`;
+const sectionCls = `${sectionClass}`;
 const statCardCls =
-  'rounded-xl border border-line bg-white p-5 text-center transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]';
+  'rounded-xl border border-line bg-white p-5 text-center duration-200 hover:border-primary transition-colors';
 const pendingBadgeCls =
   'inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]';
 
@@ -193,11 +194,11 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="mx-auto max-w-[800px]">
-            <div className="relative pl-7 before:absolute before:bottom-2 before:left-1.5 before:top-2 before:w-0.5 before:rounded-sm before:bg-[linear-gradient(180deg,#3a7d44_0%,rgba(58, 125, 68,0.2)_100%)]">
+            <div className="relative pl-7 before:absolute before:bottom-2 before:left-1.5 before:top-2 before:w-0.5 before:rounded-sm before:bg-primary/40">
               {cp.history_timeline.map((item) => (
                 <div key={item.year + item.title} className="group relative pb-5 last:pb-0">
                   <div className="absolute -left-7 top-1 z-[1] h-3.5 w-3.5 rounded-full border-[3px] border-primary bg-white transition-transform duration-200 group-hover:scale-125 group-hover:bg-primary group-hover:shadow-[0_0_0_4px_rgba(58, 125, 68,0.15)]"></div>
-                  <div className="rounded-lg border border-line bg-white px-[18px] py-4 transition-[border-color,box-shadow,transform] duration-200 group-hover:translate-x-1 group-hover:border-primary group-hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)]">
+                  <div className="rounded-lg border border-line bg-white px-[18px] py-4 transition-colors duration-200 group-hover:border-primary group-hover:bg-muted">
                     <span className="mb-2 inline-block rounded-full bg-primary px-2.5 py-[3px] text-xs font-bold text-white">
                       {item.year}
                     </span>
@@ -231,7 +232,7 @@ export default function AboutPage() {
             <p className="m-0 text-[1rem] text-muted-foreground">Religious and civic heritage of the city</p>
           </div>
 
-          <div className="mb-8 rounded-xl border border-line bg-white p-8 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[575px]:p-5">
+          <div className="mb-8 rounded-xl border border-line bg-white p-8 transition-colors duration-200 hover:border-primary max-[575px]:p-5">
             <div className="mb-4 flex flex-wrap items-center gap-3">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-[0.75rem] font-bold text-white">
                 <i className="bi bi-church"></i> Minor Basilica

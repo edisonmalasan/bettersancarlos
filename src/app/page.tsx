@@ -11,6 +11,7 @@ import WeatherWidget from '@/components/WeatherWidget';
 import officialsData from '@/data/officials.json';
 import cityProfile from '@/data/city-profile.json';
 import demographics from '@/data/demographics.json';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 interface NewsItem {
   id: string;
@@ -48,16 +49,16 @@ function newsBadgeClass(badge: string): string {
 }
 
 const containerCls =
-  'mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2';
-const sectionCls = 'py-16 max-[1024px]:py-8 max-[767px]:py-6';
+  `${containerClass} max-[767px]:px-4 max-[480px]:px-2`;
+const sectionCls = `${sectionClass}`;
 const sectionHeaderCls =
   'mb-8 flex flex-wrap items-center justify-between gap-4 max-[768px]:flex-col max-[768px]:text-center';
 const sectionLinkCls =
   'inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-primary transition-[gap] duration-200 hover:gap-2.5 hover:no-underline';
 const serviceCardCls =
-  'group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline';
+  'group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[background-color,border-color,box-shadow,transform] duration-200 hover:border-primary hover:no-underline';
 const statCardCls =
-  'group relative flex items-center gap-4 overflow-hidden rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[background-color,border-color,box-shadow,transform] duration-200 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-[linear-gradient(180deg,#3a7d44_0%,#275230_100%)] before:opacity-0 before:transition-opacity before:duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline hover:before:opacity-100';
+  'group relative flex items-center gap-4 overflow-hidden rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[background-color,border-color] duration-200 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-primary before:opacity-0 before:transition-opacity before:duration-200 hover:border-primary hover:no-underline hover:before:opacity-100';
 
 const Hero3DLogo = dynamic(() => import('@/components/three/Hero3DLogo'), {
   ssr: false,
@@ -97,8 +98,10 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative flex min-h-[calc(100dvh-6rem)] items-center overflow-hidden bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] bg-cover bg-center py-24 max-[767px]:py-20 bg-[url('/assets/videos/hero-poster.jpg')]">
+      {/* Restrained hero band: shorter than a full marketing viewport, with the
+          Find a Service search flush inside it (no floating inset card) and the
+          spec'd 3D logo and background video preserved (hero-media, D7). */}
+      <section className="relative flex min-h-[460px] items-center overflow-hidden bg-primary bg-cover bg-center py-16 max-[767px]:min-h-0 max-[767px]:py-12 bg-[url('/assets/videos/hero-poster.jpg')]">
         <video
           className="hero-video absolute inset-0 h-full w-full object-cover max-[767px]:hidden"
           src="/assets/videos/hero-bettersc.mp4"
@@ -111,16 +114,14 @@ export default function HomePage() {
           aria-hidden="true"
           tabIndex={-1}
         />
+        {/* Single readability overlay: a directional dark scrim densest behind
+            the text content, sufficient for WCAG AA (hero-media, D7). */}
         <div
-          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(23,34,27,0.62)_0%,rgba(23,34,27,0.34)_45%,rgba(23,34,27,0.15)_100%)]"
-          aria-hidden="true"
-        ></div>
-        <div
-          className="absolute inset-0 bg-[rgba(39,82,48,0.30)] mix-blend-multiply"
+          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(23,34,27,0.68)_0%,rgba(23,34,27,0.42)_55%,rgba(23,34,27,0.18)_100%)]"
           aria-hidden="true"
         ></div>
         <div className={containerCls + ' relative z-[1]'}>
-          <div className="grid grid-cols-[1fr_1.1fr] items-center gap-24 max-[1280px]:gap-16 max-[992px]:grid-cols-1 max-[992px]:gap-8">
+          <div className="grid grid-cols-[1fr_1.1fr] items-center gap-20 max-[1280px]:gap-14 max-[992px]:grid-cols-1 max-[992px]:gap-8">
             <div className="max-[992px]:text-center">
               <h1 className="m-0 mb-4 text-[2.5rem] leading-[1.2] text-white max-[768px]:text-[2rem]">
                 {t('hero-welcome')}
@@ -128,8 +129,8 @@ export default function HomePage() {
               <p className="m-0 mb-8 text-[1.125rem] leading-[1.6] text-white/90 max-[768px]:text-base">
                 {t('hero-subtitle')}
               </p>
-              <div className="w-full max-w-[560px] rounded-2xl border border-[rgba(58, 125, 68,0.08)] bg-white p-6 shadow-[0_8px_32px_rgba(58, 125, 68,0.1),0_2px_8px_rgba(0,0,0,0.04)] transition-[box-shadow,border-color] duration-300 focus-within:border-[rgba(58, 125, 68,0.15)] focus-within:shadow-[0_12px_40px_rgba(58, 125, 68,0.15),0_4px_12px_rgba(0,0,0,0.06)] max-[768px]:p-5 max-[992px]:mx-auto">
-                <h2 className="m-0 mb-5 flex items-center gap-2 text-base text-foreground [&_i]:text-primary">
+              <div className="w-full max-w-[560px] border-t border-white/25 pt-6 max-[768px]:pt-5 max-[992px]:mx-auto">
+                <h2 className="m-0 mb-5 flex items-center gap-2 text-base text-white">
                   <i className="bi bi-search"></i> {t('hero-find-service')}
                 </h2>
                 <form role="search" onSubmit={handleSearchSubmit}>
@@ -140,30 +141,30 @@ export default function HomePage() {
                     />
                     <button
                       type="submit"
-                      className="flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-lg border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#2f6136_100%)] text-[1.125rem] text-white shadow-[0_2px_8px_rgba(58, 125, 68,0.3)] transition-[box-shadow,transform] duration-200 hover:bg-[linear-gradient(135deg,#2f6136_0%,#275230_100%)] hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.4)] active:scale-[0.97]"
+                      className="flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center rounded-lg border-0 bg-primary-dark text-[1.125rem] text-white transition-colors duration-200 hover:bg-primary-deep active:scale-[0.97]"
                       aria-label="Search"
                     >
                       <i className="bi bi-arrow-right"></i>
                     </button>
                   </div>
                 </form>
-                <div className="mt-4 flex flex-wrap items-center gap-2 text-[0.8125rem]">
-                  <span className="font-medium text-muted-foreground">{t('hero-popular')}</span>
+                <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.8125rem]">
+                  <span className="font-medium text-white/80">{t('hero-popular')}</span>
                   <Link
                     href="/service-details/birth-certificate"
-                    className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary transition-[border-color,background-color] duration-200 hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline"
+                    className="font-medium text-white underline decoration-white/50 underline-offset-4 transition-colors duration-200 hover:decoration-white hover:no-underline"
                   >
                     {t('hero-birth-certificate')}
                   </Link>
                   <Link
                     href="/service-details/business-permits-licensing"
-                    className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary transition-[border-color,background-color] duration-200 hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline"
+                    className="font-medium text-white underline decoration-white/50 underline-offset-4 transition-colors duration-200 hover:decoration-white hover:no-underline"
                   >
                     {t('hero-business-permit')}
                   </Link>
                   <Link
                     href="/service-details/municipal-treasurer"
-                    className="rounded-full border border-transparent bg-[rgba(58, 125, 68,0.06)] px-3 py-[5px] font-medium text-primary transition-[border-color,background-color] duration-200 hover:border-[rgba(58, 125, 68,0.15)] hover:bg-[rgba(58, 125, 68,0.1)] hover:no-underline"
+                    className="font-medium text-white underline decoration-white/50 underline-offset-4 transition-colors duration-200 hover:decoration-white hover:no-underline"
                   >
                     {t('hero-real-property-tax')}
                   </Link>
@@ -243,7 +244,7 @@ export default function HomePage() {
               href="/services"
               className={cn(
                 serviceCardCls,
-                'border-transparent bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] text-white hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.3)]'
+                'border-transparent bg-primary text-white hover:bg-primary-dark'
               )}
             >
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white/20 text-xl text-white">
@@ -260,7 +261,7 @@ export default function HomePage() {
       </section>
 
       {/* Quick Stats */}
-      <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      <section className={`bg-muted ${sectionClass}`}>
         <div className={containerCls}>
           <div className="mb-8 flex items-center justify-between max-[576px]:flex-col max-[576px]:gap-4 max-[576px]:text-center">
             <h2 className="m-0 text-2xl">{t('stats-at-a-glance')}</h2>
@@ -338,7 +339,7 @@ export default function HomePage() {
       </section>
 
       {/* Weather & Map */}
-      <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      <section className={`bg-muted ${sectionClass}`}>
         <div className={containerCls}>
           <div className="mb-8 flex items-center justify-between">
             <h2 className="m-0 text-2xl">{t('weather-map-title')}</h2>
@@ -377,7 +378,7 @@ export default function HomePage() {
       </section>
 
       {/* Brief History of San Carlos */}
-      <section className="bg-[linear-gradient(180deg,#faf9f6_0%,#ffffff_100%)] py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      <section className={`bg-bg-alt ${sectionClass}`}>
         <div className={containerCls}>
           <div className="mb-8 flex items-center justify-between">
             <h2 className="m-0 flex items-center gap-2.5 text-2xl [&_i]:text-primary">
@@ -388,25 +389,20 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid grid-cols-[1fr_340px] items-start gap-8 max-[900px]:grid-cols-1">
-            <div className="relative pl-7 before:absolute before:bottom-2 before:left-1.5 before:top-2 before:w-0.5 before:rounded-sm before:bg-[linear-gradient(180deg,#3a7d44_0%,rgba(58, 125, 68,0.2)_100%)]">
+            <div className="relative pl-7 before:absolute before:bottom-2 before:left-1.5 before:top-2 before:w-0.5 before:rounded-sm before:bg-primary/40">
               {[
-                { year: '1578', key: 'history-1578', delay: '100ms' },
-                { year: '1660', key: 'history-1660', delay: '150ms' },
-                { year: '1762', key: 'history-1762', delay: '200ms' },
-                { year: '1763', key: 'history-1763', delay: '250ms' },
-                { year: '1965', key: 'history-1965', delay: '300ms' },
-                { year: '2001', key: 'history-2001', delay: '350ms' },
-                { year: '2010', key: 'history-2010', delay: '400ms' },
+                { year: '1578', key: 'history-1578' },
+                { year: '1660', key: 'history-1660' },
+                { year: '1762', key: 'history-1762' },
+                { year: '1763', key: 'history-1763' },
+                { year: '1965', key: 'history-1965' },
+                { year: '2001', key: 'history-2001' },
+                { year: '2010', key: 'history-2010' },
               ].map((item) => (
-                <div
-                  key={item.year}
-                  data-year={item.year}
-                  className="group relative animate-[fadeInUp_0.5s_ease_forwards] pb-5 opacity-0 last:pb-0"
-                  style={{ animationDelay: item.delay }}
-                >
-                  <div className="absolute -left-7 top-1 z-[1] h-3.5 w-3.5 rounded-full border-[3px] border-primary bg-white transition-transform duration-200 group-hover:scale-125 group-hover:bg-primary group-hover:shadow-[0_0_0_4px_rgba(58, 125, 68,0.15)]"></div>
-                  <div className="rounded-lg border border-line bg-white px-[18px] py-4 transition-[border-color,box-shadow,transform] duration-200 group-hover:translate-x-1 group-hover:border-primary group-hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)]">
-                    <span className="mb-2 inline-block rounded-full bg-primary px-2.5 py-[3px] text-xs font-bold text-white">
+                <div key={item.year} data-year={item.year} className="group relative pb-5 last:pb-0">
+                  <div className="absolute -left-7 top-1 z-[1] h-3.5 w-3.5 rounded-full border-[3px] border-primary bg-white transition-colors duration-200 group-hover:bg-primary"></div>
+                  <div className="border-b border-line pb-4 pl-0 transition-colors duration-200 group-hover:border-primary max-[575px]:pb-3">
+                    <span className="mb-2 block text-sm font-bold text-primary">
                       {item.year}
                     </span>
                     <p className="m-0 text-sm leading-[1.6] text-foreground">{t(item.key)}</p>
@@ -414,32 +410,22 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-            <div className="sticky top-[100px] flex flex-col gap-4 max-[900px]:static max-[900px]:flex-row max-[900px]:flex-wrap max-[575px]:flex-col">
-              <div className="flex items-start gap-3.5 rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] max-[900px]:flex-[1_1_280px] max-[575px]:flex-[1_1_100%]">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary [&_i]:text-xl">
-                  <i className="bi bi-geo-alt-fill"></i>
-                </div>
-                <div>
-                  <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-foreground">
-                    {t('history-pioneers-title')}
-                  </h4>
-                  <p className="m-0 text-[0.8125rem] leading-[1.5] text-muted-foreground">
-                    {t('history-pioneers-desc')}
-                  </p>
-                </div>
+            <div className="sticky top-[100px] flex flex-col max-[900px]:static max-[575px]:flex-col">
+              <div className="border-b border-line pb-4 max-[900px]:pb-0">
+                <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-foreground">
+                  {t('history-pioneers-title')}
+                </h4>
+                <p className="m-0 text-[0.8125rem] leading-[1.5] text-muted-foreground">
+                  {t('history-pioneers-desc')}
+                </p>
               </div>
-              <div className="flex items-start gap-3.5 rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] max-[900px]:flex-[1_1_280px] max-[575px]:flex-[1_1_100%]">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary [&_i]:text-xl">
-                  <i className="bi bi-grid-3x3"></i>
-                </div>
-                <div>
-                  <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-foreground">
-                    {t('history-namesake-title')}
-                  </h4>
-                  <p className="m-0 text-[0.8125rem] leading-[1.5] text-muted-foreground">
-                    {t('history-namesake-desc')}
-                  </p>
-                </div>
+              <div className="pt-4">
+                <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold text-foreground">
+                  {t('history-namesake-title')}
+                </h4>
+                <p className="m-0 text-[0.8125rem] leading-[1.5] text-muted-foreground">
+                  {t('history-namesake-desc')}
+                </p>
               </div>
             </div>
           </div>
@@ -500,7 +486,7 @@ export default function HomePage() {
       </section>
 
       {/* City Leadership */}
-      <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
+      <section className={`bg-muted ${sectionClass}`}>
         <div className={containerCls}>
           <div className={sectionHeaderCls}>
             <h2 className="m-0 text-2xl">{t('section-leadership')}</h2>
@@ -510,9 +496,9 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 gap-6 max-[768px]:grid-cols-1">
             <div className="rounded-xl border border-line bg-white p-8 text-center">
-              <div className="mb-4 inline-block rounded-full bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-3.5 py-1.5 text-xs font-semibold text-white">
+              <h4 className="m-0 mb-1 text-[0.8125rem] font-semibold uppercase tracking-wide text-primary">
                 {t('title-mayor')}
-              </div>
+              </h4>
               <h3 className="m-0 mb-4 text-xl text-foreground">{officialsData.mayor.name}</h3>
               <div className="flex flex-col gap-2">
                 <a
@@ -530,9 +516,9 @@ export default function HomePage() {
               </div>
             </div>
             <div className="rounded-xl border border-line bg-white p-8 text-center">
-              <div className="mb-4 inline-block rounded-full bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-3.5 py-1.5 text-xs font-semibold text-white">
+              <h4 className="m-0 mb-1 text-[0.8125rem] font-semibold uppercase tracking-wide text-primary">
                 {t('title-vice-mayor')}
-              </div>
+              </h4>
               <h3 className="m-0 mb-4 text-xl text-foreground">{officialsData.vice_mayor.name}</h3>
               <div className="flex flex-col gap-2">
                 <a
@@ -565,7 +551,7 @@ export default function HomePage() {
           <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-1">
             <a
               href="tel:(075) 600-1432"
-              className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline"
+              className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
             >
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-[1.125rem] text-primary">
                 <i className="bi bi-telephone-fill"></i>
@@ -580,7 +566,7 @@ export default function HomePage() {
             </a>
             <a
               href="mailto:CIO@sancarlospangasinan.com"
-              className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline"
+              className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
             >
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-[1.125rem] text-primary">
                 <i className="bi bi-envelope-fill"></i>
@@ -595,7 +581,7 @@ export default function HomePage() {
                 <span className="text-[0.8125rem] text-muted-foreground">{t('contact-response')}</span>
               </div>
             </a>
-            <div className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+            <div className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground duration-200 hover:border-primary transition-colors">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-[1.125rem] text-primary">
                 <i className="bi bi-geo-alt-fill"></i>
               </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import PageHeader from '@/components/layout/PageHeader';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 export default function AccessibilityPage() {
     return (
@@ -15,11 +16,11 @@ export default function AccessibilityPage() {
                 ]}
             />
 
-            <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={sectionClass}>
+                <div className={containerClass}>
                     <div className="mx-auto w-full max-w-[800px]">
                         <div className="mb-12 flex justify-center">
-                            <div className="inline-flex items-center gap-3 rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#2f6136_100%)] px-6 py-4 text-white">
+                            <div className="inline-flex items-center gap-3 rounded-xl bg-primary px-6 py-4 text-white">
                                 <i className="bi bi-check-circle-fill text-[2rem]"></i>
                                 <div>
                                     <span className="block text-[0.75rem] uppercase tracking-[0.5px] opacity-90">WCAG 2.1 Level AA</span>
@@ -97,7 +98,7 @@ export default function AccessibilityPage() {
                                 If you encounter difficulty accessing any information, contact us:
                             </p>
                             <div className="mt-6 grid grid-cols-3 gap-4 max-[992px]:grid-cols-1">
-                                <a href="mailto:volunteer@bettersancarlos.vercel.app" className="group flex items-center gap-3 rounded-lg bg-muted p-4 text-foreground no-underline transition-[border-color,background-color,box-shadow,transform] duration-200 hover:bg-primary hover:text-white hover:no-underline">
+                                <a href="mailto:volunteer@bettersancarlos.vercel.app" className="group flex items-center gap-3 rounded-lg bg-muted p-4 text-foreground no-underline duration-200 hover:bg-primary hover:text-white hover:no-underline transition-[border-color,background-color]">
                                     <i className="bi bi-envelope-fill text-[1.25rem] text-primary group-hover:text-white"></i>
                                     <span className="text-[0.9375rem] font-medium">volunteer@bettersancarlos.vercel.app</span>
                                 </a>
@@ -116,7 +117,7 @@ export default function AccessibilityPage() {
                             </div>
                         </div>
 
-                        <div className="mt-12 flex items-start gap-6 rounded-xl bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] p-8 text-white max-[768px]:flex-col max-[768px]:text-center">
+                        <div className="mt-12 flex items-start gap-6 rounded-xl bg-primary p-8 text-white max-[768px]:flex-col max-[768px]:text-center">
                             <i className="bi bi-heart-fill text-[1.5rem] opacity-80"></i>
                             <div>
                                 <h3 className="m-0 mb-2 text-[1.125rem] font-bold text-white">Our Promise</h3>

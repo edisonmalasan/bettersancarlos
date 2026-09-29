@@ -1,10 +1,11 @@
 import PageHeader from '@/components/layout/PageHeader';
 import DirectoryLinkCard from '@/components/DirectoryLinkCard';
 import agricultureData from '@/data/agriculture.json';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 const containerCls =
-  'mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2';
-const sectionCls = 'py-16 max-[1024px]:py-8 max-[767px]:py-6';
+  `${containerClass} max-[767px]:px-4 max-[480px]:px-2`;
+const sectionCls = `${sectionClass}`;
 const pendingBadgeCls =
   'inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]';
 
@@ -33,7 +34,7 @@ export default function AgriculturePage() {
               </span>
               <p className="m-0 text-[1rem] leading-[1.7] text-muted-foreground">{ag.identity.description}</p>
             </div>
-            <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] p-8 text-white">
+            <div className="rounded-xl border-0 bg-primary p-8 text-white">
               <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-white">
                 <i className="bi bi-tree-fill text-[1rem]"></i>
                 <span>Fruit-bearing mango trees</span>
@@ -99,7 +100,7 @@ export default function AgriculturePage() {
             {ag.other_activities.map((a) => (
               <div
                 key={a.name}
-                className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+                className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors"
               >
                 <h3 className="m-0 mb-2 flex items-center gap-2 text-[0.9375rem] font-bold text-foreground">
                   <i className="bi bi-flower1 text-primary"></i> {a.name}

@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import { sectionClass } from '@/components/layout/Container';
 
 export default function NotFound() {
   return (
-    <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
+    <section className={sectionClass}>
       <div className="mx-auto w-full max-w-[640px] px-6 max-[767px]:px-4 max-[480px]:px-3">
         <div className="rounded-xl border border-line bg-white p-8 text-center sm:p-12">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-[1.5rem] text-primary">

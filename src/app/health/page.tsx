@@ -1,9 +1,10 @@
 import PageHeader from '@/components/layout/PageHeader';
 import healthFacilities from '@/data/health-facilities.json';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 const containerCls =
-  'mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2';
-const sectionCls = 'py-16 max-[1024px]:py-8 max-[767px]:py-6';
+  `${containerClass} max-[767px]:px-4 max-[480px]:px-2`;
+const sectionCls = `${sectionClass}`;
 const pendingBadgeCls =
   'inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]';
 
@@ -48,7 +49,7 @@ export default function HealthPage() {
             </h2>
             <p className="m-0 text-[1rem] text-muted-foreground">The city government&apos;s primary health office</p>
           </div>
-          <div className="mx-auto max-w-[640px] rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+          <div className="mx-auto max-w-[640px] rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors">
             <div className="flex items-start gap-4">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary">
                 <i className="bi bi-hospital"></i>
@@ -90,7 +91,7 @@ export default function HealthPage() {
             {hf.facilities.map((f) => (
               <div
                 key={f.name}
-                className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+                className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors"
               >
                 <div className="mb-3 flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary">

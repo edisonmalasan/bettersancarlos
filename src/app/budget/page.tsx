@@ -8,6 +8,7 @@ import fiscalData from '@/data/fiscal_transparency.json';
 import transparencyDocs from '@/data/transparency-docs.json';
 import cityProjects from '@/data/city-projects.json';
 import dpwhData from '@/data/dpwh-projects.json';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 interface DpwhProject {
     title: string;
@@ -121,8 +122,8 @@ export default function BudgetPage() {
                 ]}
             />
 
-            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={`bg-muted ${sectionClass}`}>
+                <div className={containerClass}>
                     <div className="mb-8 flex flex-wrap items-start justify-between gap-6 max-[991px]:flex-col">
                         <div className="min-w-[280px] flex-1">
                             <h2 className="mb-1! text-2xl! font-bold text-foreground max-[575px]:text-[1.25rem]!">Annual Regular Income</h2>
@@ -131,14 +132,14 @@ export default function BudgetPage() {
                     </div>
 
                     <div className="mb-8 grid grid-cols-4 gap-4 max-[991px]:grid-cols-2 max-[575px]:grid-cols-1 max-[575px]:gap-3">
-                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[575px]:p-4">
+                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] duration-200 max-[575px]:p-4 transition-colors hover:border-primary">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary"><i className="bi bi-cash-stack"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="text-[1.375rem] font-bold leading-[1.2] text-foreground max-[575px]:text-[1.25rem]">₱{(latestFiscal.annual_regular_income / 1_000_000).toFixed(2)} M</span>
                                 <span className="text-xs font-medium text-muted-foreground">FY{latestFiscal.year} Annual Regular Income</span>
                             </div>
                         </div>
-                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[575px]:p-4">
+                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] duration-200 max-[575px]:p-4 transition-colors hover:border-primary">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary"><i className="bi bi-graph-up-arrow"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className={`text-[1.375rem] font-bold leading-[1.2] max-[575px]:text-[1.25rem] ${latestFiscal.change_pct !== undefined && latestFiscal.change_pct >= 0 ? 'text-primary' : 'text-[#b02e2e]'}`}>
@@ -147,14 +148,14 @@ export default function BudgetPage() {
                                 <span className="text-xs font-medium text-muted-foreground">FY{latestFiscal.year} change vs prior year</span>
                             </div>
                         </div>
-                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[575px]:p-4">
+                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] duration-200 max-[575px]:p-4 transition-colors hover:border-primary">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary"><i className="bi bi-bar-chart-line"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="text-[1.375rem] font-bold leading-[1.2] text-foreground max-[575px]:text-[1.25rem]">{fiscalYears.length} years</span>
                                 <span className="text-xs font-medium text-muted-foreground">of verified fiscal data</span>
                             </div>
                         </div>
-                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[575px]:p-4">
+                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] duration-200 max-[575px]:p-4 transition-colors hover:border-primary">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary"><i className="bi bi-award"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="text-[1.375rem] font-bold leading-[1.2] text-foreground max-[575px]:text-[1.25rem]">3rd class</span>
@@ -214,8 +215,8 @@ export default function BudgetPage() {
                 </div>
             </section>
 
-            <section className="bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={`bg-white ${sectionClass}`}>
+                <div className={containerClass}>
                     <div className="mx-auto max-w-[760px] rounded-2xl border border-line bg-white p-8 text-center shadow-[0_1px_3px_rgba(0,0,0,0.06)] max-[575px]:p-5">
                         <span className="mb-4 inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-3 py-1.5 text-[0.8125rem] font-semibold text-[#8a5a00]">
                             <i className="bi bi-hourglass-split"></i> FY2017–2025 pending verification
@@ -243,7 +244,7 @@ export default function BudgetPage() {
                                         href={doc.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex flex-wrap items-baseline gap-x-2 gap-y-1 rounded-lg border border-line-soft p-3 text-inherit no-underline transition-[border-color,box-shadow] duration-200 hover:border-primary hover:no-underline"
+                                        className="flex flex-wrap items-baseline gap-x-2 gap-y-1 rounded-lg border border-line-soft p-3 text-inherit no-underline transition-colors duration-200 hover:border-primary hover:no-underline"
                                     >
                                         <span className="text-[0.9375rem] font-semibold text-foreground">FY{doc.fiscal_year}</span>
                                         <span className="text-[0.9375rem] text-foreground">{doc.title}</span>
@@ -261,8 +262,8 @@ export default function BudgetPage() {
             </section>
 
             {/* Transparency & Full Disclosure */}
-            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={`bg-muted ${sectionClass}`}>
+                <div className={containerClass}>
                     <div className="mb-8 text-center">
                         <h2 className="mb-1! text-2xl! font-bold text-foreground max-[767px]:text-[1.375rem]! max-[575px]:text-[1.25rem]!">Transparency &amp; Full Disclosure</h2>
                         <p className="m-0! text-[0.9375rem] text-muted-foreground">Transparency Seal, Citizen&apos;s Charter, FDP reports, and e-services</p>
@@ -349,8 +350,8 @@ export default function BudgetPage() {
             </section>
 
             {/* City Projects & Programs */}
-            <section className="bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={`bg-white ${sectionClass}`}>
+                <div className={containerClass}>
                     <div className="mb-8 text-center">
                         <h2 className="mb-1! text-2xl! font-bold text-foreground max-[767px]:text-[1.375rem]! max-[575px]:text-[1.25rem]!">City Projects &amp; Programs</h2>
                         <p className="m-0! text-[0.9375rem] text-muted-foreground">Program areas tracked by the city government</p>
@@ -366,7 +367,7 @@ export default function BudgetPage() {
                         {cityProjects.program_buckets.map((b) => (
                             <div
                                 key={b.name}
-                                className="rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+                                className="rounded-xl border border-line bg-white p-5 duration-200 hover:border-primary transition-colors"
                             >
                                 <h3 className="m-0 mb-2 flex items-start gap-2 text-[0.875rem] font-bold leading-[1.3] text-foreground">
                                     <i className="bi bi-diagram-3 mt-[2px] text-primary"></i>

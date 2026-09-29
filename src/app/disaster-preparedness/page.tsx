@@ -1,10 +1,11 @@
 import PageHeader from '@/components/layout/PageHeader';
 import DirectoryLinkCard from '@/components/DirectoryLinkCard';
 import evacuationData from '@/data/evacuation-centers.json';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 const containerCls =
-  'mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2';
-const sectionCls = 'py-16 max-[1024px]:py-8 max-[767px]:py-6';
+  `${containerClass} max-[767px]:px-4 max-[480px]:px-2`;
+const sectionCls = `${sectionClass}`;
 const pendingBadgeCls =
   'inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]';
 
@@ -27,7 +28,7 @@ export default function DisasterPreparednessPage() {
       <section className="relative z-[2] mt-10 pb-[40px]">
         <div className={containerCls}>
           <div className="mx-auto max-w-[640px] overflow-hidden rounded-xl border border-line bg-white">
-            <div className="px-8 py-6 text-center bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)]">
+            <div className="px-8 py-6 text-center bg-primary">
               <span className="mb-2 inline-block rounded-full bg-[rgba(255,255,255,0.2)] px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.5px] text-white">
                 Emergency Management
               </span>
@@ -76,7 +77,7 @@ export default function DisasterPreparednessPage() {
             {ev.convergence_areas.map((c) => (
               <div
                 key={c.name}
-                className="flex items-center gap-4 rounded-xl border border-line bg-white px-6 py-4 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)]"
+                className="flex items-center gap-4 rounded-xl border border-line bg-white px-6 py-4 transition-colors duration-200 hover:border-primary hover:bg-muted"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <i className="bi bi-people-fill"></i>

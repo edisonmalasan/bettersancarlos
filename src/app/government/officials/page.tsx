@@ -2,6 +2,7 @@
 
 import officialsData from '@/data/officials.json';
 import PageHeader from '@/components/layout/PageHeader';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 interface Official {
     name: string;
@@ -19,7 +20,7 @@ const data = officialsData as OfficialsData;
 
 function OfficialCard({ official }: { official: Official }) {
     return (
-        <div className="flex h-full flex-col rounded-xl border border-line bg-white p-6 text-center shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[767px]:p-4 max-[480px]:p-2">
+        <div className="flex h-full flex-col rounded-xl border border-line bg-white p-6 text-center shadow-[0_2px_4px_rgba(0,0,0,0.05)] duration-200 max-[767px]:p-4 max-[480px]:p-2 transition-colors hover:border-primary">
             <div className="mb-6">
                 {official.image ? (
                     <img
@@ -45,7 +46,7 @@ function OfficialCard({ official }: { official: Official }) {
 
 function CouncilorCard({ official }: { official: Official }) {
     return (
-        <div className="flex h-full flex-col rounded-xl border border-line border-l-[3px] border-l-primary bg-white p-6 text-center shadow-[0_2px_4px_rgba(0,0,0,0.05)] transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[767px]:p-4 max-[480px]:p-2">
+        <div className="flex h-full flex-col rounded-xl border border-line border-l-[3px] border-l-primary bg-white p-6 text-center shadow-[0_2px_4px_rgba(0,0,0,0.05)] duration-200 hover:border-primary max-[767px]:p-4 max-[480px]:p-2 transition-colors">
             {official.image ? (
                 <img
                     src={`/${official.image}`}
@@ -78,8 +79,8 @@ export default function OfficialsPage() {
                 ]}
             />
 
-            <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={sectionClass}>
+                <div className={containerClass}>
                     <h3 className="mb-4 text-center text-[1.5rem] font-bold leading-[1.2] text-foreground max-[1024px]:text-[1.375rem] max-[767px]:text-[1.25rem]">Executive Branch</h3>
                     <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 min-[1200px]:grid-cols-2 min-[1200px]:gap-8 max-[767px]:grid-cols-1">
                         <OfficialCard official={data.mayor} />
@@ -88,8 +89,8 @@ export default function OfficialsPage() {
                 </div>
             </section>
 
-            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={`bg-muted ${sectionClass}`}>
+                <div className={containerClass}>
                     <h3 className="mb-4 text-center text-[1.5rem] font-bold leading-[1.2] text-foreground max-[1024px]:text-[1.375rem] max-[767px]:text-[1.25rem]">Sangguniang Panlungsod Members</h3>
                     <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-6 min-[1200px]:grid-cols-4 min-[1025px]:max-[1199px]:gap-4 max-[1024px]:grid-cols-2 max-[767px]:grid-cols-1">
                         {data.councilors.map((councilor) => (

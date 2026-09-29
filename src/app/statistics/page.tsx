@@ -7,6 +7,7 @@ import demographicsData from '@/data/demographics.json';
 import cityProfile from '@/data/city-profile.json';
 import competitiveIndex from '@/data/competitive-index.json';
 import fiscalData from '@/data/fiscal_transparency.json';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 const COLORS = {
     primary: '#3a7d44',
@@ -642,27 +643,27 @@ export default function StatisticsPage() {
             />
 
             <section className="relative z-[2] mt-10 pb-[60px]">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="grid grid-cols-4 gap-5 max-[991px]:grid-cols-2 max-[575px]:grid-cols-1 max-[575px]:gap-3">
-                        <div className="metric-card animate-on-scroll rounded-2xl border border-line bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-[opacity,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="0">
+                        <div className="metric-card animate-on-scroll rounded-2xl border border-line bg-white px-6 py-[28px] text-center max-[575px]:p-5 hover:border-primary" data-delay="0">
                             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-[1.5rem] text-primary"><i className="bi bi-people-fill"></i></div>
                             <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-foreground max-[575px]:text-[1.5rem]" data-count={totalPopulation}>0</div>
                             <div className="mb-1 text-[0.9375rem] font-semibold text-foreground">Population</div>
                             <div className="text-[0.8125rem] text-muted-foreground">{demographicsData.population.year} Census (PSA)</div>
                         </div>
-                        <div className="metric-card animate-on-scroll rounded-2xl border border-line bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-[opacity,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="100">
+                        <div className="metric-card animate-on-scroll rounded-2xl border border-line bg-white px-6 py-[28px] text-center max-[575px]:p-5 hover:border-primary" data-delay="100">
                             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-[1.5rem] text-primary"><i className="bi bi-geo-alt-fill"></i></div>
                             <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-foreground max-[575px]:text-[1.5rem]">{demographicsData.barangay_count}</div>
                             <div className="mb-1 text-[0.9375rem] font-semibold text-foreground">Barangays</div>
                             <div className="text-[0.8125rem] text-muted-foreground">Administrative Units</div>
                         </div>
-                        <div className="metric-card animate-on-scroll rounded-2xl border border-line bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-[opacity,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="200">
+                        <div className="metric-card animate-on-scroll rounded-2xl border border-line bg-white px-6 py-[28px] text-center max-[575px]:p-5 hover:border-primary" data-delay="200">
                             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-[1.5rem] text-primary"><i className="bi bi-rulers"></i></div>
                             <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-foreground max-[575px]:text-[1.5rem]">{cityProfile.land_area_km2}</div>
                             <div className="mb-1 text-[0.9375rem] font-semibold text-foreground">Land Area (km²)</div>
                             <div className="text-[0.8125rem] text-muted-foreground">Total City Area</div>
                         </div>
-                        <div className="metric-card animate-on-scroll rounded-2xl border border-line bg-white px-6 py-[28px] text-center opacity-0 shadow-[0_4px_24px_rgba(0,0,0,0.08)] translate-y-[30px] transition-[opacity,transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[575px]:p-5 [&.visible]:translate-y-0 [&.visible]:opacity-100" data-delay="300">
+                        <div className="metric-card animate-on-scroll rounded-2xl border border-line bg-white px-6 py-[28px] text-center max-[575px]:p-5 hover:border-primary" data-delay="300">
                             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-[1.5rem] text-primary"><i className="bi bi-award-fill"></i></div>
                             <div className="mb-1 text-[2rem] leading-[1.2] font-bold text-foreground max-[575px]:text-[1.5rem]">{demographicsData.income_class}</div>
                             <div className="mb-1 text-[0.9375rem] font-semibold text-foreground">Income Class</div>
@@ -672,8 +673,8 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`animate-on-scroll bg-white ${sectionClass}`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-cash-stack"></i> <span>Finance</span>
@@ -683,7 +684,7 @@ export default function StatisticsPage() {
                     </div>
 
                     <div className="mb-10 grid grid-cols-3 gap-5 max-[991px]:grid-cols-1">
-                        <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] p-6 text-white">
+                        <div className="rounded-xl border-0 bg-primary p-6 text-white">
                             <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-white">
                                 <i className="bi bi-graph-up-arrow text-[1rem]"></i>
                                 <span>Annual Regular Income</span>
@@ -691,7 +692,7 @@ export default function StatisticsPage() {
                             <div className="mb-1 text-[1.75rem] font-bold text-white">₱{(latestFiscal.annual_regular_income / 1_000_000).toFixed(2)}M</div>
                             <div className="text-[0.8125rem] text-white">FY{latestFiscal.year} — latest verified BLGF figure</div>
                         </div>
-                        <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+                        <div className="rounded-xl border border-line bg-white p-6 transition-colors duration-200 hover:border-primary">
                             <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-muted-foreground">
                                 <i className="bi bi-house-door-fill text-[1rem]"></i>
                                 <span>Households</span>
@@ -699,7 +700,7 @@ export default function StatisticsPage() {
                             <div className="mb-1 text-[1.75rem] font-bold text-foreground">{formatNumber(demographicsData.households.count)}</div>
                             <div className="text-[0.8125rem] text-muted-foreground">{demographicsData.households.year} Census (PSA)</div>
                         </div>
-                        <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+                        <div className="rounded-xl border border-line bg-white p-6 transition-colors duration-200 hover:border-primary">
                             <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-muted-foreground">
                                 <i className="bi bi-people-fill text-[1rem]"></i>
                                 <span>Average Household Size</span>
@@ -720,8 +721,8 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`animate-on-scroll bg-muted ${sectionClass}`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-graph-up"></i> <span>Growth</span>
@@ -736,7 +737,7 @@ export default function StatisticsPage() {
                             <span className="block text-[1.5rem] font-bold text-foreground max-[575px]:text-[1.25rem]">{formatNumber(historicalData.populations[0])}</span>
                         </div>
                         <div className="text-[1.25rem] text-muted-foreground"><i className="bi bi-arrow-right"></i></div>
-                        <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-8 py-5 text-center max-[991px]:px-6 max-[991px]:py-4 max-[575px]:px-5 max-[575px]:py-3">
+                        <div className="rounded-xl border-0 bg-primary px-8 py-5 text-center max-[991px]:px-6 max-[991px]:py-4 max-[575px]:px-5 max-[575px]:py-3">
                             <span className="mb-1 block text-[0.8125rem] text-white">{historicalData.years[historicalData.years.length - 1]}</span>
                             <span className="block text-[1.5rem] font-bold text-white max-[575px]:text-[1.25rem]">{formatNumber(totalPopulation)}</span>
                         </div>
@@ -760,8 +761,8 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`animate-on-scroll bg-white ${sectionClass}`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-pie-chart-fill"></i>
@@ -777,7 +778,7 @@ export default function StatisticsPage() {
                         </div>
                         <div className="flex flex-col gap-2">
                             {top10.map((b) => (
-                                <div className={`grid items-center gap-3 rounded-lg border bg-white px-4 py-[10px] transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)] max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2 ${b.pop === maxPop ? 'grid-cols-[40px_120px_1fr_70px] border-l-[3px] border-line border-l-[#ffd700] max-[575px]:grid-cols-[32px_90px_1fr_60px]' : 'grid-cols-[40px_120px_1fr_70px] border-line max-[575px]:grid-cols-[32px_90px_1fr_60px]'}`} data-rank={b.pop === maxPop ? 1 : undefined} key={b.name}>
+                                <div className={`grid items-center gap-3 rounded-lg border bg-white px-4 py-[10px] transition-colors duration-200 hover:border-primary hover:bg-muted max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2 ${b.pop === maxPop ? 'grid-cols-[40px_120px_1fr_70px] border-l-[3px] border-line border-l-[#ffd700] max-[575px]:grid-cols-[32px_90px_1fr_60px]' : 'grid-cols-[40px_120px_1fr_70px] border-line max-[575px]:grid-cols-[32px_90px_1fr_60px]'}`} data-rank={b.pop === maxPop ? 1 : undefined} key={b.name}>
                                     <span className="text-[0.75rem] font-semibold text-muted-foreground">#{rankedBarangays.findIndex((r) => r.name === b.name) + 1}</span>
                                     <span className="text-[0.875rem] font-medium text-foreground max-[575px]:text-[0.8125rem]">{b.name}</span>
                                     <div className="bar-wrap h-2 overflow-hidden rounded bg-muted">
@@ -796,7 +797,7 @@ export default function StatisticsPage() {
                         <summary className="cursor-pointer p-3 text-center font-medium text-primary">View all {rankedBarangays.length} barangays</summary>
                         <div className="mt-4 flex flex-col gap-2">
                             {remaining.map((b) => (
-                                <div className="grid grid-cols-[40px_120px_1fr_70px] items-center gap-3 rounded-lg border border-line bg-white px-4 py-[10px] transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)] max-[575px]:grid-cols-[32px_90px_1fr_60px] max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2" key={b.name}>
+                                <div className="grid grid-cols-[40px_120px_1fr_70px] items-center gap-3 rounded-lg border border-line bg-white px-4 py-[10px] transition-colors duration-200 hover:border-primary max-[575px]:grid-cols-[32px_90px_1fr_60px] max-[575px]:gap-2 max-[575px]:px-3 max-[575px]:py-2" key={b.name}>
                                     <span className="text-[0.75rem] font-semibold text-muted-foreground">#{rankedBarangays.findIndex((r) => r.name === b.name) + 1}</span>
                                     <span className="text-[0.875rem] font-medium text-foreground max-[575px]:text-[0.8125rem]">{b.name}</span>
                                     <div className="bar-wrap h-2 overflow-hidden rounded bg-muted">
@@ -821,8 +822,8 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`animate-on-scroll bg-muted ${sectionClass}`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-briefcase-fill"></i>
@@ -833,7 +834,7 @@ export default function StatisticsPage() {
                     </div>
 
                     <div className="mb-10 grid grid-cols-3 gap-5 max-[991px]:grid-cols-1">
-                        <div className="economy-card flex items-start gap-4 rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+                        <div className="economy-card flex items-start gap-4 rounded-xl border border-line bg-white p-6 transition-colors duration-200 hover:border-primary">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary"><i className="bi bi-tree-fill"></i></div>
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-foreground">MANGO &amp; BAMBOO</div>
@@ -841,7 +842,7 @@ export default function StatisticsPage() {
                                 <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(58, 125, 68,0.1)] px-[10px] py-1 text-[0.75rem] text-primary">&quot;Mango-Bamboo Capital of the Philippines&quot;</div>
                             </div>
                         </div>
-                        <div className="economy-card flex items-start gap-4 rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+                        <div className="economy-card flex items-start gap-4 rounded-xl border border-line bg-white p-6 transition-colors duration-200 hover:border-primary">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary"><i className="bi bi-geo-fill"></i></div>
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-foreground">AGRO-INDUSTRIAL</div>
@@ -849,7 +850,7 @@ export default function StatisticsPage() {
                                 <div className="inline-flex items-center gap-1 rounded-full bg-[rgba(58, 125, 68,0.1)] px-[10px] py-1 text-[0.75rem] text-primary">Agriculture, commerce &amp; industry</div>
                             </div>
                         </div>
-                        <div className="economy-card flex items-start gap-4 rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+                        <div className="economy-card flex items-start gap-4 rounded-xl border border-line bg-white p-6 transition-colors duration-200 hover:border-primary">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary"><i className="bi bi-house-door-fill"></i></div>
                             <div className="min-w-0 flex-1">
                                 <div className="mb-1 text-[1.5rem] font-bold text-foreground" data-count={demographicsData.households.count}>0</div>
@@ -859,7 +860,7 @@ export default function StatisticsPage() {
                         </div>
                     </div>
 
-                    <div className="animate-on-scroll rounded-xl border border-line bg-white p-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
+                    <div className="animate-on-scroll rounded-xl border border-line bg-white p-6">
                         <h4 className="mb-4 text-[1rem] font-bold text-foreground">Economic Sectors</h4>
                         <p className="mb-4 inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]">
                             <i className="bi bi-hourglass-split"></i> Sector shares pending verification
@@ -897,8 +898,8 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`animate-on-scroll bg-white ${sectionClass}`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-graph-down-arrow"></i>
@@ -927,8 +928,8 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100" id="competitive-index">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`animate-on-scroll bg-muted ${sectionClass}`} id="competitive-index">
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-trophy-fill"></i>
@@ -973,7 +974,7 @@ export default function StatisticsPage() {
                                 const previousRank = rankAt(pillar.ranks, 2018);
                                 const trend = trendLabel(currentRank, previousRank);
                                 return (
-                                    <div key={card.pillarKey} className="cursor-pointer rounded-xl border border-line bg-white p-5 text-center transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]" data-pillar={card.tab}>
+                                    <div key={card.pillarKey} className="cursor-pointer rounded-xl border border-line bg-white p-5 text-center duration-200 hover:border-primary transition-colors" data-pillar={card.tab}>
                                         <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10"><i className={`${card.icon} text-[1.25rem] text-primary`}></i></div>
                                         <h4 className="mb-2 text-[0.75rem] leading-[1.3] font-semibold text-foreground">{pillar.label}</h4>
                                         <div className="mb-1 text-[1.5rem] font-bold text-primary max-[768px]:text-[1.25rem]">{currentRank !== null ? `#${currentRank}` : '—'}</div>
@@ -1019,7 +1020,7 @@ export default function StatisticsPage() {
                                         const r = rankAt(pillar.ranks, y);
                                         const s = scoreAt(pillar.scores, y);
                                         return (
-                                            <div key={y} className="rounded-lg border border-line bg-white p-4 text-center transition-[box-shadow] duration-200 hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.08)]">
+                                            <div key={y} className="rounded-lg border border-line bg-white p-4 text-center transition-[box-shadow] duration-200 hover:border-primary">
                                                 <div className="mb-1 text-[0.6875rem] font-semibold tracking-[0.5px] text-muted-foreground uppercase">{y}</div>
                                                 <div className="text-[1.25rem] font-bold text-foreground">{r !== null ? `Rank #${r}` : '—'}</div>
                                                 <div className="text-[0.75rem] text-muted-foreground">{s !== null ? `Score ${s.toFixed(4)}` : 'Score not published'}</div>
@@ -1077,8 +1078,8 @@ export default function StatisticsPage() {
                 </div>
             </section>
 
-            <section className="animate-on-scroll bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6 opacity-0 translate-y-[40px] transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [&.visible]:translate-y-0 [&.visible]:opacity-100">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`animate-on-scroll bg-white ${sectionClass}`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-12 text-center">
                         <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
                             <i className="bi bi-bar-chart-fill"></i>

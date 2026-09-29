@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import DirectoryLinkCard from '@/components/DirectoryLinkCard';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 export default function BusinessPage() {
   return (
@@ -18,14 +19,14 @@ export default function BusinessPage() {
         ]}
       />
 
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={sectionClass}>
+        <div className={containerClass}>
           {/* eBPLS verified link card */}
           <a
             href="https://prod4.ebpls.com/sancarlospangasinan/index.php"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] sm:p-8"
+            className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline sm:p-8 transition-colors"
           >
             <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[rgba(34,197,94,0.1)] text-xl text-primary">
               <i className="bi bi-globe"></i>
@@ -49,7 +50,7 @@ export default function BusinessPage() {
           <div className="mt-6 grid grid-cols-2 gap-6 max-[991px]:grid-cols-1">
             <Link
               href="/service-details/business-permits-licensing"
-              className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+              className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary">
                 <i className="bi bi-file-earmark-check"></i>
@@ -64,7 +65,7 @@ export default function BusinessPage() {
             </Link>
             <Link
               href="/service-details/seedo-public-market"
-              className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+              className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary">
                 <i className="bi bi-storefront"></i>

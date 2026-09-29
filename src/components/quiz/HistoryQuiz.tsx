@@ -25,7 +25,7 @@ type Selection = { chosen: number; correct: boolean } | null;
 const containerRefCls = 'mx-auto w-full max-w-[640px] px-4 max-[480px]:px-3';
 const cardCls = 'rounded-xl border border-line bg-white p-6 max-[480px]:p-5 sm:p-8';
 const primaryBtnCls =
-    'inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary px-8 py-3 text-[0.9375rem] font-semibold text-white transition-[background-color,box-shadow,transform] duration-200 hover:bg-primary-dark hover:shadow-[0_4px_12px_rgba(58, 125, 68,0.3)] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
+    'inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary px-8 py-3 text-[0.9375rem] font-semibold text-white transition-colors duration-200 hover:bg-primary-dark active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary';
 
 function LetterIcon({ index }: { index: number }) {
     const letters = ['A', 'B', 'C', 'D'];

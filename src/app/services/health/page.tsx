@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PageHeader from '@/components/layout/PageHeader';
 import healthFacilities from '@/data/health-facilities.json';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 export default function HealthPage() {
   const { t } = useLanguage();
@@ -22,10 +23,10 @@ export default function HealthPage() {
       />
 
       {/* Service Cards */}
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={sectionClass}>
+        <div className={containerClass}>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 min-[1200px]:grid-cols-3 max-[1024px]:grid-cols-2 max-[767px]:grid-cols-1">
-            <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+            <div className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
                 <i className="bi bi-hospital text-primary"></i>
                 <span>{t('health-consultation')}</span>
@@ -41,7 +42,7 @@ export default function HealthPage() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+            <div className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
                 <i className="bi bi-shield-plus text-primary"></i>
                 <span>{t('health-vaccination')}</span>
@@ -57,7 +58,7 @@ export default function HealthPage() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+            <div className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
                 <i className="bi bi-heart text-primary"></i>
                 <span>{t('health-maternal')}</span>
@@ -73,7 +74,7 @@ export default function HealthPage() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+            <div className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
                 <i className="bi bi-prescription2 text-primary"></i>
                 <span>{t('health-medicine')}</span>
@@ -93,8 +94,8 @@ export default function HealthPage() {
       </section>
 
       {/* Health Facilities pending notice (verified data on /health) */}
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={sectionClass}>
+        <div className={containerClass}>
           <div className="rounded-xl border border-line bg-white p-6 text-center">
             <span className="mb-3 inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-3 py-1.5 text-[0.8125rem] font-semibold text-[#8a5a00]">
               <i className="bi bi-hourglass-split"></i> Accreditation verified — DOH license pending
@@ -112,8 +113,8 @@ export default function HealthPage() {
       </section>
 
       {/* Hospitals Directory (PhilHealth-accredited, DOH license pending) */}
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6 bg-muted">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={`${sectionClass} bg-muted`}>
+        <div className={containerClass}>
           <h2 className="mb-6 flex items-center gap-2 text-[1.375rem] font-semibold leading-[1.2] text-foreground">
             <i className="bi bi-hospital text-primary"></i>
             <span>{t('health-section-hospitals')}</span>
@@ -122,7 +123,7 @@ export default function HealthPage() {
             {healthFacilities.facilities.map((f) => (
               <div
                 key={f.name}
-                className="rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)]"
+                className="rounded-xl border border-line bg-white p-5 transition-colors duration-200 hover:border-primary"
               >
                 <div className="mb-2 flex items-start gap-3">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -154,8 +155,8 @@ export default function HealthPage() {
       </section>
 
       {/* City Health Office */}
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={sectionClass}>
+        <div className={containerClass}>
           <h2 className="mb-6 flex items-center gap-2 text-[1.375rem] font-semibold leading-[1.2] text-foreground">
             <i className="bi bi-building text-primary"></i>
             <span>City Health Office</span>
@@ -184,8 +185,8 @@ export default function HealthPage() {
       </section>
 
       {/* Barangay Health Stations pending notice */}
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={sectionClass}>
+        <div className={containerClass}>
           <div className="rounded-xl border border-line bg-white p-6 text-center">
             <span className="mb-3 inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-3 py-1.5 text-[0.8125rem] font-semibold text-[#8a5a00]">
               <i className="bi bi-hourglass-split"></i> Barangay health stations pending verification
@@ -200,8 +201,8 @@ export default function HealthPage() {
       </section>
 
       {/* HIV Care Philippines CTA */}
-      <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6" aria-label="HIV Care Philippines facility directory">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={`bg-muted ${sectionClass}`} aria-label="HIV Care Philippines facility directory">
+        <div className={containerClass}>
           <div className="flex w-full flex-col items-center gap-4 rounded-2xl border border-line bg-white p-12 px-14 text-center shadow-[0_1px_2px_rgba(16,24,40,0.04),0_12px_32px_rgba(16,24,40,0.08)] max-[767px]:gap-3.5 max-[767px]:px-7 max-[767px]:py-9 max-[575px]:px-5 max-[575px]:py-8">
             <img
               src="/assets/images/logo/hivcareph-logo.svg"
@@ -230,7 +231,7 @@ export default function HealthPage() {
             </div>
             <a
               href="https://hivcareph.org/"
-              className="mt-2 inline-flex items-center gap-2.5 rounded-lg bg-[#b02e2e] px-9 py-4 text-[1rem] font-semibold text-white no-underline shadow-[0_4px_16px_rgba(176, 46, 46,0.25)] transition-[box-shadow,transform,background-color] duration-200 hover:-translate-y-0.5 hover:bg-[#8f2424] hover:text-white hover:no-underline hover:shadow-[0_6px_20px_rgba(176, 46, 46,0.4)] active:scale-[0.97] max-[575px]:w-full max-[575px]:justify-center max-[575px]:px-6 max-[575px]:py-3.5"
+              className="mt-2 inline-flex items-center gap-2.5 rounded-lg bg-[#b02e2e] px-9 py-4 text-[1rem] font-semibold text-white no-underline shadow-[0_4px_16px_rgba(176, 46, 46,0.25)] transition-colors duration-200 hover:bg-[#8f2424] hover:text-white hover:no-underline active:scale-[0.97] max-[575px]:w-full max-[575px]:justify-center max-[575px]:px-6 max-[575px]:py-3.5"
               target="_blank"
               rel="noopener noreferrer"
             >

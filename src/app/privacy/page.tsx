@@ -1,6 +1,7 @@
 'use client';
 
 import PageHeader from '@/components/layout/PageHeader';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 export default function PrivacyPage() {
     return (
@@ -15,8 +16,8 @@ export default function PrivacyPage() {
                 ]}
             />
 
-            <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+            <section className={sectionClass}>
+                <div className={containerClass}>
                     <div className="grid grid-cols-[240px_1fr] items-start gap-12 max-[991px]:grid-cols-1 max-[991px]:gap-8">
                         <aside className="sticky top-[100px] rounded-xl border border-line bg-white p-5 shadow-[0_2px_12px_rgba(0,0,0,0.04)] max-[991px]:static max-[991px]:hidden">
                             <h4 className="mb-4 flex items-center gap-2 border-b border-line pb-3 text-[0.875rem] font-bold text-foreground">
@@ -53,7 +54,7 @@ export default function PrivacyPage() {
                                     <strong>Data Privacy Act of 2012 (Republic Act No. 10173)</strong> of the
                                     Philippines and its Implementing Rules and Regulations (IRR).
                                 </p>
-                                <div className="my-5 flex items-center gap-3 rounded-l-none rounded-r-lg border-l-4 border-success bg-[linear-gradient(135deg,rgba(58, 125, 68,0.1)_0%,rgba(58, 125, 68,0.05)_100%)] px-5 py-4">
+                                <div className="my-5 flex items-center gap-3 rounded-lg border-l-4 border-success bg-[rgba(58, 125, 68,0.06)] px-5 py-4">
                                     <i className="bi bi-shield-check text-[1.25rem] text-success"></i>
                                     <span className="text-[0.9375rem] text-foreground">
                                         We are committed to <strong>transparency</strong> and{' '}
@@ -363,7 +364,7 @@ export default function PrivacyPage() {
                                     contact us:
                                 </p>
                                 <div className="my-6">
-                                    <a href="mailto:volunteer@bettersancarlos.vercel.app" className="inline-flex items-center gap-[10px] rounded-lg bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-6 py-[14px] text-[0.9375rem] font-medium text-white no-underline transition-[border-color,background-color,box-shadow,transform] duration-200 hover:-translate-y-[2px] hover:text-white hover:no-underline hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.25)]">
+                                    <a href="mailto:volunteer@bettersancarlos.vercel.app" className="inline-flex items-center gap-[10px] rounded-lg bg-primary px-6 py-[14px] text-[0.9375rem] font-medium text-white no-underline duration-200 hover:text-white hover:no-underline transition-[border-color,background-color] hover:border-primary">
                                         <i className="bi bi-envelope-fill text-[1.125rem]"></i>
                                         <span>volunteer@bettersancarlos.vercel.app</span>
                                     </a>

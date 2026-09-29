@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import cityProjects from '@/data/city-projects.json';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 const pendingBadgeCls =
   'inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]';
@@ -21,8 +22,8 @@ export default function InfrastructurePage() {
         ]}
       />
 
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={sectionClass}>
+        <div className={containerClass}>
           {/* Program buckets */}
           <div className="mb-6 rounded-xl border border-line bg-white p-5 text-center">
             <span className={pendingBadgeCls}>
@@ -34,7 +35,7 @@ export default function InfrastructurePage() {
             {cityProjects.program_buckets.map((b) => (
               <div
                 key={b.name}
-                className="rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+                className="rounded-xl border border-line bg-white p-5 duration-200 hover:border-primary transition-colors"
               >
                 <h3 className="m-0 mb-2 flex items-start gap-2 text-[0.875rem] font-bold leading-[1.3] text-foreground">
                   <i className="bi bi-diagram-3 mt-[2px] text-primary"></i>
@@ -80,7 +81,7 @@ export default function InfrastructurePage() {
           {/* /budget link */}
           <Link
             href="/budget"
-            className="group mt-6 flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+            className="group mt-6 flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
           >
             <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary">
               <i className="bi bi-cash-stack"></i>

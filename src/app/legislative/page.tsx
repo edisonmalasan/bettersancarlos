@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import { cn } from '@/lib/utils';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 export default function LegislativePage() {
     const [activeTab, setActiveTab] = useState<'ordinances' | 'resolutions'>('ordinances');
@@ -50,10 +51,10 @@ export default function LegislativePage() {
                 ]}
             />
 
-            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`bg-muted ${sectionClass}`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mx-auto grid max-w-[900px] grid-cols-2 gap-6 max-[768px]:grid-cols-1 max-[768px]:gap-4">
-                        <Link href="/legislative/ordinance-framework" className="group relative flex flex-col items-center overflow-hidden rounded-xl border border-line bg-white p-8 text-center text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 before:absolute before:inset-x-0 before:top-0 before:h-1 before:origin-left before:scale-x-0 before:bg-primary before:transition-transform before:duration-300 before:content-[''] hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:before:scale-x-100 max-[768px]:p-6 max-[575px]:p-5">
+                        <Link href="/legislative/ordinance-framework" className="group relative flex flex-col items-center overflow-hidden rounded-xl border border-line bg-white p-8 text-center text-foreground no-underline duration-200 before:absolute before:inset-x-0 before:top-0 before:h-1 before:origin-left before:scale-x-0 before:bg-primary before:transition-transform before:duration-300 before:content-[''] hover:border-primary hover:no-underline hover:before:scale-x-100 max-[768px]:p-6 max-[575px]:p-5 transition-colors">
                             <div className="mb-6 flex h-[72px] w-[72px] items-center justify-center rounded-xl bg-primary/10 text-[2rem] text-primary transition-transform duration-300 group-hover:scale-110 max-[768px]:mb-4 max-[768px]:h-[60px] max-[768px]:w-[60px] max-[768px]:text-[1.5rem] max-[575px]:mb-3 max-[575px]:h-[52px] max-[575px]:w-[52px] max-[575px]:text-[1.25rem]"><i className="bi bi-journal-bookmark-fill"></i></div>
                             <div>
                                 <h2 className="mb-3 text-[1.375rem] font-bold text-foreground max-[768px]:text-[1.25rem] max-[575px]:mb-2 max-[575px]:text-[1.125rem]">Ordinance Framework</h2>
@@ -61,7 +62,7 @@ export default function LegislativePage() {
                                 <span className="inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-primary transition-[gap] duration-200 group-hover:gap-3"><i className="bi bi-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i> Browse Ordinances</span>
                             </div>
                         </Link>
-                        <Link href="/legislative/resolution-framework" className="group relative flex flex-col items-center overflow-hidden rounded-xl border border-line bg-white p-8 text-center text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 before:absolute before:inset-x-0 before:top-0 before:h-1 before:origin-left before:scale-x-0 before:bg-primary before:transition-transform before:duration-300 before:content-[''] hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:before:scale-x-100 max-[768px]:p-6 max-[575px]:p-5">
+                        <Link href="/legislative/resolution-framework" className="group relative flex flex-col items-center overflow-hidden rounded-xl border border-line bg-white p-8 text-center text-foreground no-underline duration-200 before:absolute before:inset-x-0 before:top-0 before:h-1 before:origin-left before:scale-x-0 before:bg-primary before:transition-transform before:duration-300 before:content-[''] hover:border-primary hover:no-underline hover:before:scale-x-100 max-[768px]:p-6 max-[575px]:p-5 transition-colors">
                             <div className="mb-6 flex h-[72px] w-[72px] items-center justify-center rounded-xl bg-primary/10 text-[2rem] text-primary transition-transform duration-300 group-hover:scale-110 max-[768px]:mb-4 max-[768px]:h-[60px] max-[768px]:w-[60px] max-[768px]:text-[1.5rem] max-[575px]:mb-3 max-[575px]:h-[52px] max-[575px]:w-[52px] max-[575px]:text-[1.25rem]"><i className="bi bi-file-earmark-ruled-fill"></i></div>
                             <div>
                                 <h2 className="mb-3 text-[1.375rem] font-bold text-foreground max-[768px]:text-[1.25rem] max-[575px]:mb-2 max-[575px]:text-[1.125rem]">Resolution Framework</h2>
@@ -73,8 +74,8 @@ export default function LegislativePage() {
                 </div>
             </section>
 
-            <section className="bg-muted py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`bg-muted ${sectionClass}`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mb-8 text-center">
                         <span className="mb-2.5 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-3 py-[5px] text-xs font-semibold text-primary"><i className="bi bi-diagram-3-fill"></i> Process Flow</span>
                         <h2 className="mb-1.5 text-[1.5rem] text-foreground max-[575px]:text-[1.25rem]">Flowchart for Legislative Proposal</h2>
@@ -113,7 +114,7 @@ export default function LegislativePage() {
                             {ordinanceSteps.map((step, index) => (
                                 <div className="flex" key={step.number}>
                                     <div className={cn(
-                                        'relative flex flex-1 flex-col rounded-lg border bg-white px-[14px] pb-[14px] pt-4 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[768px]:px-3 max-[768px]:pb-3 max-[768px]:pt-[14px] max-[575px]:flex-row max-[575px]:items-start max-[575px]:gap-3 max-[575px]:p-3',
+                                        'relative flex flex-1 flex-col rounded-lg border bg-white px-[14px] pb-[14px] pt-4 transition-colors duration-200 hover:border-primary hover:bg-muted max-[768px]:px-3 max-[768px]:pb-3 max-[768px]:pt-[14px] max-[575px]:flex-row max-[575px]:items-start max-[575px]:gap-3 max-[575px]:p-3',
                                         index === ordinanceSteps.length - 1 ? 'border-[rgba(16,185,129,0.3)] bg-[rgba(16,185,129,0.03)] hover:border-success' : 'border-line'
                                     )}>
                                         <div className={cn('mb-2.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-[0.6875rem] font-bold text-white max-[575px]:mb-0 max-[575px]:mt-0.5', index === ordinanceSteps.length - 1 ? 'bg-success' : 'bg-primary')}>{step.number}</div>
@@ -133,7 +134,7 @@ export default function LegislativePage() {
                             {resolutionSteps.map((step, index) => (
                                 <div className="flex" key={step.number}>
                                     <div className={cn(
-                                        'relative flex flex-1 flex-col rounded-lg border bg-white px-[14px] pb-[14px] pt-4 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[768px]:px-3 max-[768px]:pb-3 max-[768px]:pt-[14px] max-[575px]:flex-row max-[575px]:items-start max-[575px]:gap-3 max-[575px]:p-3',
+                                        'relative flex flex-1 flex-col rounded-lg border bg-white px-[14px] pb-[14px] pt-4 transition-colors duration-200 hover:border-primary hover:bg-muted max-[768px]:px-3 max-[768px]:pb-3 max-[768px]:pt-[14px] max-[575px]:flex-row max-[575px]:items-start max-[575px]:gap-3 max-[575px]:p-3',
                                         index === resolutionSteps.length - 1 ? 'border-[rgba(16,185,129,0.3)] bg-[rgba(16,185,129,0.03)] hover:border-success' : 'border-line'
                                     )}>
                                         <div className={cn('mb-2.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-[0.6875rem] font-bold text-white max-[575px]:mb-0 max-[575px]:mt-0.5', index === resolutionSteps.length - 1 ? 'bg-success' : 'bg-primary')}>{step.number}</div>
@@ -150,8 +151,8 @@ export default function LegislativePage() {
                 </div>
             </section>
 
-            <section className="bg-white py-16 max-[1024px]:py-8 max-[767px]:py-6">
-                <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
+            <section className={`bg-white ${sectionClass}`}>
+                <div className={`${containerClass} max-[767px]:px-4 max-[480px]:px-2`}>
                     <div className="mx-auto max-w-full">
                         <div className="mb-8 text-center">
                             <span className="mb-2.5 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-3 py-[5px] text-xs font-semibold text-primary"><i className="bi bi-info-circle-fill"></i> About</span>
@@ -160,7 +161,7 @@ export default function LegislativePage() {
                         </div>
                         <div className="grid grid-cols-4 gap-3 max-[1024px]:grid-cols-2 max-[768px]:grid-cols-2 max-[768px]:gap-2.5 max-[575px]:grid-cols-1">
                             {infoCards.map((card) => (
-                                <div className="flex flex-col rounded-lg border border-line bg-white p-4 text-left transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_12px_rgba(58, 125, 68,0.08)] max-[768px]:p-[14px] max-[575px]:flex-row max-[575px]:items-start max-[575px]:gap-3 max-[575px]:p-3" key={card.title}>
+                                <div className="flex flex-col rounded-lg border border-line bg-white p-4 text-left transition-colors duration-200 hover:border-primary hover:bg-muted max-[768px]:p-[14px] max-[575px]:flex-row max-[575px]:items-start max-[575px]:gap-3 max-[575px]:p-3" key={card.title}>
                                     <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-base text-white max-[768px]:mb-2.5 max-[768px]:h-8 max-[768px]:w-8 max-[768px]:text-sm max-[575px]:mb-0 max-[575px]:shrink-0"><i className={card.icon}></i></div>
                                     <div className="min-w-0 flex-1">
                                         <h3 className="mb-1.5 text-sm font-semibold text-foreground max-[768px]:text-[0.8125rem]">{card.title}</h3>

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import DirectoryLinkCard from '@/components/DirectoryLinkCard';
+import { containerClass, sectionClass } from '@/components/layout/Container';
 
 const pendingBadgeCls =
   'inline-flex items-center gap-1.5 rounded-md bg-[rgba(232,153,10,0.08)] px-2.5 py-1 text-[0.75rem] font-semibold text-[#8a5a00]';
@@ -22,8 +23,8 @@ export default function AgriculturePage() {
       />
 
       {/* Identity */}
-      <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
-        <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
+      <section className={sectionClass}>
+        <div className={containerClass}>
           <div className="rounded-xl border border-line bg-white p-6 sm:p-8">
             <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[rgba(58, 125, 68,0.08)] px-[14px] py-[6px] text-[0.8125rem] font-semibold text-primary">
               <i className="bi bi-award"></i> Mango and Bamboo Capital
@@ -38,7 +39,7 @@ export default function AgriculturePage() {
 
           <div className="mt-6 grid grid-cols-2 gap-6 max-[991px]:grid-cols-1">
             {/* 2008 trees stat */}
-            <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] p-6 text-white sm:p-8">
+            <div className="rounded-xl border-0 bg-primary p-6 text-white sm:p-8">
               <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-white">
                 <i className="bi bi-tree-fill text-[1rem]"></i>
                 <span>Fruit-bearing mango trees</span>
@@ -74,7 +75,7 @@ export default function AgriculturePage() {
           <div className="mt-6 grid grid-cols-1 gap-6">
             <Link
               href="/service-details/municipal-agriculture"
-              className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+              className="group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary">
                 <i className="bi bi-flower1"></i>

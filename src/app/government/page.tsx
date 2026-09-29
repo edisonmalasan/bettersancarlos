@@ -140,11 +140,11 @@ export default function GovernmentPage() {
                             <i className="bi bi-archive"></i> Historical data — compiled from Comelec records
                         </span>
                     </div>
-                    <div className="grid gap-6 min-[1024px]:grid-cols-3 max-[1023px]:grid-cols-1">
+                    <div className="grid gap-x-8 gap-y-6 min-[1024px]:grid-cols-3 max-[1023px]:grid-cols-1">
                         {officialsData.history.map((h) => (
-                            <div key={h.term} className="rounded-xl border border-line bg-white p-6 transition-colors duration-200 hover:border-primary">
-                                <div className="mb-3 flex items-center justify-between">
-                                    <span className="rounded-full bg-primary px-3 py-1 text-[0.75rem] font-bold text-white">{h.term}</span>
+                            <div key={h.term} className="border-t-2 border-primary pt-4">
+                                <div className="mb-3 flex items-baseline justify-between gap-3">
+                                    <h4 className="m-0 text-[1.0625rem] font-bold text-foreground">{h.term}</h4>
                                     {h.note ? <span className="text-[0.6875rem] text-muted-foreground">{h.note}</span> : null}
                                 </div>
                                 <p className="m-0 mb-1.5 text-[0.875rem] text-foreground">

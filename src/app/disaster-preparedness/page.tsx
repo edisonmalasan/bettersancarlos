@@ -28,7 +28,7 @@ export default function DisasterPreparednessPage() {
       <section className="relative z-[2] mt-10 pb-[40px]">
         <div className={containerCls}>
           <div className="mx-auto max-w-[640px] overflow-hidden rounded-xl border border-line bg-white">
-            <div className="px-8 py-6 text-center bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)]">
+            <div className="px-8 py-6 text-center bg-primary">
               <span className="mb-2 inline-block rounded-full bg-[rgba(255,255,255,0.2)] px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.5px] text-white">
                 Emergency Management
               </span>

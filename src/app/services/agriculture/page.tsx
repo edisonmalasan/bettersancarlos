@@ -39,7 +39,7 @@ export default function AgriculturePage() {
 
           <div className="mt-6 grid grid-cols-2 gap-6 max-[991px]:grid-cols-1">
             {/* 2008 trees stat */}
-            <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] p-6 text-white sm:p-8">
+            <div className="rounded-xl border-0 bg-primary p-6 text-white sm:p-8">
               <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-white">
                 <i className="bi bi-tree-fill text-[1rem]"></i>
                 <span>Fruit-bearing mango trees</span>

@@ -684,7 +684,7 @@ export default function StatisticsPage() {
                     </div>
 
                     <div className="mb-10 grid grid-cols-3 gap-5 max-[991px]:grid-cols-1">
-                        <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] p-6 text-white">
+                        <div className="rounded-xl border-0 bg-primary p-6 text-white">
                             <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-white">
                                 <i className="bi bi-graph-up-arrow text-[1rem]"></i>
                                 <span>Annual Regular Income</span>
@@ -737,7 +737,7 @@ export default function StatisticsPage() {
                             <span className="block text-[1.5rem] font-bold text-foreground max-[575px]:text-[1.25rem]">{formatNumber(historicalData.populations[0])}</span>
                         </div>
                         <div className="text-[1.25rem] text-muted-foreground"><i className="bi bi-arrow-right"></i></div>
-                        <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-8 py-5 text-center max-[991px]:px-6 max-[991px]:py-4 max-[575px]:px-5 max-[575px]:py-3">
+                        <div className="rounded-xl border-0 bg-primary px-8 py-5 text-center max-[991px]:px-6 max-[991px]:py-4 max-[575px]:px-5 max-[575px]:py-3">
                             <span className="mb-1 block text-[0.8125rem] text-white">{historicalData.years[historicalData.years.length - 1]}</span>
                             <span className="block text-[1.5rem] font-bold text-white max-[575px]:text-[1.25rem]">{formatNumber(totalPopulation)}</span>
                         </div>

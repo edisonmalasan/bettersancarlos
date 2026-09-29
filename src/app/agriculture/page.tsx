@@ -34,7 +34,7 @@ export default function AgriculturePage() {
               </span>
               <p className="m-0 text-[1rem] leading-[1.7] text-muted-foreground">{ag.identity.description}</p>
             </div>
-            <div className="rounded-xl border-0 bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] p-8 text-white">
+            <div className="rounded-xl border-0 bg-primary p-8 text-white">
               <div className="mb-3 flex items-center gap-2 text-[0.875rem] font-medium text-white">
                 <i className="bi bi-tree-fill text-[1rem]"></i>
                 <span>Fruit-bearing mango trees</span>

@@ -34,7 +34,7 @@ export default function UtilitiesPage() {
             <p className="m-0 text-[1rem] text-muted-foreground">The city&apos;s power distribution cooperative</p>
           </div>
           <div className="overflow-hidden rounded-xl border border-line bg-white">
-            <div className="px-8 py-6 text-center bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)]">
+            <div className="px-8 py-6 text-center bg-primary">
               <span className="mb-2 inline-block rounded-full bg-[rgba(255,255,255,0.2)] px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.5px] text-white">
                 Distribution Utility
               </span>

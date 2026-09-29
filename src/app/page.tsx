@@ -496,9 +496,9 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 gap-6 max-[768px]:grid-cols-1">
             <div className="rounded-xl border border-line bg-white p-8 text-center">
-              <div className="mb-4 inline-block rounded-full bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-3.5 py-1.5 text-xs font-semibold text-white">
+              <h4 className="m-0 mb-1 text-[0.8125rem] font-semibold uppercase tracking-wide text-primary">
                 {t('title-mayor')}
-              </div>
+              </h4>
               <h3 className="m-0 mb-4 text-xl text-foreground">{officialsData.mayor.name}</h3>
               <div className="flex flex-col gap-2">
                 <a
@@ -516,9 +516,9 @@ export default function HomePage() {
               </div>
             </div>
             <div className="rounded-xl border border-line bg-white p-8 text-center">
-              <div className="mb-4 inline-block rounded-full bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)] px-3.5 py-1.5 text-xs font-semibold text-white">
+              <h4 className="m-0 mb-1 text-[0.8125rem] font-semibold uppercase tracking-wide text-primary">
                 {t('title-vice-mayor')}
-              </div>
+              </h4>
               <h3 className="m-0 mb-4 text-xl text-foreground">{officialsData.vice_mayor.name}</h3>
               <div className="flex flex-col gap-2">
                 <a

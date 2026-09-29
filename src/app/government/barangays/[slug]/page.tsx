@@ -133,7 +133,7 @@ export default async function BarangayDetailPage({
                             className="overflow-hidden rounded-xl border border-line bg-white duration-200 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] transition-colors"
                             style={{ maxWidth: '480px', margin: '0 auto' }}
                         >
-                            <div className="px-8 py-6 text-center bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)]">
+                            <div className="px-8 py-6 text-center bg-primary">
                                 <span className="mb-2 inline-block rounded-full bg-[rgba(255,255,255,0.2)] px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.5px] text-white">Punong Barangay</span>
                                 <h4 className="m-0 text-[1.25rem] font-semibold text-white">
                                     {formatName(punong.officials[0])}

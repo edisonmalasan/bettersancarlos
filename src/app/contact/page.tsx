@@ -26,7 +26,7 @@ export default function ContactPage() {
             <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
                 <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6 max-[767px]:px-4 max-[480px]:px-2">
                     <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))]" style={{ gap: 'var(--spacing-md)' }}>
-                        <Link href="mailto:CIO@sancarlospangasinan.com" className="flex overflow-hidden rounded-xl border border-line bg-white text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+                        <Link href="mailto:CIO@sancarlospangasinan.com" className="flex overflow-hidden rounded-xl border border-line bg-white text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors">
                             <div className="flex w-14 shrink-0 items-center justify-center bg-primary text-[1.25rem] text-white"><i className="bi bi-envelope-fill"></i></div>
                             <div className="flex-1 p-6">
                                 <h3 className="m-0 mb-1 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-muted-foreground">Email</h3>
@@ -34,7 +34,7 @@ export default function ContactPage() {
                                 <span className="text-[0.8125rem] text-muted-foreground">We&apos;ll respond within 24 hours</span>
                             </div>
                         </Link>
-                        <a href={`tel:${cityPhone}`} className="flex overflow-hidden rounded-xl border border-line bg-white text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+                        <a href={`tel:${cityPhone}`} className="flex overflow-hidden rounded-xl border border-line bg-white text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors">
                             <div className="flex w-14 shrink-0 items-center justify-center bg-primary text-[1.25rem] text-white"><i className="bi bi-telephone-fill"></i></div>
                             <div className="flex-1 p-6">
                                 <h3 className="m-0 mb-1 text-[0.8125rem] font-semibold uppercase tracking-[0.5px] text-muted-foreground">Phone</h3>
@@ -194,7 +194,7 @@ export default function ContactPage() {
                     </div>
 
                     <div className="mb-6 grid grid-cols-2 gap-4 max-[991px]:grid-cols-1">
-                        <a href={`tel:${govDir.current_verified.phone}`} className="flex items-center gap-4 rounded-xl border border-line bg-white px-5 py-4 no-underline transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)]">
+                        <a href={`tel:${govDir.current_verified.phone}`} className="flex items-center gap-4 rounded-xl border border-line bg-white px-5 py-4 no-underline transition-[border-color,box-shadow] duration-200 hover:border-primary">
                             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[rgba(34,197,94,0.1)] text-primary"><i className="bi bi-telephone-fill"></i></span>
                             <span className="min-w-0 flex-1">
                                 <span className="block text-[0.9375rem] font-bold text-foreground">{govDir.current_verified.phone} — City Hall trunk line</span>

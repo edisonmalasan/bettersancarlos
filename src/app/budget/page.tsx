@@ -131,14 +131,14 @@ export default function BudgetPage() {
                     </div>
 
                     <div className="mb-8 grid grid-cols-4 gap-4 max-[991px]:grid-cols-2 max-[575px]:grid-cols-1 max-[575px]:gap-3">
-                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[575px]:p-4">
+                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] duration-200 max-[575px]:p-4 transition-colors hover:border-primary">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary"><i className="bi bi-cash-stack"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="text-[1.375rem] font-bold leading-[1.2] text-foreground max-[575px]:text-[1.25rem]">₱{(latestFiscal.annual_regular_income / 1_000_000).toFixed(2)} M</span>
                                 <span className="text-xs font-medium text-muted-foreground">FY{latestFiscal.year} Annual Regular Income</span>
                             </div>
                         </div>
-                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[575px]:p-4">
+                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] duration-200 max-[575px]:p-4 transition-colors hover:border-primary">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary"><i className="bi bi-graph-up-arrow"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className={`text-[1.375rem] font-bold leading-[1.2] max-[575px]:text-[1.25rem] ${latestFiscal.change_pct !== undefined && latestFiscal.change_pct >= 0 ? 'text-primary' : 'text-[#b02e2e]'}`}>
@@ -147,14 +147,14 @@ export default function BudgetPage() {
                                 <span className="text-xs font-medium text-muted-foreground">FY{latestFiscal.year} change vs prior year</span>
                             </div>
                         </div>
-                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[575px]:p-4">
+                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] duration-200 max-[575px]:p-4 transition-colors hover:border-primary">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary"><i className="bi bi-bar-chart-line"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="text-[1.375rem] font-bold leading-[1.2] text-foreground max-[575px]:text-[1.25rem]">{fiscalYears.length} years</span>
                                 <span className="text-xs font-medium text-muted-foreground">of verified fiscal data</span>
                             </div>
                         </div>
-                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] max-[575px]:p-4">
+                        <div className="flex items-center gap-[14px] rounded-2xl border border-line bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] duration-200 max-[575px]:p-4 transition-colors hover:border-primary">
                             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary"><i className="bi bi-award"></i></div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="text-[1.375rem] font-bold leading-[1.2] text-foreground max-[575px]:text-[1.25rem]">3rd class</span>
@@ -366,7 +366,7 @@ export default function BudgetPage() {
                         {cityProjects.program_buckets.map((b) => (
                             <div
                                 key={b.name}
-                                className="rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+                                className="rounded-xl border border-line bg-white p-5 duration-200 hover:border-primary transition-colors"
                             >
                                 <h3 className="m-0 mb-2 flex items-start gap-2 text-[0.875rem] font-bold leading-[1.3] text-foreground">
                                     <i className="bi bi-diagram-3 mt-[2px] text-primary"></i>

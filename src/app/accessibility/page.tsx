@@ -97,7 +97,7 @@ export default function AccessibilityPage() {
                                 If you encounter difficulty accessing any information, contact us:
                             </p>
                             <div className="mt-6 grid grid-cols-3 gap-4 max-[992px]:grid-cols-1">
-                                <a href="mailto:volunteer@bettersancarlos.vercel.app" className="group flex items-center gap-3 rounded-lg bg-muted p-4 text-foreground no-underline transition-[border-color,background-color,box-shadow,transform] duration-200 hover:bg-primary hover:text-white hover:no-underline">
+                                <a href="mailto:volunteer@bettersancarlos.vercel.app" className="group flex items-center gap-3 rounded-lg bg-muted p-4 text-foreground no-underline duration-200 hover:bg-primary hover:text-white hover:no-underline transition-[border-color,background-color]">
                                     <i className="bi bi-envelope-fill text-[1.25rem] text-primary group-hover:text-white"></i>
                                     <span className="text-[0.9375rem] font-medium">volunteer@bettersancarlos.vercel.app</span>
                                 </a>

@@ -42,7 +42,7 @@ export default function TourismPage() {
             {td.attractions.map((a) => (
               <div
                 key={a.name}
-                className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+                className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors"
               >
                 <div className="mb-2 flex items-start justify-between gap-2">
                   <h3 className="m-0 text-[0.9375rem] font-bold leading-[1.3] text-foreground">{a.name}</h3>

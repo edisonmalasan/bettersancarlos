@@ -51,7 +51,7 @@ export default function GovernmentPage() {
                     </div>
 
                     <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 min-[1200px]:grid-cols-2 min-[1200px]:gap-8 max-[767px]:grid-cols-1" style={{ gap: 'var(--spacing-lg)' }}>
-                        <div className="overflow-hidden rounded-xl border border-line bg-white transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+                        <div className="overflow-hidden rounded-xl border border-line bg-white duration-200 hover:border-primary transition-colors">
                             <div className="px-8 py-6 text-center bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)]">
                                 <span className="mb-2 inline-block rounded-full bg-[rgba(255,255,255,0.2)] px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.5px] text-white">City Mayor</span>
                                 <h4 className="m-0 text-[1.25rem] font-semibold text-white">{officialsData.mayor.name}</h4>
@@ -72,7 +72,7 @@ export default function GovernmentPage() {
                             </div>
                         </div>
 
-                        <div className="overflow-hidden rounded-xl border border-line bg-white transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+                        <div className="overflow-hidden rounded-xl border border-line bg-white duration-200 hover:border-primary transition-colors">
                             <div className="px-8 py-6 text-center bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)]">
                                 <span className="mb-2 inline-block rounded-full bg-[rgba(255,255,255,0.2)] px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.5px] text-white">City Vice Mayor</span>
                                 <h4 className="m-0 text-[1.25rem] font-semibold text-white">{officialsData.vice_mayor.name}</h4>
@@ -116,7 +116,7 @@ export default function GovernmentPage() {
                         {councilors.map((c) => (
                             <div
                                 key={c.name}
-                                className="rounded-lg border border-line border-l-[3px] border-l-primary bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)] max-[767px]:p-4"
+                                className="rounded-lg border border-line border-l-[3px] border-l-primary bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary max-[767px]:p-4"
                             >
                                 <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold leading-[1.2] text-foreground">{c.name}</h4>
                                 {c.party && c.votes !== undefined ? (
@@ -151,7 +151,7 @@ export default function GovernmentPage() {
                     </div>
                     <div className="grid gap-6 min-[1024px]:grid-cols-3 max-[1023px]:grid-cols-1">
                         {officialsData.history.map((h) => (
-                            <div key={h.term} className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)]">
+                            <div key={h.term} className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow] duration-200 hover:border-primary">
                                 <div className="mb-3 flex items-center justify-between">
                                     <span className="rounded-full bg-primary px-3 py-1 text-[0.75rem] font-bold text-white">{h.term}</span>
                                     {h.note ? <span className="text-[0.6875rem] text-muted-foreground">{h.note}</span> : null}
@@ -204,7 +204,7 @@ export default function GovernmentPage() {
                             <Link
                                 key={b.name}
                                 href={`/government/barangays/${slugify(b.name)}`}
-                                className="flex flex-col justify-center rounded-lg border border-line bg-white px-4 py-3 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+                                className="flex flex-col justify-center rounded-lg border border-line bg-white px-4 py-3 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
                             >
                                 <div className="flex items-center gap-2">
                                     <i className="bi bi-geo-alt-fill text-[0.875rem] text-primary"></i>

@@ -55,9 +55,9 @@ const sectionHeaderCls =
 const sectionLinkCls =
   'inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-primary transition-[gap] duration-200 hover:gap-2.5 hover:no-underline';
 const serviceCardCls =
-  'group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[background-color,border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline';
+  'group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[background-color,border-color,box-shadow,transform] duration-200 hover:border-primary hover:no-underline';
 const statCardCls =
-  'group relative flex items-center gap-4 overflow-hidden rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[background-color,border-color,box-shadow,transform] duration-200 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-[linear-gradient(180deg,#3a7d44_0%,#275230_100%)] before:opacity-0 before:transition-opacity before:duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline hover:before:opacity-100';
+  'group relative flex items-center gap-4 overflow-hidden rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[background-color,border-color,box-shadow,transform] duration-200 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-[linear-gradient(180deg,#3a7d44_0%,#275230_100%)] before:opacity-0 before:transition-opacity before:duration-200 hover:border-primary hover:no-underline hover:before:opacity-100';
 
 const Hero3DLogo = dynamic(() => import('@/components/three/Hero3DLogo'), {
   ssr: false,
@@ -405,7 +405,7 @@ export default function HomePage() {
                   style={{ animationDelay: item.delay }}
                 >
                   <div className="absolute -left-7 top-1 z-[1] h-3.5 w-3.5 rounded-full border-[3px] border-primary bg-white transition-transform duration-200 group-hover:scale-125 group-hover:bg-primary group-hover:shadow-[0_0_0_4px_rgba(58, 125, 68,0.15)]"></div>
-                  <div className="rounded-lg border border-line bg-white px-[18px] py-4 transition-[border-color,box-shadow,transform] duration-200 group-hover:translate-x-1 group-hover:border-primary group-hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)]">
+                  <div className="rounded-lg border border-line bg-white px-[18px] py-4 duration-200 group-hover:translate-x-1 group-hover:border-primary group-hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] transition-colors">
                     <span className="mb-2 inline-block rounded-full bg-primary px-2.5 py-[3px] text-xs font-bold text-white">
                       {item.year}
                     </span>
@@ -415,7 +415,7 @@ export default function HomePage() {
               ))}
             </div>
             <div className="sticky top-[100px] flex flex-col gap-4 max-[900px]:static max-[900px]:flex-row max-[900px]:flex-wrap max-[575px]:flex-col">
-              <div className="flex items-start gap-3.5 rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] max-[900px]:flex-[1_1_280px] max-[575px]:flex-[1_1_100%]">
+              <div className="flex items-start gap-3.5 rounded-xl border border-line bg-white p-5 duration-200 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] max-[900px]:flex-[1_1_280px] max-[575px]:flex-[1_1_100%] transition-colors">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary [&_i]:text-xl">
                   <i className="bi bi-geo-alt-fill"></i>
                 </div>
@@ -428,7 +428,7 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-3.5 rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] max-[900px]:flex-[1_1_280px] max-[575px]:flex-[1_1_100%]">
+              <div className="flex items-start gap-3.5 rounded-xl border border-line bg-white p-5 duration-200 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] max-[900px]:flex-[1_1_280px] max-[575px]:flex-[1_1_100%] transition-colors">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary [&_i]:text-xl">
                   <i className="bi bi-grid-3x3"></i>
                 </div>
@@ -565,7 +565,7 @@ export default function HomePage() {
           <div className="grid grid-cols-3 gap-6 max-[992px]:grid-cols-1">
             <a
               href="tel:(075) 600-1432"
-              className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline"
+              className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
             >
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-[1.125rem] text-primary">
                 <i className="bi bi-telephone-fill"></i>
@@ -580,7 +580,7 @@ export default function HomePage() {
             </a>
             <a
               href="mailto:CIO@sancarlospangasinan.com"
-              className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] hover:no-underline"
+              className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
             >
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-[1.125rem] text-primary">
                 <i className="bi bi-envelope-fill"></i>
@@ -595,7 +595,7 @@ export default function HomePage() {
                 <span className="text-[0.8125rem] text-muted-foreground">{t('contact-response')}</span>
               </div>
             </a>
-            <div className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+            <div className="flex items-start gap-4 rounded-xl border border-line bg-white p-6 text-foreground duration-200 hover:border-primary transition-colors">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-[1.125rem] text-primary">
                 <i className="bi bi-geo-alt-fill"></i>
               </div>

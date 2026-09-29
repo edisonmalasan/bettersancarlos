@@ -99,7 +99,7 @@ export default function AgriculturePage() {
             {ag.other_activities.map((a) => (
               <div
                 key={a.name}
-                className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+                className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors"
               >
                 <h3 className="m-0 mb-2 flex items-center gap-2 text-[0.9375rem] font-bold text-foreground">
                   <i className="bi bi-flower1 text-primary"></i> {a.name}

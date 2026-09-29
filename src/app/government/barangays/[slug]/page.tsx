@@ -129,7 +129,7 @@ export default async function BarangayDetailPage({
                             </p>
                         </div>
                         <div
-                            className="overflow-hidden rounded-xl border border-line bg-white transition-[border-color,box-shadow,transform] duration-200 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)]"
+                            className="overflow-hidden rounded-xl border border-line bg-white duration-200 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] transition-colors"
                             style={{ maxWidth: '480px', margin: '0 auto' }}
                         >
                             <div className="px-8 py-6 text-center bg-[linear-gradient(135deg,#3a7d44_0%,#275230_100%)]">
@@ -171,7 +171,7 @@ export default async function BarangayDetailPage({
                             </div>
                             <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 min-[1200px]:grid-cols-3 max-[1024px]:grid-cols-2 max-[767px]:grid-cols-1" style={{ gap: 'var(--spacing-md)' }}>
                                 {pos.officials.map((official, i) => (
-                                    <div key={`${pos.position}-${i}`} className="rounded-lg border border-line border-l-[3px] border-l-primary bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)] max-[767px]:p-4">
+                                    <div key={`${pos.position}-${i}`} className="rounded-lg border border-line border-l-[3px] border-l-primary bg-white p-6 duration-200 hover:border-primary max-[767px]:p-4 transition-colors">
                                         <h4 className="m-0 mb-1.5 text-[0.9375rem] font-semibold leading-[1.2] text-foreground">{formatName(official)}</h4>
                                         <span className="mb-2.5 inline-block rounded-full bg-primary px-2.5 py-0.5 text-[0.6875rem] font-semibold text-white">{pos.position}</span>
                                     </div>

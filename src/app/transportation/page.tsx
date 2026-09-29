@@ -92,7 +92,7 @@ export default function TransportationPage() {
             {tp.carriers.map((c) => (
               <div
                 key={c.name}
-                className="rounded-xl border border-line bg-white p-6 text-center transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+                className="rounded-xl border border-line bg-white p-6 text-center duration-200 hover:border-primary transition-colors"
               >
                 <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary">
                   <i className="bi bi-bus-front"></i>

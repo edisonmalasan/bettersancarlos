@@ -25,7 +25,7 @@ export default function HealthPage() {
       <section className="py-16 max-[1024px]:py-8 max-[767px]:py-6">
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
           <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 min-[1200px]:grid-cols-3 max-[1024px]:grid-cols-2 max-[767px]:grid-cols-1">
-            <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+            <div className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
                 <i className="bi bi-hospital text-primary"></i>
                 <span>{t('health-consultation')}</span>
@@ -41,7 +41,7 @@ export default function HealthPage() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+            <div className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
                 <i className="bi bi-shield-plus text-primary"></i>
                 <span>{t('health-vaccination')}</span>
@@ -57,7 +57,7 @@ export default function HealthPage() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+            <div className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
                 <i className="bi bi-heart text-primary"></i>
                 <span>{t('health-maternal')}</span>
@@ -73,7 +73,7 @@ export default function HealthPage() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+            <div className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors">
               <h3 className="m-0 mb-2 flex items-center gap-2 text-[1rem] font-semibold text-foreground">
                 <i className="bi bi-prescription2 text-primary"></i>
                 <span>{t('health-medicine')}</span>
@@ -122,7 +122,7 @@ export default function HealthPage() {
             {healthFacilities.facilities.map((f) => (
               <div
                 key={f.name}
-                className="rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)]"
+                className="rounded-xl border border-line bg-white p-5 transition-[border-color,box-shadow] duration-200 hover:border-primary"
               >
                 <div className="mb-2 flex items-start gap-3">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -230,7 +230,7 @@ export default function HealthPage() {
             </div>
             <a
               href="https://hivcareph.org/"
-              className="mt-2 inline-flex items-center gap-2.5 rounded-lg bg-[#b02e2e] px-9 py-4 text-[1rem] font-semibold text-white no-underline shadow-[0_4px_16px_rgba(176, 46, 46,0.25)] transition-[box-shadow,transform,background-color] duration-200 hover:-translate-y-0.5 hover:bg-[#8f2424] hover:text-white hover:no-underline hover:shadow-[0_6px_20px_rgba(176, 46, 46,0.4)] active:scale-[0.97] max-[575px]:w-full max-[575px]:justify-center max-[575px]:px-6 max-[575px]:py-3.5"
+              className="mt-2 inline-flex items-center gap-2.5 rounded-lg bg-[#b02e2e] px-9 py-4 text-[1rem] font-semibold text-white no-underline shadow-[0_4px_16px_rgba(176, 46, 46,0.25)] transition-[box-shadow,transform,background-color] duration-200 hover:bg-[#8f2424] hover:text-white hover:no-underline hover:shadow-[0_6px_20px_rgba(176, 46, 46,0.4)] active:scale-[0.97] max-[575px]:w-full max-[575px]:justify-center max-[575px]:px-6 max-[575px]:py-3.5"
               target="_blank"
               rel="noopener noreferrer"
             >

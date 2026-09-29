@@ -23,7 +23,7 @@ export default function EnvironmentPage() {
         <div className="mx-auto w-full max-w-[1200px] min-[1025px]:max-[1199px]:max-w-[960px] px-6">
           {/* Verified 2023 programs */}
           <div className="mb-8 grid grid-cols-3 gap-5 max-[991px]:grid-cols-1">
-            <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+            <div className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors">
               <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-[1.125rem] text-primary">
                 <i className="bi bi-recycle"></i>
               </div>
@@ -36,7 +36,7 @@ export default function EnvironmentPage() {
               </p>
               <span className="text-[0.75rem] text-muted-foreground">Old official site news, archived 2023</span>
             </div>
-            <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+            <div className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors">
               <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-[1.125rem] text-primary">
                 <i className="bi bi-tree"></i>
               </div>
@@ -48,7 +48,7 @@ export default function EnvironmentPage() {
               </p>
               <span className="text-[0.75rem] text-muted-foreground">Old official site news, archived 2023</span>
             </div>
-            <div className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+            <div className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors">
               <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-[1.125rem] text-primary">
                 <i className="bi bi-panda"></i>
               </div>

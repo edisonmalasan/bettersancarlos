@@ -48,7 +48,7 @@ export default function HealthPage() {
             </h2>
             <p className="m-0 text-[1rem] text-muted-foreground">The city government&apos;s primary health office</p>
           </div>
-          <div className="mx-auto max-w-[640px] rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]">
+          <div className="mx-auto max-w-[640px] rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors">
             <div className="flex items-start gap-4">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary">
                 <i className="bi bi-hospital"></i>
@@ -90,7 +90,7 @@ export default function HealthPage() {
             {hf.facilities.map((f) => (
               <div
                 key={f.name}
-                className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+                className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors"
               >
                 <div className="mb-3 flex items-start gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-[1.25rem] text-primary">

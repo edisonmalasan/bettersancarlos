@@ -54,7 +54,7 @@ export default function EducationPage() {
             {sc.heis.map((h) => (
               <div
                 key={h.name}
-                className="rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+                className="rounded-xl border border-line bg-white p-6 duration-200 hover:border-primary transition-colors"
               >
                 <div className="mb-2 flex items-start gap-3">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -116,7 +116,7 @@ export default function EducationPage() {
             {sc.secondary.map((s) => (
               <div
                 key={s.name}
-                className="flex items-center justify-between gap-3 rounded-lg border border-line bg-white px-4 py-[10px] transition-[border-color,box-shadow] duration-200 hover:border-primary hover:shadow-[0_2px_8px_rgba(58, 125, 68,0.08)]"
+                className="flex items-center justify-between gap-3 rounded-lg border border-line bg-white px-4 py-[10px] transition-[border-color,box-shadow] duration-200 hover:border-primary"
               >
                 <span className="text-[0.875rem] font-medium text-foreground">{s.name}</span>
                 <span

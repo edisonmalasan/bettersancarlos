@@ -76,7 +76,7 @@ export default function DisasterPreparednessPage() {
             {ev.convergence_areas.map((c) => (
               <div
                 key={c.name}
-                className="flex items-center gap-4 rounded-xl border border-line bg-white px-6 py-4 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)]"
+                className="flex items-center gap-4 rounded-xl border border-line bg-white px-6 py-4 duration-200 hover:border-primary hover:shadow-[0_4px_16px_rgba(58, 125, 68,0.1)] transition-colors"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <i className="bi bi-people-fill"></i>

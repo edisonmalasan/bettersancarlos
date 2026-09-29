@@ -46,7 +46,7 @@ export default function NewsPage() {
     };
 
     const cardCls =
-        'flex flex-col overflow-hidden rounded-xl border border-line bg-white p-6 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)] focus-within:outline-2 focus-within:outline-primary focus-within:outline-offset-2';
+        'flex flex-col overflow-hidden rounded-xl border border-line bg-white p-6 duration-200 focus-within:outline-2 focus-within:outline-primary focus-within:outline-offset-2 transition-colors hover:border-primary';
 
     return (
         <>

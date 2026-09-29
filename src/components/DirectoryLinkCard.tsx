@@ -11,7 +11,7 @@ export default function DirectoryLinkCard({ href, icon, title, description }: Di
   return (
     <Link
       href={href}
-      className="group mx-auto mt-8 flex max-w-[720px] items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary hover:no-underline hover:shadow-[0_8px_24px_rgba(58, 125, 68,0.12)]"
+      className="group mx-auto mt-8 flex max-w-[720px] items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline duration-200 hover:border-primary hover:no-underline transition-colors"
     >
       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary">
         <i className={icon}></i>

@@ -587,7 +587,7 @@ const SearchAutocomplete = forwardRef<SearchAutocompleteHandle, Props>(
     const filterBtnCls = (isActive: boolean) =>
       `shrink-0 cursor-pointer whitespace-nowrap rounded-full border px-3.5 py-1.5 text-xs font-medium transition-[border-color,background-color,color] duration-200 ${
         isActive
-          ? 'border-primary bg-gradient-to-br from-primary to-[#2f6136] text-white shadow-[0_2px_8px_rgba(58, 125, 68,0.3)]'
+          ? 'border-primary bg-primary text-white'
           : 'border-[rgba(58, 125, 68,0.15)] bg-white text-[#555] hover:border-primary hover:bg-[rgba(58, 125, 68,0.04)] hover:text-primary'
       }`;
     const suggestionItemCls =

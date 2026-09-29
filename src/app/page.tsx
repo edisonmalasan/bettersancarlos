@@ -58,7 +58,7 @@ const sectionLinkCls =
 const serviceCardCls =
   'group flex items-center gap-4 rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[background-color,border-color,box-shadow,transform] duration-200 hover:border-primary hover:no-underline';
 const statCardCls =
-  'group relative flex items-center gap-4 overflow-hidden rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[background-color,border-color,box-shadow,transform] duration-200 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-[linear-gradient(180deg,#3a7d44_0%,#275230_100%)] before:opacity-0 before:transition-opacity before:duration-200 hover:border-primary hover:no-underline hover:before:opacity-100';
+  'group relative flex items-center gap-4 overflow-hidden rounded-xl border border-line bg-white p-6 text-foreground no-underline transition-[background-color,border-color] duration-200 before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-primary before:opacity-0 before:transition-opacity before:duration-200 hover:border-primary hover:no-underline hover:before:opacity-100';
 
 const Hero3DLogo = dynamic(() => import('@/components/three/Hero3DLogo'), {
   ssr: false,
@@ -378,7 +378,7 @@ export default function HomePage() {
       </section>
 
       {/* Brief History of San Carlos */}
-      <section className={`bg-[linear-gradient(180deg,#faf9f6_0%,#ffffff_100%)] ${sectionClass}`}>
+      <section className={`bg-bg-alt ${sectionClass}`}>
         <div className={containerCls}>
           <div className="mb-8 flex items-center justify-between">
             <h2 className="m-0 flex items-center gap-2.5 text-2xl [&_i]:text-primary">
@@ -389,7 +389,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid grid-cols-[1fr_340px] items-start gap-8 max-[900px]:grid-cols-1">
-            <div className="relative pl-7 before:absolute before:bottom-2 before:left-1.5 before:top-2 before:w-0.5 before:rounded-sm before:bg-[linear-gradient(180deg,#3a7d44_0%,rgba(58, 125, 68,0.2)_100%)]">
+            <div className="relative pl-7 before:absolute before:bottom-2 before:left-1.5 before:top-2 before:w-0.5 before:rounded-sm before:bg-primary/40">
               {[
                 { year: '1578', key: 'history-1578' },
                 { year: '1660', key: 'history-1660' },

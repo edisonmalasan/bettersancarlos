@@ -194,7 +194,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="mx-auto max-w-[800px]">
-            <div className="relative pl-7 before:absolute before:bottom-2 before:left-1.5 before:top-2 before:w-0.5 before:rounded-sm before:bg-[linear-gradient(180deg,#3a7d44_0%,rgba(58, 125, 68,0.2)_100%)]">
+            <div className="relative pl-7 before:absolute before:bottom-2 before:left-1.5 before:top-2 before:w-0.5 before:rounded-sm before:bg-primary/40">
               {cp.history_timeline.map((item) => (
                 <div key={item.year + item.title} className="group relative pb-5 last:pb-0">
                   <div className="absolute -left-7 top-1 z-[1] h-3.5 w-3.5 rounded-full border-[3px] border-primary bg-white transition-transform duration-200 group-hover:scale-125 group-hover:bg-primary group-hover:shadow-[0_0_0_4px_rgba(58, 125, 68,0.15)]"></div>

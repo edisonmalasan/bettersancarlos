@@ -17,12 +17,13 @@
     "data:promote": "bun run scripts/data/promote.ts",
     "data:ingest-facebook": "bun run scripts/data/ingest-facebook.ts",
     "data:report": "bun run scripts/data/report.ts",
+    "fact:validate": "bun run scripts/data/validate-fact-provenance.ts",
     "data:test": "bun test scripts/data scripts/sync-facebook.test.js",
     "research:validate": "bun run scripts/research/validate.ts",
     "research:index": "bun run scripts/research/index.ts",
     "research:index:check": "bun run scripts/research/index.ts --check",
     "research:test": "bun test scripts/research",
-    "verify": "tsc --noEmit && bun run data:validate && bun run build"
+    "verify": "tsc --noEmit && bun run fact:validate && bun run data:validate && bun run build"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

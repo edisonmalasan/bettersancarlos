@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import PageHeader from '@/components/layout/PageHeader';
 import ServiceEntry from '@/components/layout/ServiceEntry';
+import CharterPointer from '@/components/layout/CharterPointer';
 import { containerClass, sectionClass } from '@/components/layout/Container';
 
 
@@ -26,13 +27,15 @@ export default function EducationPage() {
               href="/service-details/mswdo-services"
               title="Student Assistance"
               description="Educational grants and allowances"
-              meta={[
-                { label: 'Office', value: 'MSWDO' },
-                { label: 'Fee', value: 'Free' },
-                { label: 'Time', value: 'Varies' },
-              ]}
             />
           </ul>
+        </div>
+      </section>
+
+      {/* Citizen's Charter pointer */}
+      <section className={sectionClass} aria-label="Fees and requirements">
+        <div className={containerClass}>
+          <CharterPointer />
         </div>
       </section>
 

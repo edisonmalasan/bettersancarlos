@@ -2,6 +2,7 @@
 
 import PageHeader from '@/components/layout/PageHeader';
 import ServiceEntry from '@/components/layout/ServiceEntry';
+import CharterPointer from '@/components/layout/CharterPointer';
 import DirectoryLinkCard from '@/components/DirectoryLinkCard';
 import { containerClass, sectionClass } from '@/components/layout/Container';
 
@@ -26,23 +27,20 @@ export default function PublicSafetyPage() {
               href="/contact"
               title="Emergency Response"
               description="24/7 emergency assistance and rescue"
-              meta={[
-                { label: 'Office', value: 'MDRRMO' },
-                { label: 'Fee', value: 'Free' },
-                { label: 'Time', value: 'Immediate' },
-              ]}
             />
             <ServiceEntry
               href="/disaster-preparedness"
               title="Disaster Preparedness"
               description="Training and resources for disaster readiness"
-              meta={[
-                { label: 'Office', value: 'MDRRMO' },
-                { label: 'Fee', value: 'Free' },
-                { label: 'Time', value: 'Varies' },
-              ]}
             />
           </ul>
+        </div>
+      </section>
+
+      {/* Citizen's Charter pointer */}
+      <section className={sectionClass} aria-label="Fees and requirements">
+        <div className={containerClass}>
+          <CharterPointer />
         </div>
       </section>
 

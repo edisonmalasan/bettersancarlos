@@ -66,7 +66,8 @@ export default function ServicesDirectoryPage() {
       />
       <Section>
         <Container>
-          <div className="border-t border-line">
+          {/* ServiceEntry renders an <li>; the wrapper must be a list. */}
+          <ul className="m-0 list-none border-t border-line p-0">
             {CATEGORIES.map((c) => (
               <ServiceEntry
                 key={c.slug}
@@ -75,7 +76,7 @@ export default function ServicesDirectoryPage() {
                 description={c.description}
               />
             ))}
-          </div>
+          </ul>
         </Container>
       </Section>
     </>

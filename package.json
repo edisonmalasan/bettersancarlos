@@ -26,7 +26,7 @@
     "verify": "tsc --noEmit && bun run fact:validate && bun run data:validate && bun run build"
   },
   "dependencies": {
-    "@base-ui/react": "^1.8.0",
+    "@base-ui/react": "^1.9.0",
     "@gsap/react": "^2.1.2",
     "@lordicon/react": "^1.11.0",
     "chart.js": "^4.5.1",

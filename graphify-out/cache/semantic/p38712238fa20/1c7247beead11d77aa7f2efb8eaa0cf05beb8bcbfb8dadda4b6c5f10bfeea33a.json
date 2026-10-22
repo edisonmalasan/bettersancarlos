@@ -1,0 +1,1 @@
+{"nodes": [{"file_type": "document", "id": "agents_skills_gsap_utils_skill", "label": "GSAP utils", "rationale": "clamp mapRange snap toArray wrap pipe", "source_file": ".agents/skills/gsap-utils/SKILL.md"}], "edges": [], "hyperedges": []}

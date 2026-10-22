@@ -1,0 +1,1 @@
+{"nodes": [{"file_type": "document", "id": "agents_skills_gsap_react_skill", "label": "GSAP React hook", "rationale": "useGSAP scope contextSafe client-only no SSR", "source_file": ".agents/skills/gsap-react/SKILL.md"}], "edges": [], "hyperedges": []}

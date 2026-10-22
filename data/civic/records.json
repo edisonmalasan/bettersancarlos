@@ -829,12 +829,12 @@
       "sourceIds": [
         "src-lgu-website-2026"
       ],
-      "status": "verified",
+      "status": "needs-reverification",
       "riskTier": "high",
       "lastVerified": "2026-09-04",
       "acceptedBy": "civic-data-pipeline-seed",
       "acceptedAt": "2026-09-14",
-      "nextReviewOn": "2026-10-14",
+      "nextReviewOn": "2026-09-14",
       "updateCadence": "monthly",
       "effectiveFrom": null,
       "effectiveTo": null,
@@ -941,12 +941,12 @@
       "sourceIds": [
         "src-lgu-directory-2024"
       ],
-      "status": "verified",
+      "status": "needs-reverification",
       "riskTier": "high",
       "lastVerified": "2026-09-04",
       "acceptedBy": "civic-data-pipeline-seed",
       "acceptedAt": "2026-09-14",
-      "nextReviewOn": "2026-10-14",
+      "nextReviewOn": "2026-09-14",
       "updateCadence": "monthly",
       "effectiveFrom": null,
       "effectiveTo": null,
@@ -969,12 +969,12 @@
       "sourceIds": [
         "src-lgu-directory-2024"
       ],
-      "status": "verified",
+      "status": "needs-reverification",
       "riskTier": "high",
       "lastVerified": "2026-09-04",
       "acceptedBy": "civic-data-pipeline-seed",
       "acceptedAt": "2026-09-14",
-      "nextReviewOn": "2026-10-14",
+      "nextReviewOn": "2026-09-14",
       "updateCadence": "monthly",
       "effectiveFrom": null,
       "effectiveTo": null,
@@ -997,12 +997,12 @@
       "sourceIds": [
         "src-lgu-directory-2024"
       ],
-      "status": "verified",
+      "status": "needs-reverification",
       "riskTier": "high",
       "lastVerified": "2026-09-04",
       "acceptedBy": "civic-data-pipeline-seed",
       "acceptedAt": "2026-09-14",
-      "nextReviewOn": "2026-10-14",
+      "nextReviewOn": "2026-09-14",
       "updateCadence": "monthly",
       "effectiveFrom": null,
       "effectiveTo": null,
@@ -1025,12 +1025,12 @@
       "sourceIds": [
         "src-lgu-directory-2024"
       ],
-      "status": "verified",
+      "status": "needs-reverification",
       "riskTier": "high",
       "lastVerified": "2026-09-04",
       "acceptedBy": "civic-data-pipeline-seed",
       "acceptedAt": "2026-09-14",
-      "nextReviewOn": "2026-10-14",
+      "nextReviewOn": "2026-09-14",
       "updateCadence": "monthly",
       "effectiveFrom": null,
       "effectiveTo": null,

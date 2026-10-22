@@ -1,0 +1,1 @@
+{"nodes": [{"file_type": "document", "id": "agents_skills_openspec_sync_specs_skill", "label": "Sync specs", "captured_at": null, "source_file": ".agents/skills/openspec-sync-specs/SKILL.md", "rationale": "Intelligent merge not overwrite", "source_location": null, "contributor": null, "source_url": null, "author": null}], "edges": [], "hyperedges": []}

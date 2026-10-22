@@ -1,0 +1,1 @@
+{"nodes": [{"file_type": "document", "id": "agents_skills_gsap_performance_skill", "label": "GSAP performance", "rationale": "transform opacity will-change stagger quickTo", "source_file": ".agents/skills/gsap-performance/SKILL.md"}], "edges": [], "hyperedges": []}

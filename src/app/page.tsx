@@ -98,10 +98,10 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Restrained hero band: shorter than a full marketing viewport, with the
+      {/* Desktop hero fills the first screen below the site chrome, with the
           Find a Service search flush inside it (no floating inset card) and the
           spec'd 3D logo and background video preserved (hero-media, D7). */}
-      <section className="relative flex min-h-[460px] items-center overflow-hidden bg-primary bg-cover bg-center py-16 max-[767px]:min-h-0 max-[767px]:py-12 min-[1200px]:min-h-[590px] bg-[url('/assets/videos/hero-poster.jpg')]">
+      <section className="relative flex min-h-[460px] items-center overflow-hidden bg-primary bg-cover bg-center py-16 max-[767px]:min-h-0 max-[767px]:py-12 min-[993px]:min-h-[calc(100svh-102px)] bg-[url('/assets/videos/hero-poster.jpg')]">
         <video
           className="hero-video absolute inset-0 block h-full min-h-full w-full object-cover max-[767px]:hidden"
           src="/assets/videos/hero-bettersc.mp4"

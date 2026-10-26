@@ -121,7 +121,7 @@ export default function HomePage() {
           aria-hidden="true"
         ></div>
         <div className={containerCls + ' relative z-[1]'}>
-          <div className="grid grid-cols-[1fr_1.1fr] items-center gap-32 max-[1280px]:gap-14 max-[992px]:grid-cols-1 max-[992px]:gap-8">
+          <div className="grid grid-cols-[0.95fr_1fr] items-center gap-36 max-[1280px]:gap-14 max-[992px]:grid-cols-1 max-[992px]:gap-8">
             <div className="w-full max-w-[500px] max-[992px]:mx-auto max-[992px]:text-center">
               <h1 className="m-0 mb-4 text-[2.5rem] leading-[1.2] text-white max-[768px]:text-[2rem]">
                 {t('hero-welcome')}

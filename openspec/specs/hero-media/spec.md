@@ -2,20 +2,20 @@
 
 ## Purpose
 
-Defines the homepage hero as a restrained cinematic band — footage fills the section behind the existing hero content, with readability guaranteed by baked-in blur plus a brand scrim, and with performance-conscious fallbacks (poster, mobile, reduced motion). The band is deliberately shorter than a full viewport so that the service directory is reachable with a short scroll rather than a full-screen marketing interlude.
+Defines the homepage hero as a cinematic video experience — footage fills the first screen below the site chrome behind the existing hero content, with readability guaranteed by baked-in blur plus a brand scrim, and with performance-conscious fallbacks (poster, mobile, reduced motion). On desktop the hero fills the remaining viewport height so the service directory begins below the fold; smaller viewports keep a content-driven band.
 
 ## Requirements
 
-### Requirement: Hero fills the viewport height accounting for site chrome
-The homepage hero section SHALL occupy a restrained band that accounts for the sticky navbar and InfoBar, sized so that the hero and its primary content (headline, description and the Find a Service search) fit within the first screen at common desktop and mobile viewports, while leaving the following content section's heading reachable with a short, natural scroll. The hero SHALL NOT be a full-viewport (`100dvh`) marketing composition. The video background, the readability scrim, the 3D logo column, the search card and all hero behaviour are otherwise unchanged by this requirement.
+### Requirement: Hero fills the first screen below site chrome
+The homepage hero section SHALL occupy the remaining viewport height below the sticky navbar and InfoBar at desktop widths (≥993px), using a dynamic viewport unit (`svh`/`dvh` or equivalent) so the video and hero content compose one full screen and the following content section begins below the fold. On smaller viewports the hero SHALL remain content-driven and SHALL NOT cut off the headline, description, Find a Service search, or 3D logo. The video background, readability scrim, 3D logo column, search card and all hero behaviour are otherwise unchanged by this requirement.
 
-#### Scenario: Primary content fits the first screen
+#### Scenario: Desktop hero fills the first screen
 - **WHEN** the homepage loads on a desktop viewport
-- **THEN** the hero headline, description and Find a Service search are fully visible within the first screen without scrolling, and the following section's heading becomes visible after a short natural scroll
+- **THEN** the hero video, scrim, and content fill the first screen below the navbar and InfoBar, and the next section starts below the fold
 
-#### Scenario: Hero is not a full-viewport marketing block
-- **WHEN** the hero's computed height is compared to the viewport height
-- **THEN** the hero is shorter than the full dynamic viewport height, and the page does not devote an entire screen to the hero
+#### Scenario: Primary content remains visible
+- **WHEN** the homepage loads on a desktop or mobile viewport
+- **THEN** the hero headline, description, Find a Service search, and 3D logo are fully visible without being clipped
 
 #### Scenario: Mobile dynamic viewport
 - **WHEN** the mobile browser's address bar collapses or expands

@@ -173,7 +173,7 @@ export default function Hero3DLogo() {
         scene.add(group);
 
         const radius = box.getBoundingSphere(new THREE.Sphere()).radius * targetScale;
-        const distance = (radius / Math.sin((camera.fov * Math.PI) / 360)) * 0.75;
+        const distance = (radius / Math.sin((camera.fov * Math.PI) / 360)) * 0.8;
         camera.position.set(0, 0, distance);
         camera.lookAt(0, 0, 0);
 

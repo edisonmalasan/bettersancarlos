@@ -101,7 +101,7 @@ export default function HomePage() {
       {/* Restrained hero band: shorter than a full marketing viewport, with the
           Find a Service search flush inside it (no floating inset card) and the
           spec'd 3D logo and background video preserved (hero-media, D7). */}
-      <section className="relative flex min-h-[460px] items-center overflow-hidden bg-primary bg-cover bg-center py-16 max-[767px]:min-h-0 max-[767px]:py-12 bg-[url('/assets/videos/hero-poster.jpg')]">
+      <section className="relative flex min-h-[460px] items-center overflow-hidden bg-primary bg-cover bg-center py-16 max-[767px]:min-h-0 max-[767px]:py-12 min-[1200px]:min-h-[590px] bg-[url('/assets/videos/hero-poster.jpg')]">
         <video
           className="hero-video absolute inset-0 block h-full min-h-full w-full object-cover max-[767px]:hidden"
           src="/assets/videos/hero-bettersc.mp4"
@@ -121,8 +121,8 @@ export default function HomePage() {
           aria-hidden="true"
         ></div>
         <div className={containerCls + ' relative z-[1]'}>
-          <div className="mx-auto flex w-full max-w-[1100px] flex-col items-center gap-8 min-[993px]:flex-row min-[993px]:justify-center min-[993px]:gap-16">
-            <div className="w-full max-w-[540px] min-[993px]:shrink max-[992px]:text-center">
+          <div className="grid grid-cols-[1fr_1.1fr] items-center gap-32 max-[1280px]:gap-14 max-[992px]:grid-cols-1 max-[992px]:gap-8">
+            <div className="w-full max-w-[500px] max-[992px]:mx-auto max-[992px]:text-center">
               <h1 className="m-0 mb-4 text-[2.5rem] leading-[1.2] text-white max-[768px]:text-[2rem]">
                 {t('hero-welcome')}
               </h1>
@@ -171,8 +171,8 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="w-full max-w-[460px] shrink-0 max-[1280px]:max-w-[420px] max-[992px]:max-w-[360px] max-[767px]:max-w-[280px]">
-              <div className="aspect-square w-full">
+            <div className="flex items-center justify-center">
+              <div className="aspect-[4/3] w-full max-w-[640px] max-[1280px]:max-w-[560px] max-[992px]:max-w-[440px] max-[767px]:max-w-[320px]">
                 <Hero3DLogo />
               </div>
             </div>

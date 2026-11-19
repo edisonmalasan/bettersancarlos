@@ -97,6 +97,9 @@ export default function Footer() {
               <li className="mb-2">
                 <a href="/faq" className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline">{t('footer-faq')}</a>
               </li>
+              <li className="mb-2">
+                <a href="/quiz" className="block text-[0.8125rem] font-normal text-white/80 no-underline transition-colors hover:text-white hover:no-underline">{t('footer-quiz')}</a>
+              </li>
             </ul>
           </div>
           <div className="max-[575px]:flex max-[575px]:flex-col max-[575px]:items-center max-[575px]:text-center">

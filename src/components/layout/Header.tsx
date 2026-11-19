@@ -268,6 +268,14 @@ export default function Header() {
             <li>
               <Link href="/contact" className={navLinkBase}>{t('nav-contact')}</Link>
             </li>
+            <li>
+              <Link
+                href="/quiz"
+                className={cn(navLinkBase, pathname === '/quiz' && 'text-primary')}
+              >
+                {t('nav-quiz')}
+              </Link>
+            </li>
           </ul>
         </nav>
 

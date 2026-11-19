@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SearchAutocomplete, { SearchAutocompleteHandle } from '@/components/SearchAutocomplete';
 import WeatherWidget from '@/components/WeatherWidget';
+import QuizTeaser from '@/components/quiz/QuizTeaser';
 import officialsData from '@/data/officials.json';
 import cityProfile from '@/data/city-profile.json';
 import demographics from '@/data/demographics.json';
@@ -431,6 +432,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Quiz teaser — surface the history quiz on the home route */}
+      <QuizTeaser />
 
       {/* Latest Updates */}
       <section className={sectionCls}>

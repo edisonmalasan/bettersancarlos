@@ -13,6 +13,7 @@ const translations: Record<string, Record<string, string>> = {
     'nav-legislative': 'Legislative',
     'nav-transparency': 'Transparency',
     'nav-contact': 'Contact',
+    'nav-quiz': 'Quiz',
 
     // Appointment CTA
     'appointment-cta-heading': "Enhancing Appointment Services of San Carlos City Mayor's Office",
@@ -371,6 +372,18 @@ const translations: Record<string, Record<string, string>> = {
     'history-namesake-desc':
       'San Carlos was named after King Charles III of Spain, who ordered the town renamed following the Palaris revolt of 1762.',
 
+    // Homepage - Quiz teaser
+    'quiz-teaser-eyebrow': 'Test your knowledge',
+    'quiz-teaser-title': 'How well do you know San Carlos?',
+    'quiz-teaser-desc':
+      'Try one question from our city history quiz, then take the full challenge.',
+    'quiz-teaser-cta': 'Take the full quiz',
+    'quiz-teaser-questions': 'questions',
+    'quiz-teaser-no-timer': 'no timer',
+    'quiz-teaser-hint': 'Pick an answer to check your knowledge.',
+    'quiz-teaser-correct': 'Correct!',
+    'quiz-teaser-incorrect': 'Not quite',
+
     // Homepage - News
     'news-announcement': 'Announcement',
     'news-project': 'Project',
@@ -396,6 +409,7 @@ const translations: Record<string, Record<string, string>> = {
     'footer-privacy': 'Privacy Policy',
     'footer-accessibility': 'Accessibility',
     'footer-faq': 'FAQ',
+    'footer-quiz': 'History Quiz',
     'footer-open-data': 'Open Data Philippines',
     'footer-foi': 'Freedom of Information',
     'footer-lgu-portal': 'Official San Carlos City Portal',
@@ -420,6 +434,7 @@ const translations: Record<string, Record<string, string>> = {
     'nav-legislative': 'Lehislatura',
     'nav-transparency': 'Transparensiya',
     'nav-contact': 'Makipag-ugnayan',
+    'nav-quiz': 'Quiz',
 
     // Appointment CTA
     'appointment-cta-heading':
@@ -789,6 +804,18 @@ const translations: Record<string, Record<string, string>> = {
     'history-namesake-desc':
       'Ang San Carlos ay pinangalanan bilang parangal kay Haring Carlos III ng Espanya, na nag-utos na palitan ang pangalan ng bayan kasunod ng pag-aalsa ng Palaris noong 1762.',
 
+    // Homepage - Quiz teaser (Filipino)
+    'quiz-teaser-eyebrow': 'Subukan ang iyong kaalaman',
+    'quiz-teaser-title': 'Gaano ka kakilala ang San Carlos?',
+    'quiz-teaser-desc':
+      'Subukan ang isang tanong mula sa quiz ng kasaysayan ng lungsod, pagkatapos ay kunin ang buong quiz.',
+    'quiz-teaser-cta': 'Kunin ang buong quiz',
+    'quiz-teaser-questions': 'mga tanong',
+    'quiz-teaser-no-timer': 'walang timer',
+    'quiz-teaser-hint': 'Pumili ng sagot upang masuri ang iyong kaalaman.',
+    'quiz-teaser-correct': 'Tama!',
+    'quiz-teaser-incorrect': 'Hindi tama',
+
     // Homepage - News
     'news-announcement': 'Anunsyo',
     'news-project': 'Proyekto',
@@ -815,6 +842,7 @@ const translations: Record<string, Record<string, string>> = {
     'footer-privacy': 'Patakaran sa Privacy',
     'footer-accessibility': 'Aksesibilidad',
     'footer-faq': 'FAQ',
+    'footer-quiz': 'Quiz sa Kasaysayan',
     'footer-open-data': 'Open Data Philippines',
     'footer-foi': 'Kalayaan sa Impormasyon',
     'footer-lgu-portal': 'Opisyal na Portal ng San Carlos City',

@@ -22,6 +22,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: { default: 'Better San Carlos | Official Portal', template: '%s | Better San Carlos' },
   description: 'Better San Carlos - Your digital gateway to LGU San Carlos services.',
+  referrer: 'strict-origin-when-cross-origin',
   keywords: ['BetterSanCarlos', 'San Carlos City, Pangasinan', 'LGU San Carlos', 'municipal services'],
   authors: [{ name: 'Edison' }],
   openGraph: {
@@ -56,6 +57,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+          integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
         />
         <link
           rel="preload"
@@ -66,12 +70,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <LanguageProvider>
-          <a href="#main-content" className="skip-link hidden">
+          <a
+            href="#main-content"
+            className="skip-link sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[2000] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-primary-deep focus:shadow-lg focus:outline-2 focus:outline-offset-2 focus:outline-primary"
+          >
             Skip to main content
           </a>
           <Header />
           <InfoBar />
-          <main id="main-content">{children}</main>
+          <main id="main-content" tabIndex={-1}>{children}</main>
           <Footer />
           <PWAManager />
         </LanguageProvider>

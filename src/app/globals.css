@@ -231,6 +231,21 @@
         letter-spacing: -0.02em;
     }
 
+    /* Short headings balance their lines; body text avoids typographic orphans.
+       h1 is excluded to preserve the home hero's tuned headline wrap. */
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        text-wrap: balance;
+    }
+
+    p,
+    li {
+        text-wrap: pretty;
+    }
+
     h1 {
         font-size: 2.5rem;
         color: var(--color-primary);

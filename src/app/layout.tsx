@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import InfoBar from '@/components/layout/InfoBar';
 import Footer from '@/components/layout/Footer';
+import PageTitle from '@/components/layout/PageTitle';
 import PWAManager from '@/components/PWAManager';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { cn } from "@/lib/utils";
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <LanguageProvider>
+          <PageTitle />
           <a
             href="#main-content"
             className="skip-link sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[2000] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-primary-deep focus:shadow-lg focus:outline-2 focus:outline-offset-2 focus:outline-primary"
